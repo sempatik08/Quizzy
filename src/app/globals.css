@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Light theme (default) ─────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  --color-bg:           #F3F4F6;
+  --color-card:         #FFFFFF;
+  --color-border:       #E5E7EB;
+  --color-text:         #111827;
+  --color-muted:        #6B7280;
+  --color-subtle:       #9CA3AF;
+
+  --color-blue-soft:    #4D96FF;
+  --color-blue-light:   #93C5FD;
+  --color-blue-pale:    #DBEAFE;
+
+  --color-red-soft:     #FF6B6B;
+  --color-red-light:    #FCA5A5;
+  --color-red-pale:     #FEE2E2;
+}
+
+/* ── Dark theme ─────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --color-bg:           #111827;
+  --color-card:         #1F2937;
+  --color-border:       #374151;
+  --color-text:         #F9FAFB;
+  --color-muted:        #9CA3AF;
+  --color-subtle:       #6B7280;
+
+  --color-blue-soft:    #60A5FA;
+  --color-blue-light:   #3B82F6;
+  --color-blue-pale:    #1E3A5F;
+
+  --color-red-soft:     #F87171;
+  --color-red-light:    #EF4444;
+  --color-red-pale:     #4C1D24;
+}
+
+/* ── Color-blind theme (deuteranopia-safe: blue vs orange) ──────────── */
+[data-theme="colorblind"] {
+  --color-bg:           #F3F4F6;
+  --color-card:         #FFFFFF;
+  --color-border:       #E5E7EB;
+  --color-text:         #111827;
+  --color-muted:        #6B7280;
+  --color-subtle:       #9CA3AF;
+
+  --color-blue-soft:    #0077BB;
+  --color-blue-light:   #55AABB;
+  --color-blue-pale:    #D0E8F2;
+
+  /* Red → Orange: clearly distinguishable from blue for all vision types */
+  --color-red-soft:     #EE7733;
+  --color-red-light:    #F5A87A;
+  --color-red-pale:     #FDE8D5;
+}
+
+/* ── System default: honour OS dark-mode preference ────────────────── */
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] {
+    --color-bg:           #111827;
+    --color-card:         #1F2937;
+    --color-border:       #374151;
+    --color-text:         #F9FAFB;
+    --color-muted:        #9CA3AF;
+    --color-subtle:       #6B7280;
+
+    --color-blue-soft:    #60A5FA;
+    --color-blue-light:   #3B82F6;
+    --color-blue-pale:    #1E3A5F;
+
+    --color-red-soft:     #F87171;
+    --color-red-light:    #EF4444;
+    --color-red-pale:     #4C1D24;
+  }
+}
+
+/* ── Base ──────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+
+/* Focus ring */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  --tw-ring-color: var(--color-blue-soft);
+}
+
+/* Team color utilities */
+.team-blue {
+  --team-color: var(--color-blue-soft);
+  --team-pale:  var(--color-blue-pale);
+  --team-light: var(--color-blue-light);
+}
+
+.team-red {
+  --team-color: var(--color-red-soft);
+  --team-pale:  var(--color-red-pale);
+  --team-light: var(--color-red-light);
+}
