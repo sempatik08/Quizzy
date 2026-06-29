@@ -8,57 +8,12 @@
  *   3. Adding the key to isValidCategory() in server.js
  */
 
+const { general } = require('./questions/general');
 const { cinema } = require('./questions/cinema');
 
 const QUESTIONS = {
-  // Legacy categories kept inline until migrated to separate files
-  general: [
-    {
-      id: 'gen_01',
-      text: 'Which organ in the human body produces bile?',
-      text_tr: 'İnsan vücudunda safra üreten organ hangisidir?',
-      options: { A: 'Pancreas', B: 'Gallbladder', C: 'Liver', D: 'Spleen', E: 'Duodenum' },
-      options_tr: { A: 'Pankreas', B: 'Safra kesesi', C: 'Karaciğer', D: 'Dalak', E: 'Onikiparmak bağırsağı' },
-      answer: 'C',
-      explanation: 'The liver produces bile; the gallbladder only stores and concentrates it.',
-    },
-    {
-      id: 'gen_02',
-      text: 'What is the chemical symbol for Tungsten?',
-      text_tr: 'Tungsten\'in kimyasal sembolü nedir?',
-      options: { A: 'Tu', B: 'Wg', C: 'Tn', D: 'W', E: 'Wo' },
-      options_tr: { A: 'Tu', B: 'Wg', C: 'Tn', D: 'W', E: 'Wo' },
-      answer: 'D',
-      explanation: 'From its German name "Wolfram". Tungsten is used in light bulb filaments.',
-    },
-    {
-      id: 'gen_03',
-      text: 'Which planet in our solar system has the most confirmed moons?',
-      text_tr: 'Güneş sistemimizde en fazla onaylanmış uyduya sahip gezegen hangisidir?',
-      options: { A: 'Jupiter', B: 'Neptune', C: 'Uranus', D: 'Saturn', E: 'Mars' },
-      options_tr: { A: 'Jüpiter', B: 'Neptün', C: 'Uranüs', D: 'Satürn', E: 'Mars' },
-      answer: 'D',
-      explanation: 'Saturn surpassed Jupiter in 2023 with 146 confirmed moons.',
-    },
-    {
-      id: 'gen_04',
-      text: 'Who actually coined the term "Survival of the Fittest" in the context of evolution?',
-      text_tr: 'Evrim bağlamında "En Uygun Olanın Hayatta Kalması" ifadesini gerçekte kim ortaya attı?',
-      options: { A: 'Charles Darwin', B: 'Alfred Russel Wallace', C: 'Thomas Huxley', D: 'Herbert Spencer', E: 'Ernst Haeckel' },
-      options_tr: { A: 'Charles Darwin', B: 'Alfred Russel Wallace', C: 'Thomas Huxley', D: 'Herbert Spencer', E: 'Ernst Haeckel' },
-      answer: 'D',
-      explanation: 'Herbert Spencer coined the phrase in 1864. Darwin later adopted it from Spencer in later editions of "On the Origin of Species".',
-    },
-    {
-      id: 'gen_05',
-      text: 'Which country was the first to grant women the right to vote in national elections?',
-      text_tr: 'Ulusal seçimlerde kadınlara oy hakkı tanıyan ilk ülke hangisidir?',
-      options: { A: 'Finland', B: 'Australia', C: 'Norway', D: 'Denmark', E: 'New Zealand' },
-      options_tr: { A: 'Finlandiya', B: 'Avustralya', C: 'Norveç', D: 'Danimarka', E: 'Yeni Zelanda' },
-      answer: 'E',
-      explanation: 'New Zealand granted women the right to vote in 1893, preceding all other nations.',
-    },
-  ],
+  general,
+  cinema,
 
   sports: [
     {
@@ -203,8 +158,6 @@ const QUESTIONS = {
       explanation: 'Ajda Pekkan is nicknamed "Süper Star" and is one of the most successful pop artists in Turkish music history.',
     },
   ],
-
-  cinema,
 
   anime: [
     {
