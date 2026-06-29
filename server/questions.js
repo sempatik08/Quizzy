@@ -10,6 +10,7 @@
 
 const { general } = require('./questions/general');
 const { cinema } = require('./questions/cinema');
+const { games } = require('./questions/games');
 
 const QUESTIONS = {
   general,
@@ -207,53 +208,7 @@ const QUESTIONS = {
     },
   ],
 
-  games: [
-    {
-      id: 'gam_01',
-      text: 'Which game franchise features a plumber named Mario?',
-      text_tr: 'Mario adlı bir tesisatçıyı konu alan oyun serisi hangisidir?',
-      options: { A: 'Donkey Kong', B: 'Super Mario', C: 'Kirby', D: 'Banjo-Kazooie', E: 'Crash Bandicoot' },
-      options_tr: { A: 'Donkey Kong', B: 'Süper Mario', C: 'Kirby', D: 'Banjo-Kazooie', E: 'Crash Bandicoot' },
-      answer: 'B',
-      explanation: 'Mario, created by Shigeru Miyamoto, first appeared in Donkey Kong (1981) and became Nintendo\'s iconic mascot.',
-    },
-    {
-      id: 'gam_02',
-      text: 'Which game is considered the best-selling video game of all time (standalone, as of 2025)?',
-      text_tr: '2025 itibarıyla tüm zamanların en çok satan video oyunu (tekli yapım olarak) hangisidir?',
-      options: { A: 'Grand Theft Auto V', B: 'Tetris', C: 'Minecraft', D: 'Wii Sports', E: 'Mario Kart 8' },
-      options_tr: { A: 'Grand Theft Auto V', B: 'Tetris', C: 'Minecraft', D: 'Wii Sports', E: 'Mario Kart 8' },
-      answer: 'C',
-      explanation: 'Minecraft has sold over 300 million copies across all platforms, making it the best-selling game of all time.',
-    },
-    {
-      id: 'gam_03',
-      text: 'Which company developed "The Legend of Zelda" franchise?',
-      text_tr: '"The Legend of Zelda" serisini hangi şirket geliştirmiştir?',
-      options: { A: 'Sega', B: 'Sony', C: 'Atari', D: 'Nintendo', E: 'Capcom' },
-      options_tr: { A: 'Sega', B: 'Sony', C: 'Atari', D: 'Nintendo', E: 'Capcom' },
-      answer: 'D',
-      explanation: 'The Legend of Zelda was created by Shigeru Miyamoto and Takashi Tezuka for Nintendo, first released in 1986.',
-    },
-    {
-      id: 'gam_04',
-      text: 'In which year was the original "Doom" first-person shooter released?',
-      text_tr: 'Orijinal "Doom" birinci şahıs nişancı oyunu hangi yılda piyasaya sürüldü?',
-      options: { A: '1990', B: '1991', C: '1992', D: '1993', E: '1994' },
-      options_tr: { A: '1990', B: '1991', C: '1992', D: '1993', E: '1994' },
-      answer: 'D',
-      explanation: 'Doom was developed by id Software and released on December 10, 1993, pioneering the first-person shooter genre.',
-    },
-    {
-      id: 'gam_05',
-      text: 'Which battle royale game features a "Blue Zone" storm circle mechanic?',
-      text_tr: '"Mavi Bölge" fırtına çemberi mekaniğini kullanan battle royale oyunu hangisidir?',
-      options: { A: 'Fortnite', B: 'Call of Duty: Warzone', C: 'Apex Legends', D: 'PUBG (PlayerUnknown\'s Battlegrounds)', E: 'H1Z1' },
-      options_tr: { A: 'Fortnite', B: 'Call of Duty: Warzone', C: 'Apex Legends', D: 'PUBG', E: 'H1Z1' },
-      answer: 'D',
-      explanation: 'PUBG popularized the blue zone (shrinking safe area) mechanic that is now a staple of the battle royale genre.',
-    },
-  ],
+  games,
 
   technology: [
     {
