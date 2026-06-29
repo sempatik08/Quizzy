@@ -1,3 +1,11 @@
+# Quizzy
+
+© 2024 Yağmur Özden. All rights reserved.
+
+Proprietary software. Unauthorized copying or distribution is prohibited.
+
+
+
 Project Title: QUIZZY
 Role: Senior Full-Stack Software Architect & Game Designer.
 Objective: Develop a real-time, browser-based competitive quiz game titled "Quizzy".

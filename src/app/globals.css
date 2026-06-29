@@ -21,6 +21,20 @@
   --color-red-soft:     #FF6B6B;
   --color-red-light:    #FCA5A5;
   --color-red-pale:     #FEE2E2;
+
+  --footer-bg:               #1e293b;
+  --footer-border:           #334155;
+  --footer-text:             #f1f5f9;
+  --footer-muted:            #94a3b8;
+  --footer-item-bg:          rgba(255,255,255,0.05);
+  --footer-item-border:      rgba(255,255,255,0.10);
+  --footer-item-hover-bg:    rgba(255,255,255,0.10);
+  --footer-item-hover-border:rgba(255,255,255,0.20);
+  --footer-social-bg:        rgba(255,255,255,0.06);
+  --footer-social-border:    rgba(255,255,255,0.12);
+  --footer-badge-bg:         rgba(255,255,255,0.06);
+  --footer-badge-border:     rgba(255,255,255,0.12);
+  --footer-divider:          rgba(255,255,255,0.08);
 }
 
 /* ── Dark theme ─────────────────────────────────────────────────────── */
@@ -39,6 +53,20 @@
   --color-red-soft:     #F87171;
   --color-red-light:    #EF4444;
   --color-red-pale:     #4C1D24;
+
+  --footer-bg:               #0d0f14;
+  --footer-border:           rgba(255,255,255,0.07);
+  --footer-text:             #f9fafb;
+  --footer-muted:            #6b7280;
+  --footer-item-bg:          rgba(255,255,255,0.03);
+  --footer-item-border:      rgba(255,255,255,0.07);
+  --footer-item-hover-bg:    rgba(255,255,255,0.07);
+  --footer-item-hover-border:rgba(255,255,255,0.15);
+  --footer-social-bg:        rgba(255,255,255,0.05);
+  --footer-social-border:    rgba(255,255,255,0.10);
+  --footer-badge-bg:         rgba(255,255,255,0.05);
+  --footer-badge-border:     rgba(255,255,255,0.08);
+  --footer-divider:          rgba(255,255,255,0.07);
 }
 
 /* ── Color-blind theme (deuteranopia-safe: blue vs orange) ──────────── */
@@ -58,6 +86,20 @@
   --color-red-soft:     #EE7733;
   --color-red-light:    #F5A87A;
   --color-red-pale:     #FDE8D5;
+
+  --footer-bg:               #1e293b;
+  --footer-border:           #334155;
+  --footer-text:             #f1f5f9;
+  --footer-muted:            #94a3b8;
+  --footer-item-bg:          rgba(255,255,255,0.05);
+  --footer-item-border:      rgba(255,255,255,0.10);
+  --footer-item-hover-bg:    rgba(255,255,255,0.10);
+  --footer-item-hover-border:rgba(255,255,255,0.20);
+  --footer-social-bg:        rgba(255,255,255,0.06);
+  --footer-social-border:    rgba(255,255,255,0.12);
+  --footer-badge-bg:         rgba(255,255,255,0.06);
+  --footer-badge-border:     rgba(255,255,255,0.12);
+  --footer-divider:          rgba(255,255,255,0.08);
 }
 
 /* ── System default: honour OS dark-mode preference ────────────────── */
@@ -77,6 +119,38 @@
     --color-red-soft:     #F87171;
     --color-red-light:    #EF4444;
     --color-red-pale:     #4C1D24;
+
+    --footer-bg:               #0d0f14;
+    --footer-border:           rgba(255,255,255,0.07);
+    --footer-text:             #f9fafb;
+    --footer-muted:            #6b7280;
+    --footer-item-bg:          rgba(255,255,255,0.03);
+    --footer-item-border:      rgba(255,255,255,0.07);
+    --footer-item-hover-bg:    rgba(255,255,255,0.07);
+    --footer-item-hover-border:rgba(255,255,255,0.15);
+    --footer-social-bg:        rgba(255,255,255,0.05);
+    --footer-social-border:    rgba(255,255,255,0.10);
+    --footer-badge-bg:         rgba(255,255,255,0.05);
+    --footer-badge-border:     rgba(255,255,255,0.08);
+    --footer-divider:          rgba(255,255,255,0.07);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="system"] {
+    --footer-bg:               #1e293b;
+    --footer-border:           #334155;
+    --footer-text:             #f1f5f9;
+    --footer-muted:            #94a3b8;
+    --footer-item-bg:          rgba(255,255,255,0.05);
+    --footer-item-border:      rgba(255,255,255,0.10);
+    --footer-item-hover-bg:    rgba(255,255,255,0.10);
+    --footer-item-hover-border:rgba(255,255,255,0.20);
+    --footer-social-bg:        rgba(255,255,255,0.06);
+    --footer-social-border:    rgba(255,255,255,0.12);
+    --footer-badge-bg:         rgba(255,255,255,0.06);
+    --footer-badge-border:     rgba(255,255,255,0.12);
+    --footer-divider:          rgba(255,255,255,0.08);
   }
 }
 
