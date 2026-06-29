@@ -904,15 +904,6 @@ const general = [
 
   // --- Batch 2 (gen_101–gen_200) ---
   {
-    id: 'gen_101',
-    text: 'Which organ in the human body produces bile?',
-    text_tr: 'İnsan vücudunda safra üreten organ hangisidir?',
-    options: { A: 'Pancreas', B: 'Gallbladder', C: 'Liver', D: 'Spleen', E: 'Duodenum' },
-    options_tr: { A: 'Pankreas', B: 'Safra kesesi', C: 'Karaciğer', D: 'Dalak', E: 'Onikiparmak bağırsağı' },
-    answer: 'C',
-    explanation: 'The liver produces bile; the gallbladder only stores and concentrates it.',
-  },
-  {
     id: 'gen_102',
     text: 'Which planet is known as the Red Planet?',
     text_tr: 'Kızıl Gezegen olarak bilinen gezegen hangisidir?',
@@ -929,15 +920,6 @@ const general = [
     options_tr: { A: 'Vincent van Gogh', B: 'Pablo Picasso', C: 'Leonardo da Vinci', D: 'Michelangelo', E: 'Claude Monet' },
     answer: 'C',
     explanation: 'The Mona Lisa was painted by the Italian Renaissance polymath Leonardo da Vinci in the early 16th century.',
-  },
-  {
-    id: 'gen_104',
-    text: 'What is the chemical symbol for Gold?',
-    text_tr: 'Altının kimyasal sembolü nedir?',
-    options: { A: 'Gd', B: 'Ag', C: 'Au', D: 'Fe', E: 'Pb' },
-    options_tr: { A: 'Gd', B: 'Ag', C: 'Au', D: 'Fe', E: 'Pb' },
-    answer: 'C',
-    explanation: '"Au" comes from the Latin word for gold, "aurum".',
   },
   {
     id: 'gen_105',
@@ -1696,15 +1678,6 @@ const general = [
     explanation: 'Pure water freezes at exactly 0°C at standard atmospheric pressure.',
   },
   {
-    id: 'gen_189',
-    text: 'Which is the smallest ocean in the world?',
-    text_tr: 'Dünyadaki en küçük okyanus hangisidir?',
-    options: { A: 'Indian Ocean', B: 'Southern Ocean', C: 'Arctic Ocean', D: 'Atlantic Ocean', E: 'Pacific Ocean' },
-    options_tr: { A: 'Hint Okyanusu', B: 'Güney Okyanusu', C: 'Arktik Okyanusu', D: 'Atlas Okyanusu', E: 'Pasifik' },
-    answer: 'C',
-    explanation: 'The Arctic Ocean is the world\'s smallest and shallowest ocean.',
-  },
-  {
     id: 'gen_190',
     text: 'Who wrote "The Lord of the Rings"?',
     text_tr: '"Yüzüklerin Efendisi"ni kim yazmıştır?',
@@ -1721,33 +1694,6 @@ const general = [
     options_tr: { A: '1', B: '2', C: '3', D: '4', E: '0' },
     answer: 'B',
     explanation: 'Humans have a pair of lungs located in the thoracic cavity.',
-  },
-  {
-    id: 'gen_192',
-    text: 'What is the capital city of Canada?',
-    text_tr: 'Kanada\'nın başkenti hangi şehirdir?',
-    options: { A: 'Toronto', B: 'Vancouver', C: 'Montreal', D: 'Ottawa', E: 'Calgary' },
-    options_tr: { A: 'Toronto', B: 'Vancouver', C: 'Montreal', D: 'Ottawa', E: 'Calgary' },
-    answer: 'D',
-    explanation: 'Ottawa was chosen as the capital of Canada by Queen Victoria in 1857.',
-  },
-  {
-    id: 'gen_193',
-    text: 'Which country hosted the 2022 FIFA World Cup?',
-    text_tr: '2022 FIFA Dünya Kupası\'na hangi ülke ev sahipliği yapmıştır?',
-    options: { A: 'Brazil', B: 'Qatar', C: 'Russia', D: 'France', E: 'Germany' },
-    options_tr: { A: 'Brezilya', B: 'Katar', C: 'Rusya', D: 'Fransa', E: 'Almanya' },
-    answer: 'B',
-    explanation: 'The 2022 FIFA World Cup took place in Qatar, the first in the Arab world.',
-  },
-  {
-    id: 'gen_194',
-    text: 'What is the primary language spoken in Brazil?',
-    text_tr: 'Brezilya\'da konuşulan ana dil hangisidir?',
-    options: { A: 'Spanish', B: 'Portuguese', C: 'English', D: 'French', E: 'Italian' },
-    options_tr: { A: 'İspanyolca', B: 'Portekizce', C: 'İngilizce', D: 'Fransızca', E: 'İtalyanca' },
-    answer: 'B',
-    explanation: 'Brazil was colonized by Portugal, making Portuguese its official language.',
   },
   {
     id: 'gen_195',

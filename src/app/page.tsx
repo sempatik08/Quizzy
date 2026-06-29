@@ -45,7 +45,7 @@ export default function HomePage() {
       </div>
 
       {/* Footer hint */}
-      <p className="mt-10 text-xs text-quizzy-subtle animate-fade-in">{t.footer}</p>
+      <p className="mt-10 text-xs text-quizzy-muted animate-fade-in">{t.footer}</p>
     </main>
   );
 }
