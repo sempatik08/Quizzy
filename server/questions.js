@@ -11,58 +11,12 @@
 const { general } = require('./questions/general');
 const { cinema } = require('./questions/cinema');
 const { games } = require('./questions/games');
+const { sports } = require('./questions/sports');
 
 const QUESTIONS = {
   general,
   cinema,
-
-  sports: [
-    {
-      id: 'spo_01',
-      text: 'Which country hosted the first FIFA World Cup in 1930?',
-      text_tr: '1930\'daki ilk FIFA Dünya Kupası\'na hangi ülke ev sahipliği yaptı?',
-      options: { A: 'Brazil', B: 'Argentina', C: 'Chile', D: 'Italy', E: 'Uruguay' },
-      options_tr: { A: 'Brezilya', B: 'Arjantin', C: 'Şili', D: 'İtalya', E: 'Uruguay' },
-      answer: 'E',
-      explanation: 'Uruguay hosted and won the first World Cup in 1930.',
-    },
-    {
-      id: 'spo_02',
-      text: 'How many players are on the field per side in a standard polo match?',
-      text_tr: 'Standart bir polo maçında her takımdan kaç oyuncu sahada yer alır?',
-      options: { A: '3', B: '4', C: '5', D: '6', E: '7' },
-      options_tr: { A: '3', B: '4', C: '5', D: '6', E: '7' },
-      answer: 'B',
-      explanation: 'Polo is played with 4 players per team, each on horseback.',
-    },
-    {
-      id: 'spo_03',
-      text: 'In which year did Muhammad Ali defeat Sonny Liston to become World Heavyweight Champion for the first time?',
-      text_tr: 'Muhammed Ali, ilk kez Dünya Ağır Sıklet Şampiyonu olmak için Sonny Liston\'ı hangi yılda yendi?',
-      options: { A: '1960', B: '1962', C: '1964', D: '1966', E: '1968' },
-      options_tr: { A: '1960', B: '1962', C: '1964', D: '1966', E: '1968' },
-      answer: 'C',
-      explanation: 'Ali (then Cassius Clay) defeated Liston by TKO in 1964.',
-    },
-    {
-      id: 'spo_04',
-      text: 'What is the maximum score achievable in a single game of ten-pin bowling?',
-      text_tr: 'On-pin bowlingde tek bir oyunda elde edilebilecek maksimum puan nedir?',
-      options: { A: '200', B: '250', C: '270', D: '300', E: '330' },
-      options_tr: { A: '200', B: '250', C: '270', D: '300', E: '330' },
-      answer: 'D',
-      explanation: 'A perfect game of 12 consecutive strikes scores 300 points.',
-    },
-    {
-      id: 'spo_05',
-      text: 'Which athlete has won the most Olympic gold medals in a single Olympic Games?',
-      text_tr: 'Tek bir Olimpiyat Oyunları\'nda en fazla altın madalya kazanan sporcu kimdir?',
-      options: { A: 'Carl Lewis', B: 'Mark Spitz', C: 'Usain Bolt', D: 'Eric Heiden', E: 'Michael Phelps' },
-      options_tr: { A: 'Carl Lewis', B: 'Mark Spitz', C: 'Usain Bolt', D: 'Eric Heiden', E: 'Michael Phelps' },
-      answer: 'E',
-      explanation: 'Michael Phelps won 8 gold medals at the 2008 Beijing Olympics, surpassing Spitz\'s record of 7 (1972).',
-    },
-  ],
+  sports,
 
   history: [
     {
