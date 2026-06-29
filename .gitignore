@@ -31,6 +31,7 @@ Thumbs.db
 
 # Claude Code
 .claude/
+!.claude/skills
 
 # Project-internal files
 CLAUDE.md
