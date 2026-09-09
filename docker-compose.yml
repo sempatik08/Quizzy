@@ -41,6 +41,18 @@ services:
     environment:
       PORT: "3000"
       HOSTNAME: "0.0.0.0"
+    # The image's own HEALTHCHECK probes the socket server, which does not run
+    # in this container — override it to probe the Next.js server instead.
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
     depends_on:
       socket:
         condition: service_healthy
