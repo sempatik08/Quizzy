@@ -8,11 +8,11 @@ interface VotingTimerProps {
 export function VotingTimer({ timeLeft, total = 60 }: VotingTimerProps) {
   const pct = (timeLeft / total) * 100;
 
-  // Color transitions
+  // Color transitions — proportional so the short 20s steal window scales too
   const color =
-    timeLeft <= 5
+    timeLeft <= total * 0.1
       ? '#FF6B6B'
-      : timeLeft <= 15
+      : timeLeft <= total * 0.25
       ? '#F59E0B'
       : '#4D96FF';
 

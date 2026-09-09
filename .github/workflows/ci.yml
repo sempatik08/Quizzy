@@ -1,0 +1,120 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Typecheck, build & test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Start Socket.io server
+        run: |
+          node server/server.js & echo $! > socket.pid
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3001/health > /dev/null && exit 0
+            sleep 1
+          done
+          echo "Socket.io server did not become healthy" >&2
+          exit 1
+
+      - name: Steal mechanic integration test
+        run: node tests/steal_flow_test.js
+
+      - name: Start Next.js server
+        run: |
+          npm start & echo $! > next.pid
+          for i in $(seq 1 60); do
+            curl -sf http://localhost:3000 > /dev/null && exit 0
+            sleep 1
+          done
+          echo "Next.js server did not become ready" >&2
+          exit 1
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Playwright E2E suite
+        run: python tests/quizzy_e2e.py
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-screenshots
+          path: tests/screenshots/
+          retention-days: 7
+
+      - name: Stop servers
+        if: always()
+        run: |
+          [ -f socket.pid ] && kill "$(cat socket.pid)" 2>/dev/null || true
+          [ -f next.pid ]   && kill "$(cat next.pid)"   2>/dev/null || true
+          true
+
+  docker-build:
+    name: Docker image builds
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      # Validates the Dockerfile on every PR without publishing anything.
+      - name: Build image (no push)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          load: true
+          tags: quizzy:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test the image
+        run: |
+          docker run -d --name quizzy-ci -p 3000:3000 -p 3001:3001 quizzy:ci
+          for i in $(seq 1 45); do
+            if curl -sf http://localhost:3001/health > /dev/null \
+               && curl -sf http://localhost:3000 > /dev/null; then
+              echo "Both processes are serving."
+              docker rm -f quizzy-ci
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Container did not serve both ports in time" >&2
+          docker logs quizzy-ci
+          docker rm -f quizzy-ci
+          exit 1

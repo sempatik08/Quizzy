@@ -57,7 +57,13 @@ export interface ActiveQuestion {
   disabledOptions: OptionKey[];
   votes: Record<string, VoteEntry>; // playerId → vote
   timerStart: number;
+  /** Seconds allotted for the current window — 60 normally, 20 during a steal. */
+  duration: number;
   timeLeft: number;
+  /** True once the opposing team has taken this question over. */
+  isSteal: boolean;
+  /** Which team is attempting the steal, if any. */
+  stealTeam: TeamColor | null;
 }
 
 export interface SurrenderVote {
@@ -82,6 +88,8 @@ export interface Room {
   activeQuestion: ActiveQuestion | null;
   surrenderVote: SurrenderVote | null;
   categoryPickTeam: TeamColor | null;
+  /** Remaining steal attempts per team. A charge burns only on a submitted steal. */
+  stealCharges: Record<TeamColor, number>;
   createdAt: number;
   lastActivityAt: number;
   hostId: string;
@@ -111,10 +119,16 @@ export interface GameErrorPayload {
 }
 
 export interface AnswerRevealPayload {
-  selectedOption: OptionKey;
-  correctAnswer: OptionKey;
+  /** null when the window expired with no votes cast. */
+  selectedOption: OptionKey | null;
+  /** ANTI-CHEAT: omitted by the server while the question can still be stolen. */
+  correctAnswer?: OptionKey;
   isCorrect: boolean;
   activeTeam: TeamColor;
+  /** True when this reveal resolves a steal attempt. */
+  isSteal: boolean;
+  /** True when a steal window is about to open on this question. */
+  stealOpens: boolean;
 }
 
 export interface TimerTickPayload {

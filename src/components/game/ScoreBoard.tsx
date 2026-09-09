@@ -1,6 +1,7 @@
 'use client';
 
 import type { Room } from '@/types';
+import { Zap } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 interface ScoreBoardProps {
@@ -19,6 +20,7 @@ export function ScoreBoard({ room, playerId }: ScoreBoardProps) {
         const isActive = room.activeTeam === team;
         const isMyTeam = myTeam === team;
         const pct = Math.min((state.score / 100) * 100, 100);
+        const charges = room.stealCharges?.[team] ?? 0;
 
         return (
           <div
@@ -69,6 +71,25 @@ export function ScoreBoard({ room, playerId }: ScoreBoardProps) {
                   backgroundColor: team === 'blue' ? '#4D96FF' : '#FF6B6B',
                 }}
               />
+            </div>
+
+            {/* Remaining steal charges */}
+            <div className="mt-2 flex items-center gap-1 flex-wrap">
+              {charges > 0 ? (
+                <>
+                  {Array.from({ length: charges }).map((_, i) => (
+                    <Zap
+                      key={i}
+                      size={11}
+                      className={team === 'blue' ? 'text-blue-soft' : 'text-red-soft'}
+                      fill={team === 'blue' ? '#4D96FF' : '#FF6B6B'}
+                    />
+                  ))}
+                  <span className="text-[10px] text-quizzy-muted ml-0.5">{t.stealLeft}</span>
+                </>
+              ) : (
+                <span className="text-[10px] text-quizzy-muted">{t.stealNoChargesLeft}</span>
+              )}
             </div>
           </div>
         );

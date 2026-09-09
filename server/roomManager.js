@@ -5,6 +5,12 @@ const { randomUUID } = require('crypto');
 /** @type {Map<string, import('./types').Room>} */
 const rooms = new Map();
 
+/**
+ * Steal attempts each team gets per match. Lives here rather than in gameLogic
+ * because createRoom seeds it and gameLogic already imports from this module.
+ */
+const STEAL_CHARGES_PER_TEAM = 2;
+
 // Captain election timeout handles (not stored in room to avoid serialization issues)
 const captainElectionHandles = new Map(); // key: `${roomCode}_${team}` → timeout handle
 
@@ -82,6 +88,7 @@ function createRoom(playerName, socketId) {
     activeQuestion: null,
     surrenderVote: null,
     categoryPickTeam: null,
+    stealCharges: { blue: STEAL_CHARGES_PER_TEAM, red: STEAL_CHARGES_PER_TEAM },
     createdAt: Date.now(),
     lastActivityAt: Date.now(),
     hostId: playerId,
@@ -354,4 +361,5 @@ module.exports = {
   sanitizeRoom,
   cleanupRoom,
   cleanupStaleRooms,
+  STEAL_CHARGES_PER_TEAM,
 };

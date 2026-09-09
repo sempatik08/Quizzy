@@ -36,3 +36,7 @@ Thumbs.db
 # Project-internal files
 CLAUDE.md
 to-do-list.md
+
+# Python
+__pycache__/
+*.pyc

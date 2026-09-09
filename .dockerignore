@@ -1,0 +1,42 @@
+# Build artefacts and installed deps — rebuilt inside the image
+node_modules
+.next
+out
+dist
+build
+tsconfig.tsbuildinfo
+
+# VCS and CI
+.git
+.gitignore
+.gitmodules
+.github
+
+# Local tooling / agent files (never belong in a published image)
+.claude
+CLAUDE.md
+to-do-list.md
+
+# Secrets — the image must not bake a developer's local values
+.env
+.env.local
+.env*.local
+
+# Tests and their screenshots
+tests
+
+# Docker's own files
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Docs
+*.md
+!Readme.md
+
+# Editor / OS noise
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+*.log
