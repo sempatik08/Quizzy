@@ -4,6 +4,55 @@
 
 Proprietary software. Unauthorized copying or distribution is prohibited.
 
+---
+
+## Running
+
+Quizzy is two processes: the Next.js frontend on **:3000** and the Socket.io game
+server on **:3001**. Both must be running.
+
+### Local development
+
+```bash
+npm install
+npm run dev:all          # both processes
+```
+
+### Docker
+
+One image contains both processes.
+
+```bash
+# Everything in one container
+docker run -p 3000:3000 -p 3001:3001 <dockerhub-user>/quizzy:latest
+
+# Or one container per process
+docker compose up
+```
+
+Open <http://localhost:3000>.
+
+**Serving other machines.** Two things are host-dependent:
+
+| Variable | Where it applies | Why |
+|---|---|---|
+| `CLIENT_URL` | socket container, **runtime** | CORS allow-list. Defaults to localhost only, so set it to the origin people actually open, e.g. `http://192.168.1.20:3000`. |
+| `NEXT_PUBLIC_SOCKET_URL` | web image, **build time** | Normally leave unset — the client then derives the socket URL from the page's own hostname, which keeps the image portable. Set it only when the socket server runs on a different host or behind a TLS proxy. |
+
+```bash
+CLIENT_URL=http://192.168.1.20:3000 docker compose up
+```
+
+### Tests
+
+```bash
+node tests/steal_flow_test.js   # socket-level steal integration test
+python tests/quizzy_e2e.py      # Playwright UI suite
+python tests/steal_ui_check.py  # drives a real match to a steal window
+```
+
+All three need the servers running. CI runs the first two on every push.
+
 
 
 Project Title: QUIZZY

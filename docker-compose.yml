@@ -1,0 +1,47 @@
+# Runs the single Quizzy image as two containers — one per process.
+#
+#   docker compose up --build          build locally and run
+#   QUIZZY_IMAGE=user/quizzy:latest docker compose up    run a published image
+#
+# CLIENT_URL is the browser origin allowed by the socket server's CORS policy.
+# Leave it at localhost for local use; set it to the address people actually
+# open (e.g. http://192.168.1.20:3000) when serving other machines, otherwise
+# the browser's socket connection is rejected.
+
+services:
+  socket:
+    image: ${QUIZZY_IMAGE:-quizzy:local}
+    build:
+      context: .
+    command: ["node", "server/server.js"]
+    ports:
+      - "3001:3001"
+    environment:
+      SOCKET_PORT: "3001"
+      CLIENT_URL: "${CLIENT_URL:-http://localhost:3000}"
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3001/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    restart: unless-stopped
+
+  web:
+    image: ${QUIZZY_IMAGE:-quizzy:local}
+    build:
+      context: .
+    command: ["node", "server.js"]
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+    depends_on:
+      socket:
+        condition: service_healthy
+    restart: unless-stopped

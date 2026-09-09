@@ -671,3 +671,6 @@ def run():
 
 if __name__ == "__main__":
     run()
+    # Exit non-zero when anything failed so CI can gate on this suite.
+    # Warnings stay non-fatal on purpose (e.g. the flaky hover checks).
+    sys.exit(1 if RESULTS["failed"] else 0)
