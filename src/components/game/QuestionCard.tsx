@@ -50,6 +50,26 @@ export function QuestionCard({
 
   const turnColor = myTeam === 'red' ? 'text-red-soft' : 'text-blue-soft';
 
+  // What the reveal line says depends on whether this was a normal answer,
+  // a miss that hands the question over, or the resolution of a steal.
+  let revealMessage = '';
+  let revealTone = 'text-red-soft';
+  if (answerReveal) {
+    if (answerReveal.isCorrect) {
+      revealMessage = answerReveal.isSteal ? t.correct10 : t.correct5;
+      revealTone = 'text-green-600';
+    } else if (answerReveal.stealOpens) {
+      revealMessage = t.wrongAnswerSteal;
+      revealTone = 'text-amber-500';
+    } else if (answerReveal.isSteal) {
+      // A steal with no submitted answer was a pass — no charge was spent
+      revealMessage = answerReveal.selectedOption === null ? t.stealDeclined : t.stealFailed;
+      revealTone = answerReveal.selectedOption === null ? 'text-quizzy-muted' : 'text-red-soft';
+    } else {
+      revealMessage = t.wrongAnswer;
+    }
+  }
+
   // Use Turkish question text when language is 'tr' and translation exists
   const questionText = language === 'tr' && aq.question.text_tr
     ? aq.question.text_tr
@@ -139,9 +159,7 @@ export function QuestionCard({
           </span>
         )}
         {answerReveal && (
-          <span className={answerReveal.isCorrect ? 'text-green-600 font-semibold' : 'text-red-soft font-semibold'}>
-            {answerReveal.isCorrect ? t.correct5 : t.wrongAnswer}
-          </span>
+          <span className={`font-semibold ${revealTone}`}>{revealMessage}</span>
         )}
       </div>
     </div>

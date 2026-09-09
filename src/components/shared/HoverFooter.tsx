@@ -19,7 +19,7 @@ const MODAL_CONTENT: Record<ModalKey, { title: string; icon: React.ReactNode; co
           ['3', 'Takımları Kilitle', 'Host "Takımları Kilitle & Başlat" butonuna basar. Kaptan oylaması başlar.'],
           ['4', 'Yazı Tura', 'Sunucu otomatik olarak yazı tura atar. Kazanan takım kategori seçer.'],
           ['5', 'Soru & Oylama', 'Aktif takım 60 saniye içinde 5 seçenekten birini oylamayla seçer. Kaptan "Onayla" butonuna basar.'],
-          ['6', 'Steal', 'Yanlış cevap verilirse rakip takım aynı soruyu steal etmeye çalışır.'],
+          ['6', 'Steal', 'Yanlış cevap verilirse, rakip takım steal hakkı kalmışsa aynı soruyu 20 saniyede çalmayı deneyebilir. Her takımın maç başına 2 hakkı vardır.'],
           ['7', 'Kazanan', 'İlk 100 puana ulaşan takım oyunu kazanır!'],
         ].map(([num, title, desc]) => (
           <li key={num} className="flex gap-3">
@@ -76,9 +76,10 @@ const MODAL_CONTENT: Record<ModalKey, { title: string; icon: React.ReactNode; co
         <div className="grid grid-cols-1 gap-3">
           {[
             { label: 'Doğru Cevap', points: '+5', color: 'green', desc: 'Aktif takım doğru cevap verirse +5 puan kazanır.' },
-            { label: 'Steal ile Doğru', points: '+10', color: 'blue', desc: 'Rakip takım steal edip doğru cevap verirse +10 puan kazanır.' },
-            { label: 'Yanlış Cevap', points: '0', color: 'red', desc: 'Yanlış cevapta puan verilmez; seçenek devre dışı kalır.' },
-            { label: 'Tüm Seçenekler Bitti', points: '0', color: 'gray', desc: 'Hiçbir takım doğru cevap veremezse soru geçilir, puan yok.' },
+            { label: 'Steal ile Doğru', points: '+10', color: 'blue', desc: 'Rakip takım steal hakkını kullanıp doğru cevap verirse +10 puan kazanır.' },
+            { label: 'Yanlış Cevap', points: '0', color: 'red', desc: 'Yanlış cevapta puan verilmez; o seçenek devre dışı kalır ve rakibe steal fırsatı doğar.' },
+            { label: 'Steal Başarısız', points: '0', color: 'red', desc: 'Steal denemesi tutmazsa puan yok ve hak yanar; sıra normal şekilde devam eder.' },
+            { label: 'Pas Geçilen Steal', points: '0', color: 'gray', desc: 'Steal fırsatını kullanmazsan hakkın yanmaz, sıra rakibe geçer.' },
           ].map((item) => (
             <div key={item.label} className="flex gap-3 items-start p-3 rounded-xl bg-white/5 border border-white/10">
               <span
@@ -147,15 +148,15 @@ const MODAL_CONTENT: Record<ModalKey, { title: string; icon: React.ReactNode; co
       <div className="space-y-4 text-sm">
         <div className="p-3 rounded-xl bg-orange-500/10 border border-orange-500/30">
           <p className="text-orange-400 font-bold mb-1">⚡ Steal Nedir?</p>
-          <p className="text-gray-300">Aktif takım yanlış cevap verdiğinde rakip takıma aynı soruyu cevaplama hakkı verilir. Buna "steal" denir.</p>
+          <p className="text-gray-300">Aktif takım yanlış cevap verdiğinde rakip takım aynı soruyu çalmayı deneyebilir. Ama bu her soruda olmaz: her takımın maç başına <span className="text-white font-semibold">2 steal hakkı</span> vardır ve hak yalnızca cevap gönderdiğinde yanar.</p>
         </div>
         <div className="space-y-3">
           {[
-            ['1', 'Yanlış Cevap', 'Aktif takım yanlış seçeneği oylayıp kaptan onaylarsa o seçenek devre dışı kalır.'],
-            ['2', 'Steal Hakkı', 'Rakip takım aynı soruyu devre dışı kalan seçenekler olmadan cevaplamak için devreye girer.'],
-            ['3', 'Steal Başarılı', 'Rakip doğru cevap verirse +10 puan kazanır (normal cevabın 2 katı).'],
-            ['4', 'Steal Başarısız', 'Rakip de yanlış cevap verirse o seçenek de devre dışı kalır ve sıra tekrar değişebilir.'],
-            ['5', 'Tüm Seçenekler Bitti', 'Hiçbir takım doğru cevaplayamazsa soru geçilir, puan verilmez.'],
+            ['1', 'Yanlış Cevap', 'Aktif takım yanlış seçeneği oylayıp onaylarsa o seçenek devre dışı kalır.'],
+            ['2', 'Fırsat Doğar', 'Rakip takımın steal hakkı kaldıysa aynı soru, elenen seçenek olmadan onlara açılır. Hakkı bittiyse steal olmaz, sıra normal döner.'],
+            ['3', '20 Saniye', 'Steal penceresi kısadır — soruyu zaten okudukları için sadece 20 saniye verilir.'],
+            ['4', 'Cevapla ya da Pas Geç', 'Cevap gönderirsen 1 hak yanar. "Pas Geç" dersen ya da süre biterse hakkın durmaya devam eder.'],
+            ['5', 'Sonuç', 'Doğru cevap +10 puan. Yanlışsa puan yok ve hak yanmış olur; her iki durumda da sıra rakibe geçer.'],
           ].map(([num, title, desc]) => (
             <div key={num} className="flex gap-3 items-start">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-xs font-bold flex items-center justify-center">

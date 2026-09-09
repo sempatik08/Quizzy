@@ -30,6 +30,12 @@ export interface UseGameReturn {
   isMyTurn: boolean;
   isHost: boolean;
   myVote: string | null;
+  /** A steal window is open on the current question. */
+  isStealActive: boolean;
+  /** My team is the one attempting the steal. */
+  isMyStealTurn: boolean;
+  /** Steal charges my team has left (0 when I'm not on a team). */
+  myStealCharges: number;
 
   actions: {
     joinTeam: (team: TeamColor) => void;
@@ -42,6 +48,7 @@ export interface UseGameReturn {
     clearErrors: () => void;
     initiateSurrender: () => void;
     voteSurrender: (vote: boolean) => void;
+    passSteal: () => void;
   };
 }
 
@@ -188,6 +195,18 @@ export function useGame(roomCode: string): UseGameReturn {
     return room.activeQuestion.votes[playerId]?.optionKey ?? null;
   }, [room, playerId]);
 
+  const isStealActive = room?.activeQuestion?.isSteal === true;
+
+  const isMyStealTurn = useMemo(() => {
+    if (!room?.activeQuestion?.isSteal || !myTeam) return false;
+    return room.activeQuestion.stealTeam === myTeam;
+  }, [room, myTeam]);
+
+  const myStealCharges = useMemo(() => {
+    if (!room || !myTeam) return 0;
+    return room.stealCharges?.[myTeam] ?? 0;
+  }, [room, myTeam]);
+
   // -------------------------------------------------------------------------
   // Actions
   // -------------------------------------------------------------------------
@@ -207,6 +226,7 @@ export function useGame(roomCode: string): UseGameReturn {
       finalizeVote:     ()                  => emit('vote:finalize'),
       initiateSurrender:()                  => emit('surrender:initiate'),
       voteSurrender:    (vote: boolean)     => emit('surrender:vote',    { vote }),
+      passSteal:        ()                  => emit('steal:pass'),
       clearErrors:  () => { setRoomError(null); setGameError(null); },
     }),
     [emit],
@@ -225,6 +245,9 @@ export function useGame(roomCode: string): UseGameReturn {
     isMyTurn,
     isHost,
     myVote,
+    isStealActive,
+    isMyStealTurn,
+    myStealCharges,
     actions,
   };
 }

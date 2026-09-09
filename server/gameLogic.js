@@ -1,13 +1,20 @@
 'use strict';
 
 const { QUESTIONS } = require('./questions');
-const { sanitizeRoom } = require('./roomManager');
+const { sanitizeRoom, STEAL_CHARGES_PER_TEAM } = require('./roomManager');
 
 // ---------------------------------------------------------------------------
 // Rate limiting: debounce rapid socket emissions per player
 // ---------------------------------------------------------------------------
 const playerLastEvent = new Map(); // playerId → timestamp (ms)
 const RATE_LIMIT_MS = 500;
+
+// ---------------------------------------------------------------------------
+// Timing & steal configuration
+// ---------------------------------------------------------------------------
+const QUESTION_SECONDS = 60;
+/** Steal window is deliberately short — the team already read the question. */
+const STEAL_SECONDS = 20;
 
 /**
  * Returns true if the player has fired an event too recently.
@@ -250,7 +257,10 @@ function startQuestion(room, io) {
     disabledOptions: [],
     votes: {}, // playerId → { optionKey, timestamp }
     timerStart: Date.now(),
-    timeLeft: 60,
+    duration: QUESTION_SECONDS,
+    timeLeft: QUESTION_SECONDS,
+    isSteal: false,   // true once the opposing team has taken over this question
+    stealTeam: null,  // which team is attempting the steal
     timerHandle: null,
     tickHandle: null,
   };
@@ -259,46 +269,49 @@ function startQuestion(room, io) {
   room.activeQuestion.tickHandle = setInterval(() => {
     if (!room.activeQuestion) return;
     const elapsed = Math.floor((Date.now() - room.activeQuestion.timerStart) / 1000);
-    room.activeQuestion.timeLeft = Math.max(0, 60 - elapsed);
+    room.activeQuestion.timeLeft = Math.max(0, room.activeQuestion.duration - elapsed);
     io.to(room.code).emit('timer_tick', { timeLeft: room.activeQuestion.timeLeft });
     if (room.activeQuestion.timeLeft <= 0) {
       clearInterval(room.activeQuestion.tickHandle);
     }
   }, 1000);
 
-  // Authoritative 60s timeout — server resolves the vote regardless of client state
+  // Authoritative timeout — server resolves the vote regardless of client state
   room.activeQuestion.timerHandle = setTimeout(() => {
     resolveVote(room, io);
-  }, 60_000);
+  }, QUESTION_SECONDS * 1000);
 }
 
 /**
- * Reset the timer for the same question (steal phase).
+ * Restart the clock on the SAME question (used to open the steal window).
+ * Clears previous votes so the stealing team starts from a clean slate.
  * @param {import('./types').Room} room
  * @param {import('socket.io').Server} io
+ * @param {number} seconds
  */
-function resetQuestionTimer(room, io) {
+function resetQuestionTimer(room, io, seconds) {
   if (!room.activeQuestion) return;
 
   clearTimeout(room.activeQuestion.timerHandle);
   clearInterval(room.activeQuestion.tickHandle);
 
   room.activeQuestion.timerStart = Date.now();
-  room.activeQuestion.timeLeft = 60;
+  room.activeQuestion.duration = seconds;
+  room.activeQuestion.timeLeft = seconds;
   room.activeQuestion.votes = {};
   room.activeQuestion.resolving = false; // reset guard so steal team can resolve
 
   room.activeQuestion.tickHandle = setInterval(() => {
     if (!room.activeQuestion) return;
     const elapsed = Math.floor((Date.now() - room.activeQuestion.timerStart) / 1000);
-    room.activeQuestion.timeLeft = Math.max(0, 60 - elapsed);
+    room.activeQuestion.timeLeft = Math.max(0, room.activeQuestion.duration - elapsed);
     io.to(room.code).emit('timer_tick', { timeLeft: room.activeQuestion.timeLeft });
     if (room.activeQuestion.timeLeft <= 0) clearInterval(room.activeQuestion.tickHandle);
   }, 1000);
 
   room.activeQuestion.timerHandle = setTimeout(() => {
     resolveVote(room, io);
-  }, 60_000);
+  }, seconds * 1000);
 }
 
 // ---------------------------------------------------------------------------
@@ -393,13 +406,29 @@ function resolveVote(room, io) {
     }
   }
 
-  const isCorrect = winningOption === question.answer;
+  // A team that never voted cannot back into a correct answer via the fallback option
+  const teamVoted = activeTeamPlayers.some((pid) => votes[pid]);
+  const isCorrect = teamVoted && winningOption === question.answer;
+
+  const answeringTeam = room.activeTeam;
+  const isSteal = room.activeQuestion.isSteal === true;
+  const opponent = answeringTeam === 'blue' ? 'red' : 'blue';
+
+  if (!room.stealCharges) {
+    room.stealCharges = { blue: STEAL_CHARGES_PER_TEAM, red: STEAL_CHARGES_PER_TEAM };
+  }
+
+  // A steal opens only on a first-pass miss, and only if the opponent still has a charge
+  const stealOpens = !isSteal && !isCorrect && room.stealCharges[opponent] > 0;
 
   io.to(room.code).emit('answer_reveal', {
-    selectedOption: winningOption,
-    correctAnswer: question.answer,
+    selectedOption: teamVoted ? winningOption : null,
+    // ANTI-CHEAT: withhold the answer while this question can still be stolen
+    ...(stealOpens ? {} : { correctAnswer: question.answer }),
     isCorrect,
-    activeTeam: room.activeTeam,
+    activeTeam: answeringTeam,
+    isSteal,
+    stealOpens,
   });
 
   // Transition state after a 2s reveal delay
@@ -408,27 +437,85 @@ function resolveVote(room, io) {
 
     room.lastActivityAt = Date.now();
 
-    if (isCorrect) {
-      room.teams[room.activeTeam].score += 5;
+    const finish = () => {
+      room.phase = 'finished';
+      room.activeQuestion = null;
+      io.to(room.code).emit('room:update', sanitizeRoom(room));
+    };
 
-      if (checkWin(room)) {
-        room.phase = 'finished';
-        room.activeQuestion = null;
-        io.to(room.code).emit('room:update', sanitizeRoom(room));
-        return;
+    const advanceTurn = () => {
+      const nextTurn = room.turnTeam === 'blue' ? 'red' : 'blue';
+      room.turnTeam = nextTurn;
+      room.activeTeam = nextTurn;
+      room.phase = 'question';
+      room.activeQuestion = null;
+      startQuestion(room, io);
+      io.to(room.code).emit('room:update', sanitizeRoom(room));
+    };
+
+    // ---- Resolving a steal attempt ----
+    if (isSteal) {
+      // The charge burns only when the team actually committed to an answer.
+      // Passing or letting the clock run out is free.
+      if (teamVoted) {
+        room.stealCharges[answeringTeam] = Math.max(0, room.stealCharges[answeringTeam] - 1);
+        if (isCorrect) {
+          room.teams[answeringTeam].score += 10;
+          if (checkWin(room)) return finish();
+        }
       }
+      advanceTurn();
+      return;
     }
 
-    // Correct or wrong: advance turnTeam to the other team and start a new question
-    const nextTurn = room.turnTeam === 'blue' ? 'red' : 'blue';
-    room.turnTeam = nextTurn;
-    room.activeTeam = nextTurn;
-    room.phase = 'question';
-    room.activeQuestion = null;
-    startQuestion(room, io);
+    // ---- Resolving a normal answer ----
+    if (isCorrect) {
+      room.teams[answeringTeam].score += 5;
+      if (checkWin(room)) return finish();
+      advanceTurn();
+      return;
+    }
 
-    io.to(room.code).emit('room:update', sanitizeRoom(room));
+    if (stealOpens) {
+      // Hand the SAME question to the opponent with the missed option struck out.
+      // turnTeam deliberately stays put — the steal is an interruption, not a turn.
+      if (teamVoted && !room.activeQuestion.disabledOptions.includes(winningOption)) {
+        room.activeQuestion.disabledOptions.push(winningOption);
+      }
+      room.activeQuestion.isSteal = true;
+      room.activeQuestion.stealTeam = opponent;
+      room.activeTeam = opponent;
+      resetQuestionTimer(room, io, STEAL_SECONDS);
+      io.to(room.code).emit('room:update', sanitizeRoom(room));
+      return;
+    }
+
+    advanceTurn();
   }, 2000);
+}
+
+/**
+ * Decline a steal attempt. Costs no charge — the turn simply moves on.
+ * @param {import('./types').Room} room
+ * @param {string} playerId
+ * @param {import('socket.io').Server} io
+ * @returns {{ error?: string, room?: import('./types').Room }}
+ */
+function passSteal(room, playerId, io) {
+  const aq = room.activeQuestion;
+  if (!aq || !aq.isSteal) return { error: 'There is no steal to pass on.' };
+  if (aq.resolving) return { error: 'This steal is already being resolved.' };
+
+  const player = room.players[playerId];
+  if (!player || player.team !== aq.stealTeam) {
+    return { error: 'Only the stealing team may pass.' };
+  }
+
+  // Dropping the votes makes resolveVote treat this as an unanswered steal:
+  // no charge spent, no points, turn advances.
+  aq.votes = {};
+  resolveVote(room, io);
+  return { room };
 }
 
 // ---------------------------------------------------------------------------
@@ -452,7 +539,12 @@ module.exports = {
   resolveCoinToss,
   pickCategory,
   startQuestion,
+  resetQuestionTimer,
   castVote,
   resolveVote,
+  passSteal,
   checkWin,
+  QUESTION_SECONDS,
+  STEAL_SECONDS,
+  STEAL_CHARGES_PER_TEAM,
 };

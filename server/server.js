@@ -39,6 +39,7 @@ const {
   startQuestion,
   castVote,
   resolveVote,
+  passSteal,
 } = require('./gameLogic');
 
 const PORT = parseInt(process.env.SOCKET_PORT || '3001', 10);
@@ -398,6 +399,22 @@ io.on('connection', (socket) => {
     }
 
     resolveVote(room, io);
+  });
+
+  /**
+   * Decline a steal opportunity. Free — no charge is spent.
+   */
+  socket.on('steal:pass', () => {
+    const context = ctx();
+    if (!context) return;
+    if (isRateLimited(context.playerId)) return;
+
+    const room = getRoom(context.roomCode);
+    if (!room) return socket.emit('room:error', { message: 'Room not found.' });
+    if (room.phase !== 'question') return;
+
+    const result = passSteal(room, context.playerId, io);
+    if (result.error) return socket.emit('game:error', { message: result.error });
   });
 
   // =========================================================================

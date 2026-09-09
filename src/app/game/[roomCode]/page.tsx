@@ -8,6 +8,7 @@ import { ScoreBoard } from '@/components/game/ScoreBoard';
 import { QuestionCard } from '@/components/game/QuestionCard';
 import { VotingTimer } from '@/components/game/VotingTimer';
 import { WinnerScreen } from '@/components/game/WinnerScreen';
+import { StealBanner } from '@/components/game/StealBanner';
 import { SurrenderPanel } from '@/components/game/SurrenderPanel';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
@@ -27,6 +28,8 @@ export default function GamePage() {
     timeLeft,
     answerReveal,
     isMyTurn,
+    isStealActive,
+    isMyStealTurn,
     gameError,
     actions,
   } = useGame(roomCode);
@@ -138,6 +141,19 @@ export default function GamePage() {
         </div>
       )}
 
+      {/* Steal banner — same question, handed to the opposing team */}
+      {room.phase === 'question' && isStealActive && room.activeQuestion?.stealTeam && (
+        <div className="w-full max-w-2xl mb-4">
+          <StealBanner
+            stealTeam={room.activeQuestion.stealTeam}
+            chargesLeft={room.stealCharges?.[room.activeQuestion.stealTeam] ?? 0}
+            isMyStealTurn={isMyStealTurn}
+            onPass={actions.passSteal}
+            passDisabled={!!answerReveal}
+          />
+        </div>
+      )}
+
       {/* Question + Timer row */}
       {room.phase === 'question' && room.activeQuestion && (
         <div className="w-full max-w-2xl flex flex-col sm:flex-row gap-4 items-start">
@@ -154,7 +170,9 @@ export default function GamePage() {
 
           <div className="sm:mt-6 flex sm:flex-col items-center gap-3 sm:sticky sm:top-6">
             {/* Hide timer while answer is being revealed */}
-            {!answerReveal && <VotingTimer timeLeft={timeLeft} />}
+            {!answerReveal && (
+              <VotingTimer timeLeft={timeLeft} total={room.activeQuestion.duration ?? 60} />
+            )}
 
             {/* Active turn label */}
             {room.activeTeam && (
