@@ -14,6 +14,7 @@ const { games } = require('./questions/games');
 const { sports } = require('./questions/sports');
 const { history } = require('./questions/history');
 const { music } = require('./questions/music');
+const { anime } = require('./questions/anime');
 
 const QUESTIONS = {
   general,
@@ -21,54 +22,7 @@ const QUESTIONS = {
   sports,
   history,
   music,
-
-  anime: [
-    {
-      id: 'ani_01',
-      text: 'Which anime series features the character Naruto Uzumaki, a ninja with a nine-tailed fox sealed inside him?',
-      text_tr: 'İçinde dokuz kuyruklu tilki mühürlü olan ninja Naruto Uzumaki\'yi konu alan anime hangisidir?',
-      options: { A: 'Bleach', B: 'One Piece', C: 'Naruto', D: 'Dragon Ball Z', E: 'Fairy Tail' },
-      options_tr: { A: 'Bleach', B: 'One Piece', C: 'Naruto', D: 'Dragon Ball Z', E: 'Fairy Tail' },
-      answer: 'C',
-      explanation: 'Naruto, created by Masashi Kishimoto, follows Naruto Uzumaki, who has the Nine-Tails Fox (Kurama) sealed within him.',
-    },
-    {
-      id: 'ani_02',
-      text: 'Which Studio Ghibli film features a young girl named Chihiro who gets trapped in a spirit world?',
-      text_tr: 'Hangi Studio Ghibli filminde ruhlar dünyasına sıkışan Chihiro adlı genç bir kız anlatılır?',
-      options: { A: 'Princess Mononoke', B: 'My Neighbor Totoro', C: 'Nausicaä', D: 'Spirited Away', E: 'Castle in the Sky' },
-      options_tr: { A: 'Prenses Mononoke', B: 'Komşum Totoro', C: 'Nausicaä', D: 'Sen Götür Beni', E: 'Gökyüzündeki Kale' },
-      answer: 'D',
-      explanation: 'Spirited Away (千と千尋の神隠し, 2001) by Hayao Miyazaki follows 10-year-old Chihiro trapped in a spirit realm.',
-    },
-    {
-      id: 'ani_03',
-      text: 'In "Attack on Titan," what are the giant humanoid creatures called?',
-      text_tr: '"Titans\'a Saldırı"da devasa insansı yaratıklar ne olarak adlandırılır?',
-      options: { A: 'Giants', B: 'Colossi', C: 'Titans', D: 'Colossals', E: 'Goliaths' },
-      options_tr: { A: 'Devler', B: 'Koloslar', C: 'Titanlar', D: 'Devasa Yaratıklar', E: 'Golyatlar' },
-      answer: 'C',
-      explanation: 'In Attack on Titan (Shingeki no Kyojin), the giant humanoids threatening humanity are called Titans.',
-    },
-    {
-      id: 'ani_04',
-      text: 'Who is the author and creator of the manga "One Piece"?',
-      text_tr: '"One Piece" mangasının yaratıcısı kimdir?',
-      options: { A: 'Akira Toriyama', B: 'Tite Kubo', C: 'Masashi Kishimoto', D: 'Eiichiro Oda', E: 'Hajime Isayama' },
-      options_tr: { A: 'Akira Toriyama', B: 'Tite Kubo', C: 'Masashi Kishimoto', D: 'Eiichiro Oda', E: 'Hajime Isayama' },
-      answer: 'D',
-      explanation: 'One Piece was created by Eiichiro Oda and has been serialized in Weekly Shōnen Jump since 1997.',
-    },
-    {
-      id: 'ani_05',
-      text: 'Which anime is set in a world where people can become heroes or villains with superpowers called "Quirks"?',
-      text_tr: '"Quirks" adı verilen süper güçlerle kahramanların veya kötülerin var olduğu dünyada geçen anime hangisidir?',
-      options: { A: 'Demon Slayer', B: 'My Hero Academia', C: 'Black Clover', D: 'Hunter x Hunter', E: 'Mob Psycho 100' },
-      options_tr: { A: 'İblis Avcısı', B: 'Benim Kahraman Akademim', C: 'Black Clover', D: 'Hunter x Hunter', E: 'Mob Psycho 100' },
-      answer: 'B',
-      explanation: 'My Hero Academia (Boku no Hero Academia) is set in a world where 80% of the population has superpowers called "Quirks."',
-    },
-  ],
+  anime,
 
   games,
 
