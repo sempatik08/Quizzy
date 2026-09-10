@@ -13,60 +13,14 @@ const { cinema } = require('./questions/cinema');
 const { games } = require('./questions/games');
 const { sports } = require('./questions/sports');
 const { history } = require('./questions/history');
+const { music } = require('./questions/music');
 
 const QUESTIONS = {
   general,
   cinema,
   sports,
   history,
-
-  music: [
-    {
-      id: 'mus_01',
-      text: 'Which composer wrote the opera "The Magic Flute" (Die Zauberflöte)?',
-      text_tr: '"Sihirli Flüt" (Die Zauberflöte) operasını besteleyen kimdir?',
-      options: { A: 'Ludwig van Beethoven', B: 'Johann Sebastian Bach', C: 'George Frideric Handel', D: 'Franz Joseph Haydn', E: 'Wolfgang Amadeus Mozart' },
-      options_tr: { A: 'Ludwig van Beethoven', B: 'Johann Sebastian Bach', C: 'George Frideric Handel', D: 'Franz Joseph Haydn', E: 'Wolfgang Amadeus Mozart' },
-      answer: 'E',
-      explanation: 'Mozart composed The Magic Flute in 1791, the year of his death.',
-    },
-    {
-      id: 'mus_02',
-      text: 'The iconic opening bassline of "Under Pressure" (1981) by Queen & David Bowie was later sampled by which rapper without permission?',
-      text_tr: 'Queen & David Bowie\'nin "Under Pressure" (1981) şarkısının ikonik bas ritmi, hangi rapçi tarafından izinsiz sample alındı?',
-      options: { A: 'Tupac Shakur', B: 'The Notorious B.I.G.', C: 'Jay-Z', D: 'Vanilla Ice', E: 'Ice Cube' },
-      options_tr: { A: 'Tupac Shakur', B: 'The Notorious B.I.G.', C: 'Jay-Z', D: 'Vanilla Ice', E: 'Ice Cube' },
-      answer: 'D',
-      explanation: 'Vanilla Ice sampled the riff in "Ice Ice Baby" (1990) and initially denied it.',
-    },
-    {
-      id: 'mus_03',
-      text: 'Which band released the album "Dark Side of the Moon" in 1973?',
-      text_tr: '"Dark Side of the Moon" albümünü 1973\'te hangi grup yayımladı?',
-      options: { A: 'Led Zeppelin', B: 'The Rolling Stones', C: 'Pink Floyd', D: 'The Beatles', E: 'Deep Purple' },
-      options_tr: { A: 'Led Zeppelin', B: 'Rolling Stones', C: 'Pink Floyd', D: 'Beatles', E: 'Deep Purple' },
-      answer: 'C',
-      explanation: 'Pink Floyd\'s The Dark Side of the Moon spent 937 weeks on the Billboard 200, a record.',
-    },
-    {
-      id: 'mus_04',
-      text: 'Which singer is known as the "Queen of Pop"?',
-      text_tr: '"Pop\'un Kraliçesi" olarak bilinen sanatçı kimdir?',
-      options: { A: 'Beyoncé', B: 'Mariah Carey', C: 'Whitney Houston', D: 'Madonna', E: 'Celine Dion' },
-      options_tr: { A: 'Beyoncé', B: 'Mariah Carey', C: 'Whitney Houston', D: 'Madonna', E: 'Celine Dion' },
-      answer: 'D',
-      explanation: 'Madonna has been called the "Queen of Pop" since the 1980s for her cultural influence and record-breaking tours.',
-    },
-    {
-      id: 'mus_05',
-      text: 'Which Turkish artist is known as "Diva" and is famous for her powerful vocal range?',
-      text_tr: '"Diva" lakabıyla bilinen ve güçlü ses aralığıyla tanınan Türk sanatçı kimdir?',
-      options: { A: 'Sezen Aksu', B: 'Tarkan', C: 'Zara', D: 'Ajda Pekkan', E: 'Sibel Can' },
-      options_tr: { A: 'Sezen Aksu', B: 'Tarkan', C: 'Zara', D: 'Ajda Pekkan', E: 'Sibel Can' },
-      answer: 'D',
-      explanation: 'Ajda Pekkan is nicknamed "Süper Star" and is one of the most successful pop artists in Turkish music history.',
-    },
-  ],
+  music,
 
   anime: [
     {
