@@ -12,59 +12,13 @@ const { general } = require('./questions/general');
 const { cinema } = require('./questions/cinema');
 const { games } = require('./questions/games');
 const { sports } = require('./questions/sports');
+const { history } = require('./questions/history');
 
 const QUESTIONS = {
   general,
   cinema,
   sports,
-
-  history: [
-    {
-      id: 'his_01',
-      text: 'The Battle of Thermopylae (480 BC) was a stand by a Greek force led primarily by which city-state?',
-      text_tr: 'Thermopylae Savaşı (MÖ 480) ağırlıklı olarak hangi şehir devletinin liderliğindeki Yunan kuvvetleri tarafından verildi?',
-      options: { A: 'Athens', B: 'Corinth', C: 'Thebes', D: 'Sparta', E: 'Argos' },
-      options_tr: { A: 'Atina', B: 'Korint', C: 'Teba', D: 'Sparta', E: 'Argos' },
-      answer: 'D',
-      explanation: 'King Leonidas of Sparta led 300 Spartans (plus allies) against the Persian army at Thermopylae.',
-    },
-    {
-      id: 'his_02',
-      text: 'Which treaty formally ended World War I?',
-      text_tr: 'Birinci Dünya Savaşı\'nı resmen sona erdiren antlaşma hangisidir?',
-      options: { A: 'Treaty of Brest-Litovsk', B: 'Treaty of Saint-Germain', C: 'Treaty of Versailles', D: 'Treaty of Trianon', E: 'Treaty of Lausanne' },
-      options_tr: { A: 'Brest-Litovsk Antlaşması', B: 'Saint-Germain Antlaşması', C: 'Versay Antlaşması', D: 'Trianon Antlaşması', E: 'Lozan Antlaşması' },
-      answer: 'C',
-      explanation: 'The Treaty of Versailles (1919) ended WWI with Germany.',
-    },
-    {
-      id: 'his_03',
-      text: 'Which civilization built the city of Machu Picchu?',
-      text_tr: 'Machu Picchu şehrini hangi medeniyet inşa etmiştir?',
-      options: { A: 'Aztec', B: 'Olmec', C: 'Toltec', D: 'Maya', E: 'Inca' },
-      options_tr: { A: 'Aztekler', B: 'Olmekler', C: 'Toltekler', D: 'Mayalar', E: 'İnkalar' },
-      answer: 'E',
-      explanation: 'Machu Picchu was built by the Inca Empire in the 15th century in present-day Peru.',
-    },
-    {
-      id: 'his_04',
-      text: 'Which of the following structures was built BEFORE the Ottoman Conquest of Istanbul (1453)?',
-      text_tr: 'Aşağıdaki yapılardan hangisi İstanbul\'un Osmanlı fethinden (1453) ÖNCE inşa edilmiştir?',
-      options: { A: 'Rumeli Fortress', B: 'Anatolian Fortress', C: 'Tiled Kiosk (Çinili Köşk)', D: 'Fatih Mosque', E: 'Theodosius Cistern' },
-      options_tr: { A: 'Rumeli Hisarı', B: 'Anadolu Hisarı', C: 'Çinili Köşk', D: 'Fatih Camii', E: 'Theodosius Sarnıcı' },
-      answer: 'E',
-      explanation: 'The Theodosius Cistern was built in the 5th century AD by the Byzantine Empire.',
-    },
-    {
-      id: 'his_05',
-      text: 'Who was the last Pharaoh of Ancient Egypt?',
-      text_tr: 'Antik Mısır\'ın son Firavunu kimdir?',
-      options: { A: 'Nefertiti', B: 'Hatshepsut', C: 'Cleopatra VII', D: 'Ramesses III', E: 'Ptolemy XIII' },
-      options_tr: { A: 'Nefertiti', B: 'Hatşepsut', C: 'Kleopatra VII', D: 'III. Ramses', E: 'XIII. Ptolemy' },
-      answer: 'C',
-      explanation: 'Cleopatra VII (69–30 BC) was the last active ruler of the Ptolemaic Kingdom of Egypt before Roman annexation.',
-    },
-  ],
+  history,
 
   music: [
     {
