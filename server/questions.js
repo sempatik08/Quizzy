@@ -17,6 +17,7 @@ const { music } = require('./questions/music');
 const { anime } = require('./questions/anime');
 const { technology } = require('./questions/technology');
 const { literature } = require('./questions/literature');
+const { math } = require('./questions/math');
 
 const QUESTIONS = {
   general,
@@ -27,56 +28,9 @@ const QUESTIONS = {
   anime,
   technology,
   literature,
+  math,
 
   games,
-
-  math: [
-    {
-      id: 'mat_01',
-      text: 'What is the value of π (pi) to five decimal places?',
-      text_tr: 'π (pi) sayısının beş ondalık basamağa kadar değeri nedir?',
-      options: { A: '3.14149', B: '3.14159', C: '3.14169', D: '3.14179', E: '3.14189' },
-      options_tr: { A: '3,14149', B: '3,14159', C: '3,14169', D: '3,14179', E: '3,14189' },
-      answer: 'B',
-      explanation: 'π ≈ 3.14159 (3.14159265358979…). It is an irrational number representing the ratio of a circle\'s circumference to its diameter.',
-    },
-    {
-      id: 'mat_02',
-      text: 'What is the sum of the interior angles of a triangle?',
-      text_tr: 'Bir üçgenin iç açılarının toplamı nedir?',
-      options: { A: '90°', B: '120°', C: '180°', D: '270°', E: '360°' },
-      options_tr: { A: '90°', B: '120°', C: '180°', D: '270°', E: '360°' },
-      answer: 'C',
-      explanation: 'The sum of interior angles in any Euclidean triangle is always 180°.',
-    },
-    {
-      id: 'mat_03',
-      text: 'Which mathematician is credited with formulating the Pythagorean theorem?',
-      text_tr: 'Pisagor teoremini geliştiren matematikçi kimdir?',
-      options: { A: 'Euclid', B: 'Archimedes', C: 'Thales', D: 'Pythagoras', E: 'Plato' },
-      options_tr: { A: 'Euklid', B: 'Arşimet', C: 'Tales', D: 'Pisagor', E: 'Platon' },
-      answer: 'D',
-      explanation: 'Pythagoras of Samos (c. 570–495 BC) is credited with the theorem a² + b² = c² for right triangles, though it was known earlier in other cultures.',
-    },
-    {
-      id: 'mat_04',
-      text: 'What is the result of 0! (zero factorial)?',
-      text_tr: '0! (sıfır faktöriyel) işleminin sonucu nedir?',
-      options: { A: '0', B: 'Undefined', C: '1', D: '-1', E: 'Infinity' },
-      options_tr: { A: '0', B: 'Tanımsız', C: '1', D: '-1', E: 'Sonsuz' },
-      answer: 'C',
-      explanation: 'By convention and mathematical definition, 0! = 1. This is consistent with the recursive definition n! = n × (n−1)! and combinatorics.',
-    },
-    {
-      id: 'mat_05',
-      text: 'Which number system uses only 0 and 1?',
-      text_tr: 'Yalnızca 0 ve 1 rakamlarını kullanan sayı sistemi hangisidir?',
-      options: { A: 'Decimal', B: 'Hexadecimal', C: 'Octal', D: 'Binary', E: 'Duodecimal' },
-      options_tr: { A: 'Onluk', B: 'On altılık', C: 'Sekizlik', D: 'İkilik', E: 'On ikilik' },
-      answer: 'D',
-      explanation: 'The binary (base-2) number system uses only digits 0 and 1, and is the foundation of all modern digital computing.',
-    },
-  ],
 
   geography: [
     {
