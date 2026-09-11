@@ -904,6 +904,15 @@ const general = [
 
   // --- Batch 2 (gen_101–gen_200) ---
   {
+    id: 'gen_101',
+    text: 'What is the largest organ in the human body?',
+    text_tr: 'İnsan vücudundaki en büyük organ hangisidir?',
+    options: { A: 'Liver', B: 'Skin', C: 'Heart', D: 'Brain', E: 'Lungs' },
+    options_tr: { A: 'Karaciğer', B: 'Deri', C: 'Kalp', D: 'Beyin', E: 'Akciğer' },
+    answer: 'B',
+    explanation: 'The skin is the body\'s largest organ by surface area and weight, acting as a protective barrier.',
+  },
+  {
     id: 'gen_102',
     text: 'Which planet is known as the Red Planet?',
     text_tr: 'Kızıl Gezegen olarak bilinen gezegen hangisidir?',
@@ -920,6 +929,15 @@ const general = [
     options_tr: { A: 'Vincent van Gogh', B: 'Pablo Picasso', C: 'Leonardo da Vinci', D: 'Michelangelo', E: 'Claude Monet' },
     answer: 'C',
     explanation: 'The Mona Lisa was painted by the Italian Renaissance polymath Leonardo da Vinci in the early 16th century.',
+  },
+  {
+    id: 'gen_104',
+    text: 'What is the tallest animal in the world?',
+    text_tr: 'Dünyanın en uzun boylu hayvanı hangisidir?',
+    options: { A: 'Elephant', B: 'Giraffe', C: 'Ostrich', D: 'Camel', E: 'Polar bear' },
+    options_tr: { A: 'Fil', B: 'Zürafa', C: 'Devekuşu', D: 'Deve', E: 'Kutup ayısı' },
+    answer: 'B',
+    explanation: 'Giraffes can grow up to about 5.5 meters tall, making them the tallest living land animal.',
   },
   {
     id: 'gen_105',
@@ -1678,6 +1696,15 @@ const general = [
     explanation: 'Pure water freezes at exactly 0°C at standard atmospheric pressure.',
   },
   {
+    id: 'gen_189',
+    text: 'At age 17, which activist became the youngest-ever Nobel Peace Prize laureate in 2014?',
+    text_tr: '2014\'te 17 yaşında, en genç Nobel Barış Ödülü sahibi olan aktivist kimdir?',
+    options: { A: 'Greta Thunberg', B: 'Malala Yousafzai', C: 'Emma González', D: 'Autumn Peltier', E: 'Nadia Murad' },
+    options_tr: { A: 'Greta Thunberg', B: 'Malala Yousafzai', C: 'Emma González', D: 'Autumn Peltier', E: 'Nadia Murad' },
+    answer: 'B',
+    explanation: 'Malala Yousafzai won the Nobel Peace Prize in 2014 for her advocacy of girls\' education, becoming the youngest laureate in the prize\'s history.',
+  },
+  {
     id: 'gen_190',
     text: 'Who wrote "The Lord of the Rings"?',
     text_tr: '"Yüzüklerin Efendisi"ni kim yazmıştır?',
@@ -1694,6 +1721,33 @@ const general = [
     options_tr: { A: '1', B: '2', C: '3', D: '4', E: '0' },
     answer: 'B',
     explanation: 'Humans have a pair of lungs located in the thoracic cavity.',
+  },
+  {
+    id: 'gen_192',
+    text: 'Which gas do plants absorb from the atmosphere during photosynthesis?',
+    text_tr: 'Bitkiler fotosentez sırasında atmosferden hangi gazı emer?',
+    options: { A: 'Oxygen', B: 'Nitrogen', C: 'Carbon dioxide', D: 'Hydrogen', E: 'Helium' },
+    options_tr: { A: 'Oksijen', B: 'Azot', C: 'Karbondioksit', D: 'Hidrojen', E: 'Helyum' },
+    answer: 'C',
+    explanation: 'Plants absorb carbon dioxide and, using sunlight, convert it into glucose and oxygen during photosynthesis.',
+  },
+  {
+    id: 'gen_193',
+    text: 'What is the currency of Japan?',
+    text_tr: 'Japonya\'nın para birimi nedir?',
+    options: { A: 'Won', B: 'Yuan', C: 'Yen', D: 'Ringgit', E: 'Baht' },
+    options_tr: { A: 'Won', B: 'Yuan', C: 'Yen', D: 'Ringgit', E: 'Baht' },
+    answer: 'C',
+    explanation: 'The Japanese yen has been Japan\'s official currency since 1871.',
+  },
+  {
+    id: 'gen_194',
+    text: 'How many strings does a standard guitar have?',
+    text_tr: 'Standart bir gitarda kaç tel bulunur?',
+    options: { A: '4', B: '5', C: '6', D: '7', E: '8' },
+    options_tr: { A: '4', B: '5', C: '6', D: '7', E: '8' },
+    answer: 'C',
+    explanation: 'A standard acoustic or electric guitar has six strings.',
   },
   {
     id: 'gen_195',
