@@ -15,6 +15,7 @@ const { sports } = require('./questions/sports');
 const { history } = require('./questions/history');
 const { music } = require('./questions/music');
 const { anime } = require('./questions/anime');
+const { technology } = require('./questions/technology');
 
 const QUESTIONS = {
   general,
@@ -23,56 +24,9 @@ const QUESTIONS = {
   history,
   music,
   anime,
+  technology,
 
   games,
-
-  technology: [
-    {
-      id: 'tec_01',
-      text: 'Who co-founded Apple Computer Company in 1976?',
-      text_tr: '1976\'da Apple Computer Company\'yi kuranlar kimlerdir?',
-      options: { A: 'Bill Gates & Paul Allen', B: 'Steve Jobs, Steve Wozniak & Ronald Wayne', C: 'Steve Jobs & Bill Gates', D: 'Steve Wozniak & Larry Page', E: 'Tim Cook & Steve Jobs' },
-      options_tr: { A: 'Bill Gates ve Paul Allen', B: 'Steve Jobs, Steve Wozniak ve Ronald Wayne', C: 'Steve Jobs ve Bill Gates', D: 'Steve Wozniak ve Larry Page', E: 'Tim Cook ve Steve Jobs' },
-      answer: 'B',
-      explanation: 'Apple was co-founded by Steve Jobs, Steve Wozniak, and Ronald Wayne on April 1, 1976.',
-    },
-    {
-      id: 'tec_02',
-      text: 'What does "HTML" stand for?',
-      text_tr: '"HTML" kısaltması neyi ifade eder?',
-      options: { A: 'Hyper Transfer Markup Language', B: 'HyperText Markup Language', C: 'High-level Text Markup Language', D: 'Hyperlink Text Meta Language', E: 'HyperText Machine Language' },
-      options_tr: { A: 'Hiper Transfer İşaretleme Dili', B: 'Hiper Metin İşaretleme Dili', C: 'Yüksek Seviyeli Metin İşaretleme Dili', D: 'Köprü Metni Meta Dili', E: 'Hiper Metin Makine Dili' },
-      answer: 'B',
-      explanation: 'HTML (HyperText Markup Language) is the standard markup language used to create web pages.',
-    },
-    {
-      id: 'tec_03',
-      text: 'In which year was the World Wide Web invented by Tim Berners-Lee?',
-      text_tr: 'Tim Berners-Lee tarafından World Wide Web hangi yılda icat edildi?',
-      options: { A: '1985', B: '1987', C: '1989', D: '1991', E: '1993' },
-      options_tr: { A: '1985', B: '1987', C: '1989', D: '1991', E: '1993' },
-      answer: 'C',
-      explanation: 'Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN in Switzerland.',
-    },
-    {
-      id: 'tec_04',
-      text: 'What is the name of the open-source operating system kernel created by Linus Torvalds in 1991?',
-      text_tr: '1991\'de Linus Torvalds tarafından oluşturulan açık kaynaklı işletim sistemi çekirdeğinin adı nedir?',
-      options: { A: 'Unix', B: 'FreeBSD', C: 'GNU', D: 'Linux', E: 'Minix' },
-      options_tr: { A: 'Unix', B: 'FreeBSD', C: 'GNU', D: 'Linux', E: 'Minix' },
-      answer: 'D',
-      explanation: 'Linus Torvalds created the Linux kernel in 1991, which now powers the majority of the world\'s servers, smartphones (Android), and supercomputers.',
-    },
-    {
-      id: 'tec_05',
-      text: 'Which company developed the Python programming language?',
-      text_tr: 'Python programlama dilini kim/hangi kurum geliştirmiştir?',
-      options: { A: 'Google', B: 'Microsoft', C: 'Guido van Rossum (personal project)', D: 'MIT', E: 'Sun Microsystems' },
-      options_tr: { A: 'Google', B: 'Microsoft', C: 'Guido van Rossum (kişisel proje)', D: 'MIT', E: 'Sun Microsystems' },
-      answer: 'C',
-      explanation: 'Python was created by Guido van Rossum and first released in 1991. It was not created by a company but by an individual developer.',
-    },
-  ],
 
   literature: [
     {
