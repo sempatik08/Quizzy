@@ -16,6 +16,7 @@ const { history } = require('./questions/history');
 const { music } = require('./questions/music');
 const { anime } = require('./questions/anime');
 const { technology } = require('./questions/technology');
+const { literature } = require('./questions/literature');
 
 const QUESTIONS = {
   general,
@@ -25,56 +26,9 @@ const QUESTIONS = {
   music,
   anime,
   technology,
+  literature,
 
   games,
-
-  literature: [
-    {
-      id: 'lit_01',
-      text: 'Who wrote "Don Quixote," often cited as the first modern novel?',
-      text_tr: 'Genellikle ilk modern roman olarak gösterilen "Don Kişot"u kim yazmıştır?',
-      options: { A: 'Lope de Vega', B: 'Miguel de Cervantes', C: 'Francisco de Quevedo', D: 'Tirso de Molina', E: 'Calderón de la Barca' },
-      options_tr: { A: 'Lope de Vega', B: 'Miguel de Cervantes', C: 'Francisco de Quevedo', D: 'Tirso de Molina', E: 'Calderón de la Barca' },
-      answer: 'B',
-      explanation: 'Miguel de Cervantes wrote Don Quixote (Part I: 1605, Part II: 1615), widely considered the first modern novel.',
-    },
-    {
-      id: 'lit_02',
-      text: 'Which Turkish author won the Nobel Prize in Literature in 2006?',
-      text_tr: '2006 yılında Nobel Edebiyat Ödülü\'nü kazanan Türk yazar kimdir?',
-      options: { A: 'Yaşar Kemal', B: 'Aziz Nesin', C: 'Orhan Pamuk', D: 'Sabahattin Ali', E: 'Ahmet Hamdi Tanpınar' },
-      options_tr: { A: 'Yaşar Kemal', B: 'Aziz Nesin', C: 'Orhan Pamuk', D: 'Sabahattin Ali', E: 'Ahmet Hamdi Tanpınar' },
-      answer: 'C',
-      explanation: 'Orhan Pamuk won the 2006 Nobel Prize in Literature, becoming the first Turkish citizen to win a Nobel Prize.',
-    },
-    {
-      id: 'lit_03',
-      text: 'Which Shakespeare play features the characters Hamlet, Ophelia and Horatio?',
-      text_tr: 'Hamlet, Ophelia ve Horatio karakterlerinin yer aldığı Shakespeare oyunu hangisidir?',
-      options: { A: 'Macbeth', B: 'Othello', C: 'King Lear', D: 'Hamlet', E: 'The Tempest' },
-      options_tr: { A: 'Macbeth', B: 'Othello', C: 'Kral Lear', D: 'Hamlet', E: 'Fırtına' },
-      answer: 'D',
-      explanation: 'Hamlet (c. 1600–1601) is one of Shakespeare\'s greatest tragedies, featuring the Danish prince Hamlet seeking revenge for his father\'s murder.',
-    },
-    {
-      id: 'lit_04',
-      text: 'Who wrote "1984," the dystopian novel set in Oceania?',
-      text_tr: 'Oceania\'da geçen distopik roman "1984"ü kim yazmıştır?',
-      options: { A: 'Aldous Huxley', B: 'Ray Bradbury', C: 'Philip K. Dick', D: 'George Orwell', E: 'H.G. Wells' },
-      options_tr: { A: 'Aldous Huxley', B: 'Ray Bradbury', C: 'Philip K. Dick', D: 'George Orwell', E: 'H.G. Wells' },
-      answer: 'D',
-      explanation: 'George Orwell (Eric Arthur Blair) wrote Nineteen Eighty-Four in 1949, introducing concepts like "Big Brother" and "doublethink."',
-    },
-    {
-      id: 'lit_05',
-      text: 'The character "Raskolnikov" appears in which classic Russian novel?',
-      text_tr: '"Raskolnikov" karakteri hangi klasik Rus romanında yer alır?',
-      options: { A: 'War and Peace', B: 'Anna Karenina', C: 'Crime and Punishment', D: 'The Brothers Karamazov', E: 'The Idiot' },
-      options_tr: { A: 'Savaş ve Barış', B: 'Anna Karenina', C: 'Suç ve Ceza', D: 'Karamazov Kardeşler', E: 'Budala' },
-      answer: 'C',
-      explanation: 'Rodion Raskolnikov is the protagonist of Fyodor Dostoevsky\'s Crime and Punishment (1866).',
-    },
-  ],
 
   math: [
     {
