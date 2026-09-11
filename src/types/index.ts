@@ -16,7 +16,8 @@ export type Category =
   | 'technology'
   | 'literature'
   | 'math'
-  | 'geography';
+  | 'geography'
+  | 'philosophy';
 export type TeamColor = 'blue' | 'red';
 export type OptionKey = 'A' | 'B' | 'C' | 'D' | 'E';
 

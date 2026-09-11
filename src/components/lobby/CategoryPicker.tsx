@@ -1,6 +1,6 @@
 'use client';
 
-import { BookOpen, Dumbbell, Scroll, Music, Film, Sword, Gamepad2, Cpu, Feather, Calculator, Globe } from 'lucide-react';
+import { BookOpen, Dumbbell, Scroll, Music, Film, Sword, Gamepad2, Cpu, Feather, Calculator, Globe, Brain } from 'lucide-react';
 import type { Category, TeamColor } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -26,6 +26,7 @@ export function CategoryPicker({ winnerTeam, isCaptain, onPick, usedCategories =
     { key: 'literature', label: t.literature,      icon: <Feather size={20} />,    description: t.literatureDesc },
     { key: 'math',       label: t.math,            icon: <Calculator size={20} />, description: t.mathDesc },
     { key: 'geography',  label: t.geography,       icon: <Globe size={20} />,      description: t.geographyDesc },
+    { key: 'philosophy', label: t.philosophy,      icon: <Brain size={20} />,      description: t.philosophyDesc },
   ];
 
   const accent      = winnerTeam === 'blue' ? 'text-blue-soft'   : 'text-red-soft';

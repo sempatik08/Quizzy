@@ -19,6 +19,7 @@ const { technology } = require('./questions/technology');
 const { literature } = require('./questions/literature');
 const { math } = require('./questions/math');
 const { geography } = require('./questions/geography');
+const { philosophy } = require('./questions/philosophy');
 
 const QUESTIONS = {
   general,
@@ -31,6 +32,7 @@ const QUESTIONS = {
   literature,
   math,
   geography,
+  philosophy,
 
   games,
 };

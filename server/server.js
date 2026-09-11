@@ -89,7 +89,7 @@ function isValidString(val, min, max) {
 }
 
 function isValidCategory(val) {
-  return ['general', 'sports', 'history', 'music', 'cinema', 'anime', 'games', 'technology', 'literature', 'math', 'geography'].includes(val);
+  return ['general', 'sports', 'history', 'music', 'cinema', 'anime', 'games', 'technology', 'literature', 'math', 'geography', 'philosophy'].includes(val);
 }
 
 function isValidOption(val) {
