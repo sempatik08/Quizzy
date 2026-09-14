@@ -69,6 +69,7 @@ export default function GamePage() {
     literature: t.literature,
     math:       t.math,
     geography:  t.geography,
+    philosophy: t.philosophy,
     cinema_music: t.cinemaMusic,
   };
 

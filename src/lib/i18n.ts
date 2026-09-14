@@ -77,6 +77,8 @@ const translations = {
     mathDesc: 'Numbers, geometry & famous theorems',
     geography: 'Geography',
     geographyDesc: 'Countries, capitals, rivers & mountains',
+    philosophy: 'Philosophy',
+    philosophyDesc: 'Great thinkers, schools of thought & ideas',
     // Game page
     yourTurn: '⚡ Your turn',
     teamsTurn: "team's turn",
@@ -205,6 +207,8 @@ const translations = {
     mathDesc: 'Sayılar, geometri ve ünlü teoremler',
     geography: 'Coğrafya',
     geographyDesc: 'Ülkeler, başkentler, nehirler ve dağlar',
+    philosophy: 'Felsefe',
+    philosophyDesc: 'Büyük düşünürler, düşünce okulları ve fikirler',
     // Game page
     yourTurn: '⚡ Sıra sende',
     teamsTurn: 'takımının sırası',
