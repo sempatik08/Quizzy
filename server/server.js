@@ -42,7 +42,9 @@ const {
   passSteal,
 } = require('./gameLogic');
 
-const PORT = parseInt(process.env.SOCKET_PORT || '3001', 10);
+// Railway/Render/Heroku-style platforms inject PORT and route traffic only to
+// that port; SOCKET_PORT stays the override for local dev and Docker.
+const PORT = parseInt(process.env.PORT || process.env.SOCKET_PORT || '3001', 10);
 const CLIENT_URL = process.env.CLIENT_URL || /^http:\/\/localhost(:\d+)?$/;
 
 // ---------------------------------------------------------------------------
