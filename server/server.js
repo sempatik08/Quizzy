@@ -18,6 +18,7 @@ const http = require('http');
 const { Server } = require('socket.io');
 const { CATEGORY_KEYS } = require('./questions');
 const { EMOJI_COOLDOWN_MS, isValidEmoji } = require('./emoji');
+const { isValidMode, MODE_KEYS, DEFAULT_MODE } = require('./gameModes');
 const {
   createRoom,
   joinRoom,
@@ -42,6 +43,8 @@ const {
   castVote,
   resolveVote,
   passSteal,
+  placeWager,
+  activeRoster,
   getWinThreshold,
   useJoker,
   requestRematch,
@@ -165,12 +168,24 @@ io.on('connection', (socket) => {
     if (!payload || !isValidString(payload.playerName, 1, 20)) {
       return socket.emit('room:error', { message: 'Player name must be 1–20 characters.' });
     }
+    // An unknown mode is refused rather than silently downgraded to classic: a
+    // player who picked Survival and got Classic would not find out until the
+    // rules failed to apply (PBI 9).
+    if (payload.mode !== undefined && !isValidMode(payload.mode)) {
+      return socket.emit('room:error', {
+        message: `Unknown game mode. Choose one of: ${MODE_KEYS.join(', ')}.`,
+      });
+    }
 
-    const { roomCode, playerId, room } = createRoom(payload.playerName, socket.id);
+    const { roomCode, playerId, room } = createRoom(
+      payload.playerName,
+      socket.id,
+      payload.mode ?? DEFAULT_MODE,
+    );
     socketToPlayer.set(socket.id, { roomCode, playerId });
     socket.join(roomCode);
 
-    console.log(`[Room] Created: ${roomCode} by ${room.players[playerId].name}`);
+    console.log(`[Room] Created: ${roomCode} by ${room.players[playerId].name} (${room.mode})`);
     socket.emit('room:created', { roomCode, playerId, room: sanitizeRoom(room) });
   });
 
@@ -460,6 +475,34 @@ io.on('connection', (socket) => {
   });
 
   // =========================================================================
+  // WAGER (PBI 9 - Wager mode)
+  // =========================================================================
+
+  /**
+   * Stake points on the still-hidden question.
+   * Payload: { amount: number }
+   */
+  socket.on('wager:place', (payload) => {
+    const context = ctx();
+    if (!context) return;
+    if (!payload || !Number.isInteger(payload.amount)) {
+      return socket.emit('game:error', { message: 'Invalid wager.' });
+    }
+    if (isRateLimited(context.playerId)) return;
+
+    const room = getRoom(context.roomCode);
+    if (!room) return socket.emit('room:error', { message: 'Room not found.' });
+
+    const result = placeWager(room, context.playerId, payload.amount, io);
+    if (result.error) return socket.emit('game:error', { message: result.error });
+
+    console.log(`[Game] Wager ${payload.amount} placed in ${room.code}`);
+    // This broadcast is what finally reveals the question text, since
+    // sanitizeRoom withholds it while wagerPending is set.
+    broadcast(room);
+  });
+
+  // =========================================================================
   // EMOJI REACTIONS (PBI 11)
   // =========================================================================
 
@@ -614,7 +657,9 @@ io.on('connection', (socket) => {
       return socket.emit('game:error', { message: 'A surrender vote is already in progress.' });
     }
 
-    const connected = room.teams[team].players.filter((id) => room.players[id]?.isConnected);
+    // Eliminated players (Survival) cannot vote, so counting them would push the
+    // threshold out of reach and cancel every surrender vote as impossible.
+    const connected = activeRoster(room, team).filter((id) => room.players[id]?.isConnected);
 
     if (connected.length === 1) {
       // Solo player — surrender immediately
@@ -658,6 +703,9 @@ io.on('connection', (socket) => {
     if (!player || player.team !== room.surrenderVote.team) {
       return socket.emit('game:error', { message: "Not your team's vote." });
     }
+    if (player.isEliminated) {
+      return socket.emit('game:error', { message: 'You have been eliminated.' });
+    }
     if (room.surrenderVote.votes[context.playerId] !== undefined) {
       return socket.emit('game:error', { message: 'You have already voted.' });
     }
@@ -665,7 +713,7 @@ io.on('connection', (socket) => {
     room.surrenderVote.votes[context.playerId] = payload.vote;
 
     const team = room.surrenderVote.team;
-    const connected = room.teams[team].players.filter((id) => room.players[id]?.isConnected);
+    const connected = activeRoster(room, team).filter((id) => room.players[id]?.isConnected);
     const threshold = Math.ceil(connected.length * 0.51);
     const yesCount = Object.values(room.surrenderVote.votes).filter(Boolean).length;
     const noCount  = Object.values(room.surrenderVote.votes).filter((v) => v === false).length;

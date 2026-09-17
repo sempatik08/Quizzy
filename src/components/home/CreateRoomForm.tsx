@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import { PlusCircle, Loader2 } from 'lucide-react';
 import { getSocket } from '@/lib/socket';
 import { useLanguage } from '@/context/LanguageContext';
-import type { RoomCreatedPayload, RoomErrorPayload } from '@/types';
+import { GameModePicker } from './GameModePicker';
+import type { GameModeKey, RoomCreatedPayload, RoomErrorPayload } from '@/types';
 
 const SESSION_KEY = (roomCode: string) => `quizzy_player_${roomCode}`;
 
@@ -15,6 +16,7 @@ export function CreateRoomForm() {
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mode, setMode] = useState<GameModeKey>('classic');
 
   useEffect(() => {
     const socket = getSocket();
@@ -49,7 +51,7 @@ export function CreateRoomForm() {
 
     const socket = getSocket();
     if (!socket.connected) socket.connect();
-    socket.emit('room:create', { playerName: trimmed });
+    socket.emit('room:create', { playerName: trimmed, mode });
   };
 
   return (
@@ -68,6 +70,10 @@ export function CreateRoomForm() {
           className="w-full px-4 py-2.5 rounded-xl border border-quizzy-border bg-quizzy-card text-quizzy-text placeholder:text-quizzy-subtle focus:outline-none focus:ring-2 focus:ring-blue-soft focus:border-transparent transition"
         />
       </div>
+
+      {/* Mode selection (PBI 9) — picked at creation because it changes the
+          clock and the target score, both of which are locked once teams are. */}
+      <GameModePicker value={mode} onChange={(m) => { setMode(m); setError(null); }} />
 
       {error && (
         <p className="text-sm text-red-soft font-medium">{error}</p>

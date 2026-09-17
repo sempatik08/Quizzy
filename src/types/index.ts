@@ -19,6 +19,9 @@ export type Category =
   | 'geography'
   | 'philosophy';
 export type TeamColor = 'blue' | 'red';
+
+/** Game modes (PBI 9). Must stay in sync with server/gameModes.js. */
+export type GameModeKey = 'classic' | 'fast' | 'survival' | 'wager';
 export type OptionKey = 'A' | 'B' | 'C' | 'D' | 'E';
 
 export interface Player {
@@ -32,6 +35,8 @@ export interface Player {
    * is also true of a player sitting in the lobby who has not picked a side yet.
    */
   isSpectator: boolean;
+  /** Knocked out of the current match in Survival mode (PBI 9). */
+  isEliminated: boolean;
 }
 
 export interface TeamState {
@@ -47,10 +52,11 @@ export interface TeamState {
  */
 export interface Question {
   id: string;
-  text: string;
-  text_tr?: string;
-  options: Record<OptionKey, string>;
-  options_tr?: Record<OptionKey, string>;
+  /** null while a Wager-mode question is still hidden (PBI 9). */
+  text: string | null;
+  text_tr?: string | null;
+  options: Record<OptionKey, string> | null;
+  options_tr?: Record<OptionKey, string> | null;
 }
 
 export interface VoteEntry {
@@ -59,6 +65,10 @@ export interface VoteEntry {
 }
 
 export interface ActiveQuestion {
+  /**
+   * In Wager mode the server blanks `text` and `options` until the stake is
+   * locked in, so these are nullable while `wagerPending` is true (PBI 9).
+   */
   question: Question;
   /** Difficulty actually served: 1 easy, 2 medium, 3 hard (PBI 7). */
   difficulty: 1 | 2 | 3;
@@ -72,6 +82,10 @@ export interface ActiveQuestion {
   isSteal: boolean;
   /** Which team is attempting the steal, if any. */
   stealTeam: TeamColor | null;
+  /** Wager mode: the question is hidden until a stake is placed (PBI 9). */
+  wagerPending: boolean;
+  /** Points staked on this question. null outside Wager mode. */
+  wager: number | null;
 }
 
 /** Jokers a team still holds this match (PBI 6). */
@@ -110,6 +124,12 @@ export interface Room {
   categoryAnswerCount: Record<TeamColor, number>;
   /** Remaining steal attempts per team. A charge burns only on a submitted steal. */
   stealCharges: Record<TeamColor, number>;
+  /** Which rule set this match is playing (PBI 9). */
+  mode: GameModeKey;
+  /** Voting window for a fresh question, resolved from the mode. */
+  questionSeconds: number;
+  /** Voting window for a steal, resolved from the mode. */
+  stealSeconds: number;
   /** Points needed to win this match (PBI 7 / PBI 9). */
   winThreshold: number;
   /** Jokers each team still holds (PBI 6). */

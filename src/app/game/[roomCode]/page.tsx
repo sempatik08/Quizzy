@@ -12,6 +12,8 @@ import { StealBanner } from '@/components/game/StealBanner';
 import { SurrenderPanel } from '@/components/game/SurrenderPanel';
 import { JokerPanel } from '@/components/game/JokerPanel';
 import { EmojiBar } from '@/components/game/EmojiBar';
+import { WagerPanel } from '@/components/game/WagerPanel';
+import { WAGER_OPTIONS } from '@/lib/gameModes';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { SpectatorBanner } from '@/components/shared/SpectatorBanner';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
@@ -32,6 +34,9 @@ export default function GamePage() {
     myTeam,
     isCaptain,
     isSpectator,
+    isEliminated,
+    isWagerPending,
+    canPlaceWager,
     spectators,
     timeLeft,
     answerReveal,
@@ -153,9 +158,36 @@ export default function GamePage() {
               {categoryLabel[room.selectedCategory] ?? room.selectedCategory}
             </span>
           )}
+          {/* Mode badge (PBI 9) — the mode changes the clock and the target, so
+              it has to be visible for the scoreboard to make sense. */}
+          {room.mode && room.mode !== 'classic' && (
+            <span
+              data-testid="mode-badge"
+              data-mode={room.mode}
+              className="text-xs rounded-full px-2.5 py-0.5 font-semibold border border-blue-light bg-blue-pale text-blue-soft"
+            >
+              {room.mode === 'fast'
+                ? t.modeFast
+                : room.mode === 'survival'
+                ? t.modeSurvival
+                : t.modeWager}
+            </span>
+          )}
+
+          {/* The stake, once it is locked in. */}
+          {room.phase === 'question' && room.activeQuestion?.wager != null && (
+            <span
+              data-testid="wager-badge"
+              data-wager-amount={room.activeQuestion.wager}
+              className="text-xs rounded-full px-2.5 py-0.5 font-semibold border border-amber-300 bg-amber-50 text-amber-600"
+            >
+              {t.wagerStaked} {room.activeQuestion.wager}
+            </span>
+          )}
+
           {/* Difficulty of the question on the table (PBI 7). Shown because an
               invisible curve just reads as inconsistent question quality. */}
-          {room.phase === 'question' && room.activeQuestion && (
+          {room.phase === 'question' && !isWagerPending && room.activeQuestion && (
             <span
               data-testid="difficulty-badge"
               data-difficulty={room.activeQuestion.difficulty}
@@ -189,6 +221,20 @@ export default function GamePage() {
       {/* Spectator notice / watcher count (PBI 10) */}
       <SpectatorBanner isSpectator={isSpectator} spectators={spectators} />
 
+      {/* Survival elimination notice (PBI 9). Without it an eliminated player
+          just sees their votes rejected with no explanation. */}
+      {isEliminated && (
+        <div
+          id="eliminated-banner"
+          className="w-full max-w-2xl mb-4 px-4 py-2.5 rounded-xl bg-red-pale border border-red-light flex items-center gap-2"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-red-soft">
+            {t.eliminated}
+          </span>
+          <span className="text-xs text-quizzy-muted">{t.modeSurvivalDesc}</span>
+        </div>
+      )}
+
       {/* Scoreboard */}
       <div className="w-full max-w-2xl mb-5">
         <ScoreBoard room={room} playerId={playerId} />
@@ -220,7 +266,7 @@ export default function GamePage() {
       )}
 
       {/* Steal banner — same question, handed to the opposing team */}
-      {room.phase === 'question' && isStealActive && room.activeQuestion?.stealTeam && (
+      {room.phase === 'question' && !isWagerPending && isStealActive && room.activeQuestion?.stealTeam && (
         <div className="w-full max-w-2xl mb-4">
           <StealBanner
             stealTeam={room.activeQuestion.stealTeam}
@@ -232,8 +278,20 @@ export default function GamePage() {
         </div>
       )}
 
+      {/* Blind wager step (PBI 9). The question is genuinely absent from state
+          here, so this replaces the question card rather than overlaying it. */}
+      {room.phase === 'question' && isWagerPending && (
+        <div className="w-full max-w-2xl">
+          <WagerPanel
+            options={WAGER_OPTIONS}
+            canPlace={canPlaceWager}
+            onPlace={actions.placeWager}
+          />
+        </div>
+      )}
+
       {/* Question + Timer row */}
-      {room.phase === 'question' && room.activeQuestion && (
+      {room.phase === 'question' && !isWagerPending && room.activeQuestion && (
         <div className="w-full max-w-2xl flex flex-col sm:flex-row gap-4 items-start">
           <div className="flex-1">
             <QuestionCard
@@ -249,7 +307,10 @@ export default function GamePage() {
           <div className="sm:mt-6 flex sm:flex-col items-center gap-3 sm:sticky sm:top-6">
             {/* Hide timer while answer is being revealed */}
             {!answerReveal && (
-              <VotingTimer timeLeft={timeLeft} total={room.activeQuestion.duration ?? 60} />
+              <VotingTimer
+                timeLeft={timeLeft}
+                total={room.activeQuestion.duration ?? room.questionSeconds ?? 60}
+              />
             )}
 
             {/* Active turn label */}
@@ -269,7 +330,8 @@ export default function GamePage() {
       )}
 
       {/* Jokers — only the captain of the team on turn gets buttons (PBI 6) */}
-      {room.phase === 'question' && myTeam && isCaptain && room.activeTeam === myTeam && (
+      {room.phase === 'question' && !isWagerPending && myTeam && isCaptain
+        && room.activeTeam === myTeam && (
         <div className="w-full max-w-2xl mt-4">
           <JokerPanel
             team={myTeam}
@@ -282,7 +344,7 @@ export default function GamePage() {
       )}
 
       {/* Surrender panel — visible during active game */}
-      {room.phase === 'question' && myTeam && (
+      {room.phase === 'question' && myTeam && !isEliminated && (
         <div className="w-full max-w-2xl mt-4">
           <SurrenderPanel
             room={room}

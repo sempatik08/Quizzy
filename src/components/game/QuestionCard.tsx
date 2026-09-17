@@ -35,6 +35,10 @@ export function QuestionCard({
   }, [aq?.question.id, answerReveal]);
 
   if (!aq) return null;
+  // Wager mode blanks the question server-side until the stake is in, and the
+  // page shows WagerPanel instead. Bailing out here keeps every reader below
+  // free of null checks (PBI 9).
+  if (aq.wagerPending || !aq.question.text || !aq.question.options) return null;
 
   const myVote  = aq.votes[playerId]?.optionKey ?? null;
   const myTeam  = room.players[playerId]?.team;
@@ -71,6 +75,11 @@ export function QuestionCard({
   }
 
   // Use Turkish question text when language is 'tr' and translation exists
+  // Bound to locals after the wagerPending guard above: TypeScript cannot carry
+  // the narrowing of aq.question.* into the .map() closure below.
+  const options = aq.question.options;
+  const optionsTr = aq.question.options_tr ?? null;
+
   const questionText = language === 'tr' && aq.question.text_tr
     ? aq.question.text_tr
     : aq.question.text;
@@ -85,13 +94,11 @@ export function QuestionCard({
       {/* Options */}
       <div className="flex flex-col gap-3">
         {OPTION_KEYS.map((key) => {
-          const textEn = aq.question.options[key];
+          const textEn = options[key];
           if (!textEn) return null;
 
           // Use Turkish option text when available
-          const text = language === 'tr' && aq.question.options_tr?.[key]
-            ? aq.question.options_tr[key]
-            : textEn;
+          const text = language === 'tr' && optionsTr?.[key] ? optionsTr[key] : textEn;
 
           const isDisabled = aq.disabledOptions.includes(key);
 

@@ -2,6 +2,7 @@
 
 const { QUESTIONS, CATEGORY_KEYS } = require('./questions');
 const { pickTargetDifficulty, selectQuestion, difficultyOf } = require('./difficulty');
+const { getMode } = require('./gameModes');
 const { sanitizeRoom, STEAL_CHARGES_PER_TEAM } = require('./roomManager');
 
 // ---------------------------------------------------------------------------
@@ -162,6 +163,20 @@ function lockTeams(room, requesterId) {
   if (room.teams.blue.players.length === 0) return { error: 'Blue team has no players.' };
   if (room.teams.red.players.length === 0) return { error: 'Red team has no players.' };
 
+  // Survival needs 2+ per side: with one player each, the first wrong answer
+  // ends the match. Refuse with the reason rather than starting a one-mistake
+  // game and letting the players discover it the hard way.
+  const min = modeOf(room).minPlayersPerTeam;
+  if (min > 1) {
+    for (const color of ['blue', 'red']) {
+      if (room.teams[color].players.length < min) {
+        return {
+          error: `${modeOf(room).key} mode needs at least ${min} players per team.`,
+        };
+      }
+    }
+  }
+
   // Auto-assign captains for teams still without one
   for (const color of ['blue', 'red']) {
     const team = room.teams[color];
@@ -289,11 +304,58 @@ function getNextQuestion(room) {
 /**
  * Points needed to win. A single accessor so the difficulty ramp and the win
  * check cannot drift apart, and so game modes (PBI 9) have one place to change.
+ *
+ * Reads the value the room resolved at creation, falling back to the classic
+ * constant for rooms made before modes existed.
  * @param {import('./types').Room} room
  * @returns {number}
  */
 function getWinThreshold(room) {
   return room?.winThreshold ?? WIN_SCORE;
+}
+
+/** Voting window for a fresh question, per the room's mode (PBI 9). */
+function getQuestionSeconds(room) {
+  return room?.questionSeconds ?? QUESTION_SECONDS;
+}
+
+/** Voting window for a steal, per the room's mode (PBI 9). */
+function getStealSeconds(room) {
+  return room?.stealSeconds ?? STEAL_SECONDS;
+}
+
+/** The room's full mode definition. */
+function modeOf(room) {
+  return getMode(room?.mode);
+}
+
+/**
+ * Team members who can still act: connected, not spectating, not eliminated.
+ * Survival removes players mid-match (PBI 9), so "who is on this team" and "who
+ * can answer for it" stopped being the same question.
+ * @param {import('./types').Room} room
+ * @param {'blue'|'red'} team
+ * @returns {string[]}
+ */
+function activeRoster(room, team) {
+  return room.teams[team].players.filter((id) => {
+    const p = room.players[id];
+    return p && !p.isSpectator && !p.isEliminated;
+  });
+}
+
+/**
+ * True when a team has been wiped out in Survival. Disconnection alone does NOT
+ * count: a player who drops mid-match should be able to reconnect, so only
+ * elimination is terminal.
+ * @param {import('./types').Room} room
+ * @param {'blue'|'red'} team
+ */
+function isTeamWipedOut(room, team) {
+  if (!modeOf(room).eliminateOnWrong) return false;
+  const roster = room.teams[team].players.filter((id) => !room.players[id]?.isSpectator);
+  if (roster.length === 0) return false;
+  return roster.every((id) => room.players[id]?.isEliminated);
 }
 
 /**
@@ -319,6 +381,12 @@ function startQuestion(room, io) {
 
   room.usedQuestionIds.push(question.id);
 
+  const seconds = getQuestionSeconds(room);
+  const mode = modeOf(room);
+  // Wager mode stakes points before the question is revealed, so the clock does
+  // not start and the question stays withheld until the stake is locked in.
+  const wagerPending = Array.isArray(mode.wagerOptions);
+
   room.activeQuestion = {
     question, // FULL question including answer — sanitizeRoom strips it before emit
     /** Difficulty actually served, after any fallback (PBI 7). */
@@ -326,15 +394,68 @@ function startQuestion(room, io) {
     disabledOptions: [],
     votes: {}, // playerId → { optionKey, timestamp }
     timerStart: Date.now(),
-    duration: QUESTION_SECONDS,
-    timeLeft: QUESTION_SECONDS,
+    duration: seconds,
+    timeLeft: seconds,
     isSteal: false,   // true once the opposing team has taken over this question
     stealTeam: null,  // which team is attempting the steal
+    /** Wager mode (PBI 9): true while the question is hidden awaiting a stake. */
+    wagerPending,
+    /** Points staked on this question, null outside Wager mode. */
+    wager: null,
     timerHandle: null,
     tickHandle: null,
   };
 
+  // No timer while a stake is outstanding — a countdown on a hidden question
+  // would just punish the captain for reading the stake buttons.
+  if (!wagerPending) scheduleQuestionTimers(room, io);
+}
+
+/**
+ * Lock in a wager and reveal the question (PBI 9).
+ *
+ * Captain-only, like the jokers: the stake is the team's whole score exposure
+ * for the round and it is made blind, so it belongs to the elected decision
+ * maker rather than whoever clicks first.
+ *
+ * @param {import('./types').Room} room
+ * @param {string} playerId
+ * @param {number} amount
+ * @param {import('socket.io').Server} io
+ * @returns {{ error?: string, room?: import('./types').Room }}
+ */
+function placeWager(room, playerId, amount, io) {
+  const mode = modeOf(room);
+  if (!Array.isArray(mode.wagerOptions)) {
+    return { error: 'This game mode does not use wagers.' };
+  }
+  if (room.phase !== 'question' || !room.activeQuestion) {
+    return { error: 'No question is waiting on a wager.' };
+  }
+  if (!room.activeQuestion.wagerPending) {
+    return { error: 'The wager for this question is already set.' };
+  }
+  if (!mode.wagerOptions.includes(amount)) {
+    return { error: `Wager must be one of ${mode.wagerOptions.join(', ')}.` };
+  }
+
+  const player = room.players[playerId];
+  if (!player) return { error: 'Player not found.' };
+  if (player.isSpectator) return { error: 'Spectators cannot place a wager.' };
+  if (player.team !== room.activeTeam) return { error: 'It is not your turn.' };
+  if (room.teams[player.team].captain !== playerId) {
+    return { error: 'Only your team captain can place the wager.' };
+  }
+
+  room.activeQuestion.wager = amount;
+  room.activeQuestion.wagerPending = false;
+  // The clock starts now, when the question actually becomes visible.
+  room.activeQuestion.timerStart = Date.now();
+  room.activeQuestion.timeLeft = room.activeQuestion.duration;
+  room.lastActivityAt = Date.now();
+
   scheduleQuestionTimers(room, io);
+  return { room };
 }
 
 /**
@@ -390,6 +511,9 @@ function resetQuestionTimer(room, io, seconds) {
   room.activeQuestion.timeLeft = seconds;
   room.activeQuestion.votes = {};
   room.activeQuestion.resolving = false; // reset guard so steal team can resolve
+  // A steal never re-hides the question: the stealing team has already seen it,
+  // and leaving wagerPending set would blank the text for the rest of the round.
+  room.activeQuestion.wagerPending = false;
 
   scheduleQuestionTimers(room, io);
 }
@@ -411,7 +535,14 @@ function castVote(room, playerId, rawOption) {
 
   const player = room.players[playerId];
   if (!player) return { error: 'Player not found.' };
-  if (player.team !== room.activeTeam) return { error: 'It is not your team\'s turn.' };
+  if (player.isSpectator) return { error: 'Spectators cannot vote.' };
+  if (player.isEliminated) return { error: 'You have been eliminated.' };
+  if (player.team !== room.activeTeam) return { error: 'It is not your turn.' };
+  // Wager mode hides the question until the stake is in, so a vote at this
+  // point could only be a guess against an unseen question (PBI 9).
+  if (room.activeQuestion.wagerPending) {
+    return { error: 'Your captain must place the wager first.' };
+  }
 
   const optionKey = rawOption.toUpperCase();
   const validOptions = ['A', 'B', 'C', 'D', 'E'].filter(
@@ -422,8 +553,10 @@ function castVote(room, playerId, rawOption) {
   // Player can change their vote during the window
   room.activeQuestion.votes[playerId] = { optionKey, timestamp: Date.now() };
 
-  // Check if all connected active-team members have now voted
-  const activeTeamPlayers = room.teams[room.activeTeam].players.filter(
+  // Check if all connected active-team members have now voted. Eliminated
+  // players (Survival) and spectators are excluded, or a team would wait
+  // forever on votes that can never arrive.
+  const activeTeamPlayers = activeRoster(room, room.activeTeam).filter(
     (id) => room.players[id]?.isConnected,
   );
   const votedCount = activeTeamPlayers.filter((id) => room.activeQuestion.votes[id]).length;
@@ -453,7 +586,8 @@ function resolveVote(room, io) {
 
   const { votes, disabledOptions, question } = room.activeQuestion;
   const validOptions = ['A', 'B', 'C', 'D', 'E'].filter((o) => !disabledOptions.includes(o));
-  const activeTeamPlayers = room.teams[room.activeTeam].players;
+  // Eliminated players and spectators are not part of the tally (PBI 9/PBI 10).
+  const activeTeamPlayers = activeRoster(room, room.activeTeam);
 
   // Tally votes (only from active team, regardless of connection status)
   const tally = {}; // optionKey → { count, earliestTimestamp }
@@ -499,6 +633,8 @@ function resolveVote(room, io) {
   }
 
   // A steal opens only on a first-pass miss, and only if the opponent still has a charge
+  const mode = modeOf(room);
+  const wager = room.activeQuestion.wager;
   const stealOpens = !isSteal && !isCorrect && room.stealCharges[opponent] > 0;
 
   io.to(room.code).emit('answer_reveal', {
@@ -554,7 +690,9 @@ function resolveVote(room, io) {
       if (teamVoted) {
         room.stealCharges[answeringTeam] = Math.max(0, room.stealCharges[answeringTeam] - 1);
         if (isCorrect) {
-          room.teams[answeringTeam].score += 10;
+          // Deliberately the flat steal award even in Wager mode: the stealing
+          // team read the question before committing and never bet blind.
+          room.teams[answeringTeam].score += mode.stealPoints;
           if (checkWin(room)) return finish();
         }
       }
@@ -564,10 +702,33 @@ function resolveVote(room, io) {
 
     // ---- Resolving a normal answer ----
     if (isCorrect) {
-      room.teams[answeringTeam].score += 5;
+      room.teams[answeringTeam].score += wager ?? mode.correctPoints;
       if (checkWin(room)) return finish();
       advanceTurn();
       return;
+    }
+
+    // ---- Wrong answer: mode-specific penalties ----
+    // A lost wager is floored at 0. A race to a target score with negative
+    // values on the board reads as broken, and it would push the difficulty
+    // ramp (PBI 7) backwards into easier questions as a reward for being wrong.
+    if (wager !== null && wager !== undefined) {
+      room.teams[answeringTeam].score = Math.max(0, room.teams[answeringTeam].score - wager);
+    }
+
+    if (mode.eliminateOnWrong) {
+      const eliminatedId = eliminateOnWrongAnswer(room, answeringTeam, votes, winningOption);
+      if (eliminatedId) {
+        console.log(`[Game] Survival: eliminated ${eliminatedId} from ${answeringTeam} in ${room.code}`);
+      }
+      if (isTeamWipedOut(room, answeringTeam)) {
+        // Opponent wins by wipeout: raise them to the threshold so the existing
+        // winner detection, on both server and client, resolves identically to
+        // a points win rather than needing a second "how did this end" path.
+        room.teams[opponent].score = Math.max(room.teams[opponent].score, getWinThreshold(room));
+        console.log(`[Game] Survival: ${answeringTeam} wiped out in ${room.code}`);
+        return finish();
+      }
     }
 
     if (stealOpens) {
@@ -579,7 +740,7 @@ function resolveVote(room, io) {
       room.activeQuestion.isSteal = true;
       room.activeQuestion.stealTeam = opponent;
       room.activeTeam = opponent;
-      resetQuestionTimer(room, io, STEAL_SECONDS);
+      resetQuestionTimer(room, io, getStealSeconds(room));
       io.to(room.code).emit('room:update', sanitizeRoom(room));
       return;
     }
@@ -610,6 +771,46 @@ function passSteal(room, playerId, io) {
   aq.votes = {};
   resolveVote(room, io);
   return { room };
+}
+
+/**
+ * Survival: take one player off the answering team after a wrong answer (PBI 9).
+ *
+ * The player eliminated is the one who cast the vote that lost the round. That
+ * is the only rule a player can predict and accept — "you picked it, you're
+ * out". Eliminating a random teammate would punish someone for a choice they
+ * did not make and might have voted against.
+ *
+ * On a silent timeout nobody chose anything, so the last remaining member goes.
+ * Taking the last one keeps earlier-joined players in longest, which at least
+ * makes the order stable rather than arbitrary.
+ *
+ * @param {import('./types').Room} room
+ * @param {'blue'|'red'} team
+ * @param {Record<string, {optionKey: string}>} votes
+ * @param {string} losingOption the option that was actually submitted
+ * @returns {string|null} the eliminated player id
+ */
+function eliminateOnWrongAnswer(room, team, votes, losingOption) {
+  const roster = activeRoster(room, team);
+  if (roster.length === 0) return null;
+
+  const culprit = roster.find((id) => votes[id]?.optionKey === losingOption)
+    ?? roster[roster.length - 1];
+
+  const player = room.players[culprit];
+  if (!player) return null;
+  player.isEliminated = true;
+
+  // An eliminated captain would freeze jokers and wager for the whole team, so
+  // the armband passes to someone who can still act.
+  const team_ = room.teams[team];
+  if (team_.captain === culprit) {
+    const remaining = activeRoster(room, team);
+    team_.captain = remaining[0] ?? null;
+  }
+
+  return culprit;
 }
 
 // ---------------------------------------------------------------------------
@@ -751,6 +952,10 @@ function resetForRematch(room) {
   room.stealCharges = { blue: STEAL_CHARGES_PER_TEAM, red: STEAL_CHARGES_PER_TEAM };
   room.jokers = { blue: createJokerState(), red: createJokerState() };
   room.rematch = { blue: false, red: false };
+  // Survival eliminations are per match, not per room.
+  for (const player of Object.values(room.players)) {
+    player.isEliminated = false;
+  }
   room.activeTeam = null;
   room.turnTeam = null;
   room.coinTossWinner = null;
@@ -830,7 +1035,13 @@ module.exports = {
   requestRematch,
   resetForRematch,
   checkWin,
+  placeWager,
   getWinThreshold,
+  getQuestionSeconds,
+  getStealSeconds,
+  modeOf,
+  activeRoster,
+  isTeamWipedOut,
   getNextQuestion,
   WIN_SCORE,
   QUESTION_SECONDS,

@@ -1,6 +1,7 @@
 'use strict';
 
 const { randomUUID } = require('crypto');
+const { modeSettingsFor, getMode } = require('./gameModes');
 
 /** @type {Map<string, import('./types').Room>} */
 const rooms = new Map();
@@ -66,9 +67,11 @@ function createTeamState() {
  * @param {string} socketId
  * @returns {{ roomCode: string, playerId: string, room: import('./types').Room }}
  */
-function createRoom(playerName, socketId) {
+function createRoom(playerName, socketId, modeKey) {
   const roomCode = generateRoomCode();
   const playerId = randomUUID();
+  // Resolved at creation so editing the defaults cannot change an in-flight match.
+  const modeSettings = modeSettingsFor(modeKey);
 
   /** @type {import('./types').Player} */
   const player = {
@@ -78,6 +81,7 @@ function createRoom(playerName, socketId) {
     team: null,
     isConnected: true,
     isSpectator: false,
+    isEliminated: false,
   };
 
   /** @type {import('./types').Room} */
@@ -102,11 +106,11 @@ function createRoom(playerName, socketId) {
     categoryAnswerCount: { blue: 0, red: 0 },
     stealCharges: { blue: STEAL_CHARGES_PER_TEAM, red: STEAL_CHARGES_PER_TEAM },
     /**
-     * Points needed to win. Stored on the room rather than read from a constant
-     * so the difficulty ramp (PBI 7) and the client scoreboard read the same
-     * number, and so game modes (PBI 9) change it in one place.
+     * Mode key plus the timings and threshold it resolved to (PBI 9). Stored on
+     * the room rather than read from a constant so the difficulty ramp (PBI 7)
+     * and the client scoreboard read the same numbers.
      */
-    winThreshold: 100,
+    ...modeSettings,
     /** One 50/50 and one extra-time joker per team, per match (PBI 6). */
     jokers: {
       blue: { fiftyFifty: true, extraTime: true },
@@ -163,6 +167,7 @@ function joinRoom(roomCode, playerName, socketId, asSpectator = false) {
     team: null,
     isConnected: true,
     isSpectator: Boolean(asSpectator),
+    isEliminated: false,
   };
   room.lastActivityAt = Date.now();
 
@@ -358,6 +363,21 @@ function sanitizeRoom(room) {
     delete clone.activeQuestion.question.explanation;
   }
 
+  // ANTI-CHEAT (Wager mode, PBI 9): the team stakes points BEFORE seeing the
+  // question, so the text and options are withheld from the payload entirely
+  // until the stake is locked in. Hiding them only in the UI would leave the
+  // whole question sitting in the socket frame for anyone who opened devtools,
+  // which would defeat the mode.
+  if (clone.activeQuestion?.wagerPending) {
+    clone.activeQuestion.question = {
+      id: clone.activeQuestion.question?.id ?? null,
+      text: null,
+      text_tr: null,
+      options: null,
+      options_tr: null,
+    };
+  }
+
   return clone;
 }
 
@@ -411,4 +431,5 @@ module.exports = {
   STEAL_CHARGES_PER_TEAM,
   MAX_PLAYERS,
   MAX_SPECTATORS,
+  getMode,
 };

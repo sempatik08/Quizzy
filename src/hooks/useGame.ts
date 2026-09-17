@@ -36,6 +36,12 @@ export interface UseGameReturn {
   isCaptain: boolean;
   isMyTurn: boolean;
   isHost: boolean;
+  /** I have been knocked out of this Survival match (PBI 9). */
+  isEliminated: boolean;
+  /** A Wager-mode question is waiting on a stake (PBI 9). */
+  isWagerPending: boolean;
+  /** True when I am the captain who must place that stake. */
+  canPlaceWager: boolean;
   /** I am watching, not playing (PBI 10). */
   isSpectator: boolean;
   /** Everyone in the room who is watching rather than playing. */
@@ -70,12 +76,15 @@ export interface UseGameReturn {
     passSteal: () => void;
     useJoker: (type: JokerType) => void;
     sendEmoji: (emoji: EmojiName) => void;
+    placeWager: (amount: number) => void;
     requestRematch: () => void;
   };
 }
 
 export function useGame(roomCode: string): UseGameReturn {
   const [room, setRoom] = useState<Room | null>(null);
+  // Starts at 60 and is corrected by the first room:update / timer_tick. The
+  // room's own questionSeconds is authoritative once state arrives (PBI 9).
   const [timeLeft, setTimeLeft] = useState(60);
   const [answerReveal, setAnswerReveal] = useState<AnswerRevealPayload | null>(null);
   const [roomError, setRoomError] = useState<string | null>(null);
@@ -227,9 +236,9 @@ export function useGame(roomCode: string): UseGameReturn {
 
   const isCaptain = useMemo(() => {
     if (!room || !playerId || !myTeam) return false;
-    if (myPlayer?.isSpectator) return false;
+    if (myPlayer?.isSpectator || myPlayer?.isEliminated) return false;
     return room.teams[myTeam].captain === playerId;
-  }, [room, playerId, myTeam, myPlayer?.isSpectator]);
+  }, [room, playerId, myTeam, myPlayer?.isSpectator, myPlayer?.isEliminated]);
 
   const isMyTurn = useMemo(() => {
     if (!room || !myTeam) return false;
@@ -242,6 +251,17 @@ export function useGame(roomCode: string): UseGameReturn {
   }, [room, playerId]);
 
   const isSpectator = myPlayer?.isSpectator === true;
+  const isEliminated = myPlayer?.isEliminated === true;
+
+  const isWagerPending = room?.activeQuestion?.wagerPending === true;
+
+  // Mirrors placeWager's server-side guards so the buttons only appear for the
+  // one person whose click will be accepted.
+  const canPlaceWager = useMemo(() => {
+    if (!room || !myTeam || !isCaptain || isSpectator || isEliminated) return false;
+    if (room.phase !== 'question' || !room.activeQuestion?.wagerPending) return false;
+    return room.activeTeam === myTeam;
+  }, [room, myTeam, isCaptain, isSpectator, isEliminated]);
 
   const spectators = useMemo(
     () => (room ? Object.values(room.players).filter((p) => p.isSpectator) : []),
@@ -312,6 +332,7 @@ export function useGame(roomCode: string): UseGameReturn {
       passSteal:        ()                  => emit('steal:pass'),
       useJoker:         (type: JokerType)   => emit('joker:use',        { type }),
       sendEmoji:        (emoji: EmojiName)  => emit('emoji:send',       { emoji }),
+      placeWager:       (amount: number)    => emit('wager:place',      { amount }),
       requestRematch:   ()                  => emit('rematch:request'),
       clearErrors:  () => { setRoomError(null); setGameError(null); },
     }),
@@ -332,6 +353,9 @@ export function useGame(roomCode: string): UseGameReturn {
     isMyTurn,
     isHost,
     isSpectator,
+    isEliminated,
+    isWagerPending,
+    canPlaceWager,
     spectators,
     myVote,
     isStealActive,
