@@ -19,6 +19,10 @@ const translations = {
     enterYourName: 'Enter your name.',
     nameTooLong: 'Name too long (max 20 chars).',
     invalidRoomCode: 'Room code must be 6 characters.',
+    // Difficulty (PBI 7)
+    difficultyEasy: 'Easy',
+    difficultyMedium: 'Medium',
+    difficultyHard: 'Hard',
     // Emoji reactions (PBI 11)
     emojiReact: 'React',
     emojiCooldown: 'Wait',
@@ -185,6 +189,10 @@ const translations = {
     enterYourName: 'Adını gir.',
     nameTooLong: 'Ad çok uzun (maks. 20 karakter).',
     invalidRoomCode: 'Oda kodu 6 karakter olmalıdır.',
+    // Zorluk (PBI 7)
+    difficultyEasy: 'Kolay',
+    difficultyMedium: 'Orta',
+    difficultyHard: 'Zor',
     // Emoji tepkileri (PBI 11)
     emojiReact: 'Tepki',
     emojiCooldown: 'Bekle',

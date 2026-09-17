@@ -55,6 +55,8 @@ export interface VoteEntry {
 
 export interface ActiveQuestion {
   question: Question;
+  /** Difficulty actually served: 1 easy, 2 medium, 3 hard (PBI 7). */
+  difficulty: 1 | 2 | 3;
   disabledOptions: OptionKey[];
   votes: Record<string, VoteEntry>; // playerId → vote
   timerStart: number;
@@ -103,6 +105,8 @@ export interface Room {
   categoryAnswerCount: Record<TeamColor, number>;
   /** Remaining steal attempts per team. A charge burns only on a submitted steal. */
   stealCharges: Record<TeamColor, number>;
+  /** Points needed to win this match (PBI 7 / PBI 9). */
+  winThreshold: number;
   /** Jokers each team still holds (PBI 6). */
   jokers: Record<TeamColor, JokerState>;
   /** Per-team consent to replay the match once it has finished (PBI 8). */

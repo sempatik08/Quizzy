@@ -8,6 +8,7 @@ const history = [
     options: { A: 'Athens', B: 'Corinth', C: 'Thebes', D: 'Sparta', E: 'Argos' },
     options_tr: { A: 'Atina', B: 'Korint', C: 'Teba', D: 'Sparta', E: 'Argos' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'King Leonidas of Sparta led 300 Spartans (plus allies) against the Persian army at Thermopylae.',
   },
   {
@@ -17,6 +18,7 @@ const history = [
     options: { A: 'Treaty of Brest-Litovsk', B: 'Treaty of Saint-Germain', C: 'Treaty of Versailles', D: 'Treaty of Trianon', E: 'Treaty of Lausanne' },
     options_tr: { A: 'Brest-Litovsk Antlaşması', B: 'Saint-Germain Antlaşması', C: 'Versay Antlaşması', D: 'Trianon Antlaşması', E: 'Lozan Antlaşması' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Treaty of Versailles (1919) ended the war with Germany; the other treaties dealt with the other Central Powers.',
   },
   {
@@ -26,6 +28,7 @@ const history = [
     options: { A: 'Aztec', B: 'Olmec', C: 'Toltec', D: 'Maya', E: 'Inca' },
     options_tr: { A: 'Aztekler', B: 'Olmekler', C: 'Toltekler', D: 'Mayalar', E: 'İnkalar' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Machu Picchu was built by the Inca Empire in the 15th century in present-day Peru.',
   },
   {
@@ -35,6 +38,7 @@ const history = [
     options: { A: 'Rumeli Fortress', B: 'Anatolian Fortress', C: 'Tiled Kiosk (Çinili Köşk)', D: 'Fatih Mosque', E: 'Süleymaniye Mosque' },
     options_tr: { A: 'Rumeli Hisarı', B: 'Anadolu Hisarı', C: 'Çinili Köşk', D: 'Fatih Camii', E: 'Süleymaniye Camii' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Anadolu Hisarı was built by Bayezid I around 1394; the other four were all built after 1453.',
   },
   {
@@ -44,6 +48,7 @@ const history = [
     options: { A: 'Nefertiti', B: 'Hatshepsut', C: 'Cleopatra VII', D: 'Ramesses III', E: 'Ptolemy XIII' },
     options_tr: { A: 'Nefertiti', B: 'Hatşepsut', C: 'Kleopatra VII', D: 'III. Ramses', E: 'XIII. Ptolemaios' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Cleopatra VII (69–30 BC) was the last ruler of the Ptolemaic Kingdom before Egypt became a Roman province.',
   },
   {
@@ -53,6 +58,7 @@ const history = [
     options: { A: 'The Twelve Tables', B: 'Code of Hammurabi', C: 'Code of Ur-Nammu', D: 'Draconian Constitution', E: 'Code of Justinian' },
     options_tr: { A: 'On İki Levha Kanunu', B: 'Hammurabi Kanunları', C: 'Ur-Nammu Kanunları', D: 'Drakon Anayasası', E: 'Iustinianus Kanunnamesi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Code of Hammurabi (c. 1754 BC) from Babylon is the most complete surviving ancient legal code and famously applies lex talionis. Ur-Nammu\'s code is older but favours fines.',
   },
   {
@@ -62,6 +68,7 @@ const history = [
     options: { A: 'Latin', B: 'Aramaic', C: 'Ancient Greek', D: 'Phoenician', E: 'Coptic' },
     options_tr: { A: 'Latince', B: 'Aramice', C: 'Antik Yunanca', D: 'Fenikece', E: 'Kıptice' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The stone bears hieroglyphic, Demotic and Ancient Greek. Scholars who could read Greek used it as the key.',
   },
   {
@@ -71,6 +78,7 @@ const history = [
     options: { A: 'Pompey', B: 'Sulla', C: 'Julius Caesar', D: 'Mark Antony', E: 'Crassus' },
     options_tr: { A: 'Pompeius', B: 'Sulla', C: 'Julius Caesar', D: 'Marcus Antonius', E: 'Crassus' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Bringing his army across the Rubicon into Italy was an act of war against the Senate; "the die is cast" is attributed to Caesar at that moment.',
   },
   {
@@ -80,6 +88,7 @@ const history = [
     options: { A: '410 AD', B: '455 AD', C: '476 AD', D: '493 AD', E: '527 AD' },
     options_tr: { A: 'MS 410', B: 'MS 455', C: 'MS 476', D: 'MS 493', E: 'MS 527' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Odoacer deposed Romulus Augustulus in 476 AD. 410 was the Visigothic sack of Rome, a different event.',
   },
   {
@@ -89,6 +98,7 @@ const history = [
     options: { A: 'The Holy Roman Empire', B: 'The Byzantine (Eastern Roman) Empire', C: 'The Sassanid Empire', D: 'The Frankish Kingdom', E: 'The Umayyad Caliphate' },
     options_tr: { A: 'Kutsal Roma İmparatorluğu', B: 'Bizans (Doğu Roma) İmparatorluğu', C: 'Sasani İmparatorluğu', D: 'Frank Krallığı', E: 'Emevi Halifeliği' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Justinian ruled the Byzantine Empire from Constantinople (527–565) and rebuilt the Hagia Sophia after the Nika riots.',
   },
   {
@@ -98,6 +108,7 @@ const history = [
     options: { A: 'The Isra', B: 'The Hijra', C: 'The Fatḥ', D: 'The Hajj', E: 'The Bay\'ah' },
     options_tr: { A: 'İsra', B: 'Hicret', C: 'Feth', D: 'Hac', E: 'Biat' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Hijra took place in 622 AD and its year became the start of the Islamic (Hijri) calendar.',
   },
   {
@@ -107,6 +118,7 @@ const history = [
     options: { A: 'The Abbasid Caliphate', B: 'The Byzantine Empire', C: 'The Kingdom of Georgia', D: 'The Fatimid Caliphate', E: 'The Empire of Trebizond' },
     options_tr: { A: 'Abbasi Halifeliği', B: 'Bizans İmparatorluğu', C: 'Gürcistan Krallığı', D: 'Fatımi Halifeliği', E: 'Trabzon İmparatorluğu' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Alp Arslan captured the Byzantine emperor Romanos IV Diogenes at Manzikert, and Turkish beyliks spread across Anatolia in the following decades.',
   },
   {
@@ -116,6 +128,7 @@ const history = [
     options: { A: 'The Bill of Rights', B: 'The Petition of Right', C: 'Magna Carta', D: 'The Act of Settlement', E: 'The Provisions of Oxford' },
     options_tr: { A: 'Haklar Bildirisi (Bill of Rights)', B: 'Petition of Right', C: 'Magna Carta', D: 'Veraset Yasası', E: 'Oxford Hükümleri' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Magna Carta ("Great Charter") was forced on King John by rebel barons at Runnymede in 1215.',
   },
   {
@@ -125,6 +138,7 @@ const history = [
     options: { A: 'Variola virus (smallpox)', B: 'Vibrio cholerae', C: 'Yersinia pestis', D: 'Rickettsia prowazekii (typhus)', E: 'Influenza virus' },
     options_tr: { A: 'Variola virüsü (çiçek)', B: 'Vibrio cholerae (kolera)', C: 'Yersinia pestis', D: 'Rickettsia prowazekii (tifüs)', E: 'İnfluenza virüsü' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The bacterium Yersinia pestis, spread largely by fleas on rodents, caused the plague that killed perhaps a third of Europe.',
   },
   {
@@ -134,6 +148,7 @@ const history = [
     options: { A: 'Kublai Khan', B: 'Ögedei Khan', C: 'Möngke Khan', D: 'Genghis Khan', E: 'Batu Khan' },
     options_tr: { A: 'Kubilay Han', B: 'Ögeday Han', C: 'Möngke Han', D: 'Cengiz Han', E: 'Batu Han' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Genghis (Chinggis) Khan united the Mongol tribes in 1206; his descendants expanded the empire to its greatest extent.',
   },
   {
@@ -143,6 +158,7 @@ const history = [
     options: { A: 'England and Scotland', B: 'France and the Holy Roman Empire', C: 'England and France', D: 'France and Castile', E: 'England and Burgundy' },
     options_tr: { A: 'İngiltere ve İskoçya', B: 'Fransa ve Kutsal Roma İmparatorluğu', C: 'İngiltere ve Fransa', D: 'Fransa ve Kastilya', E: 'İngiltere ve Burgonya' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'England and France fought intermittently from 1337 to 1453 over claims to the French throne.',
   },
   {
@@ -152,6 +168,7 @@ const history = [
     options: { A: 'Movable-type printing press', B: 'The mechanical clock', C: 'The spinning jenny', D: 'Paper', E: 'The telescope' },
     options_tr: { A: 'Hareketli harfli matbaa', B: 'Mekanik saat', C: 'İplik eğirme makinesi (spinning jenny)', D: 'Kâğıt', E: 'Teleskop' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Gutenberg\'s press with reusable metal type made books far cheaper; paper and block printing already existed elsewhere.',
   },
   {
@@ -161,6 +178,7 @@ const history = [
     options: { A: 'Bayezid I', B: 'Murad II', C: 'Mehmed II', D: 'Selim I', E: 'Süleyman I' },
     options_tr: { A: 'I. Bayezid', B: 'II. Murad', C: 'II. Mehmed', D: 'I. Selim', E: 'I. Süleyman' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Mehmed II, thereafter called "Fatih" (the Conqueror), took the city on 29 May 1453, ending the Byzantine Empire.',
   },
   {
@@ -170,6 +188,7 @@ const history = [
     options: { A: 'Vasco da Gama', B: 'Ferdinand Magellan', C: 'Christopher Columbus', D: 'Amerigo Vespucci', E: 'John Cabot' },
     options_tr: { A: 'Vasco da Gama', B: 'Ferdinand Macellan', C: 'Kristof Kolomb', D: 'Amerigo Vespucci', E: 'John Cabot' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Columbus made landfall in the Bahamas in October 1492 under the Catholic Monarchs of Spain.',
   },
   {
@@ -179,6 +198,7 @@ const history = [
     options: { A: 'John Calvin', B: 'Martin Luther', C: 'Huldrych Zwingli', D: 'John Wycliffe', E: 'Jan Hus' },
     options_tr: { A: 'Jean Calvin', B: 'Martin Luther', C: 'Huldrych Zwingli', D: 'John Wycliffe', E: 'Jan Hus' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Luther, an Augustinian monk, challenged the sale of indulgences; the theses spread rapidly thanks to the printing press.',
   },
   {
@@ -188,6 +208,7 @@ const history = [
     options: { A: 'The Inca Empire', B: 'The Maya city-states', C: 'The Aztec Empire', D: 'The Zapotec state', E: 'The Purépecha Empire' },
     options_tr: { A: 'İnka İmparatorluğu', B: 'Maya şehir devletleri', C: 'Aztek İmparatorluğu', D: 'Zapotek devleti', E: 'Purépecha İmparatorluğu' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Cortés captured the Aztec capital Tenochtitlan in 1521. Pizarro toppled the Inca a decade later.',
   },
   {
@@ -197,6 +218,7 @@ const history = [
     options: { A: 'Yavuz (the Stern)', B: 'Fatih (the Conqueror)', C: 'Kanuni (the Lawgiver)', D: 'Gazi (the Warrior)', E: 'Avcı (the Hunter)' },
     options_tr: { A: 'Yavuz', B: 'Fatih', C: 'Kanuni', D: 'Gazi', E: 'Avcı' },
     answer: 'C',
+    difficulty: 2,
     explanation: '"Kanuni" refers to his codification and reform of Ottoman law during his reign (1520–1566).',
   },
   {
@@ -206,6 +228,7 @@ const history = [
     options: { A: 'The Canary Islands', B: 'The Cape Verde Islands', C: 'The Philippines', D: 'The Moluccas', E: 'The Azores' },
     options_tr: { A: 'Kanarya Adaları', B: 'Yeşil Burun Adaları', C: 'Filipinler', D: 'Moluku Adaları', E: 'Azor Adaları' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Magellan was killed at Mactan in the Philippines in 1521; Juan Sebastián Elcano completed the voyage.',
   },
   {
@@ -215,6 +238,7 @@ const history = [
     options: { A: 'The Peace of Augsburg', B: 'The Peace of Westphalia', C: 'The Treaty of Utrecht', D: 'The Peace of the Pyrenees', E: 'The Congress of Vienna' },
     options_tr: { A: 'Augsburg Barışı', B: 'Vestfalya Barışı', C: 'Utrecht Antlaşması', D: 'Pireneler Barışı', E: 'Viyana Kongresi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The 1648 Peace of Westphalia is often taken as the origin of the modern sovereign-state system.',
   },
   {
@@ -224,6 +248,7 @@ const history = [
     options: { A: 'James I', B: 'Charles I', C: 'Charles II', D: 'James II', E: 'William III' },
     options_tr: { A: 'I. James', B: 'I. Charles', C: 'II. Charles', D: 'II. James', E: 'III. William' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Charles I was beheaded in Whitehall; England was then a republic (Commonwealth) under Oliver Cromwell until 1660.',
   },
   {
@@ -233,6 +258,7 @@ const history = [
     options: { A: 'Leopold I of Austria', B: 'John III Sobieski of Poland', C: 'Louis XIV of France', D: 'Charles V of Lorraine', E: 'Frederick William of Brandenburg' },
     options_tr: { A: 'Avusturyalı I. Leopold', B: 'Polonyalı III. Jan Sobieski', C: 'Fransa Kralı XIV. Louis', D: 'Lorraine\'li Charles V', E: 'Brandenburg\'lu Friedrich Wilhelm' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Polish king John III Sobieski led the winged hussars in the relief of Vienna against the army of Kara Mustafa Pasha.',
   },
   {
@@ -242,6 +268,7 @@ const history = [
     options: { A: 'Ivan the Terrible', B: 'Catherine the Great', C: 'Peter the Great', D: 'Alexander I', E: 'Nicholas I' },
     options_tr: { A: 'Korkunç İvan', B: 'Büyük Katerina', C: 'Büyük Petro', D: 'I. Aleksandr', E: 'I. Nikolay' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Peter I built the new capital on the Baltic as a "window to the West" and reorganized the army, navy and administration.',
   },
   {
@@ -251,6 +278,7 @@ const history = [
     options: { A: '1774', B: '1775', C: '1776', D: '1781', E: '1783' },
     options_tr: { A: '1774', B: '1775', C: '1776', D: '1781', E: '1783' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Continental Congress adopted the Declaration on 4 July 1776. 1783 was the Treaty of Paris that recognized independence.',
   },
   {
@@ -260,6 +288,7 @@ const history = [
     options: { A: 'The American Revolution', B: 'The French Revolution', C: 'The Haitian Revolution', D: 'The July Revolution', E: 'The Revolutions of 1848' },
     options_tr: { A: 'Amerikan Devrimi', B: 'Fransız Devrimi', C: 'Haiti Devrimi', D: 'Temmuz Devrimi', E: '1848 Devrimleri' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The fall of the Bastille prison in Paris is commemorated as France\'s national day.',
   },
   {
@@ -269,6 +298,7 @@ const history = [
     options: { A: 'The Louisiana Purchase', B: 'The Haitian Declaration of Independence', C: 'The abolition of the French monarchy', D: 'The Congress of Vienna', E: 'The Monroe Doctrine' },
     options_tr: { A: 'Louisiana Satın Alımı', B: 'Haiti Bağımsızlık Bildirisi', C: 'Fransız monarşisinin kaldırılması', D: 'Viyana Kongresi', E: 'Monroe Doktrini' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'After a slave revolt defeated Napoleon\'s forces, Haiti declared independence from France on 1 January 1804.',
   },
   {
@@ -278,6 +308,7 @@ const history = [
     options: { A: 'Louis XVI', B: 'Napoleon Bonaparte', C: 'Metternich', D: 'Talleyrand', E: 'Tsar Alexander I' },
     options_tr: { A: 'XVI. Louis', B: 'Napolyon Bonapart', C: 'Metternich', D: 'Talleyrand', E: 'Çar I. Aleksandr' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Congress sought a balance-of-power settlement after Napoleon\'s first abdication; it was interrupted by his brief return in 1815.',
   },
   {
@@ -287,6 +318,7 @@ const history = [
     options: { A: 'The Austrian Empire', B: 'The Russian Empire', C: 'The Ottoman Empire', D: 'The Venetian Republic', E: 'The British Empire' },
     options_tr: { A: 'Avusturya İmparatorluğu', B: 'Rus İmparatorluğu', C: 'Osmanlı İmparatorluğu', D: 'Venedik Cumhuriyeti', E: 'Britanya İmparatorluğu' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Greece won recognition of independence from the Ottoman Empire in 1830 after intervention by Britain, France and Russia.',
   },
   {
@@ -296,6 +328,7 @@ const history = [
     options: { A: 'Garibaldi and Metternich', B: 'Cavour and Bismarck', C: 'Mazzini and Wilhelm I', D: 'Victor Emmanuel II and Moltke', E: 'Cavour and Kaiser Wilhelm II' },
     options_tr: { A: 'Garibaldi ve Metternich', B: 'Cavour ve Bismarck', C: 'Mazzini ve I. Wilhelm', D: 'II. Vittorio Emanuele ve Moltke', E: 'Cavour ve Kayzer II. Wilhelm' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Count Cavour engineered Italian unification (completed 1871) and Otto von Bismarck engineered German unification (1871).',
   },
   {
@@ -305,6 +338,7 @@ const history = [
     options: { A: 'Tariffs on manufactured goods', B: 'The expansion and future of slavery', C: 'Control of railroads', D: 'Immigration policy', E: 'Currency and banking' },
     options_tr: { A: 'Sanayi mallarına gümrük vergileri', B: 'Köleliğin yayılması ve geleceği', C: 'Demiryollarının kontrolü', D: 'Göç politikası', E: 'Para ve bankacılık' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Southern states seceded to protect slavery; the war ended slavery in the US with the 13th Amendment.',
   },
   {
@@ -314,6 +348,7 @@ const history = [
     options: { A: 'The Ausgleich (Austro-Hungarian Compromise)', B: 'The Treaty of Prague', C: 'The Pragmatic Sanction', D: 'The Dual Alliance', E: 'The Congress of Berlin' },
     options_tr: { A: 'Ausgleich (Avusturya-Macaristan Uzlaşması)', B: 'Prag Antlaşması', C: 'Pragmatik Yaptırım', D: 'İkili İttifak', E: 'Berlin Kongresi' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The 1867 Compromise created Austria-Hungary, with Hungary gaining its own parliament and government under a shared monarch.',
   },
   {
@@ -323,6 +358,7 @@ const history = [
     options: { A: 'China', B: 'Korea', C: 'Japan', D: 'Thailand', E: 'Vietnam' },
     options_tr: { A: 'Çin', B: 'Kore', C: 'Japonya', D: 'Tayland', E: 'Vietnam' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Power was restored to the Japanese emperor and the country industrialized and militarized within a generation.',
   },
   {
@@ -332,6 +368,7 @@ const history = [
     options: { A: 'The Congress of Berlin', B: 'The Berlin Conference', C: 'The Hague Convention', D: 'The Brussels Conference', E: 'The Congress of Vienna' },
     options_tr: { A: 'Berlin Kongresi', B: 'Berlin Konferansı', C: 'Lahey Sözleşmesi', D: 'Brüksel Konferansı', E: 'Viyana Kongresi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Berlin Conference of 1884–85 set rules for European powers partitioning Africa. The 1878 Congress of Berlin was about the Balkans.',
   },
   {
@@ -341,6 +378,7 @@ const history = [
     options: { A: 'Tsar Nicholas II', B: 'Archduke Franz Ferdinand', C: 'King Alexander I of Serbia', D: 'Kaiser Wilhelm II', E: 'Jean Jaurès' },
     options_tr: { A: 'Çar II. Nikolay', B: 'Arşidük Franz Ferdinand', C: 'Sırbistan Kralı I. Aleksandar', D: 'Kayzer II. Wilhelm', E: 'Jean Jaurès' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Gavrilo Princip, a Bosnian Serb nationalist, shot the Austro-Hungarian heir and his wife, prompting the July Crisis.',
   },
   {
@@ -350,6 +388,7 @@ const history = [
     options: { A: 'The Bosphorus', B: 'The Dardanelles', C: 'The Strait of Otranto', D: 'The Suez Canal', E: 'The Strait of Gibraltar' },
     options_tr: { A: 'İstanbul Boğazı', B: 'Çanakkale Boğazı (Dardanel)', C: 'Otranto Boğazı', D: 'Süveyş Kanalı', E: 'Cebelitarık Boğazı' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The failed landings on the Gallipoli peninsula guarding the Dardanelles cost heavy casualties on both sides; Mustafa Kemal rose to prominence there.',
   },
   {
@@ -359,6 +398,7 @@ const history = [
     options: { A: 'The Mensheviks', B: 'The Socialist Revolutionaries', C: 'The Bolsheviks', D: 'The Constitutional Democrats (Kadets)', E: 'The Octobrists' },
     options_tr: { A: 'Menşevikler', B: 'Sosyalist Devrimciler', C: 'Bolşevikler', D: 'Anayasal Demokratlar (Kadetler)', E: 'Oktobristler' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Lenin\'s Bolsheviks seized power from the Provisional Government, leading to the founding of the Soviet state.',
   },
   {
@@ -368,6 +408,7 @@ const history = [
     options: { A: 'İsmet İnönü', B: 'Enver Pasha', C: 'Mustafa Kemal Atatürk', D: 'Kâzım Karabekir', E: 'Fevzi Çakmak' },
     options_tr: { A: 'İsmet İnönü', B: 'Enver Paşa', C: 'Mustafa Kemal Atatürk', D: 'Kâzım Karabekir', E: 'Fevzi Çakmak' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Mustafa Kemal led the national resistance from Ankara; the Republic was proclaimed on 29 October 1923 with him as president.',
   },
   {
@@ -377,6 +418,7 @@ const history = [
     options: { A: 'The Treaty of Kars', B: 'The Treaty of Lausanne', C: 'The Treaty of Moscow', D: 'The Armistice of Mudanya', E: 'The Treaty of Ankara' },
     options_tr: { A: 'Kars Antlaşması', B: 'Lozan Antlaşması', C: 'Moskova Antlaşması', D: 'Mudanya Mütarekesi', E: 'Ankara Antlaşması' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Treaty of Lausanne (July 1923) was negotiated by İsmet İnönü and secured international recognition of the new Turkish state.',
   },
   {
@@ -386,6 +428,7 @@ const history = [
     options: { A: '1919', B: '1923', C: '1929', D: '1931', E: '1933' },
     options_tr: { A: '1919', B: '1923', C: '1929', D: '1931', E: '1933' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The US stock market collapsed in October 1929, deepening a worldwide economic depression through the 1930s.',
   },
   {
@@ -395,6 +438,7 @@ const history = [
     options: { A: '1929', B: '1931', C: '1933', D: '1934', E: '1936' },
     options_tr: { A: '1929', B: '1931', C: '1933', D: '1934', E: '1936' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'President Hindenburg appointed Hitler chancellor on 30 January 1933; the Nazi dictatorship consolidated over the following 18 months.',
   },
   {
@@ -404,6 +448,7 @@ const history = [
     options: { A: 'France', B: 'Czechoslovakia', C: 'Poland', D: 'Belgium', E: 'Austria' },
     options_tr: { A: 'Fransa', B: 'Çekoslovakya', C: 'Polonya', D: 'Belçika', E: 'Avusturya' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Germany invaded Poland on 1 September 1939; Britain and France declared war two days later.',
   },
   {
@@ -413,6 +458,7 @@ const history = [
     options: { A: 'Brittany', B: 'Normandy', C: 'Provence', D: 'Flanders', E: 'Calais' },
     options_tr: { A: 'Britanya (Bretagne)', B: 'Normandiya', C: 'Provence', D: 'Flandre', E: 'Calais' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Allied forces landed on five Normandy beaches (Utah, Omaha, Gold, Juno, Sword), opening the Western Front in France.',
   },
   {
@@ -422,6 +468,7 @@ const history = [
     options: { A: 'Tokyo', B: 'Nagasaki', C: 'Hiroshima', D: 'Osaka', E: 'Kyoto' },
     options_tr: { A: 'Tokyo', B: 'Nagazaki', C: 'Hiroşima', D: 'Osaka', E: 'Kyoto' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Hiroshima was bombed on 6 August; Nagasaki on 9 August. Japan announced surrender on 15 August 1945.',
   },
   {
@@ -431,6 +478,7 @@ const history = [
     options: { A: '1919', B: '1939', C: '1945', D: '1948', E: '1950' },
     options_tr: { A: '1919', B: '1939', C: '1945', D: '1948', E: '1950' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The UN Charter took effect on 24 October 1945. 1948 saw the Universal Declaration of Human Rights.',
   },
   {
@@ -440,6 +488,7 @@ const history = [
     options: { A: 'India and Bangladesh', B: 'India and Pakistan', C: 'India and Ceylon', D: 'Pakistan and Bangladesh', E: 'India and Burma' },
     options_tr: { A: 'Hindistan ve Bangladeş', B: 'Hindistan ve Pakistan', C: 'Hindistan ve Seylan', D: 'Pakistan ve Bangladeş', E: 'Hindistan ve Burma' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'India and Pakistan became independent in August 1947. Bangladesh (formerly East Pakistan) seceded from Pakistan in 1971.',
   },
   {
@@ -449,6 +498,7 @@ const history = [
     options: { A: 'Zhou Enlai', B: 'Chiang Kai-shek', C: 'Deng Xiaoping', D: 'Mao Zedong', E: 'Sun Yat-sen' },
     options_tr: { A: 'Zhou Enlai', B: 'Çan Kay-şek', C: 'Deng Xiaoping', D: 'Mao Zedong', E: 'Sun Yat-sen' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Mao proclaimed the PRC on 1 October 1949 after the Communists won the civil war; the Nationalists retreated to Taiwan.',
   },
   {
@@ -458,6 +508,7 @@ const history = [
     options: { A: 'France', B: 'The United Kingdom', C: 'The Soviet Union', D: 'The United States', E: 'East Germany' },
     options_tr: { A: 'Fransa', B: 'Birleşik Krallık', C: 'Sovyetler Birliği', D: 'Amerika Birleşik Devletleri', E: 'Doğu Almanya' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The USSR blockaded land routes to West Berlin; Western powers supplied the city by air for nearly a year.',
   },
   {
@@ -467,6 +518,7 @@ const history = [
     options: { A: 'The Berlin Crisis', B: 'The Cuban Missile Crisis', C: 'The Suez Crisis', D: 'The U-2 incident', E: 'The Bay of Pigs invasion' },
     options_tr: { A: 'Berlin Krizi', B: 'Küba Füze Krizi', C: 'Süveyş Krizi', D: 'U-2 olayı', E: 'Domuzlar Körfezi çıkarması' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'In October 1962, the US discovered Soviet nuclear missiles in Cuba; a naval "quarantine" and secret negotiations defused the crisis.',
   },
   {
@@ -476,6 +528,7 @@ const history = [
     options: { A: 'Cambodia', B: 'South Korea', C: 'Laos', D: 'South Vietnam', E: 'Thailand' },
     options_tr: { A: 'Kamboçya', B: 'Güney Kore', C: 'Laos', D: 'Güney Vietnam', E: 'Tayland' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'US combat troops fought for South Vietnam; the Paris Peace Accords of 1973 preceded the fall of Saigon in 1975.',
   },
   {
@@ -485,6 +538,7 @@ const history = [
     options: { A: 'The United States', B: 'The Soviet Union', C: 'The United Kingdom', D: 'France', E: 'Germany' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Sovyetler Birliği', C: 'Birleşik Krallık', D: 'Fransa', E: 'Almanya' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Yuri Gagarin orbited Earth aboard Vostok 1 on 12 April 1961.',
   },
   {
@@ -494,6 +548,7 @@ const history = [
     options: { A: '1967', B: '1968', C: '1969', D: '1970', E: '1972' },
     options_tr: { A: '1967', B: '1968', C: '1969', D: '1970', E: '1972' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Neil Armstrong and Buzz Aldrin walked on the Moon on 20 July 1969.',
   },
   {
@@ -503,6 +558,7 @@ const history = [
     options: { A: 'NATO', B: 'The Warsaw Pact', C: 'The Comintern', D: 'CENTO', E: 'The Non-Aligned Movement' },
     options_tr: { A: 'NATO', B: 'Varşova Paktı', C: 'Komintern', D: 'CENTO', E: 'Bağlantısızlar Hareketi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Warsaw Pact forces led by the USSR invaded Czechoslovakia in August 1968 to reverse Alexander Dubček\'s reforms.',
   },
   {
@@ -512,6 +568,7 @@ const history = [
     options: { A: 'Mohammad Mosaddegh', B: 'Ali Khamenei', C: 'Ruhollah Khomeini', D: 'Abolhassan Banisadr', E: 'Mehdi Bazargan' },
     options_tr: { A: 'Muhammed Musaddık', B: 'Ali Hamaney', C: 'Ruhullah Humeyni', D: 'Abolhasan Benisadr', E: 'Mehdi Bazergan' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Ayatollah Khomeini returned from exile and became Supreme Leader of the new Islamic Republic of Iran.',
   },
   {
@@ -521,6 +578,7 @@ const history = [
     options: { A: '1985', B: '1987', C: '1989', D: '1990', E: '1991' },
     options_tr: { A: '1985', B: '1987', C: '1989', D: '1990', E: '1991' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The wall was opened on 9 November 1989; Germany was reunified in October 1990 and the USSR dissolved in December 1991.',
   },
   {
@@ -530,6 +588,7 @@ const history = [
     options: { A: '1989', B: '1990', C: '1991', D: '1992', E: '1993' },
     options_tr: { A: '1989', B: '1990', C: '1991', D: '1992', E: '1993' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Mikhail Gorbachev resigned on 25 December 1991 and the USSR ceased to exist the next day, splitting into 15 states.',
   },
   {
@@ -539,6 +598,7 @@ const history = [
     options: { A: '1990', B: '1991', C: '1993', D: '1994', E: '1996' },
     options_tr: { A: '1990', B: '1991', C: '1993', D: '1994', E: '1996' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Nelson Mandela was elected president in the April 1994 elections, ending decades of white-minority rule.',
   },
   {
@@ -548,6 +608,7 @@ const history = [
     options: { A: 'The Colossus of Rhodes', B: 'The Lighthouse of Alexandria', C: 'The Temple of Artemis', D: 'The Mausoleum at Halicarnassus', E: 'The Hanging Gardens' },
     options_tr: { A: 'Rodos Heykeli', B: 'İskenderiye Feneri', C: 'Artemis Tapınağı', D: 'Halikarnas Mozolesi', E: 'Asma Bahçeler' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Lighthouse (Pharos) of Alexandria, built under the Ptolemies around 280 BC, was one of the Seven Wonders of the Ancient World.',
   },
   {
@@ -557,6 +618,7 @@ const history = [
     options: { A: 'Sub-Saharan Africa', B: 'The Mediterranean and Europe', C: 'The Americas', D: 'Australia', E: 'Scandinavia' },
     options_tr: { A: 'Sahra Altı Afrika', B: 'Akdeniz ve Avrupa', C: 'Amerika kıtası', D: 'Avustralya', E: 'İskandinavya' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The network of routes carried silk, spices and ideas between East Asia and the Mediterranean world for over a thousand years.',
   },
   {
@@ -566,6 +628,7 @@ const history = [
     options: { A: 'The fall of the Western Roman Empire', B: 'The Norman Conquest of England', C: 'The French Revolution', D: 'The Crusades', E: 'The reign of Charlemagne' },
     options_tr: { A: 'Batı Roma İmparatorluğu\'nun yıkılışı', B: 'İngiltere\'nin Norman Fethi', C: 'Fransız Devrimi', D: 'Haçlı Seferleri', E: 'Şarlman\'ın saltanatı' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Magna Carta (1215), the Renaissance (14th–16th c.) and the Reformation (16th c.) all predate the French Revolution (1789).',
   },
   {
@@ -575,6 +638,7 @@ const history = [
     options: { A: 'The Inca Empire', B: 'The Aztec Empire', C: 'The Maya League', D: 'The Kingdom of Kush', E: 'The Songhai Empire' },
     options_tr: { A: 'İnka İmparatorluğu', B: 'Aztek İmparatorluğu', C: 'Maya Ligi', D: 'Kush Krallığı', E: 'Songhay İmparatorluğu' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Tenochtitlan, on an island in Lake Texcoco, was the Aztec capital; Mexico City is built over its ruins.',
   },
   {
@@ -584,6 +648,7 @@ const history = [
     options: { A: 'Agricultural labour on state farms', B: 'Service in the Janissary corps and palace administration', C: 'Galley rowing in the navy', D: 'Construction of imperial mosques', E: 'Tax collection in the provinces' },
     options_tr: { A: 'Devlet çiftliklerinde tarım işçiliği', B: 'Yeniçeri ocağı ve saray yönetiminde hizmet', C: 'Donanmada kadırga kürekçiliği', D: 'İmparatorluk camilerinin inşası', E: 'Taşrada vergi toplama' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Levied boys were converted to Islam and trained; the ablest rose to high office, some becoming grand viziers.',
   },
   {
@@ -593,6 +658,7 @@ const history = [
     options: { A: 'France', B: 'The Netherlands', C: 'Italy', D: 'England', E: 'Germany' },
     options_tr: { A: 'Fransa', B: 'Hollanda', C: 'İtalya', D: 'İngiltere', E: 'Almanya' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The cultural rebirth began in the Italian city-states, especially Florence, in the 14th century.',
   },
   {
@@ -602,6 +668,7 @@ const history = [
     options: { A: 'The Columbian Exchange', B: 'The Middle Passage', C: 'The Trans-Saharan trade', D: 'The Manila Galleon route', E: 'The Hanseatic League routes' },
     options_tr: { A: 'Kolomb Değişimi', B: 'Orta Geçit (Middle Passage)', C: 'Trans-Sahra ticareti', D: 'Manila Kalyonu rotası', E: 'Hansa Birliği rotaları' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The "Middle Passage" was the transatlantic leg of the triangular trade, notorious for its lethal conditions.',
   },
   {
@@ -611,6 +678,7 @@ const history = [
     options: { A: 'The United States', B: 'France', C: 'Belgium', D: 'Great Britain', E: 'Prussia' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Fransa', C: 'Belçika', D: 'Büyük Britanya', E: 'Prusya' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Textile mechanization, steam power and coal in Britain from around the 1760s launched industrialization.',
   },
   {
@@ -620,6 +688,7 @@ const history = [
     options: { A: 'The Russo-Turkish War', B: 'The Crimean War', C: 'The Franco-Prussian War', D: 'The Second Italian War of Independence', E: 'The Great Eastern Crisis' },
     options_tr: { A: 'Rus-Türk Savaşı', B: 'Kırım Savaşı', C: 'Fransa-Prusya Savaşı', D: 'İkinci İtalya Bağımsızlık Savaşı', E: 'Büyük Doğu Krizi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Crimean War (1853–56) centred on the Black Sea and the fortress of Sevastopol.',
   },
   {
@@ -629,6 +698,7 @@ const history = [
     options: { A: 'The Russian Empire', B: 'The Qajar dynasty of Persia', C: 'The Ottoman Empire', D: 'The Kingdom of Egypt', E: 'The Austrian Empire' },
     options_tr: { A: 'Rus İmparatorluğu', B: 'İran Kaçar Hanedanı', C: 'Osmanlı İmparatorluğu', D: 'Mısır Krallığı', E: 'Avusturya İmparatorluğu' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Tanzimat ("reorganization") edicts of 1839 and 1856 reformed Ottoman law, administration, taxation and the status of non-Muslims.',
   },
   {
@@ -638,6 +708,7 @@ const history = [
     options: { A: 'The Muslim League', B: 'The Indian National Congress', C: 'The Swaraj Party', D: 'The Home Rule League', E: 'The Ghadar Party' },
     options_tr: { A: 'Müslüman Birliği', B: 'Hindistan Ulusal Kongresi', C: 'Swaraj Partisi', D: 'Home Rule Ligi', E: 'Ghadar Partisi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Indian National Congress, founded in 1885, became the main nationalist movement under leaders such as Gandhi and Nehru.',
   },
   {
@@ -647,6 +718,7 @@ const history = [
     options: { A: 'Japan', B: 'Korea', C: 'China', D: 'Vietnam', E: 'Siam' },
     options_tr: { A: 'Japonya', B: 'Kore', C: 'Çin', D: 'Vietnam', E: 'Siyam' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The anti-foreign, anti-Christian uprising in Qing China was suppressed by an eight-nation alliance.',
   },
   {
@@ -656,6 +728,7 @@ const history = [
     options: { A: 'The First Sino-Japanese War', B: 'The Russo-Japanese War', C: 'The Boxer War', D: 'The Anglo-Afghan War', E: 'The Italo-Turkish War' },
     options_tr: { A: 'Birinci Çin-Japon Savaşı', B: 'Rus-Japon Savaşı', C: 'Boksör Savaşı', D: 'İngiliz-Afgan Savaşı', E: 'İtalyan-Türk Savaşı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Japan\'s victory over Russia in 1904–05, sealed at Tsushima and Mukden, shocked the European powers.',
   },
   {
@@ -665,6 +738,7 @@ const history = [
     options: { A: 'The Armenians', B: 'The Kurds', C: 'The Jewish people', D: 'The Assyrians', E: 'The Druze' },
     options_tr: { A: 'Ermeniler', B: 'Kürtler', C: 'Yahudi halkı', D: 'Süryaniler', E: 'Dürziler' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The letter from Foreign Secretary Arthur Balfour became a cornerstone of the British Mandate policy in Palestine.',
   },
   {
@@ -674,6 +748,7 @@ const history = [
     options: { A: 'Manuel Azaña', B: 'Francisco Franco', C: 'Dolores Ibárruri', D: 'José Antonio Primo de Rivera', E: 'Juan Negrín' },
     options_tr: { A: 'Manuel Azaña', B: 'Francisco Franco', C: 'Dolores Ibárruri', D: 'José Antonio Primo de Rivera', E: 'Juan Negrín' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'General Franco\'s Nationalists defeated the Republic and he ruled Spain as dictator until his death in 1975.',
   },
   {
@@ -683,6 +758,7 @@ const history = [
     options: { A: 'Rebuild the economies of Western Europe', B: 'Contain communism in East Asia', C: 'Fund the United Nations', D: 'Establish NATO military bases', E: 'Provide famine relief to India' },
     options_tr: { A: 'Batı Avrupa ekonomilerini yeniden inşa etmek', B: 'Doğu Asya\'da komünizmi çevrelemek', C: 'Birleşmiş Milletler\'i finanse etmek', D: 'NATO askeri üsleri kurmak', E: 'Hindistan\'a kıtlık yardımı sağlamak' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The European Recovery Program sent roughly $13 billion in aid to help rebuild war-torn Western Europe and blunt Soviet appeal.',
   },
   {
@@ -692,6 +768,7 @@ const history = [
     options: { A: 'The 17th parallel', B: 'The 38th parallel', C: 'The 45th parallel', D: 'The 49th parallel', E: 'The 40th parallel' },
     options_tr: { A: '17. paralel', B: '38. paralel', C: '45. paralel', D: '49. paralel', E: '40. paralel' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The 1953 armistice fixed the demilitarized zone near the 38th parallel; no peace treaty has been signed. The 17th parallel divided Vietnam.',
   },
   {
@@ -701,6 +778,7 @@ const history = [
     options: { A: 'The Aswan Dam', B: 'The Suez Canal', C: 'Egypt\'s oil fields', D: 'The Cairo railways', E: 'The cotton export board' },
     options_tr: { A: 'Assuan Barajı', B: 'Süveyş Kanalı', C: 'Mısır petrol sahaları', D: 'Kahire demiryolları', E: 'Pamuk ihracat kurulu' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Nasser nationalized the Anglo-French canal company in July 1956; an Israeli, British and French intervention followed but was reversed under US and Soviet pressure.',
   },
   {
@@ -710,6 +788,7 @@ const history = [
     options: { A: 'Nikita Khrushchev', B: 'Leonid Brezhnev', C: 'Yuri Andropov', D: 'Mikhail Gorbachev', E: 'Boris Yeltsin' },
     options_tr: { A: 'Nikita Kruşçev', B: 'Leonid Brejnev', C: 'Yuri Andropov', D: 'Mihail Gorbaçov', E: 'Boris Yeltsin' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Gorbachev introduced "restructuring" and "openness" from 1985; both accelerated the collapse of the Soviet system.',
   },
   {
@@ -719,6 +798,7 @@ const history = [
     options: { A: 'The Treaty of Rome', B: 'The Single European Act', C: 'The Maastricht Treaty', D: 'The Treaty of Lisbon', E: 'The Schengen Agreement' },
     options_tr: { A: 'Roma Antlaşması', B: 'Avrupa Tek Senedi', C: 'Maastricht Antlaşması', D: 'Lizbon Antlaşması', E: 'Schengen Anlaşması' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Maastricht Treaty (signed 1992, in force 1993) created the EU and set the path to the euro.',
   },
   {
@@ -728,6 +808,7 @@ const history = [
     options: { A: 'The Egyptians', B: 'The Sumerians', C: 'The Hittites', D: 'The Phoenicians', E: 'The Minoans' },
     options_tr: { A: 'Mısırlılar', B: 'Sümerler', C: 'Hititler', D: 'Fenikeliler', E: 'Minoslular' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Sumerians of southern Mesopotamia developed cuneiform on clay tablets from around 3200 BC.',
   },
   {
@@ -737,6 +818,7 @@ const history = [
     options: { A: 'Iraq', B: 'Iran', C: 'Turkey', D: 'Syria', E: 'Greece' },
     options_tr: { A: 'Irak', B: 'İran', C: 'Türkiye', D: 'Suriye', E: 'Yunanistan' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Hittite capital Hattusa was in central Anatolia, near modern Boğazkale. Kadesh (c. 1274 BC) produced one of history\'s first known peace treaties.',
   },
   {
@@ -746,6 +828,7 @@ const history = [
     options: { A: 'Sparta', B: 'Corinth', C: 'Thebes', D: 'Athens', E: 'Syracuse' },
     options_tr: { A: 'Sparta', B: 'Korint', C: 'Teba', D: 'Atina', E: 'Siraküza' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Athenian democracy, associated with reforms by Cleisthenes (508 BC) and the age of Pericles, let male citizens vote directly in the assembly.',
   },
   {
@@ -755,6 +838,7 @@ const history = [
     options: { A: 'Julius Caesar', B: 'Octavian', C: 'Mark Antony', D: 'Tiberius', E: 'Pompey' },
     options_tr: { A: 'Julius Caesar', B: 'Octavianus', C: 'Marcus Antonius', D: 'Tiberius', E: 'Pompeius' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Octavian, Caesar\'s adopted heir, took the title Augustus in 27 BC after defeating Antony and Cleopatra.',
   },
   {
@@ -764,6 +848,7 @@ const history = [
     options: { A: 'Constantinople', B: 'Damascus', C: 'Jerusalem', D: 'Antioch', E: 'Cairo' },
     options_tr: { A: 'Konstantinopolis', B: 'Şam', C: 'Kudüs', D: 'Antakya', E: 'Kahire' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Pope Urban II called the First Crusade in 1095; the crusaders captured Jerusalem in 1099.',
   },
   {
@@ -773,6 +858,7 @@ const history = [
     options: { A: 'Genghis Khan', B: 'Kublai Khan', C: 'Timur (Tamerlane)', D: 'Saladin', E: 'Suleiman the Magnificent' },
     options_tr: { A: 'Cengiz Han', B: 'Kubilay Han', C: 'Timur', D: 'Selahaddin Eyyubi', E: 'Kanuni Sultan Süleyman' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Venetian merchant claimed to have served Kublai Khan, founder of the Yuan dynasty in China, for many years.',
   },
   {
@@ -782,6 +868,7 @@ const history = [
     options: { A: 'Córdoba', B: 'Seville', C: 'Toledo', D: 'Granada', E: 'Valencia' },
     options_tr: { A: 'Kurtuba', B: 'Sevilla', C: 'Toledo', D: 'Gırnata', E: 'Valensiya' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Emirate of Granada surrendered to Ferdinand and Isabella in January 1492, completing the Christian reconquest of Spain.',
   },
   {
@@ -791,6 +878,7 @@ const history = [
     options: { A: 'William III and Mary II', B: 'Anne and George of Denmark', C: 'George I and Sophia', D: 'Charles II and Catherine', E: 'William IV and Adelaide' },
     options_tr: { A: 'III. William ve II. Mary', B: 'Anne ve Danimarkalı George', C: 'I. George ve Sophia', D: 'II. Charles ve Catherine', E: 'IV. William ve Adelaide' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Parliament invited the Dutch stadtholder William of Orange and his wife Mary, James\'s daughter, to take the throne jointly.',
   },
   {
@@ -800,6 +888,7 @@ const history = [
     options: { A: 'Sugar', B: 'Stamps and legal documents', C: 'Tea', D: 'Glass and paper', E: 'Molasses' },
     options_tr: { A: 'Şeker', B: 'Damga ve resmi belgeler', C: 'Çay', D: 'Cam ve kâğıt', E: 'Melas' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Colonists dumped East India Company tea into Boston Harbor to protest the Tea Act and "taxation without representation".',
   },
   {
@@ -809,6 +898,7 @@ const history = [
     options: { A: 'Austerlitz', B: 'Borodino', C: 'Leipzig', D: 'Waterloo', E: 'Trafalgar' },
     options_tr: { A: 'Austerlitz', B: 'Borodino', C: 'Leipzig', D: 'Waterloo', E: 'Trafalgar' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'A coalition under Wellington and Blücher defeated Napoleon at Waterloo in present-day Belgium; he was exiled to Saint Helena.',
   },
   {
@@ -818,6 +908,7 @@ const history = [
     options: { A: 'Mexico and Central America', B: 'northern South America', C: 'the Caribbean islands', D: 'the Philippines', E: 'Brazil' },
     options_tr: { A: 'Meksika ve Orta Amerika', B: 'kuzey Güney Amerika', C: 'Karayip adaları', D: 'Filipinler', E: 'Brezilya' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Bolívar led independence campaigns that freed Venezuela, Colombia, Ecuador, Peru and Bolivia (named after him) in the 1810s–20s.',
   },
   {
@@ -827,6 +918,7 @@ const history = [
     options: { A: 'France', B: 'Russia', C: 'Britain', D: 'Japan', E: 'Portugal' },
     options_tr: { A: 'Fransa', B: 'Rusya', C: 'Britanya', D: 'Japonya', E: 'Portekiz' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Britain fought the First (1839–42) and, with France, the Second (1856–60) Opium War, forcing open Chinese trade and ceding Hong Kong.',
   },
   {
@@ -836,6 +928,7 @@ const history = [
     options: { A: 'The Franco-Prussian War', B: 'World War I', C: 'World War II', D: 'The Crimean War', E: 'The Napoleonic Wars' },
     options_tr: { A: 'Fransa-Prusya Savaşı', B: 'Birinci Dünya Savaşı', C: 'İkinci Dünya Savaşı', D: 'Kırım Savaşı', E: 'Napolyon Savaşları' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The League was founded in 1920 under the Treaty of Versailles; its failure to prevent WWII led to its replacement by the UN.',
   },
   {
@@ -845,6 +938,7 @@ const history = [
     options: { A: 'Cotton cloth', B: 'Salt', C: 'Tea', D: 'Opium', E: 'Iron' },
     options_tr: { A: 'Pamuklu kumaş', B: 'Tuz', C: 'Çay', D: 'Afyon', E: 'Demir' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Gandhi walked to the sea at Dandi to make salt in defiance of the colonial salt laws, energizing the civil-disobedience movement.',
   },
   {
@@ -854,6 +948,7 @@ const history = [
     options: { A: 'The United States', B: 'The United Kingdom', C: 'New Zealand', D: 'Finland', E: 'Australia' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Birleşik Krallık', C: 'Yeni Zelanda', D: 'Finlandiya', E: 'Avustralya' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'New Zealand granted women\'s suffrage in 1893. Finland (1906) was the first to also allow women to stand for parliament.',
   },
   {
@@ -863,6 +958,7 @@ const history = [
     options: { A: 'Che Guevara', B: 'Fulgencio Batista', C: 'Fidel Castro', D: 'Camilo Cienfuegos', E: 'Raúl Castro' },
     options_tr: { A: 'Che Guevara', B: 'Fulgencio Batista', C: 'Fidel Castro', D: 'Camilo Cienfuegos', E: 'Raúl Castro' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Fidel Castro\'s 26th of July Movement overthrew Batista on 1 January 1959 and Castro ruled Cuba for nearly five decades.',
   },
   {
@@ -872,6 +968,7 @@ const history = [
     options: { A: '1990', B: '1992', C: '1994', D: '1996', E: '1998' },
     options_tr: { A: '1990', B: '1992', C: '1994', D: '1996', E: '1998' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The genocide against the Tutsi by Hutu extremists ran from April to July 1994, ending when the RPF took power.',
   },
   {
@@ -881,6 +978,7 @@ const history = [
     options: { A: '1918', B: '1920', C: '1922', D: '1923', E: '1924' },
     options_tr: { A: '1918', B: '1920', C: '1922', D: '1923', E: '1924' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Grand National Assembly abolished the sultanate on 1 November 1922; the last sultan, Mehmed VI, left the country. The caliphate followed in 1924.',
   },
   {
@@ -890,6 +988,7 @@ const history = [
     options: { A: 'The First Balkan War', B: 'World War I', C: 'The Turkish War of Independence', D: 'The Italo-Turkish War', E: 'The Crimean War' },
     options_tr: { A: 'Birinci Balkan Savaşı', B: 'Birinci Dünya Savaşı', C: 'Türk Kurtuluş Savaşı', D: 'İtalyan-Türk Savaşı', E: 'Kırım Savaşı' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'These battles against the invading Greek army secured western Anatolia; İzmir was retaken in September 1922.',
   },
   {
@@ -899,6 +998,7 @@ const history = [
     options: { A: 'Fascist Italy', B: 'Imperial Japan', C: 'Nazi Germany', D: 'Vichy France', E: 'the Soviet Union' },
     options_tr: { A: 'Faşist İtalya', B: 'İmparatorluk Japonyası', C: 'Nazi Almanyası', D: 'Vichy Fransası', E: 'Sovyetler Birliği' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'An international military tribunal tried 24 senior Nazi leaders for war crimes, crimes against peace and crimes against humanity.',
   },
   {
@@ -908,6 +1008,7 @@ const history = [
     options: { A: 'Ur and Uruk', B: 'Harappa and Mohenjo-daro', C: 'Thebes and Memphis', D: 'Knossos and Mycenae', E: 'Hattusa and Kanesh' },
     options_tr: { A: 'Ur ve Uruk', B: 'Harappa ve Mohenjo-daro', C: 'Teb ve Memfis', D: 'Knossos ve Miken', E: 'Hattuşaş ve Kaniş' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Both sites lie in present-day Pakistan and featured grid-planned streets, brick housing and covered drainage around 2500 BC.',
   },
   {
@@ -917,6 +1018,7 @@ const history = [
     options: { A: 'Khafre', B: 'Menkaure', C: 'Djoser', D: 'Khufu', E: 'Sneferu' },
     options_tr: { A: 'Kefren', B: 'Mikerinos', C: 'Zoser', D: 'Keops (Khufu)', E: 'Sneferu' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Khufu, known to the Greeks as Cheops, built the largest of the three Giza pyramids around 2560 BC.',
   },
   {
@@ -926,6 +1028,7 @@ const history = [
     options: { A: 'The Phoenicians', B: 'The Minoans', C: 'The Etruscans', D: 'The Philistines', E: 'The Lydians' },
     options_tr: { A: 'Fenikeliler', B: 'Minoslular', C: 'Etrüskler', D: 'Filistler', E: 'Lidyalılar' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Phoenician traders from cities such as Tyre and Sidon carried their 22-letter alphabet across the Mediterranean, where the Greeks adapted it by adding vowels.',
   },
   {
@@ -935,6 +1038,7 @@ const history = [
     options: { A: 'Xerxes I', B: 'Cyrus the Great', C: 'Cambyses II', D: 'Darius I', E: 'Artaxerxes I' },
     options_tr: { A: 'I. Serhas', B: 'Büyük Kiros', C: 'II. Kambises', D: 'I. Darius', E: 'I. Artakserkses' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Darius I sent the expedition as punishment for Athenian support of the Ionian Revolt; his son Xerxes led the later invasion of 480 BC.',
   },
   {
@@ -944,6 +1048,7 @@ const history = [
     options: { A: 'Plato', B: 'Socrates', C: 'Aristotle', D: 'Diogenes', E: 'Epicurus' },
     options_tr: { A: 'Platon', B: 'Sokrates', C: 'Aristoteles', D: 'Diyojen', E: 'Epikuros' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Philip II of Macedon hired Aristotle around 343 BC to educate his son at Mieza.',
   },
   {
@@ -953,6 +1058,7 @@ const history = [
     options: { A: 'Granicus', B: 'Issus', C: 'Hydaspes', D: 'Chaeronea', E: 'Gaugamela' },
     options_tr: { A: 'Granikos', B: 'İssos', C: 'Hidaspes', D: 'Khaironeia', E: 'Gaugamela' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Gaugamela, in northern Mesopotamia, broke Persian resistance and opened Babylon and Persepolis to Alexander.',
   },
   {
@@ -962,6 +1068,7 @@ const history = [
     options: { A: 'Hamilcar Barca', B: 'Hasdrubal', C: 'Hannibal', D: 'Scipio Africanus', E: 'Mago' },
     options_tr: { A: 'Hamilkar Barka', B: 'Hasdrubal', C: 'Hannibal', D: 'Scipio Africanus', E: 'Mago' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Hannibal opened the Second Punic War with the Alpine crossing and crushed a Roman army at Cannae in 216 BC before being beaten at Zama in 202 BC.',
   },
   {
@@ -971,6 +1078,7 @@ const history = [
     options: { A: 'Emperor Wu of Han', B: 'Qin Shi Huang', C: 'Kublai Khan', D: 'Emperor Taizong of Tang', E: 'Sun Tzu' },
     options_tr: { A: 'Han Hanedanı İmparatoru Wu', B: 'Qin Shi Huang', C: 'Kubilay Han', D: 'Tang Hanedanı İmparatoru Taizong', E: 'Sun Tzu' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Qin Shi Huang unified China in 221 BC and became its first emperor; thousands of life-size clay soldiers were buried near his mausoleum outside Xi\'an.',
   },
   {
@@ -980,6 +1088,7 @@ const history = [
     options: { A: 'Chandragupta Maurya', B: 'Bindusara', C: 'Harsha', D: 'Ashoka', E: 'Kanishka' },
     options_tr: { A: 'Çandragupta Maurya', B: 'Bindusara', C: 'Harşa', D: 'Aşoka', E: 'Kanişka' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Ashoka ruled most of the Indian subcontinent in the 3rd century BC and had edicts promoting non-violence carved on pillars and rocks across his empire.',
   },
   {
@@ -989,6 +1098,7 @@ const history = [
     options: { A: 'Darius I', B: 'Xerxes I', C: 'Cyrus the Great', D: 'Cambyses II', E: 'Artaxerxes II' },
     options_tr: { A: 'I. Darius', B: 'I. Serhas', C: 'Büyük Kiros', D: 'II. Kambises', E: 'II. Artakserkses' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Cyrus II conquered Media, Lydia and Babylon; the Cyrus Cylinder records his policy of letting deported peoples return home.',
   },
   {
@@ -998,6 +1108,7 @@ const history = [
     options: { A: 'Ostia', B: 'Capua', C: 'Ravenna', D: 'Pompeii', E: 'Syracuse' },
     options_tr: { A: 'Ostia', B: 'Capua', C: 'Ravenna', D: 'Pompeii', E: 'Siraküza' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Pompeii and nearby Herculaneum were sealed under ash and mud, preserving streets, houses and casts of victims for later excavation.',
   },
   {
@@ -1007,6 +1118,7 @@ const history = [
     options: { A: 'Iraq', B: 'Turkey', C: 'Syria', D: 'Iran', E: 'Egypt' },
     options_tr: { A: 'Irak', B: 'Türkiye', C: 'Suriye', D: 'İran', E: 'Mısır' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The site near Şanlıurfa in south-eastern Turkey dates to roughly 9500 BC, thousands of years before Stonehenge or the pyramids.',
   },
   {
@@ -1016,6 +1128,7 @@ const history = [
     options: { A: 'Hisarlık', B: 'Alacahöyük', C: 'Çatalhöyük', D: 'Boğazkale', E: 'Gordion' },
     options_tr: { A: 'Hisarlık', B: 'Alacahöyük', C: 'Çatalhöyük', D: 'Boğazkale', E: 'Gordion' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Schliemann began digging at Hisarlık near the Dardanelles in 1871 and uncovered several superimposed settlement layers.',
   },
   {
@@ -1025,6 +1138,7 @@ const history = [
     options: { A: 'Phrygia', B: 'Urartu', C: 'Lydia', D: 'Caria', E: 'Lycia' },
     options_tr: { A: 'Frigya', B: 'Urartu', C: 'Lidya', D: 'Karya', E: 'Likya' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Lydians of western Anatolia, ruled from Sardis, minted electrum coins of guaranteed weight; their king Croesus became a byword for wealth.',
   },
   {
@@ -1034,6 +1148,7 @@ const history = [
     options: { A: 'Made Christianity the sole state religion', B: 'Granted them legal toleration', C: 'Banned their assemblies', D: 'Exempted them from all taxes', E: 'Placed the emperor at the head of the church' },
     options_tr: { A: 'Hristiyanlığı tek resmi din yaptı', B: 'Onlara yasal hoşgörü tanıdı', C: 'Toplanmalarını yasakladı', D: 'Onları tüm vergilerden muaf tuttu', E: 'İmparatoru kilisenin başına geçirdi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Constantine and Licinius legalized Christian worship and returned confiscated property; Theodosius I made Christianity the state religion only in 380.',
   },
   {
@@ -1043,6 +1158,7 @@ const history = [
     options: { A: 'Chalcedon', B: 'Ephesus', C: 'Nicaea', D: 'Antioch', E: 'Smyrna' },
     options_tr: { A: 'Kadıköy (Khalkedon)', B: 'Efes', C: 'Nikaia', D: 'Antakya', E: 'İzmir (Smyrna)' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Constantine summoned bishops to Nicaea in Bithynia, where the council condemned Arianism and defined the relationship of the Son to the Father.',
   },
   {
@@ -1052,6 +1168,7 @@ const history = [
     options: { A: 'AD 732', B: 'AD 800', C: 'AD 843', D: 'AD 962', E: 'AD 1066' },
     options_tr: { A: 'MS 732', B: 'MS 800', C: 'MS 843', D: 'MS 962', E: 'MS 1066' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The coronation took place in Rome on Christmas Day 800 and revived the idea of a Western Roman emperor.',
   },
   {
@@ -1061,6 +1178,7 @@ const history = [
     options: { A: 'Harold Godwinson', B: 'William of Normandy', C: 'Harald Hardrada', D: 'Edward the Confessor', E: 'Canute' },
     options_tr: { A: 'Harold Godwinson', B: 'Normandiyalı William', C: 'Harald Hardrada', D: 'Günah Çıkaran Edward', E: 'Knut' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Duke William defeated and killed King Harold II, becoming William the Conqueror and bringing Norman rule to England.',
   },
   {
@@ -1070,6 +1188,7 @@ const history = [
     options: { A: 'Clovis I', B: 'Pepin the Short', C: 'Louis the Pious', D: 'Charles Martel', E: 'Charlemagne' },
     options_tr: { A: 'I. Clovis', B: 'Kısa Pepin', C: 'Dindar Louis', D: 'Charles Martel', E: 'Şarlman' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Charles Martel, grandfather of Charlemagne, defeated the Umayyad force between Tours and Poitiers and secured Frankish dominance.',
   },
   {
@@ -1079,6 +1198,7 @@ const history = [
     options: { A: 'Catholic and Protestant', B: 'Roman Catholic and Eastern Orthodox', C: 'Orthodox and Coptic', D: 'Arian and Nicene', E: 'Lutheran and Calvinist' },
     options_tr: { A: 'Katolik ve Protestan', B: 'Roma Katolik ve Doğu Ortodoks', C: 'Ortodoks ve Kıpti', D: 'Aryan ve İznik yanlısı', E: 'Lutheryen ve Kalvinist' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Rome and Constantinople exchanged excommunications in 1054 after long disputes over papal authority and liturgy.',
   },
   {
@@ -1088,6 +1208,7 @@ const history = [
     options: { A: 'Baibars', B: 'Nur ad-Din', C: 'Saladin', D: 'Harun al-Rashid', E: 'Al-Mansur' },
     options_tr: { A: 'Baybars', B: 'Nureddin Zengi', C: 'Selahaddin Eyyubi', D: 'Harun Reşid', E: 'Mansur' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Saladin, founder of the Ayyubid dynasty, destroyed the crusader field army at Hattin and took Jerusalem months later, prompting the Third Crusade.',
   },
   {
@@ -1097,6 +1218,7 @@ const history = [
     options: { A: 'Antioch', B: 'Acre', C: 'Alexandria', D: 'Thessalonica', E: 'Constantinople' },
     options_tr: { A: 'Antakya', B: 'Akka', C: 'İskenderiye', D: 'Selanik', E: 'Konstantinopolis' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Diverted by Venetian interests, the crusaders stormed Constantinople and set up a Latin Empire that lasted until 1261.',
   },
   {
@@ -1106,6 +1228,7 @@ const history = [
     options: { A: 'Sundiata Keita', B: 'Mansa Musa', C: 'Askia Muhammad', D: 'Sunni Ali', E: 'Ezana of Aksum' },
     options_tr: { A: 'Sundiata Keita', B: 'Mansa Musa', C: 'Askia Muhammed', D: 'Sunni Ali', E: 'Aksumlu Ezana' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The ruler of the Mali Empire travelled with an enormous caravan and gave away so much gold in Cairo that its value reportedly fell for years.',
   },
   {
@@ -1115,6 +1238,7 @@ const history = [
     options: { A: 'Ibn Khaldun', B: 'Al-Idrisi', C: 'Ibn Battuta', D: 'Ibn Sina', E: 'Al-Biruni' },
     options_tr: { A: 'İbn Haldun', B: 'İdrisi', C: 'İbn Battuta', D: 'İbn Sina', E: 'Birûnî' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Ibn Battuta set out from Tangier in 1325 and covered far more ground than Marco Polo, dictating his account after returning to Morocco.',
   },
   {
@@ -1124,6 +1248,7 @@ const history = [
     options: { A: 'Rouen', B: 'Paris', C: 'Reims', D: 'Orléans', E: 'Calais' },
     options_tr: { A: 'Rouen', B: 'Paris', C: 'Reims', D: 'Orléans', E: 'Calais' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Lifting the English siege of Orléans turned the Hundred Years\' War in France\'s favour and led to Charles VII\'s coronation at Reims.',
   },
   {
@@ -1133,6 +1258,7 @@ const history = [
     options: { A: 'Batu Khan', B: 'Hulagu Khan', C: 'Timur', D: 'Ögedei Khan', E: 'Berke Khan' },
     options_tr: { A: 'Batu Han', B: 'Hülagü Han', C: 'Timur', D: 'Ögeday Han', E: 'Berke Han' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Hulagu, a grandson of Genghis Khan, executed the last Abbasid caliph al-Musta\'sim and ended five centuries of Abbasid rule in Baghdad.',
   },
   {
@@ -1142,6 +1268,7 @@ const history = [
     options: { A: 'Murad I', B: 'Orhan Gazi', C: 'Bayezid I', D: 'Mehmed I', E: 'Murad II' },
     options_tr: { A: 'I. Murad', B: 'Orhan Gazi', C: 'I. Bayezid', D: 'I. Mehmed', E: 'II. Murad' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Murad I died at Kosovo, as did the Serbian prince Lazar; Murad\'s son Bayezid I took command and succeeded him the same day.',
   },
   {
@@ -1151,6 +1278,7 @@ const history = [
     options: { A: 'Genghis Khan', B: 'Uzun Hasan', C: 'Timur', D: 'Shah Ismail', E: 'Hulagu Khan' },
     options_tr: { A: 'Cengiz Han', B: 'Uzun Hasan', C: 'Timur', D: 'Şah İsmail', E: 'Hülagü Han' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Timur captured Sultan Bayezid I, who died in captivity the following year, and the Ottoman realm was contested by his sons until 1413.',
   },
   {
@@ -1160,6 +1288,7 @@ const history = [
     options: { A: 'Ertuğrul', B: 'Orhan', C: 'Süleyman Shah', D: 'Osman I', E: 'Alaeddin' },
     options_tr: { A: 'Ertuğrul', B: 'Orhan', C: 'Süleyman Şah', D: 'I. Osman', E: 'Alaeddin' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Osman I led a frontier principality in Bithynia around 1300; his successors expanded it into an empire that bore his name for six centuries.',
   },
   {
@@ -1169,6 +1298,7 @@ const history = [
     options: { A: 'Bursa', B: 'Sivas', C: 'Kayseri', D: 'Erzurum', E: 'Konya' },
     options_tr: { A: 'Bursa', B: 'Sivas', C: 'Kayseri', D: 'Erzurum', E: 'Konya' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Konya was the Seljuk capital from the early 12th century and became a centre of Anatolian architecture and learning.',
   },
   {
@@ -1178,6 +1308,7 @@ const history = [
     options: { A: 'Erik the Red', B: 'Harald Bluetooth', C: 'Leif Erikson', D: 'Rollo', E: 'Ragnar Lothbrok' },
     options_tr: { A: 'Kızıl Erik', B: 'Mavi Diş Harald', C: 'Leif Erikson', D: 'Rollo', E: 'Ragnar Lothbrok' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Excavations at L\'Anse aux Meadows in Newfoundland confirmed a Norse settlement roughly five centuries before Columbus.',
   },
   {
@@ -1187,6 +1318,7 @@ const history = [
     options: { A: 'The Khmer Empire', B: 'The Srivijaya Empire', C: 'The Majapahit Empire', D: 'The Pagan Kingdom', E: 'The Chola Empire' },
     options_tr: { A: 'Khmer İmparatorluğu', B: 'Srivijaya İmparatorluğu', C: 'Majapahit İmparatorluğu', D: 'Pagan Krallığı', E: 'Chola İmparatorluğu' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Suryavarman II raised it in the early 12th century in what is now Cambodia, first as a Hindu temple to Vishnu and later as a Buddhist site.',
   },
   {
@@ -1196,6 +1328,7 @@ const history = [
     options: { A: 'Florence', B: 'Rome', C: 'Venice', D: 'Milan', E: 'Urbino' },
     options_tr: { A: 'Floransa', B: 'Roma', C: 'Venedik', D: 'Milano', E: 'Urbino' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'He painted it in the refectory of Santa Maria delle Grazie between 1495 and 1498 while working for Ludovico Sforza.',
   },
   {
@@ -1205,6 +1338,7 @@ const history = [
     options: { A: 'Leo X', B: 'Julius II', C: 'Alexander VI', D: 'Paul III', E: 'Sixtus IV' },
     options_tr: { A: 'X. Leo', B: 'II. Julius', C: 'VI. Alexander', D: 'III. Paul', E: 'IV. Sixtus' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Julius II commissioned the ceiling, which Michelangelo painted between 1508 and 1512; the chapel itself was named after the earlier pope Sixtus IV.',
   },
   {
@@ -1214,6 +1348,7 @@ const history = [
     options: { A: 'Planets move in elliptical orbits', B: 'The Earth is a sphere', C: 'The Sun, not the Earth, lies at the centre', D: 'Gravity acts between all masses', E: 'The universe is expanding' },
     options_tr: { A: 'Gezegenler eliptik yörüngelerde hareket eder', B: 'Dünya bir küredir', C: 'Merkezde Dünya değil Güneş vardır', D: 'Kütleçekimi tüm kütleler arasında etki eder', E: 'Evren genişlemektedir' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'His heliocentric system displaced the Earth from the centre of the cosmos; Kepler later showed the orbits are elliptical rather than circular.',
   },
   {
@@ -1223,6 +1358,7 @@ const history = [
     options: { A: 'Johannes Kepler', B: 'Giordano Bruno', C: 'Tycho Brahe', D: 'Galileo Galilei', E: 'René Descartes' },
     options_tr: { A: 'Johannes Kepler', B: 'Giordano Bruno', C: 'Tycho Brahe', D: 'Galileo Galilei', E: 'René Descartes' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Galileo was convicted of "vehement suspicion of heresy" after publishing his Dialogue and spent his last years under house arrest.',
   },
   {
@@ -1232,6 +1368,7 @@ const history = [
     options: { A: 'Edward VI', B: 'Henry VII', C: 'Henry VIII', D: 'Elizabeth I', E: 'Mary I' },
     options_tr: { A: 'VI. Edward', B: 'VII. Henry', C: 'VIII. Henry', D: 'I. Elizabeth', E: 'I. Mary' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Parliament declared Henry VIII supreme head of the English church after Rome refused to annul his marriage to Catherine of Aragon.',
   },
   {
@@ -1241,6 +1378,7 @@ const history = [
     options: { A: 'To reunite the Eastern and Western churches', B: 'To authorize a new crusade', C: 'To elect a new Holy Roman Emperor', D: 'To condemn Copernicus by name', E: 'To define the Catholic response to the Reformation' },
     options_tr: { A: 'Doğu ve Batı kiliselerini yeniden birleştirmek', B: 'Yeni bir Haçlı Seferi\'ne izin vermek', C: 'Yeni bir Kutsal Roma İmparatoru seçmek', D: 'Copernicus\'u adıyla mahkûm etmek', E: 'Reform\'a karşı Katolik yanıtı belirlemek' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Trent reaffirmed contested Catholic doctrines and reformed clerical discipline, becoming the backbone of the Counter-Reformation.',
   },
   {
@@ -1250,6 +1388,7 @@ const history = [
     options: { A: 'Charles V', B: 'Philip II', C: 'Ferdinand II', D: 'Philip IV', E: 'Charles II' },
     options_tr: { A: 'V. Karl', B: 'II. Felipe', C: 'II. Ferdinand', D: 'IV. Felipe', E: 'II. Karl' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Philip II\'s invasion fleet was scattered by English fireships and storms, and fewer than half its ships returned to Spain.',
   },
   {
@@ -1259,6 +1398,7 @@ const history = [
     options: { A: 'Each individual subject', B: 'The pope alone', C: 'Each city council', D: 'Each prince', E: 'The imperial diet by majority vote' },
     options_tr: { A: 'Her birey', B: 'Yalnızca papa', C: 'Her şehir meclisi', D: 'Her prens', E: 'Çoğunluk oyuyla imparatorluk meclisi' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The principle later summarized as "cuius regio, eius religio" let each ruler impose Lutheranism or Catholicism on his own lands.',
   },
   {
@@ -1268,6 +1408,7 @@ const history = [
     options: { A: 'Francis I', B: 'Charles IX', C: 'Henry IV', D: 'Louis XIII', E: 'Louis XIV' },
     options_tr: { A: 'I. François', B: 'IX. Charles', C: 'IV. Henri', D: 'XIII. Louis', E: 'XIV. Louis' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Henry IV, himself a former Huguenot, ended the French Wars of Religion with the edict; Louis XIV revoked it in 1685.',
   },
   {
@@ -1277,6 +1418,7 @@ const history = [
     options: { A: 'England and France', B: 'Venice and Genoa', C: 'The Netherlands and Spain', D: 'Portugal and France', E: 'Spain and Portugal' },
     options_tr: { A: 'İngiltere ve Fransa', B: 'Venedik ve Ceneviz', C: 'Hollanda ve İspanya', D: 'Portekiz ve Fransa', E: 'İspanya ve Portekiz' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'A north-south meridian in the Atlantic split the non-Christian world between the two crowns, which is why Brazil became Portuguese.',
   },
   {
@@ -1286,6 +1428,7 @@ const history = [
     options: { A: 'The Hanseatic League', B: 'The Grand Alliance', C: 'The Holy League', D: 'The Triple Entente', E: 'The League of Cambrai' },
     options_tr: { A: 'Hansa Birliği', B: 'Büyük İttifak', C: 'Kutsal İttifak', D: 'Üçlü İtilaf', E: 'Cambrai Birliği' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'A Spanish, Venetian and Papal fleet under Don John of Austria won the last great battle fought mainly by oared galleys; the Ottomans rebuilt their navy within a year.',
   },
   {
@@ -1295,6 +1438,7 @@ const history = [
     options: { A: 'Shah Ismail I of the Safavids', B: 'Uzun Hasan of the Akkoyunlu', C: 'Qansuh al-Ghuri of the Mamluks', D: 'Babur of the Mughals', E: 'Tsar Ivan IV of Russia' },
     options_tr: { A: 'Safevi hükümdarı Şah İsmail', B: 'Akkoyunlu hükümdarı Uzun Hasan', C: 'Memlük sultanı Kansu Gavri', D: 'Babür hükümdarı Babür Şah', E: 'Rus Çarı IV. İvan' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Ottoman firearms and field artillery broke the Safavid cavalry in eastern Anatolia, fixing a frontier that lasted for centuries.',
   },
   {
@@ -1304,6 +1448,7 @@ const history = [
     options: { A: 'Poland', B: 'Bohemia', C: 'Wallachia', D: 'Hungary', E: 'Serbia' },
     options_tr: { A: 'Polonya', B: 'Bohemya', C: 'Eflak', D: 'Macaristan', E: 'Sırbistan' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'King Louis II died in the rout, and Hungary was subsequently divided between Ottoman and Habsburg control.',
   },
   {
@@ -1313,6 +1458,7 @@ const history = [
     options: { A: 'The Süleymaniye Mosque in Istanbul', B: 'The Selimiye Mosque in Edirne', C: 'The Şehzade Mosque in Istanbul', D: 'The Sultan Ahmed (Blue) Mosque', E: 'The Great Mosque of Bursa' },
     options_tr: { A: 'İstanbul\'daki Süleymaniye Camii', B: 'Edirne\'deki Selimiye Camii', C: 'İstanbul\'daki Şehzade Camii', D: 'Sultanahmet Camii', E: 'Bursa Ulu Camii' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Sinan called the Şehzade his apprentice work and the Süleymaniye his journeyman work, reserving the title of masterwork for the Selimiye, completed in 1575.',
   },
   {
@@ -1322,6 +1468,7 @@ const history = [
     options: { A: 'It was its first treaty with Russia', B: 'It recognized the authority of the pope', C: 'It brought the empire into a European alliance', D: 'It was the first time the empire ceded large territories at the negotiating table', E: 'It abolished the Janissary corps' },
     options_tr: { A: 'Rusya ile ilk antlaşmasıydı', B: 'Papanın otoritesini tanıyordu', C: 'İmparatorluğu bir Avrupa ittifakına soktu', D: 'İmparatorluğun masa başında ilk kez büyük toprak kaybettiği antlaşmaydı', E: 'Yeniçeri Ocağı\'nı kaldırdı' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'After sixteen years of war with the Holy League the Ottomans gave up Hungary and Transylvania to the Habsburgs, the Morea to Venice and Podolia to Poland.',
   },
   {
@@ -1331,6 +1478,7 @@ const history = [
     options: { A: 'The Battle of Talikota', B: 'The Battle of Plassey', C: 'The First Battle of Panipat', D: 'The Battle of Haldighati', E: 'The Battle of Chausa' },
     options_tr: { A: 'Talikota Savaşı', B: 'Plassey Savaşı', C: 'Birinci Panipat Savaşı', D: 'Haldighati Savaşı', E: 'Chausa Savaşı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Babur\'s smaller force used field artillery and flanking cavalry to destroy the army of Ibrahim Lodi, the last sultan of Delhi.',
   },
   {
@@ -1340,6 +1488,7 @@ const history = [
     options: { A: 'His wife Mumtaz Mahal', B: 'His father', C: 'His son', D: 'A Sufi saint', E: 'Himself alone' },
     options_tr: { A: 'Eşi Mümtaz Mahal', B: 'Babası', C: 'Oğlu', D: 'Bir Sufi veli', E: 'Yalnızca kendisi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Mumtaz Mahal died in childbirth in 1631; the marble tomb at Agra took some two decades to complete, and Shah Jahan was later buried beside her.',
   },
   {
@@ -1349,6 +1498,7 @@ const history = [
     options: { A: 'Mass emigration to Korea', B: 'Adoption of Christianity as the state religion', C: 'Abolition of the samurai class', D: 'Open trade with all European powers', E: 'Strict limits on foreign contact and trade' },
     options_tr: { A: 'Kore\'ye kitlesel göç', B: 'Hristiyanlığın devlet dini yapılması', C: 'Samuray sınıfının kaldırılması', D: 'Tüm Avrupa güçleriyle serbest ticaret', E: 'Yabancılarla temas ve ticarete sıkı sınırlar' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'From the 1630s Japan expelled most foreigners and confined European trade to a Dutch post at Dejima, until Commodore Perry forced the country open in 1853–54.',
   },
   {
@@ -1358,6 +1508,7 @@ const history = [
     options: { A: 'Conservation of energy', B: 'Universal gravitation', C: 'Natural selection', D: 'The circulation of the blood', E: 'Electromagnetic induction' },
     options_tr: { A: 'Enerjinin korunumu', B: 'Evrensel kütleçekimi', C: 'Doğal seçilim', D: 'Kan dolaşımı', E: 'Elektromanyetik indüksiyon' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Newton showed that the same inverse-square force that makes objects fall also holds the planets in their orbits.',
   },
   {
@@ -1367,6 +1518,7 @@ const history = [
     options: { A: 'Voltaire', B: 'Denis Diderot', C: 'Jean-Jacques Rousseau', D: 'David Hume', E: 'Immanuel Kant' },
     options_tr: { A: 'Voltaire', B: 'Denis Diderot', C: 'Jean-Jacques Rousseau', D: 'David Hume', E: 'Immanuel Kant' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Rousseau\'s argument that sovereignty belongs to the people became a key reference point for the French revolutionaries.',
   },
   {
@@ -1376,6 +1528,7 @@ const history = [
     options: { A: 'John Locke', B: 'Montesquieu', C: 'Thomas Hobbes', D: 'Adam Smith', E: 'Edmund Burke' },
     options_tr: { A: 'John Locke', B: 'Montesquieu', C: 'Thomas Hobbes', D: 'Adam Smith', E: 'Edmund Burke' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Montesquieu set out the separation of powers in "The Spirit of the Laws" (1748), which shaped the United States Constitution.',
   },
   {
@@ -1385,6 +1538,7 @@ const history = [
     options: { A: 'David Ricardo', B: 'Thomas Malthus', C: 'John Stuart Mill', D: 'Adam Smith', E: 'Jean-Baptiste Say' },
     options_tr: { A: 'David Ricardo', B: 'Thomas Malthus', C: 'John Stuart Mill', D: 'Adam Smith', E: 'Jean-Baptiste Say' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Scottish philosopher argued that division of labour and competitive markets, not hoarded bullion, create national wealth.',
   },
   {
@@ -1394,6 +1548,7 @@ const history = [
     options: { A: 'Thomas Jefferson', B: 'John Adams', C: 'Benjamin Franklin', D: 'James Madison', E: 'George Washington' },
     options_tr: { A: 'Thomas Jefferson', B: 'John Adams', C: 'Benjamin Franklin', D: 'James Madison', E: 'George Washington' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Washington, who had commanded the Continental Army, was chosen unanimously by the electoral college and served two terms.',
   },
   {
@@ -1403,6 +1558,7 @@ const history = [
     options: { A: 'Georges Danton', B: 'Maximilien Robespierre', C: 'Jean-Paul Marat', D: 'Marquis de Lafayette', E: 'Napoleon Bonaparte' },
     options_tr: { A: 'Georges Danton', B: 'Maximilien Robespierre', C: 'Jean-Paul Marat', D: 'Marquis de Lafayette', E: 'Napolyon Bonapart' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Robespierre dominated the Committee of Public Safety until his own execution in July 1794 brought the Terror to an end.',
   },
   {
@@ -1412,6 +1568,7 @@ const history = [
     options: { A: 'A military training manual', B: 'A civil law code', C: 'A constitution for Italy', D: 'A tax levied on the clergy', E: 'A treaty with Russia' },
     options_tr: { A: 'Bir askeri eğitim el kitabı', B: 'Bir medeni kanun', C: 'İtalya için bir anayasa', D: 'Ruhban sınıfına konan bir vergi', E: 'Rusya ile bir antlaşma' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The code unified French private law around equality before the law and secure property rights, and was copied across much of Europe and Latin America.',
   },
   {
@@ -1421,6 +1578,7 @@ const history = [
     options: { A: 'Sir Francis Drake', B: 'Cuthbert Collingwood', C: 'Horatio Nelson', D: 'John Jervis', E: 'Edward Hawke' },
     options_tr: { A: 'Sir Francis Drake', B: 'Cuthbert Collingwood', C: 'Horatio Nelson', D: 'John Jervis', E: 'Edward Hawke' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Nelson\'s victory over the Franco-Spanish fleet off Cape Trafalgar ended any prospect of a French invasion of Britain.',
   },
   {
@@ -1430,6 +1588,7 @@ const history = [
     options: { A: 'Spain', B: 'Britain', C: 'Mexico', D: 'France', E: 'The Netherlands' },
     options_tr: { A: 'İspanya', B: 'Britanya', C: 'Meksika', D: 'Fransa', E: 'Hollanda' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Napoleon sold the territory for about $15 million, roughly doubling the size of the United States under President Jefferson.',
   },
   {
@@ -1439,6 +1598,7 @@ const history = [
     options: { A: 'Trading with China', B: 'New colonization in the Americas', C: 'Building a canal in Panama', D: 'Abolishing the slave trade', E: 'Forming military alliances in Asia' },
     options_tr: { A: 'Çin ile ticaret yapmaya', B: 'Amerika kıtasında yeni sömürgecilik yapmaya', C: 'Panama\'da kanal inşa etmeye', D: 'Köle ticaretini kaldırmaya', E: 'Asya\'da askeri ittifaklar kurmaya' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'President Monroe declared the Western Hemisphere closed to further European colonization, in exchange for US non-interference in European affairs.',
   },
   {
@@ -1448,6 +1608,7 @@ const history = [
     options: { A: 'The Springtime of Nations', B: 'The Glorious Revolution', C: 'The Hungry Forties Revolt', D: 'The Carbonari Rising', E: 'The June Days' },
     options_tr: { A: 'Milletlerin Baharı', B: 'Şanlı Devrim', C: 'Aç Kırklar Ayaklanması', D: 'Karbonari Ayaklanması', E: 'Haziran Günleri' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Liberal and nationalist revolts broke out across the continent in 1848; most were suppressed within a year, but serfdom ended in the Habsburg lands.',
   },
   {
@@ -1457,6 +1618,7 @@ const history = [
     options: { A: 'Greek', B: 'Armenian', C: 'Hebrew', D: 'Turkish', E: 'Latin' },
     options_tr: { A: 'Rumca', B: 'Ermenice', C: 'İbranice', D: 'Türkçe', E: 'Latince' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Jewish, Armenian and Greek presses had operated in Istanbul since the 15th and 16th centuries; the press licensed to Müteferrika in 1727 was the first to print in Ottoman Turkish.',
   },
   {
@@ -1466,6 +1628,7 @@ const history = [
     options: { A: 'Tanzimat', B: 'Nizam-ı Cedid', C: 'Islahat', D: 'Meşrutiyet', E: 'Devşirme' },
     options_tr: { A: 'Tanzimat', B: 'Nizam-ı Cedid', C: 'Islahat', D: 'Meşrutiyet', E: 'Devşirme' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The "New Order" of the 1790s created a trained infantry corps funded by a separate treasury; opposition to it led to Selim III\'s deposition in 1807.',
   },
   {
@@ -1475,6 +1638,7 @@ const history = [
     options: { A: 'The Janissary corps', B: 'The office of grand vizier', C: 'The Sufi lodges', D: 'The Ottoman navy', E: 'The imperial council' },
     options_tr: { A: 'Yeniçeri Ocağı', B: 'Sadrazamlık makamı', C: 'Tekkeler', D: 'Osmanlı donanması', E: 'Divan-ı Hümayun' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The Janissaries had blocked military reform for decades; after their revolt was crushed by artillery, Mahmud II abolished the corps and built a new army.',
   },
   {
@@ -1484,6 +1648,7 @@ const history = [
     options: { A: 'It was a trade treaty with Britain', B: 'It was the first Ottoman constitution', C: 'It was the Ottoman declaration of war on Russia', D: 'It was the land reform of the Tanzimat', E: 'It was the law abolishing slavery' },
     options_tr: { A: 'Britanya ile bir ticaret antlaşmasıydı', B: 'İlk Osmanlı anayasasıydı', C: 'Osmanlı\'nın Rusya\'ya savaş ilanıydı', D: 'Tanzimat\'ın toprak reformuydu', E: 'Köleliği kaldıran yasaydı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Promulgated under Abdülhamid II, it opened the First Constitutional Era and created an Ottoman parliament, which the sultan suspended in 1878.',
   },
   {
@@ -1493,6 +1658,7 @@ const history = [
     options: { A: '1772', B: '1807', C: '1833', D: '1861', E: '1888' },
     options_tr: { A: '1772', B: '1807', C: '1833', D: '1861', E: '1888' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The 1807 act had already banned the slave trade; the 1833 act freed the enslaved themselves and compensated slave owners, not the freed people.',
   },
   {
@@ -1502,6 +1668,7 @@ const history = [
     options: { A: 'Scotland', B: 'Ireland', C: 'Poland', D: 'Sweden', E: 'Portugal' },
     options_tr: { A: 'İskoçya', B: 'İrlanda', C: 'Polonya', D: 'İsveç', E: 'Portekiz' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'About a million people died and a million more emigrated, cutting Ireland\'s population by roughly a quarter within a decade.',
   },
   {
@@ -1511,6 +1678,7 @@ const history = [
     options: { A: 'Mikhail Bakunin', B: 'Ferdinand Lassalle', C: 'Friedrich Engels', D: 'Pierre-Joseph Proudhon', E: 'Wilhelm Liebknecht' },
     options_tr: { A: 'Mihail Bakunin', B: 'Ferdinand Lassalle', C: 'Friedrich Engels', D: 'Pierre-Joseph Proudhon', E: 'Wilhelm Liebknecht' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Engels, a mill owner\'s son who had written on conditions in Manchester, co-authored the pamphlet and supported Marx financially for decades.',
   },
   {
@@ -1520,6 +1688,7 @@ const history = [
     options: { A: '1831', B: '1859', C: '1844', D: '1871', E: '1882' },
     options_tr: { A: '1831', B: '1859', C: '1844', D: '1871', E: '1882' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Darwin published more than twenty years after his Beagle voyage, prompted by Alfred Russel Wallace arriving at a similar theory.',
   },
   {
@@ -1529,6 +1698,7 @@ const history = [
     options: { A: '1854', B: '1875', C: '1869', D: '1882', E: '1914' },
     options_tr: { A: '1854', B: '1875', C: '1869', D: '1882', E: '1914' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Ferdinand de Lesseps\'s company completed the canal in 1869, cutting the sea route from Europe to Asia by thousands of kilometres.',
   },
   {
@@ -1538,6 +1708,7 @@ const history = [
     options: { A: '1865', B: '1861', C: '1867', D: '1863', E: '1862' },
     options_tr: { A: '1865', B: '1861', C: '1867', D: '1863', E: '1862' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'It came into force on 1 January 1863 and declared free those enslaved in states still in rebellion, turning the war into a struggle over slavery itself.',
   },
   {
@@ -1547,6 +1718,7 @@ const history = [
     options: { A: 'Berlin Cathedral', B: 'The Reichstag in Berlin', C: 'St Paul\'s Church in Frankfurt', D: 'Potsdam Palace', E: 'The Hall of Mirrors at Versailles' },
     options_tr: { A: 'Berlin Katedrali', B: 'Berlin\'deki Reichstag', C: 'Frankfurt\'taki Aziz Paul Kilisesi', D: 'Potsdam Sarayı', E: 'Versay\'daki Aynalı Salon' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Wilhelm I was proclaimed Kaiser in occupied France in January 1871, a humiliation the French remembered when they imposed terms in the same hall in 1919.',
   },
   {
@@ -1556,6 +1728,7 @@ const history = [
     options: { A: 'The Treaty of Küçük Kaynarca', B: 'The Treaty of San Stefano', C: 'The Treaty of Edirne', D: 'The Treaty of Bucharest', E: 'The Treaty of Paris' },
     options_tr: { A: 'Küçük Kaynarca Antlaşması', B: 'Ayastefanos Antlaşması', C: 'Edirne Antlaşması', D: 'Bükreş Antlaşması', E: 'Paris Antlaşması' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Britain and Austria-Hungary objected to the large Bulgaria created at San Stefano, and the Berlin settlement shrank it while confirming Serbian, Montenegrin and Romanian independence.',
   },
   {
@@ -1565,6 +1738,7 @@ const history = [
     options: { A: 'Independence for India', B: 'The founding of Pakistan', C: 'Direct Crown rule replacing the East India Company', D: 'The partition of Bengal', E: 'The end of the salt tax' },
     options_tr: { A: 'Hindistan\'ın bağımsızlığı', B: 'Pakistan\'ın kurulması', C: 'Doğu Hindistan Şirketi\'nin yerini doğrudan Kraliyet yönetiminin alması', D: 'Bengal\'in bölünmesi', E: 'Tuz vergisinin kaldırılması' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Government of India Act of 1858 dissolved East India Company rule and placed India under the Crown, beginning the period known as the Raj.',
   },
   {
@@ -1574,6 +1748,7 @@ const history = [
     options: { A: 'Nicholas I', B: 'Alexander III', C: 'Alexander I', D: 'Alexander II', E: 'Nicholas II' },
     options_tr: { A: 'I. Nikolay', B: 'III. Aleksandr', C: 'I. Aleksandr', D: 'II. Aleksandr', E: 'II. Nikolay' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Defeat in the Crimean War convinced Alexander II that reform was unavoidable, though freed peasants were left with heavy redemption payments for their land.',
   },
   {
@@ -1583,6 +1758,7 @@ const history = [
     options: { A: 'West Africa', B: 'Southern Africa', C: 'East Africa', D: 'The Caribbean', E: 'Southeast Asia' },
     options_tr: { A: 'Batı Afrika', B: 'Güney Afrika', C: 'Doğu Afrika', D: 'Karayipler', E: 'Güneydoğu Asya' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Britain annexed the Transvaal and the Orange Free State after a costly guerrilla war in which civilians were interned in concentration camps.',
   },
   {
@@ -1592,6 +1768,7 @@ const history = [
     options: { A: 'Britain', B: 'Italy', C: 'Spain', D: 'France', E: 'The Netherlands' },
     options_tr: { A: 'Britanya', B: 'İtalya', C: 'İspanya', D: 'Fransa', E: 'Hollanda' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Designed by Frédéric Auguste Bartholdi with an internal frame by Gustave Eiffel, the statue was dedicated in 1886 to mark the two nations\' friendship.',
   },
   {
@@ -1601,6 +1778,7 @@ const history = [
     options: { A: 'Its North African provinces', B: 'Its Arab provinces', C: 'Its remaining European territory', D: 'Its Black Sea coastline', E: 'Its Aegean navy' },
     options_tr: { A: 'Kuzey Afrika vilayetlerini', B: 'Arap vilayetlerini', C: 'Avrupa\'da kalan topraklarını', D: 'Karadeniz kıyı şeridini', E: 'Ege donanmasını' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Balkan League drove Ottoman forces back almost to Istanbul; Edirne was recovered during the Second Balkan War in 1913.',
   },
   {
@@ -1610,6 +1788,7 @@ const history = [
     options: { A: 'The Entente Powers', B: 'The Central Powers', C: 'It remained neutral throughout', D: 'The Balkan League', E: 'The Allied Powers' },
     options_tr: { A: 'İtilaf Devletleri', B: 'İttifak Devletleri', C: 'Savaş boyunca tarafsız kaldı', D: 'Balkan Birliği', E: 'Müttefik Devletler' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A secret alliance with Germany was signed in August 1914, and an Ottoman naval raid on Russian Black Sea ports that October brought the empire into the war.',
   },
   {
@@ -1619,6 +1798,7 @@ const history = [
     options: { A: 'Poison gas', B: 'The machine gun', C: 'The tank', D: 'The submarine', E: 'The flamethrower' },
     options_tr: { A: 'Zehirli gaz', B: 'Makineli tüfek', C: 'Tank', D: 'Denizaltı', E: 'Alev makinesi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The British deployed tanks at Flers-Courcelette in September 1916; gas and machine guns were already in use earlier in the war.',
   },
   {
@@ -1628,6 +1808,7 @@ const history = [
     options: { A: 'Britain', B: 'Belgium', C: 'Russia', D: 'Italy', E: 'France' },
     options_tr: { A: 'Britanya', B: 'Belçika', C: 'Rusya', D: 'İtalya', E: 'Fransa' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Verdun lasted almost the whole of 1916 and became a symbol of French endurance, with combined casualties of well over half a million.',
   },
   {
@@ -1637,6 +1818,7 @@ const history = [
     options: { A: 'The Ardennes', B: 'The Black Forest', C: 'Compiègne', D: 'The Vosges', E: 'Fontainebleau' },
     options_tr: { A: 'Ardenler', B: 'Kara Orman', C: 'Compiègne', D: 'Vosges', E: 'Fontainebleau' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Hitler had the same carriage brought back to the same clearing in June 1940 to accept the French surrender.',
   },
   {
@@ -1646,6 +1828,7 @@ const history = [
     options: { A: 'The Armistice of Mudanya', B: 'The Armistice of Mudros', C: 'The Armistice of Villa Giusti', D: 'The Armistice of Salonica', E: 'The Armistice of Erzincan' },
     options_tr: { A: 'Mudanya Mütarekesi', B: 'Mondros Mütarekesi', C: 'Villa Giusti Mütarekesi', D: 'Selanik Mütarekesi', E: 'Erzincan Mütarekesi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Signed on 30 October 1918 aboard a British warship off Lemnos, it allowed the Allies to occupy the Straits and any territory they deemed threatened.',
   },
   {
@@ -1655,6 +1838,7 @@ const history = [
     options: { A: 'Uniting the regional Defence of Rights societies under one national body', B: 'Declaring the Republic', C: 'Signing peace with Greece', D: 'Abolishing the caliphate', E: 'Opening the Grand National Assembly' },
     options_tr: { A: 'Bölgesel Müdafaa-i Hukuk cemiyetlerini tek bir ulusal çatı altında birleştirmesiyle', B: 'Cumhuriyet\'i ilan etmesiyle', C: 'Yunanistan ile barış imzalamasıyla', D: 'Halifeliği kaldırmasıyla', E: 'Büyük Millet Meclisi\'ni açmasıyla' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Delegates meeting under Mustafa Kemal\'s chairmanship merged the local resistance groups into a single organization with one representative committee.',
   },
   {
@@ -1664,6 +1848,7 @@ const history = [
     options: { A: '1919', B: '1920', C: '1921', D: '1923', E: '1924' },
     options_tr: { A: '1919', B: '1920', C: '1921', D: '1923', E: '1924' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The Grand National Assembly voted on 13 October 1923 to make Ankara the capital, just over two weeks before the Republic was proclaimed.',
   },
   {
@@ -1673,6 +1858,7 @@ const history = [
     options: { A: 'Austria', B: 'Alsace-Lorraine', C: 'The Sudetenland', D: 'Danzig', E: 'The Rhineland' },
     options_tr: { A: 'Avusturya', B: 'Alsace-Lorraine', C: 'Südetler', D: 'Danzig', E: 'Ren bölgesi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Britain and France agreed to the transfer of Czechoslovakia\'s German-speaking border region without Czechoslovak participation in the talks.',
   },
   {
@@ -1682,6 +1868,7 @@ const history = [
     options: { A: 'Germany and Italy', B: 'Germany and the Soviet Union', C: 'The Soviet Union and Japan', D: 'Germany and Japan', E: 'The Soviet Union and Poland' },
     options_tr: { A: 'Almanya ve İtalya', B: 'Almanya ve Sovyetler Birliği', C: 'Sovyetler Birliği ve Japonya', D: 'Almanya ve Japonya', E: 'Sovyetler Birliği ve Polonya' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The non-aggression pact contained a secret protocol dividing Poland and the Baltic region into spheres of influence, clearing the way for the invasion a week later.',
   },
   {
@@ -1691,6 +1878,7 @@ const history = [
     options: { A: '1939', B: '1940', C: '1941', D: '1942', E: '1943' },
     options_tr: { A: '1939', B: '1940', C: '1941', D: '1942', E: '1943' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Carrier aircraft struck the US Pacific Fleet base in Hawaii on 7 December 1941, and Congress declared war the following day.',
   },
   {
@@ -1700,6 +1888,7 @@ const history = [
     options: { A: 'Britain', B: 'Yugoslavia', C: 'Greece', D: 'The Soviet Union', E: 'Norway' },
     options_tr: { A: 'Britanya', B: 'Yugoslavya', C: 'Yunanistan', D: 'Sovyetler Birliği', E: 'Norveç' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'It broke the 1939 pact and opened the Eastern Front, the largest theatre of the war and the one where most German losses occurred.',
   },
   {
@@ -1709,6 +1898,7 @@ const history = [
     options: { A: 'With a German victory', B: 'With the surrender of the German Sixth Army', C: 'With a negotiated truce', D: 'With the city\'s capture by Finland', E: 'With a Soviet withdrawal beyond the Urals' },
     options_tr: { A: 'Alman zaferiyle', B: 'Alman 6. Ordusu\'nun teslim olmasıyla', C: 'Müzakereyle varılan bir ateşkesle', D: 'Şehrin Finlandiya tarafından ele geçirilmesiyle', E: 'Sovyetlerin Urallar\'ın ötesine çekilmesiyle' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Encircled by a Soviet counter-offensive and denied permission to break out, Field Marshal Paulus surrendered in February 1943 with about 90,000 survivors.',
   },
   {
@@ -1718,6 +1908,7 @@ const history = [
     options: { A: 'In the air', B: 'At sea', C: 'In the desert', D: 'Underground', E: 'In the Arctic' },
     options_tr: { A: 'Havada', B: 'Denizde', C: 'Çölde', D: 'Yeraltında', E: 'Kuzey Kutbu\'nda' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'RAF Fighter Command, helped by radar and the Dowding control system, denied the Luftwaffe air superiority and forced Hitler to shelve an invasion.',
   },
   {
@@ -1727,6 +1918,7 @@ const history = [
     options: { A: 'Britain, France and the United States', B: 'The United States, Britain and the Soviet Union', C: 'The United States, China and the Soviet Union', D: 'Britain, the Soviet Union and France', E: 'The United States, Britain and China' },
     options_tr: { A: 'Britanya, Fransa ve ABD', B: 'ABD, Britanya ve Sovyetler Birliği', C: 'ABD, Çin ve Sovyetler Birliği', D: 'Britanya, Sovyetler Birliği ve Fransa', E: 'ABD, Britanya ve Çin' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Roosevelt, Churchill and Stalin met in Crimea to agree on the occupation of Germany, free elections in liberated Europe and Soviet entry into the war against Japan.',
   },
   {
@@ -1736,6 +1928,7 @@ const history = [
     options: { A: 'The Cyrillic alphabet', B: 'The Greek alphabet', C: 'A Latin-based alphabet', D: 'The Old Turkic runic script', E: 'The Armenian alphabet' },
     options_tr: { A: 'Kiril alfabesi', B: 'Yunan alfabesi', C: 'Latin temelli bir alfabe', D: 'Göktürk yazısı', E: 'Ermeni alfabesi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The law of 1 November 1928 introduced a 29-letter alphabet tailored to Turkish phonology, and public literacy classes followed across the country.',
   },
   {
@@ -1745,6 +1938,7 @@ const history = [
     options: { A: 'The Aegean islands', B: 'The Turkish Straits', C: 'The Danube', D: 'The Suez Canal', E: 'Antarctic territory' },
     options_tr: { A: 'Ege adaları', B: 'Türk Boğazları', C: 'Tuna Nehri', D: 'Süveyş Kanalı', E: 'Antarktika toprakları' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'It replaced the demilitarized arrangement set at Lausanne, restoring Turkish control over the Straits and letting Turkey refortify them.',
   },
   {
@@ -1754,6 +1948,7 @@ const history = [
     options: { A: '1949', B: '1950', C: '1952', D: '1955', E: '1960' },
     options_tr: { A: '1949', B: '1950', C: '1952', D: '1955', E: '1960' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Turkey and Greece joined in February 1952, three years after the alliance was founded, following Turkish participation in the Korean War.',
   },
   {
@@ -1763,6 +1958,7 @@ const history = [
     options: { A: 'Jomo Kenyatta', B: 'Patrice Lumumba', C: 'Julius Nyerere', D: 'Kwame Nkrumah', E: 'Léopold Senghor' },
     options_tr: { A: 'Jomo Kenyatta', B: 'Patrice Lumumba', C: 'Julius Nyerere', D: 'Kwame Nkrumah', E: 'Léopold Senghor' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Nkrumah led the former Gold Coast to independence from Britain and became a leading advocate of pan-Africanism.',
   },
   {
@@ -1772,6 +1968,7 @@ const history = [
     options: { A: 'Italy', B: 'Spain', C: 'Britain', D: 'Portugal', E: 'France' },
     options_tr: { A: 'İtalya', B: 'İspanya', C: 'Britanya', D: 'Portekiz', E: 'Fransa' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'The war that began in 1954 brought down the French Fourth Republic and ended with the Évian Accords and a referendum in 1962.',
   },
   {
@@ -1781,6 +1978,7 @@ const history = [
     options: { A: 'The United States', B: 'The Soviet Union', C: 'Britain', D: 'France', E: 'China' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Sovyetler Birliği', C: 'Britanya', D: 'Fransa', E: 'Çin' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The launch on 4 October 1957 opened the space race and prompted the United States to create NASA the following year.',
   },
   {
@@ -1790,6 +1988,7 @@ const history = [
     options: { A: 'Egypt, Jordan and Syria', B: 'Iran, Iraq and Turkey', C: 'Saudi Arabia, Yemen and Oman', D: 'Libya, Tunisia and Algeria', E: 'Lebanon, Cyprus and Greece' },
     options_tr: { A: 'Mısır, Ürdün ve Suriye', B: 'İran, Irak ve Türkiye', C: 'Suudi Arabistan, Yemen ve Umman', D: 'Libya, Tunus ve Cezayir', E: 'Lübnan, Kıbrıs ve Yunanistan' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'In six days in June 1967 Israel took the Sinai and Gaza from Egypt, the West Bank and East Jerusalem from Jordan, and the Golan Heights from Syria.',
   },
   {
@@ -1799,6 +1998,7 @@ const history = [
     options: { A: 'Belarus', B: 'Russia', C: 'Ukraine', D: 'Lithuania', E: 'Moldova' },
     options_tr: { A: 'Belarus', B: 'Rusya', C: 'Ukrayna', D: 'Litvanya', E: 'Moldova' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Reactor four exploded during a safety test on 26 April 1986; much of the fallout drifted over neighbouring Belarus, and the delayed official response damaged Soviet credibility.',
   },
 ];

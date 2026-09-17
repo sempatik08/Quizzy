@@ -16,6 +16,7 @@ import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSound } from '@/context/SoundContext';
+import { winnerOf } from '@/lib/score';
 
 export default function GamePage() {
   const params = useParams();
@@ -93,8 +94,7 @@ export default function GamePage() {
     if (finishedRef.current) return;
     finishedRef.current = true;
 
-    const winner =
-      room.teams.blue.score >= 100 ? 'blue' : room.teams.red.score >= 100 ? 'red' : null;
+    const winner = winnerOf(room);
     if (!winner) return;
     play(myTeam === winner ? 'win' : 'lose');
   }, [room?.phase, room?.teams.blue.score, room?.teams.red.score, myTeam, play]);
@@ -148,6 +148,27 @@ export default function GamePage() {
           {room.selectedCategory && (
             <span className="text-xs text-quizzy-muted bg-quizzy-card border border-quizzy-border rounded-full px-2.5 py-0.5 ml-1 font-medium">
               {categoryLabel[room.selectedCategory] ?? room.selectedCategory}
+            </span>
+          )}
+          {/* Difficulty of the question on the table (PBI 7). Shown because an
+              invisible curve just reads as inconsistent question quality. */}
+          {room.phase === 'question' && room.activeQuestion && (
+            <span
+              data-testid="difficulty-badge"
+              data-difficulty={room.activeQuestion.difficulty}
+              className={`text-xs rounded-full px-2.5 py-0.5 font-semibold border ${
+                room.activeQuestion.difficulty === 1
+                  ? 'text-green-600 border-green-300 bg-green-50'
+                  : room.activeQuestion.difficulty === 3
+                  ? 'text-red-soft border-red-light bg-red-pale'
+                  : 'text-amber-600 border-amber-300 bg-amber-50'
+              }`}
+            >
+              {room.activeQuestion.difficulty === 1
+                ? t.difficultyEasy
+                : room.activeQuestion.difficulty === 3
+                ? t.difficultyHard
+                : t.difficultyMedium}
             </span>
           )}
         </div>

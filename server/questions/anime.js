@@ -8,6 +8,7 @@ const anime = [
     options: { A: 'Bleach', B: 'One Piece', C: 'Naruto', D: 'Dragon Ball Z', E: 'Fairy Tail' },
     options_tr: { A: 'Bleach', B: 'One Piece', C: 'Naruto', D: 'Dragon Ball Z', E: 'Fairy Tail' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Naruto, created by Masashi Kishimoto, follows Naruto Uzumaki, who has the Nine-Tails Fox (Kurama) sealed within him.',
   },
   {
@@ -17,6 +18,7 @@ const anime = [
     options: { A: 'Princess Mononoke', B: 'My Neighbor Totoro', C: 'Nausicaä of the Valley of the Wind', D: 'Spirited Away', E: 'Castle in the Sky' },
     options_tr: { A: 'Prenses Mononoke', B: 'Komşum Totoro', C: 'Rüzgarlı Vadi\'nin Nausicaä\'sı', D: 'Ruhların Kaçışı (Spirited Away)', E: 'Gökyüzündeki Kale' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Spirited Away (2001), directed by Hayao Miyazaki, follows 10-year-old Chihiro trapped in a spirit realm.',
   },
   {
@@ -26,6 +28,7 @@ const anime = [
     options: { A: 'Giants', B: 'Colossi', C: 'Titans', D: 'Devourers', E: 'Goliaths' },
     options_tr: { A: 'Devler', B: 'Koloslar', C: 'Titanlar', D: 'Yiyiciler', E: 'Golyatlar' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'In Attack on Titan (Shingeki no Kyojin), the giant humanoids threatening humanity are called Titans.',
   },
   {
@@ -35,6 +38,7 @@ const anime = [
     options: { A: 'Akira Toriyama', B: 'Tite Kubo', C: 'Masashi Kishimoto', D: 'Eiichiro Oda', E: 'Hajime Isayama' },
     options_tr: { A: 'Akira Toriyama', B: 'Tite Kubo', C: 'Masashi Kishimoto', D: 'Eiichiro Oda', E: 'Hajime Isayama' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'One Piece has been serialized by Eiichiro Oda in Weekly Shōnen Jump since 1997.',
   },
   {
@@ -44,6 +48,7 @@ const anime = [
     options: { A: 'Demon Slayer', B: 'My Hero Academia', C: 'Black Clover', D: 'Hunter x Hunter', E: 'Mob Psycho 100' },
     options_tr: { A: 'Demon Slayer', B: 'My Hero Academia', C: 'Black Clover', D: 'Hunter x Hunter', E: 'Mob Psycho 100' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'My Hero Academia (Boku no Hero Academia) is set in a world where roughly 80% of people have "Quirks".',
   },
   {
@@ -53,6 +58,7 @@ const anime = [
     options: { A: 'Seiyū', B: 'Mangaka', C: 'Otaku', D: 'Sensei', E: 'Sakuga' },
     options_tr: { A: 'Seiyū', B: 'Mangaka', C: 'Otaku', D: 'Sensei', E: 'Sakuga' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A "mangaka" is a manga artist. A "seiyū" is a voice actor.',
   },
   {
@@ -62,6 +68,7 @@ const anime = [
     options: { A: 'Director', B: 'Voice actor', C: 'Animator', D: 'Screenwriter', E: 'Producer' },
     options_tr: { A: 'Yönetmen', B: 'Seslendirme sanatçısı', C: 'Animatör', D: 'Senarist', E: 'Yapımcı' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A "seiyū" is a voice actor, a highly professionalized career in Japan.',
   },
   {
@@ -71,6 +78,7 @@ const anime = [
     options: { A: 'Shōjo', B: 'Seinen', C: 'Josei', D: 'Shōnen', E: 'Kodomo' },
     options_tr: { A: 'Shōjo', B: 'Seinen', C: 'Josei', D: 'Shōnen', E: 'Kodomo' },
     answer: 'D',
+    difficulty: 1,
     explanation: '"Shōnen" targets teenage boys; "shōjo" targets teenage girls; "seinen" and "josei" target adult men and women.',
   },
   {
@@ -80,6 +88,7 @@ const anime = [
     options: { A: 'Weekly Shōnen Magazine', B: 'Weekly Shōnen Jump', C: 'Weekly Shōnen Sunday', D: 'Young Jump', E: 'Afternoon' },
     options_tr: { A: 'Weekly Shōnen Magazine', B: 'Weekly Shōnen Jump', C: 'Weekly Shōnen Sunday', D: 'Young Jump', E: 'Afternoon' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Shueisha\'s Weekly Shōnen Jump is the most influential manga anthology, home to the "big three" and their successors.',
   },
   {
@@ -89,6 +98,7 @@ const anime = [
     options: { A: 'Akira Toriyama', B: 'Osamu Tezuka', C: 'Yoshihiro Togashi', D: 'Rumiko Takahashi', E: 'Naoki Urasawa' },
     options_tr: { A: 'Akira Toriyama', B: 'Osamu Tezuka', C: 'Yoshihiro Togashi', D: 'Rumiko Takahashi', E: 'Naoki Urasawa' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Akira Toriyama began Dragon Ball in 1984; he also designed characters for the Dragon Quest and Chrono Trigger games.',
   },
   {
@@ -98,6 +108,7 @@ const anime = [
     options: { A: 'Isao Takahata', B: 'Mamoru Hosoda', C: 'Hayao Miyazaki', D: 'Makoto Shinkai', E: 'Satoshi Kon' },
     options_tr: { A: 'Isao Takahata', B: 'Mamoru Hosoda', C: 'Hayao Miyazaki', D: 'Makoto Shinkai', E: 'Satoshi Kon' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Miyazaki founded Ghibli in 1985 with Isao Takahata and producer Toshio Suzuki.',
   },
   {
@@ -107,6 +118,7 @@ const anime = [
     options: { A: 'Spirited Away', B: 'Grave of the Fireflies', C: 'The Wind Rises', D: 'Ponyo', E: 'Whisper of the Heart' },
     options_tr: { A: 'Ruhların Kaçışı', B: 'Ateşböceklerinin Mezarı', C: 'Rüzgâr Yükseliyor', D: 'Ponyo', E: 'Kalbin Fısıltısı' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Grave of the Fireflies (1988) is set in Kobe during and after the American firebombing.',
   },
   {
@@ -116,6 +128,7 @@ const anime = [
     options: { A: 'Weathering with You', B: 'Your Name.', C: '5 Centimeters per Second', D: 'A Silent Voice', E: 'The Garden of Words' },
     options_tr: { A: 'Weathering with You', B: 'Your Name. (Kimi no Na wa)', C: '5 Centimeters per Second', D: 'A Silent Voice', E: 'The Garden of Words' },
     answer: 'B',
+    difficulty: 3,
     explanation: '"Your Name." (Kimi no Na wa, 2016) became one of the highest-grossing anime films ever.',
   },
   {
@@ -125,6 +138,7 @@ const anime = [
     options: { A: 'Neo-Kyoto', B: 'Neo-Tokyo', C: 'Midgar', D: 'Neo-Yokohama', E: 'Neo-Osaka' },
     options_tr: { A: 'Neo-Kyoto', B: 'Neo-Tokyo', C: 'Midgar', D: 'Neo-Yokohama', E: 'Neo-Osaka' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Katsuhiro Otomo directed and wrote "Akira", set in a dystopian Neo-Tokyo in 2019.',
   },
   {
@@ -134,6 +148,7 @@ const anime = [
     options: { A: 'Mobile Suit Gundam', B: 'Neon Genesis Evangelion', C: 'Code Geass', D: 'Gurren Lagann', E: 'RahXephon' },
     options_tr: { A: 'Mobile Suit Gundam', B: 'Neon Genesis Evangelion', C: 'Code Geass', D: 'Gurren Lagann', E: 'RahXephon' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Neon Genesis Evangelion, produced by Gainax, redefined the mecha genre with heavy psychological themes.',
   },
   {
@@ -143,6 +158,7 @@ const anime = [
     options: { A: 'Rem', B: 'Ryuk', C: 'Sidoh', D: 'Gelus', E: 'Armonia' },
     options_tr: { A: 'Rem', B: 'Ryuk', C: 'Sidoh', D: 'Gelus', E: 'Armonia' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ryuk drops his Death Note out of boredom; Light Yagami finds it and begins killing criminals.',
   },
   {
@@ -152,6 +168,7 @@ const anime = [
     options: { A: 'N', B: 'M', C: 'L', D: 'Watari', E: 'K' },
     options_tr: { A: 'N', B: 'M', C: 'L', D: 'Watari', E: 'K' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The detective goes only by the single letter "L"; his real name, L Lawliet, is revealed later.',
   },
   {
@@ -161,6 +178,7 @@ const anime = [
     options: { A: 'Digimon', B: 'Pokémon', C: 'Yu-Gi-Oh!', D: 'Beyblade', E: 'Monster Rancher' },
     options_tr: { A: 'Digimon', B: 'Pokémon', C: 'Yu-Gi-Oh!', D: 'Beyblade', E: 'Monster Rancher' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Pokémon anime began in 1997, based on the Nintendo games by Satoshi Tajiri.',
   },
   {
@@ -182,6 +200,7 @@ const anime = [
       E: 'Yasak çemberler kuralı',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'To obtain something, something of equal value must be lost; this drives the Elric brothers\' story.',
   },
   {
@@ -191,6 +210,7 @@ const anime = [
     options: { A: 'Fairy Tail', B: 'One Piece', C: 'Black Clover', D: 'Hunter x Hunter', E: 'Toriko' },
     options_tr: { A: 'Fairy Tail', B: 'One Piece', C: 'Black Clover', D: 'Hunter x Hunter', E: 'Toriko' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Luffy ate the Gomu Gomu no Mi and dreams of becoming the Pirate King in One Piece.',
   },
   {
@@ -200,6 +220,7 @@ const anime = [
     options: { A: 'Bleach', B: 'Fairy Tail', C: 'Hunter x Hunter', D: 'Dragon Ball', E: 'Reborn!' },
     options_tr: { A: 'Bleach', B: 'Fairy Tail', C: 'Hunter x Hunter', D: 'Dragon Ball', E: 'Reborn!' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Tite Kubo\'s Bleach completed the "Big Three" of that era.',
   },
   {
@@ -209,6 +230,7 @@ const anime = [
     options: { A: 'Zenitsu Agatsuma', B: 'Inosuke Hashibira', C: 'Tanjiro Kamado', D: 'Giyu Tomioka', E: 'Kyojuro Rengoku' },
     options_tr: { A: 'Zenitsu Agatsuma', B: 'Inosuke Hashibira', C: 'Tanjiro Kamado', D: 'Giyu Tomioka', E: 'Kyojuro Rengoku' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Tanjiro Kamado joins the Demon Slayer Corps to cure Nezuko and avenge his family.',
   },
   {
@@ -218,6 +240,7 @@ const anime = [
     options: { A: 'MAPPA', B: 'ufotable', C: 'Madhouse', D: 'Bones', E: 'Wit Studio' },
     options_tr: { A: 'MAPPA', B: 'ufotable', C: 'Madhouse', D: 'Bones', E: 'Wit Studio' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'ufotable also produces the Fate series and is famous for blending 2D and 3D effects.',
   },
   {
@@ -227,6 +250,7 @@ const anime = [
     options: { A: 'Mahito', B: 'Jogo', C: 'Ryomen Sukuna', D: 'Geto', E: 'Kenjaku' },
     options_tr: { A: 'Mahito', B: 'Jogo', C: 'Ryomen Sukuna', D: 'Geto', E: 'Kenjaku' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Yuji swallows one of Sukuna\'s 20 fingers and becomes the "vessel" for the King of Curses.',
   },
   {
@@ -236,6 +260,7 @@ const anime = [
     options: { A: 'Power', B: 'Pochita', C: 'Makima', D: 'Aki', E: 'Beam' },
     options_tr: { A: 'Power', B: 'Pochita', C: 'Makima', D: 'Aki', E: 'Beam' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Pochita, Denji\'s pet chainsaw devil, becomes his heart, letting him transform into Chainsaw Man.',
   },
   {
@@ -245,6 +270,7 @@ const anime = [
     options: { A: 'The Outlaw Star', B: 'The Bebop', C: 'The Swordfish', D: 'The Nirvana', E: 'The Macross' },
     options_tr: { A: 'The Outlaw Star', B: 'The Bebop', C: 'The Swordfish', D: 'The Nirvana', E: 'The Macross' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Spike, Jet, Faye, Ed and the dog Ein are bounty hunters aboard the Bebop; Shinichirō Watanabe directed the 1998 series.',
   },
   {
@@ -254,6 +280,7 @@ const anime = [
     options: { A: 'Mamoru Oshii', B: 'Satoshi Kon', C: 'Katsuhiro Otomo', D: 'Shinichirō Watanabe', E: 'Hideaki Anno' },
     options_tr: { A: 'Mamoru Oshii', B: 'Satoshi Kon', C: 'Katsuhiro Otomo', D: 'Shinichirō Watanabe', E: 'Hideaki Anno' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Satoshi Kon (1963–2010) was renowned for blurring dream and reality; "Paprika" influenced the film "Inception".',
   },
   {
@@ -263,6 +290,7 @@ const anime = [
     options: { A: 'Serial Experiments Lain', B: 'Ghost in the Shell', C: 'Ergo Proxy', D: 'Psycho-Pass', E: 'Texhnolyze' },
     options_tr: { A: 'Serial Experiments Lain', B: 'Ghost in the Shell', C: 'Ergo Proxy', D: 'Psycho-Pass', E: 'Texhnolyze' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Ghost in the Shell follows Major Motoko Kusanagi of Public Security Section 9 and influenced films like "The Matrix".',
   },
   {
@@ -272,6 +300,7 @@ const anime = [
     options: { A: 'Cardcaptor Sakura', B: 'Sailor Moon', C: 'Magic Knight Rayearth', D: 'Puella Magi Madoka Magica', E: 'Pretty Cure' },
     options_tr: { A: 'Cardcaptor Sakura', B: 'Sailor Moon', C: 'Magic Knight Rayearth', D: 'Puella Magi Madoka Magica', E: 'Pretty Cure' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Sailor Moon (Bishōjo Senshi Sailor Moon), created by Naoko Takeuchi, popularized the magical-girl genre worldwide.',
   },
   {
@@ -281,6 +310,7 @@ const anime = [
     options: { A: 'Doraemon', B: 'Astro Boy', C: 'Gigantor', D: 'Mazinger Z', E: '8 Man' },
     options_tr: { A: 'Doraemon', B: 'Astro Boy (Tetsuwan Atom)', C: 'Gigantor', D: 'Mazinger Z', E: '8 Man' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Astro Boy (Tetsuwan Atom) also became one of the first popular Japanese TV anime in 1963.',
   },
   {
@@ -290,6 +320,7 @@ const anime = [
     options: { A: 'His lost sister', B: 'His father, Ging', C: 'His missing mentor', D: 'A legendary treasure', E: 'His rival Killua' },
     options_tr: { A: 'Kayıp kız kardeşini', B: 'Babası Ging\'i', C: 'Kayıp akıl hocasını', D: 'Efsanevi bir hazineyi', E: 'Rakibi Killua\'yı' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Gon Freecss becomes a Hunter to find his father Ging, a legendary Hunter who left him as a baby.',
   },
   {
@@ -299,6 +330,7 @@ const anime = [
     options: { A: 'Mob Psycho 100', B: 'One-Punch Man', C: 'The Disastrous Life of Saiki K.', D: 'Assassination Classroom', E: 'Kill la Kill' },
     options_tr: { A: 'Mob Psycho 100', B: 'One-Punch Man', C: 'Saiki K.\'nın Feci Hayatı', D: 'Suikast Sınıfı', E: 'Kill la Kill' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'One-Punch Man began as a webcomic by the artist known as ONE, later redrawn by Yusuke Murata.',
   },
   {
@@ -308,6 +340,7 @@ const anime = [
     options: { A: 'Personas', B: 'Stands', C: 'Nen', D: 'Quirks', E: 'Semblances' },
     options_tr: { A: 'Persona\'lar', B: 'Stand\'ler', C: 'Nen', D: 'Quirk\'ler', E: 'Semblance\'lar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'From Part 3 onward, characters in JoJo manifest fighting spirits called "Stands", each with unique powers.',
   },
   {
@@ -317,6 +350,7 @@ const anime = [
     options: { A: 'The Promised Neverland', B: 'Fullmetal Alchemist', C: 'D.Gray-man', D: 'Blue Exorcist', E: 'Seraph of the End' },
     options_tr: { A: 'The Promised Neverland', B: 'Fullmetal Alchemist', C: 'D.Gray-man', D: 'Blue Exorcist', E: 'Seraph of the End' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Fullmetal Alchemist was created by Hiromu Arakawa; the 2009 series "Brotherhood" closely follows the manga.',
   },
   {
@@ -326,6 +360,7 @@ const anime = [
     options: { A: 'OP', B: 'OVA', C: 'ED', D: 'ONA (originally)', E: 'PV' },
     options_tr: { A: 'OP', B: 'OVA', C: 'ED', D: 'ONA (ilk anlamıyla)', E: 'PV' },
     answer: 'B',
+    difficulty: 1,
     explanation: '"OVA" stands for Original Video Animation. "ONA" is Original Net Animation, released online.',
   },
   {
@@ -335,6 +370,7 @@ const anime = [
     options: { A: 'Sunrise', B: 'Bones', C: 'Toei Animation', D: 'Pierrot', E: 'A-1 Pictures' },
     options_tr: { A: 'Sunrise', B: 'Bones', C: 'Toei Animation', D: 'Pierrot', E: 'A-1 Pictures' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Studio Bones was founded in 1998 by former Sunrise staff.',
   },
   {
@@ -344,6 +380,7 @@ const anime = [
     options: { A: '1972', B: '1979', C: '1985', D: '1991', E: '1995' },
     options_tr: { A: '1972', B: '1979', C: '1985', D: '1991', E: '1995' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Mobile Suit Gundam (Kidō Senshi Gundam) premiered in 1979, created by Yoshiyuki Tomino.',
   },
   {
@@ -353,6 +390,7 @@ const anime = [
     options: { A: 'Endeavor', B: 'All Might', C: 'Hawks', D: 'Eraser Head', E: 'Best Jeanist' },
     options_tr: { A: 'Endeavor', B: 'All Might', C: 'Hawks', D: 'Eraser Head', E: 'Best Jeanist' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'All Might, "the Symbol of Peace", passes his Quirk "One For All" to Midoriya.',
   },
   {
@@ -362,6 +400,7 @@ const anime = [
     options: { A: 'A detective agency', B: 'A fake family', C: 'A rock band', D: 'A mercenary squad', E: 'A cooking team' },
     options_tr: { A: 'Bir dedektiflik bürosu', B: 'Sahte bir aile', C: 'Bir rock grubu', D: 'Bir paralı asker ekibi', E: 'Bir yemek ekibi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Loid (Twilight) builds a fake family with Yor and Anya to complete a mission, unaware of each other\'s secrets.',
   },
   {
@@ -383,6 +422,7 @@ const anime = [
       E: 'Onlarca yıl önce İblis Kralı\'nın yenilgisi',
     },
     answer: 'E',
+    difficulty: 3,
     explanation: 'After the hero Himmel dies of old age, the near-immortal Frieren sets out to understand the humans she travelled with.',
   },
   {
@@ -392,6 +432,7 @@ const anime = [
     options: { A: 'Code Geass', B: 'Death Note', C: 'Future Diary', D: 'Terror in Resonance', E: 'Monster' },
     options_tr: { A: 'Code Geass', B: 'Death Note', C: 'Future Diary', D: 'Terror in Resonance', E: 'Monster' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Death Note (2006), based on the manga by Tsugumi Ohba and Takeshi Obata.',
   },
   {
@@ -401,6 +442,7 @@ const anime = [
     options: { A: 'Kiki\'s Delivery Service', B: 'Howl\'s Moving Castle', C: 'The Cat Returns', D: 'Tales from Earthsea', E: 'Arrietty' },
     options_tr: { A: 'Kiki\'nin Taşımacılık Servisi', B: 'Yürüyen Şato', C: 'Kedilerin Dönüşü', D: 'Yerdeniz Öyküleri', E: 'Arrietty' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Howl\'s Moving Castle (2004), directed by Miyazaki, is based on the novel by Diana Wynne Jones.',
   },
   {
@@ -410,6 +452,7 @@ const anime = [
     options: { A: 'Ki', B: 'Chakra', C: 'Nen', D: 'Reiatsu', E: 'Haki' },
     options_tr: { A: 'Ki', B: 'Chakra', C: 'Nen', D: 'Reiatsu', E: 'Haki' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Nen lets users manipulate their aura; "Chakra" is from Naruto, "Reiatsu" from Bleach, "Haki" from One Piece.',
   },
   {
@@ -419,6 +462,7 @@ const anime = [
     options: { A: 'Sunagakure', B: 'Konohagakure', C: 'Kirigakure', D: 'Iwagakure', E: 'Kumogakure' },
     options_tr: { A: 'Sunagakure', B: 'Konohagakure', C: 'Kirigakure', D: 'Iwagakure', E: 'Kumogakure' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Konohagakure, "the Village Hidden in the Leaves", is the Land of Fire\'s ninja village.',
   },
   {
@@ -428,6 +472,7 @@ const anime = [
     options: { A: 'Lucky Star', B: 'K-On!', C: 'Nichijou', D: 'Hyouka', E: 'Sound! Euphonium' },
     options_tr: { A: 'Lucky Star', B: 'K-On!', C: 'Nichijou', D: 'Hyouka', E: 'Sound! Euphonium' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'K-On! (2009) became a huge commercial success and a landmark of the "cute girls doing cute things" genre.',
   },
   {
@@ -437,6 +482,7 @@ const anime = [
     options: { A: 'Yandere', B: 'Kuudere', C: 'Tsundere', D: 'Dandere', E: 'Himedere' },
     options_tr: { A: 'Yandere', B: 'Kuudere', C: 'Tsundere', D: 'Dandere', E: 'Himedere' },
     answer: 'C',
+    difficulty: 2,
     explanation: '"Tsundere" combines "tsun-tsun" (aloof) with "dere-dere" (lovey-dovey). "Yandere" adds obsessive, often violent devotion.',
   },
   {
@@ -446,6 +492,7 @@ const anime = [
     options: { A: 'Kuroko\'s Basketball', B: 'Haikyū!!', C: 'Blue Lock', D: 'Ace of Diamond', E: 'Free!' },
     options_tr: { A: 'Kuroko\'s Basketball', B: 'Haikyū!!', C: 'Blue Lock', D: 'Ace of Diamond', E: 'Free!' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Haikyū!!, by Haruichi Furudate, follows Karasuno High\'s volleyball team.',
   },
   {
@@ -455,6 +502,7 @@ const anime = [
     options: { A: 'The Marleyans', B: 'The Eldians', C: 'The Ackermans', D: 'The people of Hizuru', E: 'The Walldians only' },
     options_tr: { A: 'Marleyalılar', B: 'Eldialılar', C: 'Ackerman\'lar', D: 'Hizuru halkı', E: 'Yalnızca Duvar halkı' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Only Eldians ("Subjects of Ymir") can become Titans; the nine "Titan Shifters" hold special forms.',
   },
   {
@@ -464,6 +512,7 @@ const anime = [
     options: { A: 'Wit Studio', B: 'MAPPA', C: 'CloverWorks', D: 'Trigger', E: 'Production I.G' },
     options_tr: { A: 'Wit Studio', B: 'MAPPA', C: 'CloverWorks', D: 'Trigger', E: 'Production I.G' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Wit Studio animated Attack on Titan\'s first three seasons; MAPPA took over for the final season.',
   },
   {
@@ -485,6 +534,7 @@ const anime = [
       E: 'Kızıl Domuz (Porco Rosso)',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Nausicaä (1984) predates the formal founding of Ghibli but is usually counted with its films; its success led to the studio.',
   },
   {
@@ -494,6 +544,7 @@ const anime = [
     options: { A: 'Blue Exorcist', B: 'Bleach', C: 'Soul Eater', D: 'Noragami', E: 'Yu Yu Hakusho' },
     options_tr: { A: 'Blue Exorcist', B: 'Bleach', C: 'Soul Eater', D: 'Noragami', E: 'Yu Yu Hakusho' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Bleach, by Tite Kubo, ran from 2004; a new anime adapting the final arc began in 2022.',
   },
   {
@@ -503,6 +554,7 @@ const anime = [
     options: { A: 'ED', B: 'OP', C: 'PV', D: 'CM', E: 'BD' },
     options_tr: { A: 'ED', B: 'OP', C: 'PV', D: 'CM', E: 'BD' },
     answer: 'B',
+    difficulty: 2,
     explanation: '"OP" (opening) plays at the start; "ED" (ending) plays over the credits.',
   },
   {
@@ -524,6 +576,7 @@ const anime = [
       E: 'Cinsiyet değiştirir',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: '"Isekai" means "different world". Examples include Sword Art Online, Re:Zero and That Time I Got Reincarnated as a Slime.',
   },
   {
@@ -545,6 +598,7 @@ const anime = [
       E: 'Görünmez olmak',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: '"Return by Death" sends Subaru back to a checkpoint whenever he dies, but he cannot tell anyone about it.',
   },
   {
@@ -554,6 +608,7 @@ const anime = [
     options: { A: 'Kentaro Miura', B: 'Yukito Kishiro', C: 'Takehiko Inoue', D: 'Kaoru Mori', E: 'Sui Ishida' },
     options_tr: { A: 'Kentaro Miura', B: 'Yukito Kishiro', C: 'Takehiko Inoue', D: 'Kaoru Mori', E: 'Sui Ishida' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Miura began Berserk in 1989; his assistants and friend Kouji Mori have continued it from his notes.',
   },
   {
@@ -563,6 +618,7 @@ const anime = [
     options: { A: 'Vinland Saga', B: 'Golden Kamuy', C: 'Drifters', D: 'Kingdom', E: 'Record of Ragnarok' },
     options_tr: { A: 'Vinland Saga', B: 'Golden Kamuy', C: 'Drifters', D: 'Kingdom', E: 'Record of Ragnarok' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Vinland Saga, by Makoto Yukimura, is a historical epic set in 11th-century England and Scandinavia.',
   },
   {
@@ -572,6 +628,7 @@ const anime = [
     options: { A: 'Trigger', B: 'Shaft', C: 'P.A. Works', D: 'David Production', E: 'Doga Kobo' },
     options_tr: { A: 'Trigger', B: 'Shaft', C: 'P.A. Works', D: 'David Production', E: 'Doga Kobo' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Studio Trigger, formed by Hiroyuki Imaishi and Masahiko Otsuka, is known for energetic, exaggerated animation.',
   },
   {
@@ -581,6 +638,7 @@ const anime = [
     options: { A: 'The Contract', B: 'Geass', C: 'The Command', D: 'The Sceptre', E: 'The Code' },
     options_tr: { A: 'The Contract', B: 'Geass', C: 'The Command', D: 'The Sceptre', E: 'The Code' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Lelouch\'s Geass lets him give any single command once per person, which they must obey.',
   },
   {
@@ -590,6 +648,7 @@ const anime = [
     options: { A: 'Anne of Green Gables', B: 'Heidi, Girl of the Alps', C: '3000 Leagues in Search of Mother', D: 'The Dog of Flanders', E: 'Future Boy Conan' },
     options_tr: { A: 'Yeşilin Kızı Anne', B: 'Alpler\'in Kızı Heidi', C: 'Anneni Ararken', D: 'Flandra\'nın Köpeği', E: 'Gelecek Çocuk Conan' },
     answer: 'B',
+    difficulty: 3,
     explanation: '"Heidi, Girl of the Alps" (1974) featured layout work by a young Hayao Miyazaki.',
   },
   {
@@ -599,6 +658,7 @@ const anime = [
     options: { A: 'Adult men', B: 'Teenage girls', C: 'Young children', D: 'Adult women', E: 'Teenage boys' },
     options_tr: { A: 'Yetişkin erkekler', B: 'Genç kızlar (ergen)', C: 'Küçük çocuklar', D: 'Yetişkin kadınlar', E: 'Genç erkekler (ergen)' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Classic shōjo includes Sailor Moon, Fruits Basket and Ouran High School Host Club.',
   },
   {
@@ -608,6 +668,7 @@ const anime = [
     options: { A: 'Baki the Grappler', B: 'JoJo\'s Bizarre Adventure', C: 'Fist of the North Star', D: 'Hokuto no Ken', E: 'Grappler Baki' },
     options_tr: { A: 'Baki the Grappler', B: 'JoJo\'s Bizarre Adventure', C: 'Kuzey Yıldızının Yumruğu', D: 'Hokuto no Ken', E: 'Grappler Baki' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Hirohiko Araki\'s JoJo has run since 1987 across nine parts; "ZA WARUDO" and "MUDA MUDA MUDA" are famous lines.',
   },
   {
@@ -617,6 +678,7 @@ const anime = [
     options: { A: 'To parallel universes', B: 'To the past', C: 'To the future', D: 'Into people\'s dreams', E: 'To the afterlife' },
     options_tr: { A: 'Paralel evrenlere', B: 'Geçmişe', C: 'Geleceğe', D: 'İnsanların rüyalarına', E: 'Öbür dünyaya' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The "Phone Microwave" sends texts ("D-Mails") to the past, altering the present in unpredictable ways.',
   },
   {
@@ -626,6 +688,7 @@ const anime = [
     options: { A: 'Foxes', B: 'Wolves', C: 'Bears', D: 'Deer', E: 'Dogs' },
     options_tr: { A: 'Tilkiler', B: 'Kurtlar', C: 'Ayılar', D: 'Geyikler', E: 'Köpekler' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'In "Wolf Children" (2012), Hana raises two children who are half wolf after their werewolf father dies.',
   },
   {
@@ -635,6 +698,7 @@ const anime = [
     options: { A: 'Jibanyan', B: 'Doraemon', C: 'Nyanko-sensei', D: 'Meowth', E: 'Luna' },
     options_tr: { A: 'Jibanyan', B: 'Doraemon', C: 'Nyanko-sensei', D: 'Meowth', E: 'Luna' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Doraemon, from the 22nd century, helps the boy Nobita with gadgets from his fourth-dimensional pocket.',
   },
   {
@@ -644,6 +708,7 @@ const anime = [
     options: { A: 'The Rio Poneglyph', B: 'The One Piece', C: 'The Ancient Weapons', D: 'The Road Ponneglyphs', E: 'The Grand Line' },
     options_tr: { A: 'Rio Poneglyph', B: 'One Piece', C: 'Kadim Silahlar', D: 'Road Poneglyph\'ler', E: 'Grand Line' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The treasure left by Gol D. Roger, the "Pirate King", is itself called the One Piece.',
   },
   {
@@ -653,6 +718,7 @@ const anime = [
     options: { A: 'Made in Abyss', B: 'The Promised Neverland', C: 'Deadman Wonderland', D: 'Elfen Lied', E: 'Gunslinger Girl' },
     options_tr: { A: 'Made in Abyss', B: 'The Promised Neverland', C: 'Deadman Wonderland', D: 'Elfen Lied', E: 'Gunslinger Girl' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Promised Neverland, by Kaiu Shirai and Posuka Demizu, follows orphans Emma, Norman and Ray plotting to escape.',
   },
   {
@@ -662,6 +728,7 @@ const anime = [
     options: { A: 'Hulu', B: 'Crunchyroll', C: 'Disney+', D: 'HBO Max', E: 'Peacock' },
     options_tr: { A: 'Hulu', B: 'Crunchyroll', C: 'Disney+', D: 'HBO Max', E: 'Peacock' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Crunchyroll began in 2006 and, after merging with Funimation, is the dominant Western anime platform.',
   },
   {
@@ -671,6 +738,7 @@ const anime = [
     options: { A: 'Code Geass', B: 'Death Note', C: 'Monster', D: 'Psycho-Pass', E: 'No Game No Life' },
     options_tr: { A: 'Code Geass', B: 'Death Note', C: 'Monster', D: 'Psycho-Pass', E: 'No Game No Life' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Madhouse produced the "Death Note" anime (2006); the question describes Light Yagami\'s premise.',
   },
   {
@@ -692,6 +760,7 @@ const anime = [
       E: 'Bir cosplay yarışması jürisi',
     },
     answer: 'B',
+    difficulty: 1,
     explanation: 'In Japan "otaku" can apply to any obsessive hobbyist and once carried a strongly negative connotation.',
   },
   {
@@ -701,6 +770,7 @@ const anime = [
     options: { A: 'Blue Exorcist', B: 'Jujutsu Kaisen', C: 'Bleach', D: 'Twin Star Exorcists', E: 'Noragami' },
     options_tr: { A: 'Blue Exorcist', B: 'Jujutsu Kaisen', C: 'Bleach', D: 'Twin Star Exorcists', E: 'Noragami' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Jujutsu Kaisen (2020), by Gege Akutami, quickly became one of the best-selling manga worldwide.',
   },
   {
@@ -710,6 +780,7 @@ const anime = [
     options: { A: 'Gundam', B: 'Macross', C: 'Aura Battler Dunbine', D: 'Patlabor', E: 'Escaflowne' },
     options_tr: { A: 'Gundam', B: 'Macross', C: 'Aura Battler Dunbine', D: 'Patlabor', E: 'Escaflowne' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Super Dimension Fortress Macross (1982) was partly adapted into the Western "Robotech".',
   },
   {
@@ -719,6 +790,7 @@ const anime = [
     options: { A: 'The Western zodiac', B: 'The Chinese zodiac', C: 'Mythical beasts', D: 'Household pets', E: 'Farm animals' },
     options_tr: { A: 'Batı burçları', B: 'Çin zodyağı', C: 'Efsanevi yaratıklar', D: 'Ev hayvanları', E: 'Çiftlik hayvanları' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Each cursed Sohma is possessed by a spirit of the Chinese zodiac (plus the cat).',
   },
   {
@@ -728,6 +800,7 @@ const anime = [
     options: { A: 'Little Witch Academia', B: 'Kill la Kill', C: 'Darling in the Franxx', D: 'Promare', E: 'BNA' },
     options_tr: { A: 'Little Witch Academia', B: 'Kill la Kill', C: 'Darling in the Franxx', D: 'Promare', E: 'BNA' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Kill la Kill (2013) is set at Honnōji Academy, where power is granted by "Life Fibers" woven into clothing.',
   },
   {
@@ -737,6 +810,7 @@ const anime = [
     options: { A: 'Makoto Shinkai', B: 'Mamoru Hosoda', C: 'Naoko Yamada', D: 'Masaaki Yuasa', E: 'Hiromasa Yonebayashi' },
     options_tr: { A: 'Makoto Shinkai', B: 'Mamoru Hosoda', C: 'Naoko Yamada', D: 'Masaaki Yuasa', E: 'Hiromasa Yonebayashi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Hosoda, of Studio Chizu, also directed "Summer Wars", "Wolf Children" and "The Boy and the Beast".',
   },
   {
@@ -746,6 +820,7 @@ const anime = [
     options: { A: 'Sina', B: 'Ymir', C: 'Paradis', D: 'Eren', E: 'Historia' },
     options_tr: { A: 'Sina', B: 'Ymir', C: 'Paradis', D: 'Eren', E: 'Historia' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'From outermost to innermost: Wall Maria, Wall Rose, Wall Sina.',
   },
   {
@@ -755,6 +830,7 @@ const anime = [
     options: { A: 'YuYu Hakusho', B: 'Flame of Recca', C: 'Rurouni Kenshin', D: 'Inuyasha', E: 'Shaman King' },
     options_tr: { A: 'YuYu Hakusho', B: 'Flame of Recca', C: 'Rurouni Kenshin', D: 'Inuyasha', E: 'Shaman King' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'YuYu Hakusho (1990–94) began after Yusuke dies saving a child and is given a chance to return to life.',
   },
   {
@@ -764,6 +840,7 @@ const anime = [
     options: { A: 'The "reset button"', B: 'The "power of friendship" / "asspull"', C: 'The "filler arc"', D: 'The "time skip"', E: 'The "retcon"' },
     options_tr: { A: '"Reset button"', B: '"Dostluğun gücü" / "asspull"', C: '"Filler arc"', D: '"Time skip"', E: '"Retcon"' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Fans jokingly attribute sudden comebacks to "the power of friendship"; an unearned one is derisively called an "asspull".',
   },
   {
@@ -773,6 +850,7 @@ const anime = [
     options: { A: 'Mob Psycho 100', B: 'One-Punch Man (season 1)', C: 'My Hero Academia', D: 'Concrete Revolutio', E: 'Tiger & Bunny' },
     options_tr: { A: 'Mob Psycho 100', B: 'One-Punch Man (1. sezon)', C: 'My Hero Academia', D: 'Concrete Revolutio', E: 'Tiger & Bunny' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Madhouse animated One-Punch Man\'s acclaimed first season (2015); later seasons moved to J.C.Staff.',
   },
   {
@@ -794,6 +872,7 @@ const anime = [
       E: 'My Hero Academia: Heroes Rising',
     },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The 2020 "Mugen Train" film became the highest-grossing film in Japanese box-office history at the time.',
   },
   {
@@ -803,6 +882,7 @@ const anime = [
     options: { A: 'Chidori', B: 'Rasengan', C: 'Amaterasu', D: 'Shadow Clone', E: 'Kamui' },
     options_tr: { A: 'Chidori', B: 'Rasengan', C: 'Amaterasu', D: 'Gölge Klonu', E: 'Kamui' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Rasengan was invented by Naruto\'s father, the Fourth Hokage. Chidori is Sasuke\'s signature move.',
   },
   {
@@ -812,6 +892,7 @@ const anime = [
     options: { A: 'Samurai Champloo', B: 'Rurouni Kenshin', C: 'Blade of the Immortal', D: 'Dororo', E: 'Sword of the Stranger' },
     options_tr: { A: 'Samurai Champloo', B: 'Rurouni Kenshin', C: 'Ölümsüzün Kılıcı', D: 'Dororo', E: 'Yabancının Kılıcı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Rurouni Kenshin, by Nobuhiro Watsuki, follows the wandering swordsman who vows never to kill again.',
   },
   {
@@ -821,6 +902,7 @@ const anime = [
     options: { A: 'P.A. Works', B: 'Kyoto Animation', C: 'Shaft', D: 'Ufotable', E: 'CoMix Wave Films' },
     options_tr: { A: 'P.A. Works', B: 'Kyoto Animation', C: 'Shaft', D: 'Ufotable', E: 'CoMix Wave Films' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Kyoto Animation ("KyoAni") is celebrated for character animation and backgrounds; "A Silent Voice" (2016) was directed by Naoko Yamada.',
   },
   {
@@ -830,6 +912,7 @@ const anime = [
     options: { A: 'Soul Eater', B: 'Fullmetal Alchemist', C: 'Hellsing', D: 'Claymore', E: 'Trinity Blood' },
     options_tr: { A: 'Soul Eater', B: 'Fullmetal Alchemist', C: 'Hellsing', D: 'Claymore', E: 'Trinity Blood' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The 2003 anime diverged from the still-running manga; "Brotherhood" retold the story faithfully.',
   },
   {
@@ -839,6 +922,7 @@ const anime = [
     options: { A: 'Kamehameha', B: 'Final Flash', C: 'Galick Gun', D: 'Special Beam Cannon', E: 'Spirit Bomb' },
     options_tr: { A: 'Kamehameha', B: 'Final Flash', C: 'Galick Gun', D: 'Special Beam Cannon', E: 'Ruh Bombası' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The Kamehameha, learned from Master Roshi, is Goku\'s trademark move.',
   },
   {
@@ -860,6 +944,7 @@ const anime = [
       E: 'Tarihsel savaşlar',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Slice-of-life shows such as "Non Non Biyori" and "Aria" emphasize atmosphere and small daily moments over plot.',
   },
   {
@@ -869,6 +954,7 @@ const anime = [
     options: { A: 'Attack on Titan', B: 'Kabaneri of the Iron Fortress', C: 'God Eater', D: 'Seraph of the End', E: 'Claymore' },
     options_tr: { A: 'Attack on Titan', B: 'Kabaneri of the Iron Fortress', C: 'God Eater', D: 'Seraph of the End', E: 'Claymore' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Attack on Titan (Shingeki no Kyojin) ran from 2013 to 2023 and was created by Hajime Isayama.',
   },
   {
@@ -878,6 +964,7 @@ const anime = [
     options: { A: 'Log Horizon', B: 'Sword Art Online', C: '.hack//Sign', D: 'Overlord', E: 'No Game No Life' },
     options_tr: { A: 'Log Horizon', B: 'Sword Art Online', C: '.hack//Sign', D: 'Overlord', E: 'No Game No Life' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'In SAO, 10,000 players are trapped in a game where dying in-game kills them in reality.',
   },
   {
@@ -899,6 +986,7 @@ const anime = [
       E: 'Asla yaşlanmamaya lanetlenmiş',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: '"Ranking of Kings", animated by Wit Studio, follows the deaf, frail prince Bojji and his shadow-creature friend Kage.',
   },
   {
@@ -908,6 +996,7 @@ const anime = [
     options: { A: 'The Wind Rises', B: 'Porco Rosso', C: 'Castle in the Sky', D: 'Kiki\'s Delivery Service', E: 'The Boy and the Heron' },
     options_tr: { A: 'Rüzgâr Yükseliyor', B: 'Kızıl Domuz (Porco Rosso)', C: 'Gökyüzündeki Kale', D: 'Kiki\'nin Taşımacılık Servisi', E: 'Çocuk ve Balıkçıl' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Porco Rosso (1992) follows a bounty-hunter seaplane pilot in the Adriatic, cursed to look like a pig.',
   },
   {
@@ -917,6 +1006,7 @@ const anime = [
     options: { A: 'The Red Hair Pirates', B: 'The Straw Hat Pirates', C: 'The Heart Pirates', D: 'The Whitebeard Pirates', E: 'The Beast Pirates' },
     options_tr: { A: 'Kızıl Saç Korsanları', B: 'Hasır Şapka Korsanları', C: 'Kalp Korsanları', D: 'Beyazsakal Korsanları', E: 'Canavar Korsanları' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Named for Luffy\'s straw hat, a gift originally from the pirate "Red-Haired" Shanks.',
   },
   {
@@ -926,6 +1016,7 @@ const anime = [
     options: { A: 'MAPPA', B: 'Studio Trigger', C: 'Wit Studio', D: 'Bones', E: 'Sunrise' },
     options_tr: { A: 'MAPPA', B: 'Studio Trigger', C: 'Wit Studio', D: 'Bones', E: 'Sunrise' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Trigger animated the Netflix series set in Night City; it revived interest in the game after a rocky launch.',
   },
   {
@@ -935,6 +1026,7 @@ const anime = [
     options: { A: 'Anime', B: 'Manga', C: 'Manhwa', D: 'Doujinshi', E: 'Light novel' },
     options_tr: { A: 'Anime', B: 'Manga', C: 'Manhwa', D: 'Doujinshi', E: 'Light novel' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Manga are Japanese comics; "manhwa" is the Korean equivalent. "Doujinshi" are self-published fan works.',
   },
   {
@@ -944,6 +1036,7 @@ const anime = [
     options: { A: 'Yuki Yuna Is a Hero', B: 'Puella Magi Madoka Magica', C: 'Magical Girl Raising Project', D: 'Day Break Illusion', E: 'Flip Flappers' },
     options_tr: { A: 'Yuki Yuna Is a Hero', B: 'Puella Magi Madoka Magica', C: 'Magical Girl Raising Project', D: 'Day Break Illusion', E: 'Flip Flappers' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Studio Shaft\'s Madoka Magica revealed that becoming a magical girl carries a horrific hidden cost.',
   },
   {
@@ -953,6 +1046,7 @@ const anime = [
     options: { A: 'The Military Police', B: 'The Garrison', C: 'The Survey Corps (Scout Regiment)', D: 'The Warriors', E: 'The Yeagerists' },
     options_tr: { A: 'Askeri İnzibat', B: 'Garnizon', C: 'Keşif Birliği (Survey Corps)', D: 'Savaşçılar', E: 'Yeager\'cılar' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Survey Corps ventures outside the Walls; Levi and Erwin are its most famous members.',
   },
   {
@@ -974,6 +1068,7 @@ const anime = [
       E: 'Erased',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Anohana (2011), animated by A-1 Pictures, is a well-known "cry" anime about grief and reconciliation.',
   },
   {
@@ -983,6 +1078,7 @@ const anime = [
     options: { A: 'Assassination Classroom', B: 'My Hero Academia', C: 'Little Witch Academia', D: 'Classroom of the Elite', E: 'Charlotte' },
     options_tr: { A: 'Suikast Sınıfı', B: 'My Hero Academia', C: 'Little Witch Academia', D: 'Seçkinlerin Sınıfı', E: 'Charlotte' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Class 1-A at U.A. includes Midoriya, Bakugo, Todoroki and Uraraka.',
   },
   {
@@ -1004,6 +1100,7 @@ const anime = [
       E: 'Marnie Buradayken',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The Japanese title "Kimi-tachi wa Dō Ikiru ka" ("How Do You Live?") comes from a 1937 novel that appears in the film.',
   },
   {
@@ -1013,6 +1110,7 @@ const anime = [
     options: { A: 'Puella Magi Madoka Magica', B: 'Sailor Moon', C: 'Cardcaptor Sakura', D: 'Nyan Koi!', E: 'Konosuba' },
     options_tr: { A: 'Puella Magi Madoka Magica', B: 'Sailor Moon', C: 'Cardcaptor Sakura', D: 'Nyan Koi!', E: 'Konosuba' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Kyubey grants a wish in exchange for a girl becoming a magical girl, hiding the true nature of the bargain.',
   },
   {
@@ -1022,6 +1120,7 @@ const anime = [
     options: { A: 'Recap episodes', B: 'Filler', C: 'OVAs', D: 'Specials', E: 'Cold opens' },
     options_tr: { A: 'Özet bölümler', B: 'Filler', C: 'OVA\'lar', D: 'Özel bölümler', E: 'Soğuk açılışlar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Long-running shows like Naruto and Bleach are infamous for "filler" arcs that let the manga get ahead.',
   },
   {
@@ -1031,6 +1130,7 @@ const anime = [
     options: { A: 'Parasyte', B: 'Tokyo Ghoul', C: 'Ajin: Demi-Human', D: 'Deadman Wonderland', E: 'Devilman Crybaby' },
     options_tr: { A: 'Parasyte', B: 'Tokyo Ghoul', C: 'Ajin: Demi-Human', D: 'Deadman Wonderland', E: 'Devilman Crybaby' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Tokyo Ghoul, by Sui Ishida, follows Kaneki after an organ transplant from a ghoul leaves him caught between two worlds.',
   },
   {
@@ -1040,6 +1140,7 @@ const anime = [
     options: { A: 'Luna', B: 'Nyanko', C: 'Jiji', D: 'Moon', E: 'Chibi' },
     options_tr: { A: 'Luna', B: 'Nyanko', C: 'Jiji', D: 'Moon', E: 'Chibi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Jiji accompanies the 13-year-old witch Kiki when she leaves home for her year of independent training.',
   },
   {
@@ -1049,6 +1150,7 @@ const anime = [
     options: { A: 'Kakarot', B: 'Bardock', C: 'Raditz', D: 'Turles', E: 'Nappa' },
     options_tr: { A: 'Kakarot', B: 'Bardock', C: 'Raditz', D: 'Turles', E: 'Nappa' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'His brother Raditz reveals the name Kakarot when he arrives on Earth looking for him.',
   },
   {
@@ -1058,6 +1160,7 @@ const anime = [
     options: { A: 'Gigantor', B: 'Giant Robo', C: 'Astro Boy', D: 'Mazinger Z', E: 'Getter Robo' },
     options_tr: { A: 'Gigantor', B: 'Giant Robo', C: 'Astro Boy', D: 'Mazinger Z', E: 'Getter Robo' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Earlier giant robots such as Gigantor were remote-controlled, while Kōji Kabuto climbs into Mazinger Z and pilots it directly.',
   },
   {
@@ -1067,6 +1170,7 @@ const anime = [
     options: { A: 'Megumi Hayashibara', B: 'Masako Nozawa', C: 'Rie Kugimiya', D: 'Kotono Mitsuishi', E: 'Aya Hirano' },
     options_tr: { A: 'Megumi Hayashibara', B: 'Masako Nozawa', C: 'Rie Kugimiya', D: 'Kotono Mitsuishi', E: 'Aya Hirano' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Masako Nozawa also voices Gohan, Goten and Bardock, playing several generations of the same family.',
   },
   {
@@ -1076,6 +1180,7 @@ const anime = [
     options: { A: 'Baseball', B: 'Boxing', C: 'Tennis', D: 'Football (soccer)', E: 'Basketball' },
     options_tr: { A: 'Beyzbol', B: 'Boks', C: 'Tenis', D: 'Futbol', E: 'Basketbol' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Delinquent Hanamichi Sakuragi joins Shohoku High\'s team, and the manga is widely credited with boosting basketball\'s popularity in Japan.',
   },
   {
@@ -1085,6 +1190,7 @@ const anime = [
     options: { A: 'Invaders', B: 'Angels', C: 'Demons', D: 'Seeds', E: 'Titans' },
     options_tr: { A: 'İstilacılar', B: 'Melekler (Angels)', C: 'İblisler', D: 'Tohumlar', E: 'Titanlar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'NERV fights the Angels using the Evangelion units piloted by Shinji, Rei and Asuka.',
   },
   {
@@ -1106,6 +1212,7 @@ const anime = [
       E: 'Bir çocuğun bedenine küçülür',
     },
     answer: 'E',
+    difficulty: 3,
     explanation: 'A poison forced on him by the Black Organization shrinks his body, and he adopts the alias Conan Edogawa.',
   },
   {
@@ -1115,6 +1222,7 @@ const anime = [
     options: { A: 'CLAMP', B: 'PEACH-PIT', C: 'Studio Deen', D: 'Gainax', E: 'Shueisha' },
     options_tr: { A: 'CLAMP', B: 'PEACH-PIT', C: 'Studio Deen', D: 'Gainax', E: 'Shueisha' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'CLAMP started as a doujinshi circle in the 1980s and has worked as a four-member team for most of its career.',
   },
   {
@@ -1136,6 +1244,7 @@ const anime = [
       E: 'Bir stüdyonun yıllık üretimi',
     },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Japanese television runs in quarterly seasons, so a two-cour show stays on air for about half a year.',
   },
   {
@@ -1145,6 +1254,7 @@ const anime = [
     options: { A: 'Russia', B: 'Italy', C: 'France', D: 'Germany', E: 'Sweden' },
     options_tr: { A: 'Rusya', B: 'İtalya', C: 'Fransa', D: 'Almanya', E: 'İsveç' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Dr. Kenzo Tenma saves the boy Johan Liebert in Düsseldorf and later pursues him across Germany.',
   },
   {
@@ -1154,6 +1264,7 @@ const anime = [
     options: { A: 'Boars', B: 'Apes', C: 'Deer', D: 'Wolves', E: 'Foxes' },
     options_tr: { A: 'Yaban domuzları', B: 'Maymunlar', C: 'Geyikler', D: 'Kurtlar', E: 'Tilkiler' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'San was raised by the wolf god Moro and fights to protect the forest from Lady Eboshi\'s ironworks.',
   },
   {
@@ -1163,6 +1274,7 @@ const anime = [
     options: { A: 'Sunrise', B: 'Madhouse', C: 'Toei Animation', D: 'J.C.Staff', E: 'Gonzo' },
     options_tr: { A: 'Sunrise', B: 'Madhouse', C: 'Toei Animation', D: 'J.C.Staff', E: 'Gonzo' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Toei Animation, founded in the 1950s, also made Dragon Ball, Sailor Moon and the Pretty Cure series.',
   },
   {
@@ -1184,6 +1296,7 @@ const anime = [
       E: 'Lupin III: Cagliostro Şatosu',
     },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Miyazaki had already directed television work, but "The Castle of Cagliostro" was his first theatrical feature.',
   },
   {
@@ -1193,6 +1306,7 @@ const anime = [
     options: { A: 'Sazae-san', B: 'Chibi Maruko-chan', C: 'Doraemon', D: 'Crayon Shin-chan', E: 'Ojarumaru' },
     options_tr: { A: 'Sazae-san', B: 'Chibi Maruko-chan', C: 'Doraemon', D: 'Crayon Shin-chan', E: 'Ojarumaru' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Sazae-san has aired weekly on Fuji TV since 1969 and is recognised by Guinness World Records.',
   },
   {
@@ -1202,6 +1316,7 @@ const anime = [
     options: { A: 'The Hyūga clan', B: 'The Uchiha clan', C: 'The Nara clan', D: 'The Aburame clan', E: 'The Senju clan' },
     options_tr: { A: 'Hyūga klanı', B: 'Uchiha klanı', C: 'Nara klanı', D: 'Aburame klanı', E: 'Senju klanı' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Hyūga clan\'s equivalent is the Byakugan; Sasuke and Itachi Uchiha both wield the Sharingan.',
   },
   {
@@ -1211,6 +1326,7 @@ const anime = [
     options: { A: 'Griffith', B: 'Casca', C: 'Zodd', D: 'Judeau', E: 'Guts' },
     options_tr: { A: 'Griffith', B: 'Casca', C: 'Zodd', D: 'Judeau', E: 'Guts' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Nicknamed the Black Swordsman, Guts carries the huge blade Dragonslayer after the events of the Eclipse.',
   },
   {
@@ -1232,6 +1348,7 @@ const anime = [
       E: 'Bir kalıntı taşıdıkları sürece hiçbir şey olmaz',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The "Curse of the Abyss" grows harsher with every layer, which makes descending far safer than returning.',
   },
   {
@@ -1241,6 +1358,7 @@ const anime = [
     options: { A: 'Phoenix', B: 'Dororo', C: 'Black Jack', D: 'Buddha', E: 'Kimba the White Lion' },
     options_tr: { A: 'Ateş Kuşu (Phoenix)', B: 'Dororo', C: 'Black Jack', D: 'Buda', E: 'Beyaz Aslan Kimba' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Tezuka trained as a physician and drew on that medical background for Black Jack.',
   },
   {
@@ -1250,6 +1368,7 @@ const anime = [
     options: { A: 'Cyborg 009', B: 'Devilman', C: 'Gigantor', D: 'Astro Boy', E: 'Doraemon' },
     options_tr: { A: 'Cyborg 009', B: 'Devilman', C: 'Gigantor', D: 'Astro Boy (Tetsuwan Atom)', E: 'Doraemon' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Pluto reworks "The Greatest Robot on Earth" from Tezuka\'s Astro Boy as an adult detective story.',
   },
   {
@@ -1271,6 +1390,7 @@ const anime = [
       E: 'Her sınavın hileli çıktığı bir okul',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Kaguya Shinomiya and Miyuki Shirogane both treat confessing first as an unacceptable defeat.',
   },
   {
@@ -1280,6 +1400,7 @@ const anime = [
     options: { A: 'Studio Pierrot', B: 'Bones', C: 'Gonzo', D: 'Xebec', E: 'Brain\'s Base' },
     options_tr: { A: 'Studio Pierrot', B: 'Bones', C: 'Gonzo', D: 'Xebec', E: 'Brain\'s Base' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Studio Pierrot also produced Yu Yu Hakusho and Tokyo Ghoul.',
   },
   {
@@ -1289,6 +1410,7 @@ const anime = [
     options: { A: 'Shogi', B: 'Mahjong', C: 'Chess', D: 'Go', E: 'Othello' },
     options_tr: { A: 'Shogi', B: 'Mahjong', C: 'Satranç', D: 'Go', E: 'Othello' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Written by Yumi Hotta, the series is credited with a surge of youth interest in Go during the early 2000s.',
   },
   {
@@ -1298,6 +1420,7 @@ const anime = [
     options: { A: 'Kazuo Umezu', B: 'Junji Ito', C: 'Hideshi Hino', D: 'Suehiro Maruo', E: 'Shintaro Kago' },
     options_tr: { A: 'Kazuo Umezu', B: 'Junji Ito', C: 'Hideshi Hino', D: 'Suehiro Maruo', E: 'Shintaro Kago' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Junji Ito, also known for "Tomie" and "Gyo", worked as a dental technician before turning to manga full time.',
   },
   {
@@ -1319,6 +1442,7 @@ const anime = [
       E: 'Aynı isim',
     },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Punk vocalist Nana Osaki and romantic Nana Komatsu meet on a train and end up sharing a Tokyo apartment.',
   },
   {
@@ -1328,6 +1452,7 @@ const anime = [
     options: { A: 'The Pocket Dragon', B: 'The Iron Doll', C: 'The Palmtop Tiger', D: 'The Paper Lion', E: 'The Tiny Empress' },
     options_tr: { A: 'Cep Ejderhası', B: 'Demir Bebek', C: 'Avuç İçi Kaplanı', D: 'Kâğıt Aslan', E: 'Minik İmparatoriçe' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The title combines "tora" (tiger) for Taiga with "dora" (dragon) for Ryuji Takasu.',
   },
   {
@@ -1349,6 +1474,7 @@ const anime = [
       E: 'Film dağıtım anlaşmaları',
     },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Comic Market draws hundreds of thousands of visitors to Tokyo Big Sight and sits at the heart of doujinshi culture.',
   },
   {
@@ -1358,6 +1484,7 @@ const anime = [
     options: { A: 'Half-Cold Half-Hot', B: 'Hardening', C: 'Electrification', D: 'Engine', E: 'Explosion' },
     options_tr: { A: 'Yarı Soğuk Yarı Sıcak', B: 'Sertleşme', C: 'Elektriklenme', D: 'Motor', E: 'Patlama' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Bakugo sweats a nitroglycerin-like fluid that he detonates; "Half-Cold Half-Hot" belongs to Shoto Todoroki.',
   },
   {
@@ -1367,6 +1494,7 @@ const anime = [
     options: { A: 'Akaza', B: 'Muzan Kibutsuji', C: 'Kokushibo', D: 'Doma', E: 'Enmu' },
     options_tr: { A: 'Akaza', B: 'Muzan Kibutsuji', C: 'Kokushibo', D: 'Doma', E: 'Enmu' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Muzan Kibutsuji created every other demon by sharing his blood, and it was he who turned Nezuko.',
   },
   {
@@ -1376,6 +1504,7 @@ const anime = [
     options: { A: 'Satoru Gojo', B: 'Kento Nanami', C: 'Yuta Okkotsu', D: 'Masamichi Yaga', E: 'Toji Fushiguro' },
     options_tr: { A: 'Satoru Gojo', B: 'Kento Nanami', C: 'Yuta Okkotsu', D: 'Masamichi Yaga', E: 'Toji Fushiguro' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Satoru Gojo possesses both the Six Eyes and the Limitless cursed technique.',
   },
   {
@@ -1385,6 +1514,7 @@ const anime = [
     options: { A: 'Loyalty Quotient', B: 'Threat Index', C: 'Purity Score', D: 'Crime Coefficient', E: 'Social Credit' },
     options_tr: { A: 'Sadakat Katsayısı', B: 'Tehdit Endeksi', C: 'Saflık Puanı', D: 'Suç Katsayısı (Crime Coefficient)', E: 'Sosyal Kredi' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'A high Crime Coefficient lets a Dominator weapon stun or eliminate a suspect before any crime is committed.',
   },
   {
@@ -1394,6 +1524,7 @@ const anime = [
     options: { A: 'FLCL', B: 'Gurren Lagann', C: 'Gunbuster', D: 'Diebuster', E: 'Panty & Stocking' },
     options_tr: { A: 'FLCL', B: 'Gurren Lagann', C: 'Gunbuster', D: 'Diebuster', E: 'Panty & Stocking' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Tengen Toppa Gurren Lagann (2007) was directed by Hiroyuki Imaishi, who later co-founded Studio Trigger.',
   },
   {
@@ -1415,6 +1546,7 @@ const anime = [
       E: 'Şafaktan önce gazete dağıtırken',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: 'His nightly tofu runs down Mount Akina in a Toyota AE86 make him an expert at downhill drifting.',
   },
   {
@@ -1436,6 +1568,7 @@ const anime = [
       E: 'Dünyadaki bütün insanlar taşa dönüşür',
     },
     answer: 'E',
+    difficulty: 1,
     explanation: 'A mysterious flash petrifies humanity; Senku revives thousands of years later and rebuilds science from scratch.',
   },
   {
@@ -1445,6 +1578,7 @@ const anime = [
     options: { A: 'Yugi Muto', B: 'Joey Wheeler', C: 'Maximillion Pegasus', D: 'Seto Kaiba', E: 'Marik Ishtar' },
     options_tr: { A: 'Yugi Muto', B: 'Joey Wheeler', C: 'Maximillion Pegasus', D: 'Seto Kaiba', E: 'Marik Ishtar' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Yugi\'s own signature monster is the Dark Magician, while Kaiba famously hunts down the Blue-Eyes cards.',
   },
   {
@@ -1466,6 +1600,7 @@ const anime = [
       E: 'Haftanın günleri',
     },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Lust, Gluttony, Envy, Greed, Wrath, Sloth and Pride all serve the being called Father.',
   },
   {
@@ -1487,6 +1622,7 @@ const anime = [
       E: 'Hasarlı tabloları restore etmek',
     },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Violet, a former child soldier, slowly learns about human feeling by ghostwriting other people\'s letters.',
   },
   {
@@ -1508,6 +1644,7 @@ const anime = [
       E: 'Hiç konuşmamayı seçmiştir',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Shoya Ishida bullies the deaf Shoko, then years later learns sign language while trying to make amends.',
   },
   {
@@ -1517,6 +1654,7 @@ const anime = [
     options: { A: 'Chainsaw Man', B: 'Spy x Family', C: 'Cyberpunk: Edgerunners', D: 'Bocchi the Rock!', E: 'Mob Psycho 100 III' },
     options_tr: { A: 'Chainsaw Man', B: 'Spy x Family', C: 'Cyberpunk: Edgerunners', D: 'Bocchi the Rock!', E: 'Mob Psycho 100 III' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Chainsaw Man also gave every episode a different ending theme performed by a different artist.',
   },
   {
@@ -1526,6 +1664,7 @@ const anime = [
     options: { A: 'Sword Art Online', B: 'Fate/Zero', C: 'Demon Slayer', D: 'My Hero Academia', E: 'Jujutsu Kaisen' },
     options_tr: { A: 'Sword Art Online', B: 'Fate/Zero', C: 'Demon Slayer', D: 'My Hero Academia', E: 'Jujutsu Kaisen' },
     answer: 'C',
+    difficulty: 1,
     explanation: '"Gurenge" opened Demon Slayer\'s 2019 first season and became one of the best-selling anime songs of its era.',
   },
   {
@@ -1535,6 +1674,7 @@ const anime = [
     options: { A: 'Yuki Kajiura', B: 'Yoko Kanno', C: 'Kenji Kawai', D: 'Taku Iwasaki', E: 'Hiroyuki Sawano' },
     options_tr: { A: 'Yuki Kajiura', B: 'Yoko Kanno', C: 'Kenji Kawai', D: 'Taku Iwasaki', E: 'Hiroyuki Sawano' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Sawano is known for dramatic choral and electronic tracks with unusually long stylised titles.',
   },
   {
@@ -1544,6 +1684,7 @@ const anime = [
     options: { A: 'Ryuichi Sakamoto', B: 'Kenji Kawai', C: 'Yoko Kanno', D: 'Shiro Sagisu', E: 'Joe Hisaishi' },
     options_tr: { A: 'Ryuichi Sakamoto', B: 'Kenji Kawai', C: 'Yoko Kanno', D: 'Shiro Sagisu', E: 'Joe Hisaishi' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Joe Hisaishi\'s piano and orchestral themes for Totoro, Princess Mononoke and Spirited Away are inseparable from Ghibli\'s identity.',
   },
   {
@@ -1553,6 +1694,7 @@ const anime = [
     options: { A: 'Slayers', B: 'Macross 7', C: 'Neon Genesis Evangelion', D: 'Ghost in the Shell', E: 'Serial Experiments Lain' },
     options_tr: { A: 'Slayers', B: 'Macross 7', C: 'Neon Genesis Evangelion', D: 'Ghost in the Shell', E: 'Serial Experiments Lain' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Sung by Yoko Takahashi, it remains one of the most requested karaoke songs in Japan.',
   },
   {
@@ -1574,6 +1716,7 @@ const anime = [
       E: 'Ticari balıkçılık',
     },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Written by Aka Akasaka, it follows the twin children of the idol Ai Hoshino and exposes the pressures of idol work, reality TV and acting.',
   },
   {
@@ -1583,6 +1726,7 @@ const anime = [
     options: { A: 'K-On!', B: 'Bocchi the Rock!', C: 'Given', D: 'Carole & Tuesday', E: 'Beck' },
     options_tr: { A: 'K-On!', B: 'Bocchi the Rock!', C: 'Given', D: 'Carole & Tuesday', E: 'Beck' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Animated by CloverWorks, the series turns Hitori\'s social anxiety into wildly varied visual gags.',
   },
   {
@@ -1604,6 +1748,7 @@ const anime = [
       E: 'Canavarları rehber olarak tutarlar',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Ryoko Kui\'s manga treats dungeon ecology seriously, with Laios and Senshi preparing recipes from slimes, basilisks and mimics.',
   },
   {
@@ -1613,6 +1758,7 @@ const anime = [
     options: { A: 'South Korea', B: 'Japan', C: 'China', D: 'Taiwan', E: 'Thailand' },
     options_tr: { A: 'Güney Kore', B: 'Japonya', C: 'Çin', D: 'Tayvan', E: 'Tayland' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'It began as a Korean web novel and webtoon (manhwa), and the anime was produced by the Japanese studio A-1 Pictures.',
   },
   {
@@ -1622,6 +1768,7 @@ const anime = [
     options: { A: 'Swordsmanship', B: 'Court music', C: 'Accounting', D: 'Medicines and poisons', E: 'Falconry' },
     options_tr: { A: 'Kılıç ustalığı', B: 'Saray müziği', C: 'Muhasebe', D: 'İlaçlar ve zehirler', E: 'Doğancılık' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Working as a servant in the imperial rear palace, Maomao solves mysteries using her apothecary training.',
   },
   {
@@ -1631,6 +1778,7 @@ const anime = [
     options: { A: 'Megumin', B: 'Darkness', C: 'Aqua', D: 'Wiz', E: 'Eris' },
     options_tr: { A: 'Megumin', B: 'Darkness', C: 'Aqua', D: 'Wiz', E: 'Eris' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Kazuma picks the water goddess Aqua as his one advantage, only to discover she is almost entirely useless.',
   },
   {
@@ -1640,6 +1788,7 @@ const anime = [
     options: { A: 'Ainz Ooal Gown', B: 'Rudeus Greyrat', C: 'Diablo', D: 'Veldora', E: 'Rimuru Tempest' },
     options_tr: { A: 'Ainz Ooal Gown', B: 'Rudeus Greyrat', C: 'Diablo', D: 'Veldora', E: 'Rimuru Tempest' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Satoru Mikami is stabbed in Tokyo and wakes up as a slime, given the name Rimuru by the dragon Veldora.',
   },
   {
@@ -1649,6 +1798,7 @@ const anime = [
     options: { A: 'His left eye', B: 'His right hand', C: 'His heart', D: 'His spine', E: 'His left foot' },
     options_tr: { A: 'Sol gözüne', B: 'Sağ eline', C: 'Kalbine', D: 'Omurgasına', E: 'Sol ayağına' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The parasite fails to reach Shinichi\'s brain and takes over his right hand instead, forcing the two to cooperate.',
   },
   {
@@ -1658,6 +1808,7 @@ const anime = [
     options: { A: 'Go', B: 'Shogi', C: 'Mahjong', D: 'Poker', E: 'Chess' },
     options_tr: { A: 'Go', B: 'Shogi', C: 'Mahjong', D: 'Poker', E: 'Satranç' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Chica Umino\'s manga uses shogi as the backdrop for a story about depression and found family; Shaft animated it.',
   },
   {
@@ -1667,6 +1818,7 @@ const anime = [
     options: { A: 'Hanafuda', B: 'Mahjong', C: 'Karuta', D: 'Menko', E: 'Kabufuda' },
     options_tr: { A: 'Hanafuda', B: 'Mahjong', C: 'Karuta', D: 'Menko', E: 'Kabufuda' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Competitive karuta players memorise a hundred classical poems and snatch the matching card at high speed.',
   },
   {
@@ -1688,6 +1840,7 @@ const anime = [
       E: 'Ulusal bir televizyon yarışması',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Students at Tōtsuki Culinary Academy settle disputes by wagering positions or possessions on a judged cook-off.',
   },
   {
@@ -1697,6 +1850,7 @@ const anime = [
     options: { A: 'Kyushu', B: 'Shikoku', C: 'Okinawa', D: 'Sado', E: 'Hokkaido' },
     options_tr: { A: 'Kyushu', B: 'Shikoku', C: 'Okinawa', D: 'Sado', E: 'Hokkaido' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Set after the Russo-Japanese War, the series is praised for its detailed depiction of Ainu culture in Hokkaido.',
   },
   {
@@ -1706,6 +1860,7 @@ const anime = [
     options: { A: 'Japan', B: 'Korea', C: 'Mongolia', D: 'China', E: 'Vietnam' },
     options_tr: { A: 'Japonya', B: 'Kore', C: 'Moğolistan', D: 'Çin', E: 'Vietnam' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'It follows the war orphan Xin and the young king Ying Zheng, who would become China\'s first emperor.',
   },
   {
@@ -1727,6 +1882,7 @@ const anime = [
       E: 'Etçillerin otçullarla bir arada yaşaması',
     },
     answer: 'E',
+    difficulty: 1,
     explanation: 'At Cherryton Academy the grey wolf Legoshi struggles with his instincts toward the rabbit Haru; Studio Orange animated it in CG.',
   },
   {
@@ -1748,6 +1904,7 @@ const anime = [
       E: 'Bir ramen dükkânı işletmek',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'He works for a kaiju disposal company while still hoping to join the Defence Force, despite being well past the usual age.',
   },
   {
@@ -1769,6 +1926,7 @@ const anime = [
       E: 'Mob\'un ağabeyi',
     },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Reigen runs a fake exorcism business and relies on Mob\'s real powers, yet genuinely guides him morally.',
   },
   {
@@ -1790,6 +1948,7 @@ const anime = [
       E: 'Hiçbir yetişkin onu göremez',
     },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Koro-sensei lets Class 3-E try to assassinate him for a huge reward, provided they can catch something moving at Mach 20.',
   },
   {
@@ -1799,6 +1958,7 @@ const anime = [
     options: { A: 'Sakura Quest', B: 'Shirobako', C: 'Hanasaku Iroha', D: 'Angel Beats!', E: 'Nagi-Asu' },
     options_tr: { A: 'Sakura Quest', B: 'Shirobako', C: 'Hanasaku Iroha', D: 'Angel Beats!', E: 'Nagi-Asu' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Shirobako (2014) dramatises production schedules, key animation deadlines and studio politics in unusual detail.',
   },
   {
@@ -1808,6 +1968,7 @@ const anime = [
     options: { A: 'Nippon Animation', B: 'Toei Animation', C: 'Madhouse', D: 'Shaft', E: 'Kinema Citrus' },
     options_tr: { A: 'Nippon Animation', B: 'Toei Animation', C: 'Madhouse', D: 'Shaft', E: 'Kinema Citrus' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Madhouse, founded in 1972 by former Mushi Production staff, also animated Death Note and Satoshi Kon\'s films.',
   },
   {
@@ -1817,6 +1978,7 @@ const anime = [
     options: { A: 'Bones', B: 'Gonzo', C: 'Sunrise', D: 'Production I.G', E: 'Studio 4°C' },
     options_tr: { A: 'Bones', B: 'Gonzo', C: 'Sunrise', D: 'Production I.G', E: 'Studio 4°C' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Production I.G also animated Psycho-Pass and Kuroko\'s Basketball.',
   },
   {
@@ -1826,6 +1988,7 @@ const anime = [
     options: { A: 'Gainax', B: 'Studio Khara', C: 'Trigger', D: 'Studio Chizu', E: 'ufotable' },
     options_tr: { A: 'Gainax', B: 'Studio Khara', C: 'Trigger', D: 'Studio Chizu', E: 'ufotable' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Anno left Gainax and set up Khara in 2006; the four Rebuild films were released between 2007 and 2021.',
   },
   {
@@ -1835,6 +1998,7 @@ const anime = [
     options: { A: 'Science SARU', B: 'Studio Orange', C: 'Doga Kobo', D: 'Lerche', E: 'Wit Studio' },
     options_tr: { A: 'Science SARU', B: 'Studio Orange', C: 'Doga Kobo', D: 'Lerche', E: 'Wit Studio' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Yuasa founded Science SARU with producer Eunyoung Choi in 2013; its work includes "Devilman Crybaby" and "Keep Your Hands Off Eizouken!".',
   },
   {
@@ -1844,6 +2008,7 @@ const anime = [
     options: { A: 'Brain\'s Base', B: 'Satelight', C: 'Gonzo', D: 'Studio Deen', E: 'David Production' },
     options_tr: { A: 'Brain\'s Base', B: 'Satelight', C: 'Gonzo', D: 'Studio Deen', E: 'David Production' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'David Production\'s shifting colour palettes and on-screen sound effects became a signature of the JoJo anime.',
   },
   {
@@ -1853,6 +2018,7 @@ const anime = [
     options: { A: 'Tatsunoko Production', B: 'Toei Animation', C: 'Mushi Production', D: 'Nippon Animation', E: 'Tokyo Movie Shinsha' },
     options_tr: { A: 'Tatsunoko Production', B: 'Toei Animation', C: 'Mushi Production', D: 'Nippon Animation', E: 'Tokyo Movie Shinsha' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Its adaptations include "Anne of Green Gables", "A Dog of Flanders" and "3000 Leagues in Search of Mother".',
   },
   {
@@ -1874,6 +2040,7 @@ const anime = [
       E: 'Yetişkin okurlar için daha karanlık ve gerçekçi dramatik çizgi romanlar',
     },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Yoshihiro Tatsumi coined "gekiga" ("dramatic pictures") in the late 1950s to separate his work from children\'s manga.',
   },
   {
@@ -1895,6 +2062,7 @@ const anime = [
       E: 'Bir çizerin asistanı',
     },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Chapters first run in magazines such as Weekly Shōnen Jump and are later collected into tankōbon volumes.',
   },
   {
@@ -1916,6 +2084,7 @@ const anime = [
       E: 'Hayranlar tarafından yazılan dergi tefrikası',
     },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Light novels are a major source for anime; Sword Art Online, Re:Zero and Spice and Wolf all began in that format.',
   },
   {
@@ -1937,6 +2106,7 @@ const anime = [
       E: 'Tanıtım illüstrasyonlarını',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Key animators draw the "genga", and in-between artists then produce the "douga" frames that connect them.',
   },
   {
@@ -1958,6 +2128,7 @@ const anime = [
       E: 'Bir manga dergisinin yayın kurulu',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Publishers, broadcasters, music labels and toy makers each invest, spreading both the financial risk and the licensing revenue.',
   },
   {
@@ -1973,6 +2144,7 @@ const anime = [
       E: 'Copy (kopya) ve play (oyun)',
     },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Japanese coinage "kosupure" shortens "costume play", and the word spread worldwide from convention culture.',
   },
   {
@@ -1982,6 +2154,7 @@ const anime = [
     options: { A: 'Romi Park', B: 'Maaya Sakamoto', C: 'Aoi Yuki', D: 'Nana Mizuki', E: 'Junko Takeuchi' },
     options_tr: { A: 'Romi Park', B: 'Maaya Sakamoto', C: 'Aoi Yuki', D: 'Nana Mizuki', E: 'Junko Takeuchi' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Casting adult women as boy heroes is common in Japan; Junko Takeuchi also voices Gon in the 2011 Hunter x Hunter.',
   },
   {
@@ -1991,6 +2164,7 @@ const anime = [
     options: { A: 'Hiroshi Kamiya', B: 'Daisuke Ono', C: 'Jun Fukuyama', D: 'Mamoru Miyano', E: 'Tomokazu Sugita' },
     options_tr: { A: 'Hiroshi Kamiya', B: 'Daisuke Ono', C: 'Jun Fukuyama', D: 'Mamoru Miyano', E: 'Tomokazu Sugita' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Mamoru Miyano is known for theatrical, high-energy performances and also works as a stage actor and singer.',
   },
   {
@@ -2000,6 +2174,7 @@ const anime = [
     options: { A: 'Yuichi Nakamura', B: 'Kaito Ishikawa', C: 'Yūki Kaji', D: 'Natsuki Hanae', E: 'Nobuhiko Okamoto' },
     options_tr: { A: 'Yuichi Nakamura', B: 'Kaito Ishikawa', C: 'Yūki Kaji', D: 'Natsuki Hanae', E: 'Nobuhiko Okamoto' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Yūki Kaji also voices Shoto Todoroki in My Hero Academia and Meliodas in The Seven Deadly Sins.',
   },
   {
@@ -2009,6 +2184,7 @@ const anime = [
     options: { A: 'Kotono Mitsuishi', B: 'Megumi Hayashibara', C: 'Yūko Miyamura', D: 'Aya Hisakawa', E: 'Rie Kugimiya' },
     options_tr: { A: 'Kotono Mitsuishi', B: 'Megumi Hayashibara', C: 'Yūko Miyamura', D: 'Aya Hisakawa', E: 'Rie Kugimiya' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Hayashibara also voiced Lina Inverse in Slayers and the female form of Ranma in Ranma ½.',
   },
   {
@@ -2018,6 +2194,7 @@ const anime = [
     options: { A: 'The Blue Wolf', B: 'The White Devil', C: 'The Crimson Lightning', D: 'The Red Comet', E: 'The Black Tri-Star' },
     options_tr: { A: 'Mavi Kurt', B: 'Beyaz Şeytan', C: 'Kızıl Şimşek', D: 'Kızıl Kuyrukluyıldız (Red Comet)', E: 'Kara Üçlü Yıldız' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'His custom red mobile suits earned the nickname, while Zeon soldiers called Amuro\'s Gundam the "White Devil".',
   },
   {
@@ -2027,6 +2204,7 @@ const anime = [
     options: { A: 'Labors', B: 'Frames', C: 'Armors', D: 'Walkers', E: 'Rigs' },
     options_tr: { A: 'Labor\'lar', B: 'Frame\'ler', C: 'Armor\'lar', D: 'Walker\'lar', E: 'Rig\'ler' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The title shortens "Patrol Labor"; the series treats giant robots as ordinary industrial equipment, complete with budgets and paperwork.',
   },
   {
@@ -2036,6 +2214,7 @@ const anime = [
     options: { A: 'Otaku no Video', B: 'Wings of Honneamise', C: 'FLCL', D: 'Nadia: The Secret of Blue Water', E: 'Gunbuster' },
     options_tr: { A: 'Otaku no Video', B: 'Wings of Honneamise', C: 'FLCL', D: 'Nadia: The Secret of Blue Water', E: 'Gunbuster' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Gunbuster (Aim for the Top!) follows Noriko Takaya and is famous for the time dilation that shapes its ending.',
   },
   {
@@ -2045,6 +2224,7 @@ const anime = [
     options: { A: 'Ace', B: 'Nemo', C: 'Zero', D: 'Rex', E: 'Null' },
     options_tr: { A: 'Ace', B: 'Nemo', C: 'Zero', D: 'Rex', E: 'Null' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'As Zero he founds the Black Knights while hiding the fact that he is an exiled Britannian prince.',
   },
   {
@@ -2054,6 +2234,7 @@ const anime = [
     options: { A: 'Atlantis', B: 'Avalon', C: 'Laputa', D: 'Gondoa', E: 'Tenkū' },
     options_tr: { A: 'Atlantis', B: 'Avalon', C: 'Laputa', D: 'Gondoa', E: 'Tenkū' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Miyazaki took the name Laputa from Jonathan Swift\'s "Gulliver\'s Travels".',
   },
   {
@@ -2063,6 +2244,7 @@ const anime = [
     options: { A: 'Satsuki and Mei', B: 'Kiki and Ursula', C: 'Sheeta and Dola', D: 'Chihiro and Rin', E: 'Sophie and Lettie' },
     options_tr: { A: 'Satsuki ve Mei', B: 'Kiki ve Ursula', C: 'Sheeta ve Dola', D: 'Chihiro ve Rin', E: 'Sophie ve Lettie' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Satsuki and Mei move to the countryside while their mother is in hospital, and there they meet the forest spirit Totoro.',
   },
   {
@@ -2072,6 +2254,7 @@ const anime = [
     options: { A: 'The bullet train', B: 'Japanese fighter aircraft', C: 'Tokyo Tower', D: 'The first Japanese cars', E: 'Naval battleships' },
     options_tr: { A: 'Hızlı treni (Shinkansen)', B: 'Japon savaş uçaklarını', C: 'Tokyo Kulesi\'ni', D: 'İlk Japon otomobillerini', E: 'Savaş gemilerini' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Horikoshi designed the Mitsubishi A6M "Zero" fighter, and the 2013 film dwells on the gap between his dream and its wartime use.',
   },
   {
@@ -2081,6 +2264,7 @@ const anime = [
     options: { A: 'The Secret Garden', B: 'The Wind in the Willows', C: 'Peter Pan', D: 'The Borrowers', E: 'The Water Babies' },
     options_tr: { A: 'Gizli Bahçe', B: 'Söğütlükte Rüzgâr', C: 'Peter Pan', D: 'The Borrowers (Ödünç Alanlar)', E: 'Su Bebekleri' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Mary Norton\'s "The Borrowers" was adapted for Ghibli in 2010 by director Hiromasa Yonebayashi.',
   },
   {
@@ -2090,6 +2274,7 @@ const anime = [
     options: { A: 'Momotaro', B: 'Urashima Taro', C: 'The Crane Wife', D: 'Issun-boshi', E: 'The Tale of the Bamboo Cutter' },
     options_tr: { A: 'Momotaro', B: 'Urashima Taro', C: 'Turna Karısı', D: 'Issun-boshi', E: 'Bambu Kesicinin Masalı' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'The 2013 film uses a sketch-like watercolour style very different from the studio\'s usual artwork.',
   },
   {
@@ -2099,6 +2284,7 @@ const anime = [
     options: { A: 'Akira', B: 'Perfect Blue', C: 'Ghost in the Shell', D: 'Princess Mononoke', E: 'Spirited Away' },
     options_tr: { A: 'Akira', B: 'Perfect Blue', C: 'Ghost in the Shell', D: 'Prenses Mononoke', E: 'Ruhların Kaçışı (Spirited Away)' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Miyazaki won the same award a second time in 2024 for "The Boy and the Heron".',
   },
   {
@@ -2108,6 +2294,7 @@ const anime = [
     options: { A: 'A cat', B: 'A jellyfish', C: 'A goldfish', D: 'A seagull', E: 'A turtle' },
     options_tr: { A: 'Bir kedi', B: 'Bir denizanası', C: 'Bir japon balığı', D: 'Bir martı', E: 'Bir kaplumbağa' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The 2008 film loosely reworks "The Little Mermaid", with the goldfish-girl Ponyo befriending the boy Sosuke.',
   },
   {
@@ -2129,6 +2316,7 @@ const anime = [
       E: 'İtalyan Rönesansı',
     },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Its heroine Oscar François de Jarjayes is raised as a man and commands Marie Antoinette\'s palace guard.',
   },
   {
@@ -2138,6 +2326,7 @@ const anime = [
     options: { A: 'The Rose Bride', B: 'The Golden Sword', C: 'The student council seal', D: 'The Black Rose', E: 'The castle key' },
     options_tr: { A: 'Gül Gelin (Rose Bride)', B: 'Altın Kılıç', C: 'Öğrenci konseyi mührü', D: 'Kara Gül', E: 'Şatonun anahtarı' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Kunihiko Ikuhara\'s 1997 series uses the duels over Anthy Himemiya as an allegory about gender roles and control.',
   },
   {
@@ -2147,6 +2336,7 @@ const anime = [
     options: { A: 'The Grid', B: 'The Wired', C: 'The Net Sphere', D: 'The Link', E: 'The Stream' },
     options_tr: { A: 'The Grid', B: 'The Wired', C: 'The Net Sphere', D: 'The Link', E: 'The Stream' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The 1998 series anticipated debates about online identity years before social media existed.',
   },
   {
@@ -2168,6 +2358,7 @@ const anime = [
       E: 'Mars Birliği',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The saga contrasts Reinhard\'s Galactic Empire with the democratic Alliance, where the tactician Yang Wen-li serves.',
   },
   {
@@ -2177,6 +2368,7 @@ const anime = [
     options: { A: 'Bebop jazz', B: 'Heavy metal', C: 'Reggae', D: 'Baroque classical', E: 'Hip-hop' },
     options_tr: { A: 'Bebop caz', B: 'Heavy metal', C: 'Reggae', D: 'Barok klasik', E: 'Hip-hop' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Much of the soundtrack was produced by Nujabes; Watanabe had already used jazz for Cowboy Bebop.',
   },
   {
@@ -2186,6 +2378,7 @@ const anime = [
     options: { A: 'Nanto Seiken', B: 'Hokuto Shinken', C: 'Gento Koken', D: 'Baji Quan', E: 'Kyokushin' },
     options_tr: { A: 'Nanto Seiken', B: 'Hokuto Shinken', C: 'Gento Koken', D: 'Baji Quan', E: 'Kyokushin' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Hokuto Shinken destroys an opponent from within by striking pressure points; its great rival school is Nanto Seiken.',
   },
   {
@@ -2195,6 +2388,7 @@ const anime = [
     options: { A: 'Shells', B: 'Mantles', C: 'Cloths', D: 'Plates', E: 'Veils' },
     options_tr: { A: 'Kabuklar', B: 'Mantolar', C: 'Cloth\'lar', D: 'Plakalar', E: 'Peçeler' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Masami Kurumada\'s Saints wear Cloths tied to the constellations and fight in the service of the goddess Athena.',
   },
   {
@@ -2204,6 +2398,7 @@ const anime = [
     options: { A: 'Rugby', B: 'Volleyball', C: 'Handball', D: 'Football (soccer)', E: 'Table tennis' },
     options_tr: { A: 'Ragbi', B: 'Voleybol', C: 'Hentbol', D: 'Futbol', E: 'Masa tenisi' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Yoichi Takahashi\'s manga follows Tsubasa Ozora, and a number of European and Japanese professionals have named it as the reason they started playing.',
   },
   {
@@ -2213,6 +2408,7 @@ const anime = [
     options: { A: 'Judo', B: 'Sumo', C: 'Kendo', D: 'Boxing', E: 'Wrestling' },
     options_tr: { A: 'Judo', B: 'Sumo', C: 'Kendo', D: 'Boks', E: 'Güreş' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The story of a slum youth turned boxer became a cultural touchstone for a generation of Japanese readers.',
   },
   {
@@ -2234,6 +2430,7 @@ const anime = [
       E: 'Büyü tüm teknolojinin yerini almıştır',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Hideaki Sorachi sets his comedy in an Edo occupied by the alien "Amanto", where the jobless samurai Gintoki takes odd jobs.',
   },
   {
@@ -2243,6 +2440,7 @@ const anime = [
     options: { A: 'Naoko Takeuchi', B: 'Ai Yazawa', C: 'Hiromu Arakawa', D: 'Riyoko Ikeda', E: 'Rumiko Takahashi' },
     options_tr: { A: 'Naoko Takeuchi', B: 'Ai Yazawa', C: 'Hiromu Arakawa', D: 'Riyoko Ikeda', E: 'Rumiko Takahashi' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Rumiko Takahashi is one of the best-selling comic artists in the world and won the Grand Prix at the Angoulême festival in 2019.',
   },
   {
@@ -2252,6 +2450,7 @@ const anime = [
     options: { A: 'Three', B: 'One', C: 'Two', D: 'Four', E: 'Five' },
     options_tr: { A: 'Üç', B: 'Bir', C: 'İki', D: 'Dört', E: 'Beş' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'His Santōryū ("Three-Sword Style") holds the third blade in his mouth.',
   },
   {
@@ -2273,6 +2472,7 @@ const anime = [
       E: 'Robotik bir antrenman sistemi',
     },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The programme, run by the eccentric Jinpachi Ego, argues that Japan lacks a selfish, decisive striker capable of winning the World Cup.',
   },
 ];

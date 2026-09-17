@@ -8,6 +8,7 @@ const math = [
     options: { A: '3.14149', B: '3.14159', C: '3.14169', D: '3.14179', E: '3.14189' },
     options_tr: { A: '3,14149', B: '3,14159', C: '3,14169', D: '3,14179', E: '3,14189' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'π ≈ 3.14159 (3.14159265358979…). It is an irrational number representing the ratio of a circle\'s circumference to its diameter.',
   },
   {
@@ -17,6 +18,7 @@ const math = [
     options: { A: '90°', B: '120°', C: '180°', D: '270°', E: '360°' },
     options_tr: { A: '90°', B: '120°', C: '180°', D: '270°', E: '360°' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The sum of interior angles in any Euclidean triangle is always 180°.',
   },
   {
@@ -26,6 +28,7 @@ const math = [
     options: { A: 'Euclid', B: 'Archimedes', C: 'Thales', D: 'Pythagoras', E: 'Plato' },
     options_tr: { A: 'Euklid', B: 'Arşimet', C: 'Tales', D: 'Pisagor', E: 'Platon' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Pythagoras of Samos (c. 570–495 BC) is credited with the theorem a² + b² = c² for right triangles, though it was known earlier in other cultures.',
   },
   {
@@ -35,6 +38,7 @@ const math = [
     options: { A: '0', B: 'Undefined', C: '1', D: '-1', E: 'Infinity' },
     options_tr: { A: '0', B: 'Tanımsız', C: '1', D: '-1', E: 'Sonsuz' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'By convention and mathematical definition, 0! = 1. This is consistent with the recursive definition n! = n × (n−1)! and combinatorics.',
   },
   {
@@ -44,6 +48,7 @@ const math = [
     options: { A: 'Decimal', B: 'Hexadecimal', C: 'Octal', D: 'Binary', E: 'Duodecimal' },
     options_tr: { A: 'Onluk', B: 'On altılık', C: 'Sekizlik', D: 'İkilik', E: 'On ikilik' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The binary (base-2) number system uses only digits 0 and 1, and is the foundation of all modern digital computing.',
   },
   {
@@ -53,6 +58,7 @@ const math = [
     options: { A: '54', B: '56', C: '58', D: '64', E: '48' },
     options_tr: { A: '54', B: '56', C: '58', D: '64', E: '48' },
     answer: 'B',
+    difficulty: 2,
     explanation: '7 × 8 = 56.',
   },
   {
@@ -62,6 +68,7 @@ const math = [
     options: { A: '10', B: '11', C: '12', D: '13', E: '14' },
     options_tr: { A: '10', B: '11', C: '12', D: '13', E: '14' },
     answer: 'C',
+    difficulty: 3,
     explanation: '12 × 12 = 144, so √144 = 12.',
   },
   {
@@ -71,6 +78,7 @@ const math = [
     options: { A: 'Composite number', B: 'Prime number', C: 'Rational number', D: 'Perfect number', E: 'Irrational number' },
     options_tr: { A: 'Bileşik sayı', B: 'Asal sayı', C: 'Rasyonel sayı', D: 'Mükemmel sayı', E: 'İrrasyonel sayı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A prime number has exactly two positive divisors: 1 and itself. Examples include 2, 3, 5, 7, 11.',
   },
   {
@@ -80,6 +88,7 @@ const math = [
     options: { A: '512', B: '1000', C: '1024', D: '2048', E: '256' },
     options_tr: { A: '512', B: '1000', C: '1024', D: '2048', E: '256' },
     answer: 'C',
+    difficulty: 3,
     explanation: '2¹⁰ = 1024, a value especially significant in computing (1 kibibyte = 1024 bytes).',
   },
   {
@@ -89,6 +98,7 @@ const math = [
     options: { A: '2πr', B: 'πr', C: 'πr²', D: '2πr²', E: 'πd' },
     options_tr: { A: '2πr', B: 'πr', C: 'πr²', D: '2πr²', E: 'πd' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The area of a circle is given by A = πr², where r is the radius.',
   },
   {
@@ -98,6 +108,7 @@ const math = [
     options: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     options_tr: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     answer: 'B',
+    difficulty: 1,
     explanation: '2x + 3 = 11 → 2x = 8 → x = 4.',
   },
   {
@@ -107,6 +118,7 @@ const math = [
     options: { A: 'Archimedes', B: 'Euclid', C: 'Pythagoras', D: 'Eratosthenes', E: 'Apollonius' },
     options_tr: { A: 'Arşimet', B: 'Euklid', C: 'Pisagor', D: 'Eratosthenes', E: 'Apollonius' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Euclid\'s "Elements" (c. 300 BC) systematized geometry and remained a standard textbook for over 2,000 years.',
   },
   {
@@ -116,6 +128,7 @@ const math = [
     options: { A: '2.71828', B: '3.14159', C: '1.61803', D: '1.41421', E: '0.57722' },
     options_tr: { A: '2,71828', B: '3,14159', C: '1,61803', D: '1,41421', E: '0,57722' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Euler\'s number e ≈ 2.71828 is the base of natural logarithms and appears throughout calculus and compound growth.',
   },
   {
@@ -125,6 +138,7 @@ const math = [
     options: { A: 'Adjacent', B: 'Opposite', C: 'Hypotenuse', D: 'Base', E: 'Altitude' },
     options_tr: { A: 'Komşu kenar', B: 'Karşı kenar', C: 'Hipotenüs', D: 'Taban', E: 'Yükseklik' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The hypotenuse is always the longest side of a right triangle, opposite the 90° angle.',
   },
   {
@@ -134,6 +148,7 @@ const math = [
     options: { A: '15', B: '20', C: '25', D: '30', E: '35' },
     options_tr: { A: '15', B: '20', C: '25', D: '30', E: '35' },
     answer: 'D',
+    difficulty: 2,
     explanation: '15% of 200 = 0.15 × 200 = 30.',
   },
   {
@@ -143,6 +158,7 @@ const math = [
     options: { A: 'Algebra', B: 'Calculus', C: 'Topology', D: 'Combinatorics', E: 'Statistics' },
     options_tr: { A: 'Cebir', B: 'Kalkülüs (Analiz)', C: 'Topoloji', D: 'Kombinatorik', E: 'İstatistik' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Calculus, developed independently by Isaac Newton and Gottfried Wilhelm Leibniz in the late 17th century, studies continuous change.',
   },
   {
@@ -152,6 +168,7 @@ const math = [
     options: { A: 'Scalene triangle', B: 'Isosceles triangle', C: 'Equilateral triangle', D: 'Right triangle', E: 'Obtuse triangle' },
     options_tr: { A: 'Çeşitkenar üçgen', B: 'İkizkenar üçgen', C: 'Eşkenar üçgen', D: 'Dik üçgen', E: 'Geniş açılı üçgen' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'An equilateral triangle has three equal sides and three equal 60° angles.',
   },
   {
@@ -161,6 +178,7 @@ const math = [
     options: { A: '10', B: '12', C: '18', D: '24', E: '8' },
     options_tr: { A: '10', B: '12', C: '18', D: '24', E: '8' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The multiples of 4 are 4, 8, 12...; the multiples of 6 are 6, 12...; the smallest common one is 12.',
   },
   {
@@ -170,6 +188,7 @@ const math = [
     options: { A: 'Goldbach\'s Conjecture', B: 'The Riemann Hypothesis', C: 'Fermat\'s Last Theorem', D: 'The Poincaré Conjecture', E: 'The Four Color Theorem' },
     options_tr: { A: 'Goldbach Sanısı', B: 'Riemann Hipotezi', C: 'Fermat\'nın Son Teoremi', D: 'Poincaré Sanısı', E: 'Dört Renk Teoremi' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Fermat\'s Last Theorem, conjectured in 1637, was finally proven by Andrew Wiles in 1994/1995.',
   },
   {
@@ -179,6 +198,7 @@ const math = [
     options: { A: '18', B: '72', C: '81', D: '90', E: '99' },
     options_tr: { A: '18', B: '72', C: '81', D: '90', E: '99' },
     answer: 'C',
+    difficulty: 3,
     explanation: '9² = 9 × 9 = 81.',
   },
   {
@@ -188,6 +208,7 @@ const math = [
     options: { A: 'Parallelogram', B: 'Rhombus', C: 'Trapezoid', D: 'Rectangle', E: 'Kite' },
     options_tr: { A: 'Paralelkenar', B: 'Eşkenar dörtgen', C: 'Yamuk', D: 'Dikdörtgen', E: 'Deltoid' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'A trapezoid (trapezium in British English) has exactly one pair of parallel sides.',
   },
   {
@@ -197,6 +218,7 @@ const math = [
     options: { A: 'Leonardo da Vinci', B: 'Leonardo Fibonacci', C: 'Blaise Pascal', D: 'René Descartes', E: 'Carl Friedrich Gauss' },
     options_tr: { A: 'Leonardo da Vinci', B: 'Leonardo Fibonacci', C: 'Blaise Pascal', D: 'René Descartes', E: 'Carl Friedrich Gauss' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Leonardo Fibonacci introduced the sequence 1, 1, 2, 3, 5, 8, 13... to Western mathematics in his 1202 book "Liber Abaci."',
   },
   {
@@ -206,6 +228,7 @@ const math = [
     options: { A: '20', B: '24', C: '25', D: '30', E: '40' },
     options_tr: { A: '20', B: '24', C: '25', D: '30', E: '40' },
     answer: 'C',
+    difficulty: 2,
     explanation: '100 ÷ 4 = 25.',
   },
   {
@@ -215,6 +238,7 @@ const math = [
     options: { A: 'Rational number', B: 'Irrational number', C: 'Imaginary number', D: 'Natural number', E: 'Integer' },
     options_tr: { A: 'Rasyonel sayı', B: 'İrrasyonel sayı', C: 'Sanal sayı', D: 'Doğal sayı', E: 'Tam sayı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Irrational numbers have non-repeating, non-terminating decimal expansions and cannot be written as a ratio of integers.',
   },
   {
@@ -224,6 +248,7 @@ const math = [
     options: { A: 'Al-Kindi', B: 'Al-Khwarizmi', C: 'Omar Khayyam', D: 'Ibn al-Haytham', E: 'Al-Biruni' },
     options_tr: { A: 'El-Kindi', B: 'El-Harezmi', C: 'Ömer Hayyam', D: 'İbn el-Heysem', E: 'El-Biruni' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Muhammad ibn Musa al-Khwarizmi\'s name gave rise to the word "algorithm," and his book gave us the word "algebra" (from "al-jabr").',
   },
   {
@@ -233,6 +258,7 @@ const math = [
     options: { A: 'A real number', B: 'Undefined in all number systems', C: 'The imaginary unit', D: 'Equal to 1', E: 'Equal to 0' },
     options_tr: { A: 'Bir reel sayı', B: 'Tüm sayı sistemlerinde tanımsız', C: 'Sanal birim', D: '1\'e eşit', E: '0\'a eşit' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The imaginary unit i is defined as √(-1) and forms the basis of complex numbers (a + bi).',
   },
   {
@@ -242,6 +268,7 @@ const math = [
     options: { A: '360', B: '620', C: '720', D: '120', E: '840' },
     options_tr: { A: '360', B: '620', C: '720', D: '120', E: '840' },
     answer: 'C',
+    difficulty: 2,
     explanation: '6! = 6×5×4×3×2×1 = 720.',
   },
   {
@@ -251,6 +278,7 @@ const math = [
     options: { A: '180°', B: '270°', C: '360°', D: '450°', E: '540°' },
     options_tr: { A: '180°', B: '270°', C: '360°', D: '450°', E: '540°' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The sum of interior angles of any quadrilateral is 360° (it can be split into two triangles of 180° each).',
   },
   {
@@ -260,6 +288,7 @@ const math = [
     options: { A: 'The Binomial Theorem', B: 'The Fundamental Theorem of Arithmetic', C: 'The Pythagorean Theorem', D: 'Bayes\' Theorem', E: 'The Intermediate Value Theorem' },
     options_tr: { A: 'Binom Teoremi', B: 'Aritmetiğin Temel Teoremi', C: 'Pisagor Teoremi', D: 'Bayes Teoremi', E: 'Ara Değer Teoremi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Fundamental Theorem of Arithmetic guarantees unique prime factorization for every integer greater than 1.',
   },
   {
@@ -269,6 +298,7 @@ const math = [
     options: { A: '10 cm', B: '15 cm', C: '20 cm', D: '25 cm', E: '30 cm' },
     options_tr: { A: '10 cm', B: '15 cm', C: '20 cm', D: '25 cm', E: '30 cm' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The perimeter of a square is 4 × side = 4 × 5 = 20 cm.',
   },
   {
@@ -278,6 +308,7 @@ const math = [
     options: { A: 'Mean', B: 'Mode', C: 'Median', D: 'Range', E: 'Variance' },
     options_tr: { A: 'Ortalama', B: 'Mod (Tepe değer)', C: 'Medyan (Ortanca)', D: 'Açıklık', E: 'Varyans' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The median is the middle value of a data set when arranged in order; for an even count, it\'s the average of the two middle values.',
   },
   {
@@ -287,6 +318,7 @@ const math = [
     options: { A: 'Georg Cantor', B: 'David Hilbert', C: 'Carl Friedrich Gauss', D: 'Bernhard Riemann', E: 'Leonhard Euler' },
     options_tr: { A: 'Georg Cantor', B: 'David Hilbert', C: 'Carl Friedrich Gauss', D: 'Bernhard Riemann', E: 'Leonhard Euler' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Carl Friedrich Gauss (1777–1855) is often called "Princeps mathematicorum" (Prince of Mathematicians).',
   },
   {
@@ -296,6 +328,7 @@ const math = [
     options: { A: '0.25', B: '0.5', C: '0.75', D: '1.25', E: '0.34' },
     options_tr: { A: '0,25', B: '0,5', C: '0,75', D: '1,25', E: '0,34' },
     answer: 'C',
+    difficulty: 3,
     explanation: '3 ÷ 4 = 0.75.',
   },
   {
@@ -305,6 +338,7 @@ const math = [
     options: { A: 'Hexagon', B: 'Heptagon', C: 'Octagon', D: 'Nonagon', E: 'Decagon' },
     options_tr: { A: 'Altıgen', B: 'Yedigen', C: 'Sekizgen', D: 'Dokuzgen', E: 'Ongen' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'An octagon has eight sides and eight angles; a stop sign is a common real-world example.',
   },
   {
@@ -314,6 +348,7 @@ const math = [
     options: { A: 'The P versus NP Problem', B: 'The Riemann Hypothesis', C: 'The Poincaré Conjecture (solved in 2003)', D: 'The Hodge Conjecture', E: 'The Birch and Swinnerton-Dyer Conjecture' },
     options_tr: { A: 'P vs NP Problemi', B: 'Riemann Hipotezi', C: 'Poincaré Sanısı (2003\'te çözüldü)', D: 'Hodge Sanısı', E: 'Birch ve Swinnerton-Dyer Sanısı' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Riemann Hypothesis, proposed in 1859, remains unproven and concerns the zeros of the Riemann zeta function.',
   },
   {
@@ -323,6 +358,7 @@ const math = [
     options: { A: '2', B: '3', C: '6', D: '9', E: '12' },
     options_tr: { A: '2', B: '3', C: '6', D: '9', E: '12' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The divisors of 18 are 1,2,3,6,9,18; of 24 are 1,2,3,4,6,8,12,24; the greatest common one is 6.',
   },
   {
@@ -332,6 +368,7 @@ const math = [
     options: { A: 'Mean', B: 'Median', C: 'Mode', D: 'Standard deviation', E: 'Percentile' },
     options_tr: { A: 'Ortalama', B: 'Medyan', C: 'Mod', D: 'Standart sapma', E: 'Yüzdelik dilim' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The mode is the most frequently occurring value in a data set; a set can have one, multiple, or no mode.',
   },
   {
@@ -341,6 +378,7 @@ const math = [
     options: { A: '15', B: '25', C: '75', D: '125', E: '625' },
     options_tr: { A: '15', B: '25', C: '75', D: '125', E: '625' },
     answer: 'D',
+    difficulty: 3,
     explanation: '5³ = 5 × 5 × 5 = 125.',
   },
   {
@@ -350,6 +388,7 @@ const math = [
     options: { A: 'Euler\'s number', B: 'Golden ratio', C: 'Pi', D: 'Tau', E: 'Planck constant' },
     options_tr: { A: 'Euler sayısı', B: 'Altın oran', C: 'Pi', D: 'Tau', E: 'Planck sabiti' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Pi (π) is a mathematical constant approximately equal to 3.14159, fundamental to circle geometry.',
   },
   {
@@ -359,6 +398,7 @@ const math = [
     options: { A: 'Blaise Pascal', B: 'René Descartes', C: 'Pierre de Fermat', D: 'Voltaire', E: 'Denis Diderot' },
     options_tr: { A: 'Blaise Pascal', B: 'René Descartes', C: 'Pierre de Fermat', D: 'Voltaire', E: 'Denis Diderot' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'René Descartes (1596–1650) developed the Cartesian coordinate system, linking algebra and geometry.',
   },
   {
@@ -368,6 +408,7 @@ const math = [
     options: { A: '124', B: '134', C: '144', D: '154', E: '164' },
     options_tr: { A: '124', B: '134', C: '144', D: '154', E: '164' },
     answer: 'C',
+    difficulty: 2,
     explanation: '12 × 12 = 144.',
   },
   {
@@ -377,6 +418,7 @@ const math = [
     options: { A: 'Cube', B: 'Root', C: 'Square', D: 'Reciprocal', E: 'Logarithm' },
     options_tr: { A: 'Küp', B: 'Kök', C: 'Kare', D: 'Çarpma tersi', E: 'Logaritma' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Squaring a number means multiplying it by itself; 4² = 16.',
   },
   {
@@ -386,6 +428,7 @@ const math = [
     options: { A: 'Supplementary angles', B: 'Complementary angles', C: 'Vertical angles', D: 'Adjacent angles', E: 'Reflex angles' },
     options_tr: { A: 'Bütünler açılar', B: 'Tümler açılar', C: 'Ters açılar', D: 'Komşu açılar', E: 'Tam açılar' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Complementary angles sum to 90°; supplementary angles sum to 180°.',
   },
   {
@@ -395,6 +438,7 @@ const math = [
     options: { A: 'Euclid', B: 'Archimedes', C: 'Thales of Miletus', D: 'Eratosthenes', E: 'Pythagoras' },
     options_tr: { A: 'Euklid', B: 'Arşimet', C: 'Miletli Tales', D: 'Eratosthenes', E: 'Pisagor' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Archimedes discovered the principle of buoyancy (Archimedes\' principle) and is said to have run through the streets shouting "Eureka!"',
   },
   {
@@ -404,6 +448,7 @@ const math = [
     options: { A: '2/5', B: '5/6', C: '3/5', D: '2/6', E: '1/6' },
     options_tr: { A: '2/5', B: '5/6', C: '3/5', D: '2/6', E: '1/6' },
     answer: 'B',
+    difficulty: 1,
     explanation: '1/2 = 3/6 and 1/3 = 2/6, so 3/6 + 2/6 = 5/6.',
   },
   {
@@ -413,6 +458,7 @@ const math = [
     options: { A: '1.41421', B: '1.61803', C: '2.71828', D: '3.14159', E: '0.61803 (only)' },
     options_tr: { A: '1,41421', B: '1,61803', C: '2,71828', D: '3,14159', E: 'Yalnızca 0,61803' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The golden ratio φ ≈ 1.61803, defined as (1 + √5) / 2, appears in art, architecture, and nature.',
   },
   {
@@ -422,6 +468,7 @@ const math = [
     options: { A: '9 cm³', B: '18 cm³', C: '27 cm³', D: '36 cm³', E: '81 cm³' },
     options_tr: { A: '9 cm³', B: '18 cm³', C: '27 cm³', D: '36 cm³', E: '81 cm³' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Volume of a cube = side³ = 3³ = 27 cm³.',
   },
   {
@@ -431,6 +478,7 @@ const math = [
     options: { A: 'Twin Prime Conjecture', B: 'Goldbach\'s Conjecture', C: 'Collatz Conjecture', D: 'Fermat\'s Last Theorem (proven)', E: 'Catalan\'s Conjecture (proven)' },
     options_tr: { A: 'İkiz Asal Sanısı', B: 'Goldbach Sanısı', C: 'Collatz Sanısı', D: 'Fermat\'nın Son Teoremi (kanıtlandı)', E: 'Catalan Sanısı (kanıtlandı)' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Goldbach\'s Conjecture, proposed in 1742, remains unproven despite being verified for extremely large numbers.',
   },
   {
@@ -440,6 +488,7 @@ const math = [
     options: { A: '20', B: '25', C: '30', D: '35', E: '40' },
     options_tr: { A: '20', B: '25', C: '30', D: '35', E: '40' },
     answer: 'C',
+    difficulty: 2,
     explanation: '20% of 150 = 0.20 × 150 = 30.',
   },
   {
@@ -449,6 +498,7 @@ const math = [
     options: { A: 'Secant', B: 'Chord', C: 'Tangent', D: 'Radius', E: 'Diameter' },
     options_tr: { A: 'Kesen', B: 'Kiriş', C: 'Teğet', D: 'Yarıçap', E: 'Çap' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'A tangent line touches a curve at a single point and, at that point, has the same slope as the curve.',
   },
   {
@@ -458,6 +508,7 @@ const math = [
     options: { A: '10', B: '11', C: '12', D: '13', E: '14' },
     options_tr: { A: '10', B: '11', C: '12', D: '13', E: '14' },
     answer: 'C',
+    difficulty: 2,
     explanation: '144 ÷ 12 = 12.',
   },
   {
@@ -467,6 +518,7 @@ const math = [
     options: { A: 'John von Neumann', B: 'Paul Erdős', C: 'George Pólya', D: 'John Nash', E: 'Kurt Gödel' },
     options_tr: { A: 'John von Neumann', B: 'Paul Erdős', C: 'George Pólya', D: 'John Nash', E: 'Kurt Gödel' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Paul Erdős (1913–1996) published around 1,500 papers with hundreds of collaborators.',
   },
   {
@@ -476,6 +528,7 @@ const math = [
     options: { A: '10', B: '12', C: '15', D: '20', E: '25' },
     options_tr: { A: '10', B: '12', C: '15', D: '20', E: '25' },
     answer: 'C',
+    difficulty: 2,
     explanation: '1+2+3+4+5 = 15.',
   },
   {
@@ -485,6 +538,7 @@ const math = [
     options: { A: 'Convex polygon', B: 'Regular polygon', C: 'Concave polygon', D: 'Irregular polygon', E: 'Simple polygon' },
     options_tr: { A: 'Dışbükey çokgen', B: 'Düzgün çokgen', C: 'İçbükey çokgen', D: 'Düzensiz çokgen', E: 'Basit çokgen' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A regular polygon has all sides and interior angles equal, such as an equilateral triangle or a square.',
   },
   {
@@ -494,6 +548,7 @@ const math = [
     options: { A: 'Algebra', B: 'Number theory', C: 'Topology', D: 'Trigonometry', E: 'Combinatorics' },
     options_tr: { A: 'Cebir', B: 'Sayı teorisi', C: 'Topoloji', D: 'Trigonometri', E: 'Kombinatorik' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Topology studies properties preserved under continuous deformation; famously, a coffee cup and a donut are topologically equivalent.',
   },
   {
@@ -503,6 +558,7 @@ const math = [
     options: { A: '-13', B: '-3', C: '3', D: '13', E: '-5' },
     options_tr: { A: '-13', B: '-3', C: '3', D: '13', E: '-5' },
     answer: 'B',
+    difficulty: 1,
     explanation: '-8 + 5 = -3.',
   },
   {
@@ -512,6 +568,7 @@ const math = [
     options: { A: '0', B: '0.5', C: '1', D: '-1', E: 'Undefined' },
     options_tr: { A: '0', B: '0,5', C: '1', D: '-1', E: 'Tanımsız' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'sin(90°) = 1, the maximum value of the sine function.',
   },
   {
@@ -521,6 +578,7 @@ const math = [
     options: { A: 'David Hilbert', B: 'Richard Dedekind', C: 'Georg Cantor', D: 'Gottlob Frege', E: 'Ernst Zermelo' },
     options_tr: { A: 'David Hilbert', B: 'Richard Dedekind', C: 'Georg Cantor', D: 'Gottlob Frege', E: 'Ernst Zermelo' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Georg Cantor developed set theory in the late 19th century and proved that some infinities are larger than others.',
   },
   {
@@ -530,6 +588,7 @@ const math = [
     options: { A: '20%', B: '25%', C: '40%', D: '50%', E: '45%' },
     options_tr: { A: '%20', B: '%25', C: '%40', D: '%50', E: '%45' },
     answer: 'C',
+    difficulty: 3,
     explanation: '2/5 = 0.4 = 40%.',
   },
   {
@@ -539,6 +598,7 @@ const math = [
     options: { A: 'Linear equation', B: 'Quadratic equation', C: 'Cubic equation', D: 'Exponential equation', E: 'Logarithmic equation' },
     options_tr: { A: 'Doğrusal denklem', B: 'İkinci dereceden denklem', C: 'Üçüncü dereceden denklem', D: 'Üstel denklem', E: 'Logaritmik denklem' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A quadratic equation has the general form ax² + bx + c = 0, where a ≠ 0.',
   },
   {
@@ -548,6 +608,7 @@ const math = [
     options: { A: '-7', B: '0', C: '7', D: '14', E: '-14' },
     options_tr: { A: '-7', B: '0', C: '7', D: '14', E: '-14' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The absolute value of a number is its distance from zero, always non-negative: |-7| = 7.',
   },
   {
@@ -557,6 +618,7 @@ const math = [
     options: { A: 'Calculus', B: 'Combinatorics', C: 'Geometry', D: 'Algebra', E: 'Analysis' },
     options_tr: { A: 'Kalkülüs', B: 'Kombinatorik', C: 'Geometri', D: 'Cebir', E: 'Analiz' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Combinatorics studies counting, arrangement, and combination principles, essential to probability theory.',
   },
   {
@@ -566,6 +628,7 @@ const math = [
     options: { A: '2', B: '-2', C: '10', D: '-10', E: '24' },
     options_tr: { A: '2', B: '-2', C: '10', D: '-10', E: '24' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Subtracting a negative number is equivalent to adding its positive: 6 - (-4) = 6 + 4 = 10.',
   },
   {
@@ -575,6 +638,7 @@ const math = [
     options: { A: 'Irrational numbers', B: 'Rational numbers', C: 'Imaginary numbers', D: 'Transcendental numbers', E: 'Prime numbers' },
     options_tr: { A: 'İrrasyonel sayılar', B: 'Rasyonel sayılar', C: 'Sanal sayılar', D: 'Aşkın sayılar', E: 'Asal sayılar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A rational number can be written as a fraction p/q where p and q are integers and q ≠ 0.',
   },
   {
@@ -584,6 +648,7 @@ const math = [
     options: { A: 'Robert Hooke', B: 'Isaac Newton', C: 'James Clerk Maxwell', D: 'Michael Faraday', E: 'Edmund Halley' },
     options_tr: { A: 'Robert Hooke', B: 'Isaac Newton', C: 'James Clerk Maxwell', D: 'Michael Faraday', E: 'Edmund Halley' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Isaac Newton (1643–1727) developed calculus independently of Leibniz, leading to a famous priority dispute.',
   },
   {
@@ -593,6 +658,7 @@ const math = [
     options: { A: '5π cm', B: '10π cm', C: '20π cm', D: '100π cm', E: '2.5π cm' },
     options_tr: { A: '5π cm', B: '10π cm', C: '20π cm', D: '100π cm', E: '2,5π cm' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Circumference = π × diameter = π × 10 = 10π cm.',
   },
   {
@@ -602,6 +668,7 @@ const math = [
     options: { A: '100', B: '1000', C: '1010', D: '1100', E: '10000' },
     options_tr: { A: '100', B: '1000', C: '1010', D: '1100', E: '10000' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Decimal 8 = 2³, so in binary it is written as 1000.',
   },
   {
@@ -611,6 +678,7 @@ const math = [
     options: { A: 'Differentiation', B: 'Integration', C: 'Logarithm', D: 'Factorial', E: 'Modulo operation' },
     options_tr: { A: 'Türev', B: 'İntegral', C: 'Logaritma', D: 'Faktöriyel', E: 'Mod (kalan) işlemi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The logarithm is the inverse of exponentiation: log₂(8) = 3 because 2³ = 8.',
   },
   {
@@ -620,6 +688,7 @@ const math = [
     options: { A: '6', B: '7', C: '8', D: '9', E: '10' },
     options_tr: { A: '6', B: '7', C: '8', D: '9', E: '10' },
     answer: 'C',
+    difficulty: 1,
     explanation: '(4 + 8 + 12) / 3 = 24 / 3 = 8.',
   },
   {
@@ -629,6 +698,7 @@ const math = [
     options: { A: 'Jacob Bernoulli', B: 'Leonhard Euler', C: 'Johann Bernoulli', D: 'Gabriel Cramer', E: 'Jean le Rond d\'Alembert' },
     options_tr: { A: 'Jacob Bernoulli', B: 'Leonhard Euler', C: 'Johann Bernoulli', D: 'Gabriel Cramer', E: 'Jean le Rond d\'Alembert' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Leonhard Euler (1707–1783) was extraordinarily prolific and introduced notation still used today, including f(x), e, and i.',
   },
   {
@@ -638,6 +708,7 @@ const math = [
     options: { A: '12', B: '27', C: '64', D: '81', E: '243' },
     options_tr: { A: '12', B: '27', C: '64', D: '81', E: '243' },
     answer: 'D',
+    difficulty: 3,
     explanation: '3⁴ = 3×3×3×3 = 81.',
   },
   {
@@ -647,6 +718,7 @@ const math = [
     options: { A: 'Tetrahedron', B: 'Cube', C: 'Octahedron', D: 'Prism', E: 'Sphere' },
     options_tr: { A: 'Dörtyüzlü (Tetrahedron)', B: 'Küp', C: 'Sekizyüzlü (Oktahedron)', D: 'Prizma', E: 'Küre' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A cube (a type of regular hexahedron) has six equal square faces.',
   },
   {
@@ -656,6 +728,7 @@ const math = [
     options: { A: 'π only', B: 'e (Euler\'s number)', C: 'i only', D: 'The golden ratio', E: 'Avogadro\'s number' },
     options_tr: { A: 'Yalnızca π', B: 'e (Euler sayısı)', C: 'Yalnızca i', D: 'Altın oran', E: 'Avogadro sayısı' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Euler\'s Identity, e^(iπ) + 1 = 0, elegantly links e, i, π, 1, and 0, often called the most beautiful equation in mathematics.',
   },
   {
@@ -665,6 +738,7 @@ const math = [
     options: { A: '65', B: '70', C: '75', D: '80', E: '85' },
     options_tr: { A: '65', B: '70', C: '75', D: '80', E: '85' },
     answer: 'C',
+    difficulty: 2,
     explanation: '250 - 175 = 75.',
   },
   {
@@ -674,6 +748,7 @@ const math = [
     options: { A: 'Geometric sequence', B: 'Arithmetic sequence', C: 'Fibonacci sequence', D: 'Harmonic sequence', E: 'Quadratic sequence' },
     options_tr: { A: 'Geometrik dizi', B: 'Aritmetik dizi', C: 'Fibonacci dizisi', D: 'Harmonik dizi', E: 'İkinci dereceden dizi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'An arithmetic sequence has a constant difference between consecutive terms, e.g., 2, 5, 8, 11...',
   },
   {
@@ -683,6 +758,7 @@ const math = [
     options: { A: 'John von Neumann', B: 'John Nash', C: 'Claude Shannon', D: 'Norbert Wiener', E: 'Alan Turing' },
     options_tr: { A: 'John von Neumann', B: 'John Nash', C: 'Claude Shannon', D: 'Norbert Wiener', E: 'Alan Turing' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'John Nash won the 1994 Nobel Memorial Prize in Economic Sciences for his contributions to game theory (Nash equilibrium).',
   },
   {
@@ -692,6 +768,7 @@ const math = [
     options: { A: '1/4', B: '1/2', C: '3/4', D: '1', E: '4/4' },
     options_tr: { A: '1/4', B: '1/2', C: '3/4', D: '1', E: '4/4' },
     answer: 'D',
+    difficulty: 1,
     explanation: '1/4 × 4 = 4/4 = 1.',
   },
   {
@@ -701,6 +778,7 @@ const math = [
     options: { A: 'Acute triangle', B: 'Right triangle', C: 'Obtuse triangle', D: 'Equilateral triangle', E: 'Isosceles triangle (necessarily)' },
     options_tr: { A: 'Dar açılı üçgen', B: 'Dik üçgen', C: 'Geniş açılı üçgen', D: 'Eşkenar üçgen', E: 'İkizkenar üçgen (zorunlu olarak)' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'An obtuse triangle has exactly one interior angle greater than 90°.',
   },
   {
@@ -710,6 +788,7 @@ const math = [
     options: { A: 'Alonzo Church', B: 'Alan Turing', C: 'John von Neumann', D: 'Claude Shannon', E: 'Kurt Gödel' },
     options_tr: { A: 'Alonzo Church', B: 'Alan Turing', C: 'John von Neumann', D: 'Claude Shannon', E: 'Kurt Gödel' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Alan Turing (1912–1954) formalized the concepts of algorithm and computation with the Turing machine.',
   },
   {
@@ -719,6 +798,7 @@ const math = [
     options: { A: '5', B: '50', C: '0.5', D: '5000', E: '500.1' },
     options_tr: { A: '5', B: '50', C: '0,5', D: '5000', E: '500,1' },
     answer: 'B',
+    difficulty: 2,
     explanation: '500 × 0.1 = 50.',
   },
   {
@@ -728,6 +808,7 @@ const math = [
     options: { A: 'Perpendicular lines', B: 'Parallel lines', C: 'Intersecting lines', D: 'Skew lines', E: 'Transversal lines' },
     options_tr: { A: 'Dik çizgiler', B: 'Paralel çizgiler', C: 'Kesişen çizgiler', D: 'Ayrık çizgiler', E: 'Kesen çizgiler' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Parallel lines lie in the same plane and never intersect, maintaining a constant distance.',
   },
   {
@@ -737,6 +818,7 @@ const math = [
     options: { A: '12', B: '13', C: '14', D: '15', E: '16' },
     options_tr: { A: '12', B: '13', C: '14', D: '15', E: '16' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Thirteen is both considered unlucky in many Western traditions and is a prime number.',
   },
   {
@@ -746,6 +828,7 @@ const math = [
     options: { A: '9', B: '23', C: '33', D: '13', E: '45' },
     options_tr: { A: '9', B: '23', C: '33', D: '13', E: '45' },
     answer: 'C',
+    difficulty: 2,
     explanation: '7² = 49, 4² = 16, and 49 - 16 = 33.',
   },
   {
@@ -755,6 +838,7 @@ const math = [
     options: { A: 'Algebra', B: 'Statistics', C: 'Geometry', D: 'Calculus', E: 'Number theory' },
     options_tr: { A: 'Cebir', B: 'İstatistik', C: 'Geometri', D: 'Kalkülüs', E: 'Sayı teorisi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Statistics is the branch of mathematics dealing with data collection, analysis, and interpretation.',
   },
   {
@@ -764,6 +848,7 @@ const math = [
     options: { A: '180°', B: '270°', C: '360°', D: '540°', E: 'Depends on number of sides' },
     options_tr: { A: '180°', B: '270°', C: '360°', D: '540°', E: 'Kenar sayısına bağlıdır' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The exterior angles of any convex polygon always sum to 360°, regardless of the number of sides.',
   },
   {
@@ -773,6 +858,7 @@ const math = [
     options: { A: '1/2', B: '1/3', C: '1/4', D: '1/6', E: '1/8' },
     options_tr: { A: '1/2', B: '1/3', C: '1/4', D: '1/6', E: '1/8' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'A fair six-sided die has 6 equally likely outcomes, so the probability of any specific number is 1/6.',
   },
   {
@@ -782,6 +868,7 @@ const math = [
     options: { A: '990', B: '1000', C: '1001', D: '1010', E: '900' },
     options_tr: { A: '990', B: '1000', C: '1001', D: '1010', E: '900' },
     answer: 'B',
+    difficulty: 2,
     explanation: '999 + 1 = 1000.',
   },
   {
@@ -791,6 +878,7 @@ const math = [
     options: { A: 'Bertrand Russell', B: 'Kurt Gödel', C: 'Alfred Tarski', D: 'David Hilbert', E: 'Alonzo Church' },
     options_tr: { A: 'Bertrand Russell', B: 'Kurt Gödel', C: 'Alfred Tarski', D: 'David Hilbert', E: 'Alonzo Church' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Kurt Gödel\'s incompleteness theorems (1931) reshaped the foundations of mathematics and logic.',
   },
   {
@@ -800,6 +888,7 @@ const math = [
     options: { A: '-5', B: '0.5', C: '1/5', D: '5', E: '0' },
     options_tr: { A: '-5', B: '0,5', C: '1/5', D: '5', E: '0' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The reciprocal of a number n is 1/n; the reciprocal of 5 is 1/5.',
   },
   {
@@ -809,6 +898,7 @@ const math = [
     options: { A: 'Deficient number', B: 'Perfect number', C: 'Abundant number', D: 'Amicable number', E: 'Triangular number' },
     options_tr: { A: 'Eksik sayı', B: 'Mükemmel sayı', C: 'Bolluk sayısı (abundant)', D: 'Dost sayı', E: 'Üçgensel sayı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'An abundant number\'s proper divisors sum to more than the number itself; 12 is the smallest example.',
   },
   {
@@ -818,6 +908,7 @@ const math = [
     options: { A: '4', B: '5', C: '6', D: '9', E: '15' },
     options_tr: { A: '4', B: '5', C: '6', D: '9', E: '15' },
     answer: 'B',
+    difficulty: 1,
     explanation: '45 ÷ 9 = 5.',
   },
   {
@@ -827,6 +918,7 @@ const math = [
     options: { A: 'Abundant number', B: 'Deficient number', C: 'Perfect number', D: 'Composite number', E: 'Prime number' },
     options_tr: { A: 'Bolluk sayısı', B: 'Eksik sayı', C: 'Mükemmel sayı', D: 'Bileşik sayı', E: 'Asal sayı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'A perfect number equals the sum of its proper divisors; 6, 28, and 496 are the smallest examples.',
   },
   {
@@ -836,6 +928,7 @@ const math = [
     options: { A: '0', B: '0.5', C: '1', D: '-1', E: 'Undefined' },
     options_tr: { A: '0', B: '0,5', C: '1', D: '-1', E: 'Tanımsız' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'cos(0°) = 1, since the cosine function reaches its maximum value at 0°.',
   },
   {
@@ -845,6 +938,7 @@ const math = [
     options: { A: 'Theorem', B: 'Axiom', C: 'Corollary', D: 'Lemma', E: 'Conjecture' },
     options_tr: { A: 'Teorem', B: 'Aksiyom (Belit)', C: 'Sonuç (Corollary)', D: 'Yardımcı teorem (Lemma)', E: 'Sanı (Conjecture)' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'An axiom (or postulate) is a foundational statement accepted as true without proof, such as Euclid\'s postulates.',
   },
   {
@@ -854,6 +948,7 @@ const math = [
     options: { A: '1/2', B: '2/3', C: '3/4', D: '4/5', E: '5/6' },
     options_tr: { A: '1/2', B: '2/3', C: '3/4', D: '4/5', E: '5/6' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Dividing both numerator and denominator by their GCD (2) gives 6/8 = 3/4.',
   },
   {
@@ -863,6 +958,7 @@ const math = [
     options: { A: 'Abel Prize', B: 'Fields Medal', C: 'Wolf Prize', D: 'Turing Award', E: 'Gauss Prize' },
     options_tr: { A: 'Abel Ödülü', B: 'Fields Madalyası', C: 'Wolf Ödülü', D: 'Turing Ödülü', E: 'Gauss Ödülü' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Fields Medal, first awarded in 1936, is given at the International Congress of Mathematicians to outstanding mathematicians under 40.',
   },
   {
@@ -872,6 +968,7 @@ const math = [
     options: { A: '5', B: '6', C: '6.5', D: '7', E: '7.5' },
     options_tr: { A: '5', B: '6', C: '6,5', D: '7', E: '7,5' },
     answer: 'D',
+    difficulty: 1,
     explanation: '3.5 × 2 = 7.',
   },
   {
@@ -881,6 +978,7 @@ const math = [
     options: { A: 'Prime number', B: 'Composite number', C: 'Perfect square only', D: 'Natural number', E: 'Rational number' },
     options_tr: { A: 'Asal sayı', B: 'Bileşik sayı', C: 'Yalnızca tam kare', D: 'Doğal sayı', E: 'Rasyonel sayı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A composite number has more than two positive divisors, e.g., 4, 6, 8, 9, 10.',
   },
   {
@@ -890,6 +988,7 @@ const math = [
     options: { A: '90°', B: '180°', C: '270°', D: '360°', E: '450°' },
     options_tr: { A: '90°', B: '180°', C: '270°', D: '360°', E: '450°' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Angles around a single point always sum to 360°, a full rotation.',
   },
   {
@@ -899,6 +998,7 @@ const math = [
     options: { A: 'Goldbach\'s Conjecture', B: 'Twin Prime Conjecture', C: 'Collatz Conjecture', D: 'Riemann Hypothesis', E: 'Erdős–Straus Conjecture' },
     options_tr: { A: 'Goldbach Sanısı', B: 'İkiz Asal Sanısı', C: 'Collatz Sanısı', D: 'Riemann Hipotezi', E: 'Erdős–Straus Sanısı' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Collatz Conjecture (also called the 3n+1 problem) remains unproven despite being verified for enormous numbers.',
   },
   {
@@ -908,6 +1008,7 @@ const math = [
     options: { A: '149', B: '159', C: '169', D: '179', E: '196' },
     options_tr: { A: '149', B: '159', C: '169', D: '179', E: '196' },
     answer: 'C',
+    difficulty: 2,
     explanation: '13 × 13 = 169.',
   },
   {
@@ -917,6 +1018,7 @@ const math = [
     options: { A: '(base × height) / 2', B: 'base × height', C: '2 × (base + height)', D: 'base² × height', E: '(base + height) / 2' },
     options_tr: { A: '(taban × yükseklik) / 2', B: 'taban × yükseklik', C: '2 × (taban + yükseklik)', D: 'taban² × yükseklik', E: '(taban + yükseklik) / 2' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'A triangle fills exactly half of the rectangle built on the same base and height, so its area is (base × height) / 2.',
   },
   {
@@ -926,6 +1028,7 @@ const math = [
     options: { A: 'Mary Somerville', B: 'Florence Nightingale', C: 'Sofya Kovalevskaya', D: 'Emmy Noether', E: 'Ada Lovelace' },
     options_tr: { A: 'Mary Somerville', B: 'Florence Nightingale', C: 'Sofya Kovalevskaya', D: 'Emmy Noether', E: 'Ada Lovelace' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Ada Lovelace\'s 1843 notes contain an algorithm for computing Bernoulli numbers on the Analytical Engine.',
   },
   {
@@ -935,6 +1038,7 @@ const math = [
     options: { A: '15', B: '20', C: '25', D: '30', E: '40' },
     options_tr: { A: '15', B: '20', C: '25', D: '30', E: '40' },
     answer: 'B',
+    difficulty: 2,
     explanation: '25% of 80 = 0.25 × 80 = 20.',
   },
   {
@@ -944,6 +1048,7 @@ const math = [
     options: { A: 'Emmy Noether', B: 'Sofya Kovalevskaya', C: 'Grace Hopper', D: 'Hypatia', E: 'Maryam Mirzakhani' },
     options_tr: { A: 'Emmy Noether', B: 'Sofya Kovalevskaya', C: 'Grace Hopper', D: 'Hypatia', E: 'Maryam Mirzakhani' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Noether\'s theorem (1918) shows that every differentiable symmetry of a physical system corresponds to a conservation law.',
   },
   {
@@ -953,6 +1058,7 @@ const math = [
     options: { A: '6', B: '7', C: '8', D: '9', E: '10' },
     options_tr: { A: '6', B: '7', C: '8', D: '9', E: '10' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The primes below 20 are 2, 3, 5, 7, 11, 13, 17 and 19, which is eight numbers.',
   },
   {
@@ -962,6 +1068,7 @@ const math = [
     options: { A: '5', B: '6', C: '7', D: '12', E: '25' },
     options_tr: { A: '5', B: '6', C: '7', D: '12', E: '25' },
     answer: 'A',
+    difficulty: 2,
     explanation: '3² + 4² = 9 + 16 = 25, and √25 = 5, making 3-4-5 the best-known Pythagorean triple.',
   },
   {
@@ -971,6 +1078,7 @@ const math = [
     options: { A: 'The Hodge Conjecture', B: 'The Riemann Hypothesis', C: 'The Navier–Stokes Problem', D: 'The Yang–Mills Problem', E: 'The P versus NP Problem' },
     options_tr: { A: 'Hodge Sanısı', B: 'Riemann Hipotezi', C: 'Navier–Stokes Problemi', D: 'Yang–Mills Problemi', E: 'P vs NP Problemi' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'The P versus NP Problem asks whether the complexity classes P and NP are identical; it is the central open question of theoretical computer science.',
   },
   {
@@ -980,6 +1088,7 @@ const math = [
     options: { A: '64', B: '66', C: '68', D: '72', E: '74' },
     options_tr: { A: '64', B: '66', C: '68', D: '72', E: '74' },
     answer: 'C',
+    difficulty: 2,
     explanation: '17 × 4 = 68.',
   },
   {
@@ -989,6 +1098,7 @@ const math = [
     options: { A: 'Sophie Germain', B: 'Marie Curie', C: 'Émilie du Châtelet', D: 'Ada Lovelace', E: 'Hypatia' },
     options_tr: { A: 'Sophie Germain', B: 'Marie Curie', C: 'Émilie du Châtelet', D: 'Ada Lovelace', E: 'Hypatia' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Sophie Germain used a male pseudonym to correspond with Gauss and Lagrange; a prime p is a Germain prime when 2p + 1 is also prime.',
   },
   {
@@ -998,6 +1108,7 @@ const math = [
     options: { A: 'Median', B: 'Standard deviation', C: 'Mode', D: 'Percentile', E: 'Frequency' },
     options_tr: { A: 'Medyan', B: 'Standart sapma', C: 'Mod', D: 'Yüzdelik dilim', E: 'Frekans' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Standard deviation is the square root of the variance and measures the typical distance of values from the mean.',
   },
   {
@@ -1007,6 +1118,7 @@ const math = [
     options: { A: '4πr²', B: 'πr³', C: '2πr³', D: '(1/3)πr²', E: '(4/3)πr³' },
     options_tr: { A: '4πr²', B: 'πr³', C: '2πr³', D: '(1/3)πr²', E: '(4/3)πr³' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'The volume of a sphere is (4/3)πr³, a result first derived by Archimedes.',
   },
   {
@@ -1016,6 +1128,7 @@ const math = [
     options: { A: 'Aryabhata', B: 'Srinivasa Ramanujan', C: 'Brahmagupta', D: 'Bhaskara II', E: 'Harish-Chandra' },
     options_tr: { A: 'Aryabhata', B: 'Srinivasa Ramanujan', C: 'Brahmagupta', D: 'Bhaskara II', E: 'Harish-Chandra' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Ramanujan (1887–1920) filled notebooks with identities on infinite series, continued fractions and partitions that mathematicians still mine today.',
   },
   {
@@ -1025,6 +1138,7 @@ const math = [
     options: { A: '0.125', B: '0.18', C: '0.25', D: '0.0125', E: '0.8' },
     options_tr: { A: '0,125', B: '0,18', C: '0,25', D: '0,0125', E: '0,8' },
     answer: 'A',
+    difficulty: 3,
     explanation: '1 ÷ 8 = 0.125.',
   },
   {
@@ -1034,6 +1148,7 @@ const math = [
     options: { A: '8', B: '10', C: '12', D: '16', E: '20' },
     options_tr: { A: '8', B: '10', C: '12', D: '16', E: '20' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Hexadecimal uses 16 symbols: the digits 0–9 plus the letters A, B, C, D, E and F for the values ten to fifteen.',
   },
   {
@@ -1043,6 +1158,7 @@ const math = [
     options: { A: 'Andrey Kolmogorov', B: 'Vladimir Arnold', C: 'Nikolai Lobachevsky', D: 'Grigori Perelman', E: 'Sergei Novikov' },
     options_tr: { A: 'Andrey Kolmogorov', B: 'Vladimir Arnold', C: 'Nikolai Lobaçevski', D: 'Grigori Perelman', E: 'Sergei Novikov' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Grigori Perelman posted his proof online in 2002–2003, refused the Fields Medal in 2006 and turned down the $1 million Millennium Prize in 2010.',
   },
   {
@@ -1052,6 +1168,7 @@ const math = [
     options: { A: '111', B: '121', C: '131', D: '141', E: '144' },
     options_tr: { A: '111', B: '121', C: '131', D: '141', E: '144' },
     answer: 'B',
+    difficulty: 2,
     explanation: '11 × 11 = 121.',
   },
   {
@@ -1061,6 +1178,7 @@ const math = [
     options: { A: 'The y-intercept', B: 'The x-intercept', C: 'The constant term', D: 'The domain', E: 'The slope' },
     options_tr: { A: 'y eksenini kestiği nokta', B: 'x eksenini kestiği nokta', C: 'Sabit terim', D: 'Tanım kümesi', E: 'Eğim' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'In slope-intercept form, m gives the slope (rise over run) while b gives the y-intercept.',
   },
   {
@@ -1070,6 +1188,7 @@ const math = [
     options: { A: 'Blaise Pascal', B: 'Joseph Fourier', C: 'Augustin-Louis Cauchy', D: 'Évariste Galois', E: 'Henri Poincaré' },
     options_tr: { A: 'Blaise Pascal', B: 'Joseph Fourier', C: 'Augustin-Louis Cauchy', D: 'Évariste Galois', E: 'Henri Poincaré' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Pascal\'s 1654 correspondence with Fermat about gambling problems laid the foundations of probability theory.',
   },
   {
@@ -1079,6 +1198,7 @@ const math = [
     options: { A: '53', B: '63', C: '67', D: '73', E: '77' },
     options_tr: { A: '53', B: '63', C: '67', D: '73', E: '77' },
     answer: 'B',
+    difficulty: 2,
     explanation: '100 - 37 = 63.',
   },
   {
@@ -1088,6 +1208,7 @@ const math = [
     options: { A: 'It ends in 3', B: 'It is an odd number', C: 'Its last two digits are divisible by 3', D: 'It ends in 0 or 5', E: 'The sum of its digits is divisible by 3' },
     options_tr: { A: '3 ile bitiyorsa', B: 'Tek sayıysa', C: 'Son iki basamağı 3\'e bölünüyorsa', D: '0 veya 5 ile bitiyorsa', E: 'Rakamları toplamı 3\'e bölünüyorsa' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Because 10 leaves a remainder of 1 when divided by 3, a number and its digit sum always share the same remainder modulo 3.',
   },
   {
@@ -1097,6 +1218,7 @@ const math = [
     options: { A: '6', B: '8', C: '10', D: '12', E: '16' },
     options_tr: { A: '6', B: '8', C: '10', D: '12', E: '16' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'A cube has 6 faces, 8 vertices and 12 edges.',
   },
   {
@@ -1106,6 +1228,7 @@ const math = [
     options: { A: 'Paul Erdős', B: 'George Pólya', C: 'Eugene Wigner', D: 'John von Neumann', E: 'Edward Teller' },
     options_tr: { A: 'Paul Erdős', B: 'George Pólya', C: 'Eugene Wigner', D: 'John von Neumann', E: 'Edward Teller' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'John von Neumann wrote the 1944 book with Oskar Morgenstern and described the stored-program design now called the von Neumann architecture.',
   },
   {
@@ -1115,6 +1238,7 @@ const math = [
     options: { A: '14', B: '20', C: '24', D: '11', E: '18' },
     options_tr: { A: '14', B: '20', C: '24', D: '11', E: '18' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Multiplication is performed before addition, so 3 × 4 = 12 and 2 + 12 = 14.',
   },
   {
@@ -1124,6 +1248,7 @@ const math = [
     options: { A: '3', B: '5', C: '7', D: '10', E: '23' },
     options_tr: { A: '3', B: '5', C: '7', D: '10', E: '23' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Seven problems were announced, each carrying a $1 million prize; only the Poincaré Conjecture has been solved so far.',
   },
   {
@@ -1133,6 +1258,7 @@ const math = [
     options: { A: '1/2', B: '1/3', C: '1/4', D: '1/8', E: '2/3' },
     options_tr: { A: '1/2', B: '1/3', C: '1/4', D: '1/8', E: '2/3' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The flips are independent, so the probability is 1/2 × 1/2 = 1/4.',
   },
   {
@@ -1142,6 +1268,7 @@ const math = [
     options: { A: 'Karen Uhlenbeck', B: 'Ingrid Daubechies', C: 'Julia Robinson', D: 'Mary Cartwright', E: 'Maryam Mirzakhani' },
     options_tr: { A: 'Karen Uhlenbeck', B: 'Ingrid Daubechies', C: 'Julia Robinson', D: 'Mary Cartwright', E: 'Maryam Mirzakhani' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Iranian mathematician Maryam Mirzakhani won the 2014 Fields Medal for her work on the geometry of Riemann surfaces.',
   },
   {
@@ -1151,6 +1278,7 @@ const math = [
     options: { A: '7', B: '8', C: '9', D: '10', E: '11' },
     options_tr: { A: '7', B: '8', C: '9', D: '10', E: '11' },
     answer: 'C',
+    difficulty: 1,
     explanation: '9 × 9 = 81, so √81 = 9.',
   },
   {
@@ -1160,6 +1288,7 @@ const math = [
     options: { A: 'Radius', B: 'Arc', C: 'Tangent', D: 'Chord', E: 'Sector' },
     options_tr: { A: 'Yarıçap', B: 'Yay', C: 'Teğet', D: 'Kiriş', E: 'Daire dilimi' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'A chord joins two points on a circle; the longest chord of a circle is its diameter.',
   },
   {
@@ -1169,6 +1298,7 @@ const math = [
     options: { A: 'Joseph Fourier', B: 'Siméon Poisson', C: 'Adrien-Marie Legendre', D: 'Jean d\'Alembert', E: 'Pierre-Simon Laplace' },
     options_tr: { A: 'Joseph Fourier', B: 'Siméon Poisson', C: 'Adrien-Marie Legendre', D: 'Jean d\'Alembert', E: 'Pierre-Simon Laplace' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Laplace published his treatise on probability in 1812 and his transform is a standard tool for solving differential equations.',
   },
   {
@@ -1178,6 +1308,7 @@ const math = [
     options: { A: '4/10', B: '4/5', C: '3/10', D: '2/5', E: '1' },
     options_tr: { A: '4/10', B: '4/5', C: '3/10', D: '2/5', E: '1' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'With a common denominator the numerators simply add: 3/5 + 1/5 = 4/5.',
   },
   {
@@ -1187,6 +1318,7 @@ const math = [
     options: { A: '0', B: '1', C: '2', D: '3', E: '4' },
     options_tr: { A: '0', B: '1', C: '2', D: '3', E: '4' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The number 1 has only one positive divisor, so it fails the definition of a prime and of a composite number.',
   },
   {
@@ -1196,6 +1328,7 @@ const math = [
     options: { A: 'Bernhard Riemann', B: 'Carl Jacobi', C: 'Felix Klein', D: 'Hermann Weyl', E: 'Sophus Lie' },
     options_tr: { A: 'Bernhard Riemann', B: 'Carl Jacobi', C: 'Felix Klein', D: 'Hermann Weyl', E: 'Sophus Lie' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Riemann\'s 1854 lecture on the foundations of geometry introduced the curved manifolds that Einstein used sixty years later.',
   },
   {
@@ -1205,6 +1338,7 @@ const math = [
     options: { A: '10', B: '11', C: '12', D: '15', E: '6' },
     options_tr: { A: '10', B: '11', C: '12', D: '15', E: '6' },
     answer: 'C',
+    difficulty: 2,
     explanation: '60 ÷ 5 = 12.',
   },
   {
@@ -1214,6 +1348,7 @@ const math = [
     options: { A: 'Opposite / hypotenuse', B: 'Adjacent / hypotenuse', C: 'Hypotenuse / adjacent', D: 'Opposite / adjacent', E: 'Adjacent / opposite' },
     options_tr: { A: 'Karşı kenar / hipotenüs', B: 'Komşu kenar / hipotenüs', C: 'Hipotenüs / komşu kenar', D: 'Karşı kenar / komşu kenar', E: 'Komşu kenar / karşı kenar' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Tangent is defined as the opposite side divided by the adjacent side, which also equals sine divided by cosine.',
   },
   {
@@ -1223,6 +1358,7 @@ const math = [
     options: { A: 'The Four Color Theorem', B: 'The Prime Number Theorem', C: 'The Jordan Curve Theorem', D: 'The Central Limit Theorem', E: 'The Binomial Theorem' },
     options_tr: { A: 'Dört Renk Teoremi', B: 'Asal Sayı Teoremi', C: 'Jordan Eğrisi Teoremi', D: 'Merkezi Limit Teoremi', E: 'Binom Teoremi' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Kenneth Appel and Wolfgang Haken used a computer to check nearly 2,000 configurations, sparking debate about what counts as a proof.',
   },
   {
@@ -1232,6 +1368,7 @@ const math = [
     options: { A: '12', B: '32', C: '36', D: '64', E: '128' },
     options_tr: { A: '12', B: '32', C: '36', D: '64', E: '128' },
     answer: 'D',
+    difficulty: 3,
     explanation: '2⁶ = 2×2×2×2×2×2 = 64.',
   },
   {
@@ -1241,6 +1378,7 @@ const math = [
     options: { A: 'Largest value minus smallest value', B: 'Sum divided by the count', C: 'The middle value of the sorted data', D: 'The most frequent value', E: 'The square root of the variance' },
     options_tr: { A: 'En büyük değer eksi en küçük değer', B: 'Toplamın eleman sayısına bölümü', C: 'Sıralı verinin orta değeri', D: 'En sık görülen değer', E: 'Varyansın karekökü' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The range is the simplest measure of spread, found by subtracting the minimum value from the maximum value.',
   },
   {
@@ -1250,6 +1388,7 @@ const math = [
     options: { A: 'Theano', B: 'Pandrosion', C: 'Aglaonice', D: 'Sosipatra', E: 'Hypatia' },
     options_tr: { A: 'Theano', B: 'Pandrosion', C: 'Aglaonice', D: 'Sosipatra', E: 'Hypatia' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Hypatia (c. 350–415 AD) taught mathematics and philosophy in Alexandria and wrote commentaries on Diophantus and Apollonius.',
   },
   {
@@ -1259,6 +1398,7 @@ const math = [
     options: { A: '3.25', B: '3.5', C: '3.75', D: '4.25', E: '3.30' },
     options_tr: { A: '3,25', B: '3,5', C: '3,75', D: '4,25', E: '3,30' },
     answer: 'C',
+    difficulty: 2,
     explanation: '1.50 + 2.25 = 3.75.',
   },
   {
@@ -1268,6 +1408,7 @@ const math = [
     options: { A: '360°', B: '450°', C: '540°', D: '600°', E: '720°' },
     options_tr: { A: '360°', B: '450°', C: '540°', D: '600°', E: '720°' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'For an n-sided polygon the interior angles sum to (n − 2) × 180°, so a pentagon gives 3 × 180° = 540°.',
   },
   {
@@ -1277,6 +1418,7 @@ const math = [
     options: { A: 'Isaac Newton', B: 'Leonhard Euler', C: 'Joseph-Louis Lagrange', D: 'Gottfried Wilhelm Leibniz', E: 'Augustin-Louis Cauchy' },
     options_tr: { A: 'Isaac Newton', B: 'Leonhard Euler', C: 'Joseph-Louis Lagrange', D: 'Gottfried Wilhelm Leibniz', E: 'Augustin-Louis Cauchy' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Leibniz chose ∫ in 1675 as a stylized "summa," and his notation proved far more practical than Newton\'s dot notation.',
   },
   {
@@ -1286,6 +1428,7 @@ const math = [
     options: { A: '205', B: '215', C: '225', D: '235', E: '250' },
     options_tr: { A: '205', B: '215', C: '225', D: '235', E: '250' },
     answer: 'C',
+    difficulty: 2,
     explanation: '15 × 15 = 225.',
   },
   {
@@ -1295,6 +1438,7 @@ const math = [
     options: { A: 'Aryabhata', B: 'Bhaskara I', C: 'Varahamihira', D: 'Brahmagupta', E: 'Madhava of Sangamagrama' },
     options_tr: { A: 'Aryabhata', B: 'Bhaskara I', C: 'Varahamihira', D: 'Brahmagupta', E: 'Sangamagramalı Madhava' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Brahmagupta\'s "Brahmasphutasiddhanta" (628 AD) set out arithmetic rules for zero and for negative numbers.',
   },
   {
@@ -1304,6 +1448,7 @@ const math = [
     options: { A: '50%', B: '68%', C: '75%', D: '95%', E: '99%' },
     options_tr: { A: '%50', B: '%68', C: '%75', D: '%95', E: '%99' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The empirical rule states that about 68% of the data lies within one standard deviation, 95% within two, and 99.7% within three.',
   },
   {
@@ -1313,6 +1458,7 @@ const math = [
     options: { A: '7%', B: '17%', C: '70%', D: '77%', E: '0.7%' },
     options_tr: { A: '%7', B: '%17', C: '%70', D: '%77', E: '%0,7' },
     answer: 'C',
+    difficulty: 2,
     explanation: '7/10 = 0.7 = 70%.',
   },
   {
@@ -1322,6 +1468,7 @@ const math = [
     options: { A: 'Henri Poincaré', B: 'Felix Klein', C: 'Émile Borel', D: 'David Hilbert', E: 'Giuseppe Peano' },
     options_tr: { A: 'Henri Poincaré', B: 'Felix Klein', C: 'Émile Borel', D: 'David Hilbert', E: 'Giuseppe Peano' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Hilbert\'s problems shaped much of 20th-century mathematics, and several of them are still open.',
   },
   {
@@ -1331,6 +1478,7 @@ const math = [
     options: { A: '105', B: '115', C: '125', D: '135', E: '150' },
     options_tr: { A: '105', B: '115', C: '125', D: '135', E: '150' },
     answer: 'C',
+    difficulty: 3,
     explanation: '8 × 125 = 1000, so 1000 ÷ 8 = 125.',
   },
   {
@@ -1340,6 +1488,7 @@ const math = [
     options: { A: 'Obtuse angle', B: 'Acute angle', C: 'Right angle', D: 'Straight angle', E: 'Reflex angle' },
     options_tr: { A: 'Geniş açı', B: 'Dar açı', C: 'Dik açı', D: 'Doğru açı', E: 'Tam açıya yakın (refleks) açı' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'An acute angle is smaller than a right angle; the three angles of an equilateral triangle are all acute.',
   },
   {
@@ -1349,6 +1498,7 @@ const math = [
     options: { A: 'Eratosthenes', B: 'Hipparchus', C: 'Ptolemy', D: 'Diophantus', E: 'Apollonius' },
     options_tr: { A: 'Eratosthenes', B: 'Hipparkhos', C: 'Batlamyus', D: 'Diophantus', E: 'Apollonius' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Eratosthenes of Cyrene (c. 276–194 BC) invented the sieve named after him and measured the Earth using shadow lengths at two cities.',
   },
   {
@@ -1358,6 +1508,7 @@ const math = [
     options: { A: '45', B: '52', C: '54', D: '56', E: '63' },
     options_tr: { A: '45', B: '52', C: '54', D: '56', E: '63' },
     answer: 'C',
+    difficulty: 2,
     explanation: '9 × 6 = 54.',
   },
   {
@@ -1367,6 +1518,7 @@ const math = [
     options: { A: 'The imaginary part', B: 'The real part', C: 'The modulus', D: 'The argument', E: 'The conjugate' },
     options_tr: { A: 'Sanal kısım', B: 'Reel (gerçel) kısım', C: 'Modül', D: 'Argüman', E: 'Eşlenik' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'In a + bi the coefficient a is the real part and b is the imaginary part.',
   },
   {
@@ -1376,6 +1528,7 @@ const math = [
     options: { A: 'Niels Henrik Abel', B: 'Augustin-Louis Cauchy', C: 'Joseph Liouville', D: 'Camille Jordan', E: 'Évariste Galois' },
     options_tr: { A: 'Niels Henrik Abel', B: 'Augustin-Louis Cauchy', C: 'Joseph Liouville', D: 'Camille Jordan', E: 'Évariste Galois' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Galois died in 1832 after writing down the ideas now called Galois theory, which explains when polynomial equations can be solved by radicals.',
   },
   {
@@ -1385,6 +1538,7 @@ const math = [
     options: { A: '0.1', B: '0.25', C: '0.5', D: '1', E: '2.5' },
     options_tr: { A: '0,1', B: '0,25', C: '0,5', D: '1', E: '2,5' },
     answer: 'B',
+    difficulty: 2,
     explanation: '0.5 × 0.5 is the same as 1/2 × 1/2 = 1/4 = 0.25.',
   },
   {
@@ -1394,6 +1548,7 @@ const math = [
     options: { A: 'Prime numbers', B: 'Perfect squares', C: 'Fibonacci numbers', D: 'Factorials', E: 'Binomial coefficients' },
     options_tr: { A: 'Asal sayılar', B: 'Tam kareler', C: 'Fibonacci sayıları', D: 'Faktöriyeller', E: 'Binom katsayıları' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Row n of Pascal\'s triangle lists the coefficients of the expansion of (a + b)ⁿ.',
   },
   {
@@ -1403,6 +1558,7 @@ const math = [
     options: { A: 'L', B: 'C', C: 'D', D: 'M', E: 'X' },
     options_tr: { A: 'L', B: 'C', C: 'D', D: 'M', E: 'X' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'In Roman numerals L = 50, C = 100, D = 500 and M = 1000.',
   },
   {
@@ -1412,6 +1568,7 @@ const math = [
     options: { A: '2', B: '10', C: '20', D: '24', E: '40' },
     options_tr: { A: '2', B: '10', C: '20', D: '24', E: '40' },
     answer: 'C',
+    difficulty: 2,
     explanation: '5! = 120 and 3! = 6, so 120 ÷ 6 = 20 (equivalently 5 × 4).',
   },
   {
@@ -1421,6 +1578,7 @@ const math = [
     options: { A: '3', B: '4', C: '5', D: '6', E: '8' },
     options_tr: { A: '3', B: '4', C: '5', D: '6', E: '8' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A regular tetrahedron is bounded by four equilateral triangles and is the simplest of the five Platonic solids.',
   },
   {
@@ -1430,6 +1588,7 @@ const math = [
     options: { A: 'Goldbach\'s Conjecture', B: 'The Collatz Conjecture', C: 'The abc Conjecture', D: 'Legendre\'s Conjecture', E: 'The Twin Prime Conjecture' },
     options_tr: { A: 'Goldbach Sanısı', B: 'Collatz Sanısı', C: 'abc Sanısı', D: 'Legendre Sanısı', E: 'İkiz Asal Sanısı' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Pairs such as (11, 13) and (17, 19) are twin primes; Yitang Zhang\'s 2013 breakthrough proved only that some bounded gap recurs infinitely often.',
   },
   {
@@ -1439,6 +1598,7 @@ const math = [
     options: { A: '5', B: '6', C: '7', D: '8', E: '30' },
     options_tr: { A: '5', B: '6', C: '7', D: '8', E: '30' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The five values add up to 30, and 30 ÷ 5 = 6.',
   },
   {
@@ -1448,6 +1608,7 @@ const math = [
     options: { A: 'Product', B: 'Integral', C: 'Difference', D: 'Square root', E: 'Summation' },
     options_tr: { A: 'Çarpım', B: 'İntegral', C: 'Fark', D: 'Karekök', E: 'Toplam' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Σ indicates a sum over an index range, while the capital pi Π indicates a product.',
   },
   {
@@ -1457,6 +1618,7 @@ const math = [
     options: { A: 'Girolamo Cardano', B: 'Niccolò Tartaglia', C: 'Rafael Bombelli', D: 'Luca Pacioli', E: 'Scipione del Ferro' },
     options_tr: { A: 'Girolamo Cardano', B: 'Niccolò Tartaglia', C: 'Rafael Bombelli', D: 'Luca Pacioli', E: 'Scipione del Ferro' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Cardano published the cubic and quartic solutions after learning the cubic method from Tartaglia, provoking a long public feud.',
   },
   {
@@ -1466,6 +1628,7 @@ const math = [
     options: { A: '26', B: '29', C: '34', D: '42', E: '55' },
     options_tr: { A: '26', B: '29', C: '34', D: '42', E: '55' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Each Fibonacci term is the sum of the previous two, so 13 + 21 = 34.',
   },
   {
@@ -1475,6 +1638,7 @@ const math = [
     options: { A: '540°', B: '620°', C: '720°', D: '900°', E: '1080°' },
     options_tr: { A: '540°', B: '620°', C: '720°', D: '900°', E: '1080°' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Using (n − 2) × 180° with n = 6 gives 4 × 180° = 720°.',
   },
   {
@@ -1484,6 +1648,7 @@ const math = [
     options: { A: 'The Pythagoreans', B: 'The Stoics', C: 'The Platonists', D: 'The Epicureans', E: 'The Sophists' },
     options_tr: { A: 'Pisagorcular', B: 'Stoacılar', C: 'Platoncular', D: 'Epikurosçular', E: 'Sofistler' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Legend credits the Pythagorean Hippasus with proving √2 irrational, shattering the school\'s belief that all quantities are ratios of whole numbers.',
   },
   {
@@ -1493,6 +1658,7 @@ const math = [
     options: { A: '17', B: '19', C: '23', D: '27', E: '32' },
     options_tr: { A: '17', B: '19', C: '23', D: '27', E: '32' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The bracket is evaluated first: 4 + 5 = 9, then 3 × 9 = 27.',
   },
   {
@@ -1502,6 +1668,7 @@ const math = [
     options: { A: '7', B: '8', C: '8.5', D: '9', E: '34' },
     options_tr: { A: '7', B: '8', C: '8,5', D: '9', E: '34' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'With an even count the median is the average of the two middle values: (7 + 9) / 2 = 8.',
   },
   {
@@ -1511,6 +1678,7 @@ const math = [
     options: { A: 'Al-Khwarizmi', B: 'Al-Biruni', C: 'Nasir al-Din al-Tusi', D: 'Al-Kashi', E: 'Omar Khayyam' },
     options_tr: { A: 'El-Harezmi', B: 'El-Biruni', C: 'Nasîrüddin Tûsî', D: 'El-Kâşî', E: 'Ömer Hayyam' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Omar Khayyam (1048–1131) classified cubic equations and solved them using intersecting conic sections, centuries before algebraic formulas existed.',
   },
   {
@@ -1520,6 +1688,7 @@ const math = [
     options: { A: '7', B: '8', C: '9', D: '11', E: '12' },
     options_tr: { A: '7', B: '8', C: '9', D: '11', E: '12' },
     answer: 'C',
+    difficulty: 1,
     explanation: '72 ÷ 8 = 9.',
   },
   {
@@ -1529,6 +1698,7 @@ const math = [
     options: { A: '2 × 3 × 10', B: '2 × 5 × 6', C: '3² × 5', D: '2² × 3 × 5', E: '2³ × 15' },
     options_tr: { A: '2 × 3 × 10', B: '2 × 5 × 6', C: '3² × 5', D: '2² × 3 × 5', E: '2³ × 15' },
     answer: 'D',
+    difficulty: 1,
     explanation: '60 = 4 × 15 = 2² × 3 × 5, and only this option uses nothing but prime factors.',
   },
   {
@@ -1538,6 +1708,7 @@ const math = [
     options: { A: 'The Law of Sines', B: 'The Triangle Inequality', C: 'Heron\'s Formula', D: 'Ptolemy\'s Theorem', E: 'The Law of Cosines' },
     options_tr: { A: 'Sinüs Teoremi', B: 'Üçgen Eşitsizliği', C: 'Heron Formülü', D: 'Batlamyus Teoremi', E: 'Kosinüs Teoremi' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'When angle C is 90° its cosine is zero and the Law of Cosines reduces to the Pythagorean theorem.',
   },
   {
@@ -1547,6 +1718,7 @@ const math = [
     options: { A: 'Robert Recorde', B: 'John Napier', C: 'William Oughtred', D: 'Thomas Harriot', E: 'John Wallis' },
     options_tr: { A: 'Robert Recorde', B: 'John Napier', C: 'William Oughtred', D: 'Thomas Harriot', E: 'John Wallis' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Robert Recorde introduced "=" in his 1557 book "The Whetstone of Witte," choosing two parallel lines because nothing can be more equal.',
   },
   {
@@ -1556,6 +1728,7 @@ const math = [
     options: { A: '63', B: '66', C: '69', D: '72', E: '93' },
     options_tr: { A: '63', B: '66', C: '69', D: '72', E: '93' },
     answer: 'C',
+    difficulty: 2,
     explanation: '23 × 3 = 69.',
   },
   {
@@ -1565,6 +1738,7 @@ const math = [
     options: { A: '1/2', B: '1/4', C: '1/6', D: '1/8', E: '3/8' },
     options_tr: { A: '1/2', B: '1/4', C: '1/6', D: '1/8', E: '3/8' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'There are 2³ = 8 equally likely sequences and only one of them is heads-heads-heads.',
   },
   {
@@ -1574,6 +1748,7 @@ const math = [
     options: { A: 'Sofya Kovalevskaya', B: 'Olga Ladyzhenskaya', C: 'Emmy Noether', D: 'Mary Cartwright', E: 'Julia Robinson' },
     options_tr: { A: 'Sofya Kovalevskaya', B: 'Olga Ladyzhenskaya', C: 'Emmy Noether', D: 'Mary Cartwright', E: 'Julia Robinson' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Kovalevskaya was appointed professor at Stockholm University in 1889 and is known for the Cauchy–Kovalevskaya theorem.',
   },
   {
@@ -1583,6 +1758,7 @@ const math = [
     options: { A: '0.1', B: '0.01', C: '0.001', D: '-100', E: '-0.01' },
     options_tr: { A: '0,1', B: '0,01', C: '0,001', D: '-100', E: '-0,01' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'A negative exponent means a reciprocal: 10⁻² = 1/10² = 1/100 = 0.01.',
   },
   {
@@ -1592,6 +1768,7 @@ const math = [
     options: { A: '0', B: '1', C: '2', D: '3', E: 'Infinitely many' },
     options_tr: { A: '0', B: '1', C: '2', D: '3', E: 'Sonsuz sayıda' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A Möbius strip is a non-orientable surface with a single side and a single edge; a pencil line drawn along it returns to the start on the "other" face.',
   },
   {
@@ -1601,6 +1778,7 @@ const math = [
     options: { A: '5', B: '10', C: '12', D: '20', E: '60' },
     options_tr: { A: '5', B: '10', C: '12', D: '20', E: '60' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The Maya used a vigesimal (base-20) system and had a symbol for zero centuries before it reached Europe.',
   },
   {
@@ -1610,6 +1788,7 @@ const math = [
     options: { A: '48', B: '50', C: '56', D: '62', E: '90' },
     options_tr: { A: '48', B: '50', C: '56', D: '62', E: '90' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Multiplication comes first: 6 × 7 = 42, then 42 + 8 = 50.',
   },
   {
@@ -1619,6 +1798,7 @@ const math = [
     options: { A: '0 to 1', B: '0 to 100', C: '-100 to 100', D: 'Any real number', E: '-1 to 1' },
     options_tr: { A: '0 ile 1 arası', B: '0 ile 100 arası', C: '-100 ile 100 arası', D: 'Herhangi bir reel sayı', E: '-1 ile 1 arası' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'A coefficient of +1 means perfect positive linear association, -1 perfect negative, and 0 no linear association.',
   },
   {
@@ -1628,6 +1808,7 @@ const math = [
     options: { A: 'Graph theory', B: 'Number theory', C: 'Group theory', D: 'Measure theory', E: 'Set theory' },
     options_tr: { A: 'Çizge (graf) teorisi', B: 'Sayı teorisi', C: 'Grup teorisi', D: 'Ölçü teorisi', E: 'Küme teorisi' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The 1736 proof that no walk could cross each bridge exactly once introduced the vertex-and-edge abstraction at the heart of graph theory.',
   },
   {
@@ -1637,6 +1818,7 @@ const math = [
     options: { A: '0.13', B: 'Exactly 0.3', C: '0.333... (repeating)', D: '0.30', E: '1.3' },
     options_tr: { A: '0,13', B: 'Tam olarak 0,3', C: '0,333... (devirli)', D: '0,30', E: '1,3' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Dividing 1 by 3 never terminates; the digit 3 repeats forever, written 0.3 with a bar over the 3.',
   },
   {
@@ -1646,6 +1828,7 @@ const math = [
     options: { A: 'Googol', B: 'Googolplex', C: 'Centillion', D: 'Myriad', E: 'Quadrillion' },
     options_tr: { A: 'Googol', B: 'Googolplex', C: 'Centilyon', D: 'Miryat', E: 'Katrilyon' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The name googol was coined in 1920 by the nine-year-old nephew of mathematician Edward Kasner; a googolplex is 10 raised to a googol.',
   },
   {
@@ -1655,6 +1838,7 @@ const math = [
     options: { A: 'The Abel Prize', B: 'The Fields Medal', C: 'The Wolf Prize', D: 'The Crafoord Prize', E: 'The Shaw Prize' },
     options_tr: { A: 'Abel Ödülü', B: 'Fields Madalyası', C: 'Wolf Ödülü', D: 'Crafoord Ödülü', E: 'Shaw Ödülü' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Abel Prize, first awarded in 2003, honours Niels Henrik Abel (1802–1829), who proved the general quintic cannot be solved by radicals.',
   },
   {
@@ -1664,6 +1848,7 @@ const math = [
     options: { A: '20', B: '24', C: '25', D: '26', E: '40' },
     options_tr: { A: '20', B: '24', C: '25', D: '26', E: '40' },
     answer: 'C',
+    difficulty: 2,
     explanation: '16 × 25 = 400, so 400 ÷ 16 = 25.',
   },
   {
@@ -1673,6 +1858,7 @@ const math = [
     options: { A: '2πrh', B: '(1/3)πr²h', C: 'πrh²', D: '4πr²h', E: 'πr²h' },
     options_tr: { A: '2πrh', B: '(1/3)πr²h', C: 'πrh²', D: '4πr²h', E: 'πr²h' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'A cylinder\'s volume is its circular base area πr² multiplied by the height h.',
   },
   {
@@ -1682,6 +1868,7 @@ const math = [
     options: { A: 'Andrey Kolmogorov', B: 'Pafnuty Chebyshev', C: 'Andrey Markov', D: 'Aleksandr Lyapunov', E: 'Nikolai Luzin' },
     options_tr: { A: 'Andrey Kolmogorov', B: 'Pafnuti Çebişev', C: 'Andrey Markov', D: 'Aleksandr Lyapunov', E: 'Nikolai Luzin' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Kolmogorov\'s "Foundations of the Theory of Probability" recast probability as measure theory, which is still the standard framework.',
   },
   {
@@ -1691,6 +1878,7 @@ const math = [
     options: { A: '35', B: '44', C: '45', D: '46', E: '55' },
     options_tr: { A: '35', B: '44', C: '45', D: '46', E: '55' },
     answer: 'C',
+    difficulty: 2,
     explanation: '18 + 27 = 45.',
   },
   {
@@ -1700,6 +1888,7 @@ const math = [
     options: { A: '0', B: '1', C: '2', D: '3', E: '4' },
     options_tr: { A: '0', B: '1', C: '2', D: '3', E: '4' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'An isosceles triangle has two equal sides, and the angles opposite those sides are also equal.',
   },
   {
@@ -1709,6 +1898,7 @@ const math = [
     options: { A: 'Babylonian', B: 'Ancient Greek', C: 'Chinese', D: 'Indus Valley', E: 'Ancient Egyptian' },
     options_tr: { A: 'Babil', B: 'Antik Yunan', C: 'Çin', D: 'İndus Vadisi', E: 'Antik Mısır' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Copied by the scribe Ahmes around 1550 BC, the Rhind Papyrus collects Egyptian problems on fractions, areas and volumes.',
   },
   {
@@ -1718,6 +1908,7 @@ const math = [
     options: { A: '6', B: '7', C: '8', D: '9', E: '16' },
     options_tr: { A: '6', B: '7', C: '8', D: '9', E: '16' },
     answer: 'C',
+    difficulty: 1,
     explanation: '12.5% is one eighth, and 64 ÷ 8 = 8.',
   },
   {
@@ -1727,6 +1918,7 @@ const math = [
     options: { A: 'Square', B: 'Circle', C: 'Equilateral triangle', D: 'Regular hexagon', E: 'Rectangle' },
     options_tr: { A: 'Kare', B: 'Çember', C: 'Eşkenar üçgen', D: 'Düzgün altıgen', E: 'Dikdörtgen' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Every line through the centre of a circle is a line of symmetry, so there are infinitely many.',
   },
   {
@@ -1736,6 +1928,7 @@ const math = [
     options: { A: 'Number counting', B: 'Star reading', C: 'Line drawing', D: 'Shape naming', E: 'Earth measurement' },
     options_tr: { A: 'Sayı sayma', B: 'Yıldız okuma', C: 'Çizgi çizme', D: 'Şekil adlandırma', E: 'Yer ölçme' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'It combines "geo" (earth) and "metron" (measure), reflecting its origin in land surveying.',
   },
   {
@@ -1745,6 +1938,7 @@ const math = [
     options: { A: '0', B: '7', C: 'Infinity', D: 'Undefined', E: '1' },
     options_tr: { A: '0', B: '7', C: 'Sonsuz', D: 'Tanımsız', E: '1' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Division by zero is undefined because no number multiplied by 0 can give 7.',
   },
   {
@@ -1754,6 +1948,7 @@ const math = [
     options: { A: 'Katherine Johnson', B: 'Grace Hopper', C: 'Margaret Hamilton', D: 'Annie Easley', E: 'Hedy Lamarr' },
     options_tr: { A: 'Katherine Johnson', B: 'Grace Hopper', C: 'Margaret Hamilton', D: 'Annie Easley', E: 'Hedy Lamarr' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'John Glenn asked for Katherine Johnson to verify the computer\'s orbital figures by hand before his 1962 flight.',
   },
   {
@@ -1763,6 +1958,7 @@ const math = [
     options: { A: '8 cm²', B: '12 cm²', C: '16 cm²', D: '24 cm²', E: '36 cm²' },
     options_tr: { A: '8 cm²', B: '12 cm²', C: '16 cm²', D: '24 cm²', E: '36 cm²' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'A cube has 6 faces of area 2 × 2 = 4 cm² each, so the total is 6 × 4 = 24 cm².',
   },
   {
@@ -1772,6 +1968,7 @@ const math = [
     options: { A: '0', B: '1', C: '2', D: '4', E: '6' },
     options_tr: { A: '0', B: '1', C: '2', D: '4', E: '6' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Every other even number is divisible by 2 in addition to 1 and itself, so 2 is the only even prime.',
   },
   {
@@ -1781,6 +1978,7 @@ const math = [
     options: { A: 'Proof by contradiction', B: 'Direct proof', C: 'Proof by exhaustion', D: 'Contrapositive proof', E: 'Mathematical induction' },
     options_tr: { A: 'Çelişkiyle ispat', B: 'Doğrudan ispat', C: 'Tüm durumları deneyerek ispat', D: 'Karşıt tersle ispat', E: 'Matematiksel tümevarım' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Induction shows the statement holds for a starting value and that its truth for n forces its truth for n + 1, covering every natural number.',
   },
   {
@@ -1790,6 +1988,7 @@ const math = [
     options: { A: 'Brahmagupta', B: 'Bhaskara II', C: 'Madhava of Sangamagrama', D: 'Varahamihira', E: 'Aryabhata' },
     options_tr: { A: 'Brahmagupta', B: 'Bhaskara II', C: 'Sangamagramalı Madhava', D: 'Varahamihira', E: 'Aryabhata' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Aryabhata wrote the "Aryabhatiya" in 499 AD, giving a value of π accurate to four decimal places and describing the Earth\'s rotation.',
   },
   {
@@ -1799,6 +1998,7 @@ const math = [
     options: { A: '1000', B: '4950', C: '5000', D: '5050', E: '10100' },
     options_tr: { A: '1000', B: '4950', C: '5000', D: '5050', E: '10100' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Pairing 1 with 100, 2 with 99 and so on gives 50 pairs of 101, so the total is 50 × 101 = 5050.',
   },
 ];

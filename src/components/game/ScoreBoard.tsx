@@ -3,6 +3,7 @@
 import type { Room } from '@/types';
 import { Zap, Scissors, Clock } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { winThresholdOf } from '@/lib/score';
 
 interface ScoreBoardProps {
   room: Room;
@@ -12,6 +13,7 @@ interface ScoreBoardProps {
 export function ScoreBoard({ room, playerId }: ScoreBoardProps) {
   const { t } = useLanguage();
   const myTeam = room.players[playerId]?.team;
+  const target = winThresholdOf(room);
 
   return (
     <div className="w-full flex items-center justify-between gap-4">
@@ -19,7 +21,7 @@ export function ScoreBoard({ room, playerId }: ScoreBoardProps) {
         const state = room.teams[team];
         const isActive = room.activeTeam === team;
         const isMyTeam = myTeam === team;
-        const pct = Math.min((state.score / 100) * 100, 100);
+        const pct = Math.min((state.score / target) * 100, 100);
         const charges = room.stealCharges?.[team] ?? 0;
         const jokers = room.jokers?.[team] ?? { fiftyFifty: false, extraTime: false };
         const jokerCount = Number(jokers.fiftyFifty) + Number(jokers.extraTime);
@@ -61,7 +63,7 @@ export function ScoreBoard({ room, playerId }: ScoreBoardProps) {
 
             <div className={`text-3xl font-extrabold ${team === 'blue' ? 'text-blue-soft' : 'text-red-soft'}`}>
               {state.score}
-              <span className="text-sm font-normal text-quizzy-muted ml-1">/ 100</span>
+              <span className="text-sm font-normal text-quizzy-muted ml-1">/ {target}</span>
             </div>
 
             {/* Progress bar */}

@@ -91,6 +91,12 @@ function createRoom(playerName, socketId) {
     /** Fresh questions each team has answered in the CURRENT category (PBI 3). */
     categoryAnswerCount: { blue: 0, red: 0 },
     stealCharges: { blue: STEAL_CHARGES_PER_TEAM, red: STEAL_CHARGES_PER_TEAM },
+    /**
+     * Points needed to win. Stored on the room rather than read from a constant
+     * so the difficulty ramp (PBI 7) and the client scoreboard read the same
+     * number, and so game modes (PBI 9) change it in one place.
+     */
+    winThreshold: 100,
     /** One 50/50 and one extra-time joker per team, per match (PBI 6). */
     jokers: {
       blue: { fiftyFifty: true, extraTime: true },

@@ -8,6 +8,7 @@ const literature = [
     options: { A: 'Lope de Vega', B: 'Miguel de Cervantes', C: 'Francisco de Quevedo', D: 'Tirso de Molina', E: 'Calderón de la Barca' },
     options_tr: { A: 'Lope de Vega', B: 'Miguel de Cervantes', C: 'Francisco de Quevedo', D: 'Tirso de Molina', E: 'Calderón de la Barca' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Miguel de Cervantes wrote Don Quixote (Part I: 1605, Part II: 1615), widely considered the first modern novel.',
   },
   {
@@ -17,6 +18,7 @@ const literature = [
     options: { A: 'Yaşar Kemal', B: 'Aziz Nesin', C: 'Orhan Pamuk', D: 'Sabahattin Ali', E: 'Ahmet Hamdi Tanpınar' },
     options_tr: { A: 'Yaşar Kemal', B: 'Aziz Nesin', C: 'Orhan Pamuk', D: 'Sabahattin Ali', E: 'Ahmet Hamdi Tanpınar' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Orhan Pamuk won the 2006 Nobel Prize in Literature, becoming the first Turkish citizen to win a Nobel Prize.',
   },
   {
@@ -26,6 +28,7 @@ const literature = [
     options: { A: 'Macbeth', B: 'Othello', C: 'King Lear', D: 'Hamlet', E: 'The Tempest' },
     options_tr: { A: 'Macbeth', B: 'Othello', C: 'Kral Lear', D: 'Hamlet', E: 'Fırtına' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Hamlet (c. 1600–1601) is one of Shakespeare\'s greatest tragedies, featuring the Danish prince Hamlet seeking revenge for his father\'s murder.',
   },
   {
@@ -35,6 +38,7 @@ const literature = [
     options: { A: 'Aldous Huxley', B: 'Ray Bradbury', C: 'Philip K. Dick', D: 'George Orwell', E: 'H.G. Wells' },
     options_tr: { A: 'Aldous Huxley', B: 'Ray Bradbury', C: 'Philip K. Dick', D: 'George Orwell', E: 'H.G. Wells' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'George Orwell (Eric Arthur Blair) wrote Nineteen Eighty-Four in 1949, introducing concepts like "Big Brother" and "doublethink."',
   },
   {
@@ -44,6 +48,7 @@ const literature = [
     options: { A: 'War and Peace', B: 'Anna Karenina', C: 'Crime and Punishment', D: 'The Brothers Karamazov', E: 'The Idiot' },
     options_tr: { A: 'Savaş ve Barış', B: 'Anna Karenina', C: 'Suç ve Ceza', D: 'Karamazov Kardeşler', E: 'Budala' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Rodion Raskolnikov is the protagonist of Fyodor Dostoevsky\'s Crime and Punishment (1866).',
   },
   {
@@ -53,6 +58,7 @@ const literature = [
     options: { A: 'Homer', B: 'Virgil', C: 'Sophocles', D: 'Hesiod', E: 'Euripides' },
     options_tr: { A: 'Homeros', B: 'Vergilius', C: 'Sophokles', D: 'Hesiodos', E: 'Euripides' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The Odyssey, attributed to Homer, follows Odysseus\'s ten-year journey home after the Trojan War.',
   },
   {
@@ -62,6 +68,7 @@ const literature = [
     options: { A: 'Sense and Sensibility', B: 'Emma', C: 'Pride and Prejudice', D: 'Persuasion', E: 'Mansfield Park' },
     options_tr: { A: 'Sağduyu ve Duyarlılık', B: 'Emma', C: 'Gurur ve Önyargı', D: 'İkna', E: 'Mansfield Parkı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Pride and Prejudice (1813) opens with this famous line about a single man in possession of a good fortune.',
   },
   {
@@ -71,6 +78,7 @@ const literature = [
     options: { A: 'Jorge Luis Borges', B: 'Mario Vargas Llosa', C: 'Gabriel García Márquez', D: 'Pablo Neruda', E: 'Isabel Allende' },
     options_tr: { A: 'Jorge Luis Borges', B: 'Mario Vargas Llosa', C: 'Gabriel García Márquez', D: 'Pablo Neruda', E: 'Isabel Allende' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Gabriel García Márquez published One Hundred Years of Solitude in 1967, a cornerstone of magical realism.',
   },
   {
@@ -80,6 +88,7 @@ const literature = [
     options: { A: 'The Book of Dede Korkut', B: 'Manas Epic', C: 'Oğuzname', D: 'Şehname', E: 'Kutadgu Bilig' },
     options_tr: { A: 'Dede Korkut Kitabı', B: 'Manas Destanı', C: 'Oğuzname', D: 'Şehname', E: 'Kutadgu Bilig' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Manas Epic is a traditional Kyrgyz epic poem, one of the longest epic poems in world literature.',
   },
   {
@@ -89,6 +98,7 @@ const literature = [
     options: { A: 'Nathaniel Hawthorne', B: 'Herman Melville', C: 'Mark Twain', D: 'Edgar Allan Poe', E: 'Washington Irving' },
     options_tr: { A: 'Nathaniel Hawthorne', B: 'Herman Melville', C: 'Mark Twain', D: 'Edgar Allan Poe', E: 'Washington Irving' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Herman Melville published Moby-Dick in 1851; it is now considered a masterpiece of American literature.',
   },
   {
@@ -98,6 +108,7 @@ const literature = [
     options: { A: 'Orhan Kemal', B: 'Yaşar Kemal', C: 'Kemal Tahir', D: 'Aziz Nesin', E: 'Reşat Nuri Güntekin' },
     options_tr: { A: 'Orhan Kemal', B: 'Yaşar Kemal', C: 'Kemal Tahir', D: 'Aziz Nesin', E: 'Reşat Nuri Güntekin' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Yaşar Kemal published İnce Memed in 1955, a novel about a young bandit in rural Anatolia.',
   },
   {
@@ -107,6 +118,7 @@ const literature = [
     options: { A: 'Fyodor Dostoevsky', B: 'Anton Chekhov', C: 'Leo Tolstoy', D: 'Ivan Turgenev', E: 'Nikolai Gogol' },
     options_tr: { A: 'Fyodor Dostoyevski', B: 'Anton Çehov', C: 'Lev Tolstoy', D: 'İvan Turgenyev', E: 'Nikolay Gogol' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Leo Tolstoy\'s War and Peace (1869) is set during the Napoleonic Wars and is one of the longest major novels ever written.',
   },
   {
@@ -116,6 +128,7 @@ const literature = [
     options: { A: 'Dracula', B: 'Frankenstein', C: 'The Picture of Dorian Gray', D: 'The Castle of Otranto', E: 'Wuthering Heights' },
     options_tr: { A: 'Drakula', B: 'Frankenstein', C: 'Dorian Gray\'in Portresi', D: 'Otranto Şatosu', E: 'Uğultulu Tepeler' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Mary Shelley wrote Frankenstein; or, The Modern Prometheus in 1818, often cited as an early work of science fiction.',
   },
   {
@@ -125,6 +138,7 @@ const literature = [
     options: { A: 'Necip Fazıl Kısakürek', B: 'Mehmet Akif Ersoy', C: 'Yahya Kemal Beyatlı', D: 'Nazım Hikmet', E: 'Orhan Veli Kanık' },
     options_tr: { A: 'Necip Fazıl Kısakürek', B: 'Mehmet Akif Ersoy', C: 'Yahya Kemal Beyatlı', D: 'Nazım Hikmet', E: 'Orhan Veli Kanık' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Mehmet Akif Ersoy wrote the İstiklal Marşı (Independence March), adopted as Turkey\'s national anthem in 1921.',
   },
   {
@@ -134,6 +148,7 @@ const literature = [
     options: { A: 'Petrarch', B: 'Giovanni Boccaccio', C: 'Dante Alighieri', D: 'Torquato Tasso', E: 'Ludovico Ariosto' },
     options_tr: { A: 'Petrarca', B: 'Giovanni Boccaccio', C: 'Dante Alighieri', D: 'Torquato Tasso', E: 'Ludovico Ariosto' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Dante Alighieri wrote The Divine Comedy in the early 14th century, a foundational work of Italian literature.',
   },
   {
@@ -143,6 +158,7 @@ const literature = [
     options: { A: 'The Hunchback of Notre-Dame', B: 'Les Misérables', C: 'Toilers of the Sea', D: 'Ninety-Three', E: 'The Man Who Laughs' },
     options_tr: { A: 'Notre Dame\'ın Kamburu', B: 'Sefiller', C: 'Deniz İşçileri', D: 'Doksanüç', E: 'Gülen Adam' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Les Misérables (1862) follows Jean Valjean\'s redemption across decades of 19th-century France.',
   },
   {
@@ -152,6 +168,7 @@ const literature = [
     options: { A: 'Ahmet Hamdi Tanpınar', B: 'Sabahattin Ali', C: 'Halide Edip Adıvar', D: 'Peyami Safa', E: 'Reşat Nuri Güntekin' },
     options_tr: { A: 'Ahmet Hamdi Tanpınar', B: 'Sabahattin Ali', C: 'Halide Edip Adıvar', D: 'Peyami Safa', E: 'Reşat Nuri Güntekin' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Sabahattin Ali published Kürk Mantolu Madonna in 1943; it became a bestseller decades after his death.',
   },
   {
@@ -161,6 +178,7 @@ const literature = [
     options: { A: 'Charlotte Brontë', B: 'Jane Austen', C: 'George Eliot', D: 'Elizabeth Gaskell', E: 'Virginia Woolf' },
     options_tr: { A: 'Charlotte Brontë', B: 'Jane Austen', C: 'George Eliot', D: 'Elizabeth Gaskell', E: 'Virginia Woolf' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Jane Austen (1775–1817) wrote these novels of manners set in Regency-era England.',
   },
   {
@@ -170,6 +188,7 @@ const literature = [
     options: { A: 'The Trial', B: 'The Castle', C: 'The Metamorphosis', D: 'Amerika', E: 'A Hunger Artist' },
     options_tr: { A: 'Dava', B: 'Şato', C: 'Dönüşüm', D: 'Amerika', E: 'Bir Açlık Sanatçısı' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Metamorphosis (1915) opens with Gregor Samsa waking up transformed into a giant insect.',
   },
   {
@@ -179,6 +198,7 @@ const literature = [
     options: { A: 'Reşat Nuri Güntekin', B: 'Halide Edip Adıvar', C: 'Yakup Kadri Karaosmanoğlu', D: 'Ömer Seyfettin', E: 'Refik Halid Karay' },
     options_tr: { A: 'Reşat Nuri Güntekin', B: 'Halide Edip Adıvar', C: 'Yakup Kadri Karaosmanoğlu', D: 'Ömer Seyfettin', E: 'Refik Halid Karay' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Reşat Nuri Güntekin published Çalıkuşu in 1922, one of the most beloved novels in Turkish literature.',
   },
   {
@@ -188,6 +208,7 @@ const literature = [
     options: { A: 'Ernest Hemingway', B: 'F. Scott Fitzgerald', C: 'William Faulkner', D: 'John Steinbeck', E: 'Sinclair Lewis' },
     options_tr: { A: 'Ernest Hemingway', B: 'F. Scott Fitzgerald', C: 'William Faulkner', D: 'John Steinbeck', E: 'Sinclair Lewis' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'F. Scott Fitzgerald published The Great Gatsby in 1925, a defining novel of the American Jazz Age.',
   },
   {
@@ -197,6 +218,7 @@ const literature = [
     options: { A: 'Hesiod', B: 'Pindar', C: 'Homer', D: 'Sappho', E: 'Aeschylus' },
     options_tr: { A: 'Hesiodos', B: 'Pindaros', C: 'Homeros', D: 'Sappho', E: 'Aiskhylos' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Homer is traditionally credited as the author of these two foundational epics of ancient Greek literature.',
   },
   {
@@ -206,6 +228,7 @@ const literature = [
     options: { A: 'Nazım Hikmet', B: 'Fazıl Hüsnü Dağlarca', C: 'Cahit Sıtkı Tarancı', D: 'Ahmed Arif', E: 'Attila İlhan' },
     options_tr: { A: 'Nazım Hikmet', B: 'Fazıl Hüsnü Dağlarca', C: 'Cahit Sıtkı Tarancı', D: 'Ahmed Arif', E: 'Attila İlhan' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Nazım Hikmet wrote this epic poem in 1936 about the 15th-century rebel sheikh Bedreddin.',
   },
   {
@@ -215,6 +238,7 @@ const literature = [
     options: { A: 'Harper Lee', B: 'Toni Morrison', C: 'Flannery O\'Connor', D: 'Carson McCullers', E: 'Eudora Welty' },
     options_tr: { A: 'Harper Lee', B: 'Toni Morrison', C: 'Flannery O\'Connor', D: 'Carson McCullers', E: 'Eudora Welty' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Harper Lee published To Kill a Mockingbird in 1960; it won the Pulitzer Prize for Fiction in 1961.',
   },
   {
@@ -224,6 +248,7 @@ const literature = [
     options: { A: 'Rubaiyat', B: 'Shahnameh (Şehname)', C: 'Gulistan', D: 'Masnavi', E: 'Bustan' },
     options_tr: { A: 'Rubailer', B: 'Şehname', C: 'Gülistan', D: 'Mesnevi', E: 'Bustan' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Shahnameh ("Book of Kings"), completed around 1010 AD, is one of the longest epic poems in world literature.',
   },
   {
@@ -233,6 +258,7 @@ const literature = [
     options: { A: 'Ahmet Hamdi Tanpınar', B: 'Peyami Safa', C: 'Oğuz Atay', D: 'Yusuf Atılgan', E: 'Adalet Ağaoğlu' },
     options_tr: { A: 'Ahmet Hamdi Tanpınar', B: 'Peyami Safa', C: 'Oğuz Atay', D: 'Yusuf Atılgan', E: 'Adalet Ağaoğlu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ahmet Hamdi Tanpınar published Huzur in 1949, a landmark of Turkish modernist literature.',
   },
   {
@@ -242,6 +268,7 @@ const literature = [
     options: { A: 'John Steinbeck', B: 'Ernest Hemingway', C: 'William Faulkner', D: 'Jack London', E: 'Herman Melville' },
     options_tr: { A: 'John Steinbeck', B: 'Ernest Hemingway', C: 'William Faulkner', D: 'Jack London', E: 'Herman Melville' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Ernest Hemingway published The Old Man and the Sea in 1952; it contributed to his 1954 Nobel Prize in Literature.',
   },
   {
@@ -251,6 +278,7 @@ const literature = [
     options: { A: 'The Idiot', B: 'Demons', C: 'The Brothers Karamazov', D: 'Notes from Underground', E: 'The Gambler' },
     options_tr: { A: 'Budala', B: 'Cinler', C: 'Karamazov Kardeşler', D: 'Yeraltından Notlar', E: 'Kumarbaz' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Brothers Karamazov (1880) was Dostoevsky\'s final novel, exploring faith, doubt, and morality.',
   },
   {
@@ -260,6 +288,7 @@ const literature = [
     options: { A: 'Orhan Veli Kanık', B: 'Nazım Hikmet', C: 'Cemal Süreya', D: 'Turgut Uyar', E: 'İlhan Berk' },
     options_tr: { A: 'Orhan Veli Kanık', B: 'Nazım Hikmet', C: 'Cemal Süreya', D: 'Turgut Uyar', E: 'İlhan Berk' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The line is from Nazım Hikmet\'s poem "Davet," part of his famous "İnsan Manzaraları" era of work.',
   },
   {
@@ -269,6 +298,7 @@ const literature = [
     options: { A: 'Percy Bysshe Shelley', B: 'John Keats', C: 'Lord Byron', D: 'William Wordsworth', E: 'Samuel Taylor Coleridge' },
     options_tr: { A: 'Percy Bysshe Shelley', B: 'John Keats', C: 'Lord Byron', D: 'William Wordsworth', E: 'Samuel Taylor Coleridge' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Lord Byron, a leading figure of the Romantic movement, wrote both of these celebrated works.',
   },
   {
@@ -278,6 +308,7 @@ const literature = [
     options: { A: 'Jane Eyre', B: 'Wuthering Heights', C: 'Agnes Grey', D: 'The Tenant of Wildfell Hall', E: 'Villette' },
     options_tr: { A: 'Jane Eyre', B: 'Uğultulu Tepeler', C: 'Agnes Grey', D: 'Wildfell Malikanesi\'nin Kiracısı', E: 'Villette' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Wuthering Heights (1847) is Emily Brontë\'s only novel, set on the Yorkshire moors.',
   },
   {
@@ -287,6 +318,7 @@ const literature = [
     options: { A: 'Oğuz Atay', B: 'Orhan Pamuk', C: 'Bilge Karasu', D: 'Yusuf Atılgan', E: 'Latife Tekin' },
     options_tr: { A: 'Oğuz Atay', B: 'Orhan Pamuk', C: 'Bilge Karasu', D: 'Yusuf Atılgan', E: 'Latife Tekin' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Oğuz Atay published Tutunamayanlar in 1972; it is now regarded as a landmark of Turkish literature.',
   },
   {
@@ -296,6 +328,7 @@ const literature = [
     options: { A: 'William Langland', B: 'Geoffrey Chaucer', C: 'John Gower', D: 'Thomas Malory', E: 'Sir Thomas More' },
     options_tr: { A: 'William Langland', B: 'Geoffrey Chaucer', C: 'John Gower', D: 'Thomas Malory', E: 'Sir Thomas More' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Geoffrey Chaucer wrote The Canterbury Tales in the late 14th century, largely in Middle English.',
   },
   {
@@ -305,6 +338,7 @@ const literature = [
     options: { A: 'War and Peace', B: 'Anna Karenina', C: 'Resurrection', D: 'The Death of Ivan Ilyich', E: 'The Kreutzer Sonata' },
     options_tr: { A: 'Savaş ve Barış', B: 'Anna Karenina', C: 'Diriliş', D: 'İvan İlyiç\'in Ölümü', E: 'Kreutzer Sonat' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Anna Karenina (1877) opens with the famous line about happy and unhappy families.',
   },
   {
@@ -314,6 +348,7 @@ const literature = [
     options: { A: 'Cahit Sıtkı Tarancı', B: 'Necip Fazıl Kısakürek', C: 'Ahmet Muhip Dıranas', D: 'Behçet Necatigil', E: 'Fazıl Hüsnü Dağlarca' },
     options_tr: { A: 'Cahit Sıtkı Tarancı', B: 'Necip Fazıl Kısakürek', C: 'Ahmet Muhip Dıranas', D: 'Behçet Necatigil', E: 'Fazıl Hüsnü Dağlarca' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Cahit Sıtkı Tarancı\'s "Otuz Beş Yaş" (1946) is one of the most quoted poems in Turkish literature, opening with "Yaş otuz beş! Yolun yarısı eder."',
   },
   {
@@ -323,6 +358,7 @@ const literature = [
     options: { A: 'Leo Tolstoy', B: 'Fyodor Dostoevsky', C: 'Ivan Turgenev', D: 'Nikolai Gogol', E: 'Anton Chekhov' },
     options_tr: { A: 'Lev Tolstoy', B: 'Fyodor Dostoyevski', C: 'İvan Turgenyev', D: 'Nikolay Gogol', E: 'Anton Çehov' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Fyodor Dostoevsky published Crime and Punishment in 1866, exploring guilt and redemption.',
   },
   {
@@ -332,6 +368,7 @@ const literature = [
     options: { A: 'The Aeneid', B: 'Metamorphoses', C: 'The Georgics', D: 'The Eclogues', E: 'Pharsalia' },
     options_tr: { A: 'Aeneis', B: 'Dönüşümler', C: 'Georgica', D: 'Bucolica', E: 'Pharsalia' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Virgil\'s Aeneid, written in the 1st century BC, is a Latin epic that became Rome\'s national epic.',
   },
   {
@@ -341,6 +378,7 @@ const literature = [
     options: { A: 'Aziz Nesin', B: 'Rıfat Ilgaz', C: 'Muzaffer İzgü', D: 'Haldun Taner', E: 'Sait Faik Abasıyanık' },
     options_tr: { A: 'Aziz Nesin', B: 'Rıfat Ilgaz', C: 'Muzaffer İzgü', D: 'Haldun Taner', E: 'Sait Faik Abasıyanık' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Aziz Nesin was a prolific satirist widely known for humorous social commentary in Turkish literature.',
   },
   {
@@ -350,6 +388,7 @@ const literature = [
     options: { A: 'Lope de Vega', B: 'Pedro Calderón de la Barca', C: 'Tirso de Molina', D: 'Miguel de Cervantes', E: 'Francisco de Quevedo' },
     options_tr: { A: 'Lope de Vega', B: 'Pedro Calderón de la Barca', C: 'Tirso de Molina', D: 'Miguel de Cervantes', E: 'Francisco de Quevedo' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Pedro Calderón de la Barca wrote "La vida es sueño" (Life Is a Dream) in 1635, a landmark of Spanish Golden Age drama.',
   },
   {
@@ -359,6 +398,7 @@ const literature = [
     options: { A: 'Yeşil Gece', B: 'Acımak', C: 'Dudaktan Kalbe', D: 'Kızılcık Dalları', E: 'Miskinler Tekkesi' },
     options_tr: { A: 'Yeşil Gece', B: 'Acımak', C: 'Dudaktan Kalbe', D: 'Kızılcık Dalları', E: 'Miskinler Tekkesi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Yeşil Gece (1928) is one of Güntekin\'s notable novels dealing with rural education and social change.',
   },
   {
@@ -368,6 +408,7 @@ const literature = [
     options: { A: 'Mark Twain', B: 'Nathaniel Hawthorne', C: 'Herman Melville', D: 'Washington Irving', E: 'Bret Harte' },
     options_tr: { A: 'Mark Twain', B: 'Nathaniel Hawthorne', C: 'Herman Melville', D: 'Washington Irving', E: 'Bret Harte' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Mark Twain (Samuel Clemens) published this novel in 1884, often called the "Great American Novel."',
   },
   {
@@ -377,6 +418,7 @@ const literature = [
     options: { A: 'Rumi', B: 'Hafez', C: 'Omar Khayyam', D: 'Saadi', E: 'Ferdowsi' },
     options_tr: { A: 'Mevlana', B: 'Hafız', C: 'Ömer Hayyam', D: 'Sadi', E: 'Firdevsi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Omar Khayyam\'s Rubaiyat, a collection of quatrains, was popularized in the West by Edward FitzGerald\'s translation.',
   },
   {
@@ -386,6 +428,7 @@ const literature = [
     options: { A: 'Yunus Emre', B: 'Rumi (Mevlana Celaleddin)', C: 'Hacı Bektaş Veli', D: 'Ahmed Yesevi', E: 'Şeyh Galib' },
     options_tr: { A: 'Yunus Emre', B: 'Mevlana Celaleddin Rumi', C: 'Hacı Bektaş Veli', D: 'Ahmed Yesevi', E: 'Şeyh Galib' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Rumi (1207–1273) wrote the Masnavi, a major work of Sufi mystical poetry, and is buried in Konya, Turkey.',
   },
   {
@@ -395,6 +438,7 @@ const literature = [
     options: { A: 'Louisa May Alcott', B: 'Edith Wharton', C: 'Kate Chopin', D: 'Willa Cather', E: 'Harriet Beecher Stowe' },
     options_tr: { A: 'Louisa May Alcott', B: 'Edith Wharton', C: 'Kate Chopin', D: 'Willa Cather', E: 'Harriet Beecher Stowe' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Louisa May Alcott published Little Women in 1868–69, following the lives of the four March sisters.',
   },
   {
@@ -404,6 +448,7 @@ const literature = [
     options: { A: 'Ahmet Muhip Dıranas', B: 'Ziya Osman Saba', C: 'Yaşar Nabi Nayır', D: 'Cevdet Kudret', E: 'Sabri Esat Siyavuşgil' },
     options_tr: { A: 'Ahmet Muhip Dıranas', B: 'Ziya Osman Saba', C: 'Yaşar Nabi Nayır', D: 'Cevdet Kudret', E: 'Sabri Esat Siyavuşgil' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Ahmet Muhip Dıranas is celebrated for "Fahriye Abla," one of the most beloved lyric poems in Turkish literature.',
   },
   {
@@ -413,6 +458,7 @@ const literature = [
     options: { A: 'Arthur Conan Doyle', B: 'Oscar Wilde', C: 'Bram Stoker', D: 'Robert Louis Stevenson', E: 'H.G. Wells' },
     options_tr: { A: 'Arthur Conan Doyle', B: 'Oscar Wilde', C: 'Bram Stoker', D: 'Robert Louis Stevenson', E: 'H.G. Wells' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Oscar Wilde published The Picture of Dorian Gray in 1890, his only novel.',
   },
   {
@@ -422,6 +468,7 @@ const literature = [
     options: { A: 'Yusuf Atılgan', B: 'Bilge Karasu', C: 'Vüs\'at O. Bener', D: 'Demir Özlü', E: 'Ferit Edgü' },
     options_tr: { A: 'Yusuf Atılgan', B: 'Bilge Karasu', C: 'Vüs\'at O. Bener', D: 'Demir Özlü', E: 'Ferit Edgü' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Yusuf Atılgan published Aylak Adam in 1959, exploring alienation in Turkish urban life.',
   },
   {
@@ -431,6 +478,7 @@ const literature = [
     options: { A: 'August Strindberg', B: 'Henrik Ibsen', C: 'Anton Chekhov', D: 'George Bernard Shaw', E: 'Oscar Wilde' },
     options_tr: { A: 'August Strindberg', B: 'Henrik Ibsen', C: 'Anton Çehov', D: 'George Bernard Shaw', E: 'Oscar Wilde' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Henrik Ibsen wrote A Doll\'s House in 1879, a landmark of realist drama and early feminist literature.',
   },
   {
@@ -440,6 +488,7 @@ const literature = [
     options: { A: 'Of Mice and Men', B: 'East of Eden', C: 'The Grapes of Wrath', D: 'Cannery Row', E: 'Tortilla Flat' },
     options_tr: { A: 'Fareler ve İnsanlar', B: 'Cennetin Doğusu', C: 'Gazap Üzümleri', D: 'Konserve Sokağı', E: 'Tortilla Flat' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Grapes of Wrath (1939) won the Pulitzer Prize and depicted Great Depression-era hardship.',
   },
   {
@@ -449,6 +498,7 @@ const literature = [
     options: { A: 'Hacı Bayram-ı Veli', B: 'Yunus Emre', C: 'Aşık Paşa', D: 'Kaygusuz Abdal', E: 'Pir Sultan Abdal' },
     options_tr: { A: 'Hacı Bayram-ı Veli', B: 'Yunus Emre', C: 'Aşık Paşa', D: 'Kaygusuz Abdal', E: 'Pir Sultan Abdal' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Yunus Emre is one of the most beloved figures in Turkish literature, writing accessible Sufi poetry in vernacular Turkish.',
   },
   {
@@ -458,6 +508,7 @@ const literature = [
     options: { A: 'Samuel Beckett', B: 'James Joyce', C: 'W.B. Yeats', D: 'Flann O\'Brien', E: 'Sean O\'Casey' },
     options_tr: { A: 'Samuel Beckett', B: 'James Joyce', C: 'W.B. Yeats', D: 'Flann O\'Brien', E: 'Sean O\'Casey' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'James Joyce published Ulysses in 1922, structured to parallel Homer\'s Odyssey across one day in Dublin (June 16, 1904).',
   },
   {
@@ -467,6 +518,7 @@ const literature = [
     options: { A: 'Yaşar Kemal', B: 'Fakir Baykurt', C: 'Kemal Bilbaşar', D: 'Talip Apaydın', E: 'Mahmut Makal' },
     options_tr: { A: 'Yaşar Kemal', B: 'Fakir Baykurt', C: 'Kemal Bilbaşar', D: 'Talip Apaydın', E: 'Mahmut Makal' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Yaşar Kemal published Yer Demir Gök Bakır in 1963, part of his village-life novel cycle.',
   },
   {
@@ -476,6 +528,7 @@ const literature = [
     options: { A: 'Johann Wolfgang von Goethe', B: 'Friedrich Schiller', C: 'Heinrich Heine', D: 'Gotthold Ephraim Lessing', E: 'Bertolt Brecht' },
     options_tr: { A: 'Johann Wolfgang von Goethe', B: 'Friedrich Schiller', C: 'Heinrich Heine', D: 'Gotthold Ephraim Lessing', E: 'Bertolt Brecht' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Friedrich Schiller, along with Goethe, is one of the most important figures of German classical literature.',
   },
   {
@@ -485,6 +538,7 @@ const literature = [
     options: { A: 'The Plague', B: 'The Fall', C: 'The Stranger', D: 'The Myth of Sisyphus', E: 'A Happy Death' },
     options_tr: { A: 'Veba', B: 'Düşüş', C: 'Yabancı', D: 'Sisifos Söyleni', E: 'Mutlu Ölüm' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Stranger (1942) is Camus\'s best-known novel, exploring existentialist and absurdist philosophy.',
   },
   {
@@ -494,6 +548,7 @@ const literature = [
     options: { A: 'Necip Fazıl Kısakürek', B: 'Sezai Karakoç', C: 'İsmet Özel', D: 'Nuri Pakdil', E: 'Cahit Zarifoğlu' },
     options_tr: { A: 'Necip Fazıl Kısakürek', B: 'Sezai Karakoç', C: 'İsmet Özel', D: 'Nuri Pakdil', E: 'Cahit Zarifoğlu' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Necip Fazıl Kısakürek\'s "Çile" is one of his most significant poetry collections, reflecting his spiritual journey.',
   },
   {
@@ -503,6 +558,7 @@ const literature = [
     options: { A: 'Alice Walker', B: 'Toni Morrison', C: 'Zora Neale Hurston', D: 'Maya Angelou', E: 'Octavia Butler' },
     options_tr: { A: 'Alice Walker', B: 'Toni Morrison', C: 'Zora Neale Hurston', D: 'Maya Angelou', E: 'Octavia Butler' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Toni Morrison published Beloved in 1987 and won the Nobel Prize in Literature in 1993.',
   },
   {
@@ -512,6 +568,7 @@ const literature = [
     options: { A: 'Orhan Veli Kanık', B: 'Oktay Rifat', C: 'Melih Cevdet Anday', D: 'Necati Cumalı', E: 'Ceyhun Atuf Kansu' },
     options_tr: { A: 'Orhan Veli Kanık', B: 'Oktay Rifat', C: 'Melih Cevdet Anday', D: 'Necati Cumalı', E: 'Ceyhun Atuf Kansu' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Orhan Veli Kanık, alongside Oktay Rifat and Melih Cevdet Anday, co-founded the "Garip" movement in 1941, though the book itself is most associated with Orhan Veli.',
   },
   {
@@ -521,6 +578,7 @@ const literature = [
     options: { A: 'Love in the Time of Cholera', B: 'The Autumn of the Patriarch', C: 'Chronicle of a Death Foretold', D: 'No One Writes to the Colonel', E: 'The General in His Labyrinth' },
     options_tr: { A: 'Kolera Günlerinde Aşk', B: 'Yaprak Fırtınası', C: 'Kırmızı Pazartesi', D: 'Albaya Mektup Yazan Kimse Yok', E: 'Labirentindeki General' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Love in the Time of Cholera (1985) is one of Márquez\'s most celebrated novels.',
   },
   {
@@ -530,6 +588,7 @@ const literature = [
     options: { A: 'Sabahattin Ali', B: 'Orhan Kemal', C: 'Kemal Tahir', D: 'Necati Cumalı', E: 'Samim Kocagöz' },
     options_tr: { A: 'Sabahattin Ali', B: 'Orhan Kemal', C: 'Kemal Tahir', D: 'Necati Cumalı', E: 'Samim Kocagöz' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Sabahattin Ali published Kuyucaklı Yusuf in 1937, a socially critical novel of rural Turkey.',
   },
   {
@@ -539,6 +598,7 @@ const literature = [
     options: { A: 'George Orwell', B: 'Aldous Huxley', C: 'Ray Bradbury', D: 'Kurt Vonnegut', E: 'Yevgeny Zamyatin' },
     options_tr: { A: 'George Orwell', B: 'Aldous Huxley', C: 'Ray Bradbury', D: 'Kurt Vonnegut', E: 'Yevgeny Zamyatin' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Aldous Huxley published Brave New World in 1932, envisioning a technologically pacified dystopian future.',
   },
   {
@@ -548,6 +608,7 @@ const literature = [
     options: { A: 'Köroğlu', B: 'The Book of Dede Korkut', C: 'Manas', D: 'Battalname', E: 'Danişmendname' },
     options_tr: { A: 'Köroğlu', B: 'Dede Korkut Kitabı', C: 'Manas', D: 'Battalname', E: 'Danişmendname' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Book of Dede Korkut is a collection of epic stories reflecting the oral tradition of the Oghuz Turks.',
   },
   {
@@ -557,6 +618,7 @@ const literature = [
     options: { A: 'William Faulkner', B: 'Ernest Hemingway', C: 'John Dos Passos', D: 'Thomas Wolfe', E: 'Sherwood Anderson' },
     options_tr: { A: 'William Faulkner', B: 'Ernest Hemingway', C: 'John Dos Passos', D: 'Thomas Wolfe', E: 'Sherwood Anderson' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'William Faulkner published The Sound and the Fury in 1929, known for its stream-of-consciousness narration.',
   },
   {
@@ -566,6 +628,7 @@ const literature = [
     options: { A: 'Kemal Tahir', B: 'Tarık Buğra', C: 'Turgut Özakman', D: 'Ahmet Turan Alkan', E: 'Feridun Fazıl Tülbentçi' },
     options_tr: { A: 'Kemal Tahir', B: 'Tarık Buğra', C: 'Turgut Özakman', D: 'Ahmet Turan Alkan', E: 'Feridun Fazıl Tülbentçi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Tarık Buğra published Devlet Ana in 1967, dramatizing the founding of the Ottoman state under Osman Gazi.',
   },
   {
@@ -575,6 +638,7 @@ const literature = [
     options: { A: 'Friedrich Schiller', B: 'Heinrich von Kleist', C: 'Johann Wolfgang von Goethe', D: 'Georg Büchner', E: 'Christoph Martin Wieland' },
     options_tr: { A: 'Friedrich Schiller', B: 'Heinrich von Kleist', C: 'Johann Wolfgang von Goethe', D: 'Georg Büchner', E: 'Christoph Martin Wieland' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Goethe worked on Faust for most of his life, publishing Part One in 1808 and Part Two just before his death in 1832.',
   },
   {
@@ -584,6 +648,7 @@ const literature = [
     options: { A: 'Ahmed Arif', B: 'Attila İlhan', C: 'Turgut Uyar', D: 'Edip Cansever', E: 'Cemal Süreya' },
     options_tr: { A: 'Ahmed Arif', B: 'Attila İlhan', C: 'Turgut Uyar', D: 'Edip Cansever', E: 'Cemal Süreya' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Attila İlhan is known for blending romantic, political, and modern themes and wrote "Bin Hüzünlü Sokak" (1971).',
   },
   {
@@ -593,6 +658,7 @@ const literature = [
     options: { A: 'Vladimir Nabokov', B: 'Saul Bellow', C: 'Philip Roth', D: 'John Updike', E: 'Norman Mailer' },
     options_tr: { A: 'Vladimir Nabokov', B: 'Saul Bellow', C: 'Philip Roth', D: 'John Updike', E: 'Norman Mailer' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Vladimir Nabokov published Lolita in 1955, controversial for its subject matter and celebrated for its prose style.',
   },
   {
@@ -602,6 +668,7 @@ const literature = [
     options: { A: 'Elif Şafak', B: 'Ayşe Kulin', C: 'Perihan Mağden', D: 'Buket Uzuner', E: 'Zülfü Livaneli' },
     options_tr: { A: 'Elif Şafak', B: 'Ayşe Kulin', C: 'Perihan Mağden', D: 'Buket Uzuner', E: 'Zülfü Livaneli' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Elif Şafak published Bit Palas (The Flea Palace) in 2002, following the intertwined lives of an apartment building\'s residents.',
   },
   {
@@ -611,6 +678,7 @@ const literature = [
     options: { A: 'Victor Hugo', B: 'Alexandre Dumas', C: 'Gustave Flaubert', D: 'Stendhal', E: 'Honoré de Balzac' },
     options_tr: { A: 'Victor Hugo', B: 'Alexandre Dumas', C: 'Gustave Flaubert', D: 'Stendhal', E: 'Honoré de Balzac' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Alexandre Dumas published The Count of Monte Cristo in serialized form between 1844 and 1846.',
   },
   {
@@ -620,6 +688,7 @@ const literature = [
     options: { A: 'İlhan Geçer', B: 'Yavuz Bülent Bakiler', C: 'Gültekin Samanoğlu', D: 'Bahaeddin Karakoç', E: 'Mehmet Çınarlı' },
     options_tr: { A: 'İlhan Geçer', B: 'Yavuz Bülent Bakiler', C: 'Gültekin Samanoğlu', D: 'Bahaeddin Karakoç', E: 'Mehmet Çınarlı' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Mehmet Çınarlı was a founding figure of the Hisar literary journal and its associated poetry group.',
   },
   {
@@ -629,6 +698,7 @@ const literature = [
     options: { A: 'Steppenwolf', B: 'Siddhartha', C: 'Demian', D: 'The Glass Bead Game', E: 'Narcissus and Goldmund' },
     options_tr: { A: 'Bozkırkurdu', B: 'Siddhartha', C: 'Demian', D: 'Boncuk Oyunu', E: 'Narziss ve Goldmund' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Hermann Hesse published Siddhartha in 1922, following a spiritual seeker in the time of the Buddha.',
   },
   {
@@ -638,6 +708,7 @@ const literature = [
     options: { A: 'Ahmet Hamdi Tanpınar', B: 'Peyami Safa', C: 'Refik Halid Karay', D: 'Oğuz Atay', E: 'Haldun Taner' },
     options_tr: { A: 'Ahmet Hamdi Tanpınar', B: 'Peyami Safa', C: 'Refik Halid Karay', D: 'Oğuz Atay', E: 'Haldun Taner' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Ahmet Hamdi Tanpınar published The Time Regulation Institute in 1961/1962, a satirical masterpiece on Turkish modernization.',
   },
   {
@@ -647,6 +718,7 @@ const literature = [
     options: { A: 'Émile Zola', B: 'Gustave Flaubert', C: 'Guy de Maupassant', D: 'Stendhal', E: 'Honoré de Balzac' },
     options_tr: { A: 'Émile Zola', B: 'Gustave Flaubert', C: 'Guy de Maupassant', D: 'Stendhal', E: 'Honoré de Balzac' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Gustave Flaubert published Madame Bovary in 1856, and was even tried (and acquitted) for obscenity because of it.',
   },
   {
@@ -656,6 +728,7 @@ const literature = [
     options: { A: 'Haldun Taner', B: 'Cevat Fehmi Başkut', C: 'Turan Oflazoğlu', D: 'Recep Bilginer', E: 'Necati Cumalı' },
     options_tr: { A: 'Haldun Taner', B: 'Cevat Fehmi Başkut', C: 'Turan Oflazoğlu', D: 'Recep Bilginer', E: 'Necati Cumalı' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Haldun Taner wrote Keşanlı Ali Destanı (1964), a landmark of modern Turkish theater blending traditional and epic-theater styles.',
   },
   {
@@ -665,6 +738,7 @@ const literature = [
     options: { A: 'Franz Kafka', B: 'Thomas Mann', C: 'Hermann Hesse', D: 'Robert Musil', E: 'Stefan Zweig' },
     options_tr: { A: 'Franz Kafka', B: 'Thomas Mann', C: 'Hermann Hesse', D: 'Robert Musil', E: 'Stefan Zweig' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Franz Kafka wrote The Trial around 1914–1915; it was published posthumously in 1925.',
   },
   {
@@ -674,6 +748,7 @@ const literature = [
     options: { A: 'Halide Edip Adıvar', B: 'Fakir Baykurt', C: 'Muzaffer İzgü', D: 'Gülten Dayıoğlu', E: 'Aziz Nesin' },
     options_tr: { A: 'Halide Edip Adıvar', B: 'Fakir Baykurt', C: 'Muzaffer İzgü', D: 'Gülten Dayıoğlu', E: 'Aziz Nesin' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Halide Edip Adıvar published Sinekli Bakkal in 1936, which won the CHP (Republican People\'s Party) Novel Prize.',
   },
   {
@@ -683,6 +758,7 @@ const literature = [
     options: { A: 'José Zorrilla', B: 'Gustavo Adolfo Bécquer', C: 'Mariano José de Larra', D: 'Ángel de Saavedra', E: 'José de Espronceda' },
     options_tr: { A: 'José Zorrilla', B: 'Gustavo Adolfo Bécquer', C: 'Mariano José de Larra', D: 'Ángel de Saavedra', E: 'José de Espronceda' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'José Zorrilla wrote Don Juan Tenorio in 1844, a Spanish Romantic reworking of the Don Juan legend.',
   },
   {
@@ -692,6 +768,7 @@ const literature = [
     options: { A: 'Yusuf Atılgan', B: 'Vüs\'at O. Bener', C: 'Adalet Ağaoğlu', D: 'Selim İleri', E: 'Nedim Gürsel' },
     options_tr: { A: 'Yusuf Atılgan', B: 'Vüs\'at O. Bener', C: 'Adalet Ağaoğlu', D: 'Selim İleri', E: 'Nedim Gürsel' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Yusuf Atılgan published Anayurt Oteli in 1973; it was later adapted into a well-known film by Ömer Kavur.',
   },
   {
@@ -701,6 +778,7 @@ const literature = [
     options: { A: 'Nathaniel Hawthorne', B: 'Herman Melville', C: 'Henry James', D: 'Edith Wharton', E: 'Washington Irving' },
     options_tr: { A: 'Nathaniel Hawthorne', B: 'Herman Melville', C: 'Henry James', D: 'Edith Wharton', E: 'Washington Irving' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Nathaniel Hawthorne published The Scarlet Letter in 1850, exploring themes of sin, guilt, and redemption.',
   },
   {
@@ -710,6 +788,7 @@ const literature = [
     options: { A: 'Yahya Kemal Beyatlı', B: 'Ahmet Hamdi Tanpınar', C: 'Fuad Köprülü', D: 'Nihad Sami Banarlı', E: 'Ali Nihat Tarlan' },
     options_tr: { A: 'Yahya Kemal Beyatlı', B: 'Ahmet Hamdi Tanpınar', C: 'Fuad Köprülü', D: 'Nihad Sami Banarlı', E: 'Ali Nihat Tarlan' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Yahya Kemal Beyatlı wrote Rubailer, and is regarded as one of the greatest modern masters of classical Turkish verse forms.',
   },
   {
@@ -719,6 +798,7 @@ const literature = [
     options: { A: 'Rainer Maria Rilke', B: 'Franz Kafka', C: 'Max Brod', D: 'Egon Erwin Kisch', E: 'Gustav Meyrink' },
     options_tr: { A: 'Rainer Maria Rilke', B: 'Franz Kafka', C: 'Max Brod', D: 'Egon Erwin Kisch', E: 'Gustav Meyrink' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Franz Kafka was born in Prague in 1883 and wrote his major works in German.',
   },
   {
@@ -728,6 +808,7 @@ const literature = [
     options: { A: 'Sabahattin Ali', B: 'Peyami Safa', C: 'Reşat Nuri Güntekin', D: 'Ahmet Hamdi Tanpınar', E: 'Yakup Kadri Karaosmanoğlu' },
     options_tr: { A: 'Sabahattin Ali', B: 'Peyami Safa', C: 'Reşat Nuri Güntekin', D: 'Ahmet Hamdi Tanpınar', E: 'Yakup Kadri Karaosmanoğlu' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Peyami Safa published İçimizdeki Şeytan in 1940, examining Westernization and ideology in Turkish society.',
   },
   {
@@ -737,6 +818,7 @@ const literature = [
     options: { A: 'Jorge Luis Borges', B: 'Ricardo Güiraldes', C: 'Julio Cortázar', D: 'Domingo Faustino Sarmiento', E: 'Ernesto Sabato' },
     options_tr: { A: 'Jorge Luis Borges', B: 'Ricardo Güiraldes', C: 'Julio Cortázar', D: 'Domingo Faustino Sarmiento', E: 'Ernesto Sabato' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ricardo Güiraldes published Don Segundo Sombra in 1926, a defining work of Argentine gauchesco literature.',
   },
   {
@@ -746,6 +828,7 @@ const literature = [
     options: { A: 'Yakup Kadri Karaosmanoğlu', B: 'Halide Edip Adıvar', C: 'Reşat Nuri Güntekin', D: 'Refik Halid Karay', E: 'Falih Rıfkı Atay' },
     options_tr: { A: 'Yakup Kadri Karaosmanoğlu', B: 'Halide Edip Adıvar', C: 'Reşat Nuri Güntekin', D: 'Refik Halid Karay', E: 'Falih Rıfkı Atay' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Yakup Kadri Karaosmanoğlu published Yaban in 1932, a critical look at the gap between intellectuals and rural Anatolia.',
   },
   {
@@ -755,6 +838,7 @@ const literature = [
     options: { A: 'Daniel Defoe', B: 'Jonathan Swift', C: 'Alexander Pope', D: 'Samuel Richardson', E: 'Henry Fielding' },
     options_tr: { A: 'Daniel Defoe', B: 'Jonathan Swift', C: 'Alexander Pope', D: 'Samuel Richardson', E: 'Henry Fielding' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Jonathan Swift published Gulliver\'s Travels in 1726, a satire of human nature and travel-narrative conventions.',
   },
   {
@@ -764,6 +848,7 @@ const literature = [
     options: { A: 'Halit Ziya Uşaklıgil', B: 'Mehmet Rauf', C: 'Hüseyin Cahit Yalçın', D: 'Ahmed Midhat Efendi', E: 'Recaizade Mahmud Ekrem' },
     options_tr: { A: 'Halit Ziya Uşaklıgil', B: 'Mehmet Rauf', C: 'Hüseyin Cahit Yalçın', D: 'Ahmed Midhat Efendi', E: 'Recaizade Mahmud Ekrem' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Halit Ziya Uşaklıgil, a leading figure of the Servet-i Fünun movement, published Kırık Hayatlar serially starting in 1901.',
   },
   {
@@ -773,6 +858,7 @@ const literature = [
     options: { A: 'Leo Tolstoy', B: 'Fyodor Dostoevsky', C: 'Ivan Goncharov', D: 'Nikolai Leskov', E: 'Mikhail Saltykov-Shchedrin' },
     options_tr: { A: 'Lev Tolstoy', B: 'Fyodor Dostoyevski', C: 'İvan Gonçarov', D: 'Nikolay Leskov', E: 'Mihail Saltıkov-Şçedrin' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Fyodor Dostoevsky published The Idiot in 1869, exploring the difficulty of goodness in a corrupt society.',
   },
   {
@@ -782,6 +868,7 @@ const literature = [
     options: { A: 'Orhan Kemal', B: 'Kemal Tahir', C: 'Yaşar Kemal', D: 'Fakir Baykurt', E: 'Talip Apaydın' },
     options_tr: { A: 'Orhan Kemal', B: 'Kemal Tahir', C: 'Yaşar Kemal', D: 'Fakir Baykurt', E: 'Talip Apaydın' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Orhan Kemal published Bereketli Topraklar Üzerinde in 1954, portraying the harsh life of migrant farm workers.',
   },
   {
@@ -791,6 +878,7 @@ const literature = [
     options: { A: 'Charlotte Brontë', B: 'George Eliot', C: 'Elizabeth Gaskell', D: 'Thomas Hardy', E: 'Anthony Trollope' },
     options_tr: { A: 'Charlotte Brontë', B: 'George Eliot', C: 'Elizabeth Gaskell', D: 'Thomas Hardy', E: 'Anthony Trollope' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'George Eliot (pen name of Mary Ann Evans) published Middlemarch serially between 1871 and 1872.',
   },
   {
@@ -800,6 +888,7 @@ const literature = [
     options: { A: 'Mehmet Akif Ersoy', B: 'Yahya Kemal Beyatlı', C: 'Faruk Nafiz Çamlıbel', D: 'Kemalettin Kamu', E: 'Orhan Şaik Gökyay' },
     options_tr: { A: 'Mehmet Akif Ersoy', B: 'Yahya Kemal Beyatlı', C: 'Faruk Nafiz Çamlıbel', D: 'Kemalettin Kamu', E: 'Orhan Şaik Gökyay' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Mehmet Akif Ersoy wrote "Üç Şehitler Destanı," commemorating fallen soldiers, alongside his broader patriotic body of work.',
   },
   {
@@ -809,6 +898,7 @@ const literature = [
     options: { A: 'Ivan Turgenev', B: 'Leo Tolstoy', C: 'Fyodor Dostoevsky', D: 'Nikolai Gogol', E: 'Anton Chekhov' },
     options_tr: { A: 'İvan Turgenyev', B: 'Lev Tolstoy', C: 'Fyodor Dostoyevski', D: 'Nikolay Gogol', E: 'Anton Çehov' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Leo Tolstoy wrote both works; The Death of Ivan Ilyich (1886) is a novella on mortality and meaning.',
   },
   {
@@ -818,6 +908,7 @@ const literature = [
     options: { A: 'Tarık Buğra', B: 'Kemal Tahir', C: 'Turgut Özakman', D: 'Necati Cumalı', E: 'Cengiz Aytmatov' },
     options_tr: { A: 'Tarık Buğra', B: 'Kemal Tahir', C: 'Turgut Özakman', D: 'Necati Cumalı', E: 'Cengiz Aytmatov' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Tarık Buğra published Küçük Ağa in 1964, set during the Turkish War of Independence around Akşehir.',
   },
   {
@@ -827,6 +918,7 @@ const literature = [
     options: { A: 'Jorge Amado', B: 'Paulo Coelho', C: 'Clarice Lispector', D: 'Machado de Assis', E: 'José Saramago' },
     options_tr: { A: 'Jorge Amado', B: 'Paulo Coelho', C: 'Clarice Lispector', D: 'Machado de Assis', E: 'José Saramago' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Paulo Coelho published The Alchemist in 1988; it became one of the best-selling books in history.',
   },
   {
@@ -836,6 +928,7 @@ const literature = [
     options: { A: 'İhsan Oktay Anar', B: 'Hasan Ali Toptaş', C: 'Ahmet Ümit', D: 'Murathan Mungan', E: 'Nedim Gürsel' },
     options_tr: { A: 'İhsan Oktay Anar', B: 'Hasan Ali Toptaş', C: 'Ahmet Ümit', D: 'Murathan Mungan', E: 'Nedim Gürsel' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'İhsan Oktay Anar is known for atmospheric, Ottoman-flavored novels like Puslu Kıtalar Atlası (1995) and Gora (2013).',
   },
   {
@@ -845,6 +938,7 @@ const literature = [
     options: { A: 'Nikolai Gogol', B: 'Ivan Turgenev', C: 'Alexander Pushkin', D: 'Mikhail Lermontov', E: 'Ivan Goncharov' },
     options_tr: { A: 'Nikolay Gogol', B: 'İvan Turgenyev', C: 'Aleksandr Puşkin', D: 'Mihail Lermontov', E: 'İvan Gonçarov' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Nikolai Gogol published Dead Souls in 1842, a satire of Russian bureaucracy and serfdom.',
   },
   {
@@ -854,6 +948,7 @@ const literature = [
     options: { A: 'Ahmet Ümit', B: 'Osman Balcıgil', C: 'Celil Oker', D: 'Mehmet Murat Somer', E: 'Yekta Kopan' },
     options_tr: { A: 'Ahmet Ümit', B: 'Osman Balcıgil', C: 'Celil Oker', D: 'Mehmet Murat Somer', E: 'Yekta Kopan' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ahmet Ümit is one of Turkey\'s most popular crime novelists, often blending Istanbul history with detective fiction.',
   },
   {
@@ -863,6 +958,7 @@ const literature = [
     options: { A: 'Charles Dickens', B: 'William Makepeace Thackeray', C: 'Wilkie Collins', D: 'Anthony Trollope', E: 'Thomas Hardy' },
     options_tr: { A: 'Charles Dickens', B: 'William Makepeace Thackeray', C: 'Wilkie Collins', D: 'Anthony Trollope', E: 'Thomas Hardy' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Charles Dickens published A Tale of Two Cities in 1859, set in London and Paris before and during the French Revolution.',
   },
   {
@@ -872,6 +968,7 @@ const literature = [
     options: { A: 'Orhan Pamuk', B: 'Yaşar Kemal', C: 'Elif Şafak', D: 'Ahmet Altan', E: 'Nedim Gürsel' },
     options_tr: { A: 'Orhan Pamuk', B: 'Yaşar Kemal', C: 'Elif Şafak', D: 'Ahmet Altan', E: 'Nedim Gürsel' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Orhan Pamuk published Cevdet Bey ve Oğulları in 1982, his debut novel, years before winning the 2006 Nobel Prize.',
   },
   {
@@ -881,6 +978,7 @@ const literature = [
     options: { A: 'Ken Kesey', B: 'Kurt Vonnegut', C: 'Joseph Heller', D: 'Tom Wolfe', E: 'Hunter S. Thompson' },
     options_tr: { A: 'Ken Kesey', B: 'Kurt Vonnegut', C: 'Joseph Heller', D: 'Tom Wolfe', E: 'Hunter S. Thompson' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ken Kesey published One Flew Over the Cuckoo\'s Nest in 1962, later adapted into the Academy Award-winning film.',
   },
   {
@@ -890,6 +988,7 @@ const literature = [
     options: { A: 'Cemal Süreya', B: 'İlhan Berk', C: 'Edip Cansever', D: 'Sezai Karakoç', E: 'Ece Ayhan' },
     options_tr: { A: 'Cemal Süreya', B: 'İlhan Berk', C: 'Edip Cansever', D: 'Sezai Karakoç', E: 'Ece Ayhan' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Cemal Süreya published Üvercinka in 1958, a foundational collection of the İkinci Yeni (Second New) poetry movement.',
   },
   {
@@ -899,6 +998,7 @@ const literature = [
     options: { A: 'Leo Tolstoy', B: 'Ivan Turgenev', C: 'Fyodor Dostoevsky', D: 'Anton Chekhov', E: 'Nikolai Gogol' },
     options_tr: { A: 'Lev Tolstoy', B: 'İvan Turgenyev', C: 'Fyodor Dostoyevski', D: 'Anton Çehov', E: 'Nikolay Gogol' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Fyodor Dostoevsky wrote both Notes from Underground (1864) and his final novel, The Brothers Karamazov (1880).',
   },
   {
@@ -908,6 +1008,7 @@ const literature = [
     options: { A: 'Villette', B: 'Shirley', C: 'Jane Eyre', D: 'The Professor', E: 'Agnes Grey' },
     options_tr: { A: 'Villette', B: 'Shirley', C: 'Jane Eyre', D: 'Profesör', E: 'Agnes Grey' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Charlotte Brontë published Jane Eyre in 1847 under the pen name Currer Bell.',
   },
   {
@@ -917,6 +1018,7 @@ const literature = [
     options: { A: 'Fuzûlî', B: 'Bâkî', C: 'Nedîm', D: 'Nef\'î', E: 'Nâbî' },
     options_tr: { A: 'Fuzûlî', B: 'Bâkî', C: 'Nedîm', D: 'Nef\'î', E: 'Nâbî' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Fuzûlî wrote his Turkish Leylâ vü Mecnûn in the 1530s and is regarded as one of the greatest poets of Divan literature.',
   },
   {
@@ -926,6 +1028,7 @@ const literature = [
     options: { A: 'Carmilla', B: 'Dracula', C: 'The Vampyre', D: 'Varney the Vampire', E: 'The Monk' },
     options_tr: { A: 'Carmilla', B: 'Drakula', C: 'Vampir', D: 'Vampir Varney', E: 'Keşiş' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Bram Stoker\'s Dracula is told through an assembly of letters, journals and newspaper clippings rather than a single narrator.',
   },
   {
@@ -935,6 +1038,7 @@ const literature = [
     options: { A: 'Kutadgu Bilig', B: 'Divânu Lugâti\'t-Türk', C: 'Atabetü\'l-Hakayık', D: 'Dîvân-ı Hikmet', E: 'Muhakemetü\'l-Lugateyn' },
     options_tr: { A: 'Kutadgu Bilig', B: 'Divânu Lugâti\'t-Türk', C: 'Atabetü\'l-Hakayık', D: 'Dîvân-ı Hikmet', E: 'Muhakemetü\'l-Lugateyn' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Kaşgarlı Mahmud compiled Divânu Lugâti\'t-Türk between 1072 and 1074 to teach the Turkic language to Arabic speakers.',
   },
   {
@@ -944,6 +1048,7 @@ const literature = [
     options: { A: 'The Hound of the Baskervilles', B: 'The Sign of the Four', C: 'A Study in Scarlet', D: 'The Valley of Fear', E: 'The Adventures of Sherlock Holmes' },
     options_tr: { A: 'Baskerville Tazısı', B: 'Dörtlerin İşareti', C: 'Kızıl Dosya', D: 'Korku Vadisi', E: 'Sherlock Holmes\'un Maceraları' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'A Study in Scarlet appeared in 1887 and introduced both Holmes and his partnership with Dr. Watson.',
   },
   {
@@ -953,6 +1058,7 @@ const literature = [
     options: { A: 'The Silmarillion', B: 'The Fellowship of the Ring', C: 'The Hobbit', D: 'The Two Towers', E: 'The Return of the King' },
     options_tr: { A: 'Silmarillion', B: 'Yüzük Kardeşliği', C: 'Hobbit', D: 'İki Kule', E: 'Kralın Dönüşü' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Hobbit preceded The Lord of the Rings and introduced the ring that became central to the later trilogy.',
   },
   {
@@ -962,6 +1068,7 @@ const literature = [
     options: { A: 'İntibah', B: 'Taaşşuk-ı Talat ve Fitnat', C: 'Araba Sevdası', D: 'Felatun Bey ile Rakım Efendi', E: 'Sergüzeşt' },
     options_tr: { A: 'İntibah', B: 'Taaşşuk-ı Talat ve Fitnat', C: 'Araba Sevdası', D: 'Felatun Bey ile Rakım Efendi', E: 'Sergüzeşt' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Şemsettin Sami published Taaşşuk-ı Talat ve Fitnat in 1872, before Namık Kemal\'s İntibah of 1876.',
   },
   {
@@ -971,6 +1078,7 @@ const literature = [
     options: { A: 'In Search of Lost Time', B: 'The Counterfeiters', C: 'Journey to the End of the Night', D: 'Nausea', E: 'The Red and the Black' },
     options_tr: { A: 'Kayıp Zamanın İzinde', B: 'Kalpazanlar', C: 'Gecenin Sonuna Yolculuk', D: 'Bulantı', E: 'Kırmızı ve Siyah' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Marcel Proust introduced the madeleine episode in Swann\'s Way (1913), the first volume of In Search of Lost Time.',
   },
   {
@@ -980,6 +1088,7 @@ const literature = [
     options: { A: 'Hermann Hesse', B: 'Thomas Mann', C: 'Robert Musil', D: 'Alfred Döblin', E: 'Heinrich Böll' },
     options_tr: { A: 'Hermann Hesse', B: 'Thomas Mann', C: 'Robert Musil', D: 'Alfred Döblin', E: 'Heinrich Böll' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Thomas Mann published The Magic Mountain in 1924 and received the Nobel Prize in Literature in 1929.',
   },
   {
@@ -989,6 +1098,7 @@ const literature = [
     options: { A: 'Namık Kemal', B: 'İbrahim Şinasi', C: 'Ziya Paşa', D: 'Ahmed Midhat Efendi', E: 'Abdülhak Hâmid Tarhan' },
     options_tr: { A: 'Namık Kemal', B: 'İbrahim Şinasi', C: 'Ziya Paşa', D: 'Ahmed Midhat Efendi', E: 'Abdülhak Hâmid Tarhan' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The play premiered in 1873 and the nationalist enthusiasm it stirred led to Namık Kemal\'s exile to Cyprus.',
   },
   {
@@ -998,6 +1108,7 @@ const literature = [
     options: { A: 'Endgame', B: 'Waiting for Godot', C: 'The Chairs', D: 'Rhinoceros', E: 'No Exit' },
     options_tr: { A: 'Oyun Sonu', B: 'Godot\'yu Beklerken', C: 'Sandalyeler', D: 'Gergedanlar', E: 'Çıkış Yok' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Samuel Beckett\'s Waiting for Godot, first staged in 1953, became the defining work of the Theatre of the Absurd.',
   },
   {
@@ -1007,6 +1118,7 @@ const literature = [
     options: { A: 'Maxim Gorky', B: 'Anton Chekhov', C: 'Alexander Ostrovsky', D: 'Nikolai Gogol', E: 'Ivan Turgenev' },
     options_tr: { A: 'Maksim Gorki', B: 'Anton Çehov', C: 'Aleksandr Ostrovski', D: 'Nikolay Gogol', E: 'İvan Turgenyev' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Chekhov wrote these plays for the Moscow Art Theatre; The Cherry Orchard of 1904 was his last.',
   },
   {
@@ -1016,6 +1128,7 @@ const literature = [
     options: { A: 'Refik Halid Karay', B: 'Ömer Seyfettin', C: 'Sait Faik Abasıyanık', D: 'Memduh Şevket Esendal', E: 'Halit Ziya Uşaklıgil' },
     options_tr: { A: 'Refik Halid Karay', B: 'Ömer Seyfettin', C: 'Sait Faik Abasıyanık', D: 'Memduh Şevket Esendal', E: 'Halit Ziya Uşaklıgil' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ömer Seyfettin\'s 1911 "Yeni Lisan" article called for a simplified, spoken Turkish in place of Ottoman literary diction.',
   },
   {
@@ -1025,6 +1138,7 @@ const literature = [
     options: { A: 'A Hero of Our Time', B: 'Eugene Onegin', C: 'Oblomov', D: 'Dead Souls', E: 'Fathers and Sons' },
     options_tr: { A: 'Zamanımızın Bir Kahramanı', B: 'Yevgeni Onegin', C: 'Oblomov', D: 'Ölü Canlar', E: 'Babalar ve Oğullar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Alexander Pushkin published Eugene Onegin serially between 1825 and 1832, written almost entirely in fourteen-line stanzas.',
   },
   {
@@ -1034,6 +1148,7 @@ const literature = [
     options: { A: 'We', B: 'The Master and Margarita', C: 'Doctor Zhivago', D: 'The Twelve Chairs', E: 'Envy' },
     options_tr: { A: 'Biz', B: 'Usta ile Margarita', C: 'Doktor Jivago', D: 'On İki Sandalye', E: 'Haset' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Mikhail Bulgakov worked on the book until his death in 1940, and it appeared only in censored form in 1966–67.',
   },
   {
@@ -1043,6 +1158,7 @@ const literature = [
     options: { A: 'Âşık Veysel', B: 'Neşet Ertaş', C: 'Âşık Mahzuni Şerif', D: 'Muhlis Akarsu', E: 'Davut Sulari' },
     options_tr: { A: 'Âşık Veysel', B: 'Neşet Ertaş', C: 'Âşık Mahzuni Şerif', D: 'Muhlis Akarsu', E: 'Davut Sulari' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Âşık Veysel Şatıroğlu was born in the Sivas village of Sivrialan and lost his sight as a child after smallpox.',
   },
   {
@@ -1052,6 +1168,7 @@ const literature = [
     options: { A: 'Mikhail Sholokhov', B: 'Boris Pasternak', C: 'Ivan Bunin', D: 'Aleksandr Solzhenitsyn', E: 'Joseph Brodsky' },
     options_tr: { A: 'Mihail Şolohov', B: 'Boris Pasternak', C: 'İvan Bunin', D: 'Aleksandr Soljenitsin', E: 'Josif Brodski' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Pasternak was honoured largely for Doctor Zhivago, which was banned at home and first published in Italy in 1957.',
   },
   {
@@ -1061,6 +1178,7 @@ const literature = [
     options: { A: 'Fathers and Sons', B: 'Oblomov', C: 'Dead Souls', D: 'A Hero of Our Time', E: 'The Golovlyov Family' },
     options_tr: { A: 'Babalar ve Oğullar', B: 'Oblomov', C: 'Ölü Canlar', D: 'Zamanımızın Bir Kahramanı', E: 'Golovlyov Ailesi' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ivan Turgenev published Fathers and Sons in 1862, and the word "nihilist" entered wide use through Bazarov.',
   },
   {
@@ -1070,6 +1188,7 @@ const literature = [
     options: { A: 'Sait Faik Abasıyanık', B: 'Haldun Taner', C: 'Tomris Uyar', D: 'Ferit Edgü', E: 'Bilge Karasu' },
     options_tr: { A: 'Sait Faik Abasıyanık', B: 'Haldun Taner', C: 'Tomris Uyar', D: 'Ferit Edgü', E: 'Bilge Karasu' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Sait Faik Abasıyanık shaped the modern Turkish short story, and Turkey\'s leading short-story award carries his name.',
   },
   {
@@ -1079,6 +1198,7 @@ const literature = [
     options: { A: 'Albert Camus', B: 'Jean-Paul Sartre', C: 'André Gide', D: 'André Malraux', E: 'Maurice Merleau-Ponty' },
     options_tr: { A: 'Albert Camus', B: 'Jean-Paul Sartre', C: 'André Gide', D: 'André Malraux', E: 'Maurice Merleau-Ponty' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Sartre, author of Nausea and Being and Nothingness, refused the prize on the grounds that a writer should not be turned into an institution.',
   },
   {
@@ -1088,6 +1208,7 @@ const literature = [
     options: { A: 'Père Goriot', B: 'The Red and the Black', C: 'Lost Illusions', D: 'Sentimental Education', E: 'The Charterhouse of Parma' },
     options_tr: { A: 'Goriot Baba', B: 'Kırmızı ve Siyah', C: 'Sönmüş Hayaller', D: 'Duygusal Eğitim', E: 'Parma Manastırı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Stendhal published The Red and the Black in 1830, an early landmark of psychological realism.',
   },
   {
@@ -1097,6 +1218,7 @@ const literature = [
     options: { A: 'Kutadgu Bilig', B: 'Divânu Lugâti\'t-Türk', C: 'Atabetü\'l-Hakayık', D: 'Dîvân-ı Hikmet', E: 'Oğuz Kağan Destanı' },
     options_tr: { A: 'Kutadgu Bilig', B: 'Divânu Lugâti\'t-Türk', C: 'Atabetü\'l-Hakayık', D: 'Dîvân-ı Hikmet', E: 'Oğuz Kağan Destanı' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Kutadgu Bilig was presented to the Karakhanid ruler and is written as a dialogue among figures who personify justice, fortune and wisdom.',
   },
   {
@@ -1106,6 +1228,7 @@ const literature = [
     options: { A: 'Honoré de Balzac', B: 'Émile Zola', C: 'Gustave Flaubert', D: 'Victor Hugo', E: 'Alphonse Daudet' },
     options_tr: { A: 'Honoré de Balzac', B: 'Émile Zola', C: 'Gustave Flaubert', D: 'Victor Hugo', E: 'Alphonse Daudet' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Balzac designed the cycle as a single panorama of French society, with characters such as Rastignac recurring across volumes.',
   },
   {
@@ -1115,6 +1238,7 @@ const literature = [
     options: { A: 'Romanticism', B: 'Naturalism', C: 'Symbolism', D: 'Surrealism', E: 'Classicism' },
     options_tr: { A: 'Romantizm', B: 'Natüralizm', C: 'Sembolizm', D: 'Sürrealizm', E: 'Klasisizm' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Zola was the chief theorist of Naturalism, which applied quasi-scientific determinism to fiction; Germinal appeared in 1885.',
   },
   {
@@ -1124,6 +1248,7 @@ const literature = [
     options: { A: 'Tevfik Fikret', B: 'Cenap Şahabettin', C: 'Halit Ziya Uşaklıgil', D: 'Süleyman Nazif', E: 'Ahmet Haşim' },
     options_tr: { A: 'Tevfik Fikret', B: 'Cenap Şahabettin', C: 'Halit Ziya Uşaklıgil', D: 'Süleyman Nazif', E: 'Ahmet Haşim' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Tevfik Fikret published Rübâb-ı Şikeste in 1900 while editing the journal Servet-i Fünun.',
   },
   {
@@ -1133,6 +1258,7 @@ const literature = [
     options: { A: 'The Little Prince', B: 'Night Flight', C: 'Wind, Sand and Stars', D: 'The Neverending Story', E: 'Momo' },
     options_tr: { A: 'Küçük Prens', B: 'Gece Uçuşu', C: 'İnsanların Dünyası', D: 'Bitmeyecek Öykü', E: 'Momo' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Antoine de Saint-Exupéry, himself a pilot, published The Little Prince in 1943; it is among the most translated books in the world.',
   },
   {
@@ -1142,6 +1268,7 @@ const literature = [
     options: { A: 'Jean Racine', B: 'Molière', C: 'Pierre Corneille', D: 'Pierre de Marivaux', E: 'Beaumarchais' },
     options_tr: { A: 'Jean Racine', B: 'Molière', C: 'Pierre Corneille', D: 'Pierre de Marivaux', E: 'Beaumarchais' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Molière, born Jean-Baptiste Poquelin, dominated 17th-century French comedy, and Tartuffe was banned for years after its 1664 premiere.',
   },
   {
@@ -1151,6 +1278,7 @@ const literature = [
     options: { A: 'Araba Sevdası', B: 'Şıpsevdi', C: 'Felatun Bey ile Rakım Efendi', D: 'Zehra', E: 'Mai ve Siyah' },
     options_tr: { A: 'Araba Sevdası', B: 'Şıpsevdi', C: 'Felatun Bey ile Rakım Efendi', D: 'Zehra', E: 'Mai ve Siyah' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Recaizade Mahmud Ekrem published Araba Sevdası in 1896, one of the earliest realist novels written in Turkish.',
   },
   {
@@ -1160,6 +1288,7 @@ const literature = [
     options: { A: 'Journey to the Center of the Earth', B: 'Around the World in Eighty Days', C: 'Twenty Thousand Leagues Under the Sea', D: 'From the Earth to the Moon', E: 'The Mysterious Island' },
     options_tr: { A: 'Dünyanın Merkezine Yolculuk', B: 'Seksen Günde Devri Âlem', C: 'Denizler Altında Yirmi Bin Fersah', D: 'Dünyadan Ay\'a', E: 'Esrarengiz Ada' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Jules Verne published Around the World in Eighty Days in 1872, with Fogg setting out from the Reform Club in London.',
   },
   {
@@ -1169,6 +1298,7 @@ const literature = [
     options: { A: 'Les Fleurs du mal', B: 'A Season in Hell', C: 'Leaves of Grass', D: 'Songs of Innocence', E: 'Alcools' },
     options_tr: { A: 'Kötülük Çiçekleri', B: 'Cehennemde Bir Mevsim', C: 'Çimen Yaprakları', D: 'Masumiyet Şarkıları', E: 'Alkoller' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Charles Baudelaire was prosecuted in 1857 and six poems were ordered removed from Les Fleurs du mal.',
   },
   {
@@ -1178,6 +1308,7 @@ const literature = [
     options: { A: 'Nedîm', B: 'Nâbî', C: 'Bâkî', D: 'Fuzûlî', E: 'Şeyh Galib' },
     options_tr: { A: 'Nedîm', B: 'Nâbî', C: 'Bâkî', D: 'Fuzûlî', E: 'Şeyh Galib' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Nedîm wrote of Istanbul\'s gardens and festivities under Ahmed III and died in 1730.',
   },
   {
@@ -1187,6 +1318,7 @@ const literature = [
     options: { A: 'Candide', B: 'Gargantua and Pantagruel', C: 'Micromégas', D: 'Zadig', E: 'Rasselas' },
     options_tr: { A: 'Candide', B: 'Gargantua ve Pantagruel', C: 'Micromégas', D: 'Zadig', E: 'Rasselas' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Voltaire published Candide in 1759 as an attack on the philosophical optimism associated with Leibniz.',
   },
   {
@@ -1196,6 +1328,7 @@ const literature = [
     options: { A: 'Aeschylus', B: 'Sophocles', C: 'Euripides', D: 'Aristophanes', E: 'Menander' },
     options_tr: { A: 'Aiskhylos', B: 'Sophokles', C: 'Euripides', D: 'Aristophanes', E: 'Menandros' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Sophocles wrote well over a hundred plays, of which only seven survive complete, including the three Theban plays.',
   },
   {
@@ -1205,6 +1338,7 @@ const literature = [
     options: { A: 'Evliya Çelebi', B: 'Kâtip Çelebi', C: 'Pirî Reis', D: 'Naîmâ', E: 'Âşık Çelebi' },
     options_tr: { A: 'Evliya Çelebi', B: 'Kâtip Çelebi', C: 'Pirî Reis', D: 'Naîmâ', E: 'Âşık Çelebi' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Evliya Çelebi travelled for roughly forty years inside and beyond the Ottoman Empire and described what he saw in the Seyahatnâme.',
   },
   {
@@ -1214,6 +1348,7 @@ const literature = [
     options: { A: 'The Clouds', B: 'Lysistrata', C: 'The Frogs', D: 'The Birds', E: 'The Wasps' },
     options_tr: { A: 'Bulutlar', B: 'Lysistrata', C: 'Kurbağalar', D: 'Kuşlar', E: 'Eşekarıları' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Aristophanes staged Lysistrata in 411 BC, during the later years of the war between Athens and Sparta.',
   },
   {
@@ -1223,6 +1358,7 @@ const literature = [
     options: { A: 'Metamorphoses', B: 'The Aeneid', C: 'Ars Amatoria', D: 'Theogony', E: 'De Rerum Natura' },
     options_tr: { A: 'Dönüşümler', B: 'Aeneis', C: 'Aşk Sanatı', D: 'Theogonia', E: 'Evrenin Yapısı' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ovid completed the Metamorphoses around AD 8, and it became later Europe\'s main source for classical mythology.',
   },
   {
@@ -1232,6 +1368,7 @@ const literature = [
     options: { A: 'Ahmed Arif', B: 'Hasan Hüseyin Korkmazgil', C: 'Enver Gökçe', D: 'Şükrü Erbaş', E: 'Arif Damar' },
     options_tr: { A: 'Ahmed Arif', B: 'Hasan Hüseyin Korkmazgil', C: 'Enver Gökçe', D: 'Şükrü Erbaş', E: 'Arif Damar' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ahmed Arif published the book in 1968 and never brought out another collection of poems.',
   },
   {
@@ -1241,6 +1378,7 @@ const literature = [
     options: { A: 'Enuma Elish', B: 'The Epic of Gilgamesh', C: 'The Book of the Dead', D: 'The Descent of Inanna', E: 'The Epic of Atrahasis' },
     options_tr: { A: 'Enuma Eliş', B: 'Gılgamış Destanı', C: 'Ölüler Kitabı', D: 'İnanna\'nın İnişi', E: 'Atrahasis Destanı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Epic of Gilgamesh survives mainly on Akkadian clay tablets and is among the oldest known works of literature.',
   },
   {
@@ -1250,6 +1388,7 @@ const literature = [
     options: { A: 'The Song of Roland', B: 'Beowulf', C: 'The Nibelungenlied', D: 'Sir Gawain and the Green Knight', E: 'The Kalevala' },
     options_tr: { A: 'Roland Destanı', B: 'Beowulf', C: 'Nibelungen Destanı', D: 'Sör Gawain ve Yeşil Şövalye', E: 'Kalevala' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Beowulf survives in a single manuscript and is the longest surviving poem in Old English.',
   },
   {
@@ -1259,6 +1398,7 @@ const literature = [
     options: { A: 'Karacaoğlan', B: 'Dadaloğlu', C: 'Köroğlu', D: 'Pir Sultan Abdal', E: 'Âşık Ömer' },
     options_tr: { A: 'Karacaoğlan', B: 'Dadaloğlu', C: 'Köroğlu', D: 'Pir Sultan Abdal', E: 'Âşık Ömer' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Karacaoğlan wrote in plain spoken Turkish and syllabic metre, and is the best-known secular folk poet of his century.',
   },
   {
@@ -1268,6 +1408,7 @@ const literature = [
     options: { A: 'The Pillow Book', B: 'The Tale of Genji', C: 'The Tale of the Heike', D: 'Kokin Wakashū', E: 'The Narrow Road to the Deep North' },
     options_tr: { A: 'Yastıkname', B: 'Genji\'nin Hikâyesi', C: 'Heike Destanı', D: 'Kokin Wakashū', E: 'Kuzeye Giden İnce Yol' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Murasaki Shikibu, a lady-in-waiting at the Heian court, wrote The Tale of Genji around 1010.',
   },
   {
@@ -1277,6 +1418,7 @@ const literature = [
     options: { A: 'Matsuo Bashō', B: 'Kobayashi Issa', C: 'Yosa Buson', D: 'Masaoka Shiki', E: 'Saigyō' },
     options_tr: { A: 'Matsuo Bashō', B: 'Kobayashi Issa', C: 'Yosa Buson', D: 'Masaoka Shiki', E: 'Saigyō' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Matsuo Bashō turned the haiku into a serious poetic form and recorded his 1689 journey through northern Japan in Oku no Hosomichi.',
   },
   {
@@ -1286,6 +1428,7 @@ const literature = [
     options: { A: 'Eylül', B: 'Mai ve Siyah', C: 'Aşk-ı Memnu', D: 'Sergüzeşt', E: 'Zehra' },
     options_tr: { A: 'Eylül', B: 'Mai ve Siyah', C: 'Aşk-ı Memnu', D: 'Sergüzeşt', E: 'Zehra' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Mehmet Rauf\'s Eylül concentrates on its characters\' inner lives rather than on external events.',
   },
   {
@@ -1295,6 +1438,7 @@ const literature = [
     options: { A: 'Yukio Mishima', B: 'Yasunari Kawabata', C: 'Kenzaburō Ōe', D: 'Jun\'ichirō Tanizaki', E: 'Natsume Sōseki' },
     options_tr: { A: 'Yukio Mishima', B: 'Yasunari Kawabata', C: 'Kenzaburō Ōe', D: 'Jun\'ichirō Tanizaki', E: 'Natsume Sōseki' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Yasunari Kawabata, author of Snow Country and The Sound of the Mountain, received the prize in 1968.',
   },
   {
@@ -1304,6 +1448,7 @@ const literature = [
     options: { A: 'Haruki Murakami', B: 'Banana Yoshimoto', C: 'Kenzaburō Ōe', D: 'Kōbō Abe', E: 'Ryū Murakami' },
     options_tr: { A: 'Haruki Murakami', B: 'Banana Yoshimoto', C: 'Kenzaburō Ōe', D: 'Kōbō Abe', E: 'Ryū Murakami' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Norwegian Wood (1987) made Haruki Murakami a national celebrity in Japan, and Kafka on the Shore followed in 2002.',
   },
   {
@@ -1313,6 +1458,7 @@ const literature = [
     options: { A: 'Şeyh Galib', B: 'Nâbî', C: 'Nef\'î', D: 'Fuzûlî', E: 'Nedîm' },
     options_tr: { A: 'Şeyh Galib', B: 'Nâbî', C: 'Nef\'î', D: 'Fuzûlî', E: 'Nedîm' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Şeyh Galib, a Mevlevi sheikh, completed Hüsn ü Aşk in 1783 and is counted the last great poet of Divan literature.',
   },
   {
@@ -1322,6 +1468,7 @@ const literature = [
     options: { A: 'Lu Xun', B: 'Ba Jin', C: 'Lao She', D: 'Mao Dun', E: 'Shen Congwen' },
     options_tr: { A: 'Lu Xun', B: 'Ba Jin', C: 'Lao She', D: 'Mao Dun', E: 'Shen Congwen' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Lu Xun wrote in vernacular rather than classical Chinese, and The True Story of Ah Q was serialised in 1921–22.',
   },
   {
@@ -1331,6 +1478,7 @@ const literature = [
     options: { A: 'Yu Hua', B: 'Mo Yan', C: 'Gao Xingjian', D: 'Su Tong', E: 'Yan Lianke' },
     options_tr: { A: 'Yu Hua', B: 'Mo Yan', C: 'Gao Xingjian', D: 'Su Tong', E: 'Yan Lianke' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Mo Yan is the pen name of Guan Moye, cited by the Nobel committee for merging folk tale, history and the contemporary.',
   },
   {
@@ -1340,6 +1488,7 @@ const literature = [
     options: { A: 'Faruk Nafiz Çamlıbel', B: 'Orhan Seyfi Orhon', C: 'Yusuf Ziya Ortaç', D: 'Enis Behiç Koryürek', E: 'Halit Fahri Ozansoy' },
     options_tr: { A: 'Faruk Nafiz Çamlıbel', B: 'Orhan Seyfi Orhon', C: 'Yusuf Ziya Ortaç', D: 'Enis Behiç Koryürek', E: 'Halit Fahri Ozansoy' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Han Duvarları describes a winter cart journey across Anatolia and is among the best-known Turkish poems written in syllabic metre.',
   },
   {
@@ -1349,6 +1498,7 @@ const literature = [
     options: { A: 'Rabindranath Tagore', B: 'Rudyard Kipling', C: 'Kahlil Gibran', D: 'Premchand', E: 'Sarat Chandra Chattopadhyay' },
     options_tr: { A: 'Rabindranath Tagore', B: 'Rudyard Kipling', C: 'Halil Cibran', D: 'Premchand', E: 'Sarat Chandra Chattopadhyay' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Rabindranath Tagore won the 1913 prize largely for Gitanjali, his own English rendering of his Bengali poems.',
   },
   {
@@ -1358,6 +1508,7 @@ const literature = [
     options: { A: 'Wole Soyinka', B: 'Chinua Achebe', C: 'Ben Okri', D: 'Chimamanda Ngozi Adichie', E: 'Ngũgĩ wa Thiong\'o' },
     options_tr: { A: 'Wole Soyinka', B: 'Chinua Achebe', C: 'Ben Okri', D: 'Chimamanda Ngozi Adichie', E: 'Ngũgĩ wa Thiong\'o' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Chinua Achebe published Things Fall Apart in 1958 and it has since been translated into more than fifty languages.',
   },
   {
@@ -1367,6 +1518,7 @@ const literature = [
     options: { A: 'Naguib Mahfouz', B: 'Nadine Gordimer', C: 'Wole Soyinka', D: 'J.M. Coetzee', E: 'Chinua Achebe' },
     options_tr: { A: 'Necip Mahfuz', B: 'Nadine Gordimer', C: 'Wole Soyinka', D: 'J.M. Coetzee', E: 'Chinua Achebe' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Wole Soyinka, the Nigerian playwright who wrote Death and the King\'s Horseman, received the prize in 1986.',
   },
   {
@@ -1376,6 +1528,7 @@ const literature = [
     options: { A: 'Kara Kitap', B: 'Benim Adım Kırmızı', C: 'Beyaz Kale', D: 'Kar', E: 'Masumiyet Müzesi' },
     options_tr: { A: 'Kara Kitap', B: 'Benim Adım Kırmızı', C: 'Beyaz Kale', D: 'Kar', E: 'Masumiyet Müzesi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Benim Adım Kırmızı appeared in 1998 and won the International IMPAC Dublin Literary Award in 2003.',
   },
   {
@@ -1385,6 +1538,7 @@ const literature = [
     options: { A: 'Taha Hussein', B: 'Naguib Mahfouz', C: 'Tayeb Salih', D: 'Nawal El Saadawi', E: 'Adonis' },
     options_tr: { A: 'Taha Hüseyin', B: 'Necip Mahfuz', C: 'Tayeb Salih', D: 'Nawal El Saadawi', E: 'Adonis' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Naguib Mahfouz won the Nobel Prize in 1988; his Cairo Trilogy follows three generations of one family in the city.',
   },
   {
@@ -1394,6 +1548,7 @@ const literature = [
     options: { A: 'Expressionism', B: 'Futurism', C: 'Surrealism', D: 'Imagism', E: 'Cubism' },
     options_tr: { A: 'Ekspresyonizm', B: 'Fütürizm', C: 'Sürrealizm', D: 'İmgecilik', E: 'Kübizm' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Breton\'s Manifesto of Surrealism defined the movement around automatic writing and dream imagery.',
   },
   {
@@ -1403,6 +1558,7 @@ const literature = [
     options: { A: 'Kemal Tahir', B: 'Orhan Kemal', C: 'Samim Kocagöz', D: 'İlhan Selçuk', E: 'Attila İlhan' },
     options_tr: { A: 'Kemal Tahir', B: 'Orhan Kemal', C: 'Samim Kocagöz', D: 'İlhan Selçuk', E: 'Attila İlhan' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Kemal Tahir began writing fiction during twelve years in prison and published Esir Şehrin İnsanları in 1956.',
   },
   {
@@ -1412,6 +1568,7 @@ const literature = [
     options: { A: 'Jorge Luis Borges', B: 'Adolfo Bioy Casares', C: 'Ernesto Sabato', D: 'Julio Cortázar', E: 'Roberto Arlt' },
     options_tr: { A: 'Jorge Luis Borges', B: 'Adolfo Bioy Casares', C: 'Ernesto Sabato', D: 'Julio Cortázar', E: 'Roberto Arlt' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Borges published Ficciones in 1944, including "The Library of Babel" and "The Garden of Forking Paths."',
   },
   {
@@ -1421,6 +1578,7 @@ const literature = [
     options: { A: 'Sezai Karakoç', B: 'Cahit Zarifoğlu', C: 'İsmet Özel', D: 'Nuri Pakdil', E: 'Erdem Bayazıt' },
     options_tr: { A: 'Sezai Karakoç', B: 'Cahit Zarifoğlu', C: 'İsmet Özel', D: 'Nuri Pakdil', E: 'Erdem Bayazıt' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Sezai Karakoç wrote Monna Rosa in the early 1950s and launched Diriliş in 1960.',
   },
   {
@@ -1430,6 +1588,7 @@ const literature = [
     options: { A: 'Fakir Baykurt', B: 'Talip Apaydın', C: 'Mahmut Makal', D: 'Dursun Akçam', E: 'Kemal Bilbaşar' },
     options_tr: { A: 'Fakir Baykurt', B: 'Talip Apaydın', C: 'Mahmut Makal', D: 'Dursun Akçam', E: 'Kemal Bilbaşar' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Fakir Baykurt, himself a village-institute graduate and teacher, published Yılanların Öcü in 1959.',
   },
   {
@@ -1439,6 +1598,7 @@ const literature = [
     options: { A: 'Gabriela Mistral', B: 'Vicente Huidobro', C: 'Pablo Neruda', D: 'Nicanor Parra', E: 'Octavio Paz' },
     options_tr: { A: 'Gabriela Mistral', B: 'Vicente Huidobro', C: 'Pablo Neruda', D: 'Nicanor Parra', E: 'Octavio Paz' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Pablo Neruda published Twenty Love Poems in 1924 at the age of nineteen and received the Nobel Prize in 1971.',
   },
   {
@@ -1448,6 +1608,7 @@ const literature = [
     options: { A: 'Fernando Pessoa', B: 'José Saramago', C: 'Eça de Queirós', D: 'António Lobo Antunes', E: 'Miguel Torga' },
     options_tr: { A: 'Fernando Pessoa', B: 'José Saramago', C: 'Eça de Queirós', D: 'António Lobo Antunes', E: 'Miguel Torga' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'José Saramago published Blindness in 1995 and in 1998 became the first Portuguese-language writer to win the Nobel Prize.',
   },
   {
@@ -1457,6 +1618,7 @@ const literature = [
     options: { A: 'Cengiz Aytmatov', B: 'Muhtar Avezov', C: 'Oljas Süleymanov', D: 'Abay Kunanbayev', E: 'Bahtiyar Vahapzade' },
     options_tr: { A: 'Cengiz Aytmatov', B: 'Muhtar Avezov', C: 'Oljas Süleymanov', D: 'Abay Kunanbayev', E: 'Bahtiyar Vahapzade' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Cengiz Aytmatov wrote in both Kyrgyz and Russian, and Louis Aragon called his Cemile the most beautiful love story in the world.',
   },
   {
@@ -1466,6 +1628,7 @@ const literature = [
     options: { A: 'Fernando Pessoa', B: 'Luís de Camões', C: 'Sophia de Mello Breyner', D: 'Mário de Sá-Carneiro', E: 'Eugénio de Andrade' },
     options_tr: { A: 'Fernando Pessoa', B: 'Luís de Camões', C: 'Sophia de Mello Breyner', D: 'Mário de Sá-Carneiro', E: 'Eugénio de Andrade' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Pessoa called these invented authors heteronyms and gave each of them a biography and opinions of his own.',
   },
   {
@@ -1475,6 +1638,7 @@ const literature = [
     options: { A: 'Nurullah Ataç', B: 'Suut Kemal Yetkin', C: 'Vedat Günyol', D: 'Sabahattin Eyüboğlu', E: 'Memet Fuat' },
     options_tr: { A: 'Nurullah Ataç', B: 'Suut Kemal Yetkin', C: 'Vedat Günyol', D: 'Sabahattin Eyüboğlu', E: 'Memet Fuat' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Nurullah Ataç shaped modern Turkish criticism and the essay while pressing writers to replace Arabic and Persian loanwords.',
   },
   {
@@ -1484,6 +1648,7 @@ const literature = [
     options: { A: 'Bilge Karasu', B: 'Ferit Edgü', C: 'Leylâ Erbil', D: 'Oğuz Atay', E: 'Hasan Ali Toptaş' },
     options_tr: { A: 'Bilge Karasu', B: 'Ferit Edgü', C: 'Leylâ Erbil', D: 'Oğuz Atay', E: 'Hasan Ali Toptaş' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Bilge Karasu published Gece in 1985, and its English translation won the Pegasus Prize for Literature in 1991.',
   },
   {
@@ -1493,6 +1658,7 @@ const literature = [
     options: { A: 'Pedro Páramo', B: 'The Death of Artemio Cruz', C: 'Like Water for Chocolate', D: 'The Old Gringo', E: 'Aura' },
     options_tr: { A: 'Pedro Páramo', B: 'Artemio Cruz\'un Ölümü', C: 'Acı Çikolata', D: 'Yaşlı Gringo', E: 'Aura' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Juan Rulfo published Pedro Páramo in 1955, and it strongly influenced later magical realist writers including García Márquez.',
   },
   {
@@ -1502,6 +1668,7 @@ const literature = [
     options: { A: 'Antonio Machado', B: 'Federico García Lorca', C: 'Rafael Alberti', D: 'Juan Ramón Jiménez', E: 'Miguel Hernández' },
     options_tr: { A: 'Antonio Machado', B: 'Federico García Lorca', C: 'Rafael Alberti', D: 'Juan Ramón Jiménez', E: 'Miguel Hernández' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Federico García Lorca was executed in August 1936, in the first weeks of the Spanish Civil War.',
   },
   {
@@ -1511,6 +1678,7 @@ const literature = [
     options: { A: 'Latife Tekin', B: 'Erendiz Atasü', C: 'Pınar Kür', D: 'Ayla Kutlu', E: 'Sevgi Soysal' },
     options_tr: { A: 'Latife Tekin', B: 'Erendiz Atasü', C: 'Pınar Kür', D: 'Ayla Kutlu', E: 'Sevgi Soysal' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Latife Tekin published Sevgili Arsız Ölüm in 1983, bringing shantytown life and folk idiom into Turkish fiction.',
   },
   {
@@ -1520,6 +1688,7 @@ const literature = [
     options: { A: 'Invisible Cities', B: 'The Baron in the Trees', C: 'The Name of the Rose', D: 'Cosmicomics', E: 'The Travels of Marco Polo' },
     options_tr: { A: 'Görünmez Kentler', B: 'Ağaca Tüneyen Baron', C: 'Gülün Adı', D: 'Kozmokomik Öyküler', E: 'Marco Polo\'nun Seyahatleri' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Italo Calvino published Invisible Cities in 1972 as a sequence of prose city portraits framed by the Khan\'s conversations.',
   },
   {
@@ -1529,6 +1698,7 @@ const literature = [
     options: { A: 'Foucault\'s Pendulum', B: 'The Name of the Rose', C: 'The Leopard', D: 'Baudolino', E: 'The Betrothed' },
     options_tr: { A: 'Foucault Sarkacı', B: 'Gülün Adı', C: 'Leopar', D: 'Baudolino', E: 'Nişanlılar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Umberto Eco published The Name of the Rose in 1980; its investigator, William of Baskerville, owes his name to Conan Doyle and his logic to William of Ockham.',
   },
   {
@@ -1538,6 +1708,7 @@ const literature = [
     options: { A: 'Nef\'î', B: 'Nâbî', C: 'Bâkî', D: 'Nedîm', E: 'Fuzûlî' },
     options_tr: { A: 'Nef\'î', B: 'Nâbî', C: 'Bâkî', D: 'Nedîm', E: 'Fuzûlî' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Nef\'î was also a master of the kaside, but his satirical verse made him powerful enemies at the court of Murad IV.',
   },
   {
@@ -1547,6 +1718,7 @@ const literature = [
     options: { A: 'Six Characters in Search of an Author', B: 'The Chairs', C: 'Our Town', D: 'The Balcony', E: 'Endgame' },
     options_tr: { A: 'Altı Kişi Yazarını Arıyor', B: 'Sandalyeler', C: 'Bizim Şehir', D: 'Balkon', E: 'Oyun Sonu' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Luigi Pirandello\'s 1921 play caused an uproar at its Rome premiere, and he won the Nobel Prize in Literature in 1934.',
   },
   {
@@ -1556,6 +1728,7 @@ const literature = [
     options: { A: 'The Decameron', B: 'The Canterbury Tales', C: 'Orlando Furioso', D: 'Gargantua and Pantagruel', E: 'The Heptameron' },
     options_tr: { A: 'Decameron', B: 'Canterbury Hikâyeleri', C: 'Çılgın Orlando', D: 'Gargantua ve Pantagruel', E: 'Heptameron' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Giovanni Boccaccio completed the Decameron around 1353, framing it with the Black Death in Florence.',
   },
   {
@@ -1565,6 +1738,7 @@ const literature = [
     options: { A: 'Rıfat Ilgaz', B: 'Aziz Nesin', C: 'Muzaffer İzgü', D: 'Haldun Taner', E: 'Çetin Altan' },
     options_tr: { A: 'Rıfat Ilgaz', B: 'Aziz Nesin', C: 'Muzaffer İzgü', D: 'Haldun Taner', E: 'Çetin Altan' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Rıfat Ilgaz published Hababam Sınıfı in 1957, and the film series based on it became a staple of Turkish cinema.',
   },
   {
@@ -1574,6 +1748,7 @@ const literature = [
     options: { A: 'Grazia Deledda', B: 'Selma Lagerlöf', C: 'Sigrid Undset', D: 'Pearl S. Buck', E: 'Gabriela Mistral' },
     options_tr: { A: 'Grazia Deledda', B: 'Selma Lagerlöf', C: 'Sigrid Undset', D: 'Pearl S. Buck', E: 'Gabriela Mistral' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Swedish novelist Selma Lagerlöf, author of The Wonderful Adventures of Nils, received the 1909 prize.',
   },
   {
@@ -1583,6 +1758,7 @@ const literature = [
     options: { A: 'Hans Christian Andersen', B: 'The Brothers Grimm', C: 'Charles Perrault', D: 'Astrid Lindgren', E: 'Selma Lagerlöf' },
     options_tr: { A: 'Hans Christian Andersen', B: 'Grimm Kardeşler', C: 'Charles Perrault', D: 'Astrid Lindgren', E: 'Selma Lagerlöf' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Andersen wrote original tales rather than collecting folklore, publishing more than 150 of them from 1835 onward.',
   },
   {
@@ -1592,6 +1768,7 @@ const literature = [
     options: { A: 'Adalet Ağaoğlu', B: 'Sevgi Soysal', C: 'Füruzan', D: 'Leylâ Erbil', E: 'Tomris Uyar' },
     options_tr: { A: 'Adalet Ağaoğlu', B: 'Sevgi Soysal', C: 'Füruzan', D: 'Leylâ Erbil', E: 'Tomris Uyar' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Adalet Ağaoğlu published Ölmeye Yatmak in 1973, tracing a republican generation through one woman\'s memories.',
   },
   {
@@ -1601,6 +1778,7 @@ const literature = [
     options: { A: 'Katherine Mansfield', B: 'Virginia Woolf', C: 'Dorothy Richardson', D: 'Iris Murdoch', E: 'Vita Sackville-West' },
     options_tr: { A: 'Katherine Mansfield', B: 'Virginia Woolf', C: 'Dorothy Richardson', D: 'Iris Murdoch', E: 'Vita Sackville-West' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Woolf published Mrs Dalloway in 1925 and A Room of One\'s Own in 1929, arguing that a woman writer needs money and privacy.',
   },
   {
@@ -1610,6 +1788,7 @@ const literature = [
     options: { A: 'Pygmalion', B: 'Major Barbara', C: 'Arms and the Man', D: 'The Importance of Being Earnest', E: 'An Ideal Husband' },
     options_tr: { A: 'Pygmalion', B: 'Binbaşı Barbara', C: 'Silahlar ve İnsan', D: 'Ciddi Olmanın Önemi', E: 'İdeal Koca' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'George Bernard Shaw wrote Pygmalion in 1913 and won the Nobel Prize in Literature in 1925.',
   },
   {
@@ -1619,6 +1798,7 @@ const literature = [
     options: { A: 'Cevat Şakir Kabaağaçlı', B: 'Sait Faik Abasıyanık', C: 'Zeyyat Selimoğlu', D: 'Necati Cumalı', E: 'Azra Erhat' },
     options_tr: { A: 'Cevat Şakir Kabaağaçlı', B: 'Sait Faik Abasıyanık', C: 'Zeyyat Selimoğlu', D: 'Necati Cumalı', E: 'Azra Erhat' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Cevat Şakir Kabaağaçlı was sent to Bodrum in 1925 and stayed on there, writing about the Aegean under his pen name.',
   },
   {
@@ -1628,6 +1808,7 @@ const literature = [
     options: { A: 'The Waste Land', B: 'The Love Song of J. Alfred Prufrock', C: 'Four Quartets', D: 'Howl', E: 'The Hollow Men' },
     options_tr: { A: 'Çorak Ülke', B: 'J. Alfred Prufrock\'un Aşk Şarkısı', C: 'Dört Kuartet', D: 'Uluma', E: 'İçi Boş Adamlar' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'T.S. Eliot published The Waste Land in 1922 after heavy editorial cuts by Ezra Pound, and won the Nobel Prize in 1948.',
   },
   {
@@ -1637,6 +1818,7 @@ const literature = [
     options: { A: 'The Murders in the Rue Morgue', B: 'The Tell-Tale Heart', C: 'The Fall of the House of Usher', D: 'The Moonstone', E: 'A Scandal in Bohemia' },
     options_tr: { A: 'Morg Sokağı Cinayetleri', B: 'Geveze Yürek', C: 'Usher Evi\'nin Çöküşü', D: 'Aytaşı', E: 'Bohemya\'da Skandal' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Edgar Allan Poe\'s story established the pattern of the brilliant amateur detective and his admiring narrator.',
   },
   {
@@ -1646,6 +1828,7 @@ const literature = [
     options: { A: 'Turgut Özakman', B: 'Tarık Buğra', C: 'Ahmet Ümit', D: 'Kemal Tahir', E: 'Yakup Kadri Karaosmanoğlu' },
     options_tr: { A: 'Turgut Özakman', B: 'Tarık Buğra', C: 'Ahmet Ümit', D: 'Kemal Tahir', E: 'Yakup Kadri Karaosmanoğlu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Turgut Özakman, also a well-known playwright, published Şu Çılgın Türkler in 2005 and it became one of Turkey\'s best-selling books.',
   },
   {
@@ -1655,6 +1838,7 @@ const literature = [
     options: { A: 'The Catcher in the Rye', B: 'Franny and Zooey', C: 'On the Road', D: 'The Bell Jar', E: 'Rabbit, Run' },
     options_tr: { A: 'Çavdar Tarlasında Çocuklar', B: 'Franny ve Zooey', C: 'Yolda', D: 'Sırça Fanus', E: 'Koş Tavşan Koş' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'J.D. Salinger published The Catcher in the Rye in 1951 and then withdrew almost entirely from public life.',
   },
   {
@@ -1664,6 +1848,7 @@ const literature = [
     options: { A: 'Catch-22', B: 'Slaughterhouse-Five', C: 'The Naked and the Dead', D: 'The Thin Red Line', E: 'Gravity\'s Rainbow' },
     options_tr: { A: 'Madde 22', B: 'Mezbaha No. 5', C: 'Çıplaklar ve Ölüler', D: 'İnce Kırmızı Hat', E: 'Yerçekiminin Gökkuşağı' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Joseph Heller published Catch-22 in 1961 and the title passed into everyday English as a term for a no-win rule.',
   },
   {
@@ -1673,6 +1858,7 @@ const literature = [
     options: { A: 'İbrahim Şinasi', B: 'Namık Kemal', C: 'Ziya Paşa', D: 'Ahmed Vefik Paşa', E: 'Ahmed Midhat Efendi' },
     options_tr: { A: 'İbrahim Şinasi', B: 'Namık Kemal', C: 'Ziya Paşa', D: 'Ahmed Vefik Paşa', E: 'Ahmed Midhat Efendi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Şinasi wrote the play in 1859, and it was serialised in Tercümân-ı Ahvâl, the paper he launched with Agâh Efendi in 1860.',
   },
   {
@@ -1682,6 +1868,7 @@ const literature = [
     options: { A: 'Fahrenheit 451', B: 'The Martian Chronicles', C: 'We', D: 'Player Piano', E: 'A Clockwork Orange' },
     options_tr: { A: 'Fahrenheit 451', B: 'Mars Yıllıkları', C: 'Biz', D: 'Otomatik Piyano', E: 'Otomatik Portakal' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Ray Bradbury published Fahrenheit 451 in 1953, taking the title from the temperature at which he said book paper ignites.',
   },
   {
@@ -1691,6 +1878,7 @@ const literature = [
     options: { A: 'Alice Munro', B: 'Margaret Atwood', C: 'Carol Shields', D: 'Michael Ondaatje', E: 'Anne Michaels' },
     options_tr: { A: 'Alice Munro', B: 'Margaret Atwood', C: 'Carol Shields', D: 'Michael Ondaatje', E: 'Anne Michaels' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Margaret Atwood published The Handmaid\'s Tale in 1985, and its sequel The Testaments shared the Booker Prize in 2019.',
   },
   {
@@ -1700,6 +1888,7 @@ const literature = [
     options: { A: 'Turgut Uyar', B: 'Ece Ayhan', C: 'İlhan Berk', D: 'Ülkü Tamer', E: 'Edip Cansever' },
     options_tr: { A: 'Turgut Uyar', B: 'Ece Ayhan', C: 'İlhan Berk', D: 'Ülkü Tamer', E: 'Edip Cansever' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Turgut Uyar published Dünyanın En Güzel Arabistanı in 1959, a central book of the İkinci Yeni movement.',
   },
   {
@@ -1709,6 +1898,7 @@ const literature = [
     options: { A: 'Lord of the Flies', B: 'The Coral Island', C: 'The Beach', D: 'Treasure Island', E: 'The Lost World' },
     options_tr: { A: 'Sineklerin Tanrısı', B: 'Mercan Adası', C: 'Sahil', D: 'Define Adası', E: 'Kayıp Dünya' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'William Golding published Lord of the Flies in 1954 and won the Nobel Prize in Literature in 1983.',
   },
   {
@@ -1718,6 +1908,7 @@ const literature = [
     options: { A: 'Robinson Crusoe', B: 'Moll Flanders', C: 'Gulliver\'s Travels', D: 'Candide', E: 'The Swiss Family Robinson' },
     options_tr: { A: 'Robinson Crusoe', B: 'Moll Flanders', C: 'Gulliver\'in Gezileri', D: 'Candide', E: 'İsviçreli Robinson Ailesi' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Daniel Defoe published Robinson Crusoe in 1719 and presented it as a genuine account written by its narrator.',
   },
   {
@@ -1727,6 +1918,7 @@ const literature = [
     options: { A: 'Fazıl Hüsnü Dağlarca', B: 'Behçet Necatigil', C: 'Melih Cevdet Anday', D: 'Oktay Rifat', E: 'Ceyhun Atuf Kansu' },
     options_tr: { A: 'Fazıl Hüsnü Dağlarca', B: 'Behçet Necatigil', C: 'Melih Cevdet Anday', D: 'Oktay Rifat', E: 'Ceyhun Atuf Kansu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Fazıl Hüsnü Dağlarca published Çocuk ve Allah in 1940 and went on writing into the 2000s, leaving one of the largest bodies of work in Turkish poetry.',
   },
   {
@@ -1736,6 +1928,7 @@ const literature = [
     options: { A: 'Paradise Lost', B: 'The Faerie Queene', C: 'Piers Plowman', D: 'The Canterbury Tales', E: 'The Prelude' },
     options_tr: { A: 'Kayıp Cennet', B: 'Peri Kraliçe', C: 'Çiftçi Piers', D: 'Canterbury Hikâyeleri', E: 'Prelüd' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'John Milton had lost his sight before Paradise Lost was published in 1667 and composed it by dictation.',
   },
   {
@@ -1745,6 +1938,7 @@ const literature = [
     options: { A: 'One Thousand and One Nights', B: 'The Panchatantra', C: 'Kalila and Dimna', D: 'The Decameron', E: 'Aesop\'s Fables' },
     options_tr: { A: 'Binbir Gece Masalları', B: 'Pançatantra', C: 'Kelile ve Dimne', D: 'Decameron', E: 'Ezop Masalları' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'One Thousand and One Nights took shape over centuries from Arabic, Persian and Indian sources and reached Europe through Antoine Galland\'s translation from 1704.',
   },
   {
@@ -1754,6 +1948,7 @@ const literature = [
     options: { A: 'Cemil Meriç', B: 'Nurullah Ataç', C: 'Ahmet Hamdi Tanpınar', D: 'Hilmi Yavuz', E: 'İsmet Özel' },
     options_tr: { A: 'Cemil Meriç', B: 'Nurullah Ataç', C: 'Ahmet Hamdi Tanpınar', D: 'Hilmi Yavuz', E: 'İsmet Özel' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Cemil Meriç went blind in 1955 and continued to work by dictation, publishing Bu Ülke in 1974.',
   },
   {
@@ -1763,6 +1958,7 @@ const literature = [
     options: { A: 'All Quiet on the Western Front', B: 'The Tin Drum', C: 'Berlin Alexanderplatz', D: 'The Magic Mountain', E: 'Storm of Steel' },
     options_tr: { A: 'Garp Cephesinde Yeni Bir Şey Yok', B: 'Teneke Trampet', C: 'Berlin Alexanderplatz', D: 'Büyülü Dağ', E: 'Çelik Fırtınalarında' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Erich Maria Remarque\'s novel was an immediate international bestseller and was among the books burned by the Nazis in 1933.',
   },
   {
@@ -1772,6 +1968,7 @@ const literature = [
     options: { A: 'The Tin Drum', B: 'The Reader', C: 'Berlin Alexanderplatz', D: 'The Clown', E: 'Steppenwolf' },
     options_tr: { A: 'Teneke Trampet', B: 'Okuyucu', C: 'Berlin Alexanderplatz', D: 'Palyaço', E: 'Bozkırkurdu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Günter Grass published The Tin Drum in 1959 as the first part of his Danzig Trilogy and won the Nobel Prize in Literature in 1999.',
   },
   {
@@ -1781,6 +1978,7 @@ const literature = [
     options: { A: 'Mehmet Emin Yurdakul', B: 'Ziya Gökalp', C: 'Mehmet Akif Ersoy', D: 'Tevfik Fikret', E: 'Rıza Tevfik Bölükbaşı' },
     options_tr: { A: 'Mehmet Emin Yurdakul', B: 'Ziya Gökalp', C: 'Mehmet Akif Ersoy', D: 'Tevfik Fikret', E: 'Rıza Tevfik Bölükbaşı' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Mehmet Emin Yurdakul wrote in everyday Turkish and syllabic metre at a time when Ottoman poetry still favoured Persian and Arabic diction.',
   },
   {
@@ -1790,6 +1988,7 @@ const literature = [
     options: { A: 'Han Kang', B: 'Hwang Sok-yong', C: 'Kim Young-ha', D: 'Shin Kyung-sook', E: 'Bae Suah' },
     options_tr: { A: 'Han Kang', B: 'Hwang Sok-yong', C: 'Kim Young-ha', D: 'Shin Kyung-sook', E: 'Bae Suah' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Han Kang, whose novel The Vegetarian won the International Booker Prize in 2016, is the first Korean writer to receive the Nobel Prize in Literature.',
   },
   {
@@ -1799,6 +1998,7 @@ const literature = [
     options: { A: 'Ivo Andrić', B: 'Miroslav Krleža', C: 'Danilo Kiš', D: 'Meša Selimović', E: 'Milorad Pavić' },
     options_tr: { A: 'Ivo Andrić', B: 'Miroslav Krleža', C: 'Danilo Kiš', D: 'Meša Selimović', E: 'Milorad Pavić' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ivo Andrić won the Nobel Prize in Literature in 1961; the bridge of his title is the Mehmed Paša Sokolović Bridge at Višegrad.',
   },
 ];

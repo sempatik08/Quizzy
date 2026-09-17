@@ -1,6 +1,7 @@
 'use strict';
 
 const { QUESTIONS, CATEGORY_KEYS } = require('./questions');
+const { pickTargetDifficulty, selectQuestion, difficultyOf } = require('./difficulty');
 const { sanitizeRoom, STEAL_CHARGES_PER_TEAM } = require('./roomManager');
 
 // ---------------------------------------------------------------------------
@@ -13,6 +14,8 @@ const RATE_LIMIT_MS = 500;
 // Timing & steal configuration
 // ---------------------------------------------------------------------------
 const QUESTION_SECONDS = 60;
+/** Points needed to win a classic match. */
+const WIN_SCORE = 100;
 /** Steal window is deliberately short — the team already read the question. */
 const STEAL_SECONDS = 20;
 /**
@@ -265,16 +268,32 @@ function openCategoryPick(room) {
 }
 
 /**
- * Select a random unused question from the active category.
- * Reshuffles (clears used IDs) if all questions have been used.
+ * Select an unused question from the active category, aimed at the difficulty
+ * the ANSWERING team's score calls for (PBI 7).
+ *
+ * The team about to answer is `turnTeam`, not `activeTeam`: they diverge during
+ * a steal, but a steal reuses the question already on the table and never calls
+ * in here, so turnTeam is the team this fresh question is being drawn for.
+ *
  * @param {import('./types').Room} room
- * @returns {import('./types').ServerQuestion}
+ * @returns {import('./types').ServerQuestion | null} null only when the category is exhausted
  */
 function getNextQuestion(room) {
   const pool = QUESTIONS[room.selectedCategory];
-  const available = pool.filter((q) => !room.usedQuestionIds.includes(q.id));
-  if (available.length === 0) return null; // category exhausted
-  return available[Math.floor(Math.random() * available.length)];
+  const answeringTeam = room.turnTeam ?? room.activeTeam ?? 'blue';
+  const score = room.teams[answeringTeam]?.score ?? 0;
+  const target = pickTargetDifficulty(score, getWinThreshold(room));
+  return selectQuestion(pool, room.usedQuestionIds, target);
+}
+
+/**
+ * Points needed to win. A single accessor so the difficulty ramp and the win
+ * check cannot drift apart, and so game modes (PBI 9) have one place to change.
+ * @param {import('./types').Room} room
+ * @returns {number}
+ */
+function getWinThreshold(room) {
+  return room?.winThreshold ?? WIN_SCORE;
 }
 
 /**
@@ -302,6 +321,8 @@ function startQuestion(room, io) {
 
   room.activeQuestion = {
     question, // FULL question including answer — sanitizeRoom strips it before emit
+    /** Difficulty actually served, after any fallback (PBI 7). */
+    difficulty: difficultyOf(question),
     disabledOptions: [],
     votes: {}, // playerId → { optionKey, timestamp }
     timerStart: Date.now(),
@@ -784,7 +805,8 @@ function requestRematch(room, playerId) {
  * @returns {boolean}
  */
 function checkWin(room) {
-  return room.teams.blue.score >= 100 || room.teams.red.score >= 100;
+  const target = getWinThreshold(room);
+  return room.teams.blue.score >= target || room.teams.red.score >= target;
 }
 
 module.exports = {
@@ -808,6 +830,9 @@ module.exports = {
   requestRematch,
   resetForRematch,
   checkWin,
+  getWinThreshold,
+  getNextQuestion,
+  WIN_SCORE,
   QUESTION_SECONDS,
   STEAL_SECONDS,
   STEAL_CHARGES_PER_TEAM,

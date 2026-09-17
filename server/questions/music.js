@@ -8,6 +8,7 @@ const music = [
     options: { A: 'Ludwig van Beethoven', B: 'Johann Sebastian Bach', C: 'George Frideric Handel', D: 'Franz Joseph Haydn', E: 'Wolfgang Amadeus Mozart' },
     options_tr: { A: 'Ludwig van Beethoven', B: 'Johann Sebastian Bach', C: 'George Frideric Handel', D: 'Franz Joseph Haydn', E: 'Wolfgang Amadeus Mozart' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Mozart composed The Magic Flute in 1791, the year of his death.',
   },
   {
@@ -17,6 +18,7 @@ const music = [
     options: { A: 'Tupac Shakur', B: 'The Notorious B.I.G.', C: 'Jay-Z', D: 'Vanilla Ice', E: 'Ice Cube' },
     options_tr: { A: 'Tupac Shakur', B: 'The Notorious B.I.G.', C: 'Jay-Z', D: 'Vanilla Ice', E: 'Ice Cube' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Vanilla Ice used the riff in "Ice Ice Baby" (1990) and initially denied it before a settlement.',
   },
   {
@@ -26,6 +28,7 @@ const music = [
     options: { A: 'Led Zeppelin', B: 'The Rolling Stones', C: 'Pink Floyd', D: 'The Beatles', E: 'Deep Purple' },
     options_tr: { A: 'Led Zeppelin', B: 'Rolling Stones', C: 'Pink Floyd', D: 'Beatles', E: 'Deep Purple' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Pink Floyd\'s The Dark Side of the Moon spent a record number of weeks on the Billboard 200.',
   },
   {
@@ -35,6 +38,7 @@ const music = [
     options: { A: 'Beyoncé', B: 'Mariah Carey', C: 'Whitney Houston', D: 'Madonna', E: 'Celine Dion' },
     options_tr: { A: 'Beyoncé', B: 'Mariah Carey', C: 'Whitney Houston', D: 'Madonna', E: 'Celine Dion' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Madonna has held the "Queen of Pop" title since the 1980s for her influence and commercial success.',
   },
   {
@@ -44,6 +48,7 @@ const music = [
     options: { A: 'Sezen Aksu', B: 'Tarkan', C: 'Zara', D: 'Ajda Pekkan', E: 'Sibel Can' },
     options_tr: { A: 'Sezen Aksu', B: 'Tarkan', C: 'Zara', D: 'Ajda Pekkan', E: 'Sibel Can' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Ajda Pekkan, known as "Süper Star", has been a leading figure in Turkish pop since the 1960s.',
   },
   {
@@ -53,6 +58,7 @@ const music = [
     options: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     options_tr: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The staff has five lines and four spaces. The grand staff joins two five-line staves.',
   },
   {
@@ -62,6 +68,7 @@ const music = [
     options: { A: '5', B: '7', C: '8', D: '12', E: '24' },
     options_tr: { A: '5', B: '7', C: '8', D: '12', E: '24' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Western equal temperament divides the octave into 12 equal semitones. The seven is the number of notes in a diatonic scale.',
   },
   {
@@ -71,6 +78,7 @@ const music = [
     options: { A: 'Play softly', B: 'Play loudly', C: 'Play faster', D: 'Play slower', E: 'Play smoothly and connected' },
     options_tr: { A: 'Yumuşak (hafif) çalmak', B: 'Yüksek sesle (kuvvetli) çalmak', C: 'Daha hızlı çalmak', D: 'Daha yavaş çalmak', E: 'Bağlı ve akıcı çalmak' },
     answer: 'B',
+    difficulty: 1,
     explanation: '"Forte" means loud; "piano" means soft. "Legato" is smooth and connected.',
   },
   {
@@ -80,6 +88,7 @@ const music = [
     options: { A: '2', B: '3', C: '4', D: '5', E: '6' },
     options_tr: { A: '2', B: '3', C: '4', D: '5', E: '6' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Strings, woodwinds, brass and percussion. Keyboards and harp are usually grouped with the others as needed.',
   },
   {
@@ -89,6 +98,7 @@ const music = [
     options: { A: 'Treble clef', B: 'Alto clef', C: 'Tenor clef', D: 'Bass clef', E: 'Soprano clef' },
     options_tr: { A: 'Sol anahtarı', B: 'Alto anahtarı', C: 'Tenor anahtarı', D: 'Fa anahtarı (bas)', E: 'Soprano anahtarı' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The bass (F) clef covers the lower register; the treble (G) clef covers the higher one.',
   },
   {
@@ -98,6 +108,7 @@ const music = [
     options: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     options_tr: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A violin has four strings tuned G–D–A–E.',
   },
   {
@@ -107,6 +118,7 @@ const music = [
     options: { A: 'Oboe', B: 'Clarinet', C: 'Bassoon', D: 'Flute', E: 'Trumpet' },
     options_tr: { A: 'Obua', B: 'Klarnet', C: 'Fagot', D: 'Flüt', E: 'Trompet' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'The trumpet is a brass instrument. The flute is a woodwind even though modern flutes are metal.',
   },
   {
@@ -116,6 +128,7 @@ const music = [
     options: { A: 'March', B: 'Waltz', C: 'Tango', D: 'Polka', E: 'Foxtrot' },
     options_tr: { A: 'Marş', B: 'Vals', C: 'Tango', D: 'Polka', E: 'Fokstrot' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The waltz is the classic triple-metre dance. Marches and polkas are typically in duple metre.',
   },
   {
@@ -125,6 +138,7 @@ const music = [
     options: { A: 'Renaissance', B: 'Baroque', C: 'Classical', D: 'Romantic', E: 'Modern' },
     options_tr: { A: 'Rönesans', B: 'Barok', C: 'Klasik', D: 'Romantik', E: 'Modern' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Baroque era is roughly 1600–1750; Bach\'s death in 1750 is often taken as its end.',
   },
   {
@@ -134,6 +148,7 @@ const music = [
     options: { A: 'Franz Schubert', B: 'Johannes Brahms', C: 'Ludwig van Beethoven', D: 'Gustav Mahler', E: 'Antonín Dvořák' },
     options_tr: { A: 'Franz Schubert', B: 'Johannes Brahms', C: 'Ludwig van Beethoven', D: 'Gustav Mahler', E: 'Antonín Dvořák' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Beethoven\'s Ninth Symphony (1824) sets Schiller\'s "Ode to Joy" for chorus and soloists.',
   },
   {
@@ -143,6 +158,7 @@ const music = [
     options: { A: 'Mozart', B: 'Beethoven', C: 'Wagner', D: 'Tchaikovsky', E: 'Haydn' },
     options_tr: { A: 'Mozart', B: 'Beethoven', C: 'Wagner', D: 'Çaykovski', E: 'Haydn' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'It is the main theme of the finale of Beethoven\'s Symphony No. 9.',
   },
   {
@@ -152,6 +168,7 @@ const music = [
     options: { A: 'Giuseppe Verdi', B: 'Gioachino Rossini', C: 'Giacomo Puccini', D: 'Gaetano Donizetti', E: 'Vincenzo Bellini' },
     options_tr: { A: 'Giuseppe Verdi', B: 'Gioachino Rossini', C: 'Giacomo Puccini', D: 'Gaetano Donizetti', E: 'Vincenzo Bellini' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Puccini (1858–1924) is one of the most performed opera composers in the world.',
   },
   {
@@ -161,6 +178,7 @@ const music = [
     options: { A: 'Igor Stravinsky', B: 'Sergei Prokofiev', C: 'Pyotr Ilyich Tchaikovsky', D: 'Aram Khachaturian', E: 'Claude Debussy' },
     options_tr: { A: 'Igor Stravinski', B: 'Sergey Prokofyev', C: 'Pyotr İlyiç Çaykovski', D: 'Aram Haçaturyan', E: 'Claude Debussy' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Tchaikovsky also wrote the ballets "The Nutcracker" and "The Sleeping Beauty".',
   },
   {
@@ -170,6 +188,7 @@ const music = [
     options: { A: 'Woodwinds', B: 'Brass', C: 'Strings', D: 'Percussion', E: 'Keyboards' },
     options_tr: { A: 'Tahta üflemeliler', B: 'Bakır üflemeliler (nefesli)', C: 'Yaylılar', D: 'Vurmalılar', E: 'Klavyeli çalgılar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Brass players "buzz" their lips; reeds and air columns define the woodwinds.',
   },
   {
@@ -179,6 +198,7 @@ const music = [
     options: { A: 'Timbre', B: 'Dynamics', C: 'Tempo', D: 'Harmony', E: 'Texture' },
     options_tr: { A: 'Tını (timbre)', B: 'Nüans (dinamik)', C: 'Tempo', D: 'Armoni', E: 'Doku' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Tempo markings such as "Allegro" and "Adagio" indicate how fast to play; dynamics indicate how loud.',
   },
   {
@@ -188,6 +208,7 @@ const music = [
     options: { A: 'Voice alone', B: 'A solo instrument and orchestra', C: 'A string quartet', D: 'Solo piano only', E: 'A full choir' },
     options_tr: { A: 'Yalnız ses', B: 'Solo bir çalgı ve orkestra', C: 'Bir yaylı kuartet', D: 'Yalnızca solo piyano', E: 'Tam bir koro' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A concerto contrasts a soloist (or small group, in a concerto grosso) with the orchestra.',
   },
   {
@@ -197,6 +218,7 @@ const music = [
     options: { A: 'Snare drum', B: 'Cymbals', C: 'Timpani', D: 'Triangle', E: 'Bass drum' },
     options_tr: { A: 'Trampet (snare davul)', B: 'Zil', C: 'Timpani', D: 'Üçgen (triangle)', E: 'Bas davul' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Timpani (kettledrums) are tuned to specific pitches; the others produce indefinite pitch.',
   },
   {
@@ -206,6 +228,7 @@ const music = [
     options: { A: 'A fifth', B: 'A third', C: 'An octave', D: 'A seventh', E: 'A fourth' },
     options_tr: { A: 'Beşli', B: 'Üçlü', C: 'Oktav', D: 'Yedili', E: 'Dörtlü' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Doubling the frequency raises a note by exactly one octave.',
   },
   {
@@ -215,6 +238,7 @@ const music = [
     options: { A: 'Arcangelo Corelli', B: 'Antonio Vivaldi', C: 'Georg Philipp Telemann', D: 'Henry Purcell', E: 'Jean-Baptiste Lully' },
     options_tr: { A: 'Arcangelo Corelli', B: 'Antonio Vivaldi', C: 'Georg Philipp Telemann', D: 'Henry Purcell', E: 'Jean-Baptiste Lully' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Vivaldi, "the Red Priest", published "Le quattro stagioni" around 1725.',
   },
   {
@@ -224,6 +248,7 @@ const music = [
     options: { A: 'Homophony', B: 'Monophony', C: 'Polyphony', D: 'Heterophony', E: 'Antiphony' },
     options_tr: { A: 'Homofoni', B: 'Monofoni', C: 'Polifoni', D: 'Heterofoni', E: 'Antifoni' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Polyphony ("many voices") includes counterpoint and the fugue; monophony is a single line.',
   },
   {
@@ -233,6 +258,7 @@ const music = [
     options: { A: '61', B: '76', C: '85', D: '88', E: '96' },
     options_tr: { A: '61', B: '76', C: '85', D: '88', E: '96' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'A standard piano has 88 keys: 52 white and 36 black, spanning A0 to C8.',
   },
   {
@@ -242,6 +268,7 @@ const music = [
     options: { A: 'Blues', B: 'Country', C: 'Jazz', D: 'Gospel', E: 'Bluegrass' },
     options_tr: { A: 'Blues', B: 'Country', C: 'Caz', D: 'Gospel', E: 'Bluegrass' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Jazz emerged in the early 20th century in New Orleans from ragtime, blues and brass-band traditions.',
   },
   {
@@ -251,6 +278,7 @@ const music = [
     options: { A: 'Miles Davis', B: 'Dizzy Gillespie', C: 'Louis Armstrong', D: 'Chet Baker', E: 'Duke Ellington' },
     options_tr: { A: 'Miles Davis', B: 'Dizzy Gillespie', C: 'Louis Armstrong', D: 'Chet Baker', E: 'Duke Ellington' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Louis Armstrong was a foundational figure in jazz as both a trumpet virtuoso and a singer.',
   },
   {
@@ -260,6 +288,7 @@ const music = [
     options: { A: 'Melody', B: 'Chord progression', C: 'Lyrics', D: 'Instrumentation', E: 'Tempo' },
     options_tr: { A: 'Ezgi', B: 'Akor ilerleyişi', C: 'Sözler', D: 'Çalgılama', E: 'Tempo' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The classic form uses the I, IV and V chords over twelve bars in a set order.',
   },
   {
@@ -281,6 +310,7 @@ const music = [
       E: 'John Lennon, Paul McCartney, Eric Clapton, Ringo Starr',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ringo Starr replaced Pete Best in 1962; Stuart Sutcliffe had left earlier.',
   },
   {
@@ -290,6 +320,7 @@ const music = [
     options: { A: 'Eric Clapton', B: 'Jimmy Page', C: 'Jimi Hendrix', D: 'David Gilmour', E: 'Ritchie Blackmore' },
     options_tr: { A: 'Eric Clapton', B: 'Jimmy Page', C: 'Jimi Hendrix', D: 'David Gilmour', E: 'Ritchie Blackmore' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Jimmy Page founded Led Zeppelin and wrote most of its music with singer Robert Plant.',
   },
   {
@@ -299,6 +330,7 @@ const music = [
     options: { A: 'Rod Stewart', B: 'David Bowie', C: 'Elton John', D: 'Freddie Mercury', E: 'George Michael' },
     options_tr: { A: 'Rod Stewart', B: 'David Bowie', C: 'Elton John', D: 'Freddie Mercury', E: 'George Michael' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Elton John has written most of his songs with lyricist Bernie Taupin since the late 1960s.',
   },
   {
@@ -308,6 +340,7 @@ const music = [
     options: { A: 'Prince', B: 'Michael Jackson', C: 'Lionel Richie', D: 'Stevie Wonder', E: 'Whitney Houston' },
     options_tr: { A: 'Prince', B: 'Michael Jackson', C: 'Lionel Richie', D: 'Stevie Wonder', E: 'Whitney Houston' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Michael Jackson\'s "Thriller", produced with Quincy Jones, has sold an estimated 70 million copies.',
   },
   {
@@ -317,6 +350,7 @@ const music = [
     options: { A: 'The Who', B: 'Queen', C: 'The Police', D: 'Genesis', E: 'Dire Straits' },
     options_tr: { A: 'The Who', B: 'Queen', C: 'The Police', D: 'Genesis', E: 'Dire Straits' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Queen also included Brian May, Roger Taylor and John Deacon; "Bohemian Rhapsody" (1975) is their signature song.',
   },
   {
@@ -326,6 +360,7 @@ const music = [
     options: { A: 'Los Angeles', B: 'Atlanta', C: 'Detroit', D: 'New York City (the Bronx)', E: 'Chicago' },
     options_tr: { A: 'Los Angeles', B: 'Atlanta', C: 'Detroit', D: 'New York (Bronx)', E: 'Chicago' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Block parties in the Bronx, with DJs such as Kool Herc, gave rise to hip-hop culture.',
   },
   {
@@ -335,6 +370,7 @@ const music = [
     options: { A: 'A drum machine', B: 'A turntable and vinyl record', C: 'A synthesizer keyboard', D: 'A microphone', E: 'A sampler pad' },
     options_tr: { A: 'Bir ritim makinesi', B: 'Bir pikap ve plak', C: 'Bir synthesizer klavyesi', D: 'Bir mikrofon', E: 'Bir sampler pad' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The DJ moves a vinyl record back and forth under the needle while manipulating the crossfader.',
   },
   {
@@ -344,6 +380,7 @@ const music = [
     options: { A: 'Tangerine Dream', B: 'Can', C: 'Kraftwerk', D: 'Neu!', E: 'Faust' },
     options_tr: { A: 'Tangerine Dream', B: 'Can', C: 'Kraftwerk', D: 'Neu!', E: 'Faust' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Kraftwerk\'s synthesizer-driven sound deeply influenced synth-pop, techno and hip-hop.',
   },
   {
@@ -353,6 +390,7 @@ const music = [
     options: { A: 'The 1970s', B: 'The 1980s', C: 'The 1990s', D: 'The 2000s', E: 'The 2010s' },
     options_tr: { A: '1970\'ler', B: '1980\'ler', C: '1990\'lar', D: '2000\'ler', E: '2010\'lar' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Nirvana\'s "Nevermind" (1991) brought grunge to the mainstream.',
   },
   {
@@ -362,6 +400,7 @@ const music = [
     options: { A: 'The tabla', B: 'The sitar', C: 'The tanpura', D: 'The sarod', E: 'The bansuri' },
     options_tr: { A: 'Tabla', B: 'Sitar', C: 'Tanpura', D: 'Sarod', E: 'Bansuri' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The sitar, a plucked string instrument, features on Beatles tracks such as "Norwegian Wood".',
   },
   {
@@ -371,6 +410,7 @@ const music = [
     options: { A: 'The BRIT Award', B: 'The Grammy Award', C: 'The Juno Award', D: 'The American Music Award', E: 'The Billboard Music Award' },
     options_tr: { A: 'BRIT Ödülü', B: 'Grammy Ödülü', C: 'Juno Ödülü', D: 'American Music Award', E: 'Billboard Music Award' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Grammy Awards have been presented by the Recording Academy since 1959.',
   },
   {
@@ -380,6 +420,7 @@ const music = [
     options: { A: 'Harmony', B: 'Lyrics', C: 'Instrumental accompaniment', D: 'A conductor', E: 'A melody' },
     options_tr: { A: 'Armoni', B: 'Sözler', C: 'Çalgı eşliği', D: 'Bir şef', E: 'Bir ezgi' },
     answer: 'C',
+    difficulty: 2,
     explanation: '"A cappella" (literally "in the manner of the chapel") means voices only, with no instruments.',
   },
   {
@@ -389,6 +430,7 @@ const music = [
     options: { A: 'Contralto', B: 'Mezzo-soprano', C: 'Soprano', D: 'Alto', E: 'Tenor' },
     options_tr: { A: 'Kontralto', B: 'Mezzosoprano', C: 'Soprano', D: 'Alto', E: 'Tenor' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'From lowest to highest, the standard female voices are contralto, mezzo-soprano and soprano.',
   },
   {
@@ -398,6 +440,7 @@ const music = [
     options: { A: 'G major', B: 'F major', C: 'C major', D: 'D major', E: 'B-flat major' },
     options_tr: { A: 'Sol majör', B: 'Fa majör', C: 'Do majör', D: 'Re majör', E: 'Si bemol majör' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'C major (and its relative, A minor) uses only the natural notes, so it has an empty key signature.',
   },
   {
@@ -407,6 +450,7 @@ const music = [
     options: { A: 'Diminuendo', B: 'Crescendo', C: 'Sforzando', D: 'Ritardando', E: 'Fermata' },
     options_tr: { A: 'Diminuendo', B: 'Crescendo', C: 'Sforzando', D: 'Ritardando', E: 'Fermata' },
     answer: 'B',
+    difficulty: 1,
     explanation: '"Crescendo" grows louder; "diminuendo" (or "decrescendo") grows softer.',
   },
   {
@@ -416,6 +460,7 @@ const music = [
     options: { A: 'Claude Debussy', B: 'Maurice Ravel', C: 'Igor Stravinsky', D: 'Arnold Schoenberg', E: 'Béla Bartók' },
     options_tr: { A: 'Claude Debussy', B: 'Maurice Ravel', C: 'Igor Stravinski', D: 'Arnold Schönberg', E: 'Béla Bartók' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Stravinsky\'s ballet score for the Ballets Russes broke with traditional rhythm and harmony.',
   },
   {
@@ -425,6 +470,7 @@ const music = [
     options: { A: 'Igor Stravinsky', B: 'Arnold Schoenberg', C: 'Aaron Copland', D: 'Dmitri Shostakovich', E: 'Paul Hindemith' },
     options_tr: { A: 'Igor Stravinski', B: 'Arnold Schönberg', C: 'Aaron Copland', D: 'Dmitri Şostakoviç', E: 'Paul Hindemith' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Schoenberg introduced the method in the early 1920s; his pupils Berg and Webern developed it further.',
   },
   {
@@ -434,6 +480,7 @@ const music = [
     options: { A: 'Double bass', B: 'Two violins, one viola, one cello', C: 'Two cellos and two violas', D: 'Violin, viola, cello, harp', E: 'Four violins' },
     options_tr: { A: 'Kontrbas', B: 'İki keman, bir viyola, bir çello', C: 'İki çello ve iki viyola', D: 'Keman, viyola, çello, arp', E: 'Dört keman' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The classic string quartet is two violins, a viola and a cello.',
   },
   {
@@ -455,6 +502,7 @@ const music = [
       E: 'Parçanın son akoru',
     },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The cadenza lets the soloist display technique; historically it was often improvised.',
   },
   {
@@ -464,6 +512,7 @@ const music = [
     options: { A: 'Cello', B: 'Viola', C: 'Double bass', D: 'Harp', E: 'Violin' },
     options_tr: { A: 'Çello', B: 'Viyola', C: 'Kontrbas', D: 'Arp', E: 'Keman' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The double bass (contrabass) is played standing or on a high stool and often reads an octave above its sounding pitch.',
   },
   {
@@ -473,6 +522,7 @@ const music = [
     options: { A: 'Coda', B: 'Subject', C: 'Ostinato', D: 'Refrain', E: 'Bridge' },
     options_tr: { A: 'Coda', B: 'Subject (özne / tema)', C: 'Ostinato', D: 'Nakarat', E: 'Köprü' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The fugue subject is announced alone, then answered and developed contrapuntally in each voice.',
   },
   {
@@ -482,6 +532,7 @@ const music = [
     options: { A: 'Leonard Cohen', B: 'Bruce Springsteen', C: 'Bob Dylan', D: 'Neil Young', E: 'Paul Simon' },
     options_tr: { A: 'Leonard Cohen', B: 'Bruce Springsteen', C: 'Bob Dylan', D: 'Neil Young', E: 'Paul Simon' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Bob Dylan was recognized "for having created new poetic expressions within the great American song tradition".',
   },
   {
@@ -491,6 +542,7 @@ const music = [
     options: { A: 'Jimmy Cliff', B: 'Peter Tosh', C: 'Bob Marley', D: 'Toots Hibbert', E: 'Burning Spear' },
     options_tr: { A: 'Jimmy Cliff', B: 'Peter Tosh', C: 'Bob Marley', D: 'Toots Hibbert', E: 'Burning Spear' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Bob Marley and the Wailers made reggae a global genre in the 1970s.',
   },
   {
@@ -500,6 +552,7 @@ const music = [
     options: { A: 'Pitch', B: 'Timbre', C: 'Amplitude', D: 'Dynamics', E: 'Resonance' },
     options_tr: { A: 'Perde (pitch)', B: 'Tını (timbre)', C: 'Genlik (amplitude)', D: 'Nüans (dinamik)', E: 'Rezonans' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Timbre arises largely from the pattern of overtones an instrument produces.',
   },
   {
@@ -509,6 +562,7 @@ const music = [
     options: { A: 'Brass', B: 'Woodwind', C: 'Percussion', D: 'String', E: 'Keyboard' },
     options_tr: { A: 'Bakır üflemeliler', B: 'Tahta üflemeliler (woodwind)', C: 'Vurmalılar', D: 'Yaylılar', E: 'Klavyeli çalgılar' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The saxophone uses a single reed like the clarinet, which places it among the woodwinds.',
   },
   {
@@ -518,6 +572,7 @@ const music = [
     options: { A: '1946', B: '1956', C: '1964', D: '1972', E: '1981' },
     options_tr: { A: '1946', B: '1956', C: '1964', D: '1972', E: '1981' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The first contest took place in Lugano, Switzerland, in 1956 with seven countries.',
   },
   {
@@ -527,6 +582,7 @@ const music = [
     options: { A: 'Sertab Erener', B: 'Hadise', C: 'Athena', D: 'Kenan Doğulu', E: 'mor ve ötesi' },
     options_tr: { A: 'Sertab Erener', B: 'Hadise', C: 'Athena', D: 'Kenan Doğulu', E: 'mor ve ötesi' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Sertab Erener gave Turkey its only Eurovision victory, in Riga in 2003.',
   },
   {
@@ -536,6 +592,7 @@ const music = [
     options: { A: 'A bowed string instrument', B: 'A long-necked plucked lute', C: 'A double-reed wind instrument', D: 'A frame drum', E: 'A hammered dulcimer' },
     options_tr: { A: 'Yaylı bir telli çalgı', B: 'Uzun saplı, mızraplı bir lut (saz)', C: 'Çift kamışlı bir üflemeli çalgı', D: 'Bir çerçeve davul', E: 'Tokmakla çalınan bir santur' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The bağlama (saz) is a long-necked, fretted lute plucked with a plectrum or with the fingers ("şelpe").',
   },
   {
@@ -545,6 +602,7 @@ const music = [
     options: { A: 'Türkü', B: 'Fasıl', C: 'Arabesk', D: 'Taverna', E: 'Özgün müzik' },
     options_tr: { A: 'Türkü', B: 'Fasıl', C: 'Arabesk', D: 'Taverna', E: 'Özgün müzik' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Arabesk rose to popularity from the 1970s and was long kept off state television and radio.',
   },
   {
@@ -554,6 +612,7 @@ const music = [
     options: { A: 'Kenan Doğulu', B: 'Mustafa Sandal', C: 'Tarkan', D: 'Serdar Ortaç', E: 'Levent Yüksel' },
     options_tr: { A: 'Kenan Doğulu', B: 'Mustafa Sandal', C: 'Tarkan', D: 'Serdar Ortaç', E: 'Levent Yüksel' },
     answer: 'C',
+    difficulty: 3,
     explanation: '"Şımarık" from the album "Ölürüm Sana" was a hit across Europe, Latin America and beyond.',
   },
   {
@@ -563,6 +622,7 @@ const music = [
     options: { A: 'Rhythmic cycles', B: 'Melodic modes and their characteristic phrases', C: 'Instrument tunings only', D: 'Song lyrics forms', E: 'Dance steps' },
     options_tr: { A: 'Ritmik döngüler', B: 'Ezgisel modlar ve bunlara özgü seyirler', C: 'Yalnızca çalgı akortları', D: 'Şarkı sözü biçimleri', E: 'Dans adımları' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A makam defines a scale, a tonic, a dominant and typical melodic movement; rhythmic cycles are called "usul".',
   },
   {
@@ -572,6 +632,7 @@ const music = [
     options: { A: 'Beethoven', B: 'Mozart', C: 'Haydn', D: 'Schubert', E: 'Chopin' },
     options_tr: { A: 'Beethoven', B: 'Mozart', C: 'Haydn', D: 'Schubert', E: 'Chopin' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'It is the finale of Mozart\'s Piano Sonata No. 11 in A major, K. 331, imitating Janissary band music.',
   },
   {
@@ -581,6 +642,7 @@ const music = [
     options: { A: 'Franz Liszt', B: 'Frédéric Chopin', C: 'Robert Schumann', D: 'Johannes Brahms', E: 'Edvard Grieg' },
     options_tr: { A: 'Franz Liszt', B: 'Frédéric Chopin', C: 'Robert Schumann', D: 'Johannes Brahms', E: 'Edvard Grieg' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Chopin (1810–1849) wrote almost exclusively for the piano.',
   },
   {
@@ -590,6 +652,7 @@ const music = [
     options: { A: 'Giuseppe Verdi', B: 'Richard Strauss', C: 'Richard Wagner', D: 'Georges Bizet', E: 'Modest Mussorgsky' },
     options_tr: { A: 'Giuseppe Verdi', B: 'Richard Strauss', C: 'Richard Wagner', D: 'Georges Bizet', E: 'Modest Musorgski' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Wagner\'s four-opera cycle, about 15 hours long, premiered as a whole at Bayreuth in 1876.',
   },
   {
@@ -599,6 +662,7 @@ const music = [
     options: { A: 'Bass power modulation', B: 'Beats per minute (tempo)', C: 'Bit depth per module', D: 'Bars per measure', E: 'Balance and panning metric' },
     options_tr: { A: 'Bas güç modülasyonu', B: 'Dakikadaki vuruş sayısı (tempo)', C: 'Modül başına bit derinliği', D: 'Ölçü başına bar', E: 'Denge ve panning metriği' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'BPM is a numerical tempo: 120 BPM means two beats every second.',
   },
   {
@@ -608,6 +672,7 @@ const music = [
     options: { A: 'House', B: 'Techno', C: 'Dubstep', D: 'Drum and bass', E: 'Trance' },
     options_tr: { A: 'House', B: 'Techno', C: 'Dubstep', D: 'Drum and bass', E: 'Trance' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Detroit techno (Juan Atkins, Derrick May, Kevin Saunderson) grew alongside Chicago house in the mid-1980s.',
   },
   {
@@ -617,6 +682,7 @@ const music = [
     options: { A: 'Trill', B: 'Glissando', C: 'Tremolo', D: 'Vibrato', E: 'Staccato' },
     options_tr: { A: 'Tril', B: 'Glissando', C: 'Tremolo', D: 'Vibrato', E: 'Stakato' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A glissando slides continuously (or through many quick steps) from one pitch to another; a trill rapidly alternates two adjacent notes.',
   },
   {
@@ -626,6 +692,7 @@ const music = [
     options: { A: '1', B: '2', C: '3', D: '4', E: '5' },
     options_tr: { A: '1', B: '2', C: '3', D: '4', E: '5' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The standard plan is fast – slow – minuet (or scherzo) – fast.',
   },
   {
@@ -647,6 +714,7 @@ const music = [
       E: 'İkiye katlanmış tonik',
     },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Compared with the parallel major, the natural minor flattens the 3rd, 6th and 7th scale degrees.',
   },
   {
@@ -656,6 +724,7 @@ const music = [
     options: { A: 'Aaron Copland', B: 'George Gershwin', C: 'Leonard Bernstein', D: 'Charles Ives', E: 'Duke Ellington' },
     options_tr: { A: 'Aaron Copland', B: 'George Gershwin', C: 'Leonard Bernstein', D: 'Charles Ives', E: 'Duke Ellington' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Gershwin also wrote the opera "Porgy and Bess" and countless songs with his brother Ira.',
   },
   {
@@ -677,6 +746,7 @@ const music = [
       E: 'Armonik minör gam',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The six-note blues scale is the minor pentatonic plus the "blue note" a flat fifth above the tonic.',
   },
   {
@@ -686,6 +756,7 @@ const music = [
     options: { A: 'French horn', B: 'Tuba', C: 'Trumpet', D: 'Euphonium', E: 'Cornet' },
     options_tr: { A: 'Korno', B: 'Tuba', C: 'Trompet', D: 'Eufonyum', E: 'Kornet' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The B-flat trumpet is the highest common orchestral brass instrument.',
   },
   {
@@ -695,6 +766,7 @@ const music = [
     options: { A: 'D minor and E minor', B: 'F major and G major', C: 'A minor and B diminished', D: 'E major and A major', E: 'B-flat and E-flat' },
     options_tr: { A: 'Re minör ve Mi minör', B: 'Fa majör ve Sol majör', C: 'La minör ve Si eksik', D: 'Mi majör ve La majör', E: 'Si bemol ve Mi bemol' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The I–IV–V progression in C major is C, F and G.',
   },
   {
@@ -716,6 +788,7 @@ const music = [
       E: 'Bir cümleyi bir oktav tiz tekrarlamak',
     },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Syncopation shifts accents off the expected strong beats, driving jazz, funk and much pop.',
   },
   {
@@ -725,6 +798,7 @@ const music = [
     options: { A: 'Radio requests only', B: 'On-demand audio and video streams', C: 'Concert ticket sales', D: 'Sheet-music sales', E: 'Karaoke plays' },
     options_tr: { A: 'Yalnızca radyo istekleri', B: 'İstek üzerine ses ve video streamleri', C: 'Konser bileti satışları', D: 'Nota satışları', E: 'Karaoke çalınmaları' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Billboard began counting YouTube and on-demand streaming toward Hot 100 chart position in 2013.',
   },
   {
@@ -734,6 +808,7 @@ const music = [
     options: { A: 'EXO', B: 'BTS', C: 'BLACKPINK', D: 'Big Bang', E: 'Twice' },
     options_tr: { A: 'EXO', B: 'BTS', C: 'BLACKPINK', D: 'Big Bang', E: 'Twice' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'BTS reached No. 1 with "Love Yourself: Tear" in 2018 and repeated the feat several times after.',
   },
   {
@@ -743,6 +818,7 @@ const music = [
     options: { A: 'The concertmaster', B: 'The conductor', C: 'The principal cellist', D: 'The librarian', E: 'The soloist' },
     options_tr: { A: 'Başkemancı (konzertmeister)', B: 'Orkestra şefi', C: 'Baş çellist', D: 'Nota kütüphanecisi', E: 'Solist' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The conductor directs from the podium; the concertmaster (first-chair violin) is the orchestra\'s leader among the players.',
   },
   {
@@ -752,6 +828,7 @@ const music = [
     options: { A: '415 Hz', B: '432 Hz', C: '440 Hz', D: '466 Hz', E: '480 Hz' },
     options_tr: { A: '415 Hz', B: '432 Hz', C: '440 Hz', D: '466 Hz', E: '480 Hz' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'A4 = 440 Hz is the widely used standard; some ensembles tune slightly higher (442–443 Hz) and Baroque groups often use 415 Hz.',
   },
   {
@@ -761,6 +838,7 @@ const music = [
     options: { A: 'Clarinet', B: 'Flute', C: 'Oboe', D: 'Recorder', E: 'Saxophone' },
     options_tr: { A: 'Klarnet', B: 'Flüt', C: 'Obua', D: 'Blok flüt', E: 'Saksofon' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The oboe and bassoon use double reeds; the clarinet and saxophone use single reeds; the flute and recorder use none.',
   },
   {
@@ -770,6 +848,7 @@ const music = [
     options: { A: 'Major triad', B: 'Minor triad', C: 'Augmented triad', D: 'Diminished triad', E: 'Suspended chord' },
     options_tr: { A: 'Majör üçlü', B: 'Minör üçlü', C: 'Artık üçlü', D: 'Eksik üçlü', E: 'Askılı akor (sus)' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Stacking two minor thirds gives a diminished triad; two major thirds gives an augmented triad.',
   },
   {
@@ -779,6 +858,7 @@ const music = [
     options: { A: 'Anton Bruckner', B: 'Gustav Mahler', C: 'Franz Schubert', D: 'Joseph Haydn', E: 'Franz Liszt' },
     options_tr: { A: 'Anton Bruckner', B: 'Gustav Mahler', C: 'Franz Schubert', D: 'Joseph Haydn', E: 'Franz Liszt' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Schubert completed only two movements of his Symphony in B minor (1822); it was premiered decades after his death.',
   },
   {
@@ -788,6 +868,7 @@ const music = [
     options: { A: 'Homophony', B: 'Monophony', C: 'Polyphony', D: 'Biphony', E: 'Organum' },
     options_tr: { A: 'Homofoni', B: 'Monofoni', C: 'Polifoni', D: 'Bifoni', E: 'Organum' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Monophonic texture is a single unaccompanied line, even if sung by many voices in unison.',
   },
   {
@@ -797,6 +878,7 @@ const music = [
     options: { A: 'Memphis', B: 'Nashville', C: 'Detroit', D: 'Philadelphia', E: 'Chicago' },
     options_tr: { A: 'Memphis', B: 'Nashville', C: 'Detroit', D: 'Philadelphia', E: 'Chicago' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Berry Gordy founded Motown in Detroit ("Motor Town"); its artists included The Supremes, Marvin Gaye and Stevie Wonder.',
   },
   {
@@ -806,6 +888,7 @@ const music = [
     options: { A: 'Maurice Ravel', B: 'Claude Debussy', C: 'Erik Satie', D: 'Gabriel Fauré', E: 'César Franck' },
     options_tr: { A: 'Maurice Ravel', B: 'Claude Debussy', C: 'Erik Satie', D: 'Gabriel Fauré', E: 'César Franck' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Debussy disliked the "Impressionist" label but is its central figure, using whole-tone scales and unresolved harmony for atmosphere.',
   },
   {
@@ -815,6 +898,7 @@ const music = [
     options: { A: 'Dynamic audio wave', B: 'Digital audio workstation', C: 'Direct amplifier wiring', D: 'Dual analog wave', E: 'Delay and wah unit' },
     options_tr: { A: 'Dinamik ses dalgası', B: 'Dijital ses iş istasyonu (yazılımı)', C: 'Doğrudan amfi kablolaması', D: 'Çift analog dalga', E: 'Delay ve wah ünitesi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A DAW (e.g. Pro Tools, Ableton Live, Logic) is software for recording, editing and mixing audio.',
   },
   {
@@ -824,6 +908,7 @@ const music = [
     options: { A: 'Falsetto', B: 'Vibrato', C: 'Portamento', D: 'Melisma', E: 'Belting' },
     options_tr: { A: 'Falsetto', B: 'Vibrato', C: 'Portamento', D: 'Melizma', E: 'Belting' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Vibrato is a controlled oscillation in pitch (and sometimes intensity) around the central note.',
   },
   {
@@ -833,6 +918,7 @@ const music = [
     options: { A: 'Celesta', B: 'Harpsichord', C: 'Clavichord', D: 'Organ', E: 'Accordion' },
     options_tr: { A: 'Çelesta', B: 'Klavsen (harpsichord)', C: 'Klavikord', D: 'Org', E: 'Akordeon' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The harpsichord plucks its strings with quills, so it cannot vary loudness by touch as the piano can.',
   },
   {
@@ -842,6 +928,7 @@ const music = [
     options: { A: 'Coda', B: 'Exposition', C: 'Development', D: 'Recapitulation', E: 'Interlude' },
     options_tr: { A: 'Coda', B: 'Sergi (exposition)', C: 'Gelişme (development)', D: 'Yeniden sergi (recapitulation)', E: 'Ara bölüm (interlude)' },
     answer: 'A',
+    difficulty: 2,
     explanation: '"Coda" (Italian for "tail") is a closing section; a very short one is a "codetta".',
   },
   {
@@ -851,6 +938,7 @@ const music = [
     options: { A: 'Duman', B: 'mor ve ötesi', C: 'Şebnem Ferah', D: 'Pentagram', E: 'Mavi Sakal' },
     options_tr: { A: 'Duman', B: 'mor ve ötesi', C: 'Şebnem Ferah', D: 'Pentagram', E: 'Mavi Sakal' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'mor ve ötesi performed "Deli" and finished seventh at Eurovision 2008 in Belgrade.',
   },
   {
@@ -860,6 +948,7 @@ const music = [
     options: { A: 'A plucked lute', B: 'An end-blown reed flute', C: 'A bowed fiddle', D: 'A hammered dulcimer', E: 'A frame drum' },
     options_tr: { A: 'Mızraplı bir lut', B: 'Uçtan üflemeli bir kamış flüt', C: 'Yaylı bir kemençe', D: 'Tokmakla çalınan bir santur', E: 'Bir çerçeve davul' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The ney is an ancient end-blown flute made of reed, central to Mevlevi (whirling dervish) ceremonies.',
   },
   {
@@ -881,6 +970,7 @@ const music = [
       E: 'Bir solo doğaçlama',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'An ostinato ("obstinate") is a motif or phrase that repeats through a passage, often in the bass ("basso ostinato").',
   },
   {
@@ -890,6 +980,7 @@ const music = [
     options: { A: 'Chuck Berry', B: 'Little Richard', C: 'Elvis Presley', D: 'Buddy Holly', E: 'Jerry Lee Lewis' },
     options_tr: { A: 'Chuck Berry', B: 'Little Richard', C: 'Elvis Presley', D: 'Buddy Holly', E: 'Jerry Lee Lewis' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Elvis Presley became a global star from the mid-1950s and remains one of the best-selling solo artists ever.',
   },
   {
@@ -899,6 +990,7 @@ const music = [
     options: { A: 'The leading tone', B: 'The root', C: 'The seventh', D: 'The mediant', E: 'The subdominant' },
     options_tr: { A: 'Yeden ses (leading tone)', B: 'Kök (root)', C: 'Yedili (7\'li)', D: 'Ortancıl (mediant)', E: 'Alt çeken (subdominant)' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The root gives the chord its name; when another chord tone is in the bass, the chord is "inverted".',
   },
   {
@@ -908,6 +1000,7 @@ const music = [
     options: { A: 'Monterey Pop', B: 'Woodstock', C: 'Isle of Wight', D: 'Altamont', E: 'Newport Folk' },
     options_tr: { A: 'Monterey Pop', B: 'Woodstock', C: 'Isle of Wight', D: 'Altamont', E: 'Newport Folk' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Woodstock drew an estimated 400,000 people over four days in August 1969.',
   },
   {
@@ -917,6 +1010,7 @@ const music = [
     options: { A: 'Legato', B: 'Tenuto', C: 'Staccato', D: 'Marcato', E: 'Portato' },
     options_tr: { A: 'Legato', B: 'Tenuto', C: 'Stakato', D: 'Markato', E: 'Portato' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Staccato notes are played short and separated; legato notes are smoothly connected.',
   },
   {
@@ -926,6 +1020,7 @@ const music = [
     options: { A: 'Nikolai Rimsky-Korsakov', B: 'Pyotr Ilyich Tchaikovsky', C: 'Alexander Borodin', D: 'Sergei Rachmaninoff', E: 'Modest Mussorgsky' },
     options_tr: { A: 'Nikolay Rimski-Korsakov', B: 'Pyotr İlyiç Çaykovski', C: 'Aleksandr Borodin', D: 'Sergey Rahmaninov', E: 'Modest Musorgski' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The 1812 Overture famously scores real cannon fire; "The Nutcracker" is a Christmas ballet staple.',
   },
   {
@@ -935,6 +1030,7 @@ const music = [
     options: { A: '4', B: '5', C: '6', D: '7', E: '12' },
     options_tr: { A: '4', B: '5', C: '6', D: '7', E: '12' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'A standard guitar has six strings tuned E–A–D–G–B–E. Twelve-string guitars double each course.',
   },
   {
@@ -944,6 +1040,7 @@ const music = [
     options: { A: 'Melody', B: 'Rhythm', C: 'Harmony', D: 'Form', E: 'Dynamics' },
     options_tr: { A: 'Ezgi', B: 'Ritim', C: 'Armoni', D: 'Biçim', E: 'Nüans' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Harmony concerns vertical combinations of pitches and the "harmonic progression" from chord to chord.',
   },
   {
@@ -953,6 +1050,7 @@ const music = [
     options: { A: 'The castrato', B: 'The baritone', C: 'The basso profondo', D: 'The lyric tenor', E: 'The heldentenor' },
     options_tr: { A: 'Kastrato', B: 'Bariton', C: 'Basso profondo', D: 'Lirik tenor', E: 'Heldentenor' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Castrati sang soprano and alto roles in Baroque opera; modern productions use countertenors or women instead.',
   },
   {
@@ -962,6 +1060,7 @@ const music = [
     options: { A: 'Katy Perry', B: 'Taylor Swift', C: 'Ariana Grande', D: 'Lady Gaga', E: 'Adele' },
     options_tr: { A: 'Katy Perry', B: 'Taylor Swift', C: 'Ariana Grande', D: 'Lady Gaga', E: 'Adele' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Taylor Swift began re-recording her first six albums in 2021 to own her master recordings.',
   },
   {
@@ -971,6 +1070,7 @@ const music = [
     options: { A: 'An eighth note (quaver)', B: 'A half note (minim)', C: 'A whole note (semibreve)', D: 'A sixteenth note (semiquaver)', E: 'A dotted quarter note' },
     options_tr: { A: 'Sekizlik nota (kuyruklu)', B: 'İkilik nota (beyaz)', C: 'Birlik nota (yuvarlak)', D: 'On altılık nota', E: 'Noktalı dörtlük nota' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A half note = two quarter notes; a whole note = four quarter notes.',
   },
   {
@@ -980,6 +1080,7 @@ const music = [
     options: { A: 'Allegro', B: 'Presto', C: 'Largo', D: 'Vivace', E: 'Moderato' },
     options_tr: { A: 'Allegro', B: 'Presto', C: 'Largo', D: 'Vivace', E: 'Moderato' },
     answer: 'C',
+    difficulty: 1,
     explanation: '"Largo" means broad and very slow, while "presto" and "vivace" are among the fastest markings.',
   },
   {
@@ -1001,6 +1102,7 @@ const music = [
       E: 'Verdi\'nin "Requiem"i',
     },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Handel wrote "Messiah" in 1741 in about three weeks, and the "Hallelujah" chorus closes its second part.',
   },
   {
@@ -1010,6 +1112,7 @@ const music = [
     options: { A: 'Nilüfer', B: 'Sezen Aksu', C: 'Candan Erçetin', D: 'Yıldız Tilbe', E: 'Nazan Öncel' },
     options_tr: { A: 'Nilüfer', B: 'Sezen Aksu', C: 'Candan Erçetin', D: 'Yıldız Tilbe', E: 'Nazan Öncel' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Sezen Aksu has written a large part of the modern Turkish pop repertoire for other singers as well as for herself.',
   },
   {
@@ -1019,6 +1122,7 @@ const music = [
     options: { A: 'Miles Davis', B: 'Clifford Brown', C: 'Freddie Hubbard', D: 'Lee Morgan', E: 'Wynton Marsalis' },
     options_tr: { A: 'Miles Davis', B: 'Clifford Brown', C: 'Freddie Hubbard', D: 'Lee Morgan', E: 'Wynton Marsalis' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Miles Davis built the album on modal scales rather than dense chord changes, with Bill Evans and Cannonball Adderley in the band.',
   },
   {
@@ -1028,6 +1132,7 @@ const music = [
     options: { A: '3', B: '5', C: '7', D: '9', E: '12' },
     options_tr: { A: '3', B: '5', C: '7', D: '9', E: '12' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Seven pedals, one per note name and each with three positions, let a harpist play in any key on 47 strings.',
   },
   {
@@ -1037,6 +1142,7 @@ const music = [
     options: { A: 'ABBA', B: 'Bucks Fizz', C: 'Brotherhood of Man', D: 'Teach-In', E: 'Secret Garden' },
     options_tr: { A: 'ABBA', B: 'Bucks Fizz', C: 'Brotherhood of Man', D: 'Teach-In', E: 'Secret Garden' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The Swedish quartet won in Brighton and went on to become one of the best-selling acts in pop history.',
   },
   {
@@ -1058,6 +1164,7 @@ const music = [
       E: 'Stakato olacak kadar kısaltır',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A dotted half note lasts as long as three quarter notes; a second dot adds half of the first dot\'s value again.',
   },
   {
@@ -1067,6 +1174,7 @@ const music = [
     options: { A: 'Moğollar', B: 'Kurtalan Ekspres', C: 'Apaşlar', D: 'Dervişan', E: 'Kardaşlar' },
     options_tr: { A: 'Moğollar', B: 'Kurtalan Ekspres', C: 'Apaşlar', D: 'Dervişan', E: 'Kardaşlar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Kurtalan Ekspres accompanied Manço for decades, including on the 1975 album "2023".',
   },
   {
@@ -1076,6 +1184,7 @@ const music = [
     options: { A: 'Jules Massenet', B: 'Charles Gounod', C: 'Georges Bizet', D: 'Camille Saint-Saëns', E: 'Hector Berlioz' },
     options_tr: { A: 'Jules Massenet', B: 'Charles Gounod', C: 'Georges Bizet', D: 'Camille Saint-Saëns', E: 'Hector Berlioz' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Bizet died in 1875, only months after the premiere, before "Carmen" became one of the world\'s most performed operas.',
   },
   {
@@ -1085,6 +1194,7 @@ const music = [
     options: { A: 'TR-808', B: 'MPC60', C: 'LinnDrum', D: 'SP-1200', E: 'DX7' },
     options_tr: { A: 'TR-808', B: 'MPC60', C: 'LinnDrum', D: 'SP-1200', E: 'DX7' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The TR-808 sold poorly at first, but its long, tunable bass drum became a signature of 1980s electro and later of trap.',
   },
   {
@@ -1094,6 +1204,7 @@ const music = [
     options: { A: 'A major third', B: 'A perfect fourth', C: 'A perfect fifth', D: 'A minor sixth', E: 'A major seventh' },
     options_tr: { A: 'Majör üçlü', B: 'Tam dörtlü', C: 'Tam beşli', D: 'Minör altılı', E: 'Majör yedili' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'C up to G spans seven semitones, while the perfect fourth spans five.',
   },
   {
@@ -1103,6 +1214,7 @@ const music = [
     options: { A: 'Andalusia, Spain', B: 'Provence, France', C: 'Sicily, Italy', D: 'Catalonia, Spain', E: 'The Algarve, Portugal' },
     options_tr: { A: 'Endülüs, İspanya', B: 'Provence, Fransa', C: 'Sicilya, İtalya', D: 'Katalonya, İspanya', E: 'Algarve, Portekiz' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Flamenco grew in Andalusia among Roma and local communities, and rests on cante (song), toque (guitar) and baile (dance).',
   },
   {
@@ -1112,6 +1224,7 @@ const music = [
     options: { A: 'The oboe', B: 'The clarinet', C: 'The flute', D: 'The bassoon', E: 'The French horn' },
     options_tr: { A: 'Obua', B: 'Klarnet', C: 'Flüt', D: 'Fagot', E: 'Korno' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Prokofiev gave every character an instrument: flute for the bird, oboe for the duck, clarinet for the cat and horns for the wolf.',
   },
   {
@@ -1121,6 +1234,7 @@ const music = [
     options: { A: 'Lucille', B: 'Trigger', C: 'Blackie', D: 'Betty Jean', E: 'Frankenstein' },
     options_tr: { A: 'Lucille', B: 'Trigger', C: 'Blackie', D: 'Betty Jean', E: 'Frankenstein' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'King named his Gibson guitars after a woman called Lucille, over whom a fight had started a dance-hall fire he escaped in 1949.',
   },
   {
@@ -1130,6 +1244,7 @@ const music = [
     options: { A: 'Trumpet', B: 'French horn', C: 'Tuba', D: 'Trombone', E: 'Euphonium' },
     options_tr: { A: 'Trompet', B: 'Korno', C: 'Tuba', D: 'Trombon', E: 'Eufonyum' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The trombone slide lengthens the tubing continuously, which is why the instrument can glide smoothly between pitches.',
   },
   {
@@ -1139,6 +1254,7 @@ const music = [
     options: { A: 'Müslüm Gürses', B: 'Zeki Müren', C: 'Bülent Ersoy', D: 'Münir Nurettin Selçuk', E: 'Barış Manço' },
     options_tr: { A: 'Müslüm Gürses', B: 'Zeki Müren', C: 'Bülent Ersoy', D: 'Münir Nurettin Selçuk', E: 'Barış Manço' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Zeki Müren (1931-1996) was a singer, composer and film actor whose stage costumes made him one of Turkey\'s most recognisable figures.',
   },
   {
@@ -1148,6 +1264,7 @@ const music = [
     options: { A: '2/2', B: '3/4', C: '4/4', D: '6/8', E: '12/8' },
     options_tr: { A: '2/2', B: '3/4', C: '4/4', D: '6/8', E: '12/8' },
     answer: 'C',
+    difficulty: 1,
     explanation: '"C" stands for common time, that is 4/4; the same sign with a vertical stroke means cut time, 2/2.',
   },
   {
@@ -1169,6 +1286,7 @@ const music = [
       E: 'Dire Straits - "Money for Nothing"',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: 'MTV launched on 1 August 1981, and the Buggles song had already been a hit two years earlier.',
   },
   {
@@ -1178,6 +1296,7 @@ const music = [
     options: { A: 'Antonín Dvořák', B: 'Bedřich Smetana', C: 'Leoš Janáček', D: 'Gustav Mahler', E: 'Edvard Grieg' },
     options_tr: { A: 'Antonín Dvořák', B: 'Bedřich Smetana', C: 'Leoš Janáček', D: 'Gustav Mahler', E: 'Edvard Grieg' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Dvořák composed it in 1893 while directing a conservatory in New York, drawing on his impressions of American folk idioms.',
   },
   {
@@ -1187,6 +1306,7 @@ const music = [
     options: { A: 'Japan', B: 'China', C: 'Vietnam', D: 'Korea', E: 'Mongolia' },
     options_tr: { A: 'Japonya', B: 'Çin', C: 'Vietnam', D: 'Kore', E: 'Moğolistan' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Chinese erhu has a small resonator covered with snakeskin, and its bow hair runs between the two strings.',
   },
   {
@@ -1196,6 +1316,7 @@ const music = [
     options: { A: 'Cadenza', B: 'Development', C: 'Trio', D: 'Refrain', E: 'Prelude' },
     options_tr: { A: 'Kadans (cadenza)', B: 'Gelişme (development)', C: 'Trio', D: 'Nakarat', E: 'Prelüd' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The exposition presents the themes, the development reworks them through distant keys, and the recapitulation restates them in the home key.',
   },
   {
@@ -1205,6 +1326,7 @@ const music = [
     options: { A: 'Âşık Veysel', B: 'Pir Sultan Abdal', C: 'Karacaoğlan', D: 'Aşık Mahzuni Şerif', E: 'Muhlis Akarsu' },
     options_tr: { A: 'Âşık Veysel', B: 'Pir Sultan Abdal', C: 'Karacaoğlan', D: 'Aşık Mahzuni Şerif', E: 'Muhlis Akarsu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Âşık Veysel Şatıroğlu (1894-1973), from a village near Sivas, lost his sight as a child and became the best-known ozan of the Republican era.',
   },
   {
@@ -1214,6 +1336,7 @@ const music = [
     options: { A: 'Sarah Vaughan', B: 'Ella Fitzgerald', C: 'Dinah Washington', D: 'Nina Simone', E: 'Peggy Lee' },
     options_tr: { A: 'Sarah Vaughan', B: 'Ella Fitzgerald', C: 'Dinah Washington', D: 'Nina Simone', E: 'Peggy Lee' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Ella Fitzgerald won more than a dozen Grammy Awards and recorded the celebrated "Song Book" series of American standards.',
   },
   {
@@ -1223,6 +1346,7 @@ const music = [
     options: { A: 'Judas Priest', B: 'Iron Maiden', C: 'Black Sabbath', D: 'Motörhead', E: 'Deep Purple' },
     options_tr: { A: 'Judas Priest', B: 'Iron Maiden', C: 'Black Sabbath', D: 'Motörhead', E: 'Deep Purple' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Black Sabbath\'s self-titled 1970 debut, with Tony Iommi\'s down-tuned riffs, is widely treated as the starting point of heavy metal.',
   },
   {
@@ -1232,6 +1356,7 @@ const music = [
     options: { A: 'G minor', B: 'D minor', C: 'B minor', D: 'E minor', E: 'A minor' },
     options_tr: { A: 'Sol minör', B: 'Re minör', C: 'Si minör', D: 'Mi minör', E: 'La minör' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The relative minor lies a minor third below the major tonic, so G major and E minor both carry one sharp.',
   },
   {
@@ -1241,6 +1366,7 @@ const music = [
     options: { A: '"Turandot"', B: '"Rigoletto"', C: '"Pagliacci"', D: '"Aida"', E: '"Don Giovanni"' },
     options_tr: { A: '"Turandot"', B: '"Rigoletto"', C: '"Pagliacci"', D: '"Aida"', E: '"Don Giovanni"' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Puccini left "Turandot" unfinished at his death in 1924, and the aria reached a huge new audience through the 1990 World Cup.',
   },
   {
@@ -1262,6 +1388,7 @@ const music = [
       E: 'Akortlu gonglardan oluşan bir takım',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The kanun has dozens of strings in triple courses and small levers called "mandal" that let the player adjust microtonal steps while playing.',
   },
   {
@@ -1271,6 +1398,7 @@ const music = [
     options: { A: '3/4', B: '4/4', C: '5/4', D: '7/8', E: '9/8' },
     options_tr: { A: '3/4', B: '4/4', C: '5/4', D: '7/8', E: '9/8' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Saxophonist Paul Desmond wrote the tune for the album "Time Out", a project built around unusual metres.',
   },
   {
@@ -1292,6 +1420,7 @@ const music = [
       E: 'Elgar - "Enigma Varyasyonları"',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ravel wrote "Boléro" in 1928 as a ballet score and described it as an experiment in orchestration rather than a symphonic work.',
   },
   {
@@ -1301,6 +1430,7 @@ const music = [
     options: { A: 'Rihanna', B: 'Nicki Minaj', C: 'Doja Cat', D: 'Cardi B', E: 'Normani' },
     options_tr: { A: 'Rihanna', B: 'Nicki Minaj', C: 'Doja Cat', D: 'Cardi B', E: 'Normani' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Her debut album "Music of the Sun" appeared in 2005, and Barbados later declared her a National Hero.',
   },
   {
@@ -1322,6 +1452,7 @@ const music = [
       E: 'Yalnızca son ölçüyü tekrarlamak',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: '"Da capo" is Italian for "from the head"; "D.C. al fine" means go back to the start and stop where the word "fine" appears.',
   },
   {
@@ -1331,6 +1462,7 @@ const music = [
     options: { A: 'A military band', B: 'A court dance troupe', C: 'A religious choir', D: 'A string ensemble', E: 'A poetry form' },
     options_tr: { A: 'Bir askerî bando', B: 'Bir saray dans topluluğu', C: 'Dinî bir koro', D: 'Bir yaylı topluluğu', E: 'Bir şiir biçimi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Mehter bands, built around zurna, boru, davul, kös and cymbals, marched with Ottoman armies and inspired the "alla turca" fashion in European music.',
   },
   {
@@ -1340,6 +1472,7 @@ const music = [
     options: { A: 'Jamaica', B: 'Cuba', C: 'Trinidad and Tobago', D: 'Barbados', E: 'Haiti' },
     options_tr: { A: 'Jamaika', B: 'Küba', C: 'Trinidad ve Tobago', D: 'Barbados', E: 'Haiti' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Steelpans were developed in Trinidad in the 1930s and 1940s and are tuned by hammering separate note areas into the drum head.',
   },
   {
@@ -1349,6 +1482,7 @@ const music = [
     options: { A: 'Jay-Z', B: 'Kanye West', C: 'Kendrick Lamar', D: 'Nas', E: 'J. Cole' },
     options_tr: { A: 'Jay-Z', B: 'Kanye West', C: 'Kendrick Lamar', D: 'Nas', E: 'J. Cole' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The prize went to his album "DAMN.", which the jury praised as a unified vernacular portrait of modern African American life.',
   },
   {
@@ -1370,6 +1504,7 @@ const music = [
       E: 'Muzio Clementi',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Haydn wrote more than a hundred symphonies, and No. 94 owes its nickname to a sudden loud chord in the quiet slow movement.',
   },
   {
@@ -1379,6 +1514,7 @@ const music = [
     options: { A: 'Cor anglais', B: 'Piccolo', C: 'Bass clarinet', D: 'Alto flute', E: 'Contrabassoon' },
     options_tr: { A: 'Korangle', B: 'Pikolo', C: 'Bas klarnet', D: 'Alto flüt', E: 'Kontrafagot' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The piccolo is the highest-sounding instrument in the standard orchestra and is written an octave below the pitch it produces.',
   },
   {
@@ -1388,6 +1524,7 @@ const music = [
     options: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     options_tr: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Pentatonic scales appear in folk traditions all over the world, and the five black keys of a piano form one of them.',
   },
   {
@@ -1397,6 +1534,7 @@ const music = [
     options: { A: 'Selda Bağcan', B: 'Ayşegül Aldinç', C: 'Nükhet Duru', D: 'Esin Afşar', E: 'Gülden Karaböcek' },
     options_tr: { A: 'Selda Bağcan', B: 'Ayşegül Aldinç', C: 'Nükhet Duru', D: 'Esin Afşar', E: 'Gülden Karaböcek' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Selda Bağcan set bağlama-led folk against electric arrangements, and her early recordings have since been sampled by international hip-hop producers.',
   },
   {
@@ -1406,6 +1544,7 @@ const music = [
     options: { A: 'Guns N\' Roses', B: 'AC/DC', C: 'Van Halen', D: 'Def Leppard', E: 'Aerosmith' },
     options_tr: { A: 'Guns N\' Roses', B: 'AC/DC', C: 'Van Halen', D: 'Def Leppard', E: 'Aerosmith' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Australian band recorded it with new singer Brian Johnson after Bon Scott died earlier that year.',
   },
   {
@@ -1415,6 +1554,7 @@ const music = [
     options: { A: 'Antônio Carlos Jobim', B: 'Gilberto Gil', C: 'Caetano Veloso', D: 'Sérgio Mendes', E: 'Milton Nascimento' },
     options_tr: { A: 'Antônio Carlos Jobim', B: 'Gilberto Gil', C: 'Caetano Veloso', D: 'Sérgio Mendes', E: 'Milton Nascimento' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Jobim wrote the music and Vinícius de Moraes the words; the 1964 recording with João and Astrud Gilberto and Stan Getz made it a standard.',
   },
   {
@@ -1424,6 +1564,7 @@ const music = [
     options: { A: '0', B: '1', C: '2', D: '3', E: '4' },
     options_tr: { A: '0', B: '1', C: '2', D: '3', E: '4' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'D major carries F sharp and C sharp; each step clockwise around the circle of fifths adds one more sharp.',
   },
   {
@@ -1433,6 +1574,7 @@ const music = [
     options: { A: 'Joan Sutherland', B: 'Maria Callas', C: 'Renata Tebaldi', D: 'Birgit Nilsson', E: 'Montserrat Caballé' },
     options_tr: { A: 'Joan Sutherland', B: 'Maria Callas', C: 'Renata Tebaldi', D: 'Birgit Nilsson', E: 'Montserrat Caballé' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Callas revived neglected bel canto roles and was admired for dramatic intensity as much as for vocal technique.',
   },
   {
@@ -1454,6 +1596,7 @@ const music = [
       E: 'Uçtan üflemeli bir flüt',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The darbuka, also called dümbelek, is held under one arm and gives a sharp "tek" at the rim and a deep "düm" at the centre.',
   },
   {
@@ -1463,6 +1606,7 @@ const music = [
     options: { A: 'Les Paul', B: 'Leo Fender', C: 'Robert Moog', D: 'Don Buchla', E: 'Raymond Scott' },
     options_tr: { A: 'Les Paul', B: 'Leo Fender', C: 'Robert Moog', D: 'Don Buchla', E: 'Raymond Scott' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Moog\'s instruments reached a wide public through Wendy Carlos\'s 1968 album "Switched-On Bach".',
   },
   {
@@ -1472,6 +1616,7 @@ const music = [
     options: { A: 'Leitmotif', B: 'Idée fixe', C: 'Cantus firmus', D: 'Ground bass', E: 'Ritornello' },
     options_tr: { A: 'Leitmotif', B: 'Idée fixe (sabit fikir)', C: 'Cantus firmus', D: 'Ground bass', E: 'Ritornello' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The "idée fixe" returns transformed in each of the five movements, including as a grotesque dance in the finale.',
   },
   {
@@ -1481,6 +1626,7 @@ const music = [
     options: { A: 'Lester Young', B: 'Charlie Parker', C: 'Coleman Hawkins', D: 'Sonny Rollins', E: 'Benny Carter' },
     options_tr: { A: 'Lester Young', B: 'Charlie Parker', C: 'Coleman Hawkins', D: 'Sonny Rollins', E: 'Benny Carter' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Parker and trumpeter Dizzy Gillespie built bebop on fast tempos and advanced harmony, aimed at listeners rather than dancers.',
   },
   {
@@ -1490,6 +1636,7 @@ const music = [
     options: { A: 'Inversion', B: 'Modulation', C: 'Augmentation', D: 'Resolution', E: 'Suspension' },
     options_tr: { A: 'Çevrim (inversion)', B: 'Modülasyon', C: 'Büyütme (augmentation)', D: 'Çözülme (resolution)', E: 'Geciktirme (suspension)' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A pivot chord that belongs to both keys is the most common way to modulate smoothly.',
   },
   {
@@ -1499,6 +1646,7 @@ const music = [
     options: { A: 'Qawwali', B: 'Gospel', C: 'Byzantine chant', D: 'Throat singing', E: 'Kirtan' },
     options_tr: { A: 'Kavvali (qawwali)', B: 'Gospel', C: 'Bizans ilahisi', D: 'Gırtlak şarkısı', E: 'Kirtan' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Qawwali is the Sufi devotional music of South Asia, and the Pakistani singer also recorded for Peter Gabriel\'s Real World label.',
   },
   {
@@ -1508,6 +1656,7 @@ const music = [
     options: { A: 'The Kinks', B: 'The Who', C: 'The Yardbirds', D: 'Small Faces', E: 'Cream' },
     options_tr: { A: 'The Kinks', B: 'The Who', C: 'The Yardbirds', D: 'Small Faces', E: 'Cream' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Pete Townshend wrote the double album, which was later turned into a film and a Broadway musical.',
   },
   {
@@ -1529,6 +1678,7 @@ const music = [
       E: 'Manchester Okulu',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Türk Beşleri, with Cemal Reşit Rey, Ulvi Cemal Erkin, Hasan Ferid Alnar and Necil Kazım Akses, built a Western-style art music tradition in the young Turkish Republic.',
   },
   {
@@ -1538,6 +1688,7 @@ const music = [
     options: { A: '5', B: '6', C: '7', D: '8', E: '9' },
     options_tr: { A: '5', B: '6', C: '7', D: '8', E: '9' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Six equal whole steps fill the octave, which leaves the scale without a leading tone and gives it a floating sound.',
   },
   {
@@ -1559,6 +1710,7 @@ const music = [
       E: 'EXO - "Growl"',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Released in July 2012, the video passed one billion views that December and pushed K-pop into the global mainstream.',
   },
   {
@@ -1568,6 +1720,7 @@ const music = [
     options: { A: 'Maurice Ravel', B: 'Nikolai Rimsky-Korsakov', C: 'Igor Stravinsky', D: 'Leopold Stokowski', E: 'Sergei Prokofiev' },
     options_tr: { A: 'Maurice Ravel', B: 'Nikolay Rimski-Korsakov', C: 'Igor Stravinski', D: 'Leopold Stokowski', E: 'Sergey Prokofyev' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ravel made his orchestration in 1922, and it is now performed far more often than the original piano suite.',
   },
   {
@@ -1577,6 +1730,7 @@ const music = [
     options: { A: 'Ireland', B: 'Scotland', C: 'Wales', D: 'Brittany', E: 'Galicia' },
     options_tr: { A: 'İrlanda', B: 'İskoçya', C: 'Galler', D: 'Bretanya', E: 'Galiçya' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Its drones sound continuously while the melody is fingered on the chanter; related bagpipes exist across Europe, including the Turkish tulum.',
   },
   {
@@ -1586,6 +1740,7 @@ const music = [
     options: { A: 'Bessie Smith', B: 'Billie Holiday', C: 'Ma Rainey', D: 'Mahalia Jackson', E: 'Sister Rosetta Tharpe' },
     options_tr: { A: 'Bessie Smith', B: 'Billie Holiday', C: 'Ma Rainey', D: 'Mahalia Jackson', E: 'Sister Rosetta Tharpe' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The words began as a poem by the teacher Abel Meeropol, and Holiday\'s own label refused the song, so it came out on the small Commodore label.',
   },
   {
@@ -1595,6 +1750,7 @@ const music = [
     options: { A: 'An arpeggio', B: 'A cluster', C: 'A cadence', D: 'A canon', E: 'A drone' },
     options_tr: { A: 'Arpej', B: 'Küme (cluster)', C: 'Kadans', D: 'Kanon', E: 'Dem sesi (drone)' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The word comes from the Italian "arpeggiare", to play the harp, an instrument that naturally sounds chords note by note.',
   },
   {
@@ -1604,6 +1760,7 @@ const music = [
     options: { A: 'Ney', B: 'Zurna', C: 'Kanun', D: 'Kemençe', E: 'Ud' },
     options_tr: { A: 'Ney', B: 'Zurna', C: 'Kanun', D: 'Kemençe', E: 'Ud' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The piercing double-reed zurna and the big drum carry easily outdoors, which is why the pair accompanies halay dancing in the open air.',
   },
   {
@@ -1613,6 +1770,7 @@ const music = [
     options: { A: 'Rick James', B: 'Prince', C: 'Sly Stone', D: 'Terence Trent D\'Arby', E: 'Lenny Kravitz' },
     options_tr: { A: 'Rick James', B: 'Prince', C: 'Sly Stone', D: 'Terence Trent D\'Arby', E: 'Lenny Kravitz' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Prince, credited with his band The Revolution, won an Academy Award for the film\'s original song score.',
   },
   {
@@ -1622,6 +1780,7 @@ const music = [
     options: { A: 'Carl Nielsen', B: 'Edvard Grieg', C: 'Jean Sibelius', D: 'Wilhelm Stenhammar', E: 'Niels Gade' },
     options_tr: { A: 'Carl Nielsen', B: 'Edvard Grieg', C: 'Jean Sibelius', D: 'Wilhelm Stenhammar', E: 'Niels Gade' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Sibelius composed it in 1899 against Russian censorship, and its hymn-like central theme became a Finnish patriotic song.',
   },
   {
@@ -1631,6 +1790,7 @@ const music = [
     options: { A: 'Luis Fonsi', B: 'Ricky Martin', C: 'J Balvin', D: 'Enrique Iglesias', E: 'Maluma' },
     options_tr: { A: 'Luis Fonsi', B: 'Ricky Martin', C: 'J Balvin', D: 'Enrique Iglesias', E: 'Maluma' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The Puerto Rican singer\'s track topped charts worldwide and its video became the first on YouTube to pass five billion views.',
   },
   {
@@ -1640,6 +1800,7 @@ const music = [
     options: { A: 'Chromatic', B: 'Enharmonic equivalents', C: 'Parallel keys', D: 'Inversions', E: 'Overtones' },
     options_tr: { A: 'Kromatik', B: 'Enarmonik eşdeğerler', C: 'Paralel tonlar', D: 'Çevrimler', E: 'Doğuşkanlar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'In equal temperament they are the same pitch, although string players often bend them slightly apart for expressive reasons.',
   },
   {
@@ -1649,6 +1810,7 @@ const music = [
     options: { A: 'Neşet Ertaş', B: 'Arif Sağ', C: 'Musa Eroğlu', D: 'Yavuz Top', E: 'Belkıs Akkale' },
     options_tr: { A: 'Neşet Ertaş', B: 'Arif Sağ', C: 'Musa Eroğlu', D: 'Yavuz Top', E: 'Belkıs Akkale' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Neşet Ertaş (1938-2012) carried on the bozlak repertoire of his father Muharrem Ertaş and was honoured as a Living Human Treasure in 2011.',
   },
   {
@@ -1658,6 +1820,7 @@ const music = [
     options: { A: 'Brian Eno', B: 'Vangelis', C: 'Jean-Michel Jarre', D: 'Aphex Twin', E: 'Harold Budd' },
     options_tr: { A: 'Brian Eno', B: 'Vangelis', C: 'Jean-Michel Jarre', D: 'Aphex Twin', E: 'Harold Budd' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Eno designed the album to reward attention without demanding it, and he went on to produce records for Talking Heads and U2.',
   },
   {
@@ -1667,6 +1830,7 @@ const music = [
     options: { A: 'Mars', B: 'Venus', C: 'Earth', D: 'Jupiter', E: 'Neptune' },
     options_tr: { A: 'Mars', B: 'Venüs', C: 'Dünya', D: 'Jüpiter', E: 'Neptün' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Holst based his seven movements on astrological character rather than astronomy, so Earth has no place in the suite.',
   },
   {
@@ -1676,6 +1840,7 @@ const music = [
     options: { A: '"Walk This Way"', B: '"Dream On"', C: '"It\'s Tricky"', D: '"Sweet Emotion"', E: '"Rock Box"' },
     options_tr: { A: '"Walk This Way"', B: '"Dream On"', C: '"It\'s Tricky"', D: '"Sweet Emotion"', E: '"Rock Box"' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The remake of Aerosmith\'s 1975 song reached the US top five and revived the rock band\'s career.',
   },
   {
@@ -1685,6 +1850,7 @@ const music = [
     options: { A: 'Violin', B: 'Viola', C: 'Cello', D: 'Double bass', E: 'Harp' },
     options_tr: { A: 'Keman', B: 'Viyola', C: 'Çello', D: 'Kontrbas', E: 'Arp' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The viola is tuned a fifth below the violin, and the alto clef keeps most of its range on the staff without ledger lines.',
   },
   {
@@ -1694,6 +1860,7 @@ const music = [
     options: { A: 'Anacrusis (pickup)', B: 'Coda', C: 'Fermata', D: 'Cadence', E: 'Ostinato' },
     options_tr: { A: 'Anakruz (eksik ölçü)', B: 'Coda', C: 'Fermata', D: 'Kadans', E: 'Ostinato' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The bar holding an anacrusis is incomplete, and its missing beats are usually made up in the final bar.',
   },
   {
@@ -1703,6 +1870,7 @@ const music = [
     options: { A: 'İdil Biret', B: 'Fazıl Say', C: 'Gülsin Onay', D: 'Hüseyin Sermet', E: 'Verda Erman' },
     options_tr: { A: 'İdil Biret', B: 'Fazıl Say', C: 'Gülsin Onay', D: 'Hüseyin Sermet', E: 'Verda Erman' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Fazıl Say won the Young Concert Artists auditions in New York in 1994 and writes music that draws on Turkish folk material and jazz.',
   },
   {
@@ -1712,6 +1880,7 @@ const music = [
     options: { A: 'The Cranberries', B: 'U2', C: 'Thin Lizzy', D: 'Snow Patrol', E: 'The Pogues' },
     options_tr: { A: 'The Cranberries', B: 'U2', C: 'Thin Lizzy', D: 'Snow Patrol', E: 'The Pogues' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'U2 formed in 1976 and broke through internationally with "The Joshua Tree" in 1987.',
   },
   {
@@ -1721,6 +1890,7 @@ const music = [
     options: { A: 'Thailand', B: 'Indonesia', C: 'The Philippines', D: 'Malaysia', E: 'Myanmar' },
     options_tr: { A: 'Tayland', B: 'Endonezya', C: 'Filipinler', D: 'Malezya', E: 'Myanmar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Javanese and Balinese gamelan use tuning systems unlike Western temperament, and Debussy was struck by one at the 1889 Paris Exposition.',
   },
   {
@@ -1730,6 +1900,7 @@ const music = [
     options: { A: 'Stan Getz', B: 'John Coltrane', C: 'Dexter Gordon', D: 'Wayne Shorter', E: 'Ornette Coleman' },
     options_tr: { A: 'Stan Getz', B: 'John Coltrane', C: 'Dexter Gordon', D: 'Wayne Shorter', E: 'Ornette Coleman' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Coltrane cut the album with his classic quartet in December 1964 and it was released the following year.',
   },
   {
@@ -1751,6 +1922,7 @@ const music = [
       E: 'Önceki değiştirici işareti iptal eder',
     },
     answer: 'A',
+    difficulty: 1,
     explanation: 'A flat lowers the note by a semitone instead, and a natural sign cancels either of them.',
   },
   {
@@ -1772,6 +1944,7 @@ const music = [
       E: 'Orta Asya gırtlak şarkısı',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Dede Efendi (1778-1846) served at the Ottoman court and composed hundreds of works, among them the well-known "Yine bir gülnihal".',
   },
   {
@@ -1781,6 +1954,7 @@ const music = [
     options: { A: 'Mariah Carey', B: 'Celine Dion', C: 'Shania Twain', D: 'Sarah McLachlan', E: 'Cher' },
     options_tr: { A: 'Mariah Carey', B: 'Celine Dion', C: 'Shania Twain', D: 'Sarah McLachlan', E: 'Cher' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'James Horner wrote the music, and the song won the Academy Award for Best Original Song in 1998.',
   },
   {
@@ -1790,6 +1964,7 @@ const music = [
     options: { A: 'Claudio Monteverdi', B: 'Jacopo Peri', C: 'Heinrich Schütz', D: 'Jean-Baptiste Lully', E: 'Alessandro Scarlatti' },
     options_tr: { A: 'Claudio Monteverdi', B: 'Jacopo Peri', C: 'Heinrich Schütz', D: 'Jean-Baptiste Lully', E: 'Alessandro Scarlatti' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Monteverdi wrote it for the court of Mantua, and his work bridges the Renaissance and Baroque styles.',
   },
   {
@@ -1811,6 +1986,7 @@ const music = [
       E: 'Yerli Hawaiililer',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'It comes from Arnhem Land in northern Australia and is traditionally a eucalyptus branch hollowed out by termites.',
   },
   {
@@ -1820,6 +1996,7 @@ const music = [
     options: { A: 'The second', B: 'The third', C: 'The fourth', D: 'The fifth', E: 'The seventh' },
     options_tr: { A: 'İkinci', B: 'Üçüncü', C: 'Dördüncü', D: 'Beşinci', E: 'Yedinci' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The fifth degree is the dominant and the fourth the subdominant; the dominant seventh chord pulls strongly back to the tonic.',
   },
   {
@@ -1841,6 +2018,7 @@ const music = [
       E: 'Piyano gibi klavyesi vardır',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The ud has a deep pear-shaped body and no frets, so the player can shade the microtonal intervals of a makam freely.',
   },
   {
@@ -1850,6 +2028,7 @@ const music = [
     options: { A: 'The Byrds', B: 'The Beach Boys', C: 'The Mamas and the Papas', D: 'Buffalo Springfield', E: 'The Turtles' },
     options_tr: { A: 'The Byrds', B: 'The Beach Boys', C: 'The Mamas and the Papas', D: 'Buffalo Springfield', E: 'The Turtles' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Wilson built the album in the studio with session players while the rest of the group toured, and it produced "God Only Knows".',
   },
   {
@@ -1859,6 +2038,7 @@ const music = [
     options: { A: 'Violin', B: 'Cello', C: 'Flute', D: 'Oboe', E: 'Clarinet' },
     options_tr: { A: 'Keman', B: 'Çello', C: 'Flüt', D: 'Obua', E: 'Klarnet' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Saint-Saëns scored it for cello over rippling piano, and it was the only movement he allowed to be published in his lifetime.',
   },
   {
@@ -1868,6 +2048,7 @@ const music = [
     options: { A: 'Eminem', B: 'Ludacris', C: '50 Cent', D: 'Common', E: 'Will Smith' },
     options_tr: { A: 'Eminem', B: 'Ludacris', C: '50 Cent', D: 'Common', E: 'Will Smith' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The song came from the film "8 Mile" and took the award in 2003, the first Oscar won by a hip-hop track.',
   },
   {
@@ -1889,6 +2070,7 @@ const music = [
       E: 'Trakya',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The narrow, boat-shaped Karadeniz kemençesi drives the fast horon dances of the eastern Black Sea.',
   },
   {
@@ -1898,6 +2080,7 @@ const music = [
     options: { A: 'Ionian', B: 'Dorian', C: 'Phrygian', D: 'Lydian', E: 'Mixolydian' },
     options_tr: { A: 'İyonyen', B: 'Doryen', C: 'Frigyen', D: 'Lidyen', E: 'Miksolidyen' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Each white-key octave gives a different mode: C is Ionian (the major scale), D is Dorian and E is Phrygian.',
   },
   {
@@ -1907,6 +2090,7 @@ const music = [
     options: { A: 'Cleveland', B: 'Memphis', C: 'Seattle', D: 'New Orleans', E: 'Nashville' },
     options_tr: { A: 'Cleveland', B: 'Memphis', C: 'Seattle', D: 'New Orleans', E: 'Nashville' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The museum opened in Cleveland, Ohio, in 1995, in a glass pyramid designed by the architect I. M. Pei.',
   },
   {
@@ -1916,6 +2100,7 @@ const music = [
     options: { A: 'Sergei Rachmaninoff', B: 'Franz Liszt', C: 'Edvard Grieg', D: 'Robert Schumann', E: 'Camille Saint-Saëns' },
     options_tr: { A: 'Sergey Rahmaninov', B: 'Franz Liszt', C: 'Edvard Grieg', D: 'Robert Schumann', E: 'Camille Saint-Saëns' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Rachmaninoff finished the concerto in 1901 after treatment with the physician Nikolai Dahl, and dedicated it to him.',
   },
   {
@@ -1925,6 +2110,7 @@ const music = [
     options: { A: 'Fado', B: 'Flamenco', C: 'Rebetiko', D: 'Chanson', E: 'Canzone napoletana' },
     options_tr: { A: 'Fado', B: 'Flamenko', C: 'Rebetiko', D: 'Chanson', E: 'Napoliten şarkı' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Fado is the melancholy urban song of Lisbon and Coimbra, usually accompanied by the pear-shaped Portuguese guitarra.',
   },
   {
@@ -1946,6 +2132,7 @@ const music = [
       E: 'Basılı nota görüntüleri',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'MIDI, standardized in 1983, carries note, velocity and control messages rather than sound, so a recorded part can be given a different instrument later.',
   },
   {
@@ -1955,6 +2142,7 @@ const music = [
     options: { A: 'Athena', B: 'maNga', C: 'Duman', D: 'Gripin', E: 'Pentagram' },
     options_tr: { A: 'Athena', B: 'maNga', C: 'Duman', D: 'Gripin', E: 'Pentagram' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'maNga mix nu metal with Anatolian elements, and their runner-up finish in Oslo is Turkey\'s best Eurovision result since its 2003 victory.',
   },
   {
@@ -1964,6 +2152,7 @@ const music = [
     options: { A: 'Blur', B: 'Radiohead', C: 'Oasis', D: 'Pulp', E: 'Suede' },
     options_tr: { A: 'Blur', B: 'Radiohead', C: 'Oasis', D: 'Pulp', E: 'Suede' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Radiohead, formed in Abingdon in England, followed it with the far more electronic "Kid A" in 2000.',
   },
   {
@@ -1973,6 +2162,7 @@ const music = [
     options: { A: 'Fanny Mendelssohn', B: 'Clara Schumann', C: 'Cécile Chaminade', D: 'Amy Beach', E: 'Nadia Boulanger' },
     options_tr: { A: 'Fanny Mendelssohn', B: 'Clara Schumann', C: 'Cécile Chaminade', D: 'Amy Beach', E: 'Nadia Boulanger' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Clara Schumann performed for some sixty years and did much to establish the modern solo recital and its repertoire.',
   },
   {
@@ -1994,6 +2184,7 @@ const music = [
       E: 'Aksak (düzensiz) ölçü',
     },
     answer: 'B',
+    difficulty: 3,
     explanation: 'In compound metres every beat divides into three, so 9/8 is compound triple and 12/8 compound quadruple.',
   },
   {
@@ -2003,6 +2194,7 @@ const music = [
     options: { A: 'Felix Mendelssohn', B: 'Richard Wagner', C: 'Edward Elgar', D: 'Johann Strauss II', E: 'Charles Gounod' },
     options_tr: { A: 'Felix Mendelssohn', B: 'Richard Wagner', C: 'Edward Elgar', D: 'Johann Strauss II', E: 'Charles Gounod' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Mendelssohn wrote it for "A Midsummer Night\'s Dream" in 1842; the processional "Bridal Chorus" is Wagner\'s, from "Lohengrin".',
   },
   {
@@ -2012,6 +2204,7 @@ const music = [
     options: { A: 'Justice', B: 'Daft Punk', C: 'Air', D: 'Cassius', E: 'Modjo' },
     options_tr: { A: 'Justice', B: 'Daft Punk', C: 'Air', D: 'Cassius', E: 'Modjo' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The single came from "Random Access Memories", which won the Grammy for Album of the Year in 2014.',
   },
   {
@@ -2021,6 +2214,7 @@ const music = [
     options: { A: 'Mehmet Akif Ersoy', B: 'Nazım Hikmet', C: 'Yahya Kemal Beyatlı', D: 'Ziya Gökalp', E: 'Namık Kemal' },
     options_tr: { A: 'Mehmet Akif Ersoy', B: 'Nazım Hikmet', C: 'Yahya Kemal Beyatlı', D: 'Ziya Gökalp', E: 'Namık Kemal' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The poem was adopted by the Turkish Grand National Assembly in March 1921, and the melody in use today is by Osman Zeki Üngör.',
   },
   {
@@ -2030,6 +2224,7 @@ const music = [
     options: { A: 'Nino Rota', B: 'Ennio Morricone', C: 'Riz Ortolani', D: 'Jerry Goldsmith', E: 'Elmer Bernstein' },
     options_tr: { A: 'Nino Rota', B: 'Ennio Morricone', C: 'Riz Ortolani', D: 'Jerry Goldsmith', E: 'Elmer Bernstein' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Morricone reached for whistling, electric guitar and wordless voice instead of a conventional orchestra, and later won an Oscar for "The Hateful Eight".',
   },
   {
@@ -2039,6 +2234,7 @@ const music = [
     options: { A: 'Glockenspiel', B: 'Vibraphone', C: 'Xylophone', D: 'Celesta', E: 'Tubular bells' },
     options_tr: { A: 'Glockenspiel', B: 'Vibrafon', C: 'Ksilofon', D: 'Çelesta', E: 'Boru çanlar' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The xylophone and the larger, deeper marimba use wooden bars, while the glockenspiel and vibraphone use metal ones.',
   },
   {
@@ -2060,6 +2256,7 @@ const music = [
       E: 'Poulenc - "Gloria"',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Carl Orff set medieval Latin and German poems found in a Bavarian monastery, and the work was first performed in 1937.',
   },
   {
@@ -2081,6 +2278,7 @@ const music = [
       E: 'Bir şiirin baş harflerinden',
     },
     answer: 'A',
+    difficulty: 1,
     explanation: 'MFÖ stands for Mazhar Alanson, Fuat Güner and Özkan Uğur, who have played together since the 1970s.',
   },
   {
@@ -2090,6 +2288,7 @@ const music = [
     options: { A: 'Howard Shore', B: 'John Williams', C: 'James Horner', D: 'Alan Silvestri', E: 'Danny Elfman' },
     options_tr: { A: 'Howard Shore', B: 'John Williams', C: 'James Horner', D: 'Alan Silvestri', E: 'Danny Elfman' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Williams has won five competitive Academy Awards and is the most Oscar-nominated living person.',
   },
   {
@@ -2099,6 +2298,7 @@ const music = [
     options: { A: '16 rpm', B: '33 1/3 rpm', C: '45 rpm', D: '78 rpm', E: '90 rpm' },
     options_tr: { A: '16 dev/dk', B: '33 1/3 dev/dk', C: '45 dev/dk', D: '78 dev/dk', E: '90 dev/dk' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The long-playing record, introduced by Columbia in 1948, turns at 33 1/3 revolutions per minute, while seven-inch singles turn at 45.',
   },
 ];

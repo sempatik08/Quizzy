@@ -8,6 +8,7 @@ const geography = [
     options: { A: 'Canada', B: 'China', C: 'United States', D: 'Brazil', E: 'Russia' },
     options_tr: { A: 'Kanada', B: 'Çin', C: 'Amerika Birleşik Devletleri', D: 'Brezilya', E: 'Rusya' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Russia is the largest country in the world, covering approximately 17.1 million km², which is over twice the size of Canada.',
   },
   {
@@ -17,6 +18,7 @@ const geography = [
     options: { A: 'Sydney', B: 'Melbourne', C: 'Brisbane', D: 'Canberra', E: 'Perth' },
     options_tr: { A: 'Sidney', B: 'Melbourne', C: 'Brisbane', D: 'Canberra', E: 'Perth' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Canberra is the capital of Australia, chosen as a compromise between Sydney and Melbourne when Australia federated in 1901.',
   },
   {
@@ -26,6 +28,7 @@ const geography = [
     options: { A: 'Amazon', B: 'Yangtze', C: 'Mississippi', D: 'Congo', E: 'Nile' },
     options_tr: { A: 'Amazon', B: 'Yangtze', C: 'Mississippi', D: 'Kongo', E: 'Nil' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'The Nile River in Africa is generally considered the world\'s longest river at approximately 6,650 km, though some studies suggest the Amazon may be longer.',
   },
   {
@@ -35,6 +38,7 @@ const geography = [
     options: { A: 'Caucasus Mountains', B: 'Ural Mountains', C: 'Altai Mountains', D: 'Carpathian Mountains', E: 'Zagros Mountains' },
     options_tr: { A: 'Kafkas Dağları', B: 'Ural Dağları', C: 'Altay Dağları', D: 'Karpatlar', E: 'Zagros Dağları' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Ural Mountains form the traditional geographic boundary between Europe and Asia, stretching about 2,500 km through Russia.',
   },
   {
@@ -44,6 +48,7 @@ const geography = [
     options: { A: 'Strait of Messina', B: 'Strait of Otranto', C: 'Strait of Gibraltar', D: 'Strait of Bosporus', E: 'Strait of Hormuz' },
     options_tr: { A: 'Messina Boğazı', B: 'Otranto Boğazı', C: 'Cebelitarık Boğazı', D: 'İstanbul Boğazı', E: 'Hürmüz Boğazı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Strait of Gibraltar separates the Iberian Peninsula (Europe) from Morocco (Africa) and connects the Atlantic Ocean to the Mediterranean Sea.',
   },
   {
@@ -53,6 +58,7 @@ const geography = [
     options: { A: 'Istanbul', B: 'Izmir', C: 'Ankara', D: 'Bursa', E: 'Antalya' },
     options_tr: { A: 'İstanbul', B: 'İzmir', C: 'Ankara', D: 'Bursa', E: 'Antalya' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Ankara has been the capital of Turkey since 1923, following the founding of the Republic.',
   },
   {
@@ -62,6 +68,7 @@ const geography = [
     options: { A: 'Monaco', B: 'San Marino', C: 'Vatican City', D: 'Liechtenstein', E: 'Nauru' },
     options_tr: { A: 'Monako', B: 'San Marino', C: 'Vatikan', D: 'Lihtenştayn', E: 'Nauru' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Vatican City, at about 0.49 km², is the smallest sovereign state in the world, both by area and population.',
   },
   {
@@ -71,6 +78,7 @@ const geography = [
     options: { A: 'Gobi Desert', B: 'Kalahari Desert', C: 'Sahara Desert', D: 'Arabian Desert', E: 'Thar Desert' },
     options_tr: { A: 'Gobi Çölü', B: 'Kalahari Çölü', C: 'Sahra Çölü', D: 'Arap Çölü', E: 'Thar Çölü' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Sahara, covering much of North Africa, is the largest hot desert in the world at about 9.2 million km².',
   },
   {
@@ -80,6 +88,7 @@ const geography = [
     options: { A: 'K2', B: 'Kangchenjunga', C: 'Mount Everest', D: 'Denali', E: 'Aconcagua' },
     options_tr: { A: 'K2', B: 'Kangchenjunga', C: 'Everest Dağı', D: 'Denali', E: 'Aconcagua' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Mount Everest, on the border of Nepal and Tibet, stands at 8,849 meters above sea level.',
   },
   {
@@ -89,6 +98,7 @@ const geography = [
     options: { A: 'Sudan', B: 'Ethiopia', C: 'Kenya', D: 'Somalia', E: 'Eritrea' },
     options_tr: { A: 'Sudan', B: 'Etiyopya', C: 'Kenya', D: 'Somali', E: 'Eritre' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Ethiopia, historically called Abyssinia, was never formally colonized (except for a brief Italian occupation, 1936–1941).',
   },
   {
@@ -98,6 +108,7 @@ const geography = [
     options: { A: 'Red Sea', B: 'Caspian Sea', C: 'Dead Sea', D: 'Black Sea', E: 'Aral Sea' },
     options_tr: { A: 'Kızıldeniz', B: 'Hazar Denizi', C: 'Lut Gölü (Ölü Deniz)', D: 'Karadeniz', E: 'Aral Gölü' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Dead Sea, bordering Israel, Jordan, and the West Bank, has a salinity of about 34%, making it extremely buoyant.',
   },
   {
@@ -107,6 +118,7 @@ const geography = [
     options: { A: 'Peru', B: 'Bolivia', C: 'Chile', D: 'Ecuador', E: 'Colombia' },
     options_tr: { A: 'Peru', B: 'Bolivya', C: 'Şili', D: 'Ekvador', E: 'Kolombiya' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Chile is a long, narrow country along South America\'s Pacific coast and contains the Atacama Desert, the driest non-polar desert on Earth.',
   },
   {
@@ -116,6 +128,7 @@ const geography = [
     options: { A: 'Toronto', B: 'Vancouver', C: 'Montreal', D: 'Ottawa', E: 'Quebec City' },
     options_tr: { A: 'Toronto', B: 'Vancouver', C: 'Montreal', D: 'Ottava', E: 'Quebec City' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Ottawa, in the province of Ontario, has been Canada\'s capital since 1857.',
   },
   {
@@ -125,6 +138,7 @@ const geography = [
     options: { A: 'Borneo', B: 'Madagascar', C: 'Greenland', D: 'New Guinea', E: 'Baffin Island' },
     options_tr: { A: 'Borneo', B: 'Madagaskar', C: 'Grönland', D: 'Yeni Gine', E: 'Baffin Adası' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Greenland, an autonomous territory of Denmark, is the world\'s largest island at about 2.16 million km².',
   },
   {
@@ -134,6 +148,7 @@ const geography = [
     options: { A: 'Strait of Gibraltar', B: 'Bosporus Strait', C: 'Dardanelles Strait', D: 'Strait of Dover', E: 'Kerch Strait' },
     options_tr: { A: 'Cebelitarık Boğazı', B: 'İstanbul (Boğaziçi) Boğazı', C: 'Çanakkale Boğazı', D: 'Dover Boğazı', E: 'Kerç Boğazı' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Bosporus Strait runs through the heart of Istanbul, connecting the Black Sea to the Sea of Marmara.',
   },
   {
@@ -143,6 +158,7 @@ const geography = [
     options: { A: 'Russia', B: 'United States', C: 'Finland', D: 'Canada', E: 'Sweden' },
     options_tr: { A: 'Rusya', B: 'Amerika Birleşik Devletleri', C: 'Finlandiya', D: 'Kanada', E: 'İsveç' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Canada has more lakes than the rest of the world\'s countries combined, largely due to glacial activity during the last Ice Age.',
   },
   {
@@ -152,6 +168,7 @@ const geography = [
     options: { A: 'Andes', B: 'Rocky Mountains', C: 'Alps', D: 'Himalayas', E: 'Atlas Mountains' },
     options_tr: { A: 'And Dağları', B: 'Kayalık Dağlar', C: 'Alpler', D: 'Himalayalar', E: 'Atlas Dağları' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Himalayas, spanning several South and Central Asian countries, include 10 of the world\'s 14 peaks over 8,000 meters.',
   },
   {
@@ -161,6 +178,7 @@ const geography = [
     options: { A: 'Rocky Mountains', B: 'Andes', C: 'Himalayas', D: 'Ural Mountains', E: 'Great Dividing Range' },
     options_tr: { A: 'Kayalık Dağlar', B: 'And Dağları', C: 'Himalayalar', D: 'Ural Dağları', E: 'Büyük Su Ayrım Sırası' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Andes stretch about 7,000 km along South America\'s western coast, making it the longest continental mountain range in the world.',
   },
   {
@@ -170,6 +188,7 @@ const geography = [
     options: { A: 'Lake Tuz', B: 'Lake Van', C: 'Lake Beyşehir', D: 'Lake Eğirdir', E: 'Lake İznik' },
     options_tr: { A: 'Tuz Gölü', B: 'Van Gölü', C: 'Beyşehir Gölü', D: 'Eğirdir Gölü', E: 'İznik Gölü' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Lake Van, in eastern Turkey, is the country\'s largest lake and one of the world\'s largest soda lakes.',
   },
   {
@@ -179,6 +198,7 @@ const geography = [
     options: { A: 'United States', B: 'Russia', C: 'China', D: 'France', E: 'Australia' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Rusya', C: 'Çin', D: 'Fransa', E: 'Avustralya' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'France has 12 time zones due to its overseas territories scattered around the globe, more than any other country.',
   },
   {
@@ -188,6 +208,7 @@ const geography = [
     options: { A: 'Africa and Asia', B: 'Europe and Africa', C: 'Europe and Asia', D: 'Asia and North America', E: 'Europe and North America' },
     options_tr: { A: 'Afrika ve Asya', B: 'Avrupa ve Afrika', C: 'Avrupa ve Asya', D: 'Asya ve Kuzey Amerika', E: 'Avrupa ve Kuzey Amerika' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Turkey spans both Europe (a small portion, including part of Istanbul) and Asia (the larger Anatolian peninsula).',
   },
   {
@@ -197,6 +218,7 @@ const geography = [
     options: { A: 'Kenya', B: 'Uganda', C: 'Tanzania', D: 'Ethiopia', E: 'Rwanda' },
     options_tr: { A: 'Kenya', B: 'Uganda', C: 'Tanzanya', D: 'Etiyopya', E: 'Ruanda' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Mount Kilimanjaro, at 5,895 meters, is located in Tanzania and is the highest freestanding mountain in the world.',
   },
   {
@@ -206,6 +228,7 @@ const geography = [
     options: { A: 'Africa', B: 'Australia', C: 'Asia', D: 'South America', E: 'North America' },
     options_tr: { A: 'Afrika', B: 'Avustralya', C: 'Asya', D: 'Güney Amerika', E: 'Kuzey Amerika' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Australia is the driest inhabited continent, with much of its interior covered by arid desert.',
   },
   {
@@ -215,6 +238,7 @@ const geography = [
     options: { A: 'Atlantic Ocean', B: 'Indian Ocean', C: 'Arctic Ocean', D: 'Pacific Ocean', E: 'Southern Ocean' },
     options_tr: { A: 'Atlas Okyanusu', B: 'Hint Okyanusu', C: 'Kuzey Buz Denizi', D: 'Pasifik Okyanusu', E: 'Güney Okyanusu' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The Pacific Ocean is the largest and deepest ocean, covering more area than all of Earth\'s landmasses combined.',
   },
   {
@@ -224,6 +248,7 @@ const geography = [
     options: { A: 'Nepal', B: 'Bhutan', C: 'Bangladesh', D: 'Myanmar', E: 'Sri Lanka' },
     options_tr: { A: 'Nepal', B: 'Bhutan', C: 'Bangladeş', D: 'Myanmar', E: 'Sri Lanka' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Bangladesh sits largely within the Ganges-Brahmaputra Delta, the largest river delta in the world.',
   },
   {
@@ -233,6 +258,7 @@ const geography = [
     options: { A: 'Mongolia', B: 'Kazakhstan', C: 'Uzbekistan', D: 'Afghanistan', E: 'Turkmenistan' },
     options_tr: { A: 'Moğolistan', B: 'Kazakistan', C: 'Özbekistan', D: 'Afganistan', E: 'Türkmenistan' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Kazakhstan is the world\'s largest landlocked country by area, spanning parts of Central Asia and Eastern Europe.',
   },
   {
@@ -242,6 +268,7 @@ const geography = [
     options: { A: 'Belgium', B: 'Denmark', C: 'Netherlands', D: 'Germany', E: 'Luxembourg' },
     options_tr: { A: 'Belçika', B: 'Danimarka', C: 'Hollanda', D: 'Almanya', E: 'Lüksemburg' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'About one-third of the Netherlands lies below sea level, protected by an extensive system of dikes and pumps.',
   },
   {
@@ -251,6 +278,7 @@ const geography = [
     options: { A: 'Angel Falls', B: 'Niagara Falls', C: 'Iguazu Falls', D: 'Victoria Falls', E: 'Yosemite Falls' },
     options_tr: { A: 'Angel Şelalesi', B: 'Niagara Şelalesi', C: 'Iguazu Şelalesi', D: 'Victoria Şelalesi', E: 'Yosemite Şelalesi' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Victoria Falls, on the Zambezi River, is considered one of the largest waterfalls in the world by combined width and height.',
   },
   {
@@ -260,6 +288,7 @@ const geography = [
     options: { A: 'Pamukkale', B: 'Cappadocia', C: 'Ephesus', D: 'Mount Nemrut', E: 'Antalya' },
     options_tr: { A: 'Pamukkale', B: 'Kapadokya', C: 'Efes', D: 'Nemrut Dağı', E: 'Antalya' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Cappadocia, in central Anatolia, is famous for its unique rock formations ("fairy chimneys") and popular hot air balloon tourism.',
   },
   {
@@ -269,6 +298,7 @@ const geography = [
     options: { A: 'Chile', B: 'Argentina', C: 'No country — it lies in Antarctica, under international governance', D: 'Australia', E: 'New Zealand' },
     options_tr: { A: 'Şili', B: 'Arjantin', C: 'Hiçbiri — Antarktika\'da, uluslararası yönetim altındadır', D: 'Avustralya', E: 'Yeni Zelanda' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Antarctica, where the South Pole is located, is not owned by any single country; it is governed under the Antarctic Treaty System.',
   },
   {
@@ -278,6 +308,7 @@ const geography = [
     options: { A: 'Black Sea', B: 'Caspian Sea', C: 'Red Sea', D: 'Baltic Sea', E: 'Aegean Sea' },
     options_tr: { A: 'Karadeniz', B: 'Hazar Denizi', C: 'Kızıldeniz', D: 'Baltık Denizi', E: 'Ege Denizi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Caspian Sea, bordered by Russia, Kazakhstan, Turkmenistan, Iran, and Azerbaijan, is a landlocked body of water often classified as the world\'s largest lake.',
   },
   {
@@ -287,6 +318,7 @@ const geography = [
     options: { A: 'Peru', B: 'Colombia', C: 'Brazil', D: 'Venezuela', E: 'Ecuador' },
     options_tr: { A: 'Peru', B: 'Kolombiya', C: 'Brezilya', D: 'Venezuela', E: 'Ekvador' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Brazil contains about 60% of the Amazon Rainforest, the largest tropical rainforest on Earth.',
   },
   {
@@ -296,6 +328,7 @@ const geography = [
     options: { A: 'Alexandria', B: 'Cairo', C: 'Giza', D: 'Luxor', E: 'Aswan' },
     options_tr: { A: 'İskenderiye', B: 'Kahire', C: 'Giza', D: 'Luksor', E: 'Asvan' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Cairo, Egypt\'s capital, is one of the largest cities in Africa and sits just south of the Nile Delta.',
   },
   {
@@ -305,6 +338,7 @@ const geography = [
     options: { A: 'United States', B: 'Canada', C: 'Russia', D: 'China', E: 'Brazil' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Kanada', C: 'Rusya', D: 'Çin', E: 'Brezilya' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'China spans a geographic width that would cover 5 time zones, but the entire country officially uses a single time zone, Beijing Time.',
   },
   {
@@ -314,6 +348,7 @@ const geography = [
     options: { A: 'Izmir', B: 'Istanbul', C: 'Bursa', D: 'Ankara', E: 'Antalya' },
     options_tr: { A: 'İzmir', B: 'İstanbul', C: 'Bursa', D: 'Ankara', E: 'Antalya' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Istanbul is the only city in the world situated on two continents, straddling the Bosporus Strait.',
   },
   {
@@ -323,6 +358,7 @@ const geography = [
     options: { A: 'Lake Victoria', B: 'Lake Baikal', C: 'Lake Superior', D: 'Lake Michigan', E: 'Lake Tanganyika' },
     options_tr: { A: 'Victoria Gölü', B: 'Baykal Gölü', C: 'Superior Gölü', D: 'Michigan Gölü', E: 'Tanganika Gölü' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Lake Superior, one of North America\'s Great Lakes, is the largest freshwater lake in the world by surface area.',
   },
   {
@@ -332,6 +368,7 @@ const geography = [
     options: { A: 'Lake Baikal', B: 'Caspian Sea', C: 'Lake Ladoga', D: 'Lake Onega', E: 'Lake Balkhash' },
     options_tr: { A: 'Baykal Gölü', B: 'Hazar Denizi', C: 'Ladoga Gölü', D: 'Onega Gölü', E: 'Balkaş Gölü' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Lake Baikal in Siberia is both the deepest (over 1,600 meters) and the largest freshwater lake by volume in the world.',
   },
   {
@@ -341,6 +378,7 @@ const geography = [
     options: { A: 'Osaka', B: 'Kyoto', C: 'Tokyo', D: 'Yokohama', E: 'Nagoya' },
     options_tr: { A: 'Osaka', B: 'Kyoto', C: 'Tokyo', D: 'Yokohama', E: 'Nagoya' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Tokyo has been Japan\'s capital since 1868, when it replaced Kyoto.',
   },
   {
@@ -350,6 +388,7 @@ const geography = [
     options: { A: 'Balkan Peninsula', B: 'Italian Peninsula', C: 'Iberian Peninsula', D: 'Scandinavian Peninsula', E: 'Anatolian Peninsula' },
     options_tr: { A: 'Balkan Yarımadası', B: 'İtalyan Yarımadası', C: 'İber Yarımadası', D: 'İskandinav Yarımadası', E: 'Anadolu Yarımadası' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Iberian Peninsula, home to Spain and Portugal, is bordered to the north by the Pyrenees mountain range.',
   },
   {
@@ -359,6 +398,7 @@ const geography = [
     options: { A: 'Eswatini', B: 'Lesotho', C: 'Botswana', D: 'Zimbabwe', E: 'Namibia' },
     options_tr: { A: 'Esvatini', B: 'Lesoto', C: 'Botsvana', D: 'Zimbabve', E: 'Namibya' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Lesotho is entirely surrounded by South Africa, making it one of only three countries in the world that are enclaves within a single other nation.',
   },
   {
@@ -368,6 +408,7 @@ const geography = [
     options: { A: 'Texas', B: 'California', C: 'Alaska', D: 'Montana', E: 'New Mexico' },
     options_tr: { A: 'Teksas', B: 'Kaliforniya', C: 'Alaska', D: 'Montana', E: 'New Mexico' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Alaska is by far the largest US state, more than twice the size of Texas, the second largest.',
   },
   {
@@ -377,6 +418,7 @@ const geography = [
     options: { A: 'Strait of Gibraltar', B: 'Strait of Dover', C: 'Öresund Strait', D: 'Strait of Messina', E: 'English Channel Tunnel (not a strait)' },
     options_tr: { A: 'Cebelitarık Boğazı', B: 'Dover Boğazı', C: 'Öresund Boğazı', D: 'Messina Boğazı', E: 'Manş Tüneli (boğaz değil)' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Strait of Dover, the narrowest part of the English Channel, separates England from France by about 33 km.',
   },
   {
@@ -386,6 +428,7 @@ const geography = [
     options: { A: 'Peru', B: 'Colombia', C: 'Ecuador', D: 'Chile', E: 'Venezuela' },
     options_tr: { A: 'Peru', B: 'Kolombiya', C: 'Ekvador', D: 'Şili', E: 'Venezuela' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Galápagos Islands, an Ecuadorian province, sit about 1,000 km off the country\'s Pacific coast.',
   },
   {
@@ -395,6 +438,7 @@ const geography = [
     options: { A: 'Coral Sea', B: 'Sargasso Sea', C: 'Sea of Japan', D: 'Tasman Sea', E: 'Ross Sea' },
     options_tr: { A: 'Mercan Denizi', B: 'Sargasso Denizi', C: 'Japon Denizi', D: 'Tasman Denizi', E: 'Ross Denizi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Sargasso Sea, located entirely within the Atlantic Ocean, is bounded by ocean currents rather than land.',
   },
   {
@@ -404,6 +448,7 @@ const geography = [
     options: { A: 'Mount Erciyes', B: 'Mount Ararat', C: 'Mount Nemrut', D: 'Mount Süphan', E: 'Uludağ' },
     options_tr: { A: 'Erciyes Dağı', B: 'Ağrı Dağı', C: 'Nemrut Dağı', D: 'Süphan Dağı', E: 'Uludağ' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Mount Ararat, in eastern Turkey near the Armenian border, is Turkey\'s highest peak and is traditionally associated with Noah\'s Ark.',
   },
   {
@@ -413,6 +458,7 @@ const geography = [
     options: { A: 'Indonesia', B: 'Australia', C: 'Russia', D: 'Canada', E: 'Norway' },
     options_tr: { A: 'Endonezya', B: 'Avustralya', C: 'Rusya', D: 'Kanada', E: 'Norveç' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Canada has the world\'s longest coastline at over 200,000 km, thanks in part to its many islands and fjords.',
   },
   {
@@ -422,6 +468,7 @@ const geography = [
     options: { A: 'Bali', B: 'Java', C: 'Krakatoa', D: 'Sumatra', E: 'Sulawesi' },
     options_tr: { A: 'Bali', B: 'Java', C: 'Krakatoa', D: 'Sumatra', E: 'Sulawesi' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The 1883 eruption of Krakatoa was one of the most violent volcanic events in recorded history, producing sounds heard as far as Australia.',
   },
   {
@@ -431,6 +478,7 @@ const geography = [
     options: { A: 'Andorra', B: 'Monaco', C: 'San Marino', D: 'Liechtenstein', E: 'Luxembourg' },
     options_tr: { A: 'Andorra', B: 'Monako', C: 'San Marino', D: 'Lihtenştayn', E: 'Lüksemburg' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Liechtenstein, one of only two doubly landlocked countries in the world, lies between Switzerland and Austria.',
   },
   {
@@ -440,6 +488,7 @@ const geography = [
     options: { A: 'Nile', B: 'Amazon', C: 'Danube', D: 'Mississippi', E: 'Yangtze' },
     options_tr: { A: 'Nil', B: 'Amazon', C: 'Tuna', D: 'Mississippi', E: 'Yangtze' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Danube flows through 10 countries, more than any other river in the world.',
   },
   {
@@ -449,6 +498,7 @@ const geography = [
     options: { A: 'Rio de Janeiro', B: 'São Paulo', C: 'Brasília', D: 'Salvador', E: 'Belo Horizonte' },
     options_tr: { A: 'Rio de Janeiro', B: 'São Paulo', C: 'Brasília', D: 'Salvador', E: 'Belo Horizonte' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Brasília, a purpose-built planned city, has been Brazil\'s capital since 1960, replacing Rio de Janeiro.',
   },
   {
@@ -458,6 +508,7 @@ const geography = [
     options: { A: 'Alps', B: 'Pyrenees', C: 'Apennines', D: 'Massif Central', E: 'Cantabrian Mountains' },
     options_tr: { A: 'Alpler', B: 'Pireneler', C: 'Apenin Dağları', D: 'Massif Central', E: 'Kantabriya Dağları' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Pyrenees mountain range runs along the border between France and Spain, also touching Andorra.',
   },
   {
@@ -467,6 +518,7 @@ const geography = [
     options: { A: 'Indonesia', B: 'Malaysia', C: 'Philippines', D: 'Vietnam', E: 'Thailand' },
     options_tr: { A: 'Endonezya', B: 'Malezya', C: 'Filipinler', D: 'Vietnam', E: 'Tayland' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Philippines is an archipelago of over 7,000 islands in Southeast Asia, with Manila as its capital.',
   },
   {
@@ -476,6 +528,7 @@ const geography = [
     options: { A: 'The Black Sea Region', B: 'The Aegean Region', C: 'Southeastern Anatolia Region', D: 'Central Anatolia Region', E: 'The Mediterranean Region' },
     options_tr: { A: 'Karadeniz Bölgesi', B: 'Ege Bölgesi', C: 'Güneydoğu Anadolu Bölgesi', D: 'İç Anadolu Bölgesi', E: 'Akdeniz Bölgesi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Southeastern Anatolia Region of Turkey borders both Syria to the south and Iraq to the southeast.',
   },
   {
@@ -485,6 +538,7 @@ const geography = [
     options: { A: 'Namibia', B: 'South Africa', C: 'Mozambique', D: 'Angola', E: 'Madagascar' },
     options_tr: { A: 'Namibya', B: 'Güney Afrika', C: 'Mozambik', D: 'Angola', E: 'Madagaskar' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'South Africa\'s coastline meets both the Atlantic Ocean (west) and Indian Ocean (east) near Cape Agulhas.',
   },
   {
@@ -494,6 +548,7 @@ const geography = [
     options: { A: 'Costa Rica', B: 'Nicaragua', C: 'Panama', D: 'Honduras', E: 'Belize' },
     options_tr: { A: 'Kosta Rika', B: 'Nikaragua', C: 'Panama', D: 'Honduras', E: 'Belize' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Panama Canal, completed in 1914, connects the Atlantic and Pacific Oceans across the Isthmus of Panama.',
   },
   {
@@ -503,6 +558,7 @@ const geography = [
     options: { A: 'Asia', B: 'Antarctica', C: 'North America', D: 'Europe', E: 'South America' },
     options_tr: { A: 'Asya', B: 'Antarktika', C: 'Kuzey Amerika', D: 'Avrupa', E: 'Güney Amerika' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Antarctica holds roughly 70% of the world\'s fresh water, locked in its massive ice sheets.',
   },
   {
@@ -512,6 +568,7 @@ const geography = [
     options: { A: 'Lebanon', B: 'Syria', C: 'Jordan', D: 'Saudi Arabia', E: 'Egypt' },
     options_tr: { A: 'Lübnan', B: 'Suriye', C: 'Ürdün', D: 'Suudi Arabistan', E: 'Mısır' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Jordan borders the eastern shore of the Dead Sea, which it shares with Israel and the West Bank.',
   },
   {
@@ -521,6 +578,7 @@ const geography = [
     options: { A: 'Busan', B: 'Incheon', C: 'Seoul', D: 'Daegu', E: 'Gwangju' },
     options_tr: { A: 'Busan', B: 'Incheon', C: 'Seul', D: 'Daegu', E: 'Gwangju' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Seoul has been the capital of Korea for centuries and remains South Korea\'s capital and largest city.',
   },
   {
@@ -530,6 +588,7 @@ const geography = [
     options: { A: 'Black Sea Coast', B: 'Mediterranean and Aegean Coast', C: 'Marmara Coast', D: 'Eastern Anatolia', E: 'Southeastern Anatolia' },
     options_tr: { A: 'Karadeniz Kıyısı', B: 'Akdeniz ve Ege Kıyısı', C: 'Marmara Kıyısı', D: 'Doğu Anadolu', E: 'Güneydoğu Anadolu' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Turkey\'s Turquoise Coast refers to its Mediterranean and Aegean shoreline, famed for clear turquoise waters.',
   },
   {
@@ -539,6 +598,7 @@ const geography = [
     options: { A: 'Monaco', B: 'Singapore (a city-state but larger)', C: 'Vatican City', D: 'San Marino', E: 'Malta' },
     options_tr: { A: 'Monako', B: 'Singapur (bir şehir devleti ama daha büyük)', C: 'Vatikan', D: 'San Marino', E: 'Malta' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Vatican City is a city-state entirely enclosed within Rome, Italy, making it the world\'s smallest sovereign nation.',
   },
   {
@@ -548,6 +608,7 @@ const geography = [
     options: { A: 'Lake Tanganyika', B: 'Lake Malawi', C: 'Lake Victoria', D: 'Lake Chad', E: 'Lake Albert' },
     options_tr: { A: 'Tanganika Gölü', B: 'Malavi Gölü', C: 'Victoria Gölü', D: 'Çad Gölü', E: 'Albert Gölü' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Lake Victoria, shared by Uganda, Kenya, and Tanzania, is the source of the White Nile and Africa\'s largest lake.',
   },
   {
@@ -557,6 +618,7 @@ const geography = [
     options: { A: 'Japan', B: 'Indonesia', C: 'Philippines', D: 'Chile', E: 'Iceland' },
     options_tr: { A: 'Japonya', B: 'Endonezya', C: 'Filipinler', D: 'Şili', E: 'İzlanda' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Indonesia, sitting on the Pacific Ring of Fire, has around 130 active volcanoes, the most of any country.',
   },
   {
@@ -566,6 +628,7 @@ const geography = [
     options: { A: 'Angel Falls', B: 'Tugela Falls', C: 'Victoria Falls', D: 'Niagara Falls', E: 'Kaieteur Falls' },
     options_tr: { A: 'Angel Şelalesi', B: 'Tugela Şelalesi', C: 'Victoria Şelalesi', D: 'Niagara Şelalesi', E: 'Kaieteur Şelalesi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Angel Falls in Venezuela has an uninterrupted drop of 979 meters, making it the world\'s tallest waterfall.',
   },
   {
@@ -575,6 +638,7 @@ const geography = [
     options: { A: 'Hawaii', B: 'Alaska', C: 'Maine', D: 'Michigan', E: 'Washington' },
     options_tr: { A: 'Hawaii', B: 'Alaska', C: 'Maine', D: 'Michigan', E: 'Washington' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Alaska is geographically separated from the contiguous United States, bordered only by Canada.',
   },
   {
@@ -584,6 +648,7 @@ const geography = [
     options: { A: 'Bursa', B: 'Edirne', C: 'Konya', D: 'Söğüt', E: 'Ankara' },
     options_tr: { A: 'Bursa', B: 'Edirne', C: 'Konya', D: 'Söğüt', E: 'Ankara' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Edirne (formerly Adrianople) served as the Ottoman capital from 1369 until Constantinople was conquered in 1453 (Bursa was the capital before Edirne).',
   },
   {
@@ -593,6 +658,7 @@ const geography = [
     options: { A: 'Ionian Sea', B: 'Adriatic Sea', C: 'Aegean Sea', D: 'Tyrrhenian Sea', E: 'Sea of Marmara (too small)' },
     options_tr: { A: 'İyon Denizi', B: 'Adriyatik Denizi', C: 'Ege Denizi', D: 'Tiren Denizi', E: 'Marmara Denizi (çok küçük)' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Aegean Sea, between Turkey and Greece, contains thousands of islands and islets.',
   },
   {
@@ -602,6 +668,7 @@ const geography = [
     options: { A: 'Philippines', B: 'Japan', C: 'Indonesia', D: 'Papua New Guinea', E: 'Maldives' },
     options_tr: { A: 'Filipinler', B: 'Japonya', C: 'Endonezya', D: 'Papua Yeni Gine', E: 'Maldivler' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Indonesia is composed of over 17,000 islands, making it the world\'s largest island country.',
   },
   {
@@ -611,6 +678,7 @@ const geography = [
     options: { A: 'Tropic of Cancer', B: 'Prime Meridian', C: 'Equator', D: 'Tropic of Capricorn', E: 'Arctic Circle' },
     options_tr: { A: 'Yengeç Dönencesi', B: 'Greenwich (Başlangıç) Meridyeni', C: 'Ekvator', D: 'Oğlak Dönencesi', E: 'Kuzey Kutup Dairesi' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Equator, an imaginary line at 0° latitude, divides the Earth into the Northern and Southern Hemispheres.',
   },
   {
@@ -620,6 +688,7 @@ const geography = [
     options: { A: 'International Date Line', B: 'Prime Meridian', C: 'Equator', D: 'Tropic of Cancer', E: 'Antimeridian' },
     options_tr: { A: 'Tarih Değiştirme Çizgisi', B: 'Greenwich (Başlangıç) Meridyeni', C: 'Ekvator', D: 'Yengeç Dönencesi', E: 'Anti-meridyen' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Prime Meridian, at 0° longitude, passes through the Royal Observatory in Greenwich and is the basis for Coordinated Universal Time (UTC).',
   },
   {
@@ -629,6 +698,7 @@ const geography = [
     options: { A: 'Sweden', B: 'Denmark', C: 'Norway', D: 'Finland', E: 'Iceland' },
     options_tr: { A: 'İsveç', B: 'Danimarka', C: 'Norveç', D: 'Finlandiya', E: 'İzlanda' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Norway\'s deeply indented coastline is famous for its fjords, narrow inlets carved by glaciers.',
   },
   {
@@ -638,6 +708,7 @@ const geography = [
     options: { A: 'Bolivia', B: 'Paraguay', C: 'Brazil', D: 'Argentina', E: 'Uruguay' },
     options_tr: { A: 'Bolivya', B: 'Paraguay', C: 'Brezilya', D: 'Arjantin', E: 'Uruguay' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Pantanal, mostly located in Brazil (extending into Bolivia and Paraguay), is the world\'s largest tropical wetland area.',
   },
   {
@@ -647,6 +718,7 @@ const geography = [
     options: { A: 'Kazakhstan', B: 'Russia', C: 'Turkey', D: 'Georgia', E: 'Azerbaijan' },
     options_tr: { A: 'Kazakistan', B: 'Rusya', C: 'Türkiye', D: 'Gürcistan', E: 'Azerbaycan' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Russia is transcontinental, with the Ural Mountains and Ural River conventionally dividing its European and Asian territories.',
   },
   {
@@ -656,6 +728,7 @@ const geography = [
     options: { A: 'Indonesia', B: 'Philippines', C: 'Australia', D: 'Fiji', E: 'Papua New Guinea' },
     options_tr: { A: 'Endonezya', B: 'Filipinler', C: 'Avustralya', D: 'Fiji', E: 'Papua Yeni Gine' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Great Barrier Reef, off the coast of Queensland, Australia, is the world\'s largest coral reef system.',
   },
   {
@@ -665,6 +738,7 @@ const geography = [
     options: { A: 'Atacama Desert', B: 'Salar de Uyuni', C: 'Death Valley', D: 'Bonneville Salt Flats', E: 'Danakil Depression' },
     options_tr: { A: 'Atacama Çölü', B: 'Salar de Uyuni', C: 'Ölüm Vadisi', D: 'Bonneville Tuz Düzlükleri', E: 'Danakil Çöküntüsü' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Salar de Uyuni in Bolivia is the world\'s largest salt flat, famous for creating a mirror effect when covered by a thin layer of water.',
   },
   {
@@ -674,6 +748,7 @@ const geography = [
     options: { A: 'Mount Kenya', B: 'Mount Kilimanjaro', C: 'Mount Meru', D: 'Ruwenzori Mountains', E: 'Mount Elgon' },
     options_tr: { A: 'Kenya Dağı', B: 'Kilimanjaro Dağı', C: 'Meru Dağı', D: 'Ruwenzori Dağları', E: 'Elgon Dağı' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Mount Kilimanjaro is described as a freestanding mountain because it is not part of a mountain range.',
   },
   {
@@ -683,6 +758,7 @@ const geography = [
     options: { A: 'Russia', B: 'Turkey', C: 'Kazakhstan', D: 'Georgia', E: 'Egypt' },
     options_tr: { A: 'Rusya', B: 'Türkiye', C: 'Kazakistan', D: 'Gürcistan', E: 'Mısır' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Turkey\'s largest city, Istanbul, is not its capital — that role belongs to Ankara.',
   },
   {
@@ -692,6 +768,7 @@ const geography = [
     options: { A: 'Kenya', B: 'Tanzania', C: 'Uganda', D: 'Zambia', E: 'Botswana' },
     options_tr: { A: 'Kenya', B: 'Tanzanya', C: 'Uganda', D: 'Zambiya', E: 'Botsvana' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Serengeti National Park in Tanzania is renowned for the Great Migration of wildebeest and zebra.',
   },
   {
@@ -701,6 +778,7 @@ const geography = [
     options: { A: 'Córdoba', B: 'Rosario', C: 'Buenos Aires', D: 'Mendoza', E: 'La Plata' },
     options_tr: { A: 'Córdoba', B: 'Rosario', C: 'Buenos Aires', D: 'Mendoza', E: 'La Plata' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Buenos Aires is the capital and largest city of Argentina, located on the Río de la Plata estuary.',
   },
   {
@@ -710,6 +788,7 @@ const geography = [
     options: { A: 'Slovenia', B: 'Croatia', C: 'Montenegro', D: 'Albania', E: 'Bosnia and Herzegovina' },
     options_tr: { A: 'Slovenya', B: 'Hırvatistan', C: 'Karadağ', D: 'Arnavutluk', E: 'Bosna Hersek' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Croatia\'s Dalmatian Coast along the Adriatic Sea is renowned for its islands and historic coastal cities.',
   },
   {
@@ -719,6 +798,7 @@ const geography = [
     options: { A: 'Alps', B: 'Pyrenees', C: 'Cantabrian Mountains', D: 'Sierra Nevada', E: 'Atlas Mountains' },
     options_tr: { A: 'Alpler', B: 'Pireneler', C: 'Kantabriya Dağları', D: 'Sierra Nevada', E: 'Atlas Dağları' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Andorra is a tiny country nestled in the Pyrenees mountains between France and Spain.',
   },
   {
@@ -728,6 +808,7 @@ const geography = [
     options: { A: 'Strait of Malacca', B: 'Strait of Hormuz', C: 'Bab-el-Mandeb', D: 'Suez Canal (not a strait)', E: 'Strait of Gibraltar' },
     options_tr: { A: 'Malakka Boğazı', B: 'Hürmüz Boğazı', C: 'Bab-el-Mendeb', D: 'Süveyş Kanalı (boğaz değil)', E: 'Cebelitarık Boğazı' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Strait of Hormuz, between Iran and the Arabian Peninsula, is one of the world\'s most important oil chokepoints.',
   },
   {
@@ -737,6 +818,7 @@ const geography = [
     options: { A: 'Israel', B: 'Egypt', C: 'Jordan', D: 'Saudi Arabia', E: 'Sudan' },
     options_tr: { A: 'İsrail', B: 'Mısır', C: 'Ürdün', D: 'Suudi Arabistan', E: 'Sudan' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Egypt uniquely borders both the Mediterranean Sea (north) and the Red Sea (east), connected by the Suez Canal.',
   },
   {
@@ -746,6 +828,7 @@ const geography = [
     options: { A: 'Antalya', B: 'Izmir', C: 'Mugla', D: 'Aydın', E: 'Denizli' },
     options_tr: { A: 'Antalya', B: 'İzmir', C: 'Muğla', D: 'Aydın', E: 'Denizli' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Ephesus is located in the İzmir province of Turkey, near the town of Selçuk.',
   },
   {
@@ -755,6 +838,7 @@ const geography = [
     options: { A: 'Nepal', B: 'Bhutan', C: 'Bolivia', D: 'Lesotho', E: 'Tajikistan' },
     options_tr: { A: 'Nepal', B: 'Bhutan', C: 'Bolivya', D: 'Lesoto', E: 'Tacikistan' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Lesotho, entirely above 1,000 meters in elevation, has the highest average elevation of any country in the world.',
   },
   {
@@ -764,6 +848,7 @@ const geography = [
     options: { A: 'Tyrrhenian Sea', B: 'Ionian Sea', C: 'Adriatic Sea', D: 'Ligurian Sea', E: 'Aegean Sea' },
     options_tr: { A: 'Tiren Denizi', B: 'İyon Denizi', C: 'Adriyatik Denizi', D: 'Ligurya Denizi', E: 'Ege Denizi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Adriatic Sea separates the Italian Peninsula from the Balkan Peninsula.',
   },
   {
@@ -773,6 +858,7 @@ const geography = [
     options: { A: 'Libya', B: 'Egypt', C: 'Algeria', D: 'Mali', E: 'Chad' },
     options_tr: { A: 'Libya', B: 'Mısır', C: 'Cezayir', D: 'Mali', E: 'Çad' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Algeria contains the largest portion of the Sahara Desert of any single country by land area.',
   },
   {
@@ -782,6 +868,7 @@ const geography = [
     options: { A: 'Yellow Sea', B: 'Sea of Japan (East Sea)', C: 'East China Sea', D: 'Bohai Sea', E: 'Philippine Sea' },
     options_tr: { A: 'Sarı Deniz', B: 'Japon Denizi (Doğu Denizi)', C: 'Doğu Çin Denizi', D: 'Bohai Denizi', E: 'Filipin Denizi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Sea of Japan (called the East Sea in Korea) lies between the Korean Peninsula and the Japanese archipelago.',
   },
   {
@@ -791,6 +878,7 @@ const geography = [
     options: { A: 'India', B: 'Russia', C: 'Germany', D: 'Kazakhstan', E: 'Brazil' },
     options_tr: { A: 'Hindistan', B: 'Rusya', C: 'Almanya', D: 'Kazakistan', E: 'Brezilya' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Russia and China both border 14 other countries, more than any other nation in the world.',
   },
   {
@@ -800,6 +888,7 @@ const geography = [
     options: { A: 'Lake Van', B: 'Lake Tuz (Salt Lake)', C: 'Lake Beyşehir', D: 'Lake Eğirdir', E: 'Lake Burdur' },
     options_tr: { A: 'Van Gölü', B: 'Tuz Gölü', C: 'Beyşehir Gölü', D: 'Eğirdir Gölü', E: 'Burdur Gölü' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Lake Tuz (Salt Lake), in central Turkey, is one of the largest hypersaline lakes in the world.',
   },
   {
@@ -809,6 +898,7 @@ const geography = [
     options: { A: 'Seychelles', B: 'Comoros', C: 'Madagascar', D: 'Mauritius', E: 'Réunion' },
     options_tr: { A: 'Seyşeller', B: 'Komorlar', C: 'Madagaskar', D: 'Mauritius', E: 'Réunion' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Madagascar, isolated for millions of years, is home to lemurs and many species found nowhere else on Earth.',
   },
   {
@@ -818,6 +908,7 @@ const geography = [
     options: { A: 'Colorado River', B: 'Rio Grande', C: 'Pecos River', D: 'Gila River', E: 'Sacramento River' },
     options_tr: { A: 'Colorado Nehri', B: 'Rio Grande', C: 'Pecos Nehri', D: 'Gila Nehri', E: 'Sacramento Nehri' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Rio Grande (known as Río Bravo in Mexico) forms a large portion of the US-Mexico border.',
   },
   {
@@ -827,6 +918,7 @@ const geography = [
     options: { A: 'Antalya', B: 'Bursa', C: 'Izmir', D: 'Adana', E: 'Gaziantep' },
     options_tr: { A: 'Antalya', B: 'Bursa', C: 'İzmir', D: 'Adana', E: 'Gaziantep' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'İzmir, on Turkey\'s Aegean coast, is the country\'s third-largest city and a major Mediterranean port.',
   },
   {
@@ -836,6 +928,7 @@ const geography = [
     options: { A: 'Puerto Rico Trench', B: 'Mariana Trench (Challenger Deep)', C: 'Java Trench', D: 'Tonga Trench', E: 'Kermadec Trench' },
     options_tr: { A: 'Porto Riko Çukuru', B: 'Mariana Çukuru (Challenger Deep)', C: 'Java Çukuru', D: 'Tonga Çukuru', E: 'Kermadec Çukuru' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Challenger Deep in the Mariana Trench, at nearly 11,000 meters, is the deepest known point in Earth\'s oceans.',
   },
   {
@@ -845,6 +938,7 @@ const geography = [
     options: { A: 'Syria', B: 'Jordan', C: 'Lebanon', D: 'Iraq', E: 'Israel' },
     options_tr: { A: 'Suriye', B: 'Ürdün', C: 'Lübnan', D: 'Irak', E: 'İsrail' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Petra, a UNESCO World Heritage Site, is located in southern Jordan and was carved by the Nabataeans over 2,000 years ago.',
   },
   {
@@ -854,6 +948,7 @@ const geography = [
     options: { A: 'Brazil', B: 'Indonesia', C: 'Kiribati', D: 'Ecuador', E: 'Democratic Republic of the Congo' },
     options_tr: { A: 'Brezilya', B: 'Endonezya', C: 'Kiribati', D: 'Ekvador', E: 'Kongo Demokratik Cumhuriyeti' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Kiribati, a Pacific island nation, is the only country whose territory extends into all four hemispheres.',
   },
   {
@@ -863,6 +958,7 @@ const geography = [
     options: { A: 'Black Sea Region', B: 'Central Anatolia Region', C: 'Eastern Anatolia Region', D: 'Southeastern Anatolia Region', E: 'Marmara Region' },
     options_tr: { A: 'Karadeniz Bölgesi', B: 'İç Anadolu Bölgesi', C: 'Doğu Anadolu Bölgesi', D: 'Güneydoğu Anadolu Bölgesi', E: 'Marmara Bölgesi' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Turkey\'s Eastern Anatolia Region borders Iran, Armenia, Azerbaijan\'s Nakhchivan exclave, and Georgia, and contains Mount Ararat.',
   },
   {
@@ -872,6 +968,7 @@ const geography = [
     options: { A: 'Africa', B: 'Asia', C: 'Antarctica', D: 'Australia', E: 'Europe' },
     options_tr: { A: 'Afrika', B: 'Asya', C: 'Antarktika', D: 'Avustralya', E: 'Avrupa' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Because Antarctica surrounds the South Pole, every line of longitude passes through it.',
   },
   {
@@ -881,6 +978,7 @@ const geography = [
     options: { A: 'Arabian Sea', B: 'Red Sea', C: 'Gulf of Aden', D: 'Persian Gulf', E: 'Mediterranean Sea' },
     options_tr: { A: 'Arap Denizi', B: 'Kızıldeniz', C: 'Aden Körfezi', D: 'Basra Körfezi', E: 'Akdeniz' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Red Sea separates Africa from the Arabian Peninsula and connects to the Indian Ocean through the Gulf of Aden via Bab-el-Mandeb.',
   },
   {
@@ -890,6 +988,7 @@ const geography = [
     options: { A: 'Sahara Desert', B: 'Arctic Desert', C: 'Antarctic Desert', D: 'Gobi Desert', E: 'Arabian Desert' },
     options_tr: { A: 'Sahra Çölü', B: 'Arktik Çölü', C: 'Antarktika Çölü', D: 'Gobi Çölü', E: 'Arap Çölü' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'By the broad definition of "desert" as a region receiving very little precipitation, the Antarctic Desert (all of Antarctica) is the largest in the world at about 14 million km².',
   },
   {
@@ -899,6 +998,7 @@ const geography = [
     options: { A: 'Bursa', B: 'Eskişehir', C: 'Kütahya', D: 'Balıkesir', E: 'Sakarya' },
     options_tr: { A: 'Bursa', B: 'Eskişehir', C: 'Kütahya', D: 'Balıkesir', E: 'Sakarya' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Bursa was the second capital of the Ottoman Empire (1335–1363) and is famous for Mount Uludağ and its thermal baths.',
   },
   {
@@ -908,6 +1008,7 @@ const geography = [
     options: { A: 'Bosporus Strait', B: 'Dardanelles Strait', C: 'Strait of Otranto', D: 'Kerch Strait', E: 'Strait of Messina' },
     options_tr: { A: 'İstanbul Boğazı', B: 'Çanakkale Boğazı', C: 'Otranto Boğazı', D: 'Kerç Boğazı', E: 'Messina Boğazı' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Dardanelles is about 61 km long and is overlooked by the city of Çanakkale on its Asian shore.',
   },
   {
@@ -917,6 +1018,7 @@ const geography = [
     options: { A: 'Chimborazo', B: 'Huascarán', C: 'Illimani', D: 'Aconcagua', E: 'Ojos del Salado' },
     options_tr: { A: 'Chimborazo', B: 'Huascarán', C: 'Illimani', D: 'Aconcagua', E: 'Ojos del Salado' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Aconcagua, in the Argentine Andes, rises to 6,961 meters and is the highest peak anywhere outside Asia.',
   },
   {
@@ -926,6 +1028,7 @@ const geography = [
     options: { A: 'Auckland', B: 'Christchurch', C: 'Dunedin', D: 'Hamilton', E: 'Wellington' },
     options_tr: { A: 'Auckland', B: 'Christchurch', C: 'Dunedin', D: 'Hamilton', E: 'Wellington' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Wellington, at the southern tip of the North Island, replaced Auckland as the capital in 1865.',
   },
   {
@@ -935,6 +1038,7 @@ const geography = [
     options: { A: 'Arctic Ocean', B: 'Southern Ocean', C: 'Indian Ocean', D: 'Atlantic Ocean', E: 'Pacific Ocean' },
     options_tr: { A: 'Kuzey Buz Denizi', B: 'Güney Okyanusu', C: 'Hint Okyanusu', D: 'Atlas Okyanusu', E: 'Pasifik Okyanusu' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The Arctic Ocean covers roughly 14 million km² and is also the shallowest of the oceans.',
   },
   {
@@ -944,6 +1048,7 @@ const geography = [
     options: { A: 'Sakarya', B: 'Kızılırmak', C: 'Yeşilırmak', D: 'Euphrates', E: 'Meriç' },
     options_tr: { A: 'Sakarya', B: 'Kızılırmak', C: 'Yeşilırmak', D: 'Fırat', E: 'Meriç' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Kızılırmak runs about 1,350 km in a wide arc across Anatolia before emptying into the Black Sea.',
   },
   {
@@ -953,6 +1058,7 @@ const geography = [
     options: { A: 'Borneo', B: 'Madagascar', C: 'New Guinea', D: 'Baffin Island', E: 'Sumatra' },
     options_tr: { A: 'Borneo', B: 'Madagaskar', C: 'Yeni Gine', D: 'Baffin Adası', E: 'Sumatra' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'New Guinea, divided between Indonesia and Papua New Guinea, covers about 786,000 km².',
   },
   {
@@ -962,6 +1068,7 @@ const geography = [
     options: { A: 'Loire', B: 'Rhône', C: 'Garonne', D: 'Seine', E: 'Marne' },
     options_tr: { A: 'Loire', B: 'Rhône', C: 'Garonne', D: 'Seine', E: 'Marne' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Seine crosses Paris from southeast to west and reaches the English Channel at Le Havre.',
   },
   {
@@ -971,6 +1078,7 @@ const geography = [
     options: { A: 'Kazakhstan', B: 'Russia', C: 'India', D: 'Uzbekistan', E: 'China' },
     options_tr: { A: 'Kazakistan', B: 'Rusya', C: 'Hindistan', D: 'Özbekistan', E: 'Çin' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'The Gobi extends from southern Mongolia into northern China, covering much of Inner Mongolia.',
   },
   {
@@ -980,6 +1088,7 @@ const geography = [
     options: { A: 'Bern', B: 'Zurich', C: 'Geneva', D: 'Basel', E: 'Lausanne' },
     options_tr: { A: 'Bern', B: 'Zürih', C: 'Cenevre', D: 'Basel', E: 'Lozan' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Bern has hosted the Swiss federal government since 1848, although Zurich is the country\'s largest city.',
   },
   {
@@ -989,6 +1098,7 @@ const geography = [
     options: { A: 'Cuba', B: 'Jamaica', C: 'Puerto Rico', D: 'Hispaniola', E: 'Trinidad' },
     options_tr: { A: 'Küba', B: 'Jamaika', C: 'Porto Riko', D: 'Hispaniola', E: 'Trinidad' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Hispaniola is split between Haiti in the west and the Dominican Republic in the east.',
   },
   {
@@ -998,6 +1108,7 @@ const geography = [
     options: { A: 'Denizli', B: 'Aydın', C: 'Muğla', D: 'Afyonkarahisar', E: 'Isparta' },
     options_tr: { A: 'Denizli', B: 'Aydın', C: 'Muğla', D: 'Afyonkarahisar', E: 'Isparta' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The calcium-carbonate terraces of Pamukkale sit beside the ancient city of Hierapolis in Denizli province.',
   },
   {
@@ -1007,6 +1118,7 @@ const geography = [
     options: { A: 'Danube', B: 'Rhine', C: 'Volga', D: 'Dnieper', E: 'Loire' },
     options_tr: { A: 'Tuna', B: 'Ren', C: 'Volga', D: 'Dinyeper', E: 'Loire' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Volga flows about 3,530 km through Russia and drains into the Caspian Sea.',
   },
   {
@@ -1016,6 +1128,7 @@ const geography = [
     options: { A: 'Mount Logan', B: 'Pico de Orizaba', C: 'Mount Whitney', D: 'Denali', E: 'Mount Rainier' },
     options_tr: { A: 'Logan Dağı', B: 'Pico de Orizaba', C: 'Whitney Dağı', D: 'Denali', E: 'Rainier Dağı' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Denali, in the Alaska Range, reaches 6,190 meters, well above Canada\'s Mount Logan at 5,959 meters.',
   },
   {
@@ -1025,6 +1138,7 @@ const geography = [
     options: { A: 'Russia and Kazakhstan', B: 'Argentina and Chile', C: 'China and Mongolia', D: 'India and Bangladesh', E: 'United States and Canada' },
     options_tr: { A: 'Rusya ve Kazakistan', B: 'Arjantin ve Şili', C: 'Çin ve Moğolistan', D: 'Hindistan ve Bangladeş', E: 'Amerika Birleşik Devletleri ve Kanada' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'The border between the United States and Canada runs about 8,890 km, including the stretch alongside Alaska.',
   },
   {
@@ -1034,6 +1148,7 @@ const geography = [
     options: { A: 'Rabat', B: 'Casablanca', C: 'Marrakesh', D: 'Fez', E: 'Tangier' },
     options_tr: { A: 'Rabat', B: 'Kazablanka', C: 'Marakeş', D: 'Fes', E: 'Tanca' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Rabat sits on the Atlantic coast and is Morocco\'s administrative capital, while Casablanca is its largest city.',
   },
   {
@@ -1043,6 +1158,7 @@ const geography = [
     options: { A: 'Aegean Sea', B: 'Black Sea', C: 'Sea of Marmara', D: 'Mediterranean Sea', E: 'Sea of Azov' },
     options_tr: { A: 'Ege Denizi', B: 'Karadeniz', C: 'Marmara Denizi', D: 'Akdeniz', E: 'Azak Denizi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Sea of Marmara is enclosed by Turkish land and linked to the Black Sea and the Aegean by two straits.',
   },
   {
@@ -1052,6 +1168,7 @@ const geography = [
     options: { A: 'Bering Strait', B: 'Davis Strait', C: 'Denmark Strait', D: 'Bass Strait', E: 'Torres Strait' },
     options_tr: { A: 'Bering Boğazı', B: 'Davis Boğazı', C: 'Danimarka Boğazı', D: 'Bass Boğazı', E: 'Torres Boğazı' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Bering Strait is only about 82 km wide and connects the Arctic Ocean with the Bering Sea.',
   },
   {
@@ -1061,6 +1178,7 @@ const geography = [
     options: { A: 'Sardinia', B: 'Cyprus', C: 'Crete', D: 'Sicily', E: 'Corsica' },
     options_tr: { A: 'Sardunya', B: 'Kıbrıs', C: 'Girit', D: 'Sicilya', E: 'Korsika' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Sicily covers about 25,700 km² and forms an autonomous region of Italy.',
   },
   {
@@ -1070,6 +1188,7 @@ const geography = [
     options: { A: 'Lagos', B: 'Kano', C: 'Ibadan', D: 'Port Harcourt', E: 'Abuja' },
     options_tr: { A: 'Lagos', B: 'Kano', C: 'İbadan', D: 'Port Harcourt', E: 'Abuja' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Abuja, built in the centre of the country, took over from Lagos as Nigeria\'s capital in 1991.',
   },
   {
@@ -1079,6 +1198,7 @@ const geography = [
     options: { A: 'Mount Fuji', B: 'Mount Aso', C: 'Mount Hotaka', D: 'Mount Ontake', E: 'Mount Tate' },
     options_tr: { A: 'Fuji Dağı', B: 'Aso Dağı', C: 'Hotaka Dağı', D: 'Ontake Dağı', E: 'Tate Dağı' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Mount Fuji is an active stratovolcano of 3,776 meters standing southwest of Tokyo.',
   },
   {
@@ -1088,6 +1208,7 @@ const geography = [
     options: { A: 'Iraq', B: 'Syria', C: 'Iran', D: 'Turkey', E: 'Armenia' },
     options_tr: { A: 'Irak', B: 'Suriye', C: 'İran', D: 'Türkiye', E: 'Ermenistan' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Both rivers rise in the mountains of eastern Turkey before flowing south through Syria and Iraq.',
   },
   {
@@ -1097,6 +1218,7 @@ const geography = [
     options: { A: 'Bolivia', B: 'Paraguay', C: 'Uruguay', D: 'Ecuador', E: 'Suriname' },
     options_tr: { A: 'Bolivya', B: 'Paraguay', C: 'Uruguay', D: 'Ekvador', E: 'Surinam' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Paraguay is one of only two landlocked countries in South America (the other being Bolivia), and uniquely gives official status to Guaraní alongside Spanish.',
   },
   {
@@ -1106,6 +1228,7 @@ const geography = [
     options: { A: 'Mont Blanc', B: 'Matterhorn', C: 'Mount Elbrus', D: 'Grossglockner', E: 'Mount Olympus' },
     options_tr: { A: 'Mont Blanc', B: 'Matterhorn', C: 'Elbruz Dağı', D: 'Grossglockner', E: 'Olimpos Dağı' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Mount Elbrus, a dormant volcano in the Russian Caucasus, rises to 5,642 meters, above Mont Blanc\'s 4,808 meters.',
   },
   {
@@ -1115,6 +1238,7 @@ const geography = [
     options: { A: 'Panama Canal', B: 'Kiel Canal', C: 'Corinth Canal', D: 'Suez Canal', E: 'Grand Canal' },
     options_tr: { A: 'Panama Kanalı', B: 'Kiel Kanalı', C: 'Korint Kanalı', D: 'Süveyş Kanalı', E: 'Büyük Kanal' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Opened in 1869, the Suez Canal lets vessels travel between Europe and Asia without sailing around Africa.',
   },
   {
@@ -1124,6 +1248,7 @@ const geography = [
     options: { A: 'Asia', B: 'Europe', C: 'South America', D: 'North America', E: 'Africa' },
     options_tr: { A: 'Asya', B: 'Avrupa', C: 'Güney Amerika', D: 'Kuzey Amerika', E: 'Afrika' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Africa is home to 54 sovereign states recognised by the United Nations.',
   },
   {
@@ -1133,6 +1258,7 @@ const geography = [
     options: { A: 'Kayseri', B: 'Sivas', C: 'Niğde', D: 'Malatya', E: 'Yozgat' },
     options_tr: { A: 'Kayseri', B: 'Sivas', C: 'Niğde', D: 'Malatya', E: 'Yozgat' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Mount Erciyes reaches 3,917 meters and dominates the skyline of Kayseri in central Anatolia.',
   },
   {
@@ -1142,6 +1268,7 @@ const geography = [
     options: { A: 'Nile', B: 'Congo', C: 'Amazon', D: 'Yangtze', E: 'Mississippi' },
     options_tr: { A: 'Nil', B: 'Kongo', C: 'Amazon', D: 'Yangtze', E: 'Mississippi' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Amazon delivers roughly one-fifth of all the river water that reaches the world\'s oceans.',
   },
   {
@@ -1151,6 +1278,7 @@ const geography = [
     options: { A: 'Ho Chi Minh City', B: 'Hanoi', C: 'Da Nang', D: 'Hue', E: 'Haiphong' },
     options_tr: { A: 'Ho Chi Minh Kenti', B: 'Hanoi', C: 'Da Nang', D: 'Hue', E: 'Haiphong' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Hanoi, in the north of the country, became the capital of a reunified Vietnam in 1976.',
   },
   {
@@ -1160,6 +1288,7 @@ const geography = [
     options: { A: 'North Sea', B: 'Barents Sea', C: 'Baltic Sea', D: 'White Sea', E: 'Norwegian Sea' },
     options_tr: { A: 'Kuzey Denizi', B: 'Barents Denizi', C: 'Baltık Denizi', D: 'Beyaz Deniz', E: 'Norveç Denizi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Baltic is a shallow, brackish sea that reaches the Atlantic only through the narrow Danish straits.',
   },
   {
@@ -1169,6 +1298,7 @@ const geography = [
     options: { A: 'Mount Etna', B: 'Stromboli', C: 'Campi Flegrei', D: 'Mount Vesuvius', E: 'Mount Vulture' },
     options_tr: { A: 'Etna Yanardağı', B: 'Stromboli', C: 'Campi Flegrei', D: 'Vezüv Yanardağı', E: 'Vulture Dağı' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Mount Vesuvius overlooks the Bay of Naples and is one of the most closely monitored volcanoes in the world.',
   },
   {
@@ -1178,6 +1308,7 @@ const geography = [
     options: { A: 'Pontic Mountains', B: 'Taurus Mountains', C: 'Caucasus Mountains', D: 'Zagros Mountains', E: 'Balkan Mountains' },
     options_tr: { A: 'Kuzey Anadolu Dağları', B: 'Toros Dağları', C: 'Kafkas Dağları', D: 'Zagros Dağları', E: 'Balkan Dağları' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Taurus range forms a barrier between the Mediterranean shore and the Anatolian plateau.',
   },
   {
@@ -1187,6 +1318,7 @@ const geography = [
     options: { A: 'South Africa', B: 'Namibia', C: 'Chile', D: 'Mexico', E: 'Australia' },
     options_tr: { A: 'Güney Afrika', B: 'Namibya', C: 'Şili', D: 'Meksika', E: 'Avustralya' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Uluru rises from the desert plain of Australia\'s Northern Territory and is sacred to the local Aboriginal people.',
   },
   {
@@ -1196,6 +1328,7 @@ const geography = [
     options: { A: 'Caspian Depression', B: 'Dead Sea shore', C: 'Death Valley', D: 'Lake Assal shore', E: 'Qattara Depression' },
     options_tr: { A: 'Hazar Çöküntüsü', B: 'Ölü Deniz kıyısı', C: 'Ölüm Vadisi', D: 'Assal Gölü kıyısı', E: 'Kattara Çöküntüsü' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The shore of the Dead Sea lies roughly 430 meters below sea level, far lower than Lake Assal at about 155 meters below.',
   },
   {
@@ -1205,6 +1338,7 @@ const geography = [
     options: { A: 'Almaty', B: 'Shymkent', C: 'Karaganda', D: 'Aktobe', E: 'Astana' },
     options_tr: { A: 'Almatı', B: 'Şimkent', C: 'Karaganda', D: 'Aktöbe', E: 'Astana' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Kazakhstan moved its capital from Almaty in the south to Astana in the northern steppe in 1997.',
   },
   {
@@ -1214,6 +1348,7 @@ const geography = [
     options: { A: 'China', B: 'United States', C: 'Indonesia', D: 'India', E: 'Pakistan' },
     options_tr: { A: 'Çin', B: 'Amerika Birleşik Devletleri', C: 'Endonezya', D: 'Hindistan', E: 'Pakistan' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'India overtook China as the world\'s most populous country in 2023.',
   },
   {
@@ -1223,6 +1358,7 @@ const geography = [
     options: { A: 'Five', B: 'Six', C: 'Seven', D: 'Eight', E: 'Nine' },
     options_tr: { A: 'Beş', B: 'Altı', C: 'Yedi', D: 'Sekiz', E: 'Dokuz' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Turkey borders Greece, Bulgaria, Georgia, Armenia, Azerbaijan, Iran, Iraq and Syria.',
   },
   {
@@ -1232,6 +1368,7 @@ const geography = [
     options: { A: 'Sahara', B: 'Atacama', C: 'Gobi', D: 'Great Victoria Desert', E: 'Namib' },
     options_tr: { A: 'Sahra', B: 'Atacama', C: 'Gobi', D: 'Büyük Victoria Çölü', E: 'Namib' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'The Namib along Namibia\'s Atlantic coast has remained arid for at least 55 million years.',
   },
   {
@@ -1241,6 +1378,7 @@ const geography = [
     options: { A: 'Rio Grande', B: 'Snake River', C: 'Colorado River', D: 'Columbia River', E: 'Arkansas River' },
     options_tr: { A: 'Rio Grande', B: 'Snake Nehri', C: 'Colorado Nehri', D: 'Columbia Nehri', E: 'Arkansas Nehri' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Colorado River has been cutting through the rock layers of northern Arizona for millions of years.',
   },
   {
@@ -1250,6 +1388,7 @@ const geography = [
     options: { A: 'Lviv', B: 'Odesa', C: 'Kharkiv', D: 'Kyiv', E: 'Dnipro' },
     options_tr: { A: 'Lviv', B: 'Odesa', C: 'Harkiv', D: 'Kiev', E: 'Dnipro' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Kyiv stands on the Dnieper River and is Ukraine\'s largest city as well as its capital.',
   },
   {
@@ -1259,6 +1398,7 @@ const geography = [
     options: { A: 'Maldives', B: 'Sri Lanka', C: 'Mauritius', D: 'Seychelles', E: 'Comoros' },
     options_tr: { A: 'Maldivler', B: 'Sri Lanka', C: 'Mauritius', D: 'Seyşeller', E: 'Komorlar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Sri Lanka is separated from southern India by the narrow Palk Strait.',
   },
   {
@@ -1268,6 +1408,7 @@ const geography = [
     options: { A: 'Sivas', B: 'Ankara', C: 'Erzurum', D: 'Konya', E: 'Şanlıurfa' },
     options_tr: { A: 'Sivas', B: 'Ankara', C: 'Erzurum', D: 'Konya', E: 'Şanlıurfa' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Konya spreads over about 41,000 km² of the central Anatolian plateau, more than any other Turkish province.',
   },
   {
@@ -1277,6 +1418,7 @@ const geography = [
     options: { A: 'Kangchenjunga', B: 'Lhotse', C: 'K2', D: 'Makalu', E: 'Annapurna' },
     options_tr: { A: 'Kangchenjunga', B: 'Lhotse', C: 'K2', D: 'Makalu', E: 'Annapurna' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'K2 reaches 8,611 meters in the Karakoram range on the border between Pakistan and China.',
   },
   {
@@ -1286,6 +1428,7 @@ const geography = [
     options: { A: 'Hudson Bay', B: 'Bay of Bengal', C: 'Bay of Biscay', D: 'Great Australian Bight', E: 'Gulf of Guinea' },
     options_tr: { A: 'Hudson Körfezi', B: 'Bengal Körfezi', C: 'Biskay Körfezi', D: 'Büyük Avustralya Körfezi', E: 'Gine Körfezi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Bay of Bengal covers about 2.2 million km² between India, Bangladesh, Myanmar and Sri Lanka.',
   },
   {
@@ -1295,6 +1438,7 @@ const geography = [
     options: { A: 'Karachi', B: 'Lahore', C: 'Peshawar', D: 'Rawalpindi', E: 'Islamabad' },
     options_tr: { A: 'Karaçi', B: 'Lahor', C: 'Peşaver', D: 'Ravalpindi', E: 'İslamabad' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Islamabad was purpose-built in the 1960s to replace Karachi as the seat of government.',
   },
   {
@@ -1304,6 +1448,7 @@ const geography = [
     options: { A: 'Lake Victoria', B: 'Lake Malawi', C: 'Lake Tanganyika', D: 'Lake Turkana', E: 'Lake Chad' },
     options_tr: { A: 'Victoria Gölü', B: 'Malavi Gölü', C: 'Tanganika Gölü', D: 'Turkana Gölü', E: 'Çad Gölü' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Lake Tanganyika plunges to about 1,470 meters and is also the longest freshwater lake on Earth.',
   },
   {
@@ -1313,6 +1458,7 @@ const geography = [
     options: { A: 'Adıyaman', B: 'Bitlis', C: 'Malatya', D: 'Diyarbakır', E: 'Mardin' },
     options_tr: { A: 'Adıyaman', B: 'Bitlis', C: 'Malatya', D: 'Diyarbakır', E: 'Mardin' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The first-century BC tomb sanctuary of King Antiochus I of Commagene sits on a 2,100-meter peak in Adıyaman province.',
   },
   {
@@ -1322,6 +1468,7 @@ const geography = [
     options: { A: 'France', B: 'Ukraine', C: 'Spain', D: 'Sweden', E: 'Germany' },
     options_tr: { A: 'Fransa', B: 'Ukrayna', C: 'İspanya', D: 'İsveç', E: 'Almanya' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ukraine covers about 603,000 km², slightly more than metropolitan France.',
   },
   {
@@ -1331,6 +1478,7 @@ const geography = [
     options: { A: 'Mount Kosciuszko', B: 'Mount Bogong', C: 'Mount Ossa', D: 'Mount Woodroffe', E: 'Bluff Knoll' },
     options_tr: { A: 'Kosciuszko Dağı', B: 'Bogong Dağı', C: 'Ossa Dağı', D: 'Woodroffe Dağı', E: 'Bluff Knoll' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Mount Kosciuszko rises to 2,228 meters in the Snowy Mountains of New South Wales.',
   },
   {
@@ -1340,6 +1488,7 @@ const geography = [
     options: { A: 'Cusco', B: 'Arequipa', C: 'Lima', D: 'Trujillo', E: 'Iquitos' },
     options_tr: { A: 'Cusco', B: 'Arequipa', C: 'Lima', D: 'Trujillo', E: 'Iquitos' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Lima was founded on the Pacific coast in 1535 and is now home to about a third of Peru\'s population.',
   },
   {
@@ -1349,6 +1498,7 @@ const geography = [
     options: { A: 'Sunda Strait', B: 'Taiwan Strait', C: 'Torres Strait', D: 'Strait of Malacca', E: 'Makassar Strait' },
     options_tr: { A: 'Sunda Boğazı', B: 'Tayvan Boğazı', C: 'Torres Boğazı', D: 'Malakka Boğazı', E: 'Makasar Boğazı' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The Strait of Malacca links the Indian Ocean to the South China Sea and is one of the busiest shipping lanes in the world.',
   },
   {
@@ -1358,6 +1508,7 @@ const geography = [
     options: { A: 'The eastern Black Sea coast', B: 'The Konya Basin', C: 'The Aegean coast', D: 'Southeastern Anatolia', E: 'The Marmara coast' },
     options_tr: { A: 'Doğu Karadeniz kıyısı', B: 'Konya Ovası', C: 'Ege kıyısı', D: 'Güneydoğu Anadolu', E: 'Marmara kıyısı' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Rize and its neighbouring districts record over 2,000 mm of rain a year, which is why Turkey\'s tea is grown there.',
   },
   {
@@ -1367,6 +1518,7 @@ const geography = [
     options: { A: 'Caspian Sea', B: 'Aral Sea', C: 'Lake Balkhash', D: 'Sea of Azov', E: 'Lake Issyk-Kul' },
     options_tr: { A: 'Hazar Denizi', B: 'Aral Gölü', C: 'Balkaş Gölü', D: 'Azak Denizi', E: 'Issık Göl' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Diverting the Amu Darya and Syr Darya for cotton farming reduced the Aral Sea to a small fraction of its 1960 extent.',
   },
   {
@@ -1376,6 +1528,7 @@ const geography = [
     options: { A: 'Isfahan', B: 'Shiraz', C: 'Tabriz', D: 'Tehran', E: 'Mashhad' },
     options_tr: { A: 'İsfahan', B: 'Şiraz', C: 'Tebriz', D: 'Tahran', E: 'Meşhed' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Tehran lies at the foot of the Alborz Mountains and has been Iran\'s capital since the late 18th century.',
   },
   {
@@ -1385,6 +1538,7 @@ const geography = [
     options: { A: 'Quito', B: 'Bogotá', C: 'La Paz', D: 'Thimphu', E: 'Kathmandu' },
     options_tr: { A: 'Quito', B: 'Bogotá', C: 'La Paz', D: 'Timphu', E: 'Katmandu' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'La Paz, the seat of Bolivia\'s government, sits about 3,640 meters above sea level.',
   },
   {
@@ -1394,6 +1548,7 @@ const geography = [
     options: { A: 'Dolomites', B: 'Carpathians', C: 'Dinaric Alps', D: 'Balkan Mountains', E: 'Apennines' },
     options_tr: { A: 'Dolomitler', B: 'Karpatlar', C: 'Dinar Alpleri', D: 'Balkan Dağları', E: 'Apenin Dağları' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'The Apennines stretch roughly 1,200 km from northern Italy down to Calabria at the toe of the peninsula.',
   },
   {
@@ -1403,6 +1558,7 @@ const geography = [
     options: { A: 'Bozcaada', B: 'Gökçeada', C: 'Marmara Island', D: 'Avşa', E: 'Büyükada' },
     options_tr: { A: 'Bozcaada', B: 'Gökçeada', C: 'Marmara Adası', D: 'Avşa', E: 'Büyükada' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Gökçeada in the northern Aegean covers about 280 km² and belongs to Çanakkale province.',
   },
   {
@@ -1412,6 +1568,7 @@ const geography = [
     options: { A: 'Guinea-Bissau', B: 'Sierra Leone', C: 'Togo', D: 'Benin', E: 'The Gambia' },
     options_tr: { A: 'Gine-Bissau', B: 'Sierra Leone', C: 'Togo', D: 'Benin', E: 'Gambiya' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'The Gambia is a narrow strip of land following the Gambia River, open to the sea only at its Atlantic coast.',
   },
   {
@@ -1421,6 +1578,7 @@ const geography = [
     options: { A: 'Namibia', B: 'Zambia', C: 'Zimbabwe', D: 'Botswana', E: 'Angola' },
     options_tr: { A: 'Namibya', B: 'Zambiya', C: 'Zimbabve', D: 'Botsvana', E: 'Angola' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The Okavango River spreads out into an inland delta in northern Botswana and evaporates there instead of flowing to the ocean.',
   },
   {
@@ -1430,6 +1588,7 @@ const geography = [
     options: { A: 'Ulaanbaatar', B: 'Erdenet', C: 'Darkhan', D: 'Choibalsan', E: 'Khovd' },
     options_tr: { A: 'Ulanbator', B: 'Erdenet', C: 'Darhan', D: 'Çoybalsan', E: 'Hovd' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Ulaanbaatar houses roughly half of Mongolia\'s population and is the coldest national capital in the world.',
   },
   {
@@ -1439,6 +1598,7 @@ const geography = [
     options: { A: 'Lake Superior', B: 'Lake Huron', C: 'Lake Erie', D: 'Lake Ontario', E: 'Lake Michigan' },
     options_tr: { A: 'Superior Gölü', B: 'Huron Gölü', C: 'Erie Gölü', D: 'Ontario Gölü', E: 'Michigan Gölü' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Lake Michigan has no Canadian shoreline, while the other four Great Lakes are shared with Canada.',
   },
   {
@@ -1448,6 +1608,7 @@ const geography = [
     options: { A: 'Tigris', B: 'Euphrates', C: 'Kızılırmak', D: 'Sakarya', E: 'Ceyhan' },
     options_tr: { A: 'Dicle', B: 'Fırat', C: 'Kızılırmak', D: 'Sakarya', E: 'Ceyhan' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The dam on the Euphrates is the centrepiece of the Southeastern Anatolia Project (GAP) irrigation and power scheme.',
   },
   {
@@ -1457,6 +1618,7 @@ const geography = [
     options: { A: 'Kosovo', B: 'Montenegro', C: 'South Sudan', D: 'East Timor', E: 'Eritrea' },
     options_tr: { A: 'Kosova', B: 'Karadağ', C: 'Güney Sudan', D: 'Doğu Timor', E: 'Eritre' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'South Sudan separated from Sudan after a referendum and declared independence on 9 July 2011.',
   },
   {
@@ -1466,6 +1628,7 @@ const geography = [
     options: { A: 'Matterhorn', B: 'Monte Rosa', C: 'Mont Blanc', D: 'Jungfrau', E: 'Grossglockner' },
     options_tr: { A: 'Matterhorn', B: 'Monte Rosa', C: 'Mont Blanc', D: 'Jungfrau', E: 'Grossglockner' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Mont Blanc reaches 4,808 meters on the border between France and Italy.',
   },
   {
@@ -1475,6 +1638,7 @@ const geography = [
     options: { A: 'Santiago de Cuba', B: 'Camagüey', C: 'Holguín', D: 'Havana', E: 'Matanzas' },
     options_tr: { A: 'Santiago de Cuba', B: 'Camagüey', C: 'Holguín', D: 'Havana', E: 'Matanzas' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Havana, on Cuba\'s northwestern coast, is the largest city in the Caribbean.',
   },
   {
@@ -1484,6 +1648,7 @@ const geography = [
     options: { A: 'Atlas Mountains', B: 'Drakensberg', C: 'Ahaggar Mountains', D: 'Tibesti Mountains', E: 'Ethiopian Highlands' },
     options_tr: { A: 'Atlas Dağları', B: 'Drakensberg', C: 'Ahaggar Dağları', D: 'Tibesti Dağları', E: 'Etiyopya Yaylaları' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Atlas Mountains separate the Mediterranean and Atlantic coasts of the Maghreb from the Sahara Desert.',
   },
   {
@@ -1493,6 +1658,7 @@ const geography = [
     options: { A: 'Budapest', B: 'Vienna', C: 'Bratislava', D: 'Belgrade', E: 'Bucharest' },
     options_tr: { A: 'Budapeşte', B: 'Viyana', C: 'Bratislava', D: 'Belgrad', E: 'Bükreş' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Budapest was formed in 1873 when hilly Buda on the west bank merged with flat Pest on the east bank.',
   },
   {
@@ -1502,6 +1668,7 @@ const geography = [
     options: { A: 'Three', B: 'Five', C: 'Seven', D: 'Eight', E: 'Nine' },
     options_tr: { A: 'Üç', B: 'Beş', C: 'Yedi', D: 'Sekiz', E: 'Dokuz' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The regions are Marmara, Aegean, Mediterranean, Central Anatolia, Black Sea, Eastern Anatolia and Southeastern Anatolia.',
   },
   {
@@ -1511,6 +1678,7 @@ const geography = [
     options: { A: 'Indian Peninsula', B: 'Scandinavian Peninsula', C: 'Labrador Peninsula', D: 'Arabian Peninsula', E: 'Indochinese Peninsula' },
     options_tr: { A: 'Hint Yarımadası', B: 'İskandinav Yarımadası', C: 'Labrador Yarımadası', D: 'Arap Yarımadası', E: 'Hindiçin Yarımadası' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The Arabian Peninsula covers about 3.2 million km² and is shared by seven countries.',
   },
   {
@@ -1520,6 +1688,7 @@ const geography = [
     options: { A: 'Porto', B: 'Lisbon', C: 'Coimbra', D: 'Braga', E: 'Faro' },
     options_tr: { A: 'Porto', B: 'Lizbon', C: 'Coimbra', D: 'Braga', E: 'Faro' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Lisbon stands at the mouth of the Tagus River and is the westernmost capital city on the European mainland.',
   },
   {
@@ -1529,6 +1698,7 @@ const geography = [
     options: { A: 'Egypt', B: 'Ethiopia', C: 'Democratic Republic of the Congo', D: 'South Africa', E: 'Nigeria' },
     options_tr: { A: 'Mısır', B: 'Etiyopya', C: 'Kongo Demokratik Cumhuriyeti', D: 'Güney Afrika', E: 'Nijerya' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Nigeria has more than 200 million inhabitants, well ahead of Ethiopia and Egypt.',
   },
   {
@@ -1538,6 +1708,7 @@ const geography = [
     options: { A: 'Hatay', B: 'Kilis', C: 'Gaziantep', D: 'Mardin', E: 'Şırnak' },
     options_tr: { A: 'Hatay', B: 'Kilis', C: 'Gaziantep', D: 'Mardin', E: 'Şırnak' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Hatay joined Turkey in 1939 and forms the country\'s southernmost tip along the Syrian border.',
   },
   {
@@ -1547,6 +1718,7 @@ const geography = [
     options: { A: 'Euphrates', B: 'Tigris', C: 'Karun', D: 'Orontes', E: 'Jordan' },
     options_tr: { A: 'Fırat', B: 'Dicle', C: 'Karun', D: 'Asi', E: 'Şeria' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Baghdad was founded on the banks of the Tigris in the 8th century and still straddles the river.',
   },
   {
@@ -1556,6 +1728,7 @@ const geography = [
     options: { A: 'Sumatra', B: 'Sulawesi', C: 'Borneo', D: 'Java', E: 'Timor' },
     options_tr: { A: 'Sumatra', B: 'Sulawesi', C: 'Borneo', D: 'Java', E: 'Timor' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Borneo is the only island in the world shared by three countries, with Indonesia holding the largest portion.',
   },
   {
@@ -1565,6 +1738,7 @@ const geography = [
     options: { A: 'Oslo', B: 'Helsinki', C: 'Reykjavík', D: 'Stockholm', E: 'Tallinn' },
     options_tr: { A: 'Oslo', B: 'Helsinki', C: 'Reykjavík', D: 'Stockholm', E: 'Tallinn' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Reykjavík sits at about 64° north, only a little south of the Arctic Circle.',
   },
   {
@@ -1574,6 +1748,7 @@ const geography = [
     options: { A: 'Kaliningrad', B: 'Crimea', C: 'Karelia', D: 'Chechnya', E: 'Tatarstan' },
     options_tr: { A: 'Kaliningrad', B: 'Kırım', C: 'Karelya', D: 'Çeçenistan', E: 'Tataristan' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Kaliningrad Oblast lies on the Baltic Sea and has no land connection to the rest of Russia.',
   },
   {
@@ -1583,6 +1758,7 @@ const geography = [
     options: { A: 'Levant', B: 'Mesopotamia', C: 'Caucasia', D: 'Thrace', E: 'Asia Minor' },
     options_tr: { A: 'Levant', B: 'Mezopotamya', C: 'Kafkasya', D: 'Trakya', E: 'Küçük Asya' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Asia Minor is the classical name for the landmass between the Black Sea, the Aegean and the Mediterranean.',
   },
   {
@@ -1592,6 +1768,7 @@ const geography = [
     options: { A: 'Cambodia', B: 'Laos', C: 'Myanmar', D: 'Thailand', E: 'Malaysia' },
     options_tr: { A: 'Kamboçya', B: 'Laos', C: 'Myanmar', D: 'Tayland', E: 'Malezya' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The country was renamed Myanmar in 1989, and its capital moved from Yangon to Naypyidaw in 2005.',
   },
   {
@@ -1601,6 +1778,7 @@ const geography = [
     options: { A: 'Amazon', B: 'Congo', C: 'Mekong', D: 'Yangtze', E: 'Danube' },
     options_tr: { A: 'Amazon', B: 'Kongo', C: 'Mekong', D: 'Yangtze', E: 'Tuna' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Congo reaches depths of more than 200 meters in places, deeper than any other river.',
   },
   {
@@ -1610,6 +1788,7 @@ const geography = [
     options: { A: 'Turku', B: 'Tampere', C: 'Espoo', D: 'Helsinki', E: 'Oulu' },
     options_tr: { A: 'Turku', B: 'Tampere', C: 'Espoo', D: 'Helsinki', E: 'Oulu' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Helsinki, on the Gulf of Finland, took over from Turku as the Finnish capital in 1812.',
   },
   {
@@ -1619,6 +1798,7 @@ const geography = [
     options: { A: 'Europe', B: 'Antarctica', C: 'Australia', D: 'South America', E: 'North America' },
     options_tr: { A: 'Avrupa', B: 'Antarktika', C: 'Avustralya', D: 'Güney Amerika', E: 'Kuzey Amerika' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Australia covers about 7.7 million km², less than any other continent.',
   },
   {
@@ -1628,6 +1808,7 @@ const geography = [
     options: { A: 'Taurus Mountains', B: 'Pontic Mountains', C: 'Zagros Mountains', D: 'Rhodope Mountains', E: 'Bey Mountains' },
     options_tr: { A: 'Toros Dağları', B: 'Kuzey Anadolu (Pontus) Dağları', C: 'Zagros Dağları', D: 'Rodop Dağları', E: 'Beydağları' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Pontic range, also called the North Anatolian Mountains, traps moist air from the Black Sea and keeps the coastal strip green.',
   },
   {
@@ -1637,6 +1818,7 @@ const geography = [
     options: { A: 'Arctic Circle', B: 'Tropic of Capricorn', C: 'Equator', D: 'Antarctic Circle', E: 'Tropic of Cancer' },
     options_tr: { A: 'Kuzey Kutup Dairesi', B: 'Oğlak Dönencesi', C: 'Ekvator', D: 'Güney Kutup Dairesi', E: 'Yengeç Dönencesi' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'The Tropic of Cancer is the northernmost latitude at which the Sun can appear directly overhead at noon.',
   },
   {
@@ -1646,6 +1828,7 @@ const geography = [
     options: { A: 'Death Valley, United States', B: 'Dallol, Ethiopia', C: 'Kebili, Tunisia', D: 'Rub al Khali, Saudi Arabia', E: 'Alice Springs, Australia' },
     options_tr: { A: 'Ölüm Vadisi, Amerika Birleşik Devletleri', B: 'Dallol, Etiyopya', C: 'Kebili, Tunus', D: 'Rub el-Hali, Suudi Arabistan', E: 'Alice Springs, Avustralya' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Furnace Creek in Death Valley recorded 56.7°C in July 1913, the highest air temperature officially accepted.',
   },
   {
@@ -1655,6 +1838,7 @@ const geography = [
     options: { A: 'Jeddah', B: 'Mecca', C: 'Riyadh', D: 'Medina', E: 'Dammam' },
     options_tr: { A: 'Cidde', B: 'Mekke', C: 'Riyad', D: 'Medine', E: 'Dammam' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Riyadh lies on a plateau in the centre of the Arabian Peninsula and is the country\'s largest city.',
   },
   {
@@ -1664,6 +1848,7 @@ const geography = [
     options: { A: 'Coral Sea', B: 'Timor Sea', C: 'Arafura Sea', D: 'Tasman Sea', E: 'Bismarck Sea' },
     options_tr: { A: 'Mercan Denizi', B: 'Timor Denizi', C: 'Arafura Denizi', D: 'Tasman Denizi', E: 'Bismarck Denizi' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Tasman Sea spans about 2,000 km between southeastern Australia and New Zealand.',
   },
   {
@@ -1673,6 +1858,7 @@ const geography = [
     options: { A: 'Antalya', B: 'Muğla', C: 'Aydın', D: 'İzmir', E: 'Denizli' },
     options_tr: { A: 'Antalya', B: 'Muğla', C: 'Aydın', D: 'İzmir', E: 'Denizli' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Bodrum sits on the Aegean coast of Muğla province, across the water from the Greek island of Kos.',
   },
   {
@@ -1682,6 +1868,7 @@ const geography = [
     options: { A: 'Norway', B: 'Sweden', C: 'Finland', D: 'Iceland', E: 'Denmark' },
     options_tr: { A: 'Norveç', B: 'İsveç', C: 'Finlandiya', D: 'İzlanda', E: 'Danimarka' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Denmark is made up of Jutland, which borders Germany, and more than 400 islands including Zealand and Funen.',
   },
   {
@@ -1691,6 +1878,7 @@ const geography = [
     options: { A: 'Bass Strait', B: 'Cook Strait', C: 'Foveaux Strait', D: 'Torres Strait', E: 'Palk Strait' },
     options_tr: { A: 'Bass Boğazı', B: 'Cook Boğazı', C: 'Foveaux Boğazı', D: 'Torres Boğazı', E: 'Palk Boğazı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Cook Strait narrows to about 22 km and is crossed daily by ferries between Wellington and Picton.',
   },
   {
@@ -1700,6 +1888,7 @@ const geography = [
     options: { A: 'Medellín', B: 'Cali', C: 'Bogotá', D: 'Cartagena', E: 'Barranquilla' },
     options_tr: { A: 'Medellín', B: 'Cali', C: 'Bogotá', D: 'Cartagena', E: 'Barranquilla' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Bogotá stands on a high Andean plateau at about 2,640 meters above sea level.',
   },
   {
@@ -1709,6 +1898,7 @@ const geography = [
     options: { A: 'Mekong', B: 'Yellow River', C: 'Indus', D: 'Lena', E: 'Yangtze' },
     options_tr: { A: 'Mekong', B: 'Sarı Irmak', C: 'İndus', D: 'Lena', E: 'Yangtze' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'The Yangtze runs about 6,300 km across China and ranks third longest in the world.',
   },
   {
@@ -1718,6 +1908,7 @@ const geography = [
     options: { A: 'Marmara Region', B: 'Aegean Region', C: 'Central Anatolia Region', D: 'Black Sea Region', E: 'Mediterranean Region' },
     options_tr: { A: 'Marmara Bölgesi', B: 'Ege Bölgesi', C: 'İç Anadolu Bölgesi', D: 'Karadeniz Bölgesi', E: 'Akdeniz Bölgesi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Ankara sits on the dry Anatolian plateau at the heart of the Central Anatolia Region.',
   },
   {
@@ -1727,6 +1918,7 @@ const geography = [
     options: { A: 'Peru', B: 'Ecuador', C: 'Argentina', D: 'Chile', E: 'New Zealand' },
     options_tr: { A: 'Peru', B: 'Ekvador', C: 'Arjantin', D: 'Şili', E: 'Yeni Zelanda' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Easter Island, known locally as Rapa Nui, lies about 3,500 km west of the Chilean mainland.',
   },
   {
@@ -1736,6 +1928,7 @@ const geography = [
     options: { A: 'Mount Kenya', B: 'Mount Meru', C: 'Mount Stanley', D: 'Ras Dashen', E: 'Mount Cameroon' },
     options_tr: { A: 'Kenya Dağı', B: 'Meru Dağı', C: 'Stanley Dağı', D: 'Ras Daşen', E: 'Kamerun Dağı' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Mount Kenya reaches 5,199 meters, second on the continent only to Kilimanjaro.',
   },
   {
@@ -1745,6 +1938,7 @@ const geography = [
     options: { A: 'Brazil', B: 'Venezuela', C: 'Mexico', D: 'South Africa', E: 'Argentina' },
     options_tr: { A: 'Brezilya', B: 'Venezuela', C: 'Meksika', D: 'Güney Afrika', E: 'Arjantin' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'The Pampas spread across central Argentina and form the heart of the country\'s cattle and grain farming.',
   },
   {
@@ -1754,6 +1948,7 @@ const geography = [
     options: { A: 'Crete', B: 'Malta', C: 'Cyprus', D: 'Rhodes', E: 'Corsica' },
     options_tr: { A: 'Girit', B: 'Malta', C: 'Kıbrıs', D: 'Rodos', E: 'Korsika' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'A United Nations buffer zone runs across Cyprus and through its capital, Nicosia.',
   },
   {
@@ -1763,6 +1958,7 @@ const geography = [
     options: { A: 'Mississippi River', B: 'Yukon River', C: 'Rio Grande', D: 'Missouri River', E: 'Mackenzie River' },
     options_tr: { A: 'Mississippi Nehri', B: 'Yukon Nehri', C: 'Rio Grande', D: 'Missouri Nehri', E: 'Mackenzie Nehri' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The Missouri runs about 3,770 km before joining the Mississippi near St. Louis, making it slightly longer than the Mississippi itself.',
   },
   {
@@ -1772,6 +1968,7 @@ const geography = [
     options: { A: 'Sahel', B: 'Maghreb', C: 'Horn of Africa', D: 'Karoo', E: 'Veld' },
     options_tr: { A: 'Sahel', B: 'Mağrip', C: 'Afrika Boynuzu', D: 'Karoo', E: 'Veld' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The Sahel is a transition zone between the Sahara Desert and the wetter savannas further south.',
   },
   {
@@ -1781,6 +1978,7 @@ const geography = [
     options: { A: 'Thessaloniki', B: 'Athens', C: 'Patras', D: 'Heraklion', E: 'Larissa' },
     options_tr: { A: 'Selanik', B: 'Atina', C: 'Patras', D: 'Heraklion', E: 'Larissa' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Athens became the capital of the modern Greek state in 1834 and is one of the oldest continuously inhabited cities in Europe.',
   },
   {
@@ -1790,6 +1988,7 @@ const geography = [
     options: { A: 'Hokkaido', B: 'Kyushu', C: 'Shikoku', D: 'Honshu', E: 'Okinawa' },
     options_tr: { A: 'Hokkaido', B: 'Kyushu', C: 'Shikoku', D: 'Honshu', E: 'Okinawa' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Honshu holds Tokyo, Osaka and Kyoto and accounts for around 60% of Japan\'s land area.',
   },
   {
@@ -1799,6 +1998,7 @@ const geography = [
     options: { A: 'Çukurova', B: 'Konya Plain', C: 'Harran Plain', D: 'Bafra Plain', E: 'Amik Plain' },
     options_tr: { A: 'Çukurova', B: 'Konya Ovası', C: 'Harran Ovası', D: 'Bafra Ovası', E: 'Amik Ovası' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Çukurova plain around Adana is one of Turkey\'s most productive farming areas, known for cotton and citrus.',
   },
 ];

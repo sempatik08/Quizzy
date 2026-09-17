@@ -8,6 +8,7 @@ const technology = [
     options: { A: 'Bill Gates & Paul Allen', B: 'Steve Jobs, Steve Wozniak & Ronald Wayne', C: 'Steve Jobs & Bill Gates', D: 'Steve Wozniak & Larry Page', E: 'Tim Cook & Steve Jobs' },
     options_tr: { A: 'Bill Gates ve Paul Allen', B: 'Steve Jobs, Steve Wozniak ve Ronald Wayne', C: 'Steve Jobs ve Bill Gates', D: 'Steve Wozniak ve Larry Page', E: 'Tim Cook ve Steve Jobs' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Apple was co-founded by Steve Jobs, Steve Wozniak, and Ronald Wayne on April 1, 1976.',
   },
   {
@@ -17,6 +18,7 @@ const technology = [
     options: { A: 'Hyper Transfer Markup Language', B: 'HyperText Markup Language', C: 'High-level Text Markup Language', D: 'Hyperlink Text Meta Language', E: 'HyperText Machine Language' },
     options_tr: { A: 'Hiper Transfer İşaretleme Dili', B: 'Hiper Metin İşaretleme Dili', C: 'Yüksek Seviyeli Metin İşaretleme Dili', D: 'Köprü Metni Meta Dili', E: 'Hiper Metin Makine Dili' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'HTML (HyperText Markup Language) is the standard markup language used to create web pages.',
   },
   {
@@ -26,6 +28,7 @@ const technology = [
     options: { A: '1985', B: '1987', C: '1989', D: '1991', E: '1993' },
     options_tr: { A: '1985', B: '1987', C: '1989', D: '1991', E: '1993' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN in Switzerland.',
   },
   {
@@ -35,6 +38,7 @@ const technology = [
     options: { A: 'Unix', B: 'FreeBSD', C: 'GNU', D: 'Linux', E: 'Minix' },
     options_tr: { A: 'Unix', B: 'FreeBSD', C: 'GNU', D: 'Linux', E: 'Minix' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Linus Torvalds created the Linux kernel in 1991, which now powers the majority of the world\'s servers, smartphones (Android), and supercomputers.',
   },
   {
@@ -44,6 +48,7 @@ const technology = [
     options: { A: 'Google', B: 'Microsoft', C: 'Guido van Rossum (personal project)', D: 'MIT', E: 'Sun Microsystems' },
     options_tr: { A: 'Google', B: 'Microsoft', C: 'Guido van Rossum (kişisel proje)', D: 'MIT', E: 'Sun Microsystems' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Python was created by Guido van Rossum and first released in 1991. It was not created by a company but by an individual developer.',
   },
   {
@@ -53,6 +58,7 @@ const technology = [
     options: { A: 'Central Processing Unit', B: 'Computer Processing Unit', C: 'Central Program Utility', D: 'Core Processing Unit', E: 'Central Peripheral Unit' },
     options_tr: { A: 'Merkezi İşlem Birimi', B: 'Bilgisayar İşlem Birimi', C: 'Merkezi Program Yardımcı Programı', D: 'Çekirdek İşlem Birimi', E: 'Merkezi Çevre Birimi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'CPU stands for Central Processing Unit, the primary component that executes instructions in a computer.',
   },
   {
@@ -62,6 +68,7 @@ const technology = [
     options: { A: 'Android Inc.', B: 'Symbian Ltd.', C: 'Palm Inc.', D: 'BlackBerry Ltd.', E: 'Nokia' },
     options_tr: { A: 'Android Inc.', B: 'Symbian Ltd.', C: 'Palm Inc.', D: 'BlackBerry Ltd.', E: 'Nokia' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Android Inc. was founded by Andy Rubin and others in 2003, and Google acquired it in 2005.',
   },
   {
@@ -71,6 +78,7 @@ const technology = [
     options: { A: 'Universal Resource Locator', B: 'Uniform Resource Locator', C: 'Uniform Reference Link', D: 'Universal Reference Locator', E: 'United Resource Link' },
     options_tr: { A: 'Universal Resource Locator', B: 'Uniform Resource Locator', C: 'Uniform Reference Link', D: 'Universal Reference Locator', E: 'United Resource Link' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'URL stands for Uniform Resource Locator, the address used to access resources on the internet.',
   },
   {
@@ -80,6 +88,7 @@ const technology = [
     options: { A: 'C++', B: 'Java', C: 'Python', D: 'JavaScript', E: 'Ruby' },
     options_tr: { A: 'C++', B: 'Java', C: 'Python', D: 'JavaScript', E: 'Ruby' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Java was designed for platform independence, running on any device with a Java Virtual Machine.',
   },
   {
@@ -89,6 +98,7 @@ const technology = [
     options: { A: 'The Analytical Engine', B: 'The Pascaline', C: 'The Difference Engine', D: 'The Abacus Machine', E: 'The Leibniz Wheel' },
     options_tr: { A: 'The Analytical Engine', B: 'Pascaline', C: 'The Difference Engine', D: 'The Abacus Machine', E: 'Leibniz Çarkı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Pascaline was one of the earliest mechanical calculators, designed to help Pascal\'s father with tax calculations.',
   },
   {
@@ -98,6 +108,7 @@ const technology = [
     options: { A: 'Microsoft', B: 'NCSA (National Center for Supercomputing Applications)', C: 'Netscape', D: 'Bell Labs', E: 'IBM' },
     options_tr: { A: 'Microsoft', B: 'NCSA (Ulusal Süper Bilgisayar Uygulamaları Merkezi)', C: 'Netscape', D: 'Bell Labs', E: 'IBM' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Mosaic was developed at NCSA at the University of Illinois; its team later founded Netscape.',
   },
   {
@@ -107,6 +118,7 @@ const technology = [
     options: { A: 'OpenAI', B: 'Neuralink', C: 'SpaceX', D: 'The Boring Company', E: 'Synchron' },
     options_tr: { A: 'OpenAI', B: 'Neuralink', C: 'SpaceX', D: 'The Boring Company', E: 'Synchron' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Neuralink, founded in 2016, develops implantable brain-computer interface devices.',
   },
   {
@@ -116,6 +128,7 @@ const technology = [
     options: { A: 'Random Access Memory', B: 'Read Access Memory', C: 'Rapid Access Module', D: 'Random Allocation Memory', E: 'Read and Modify' },
     options_tr: { A: 'Rastgele Erişimli Bellek', B: 'Okuma Erişimli Bellek', C: 'Hızlı Erişim Modülü', D: 'Rastgele Tahsis Belleği', E: 'Oku ve Değiştir' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'RAM (Random Access Memory) is volatile memory used by computers to store data being actively used.',
   },
   {
@@ -125,6 +138,7 @@ const technology = [
     options: { A: 'Instagram', B: 'MySpace', C: 'Facebook', D: 'Twitter', E: 'Friendster' },
     options_tr: { A: 'Instagram', B: 'MySpace', C: 'Facebook', D: 'Twitter', E: 'Friendster' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Mark Zuckerberg launched "TheFacebook" at Harvard in 2004; it dropped the "The" in 2005.',
   },
   {
@@ -134,6 +148,7 @@ const technology = [
     options: { A: 'FTP', B: 'HTTP', C: 'HTTPS', D: 'SMTP', E: 'SSH' },
     options_tr: { A: 'FTP', B: 'HTTP', C: 'HTTPS', D: 'SMTP', E: 'SSH' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'HTTPS (HTTP Secure) encrypts data between the browser and server using TLS/SSL.',
   },
   {
@@ -143,6 +158,7 @@ const technology = [
     options: { A: 'Yahoo', B: 'Google', C: 'AltaVista', D: 'Bing', E: 'Ask Jeeves' },
     options_tr: { A: 'Yahoo', B: 'Google', C: 'AltaVista', D: 'Bing', E: 'Ask Jeeves' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'PageRank was developed by Larry Page and Sergey Brin at Stanford and became the basis of Google Search.',
   },
   {
@@ -152,6 +168,7 @@ const technology = [
     options: { A: 'General Processing Unit', B: 'Graphics Processing Unit', C: 'Global Processing Unit', D: 'Graphic Print Unit', E: 'Gaming Processing Unit' },
     options_tr: { A: 'Genel İşlem Birimi', B: 'Grafik İşlem Birimi', C: 'Küresel İşlem Birimi', D: 'Grafik Yazdırma Birimi', E: 'Oyun İşlem Birimi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'GPU (Graphics Processing Unit) is specialized hardware for rendering images and, more recently, parallel computation like AI training.',
   },
   {
@@ -161,6 +178,7 @@ const technology = [
     options: { A: 'Intel', B: 'NVIDIA', C: 'AMD', D: 'Qualcomm', E: 'ARM' },
     options_tr: { A: 'Intel', B: 'NVIDIA', C: 'AMD', D: 'Qualcomm', E: 'ARM' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'AMD introduced the Ryzen processor line in 2017 to compete with Intel\'s Core lineup.',
   },
   {
@@ -170,6 +188,7 @@ const technology = [
     options: { A: 'IBM Simon', B: 'Nokia Communicator', C: 'BlackBerry 850', D: 'Palm Pilot', E: 'Motorola StarTAC' },
     options_tr: { A: 'IBM Simon', B: 'Nokia Communicator', C: 'BlackBerry 850', D: 'Palm Pilot', E: 'Motorola StarTAC' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The IBM Simon Personal Communicator, released in 1994, combined phone, fax, and PDA features with a touchscreen.',
   },
   {
@@ -179,6 +198,7 @@ const technology = [
     options: { A: 'Amazon Cloud', B: 'AWS (Amazon Web Services)', C: 'Amazon Compute', D: 'EC2 Cloud', E: 'Amazon Nimbus' },
     options_tr: { A: 'Amazon Cloud', B: 'AWS (Amazon Web Services)', C: 'Amazon Compute', D: 'EC2 Cloud', E: 'Amazon Nimbus' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'AWS, launched in 2006, is the largest cloud computing platform in the world.',
   },
   {
@@ -188,6 +208,7 @@ const technology = [
     options: { A: 'AES', B: 'DES', C: 'RSA', D: 'SHA', E: 'MD5' },
     options_tr: { A: 'AES', B: 'DES', C: 'RSA', D: 'SHA', E: 'MD5' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'RSA is named after Rivest, Shamir, and Adleman, who described the algorithm in 1977.',
   },
   {
@@ -197,6 +218,7 @@ const technology = [
     options: { A: 'Internet of Technology', B: 'Internet of Things', C: 'Integration of Things', D: 'Interface of Technology', E: 'Internal Object Transfer' },
     options_tr: { A: 'Teknoloji İnterneti', B: 'Nesnelerin İnterneti', C: 'Nesnelerin Entegrasyonu', D: 'Teknoloji Arayüzü', E: 'Dahili Nesne Transferi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'IoT (Internet of Things) refers to the network of physical devices connected to and exchanging data over the internet.',
   },
   {
@@ -206,6 +228,7 @@ const technology = [
     options: { A: 'Google DeepMind', B: 'Meta AI', C: 'OpenAI', D: 'Anthropic', E: 'Microsoft Research' },
     options_tr: { A: 'Google DeepMind', B: 'Meta AI', C: 'OpenAI', D: 'Anthropic', E: 'Microsoft Research' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'ChatGPT was developed by OpenAI and released to the public in November 2022.',
   },
   {
@@ -215,6 +238,7 @@ const technology = [
     options: { A: 'ENIAC', B: 'UNIVAC', C: 'Colossus', D: 'Z3', E: 'EDVAC' },
     options_tr: { A: 'ENIAC', B: 'UNIVAC', C: 'Colossus', D: 'Z3', E: 'EDVAC' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'ENIAC (Electronic Numerical Integrator and Computer) was built at the University of Pennsylvania.',
   },
   {
@@ -224,6 +248,7 @@ const technology = [
     options: { A: 'Solid State Drive', B: 'Secure Storage Device', C: 'Static State Disk', D: 'Serial Storage Drive', E: 'Solid Storage Disk' },
     options_tr: { A: 'Katı Hal Sürücü', B: 'Güvenli Depolama Aygıtı', C: 'Statik Durum Diski', D: 'Seri Depolama Sürücüsü', E: 'Katı Depolama Diski' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'SSDs use flash memory instead of spinning disks, offering faster read/write speeds than traditional hard drives (HDDs).',
   },
   {
@@ -233,6 +258,7 @@ const technology = [
     options: { A: 'Amazon', B: 'Google', C: 'Microsoft', D: 'Red Hat', E: 'Docker Inc.' },
     options_tr: { A: 'Amazon', B: 'Google', C: 'Microsoft', D: 'Red Hat', E: 'Docker Inc.' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Kubernetes was originally designed by Google, based on their internal Borg system, and open-sourced in 2014.',
   },
   {
@@ -242,6 +268,7 @@ const technology = [
     options: { A: 'Subversion', B: 'Mercurial', C: 'Git', D: 'CVS', E: 'Perforce' },
     options_tr: { A: 'Subversion', B: 'Mercurial', C: 'Git', D: 'CVS', E: 'Perforce' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Git was created by Linus Torvalds to manage development of the Linux kernel after a licensing dispute with the prior tool, BitKeeper.',
   },
   {
@@ -251,6 +278,7 @@ const technology = [
     options: { A: 'Virtual Private Network', B: 'Verified Public Network', C: 'Virtual Public Node', D: 'Variable Protocol Network', E: 'Virtual Protected Node' },
     options_tr: { A: 'Sanal Özel Ağ', B: 'Doğrulanmış Genel Ağ', C: 'Sanal Genel Düğüm', D: 'Değişken Protokol Ağı', E: 'Sanal Korumalı Düğüm' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'A VPN (Virtual Private Network) creates an encrypted connection over a less secure network, such as the public internet.',
   },
   {
@@ -260,6 +288,7 @@ const technology = [
     options: { A: 'IBM', B: 'Xerox PARC', C: 'Stanford Research Institute (SRI)', D: 'Bell Labs', E: 'MIT' },
     options_tr: { A: 'IBM', B: 'Xerox PARC', C: 'Stanford Araştırma Enstitüsü (SRI)', D: 'Bell Labs', E: 'MIT' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Engelbart developed the first mouse prototype at the Stanford Research Institute, famously demonstrated in "The Mother of All Demos."',
   },
   {
@@ -269,6 +298,7 @@ const technology = [
     options: { A: 'Object-oriented programming', B: 'Procedural programming', C: 'Functional programming', D: 'Logic programming', E: 'Imperative programming' },
     options_tr: { A: 'Nesne yönelimli programlama', B: 'Yordamsal programlama', C: 'Fonksiyonel programlama', D: 'Mantıksal programlama', E: 'Buyurgan programlama' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Functional programming languages include Haskell, Lisp, and Erlang; JavaScript and Python support functional styles too.',
   },
   {
@@ -278,6 +308,7 @@ const technology = [
     options: { A: 'x86', B: 'ARM', C: 'MIPS', D: 'RISC-V', E: 'PowerPC' },
     options_tr: { A: 'x86', B: 'ARM', C: 'MIPS', D: 'RISC-V', E: 'PowerPC' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'ARM Holdings designs chip architectures and licenses them to manufacturers like Apple, Qualcomm, and Samsung.',
   },
   {
@@ -287,6 +318,7 @@ const technology = [
     options: { A: 'Worm', B: 'Ransomware', C: 'Trojan horse', D: 'Rootkit', E: 'Adware' },
     options_tr: { A: 'Solucan (Worm)', B: 'Fidye yazılımı', C: 'Truva atı', D: 'Rootkit', E: 'Reklam yazılımı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Named after the Greek myth, a Trojan horse appears harmless but carries out malicious actions once installed.',
   },
   {
@@ -296,6 +328,7 @@ const technology = [
     options: { A: 'Samsung', B: 'Apple', C: 'Nokia', D: 'HTC', E: 'Google' },
     options_tr: { A: 'Samsung', B: 'Apple', C: 'Nokia', D: 'HTC', E: 'Google' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Steve Jobs unveiled the original iPhone on January 9, 2007, combining a phone, iPod, and internet device.',
   },
   {
@@ -305,6 +338,7 @@ const technology = [
     options: { A: 'Application Programming Interface', B: 'Automated Program Integration', C: 'Application Process Interaction', D: 'Advanced Programming Instruction', E: 'Application Protocol Interface' },
     options_tr: { A: 'Uygulama Programlama Arayüzü', B: 'Otomatik Program Entegrasyonu', C: 'Uygulama Süreç Etkileşimi', D: 'Gelişmiş Programlama Talimatı', E: 'Uygulama Protokol Arayüzü' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'An API (Application Programming Interface) defines how software components communicate with each other.',
   },
   {
@@ -314,6 +348,7 @@ const technology = [
     options: { A: 'IBM', B: 'D-Wave', C: 'Google', D: 'Intel', E: 'Rigetti' },
     options_tr: { A: 'IBM', B: 'D-Wave', C: 'Google', D: 'Intel', E: 'Rigetti' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Google\'s Sycamore processor reportedly performed a calculation in 200 seconds that would take a supercomputer thousands of years.',
   },
   {
@@ -323,6 +358,7 @@ const technology = [
     options: { A: 'Spoofing', B: 'Phishing', C: 'Pharming', D: 'Spamming', E: 'Sniffing' },
     options_tr: { A: 'Spoofing', B: 'Oltalama (Phishing)', C: 'Pharming', D: 'Spam', E: 'Sniffing' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Phishing attacks impersonate trusted entities to steal credentials, financial information, or install malware.',
   },
   {
@@ -332,6 +368,7 @@ const technology = [
     options: { A: 'IBM', B: 'Oracle Corporation', C: 'Microsoft', D: 'Sybase', E: 'Informix' },
     options_tr: { A: 'IBM', B: 'Oracle Corporation', C: 'Microsoft', D: 'Sybase', E: 'Informix' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Oracle Corporation, founded by Larry Ellison, released the first commercial relational database in 1979.',
   },
   {
@@ -341,6 +378,7 @@ const technology = [
     options: { A: 'Domain Name System', B: 'Digital Network Service', C: 'Domain Network Server', D: 'Data Naming System', E: 'Domain Node Service' },
     options_tr: { A: 'Alan Adı Sistemi', B: 'Dijital Ağ Servisi', C: 'Alan Adı Ağ Sunucusu', D: 'Veri Adlandırma Sistemi', E: 'Alan Adı Düğüm Servisi' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'DNS (Domain Name System) acts like the internet\'s phone book, mapping human-readable names to IP addresses.',
   },
   {
@@ -350,6 +388,7 @@ const technology = [
     options: { A: 'Sun Microsystems', B: 'Microsoft', C: 'Netscape', D: 'IBM', E: 'Adobe' },
     options_tr: { A: 'Sun Microsystems', B: 'Microsoft', C: 'Netscape', D: 'IBM', E: 'Adobe' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Brendan Eich created JavaScript at Netscape in just 10 days in 1995.',
   },
   {
@@ -359,6 +398,7 @@ const technology = [
     options: { A: 'Honeypot', B: 'Botnet', C: 'Firewall cluster', D: 'Sandbox', E: 'Mesh network' },
     options_tr: { A: 'Bal küpü (Honeypot)', B: 'Botnet', C: 'Güvenlik duvarı kümesi', D: 'Sandbox', E: 'Örgü ağ' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A botnet is a collection of internet-connected devices infected with malware and controlled as a group, often without owners\' knowledge.',
   },
   {
@@ -368,6 +408,7 @@ const technology = [
     options: { A: 'Samsung', B: 'MediaTek', C: 'Qualcomm', D: 'Apple', E: 'Huawei' },
     options_tr: { A: 'Samsung', B: 'MediaTek', C: 'Qualcomm', D: 'Apple', E: 'Huawei' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Qualcomm\'s Snapdragon chips power a large share of Android smartphones worldwide.',
   },
   {
@@ -377,6 +418,7 @@ const technology = [
     options: { A: 'Universal Serial Bus', B: 'Unified System Board', C: 'Universal System Bridge', D: 'Unified Serial Board', E: 'Universal Storage Bus' },
     options_tr: { A: 'Evrensel Seri Veri Yolu', B: 'Birleşik Sistem Kartı', C: 'Evrensel Sistem Köprüsü', D: 'Birleşik Seri Kart', E: 'Evrensel Depolama Yolu' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'USB (Universal Serial Bus) standardized connections between computers and peripheral devices starting in 1996.',
   },
   {
@@ -386,6 +428,7 @@ const technology = [
     options: { A: 'Fortran', B: 'COBOL', C: 'C', D: 'Pascal', E: 'BASIC' },
     options_tr: { A: 'Fortran', B: 'COBOL', C: 'C', D: 'Pascal', E: 'BASIC' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Dennis Ritchie developed C at Bell Labs, and it became one of the most influential programming languages ever created.',
   },
   {
@@ -395,6 +438,7 @@ const technology = [
     options: { A: 'Cortana', B: 'Copilot', C: 'Bing Chat Assistant', D: 'Azure Assistant', E: 'Clippy AI' },
     options_tr: { A: 'Cortana', B: 'Copilot', C: 'Bing Chat Assistant', D: 'Azure Assistant', E: 'Clippy AI' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Microsoft Copilot, built on OpenAI\'s models, was integrated into Windows, Office, and other products.',
   },
   {
@@ -404,6 +448,7 @@ const technology = [
     options: { A: 'Stratasys', B: '3D Systems', C: 'MakerBot', D: 'HP', E: 'Formlabs' },
     options_tr: { A: 'Stratasys', B: '3D Systems', C: 'MakerBot', D: 'HP', E: 'Formlabs' },
     answer: 'B',
+    difficulty: 2,
     explanation: '3D Systems, founded by Chuck Hull (inventor of stereolithography), released the SLA-1 in 1987.',
   },
   {
@@ -413,6 +458,7 @@ const technology = [
     options: { A: 'Large Area Network', B: 'Local Area Network', C: 'Linked Access Node', D: 'Long Access Network', E: 'Layered Application Network' },
     options_tr: { A: 'Geniş Alan Ağı', B: 'Yerel Alan Ağı', C: 'Bağlantılı Erişim Düğümü', D: 'Uzun Erişim Ağı', E: 'Katmanlı Uygulama Ağı' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'A LAN (Local Area Network) connects computers within a limited area, such as a home, school, or office building.',
   },
   {
@@ -422,6 +468,7 @@ const technology = [
     options: { A: 'Google', B: 'Microsoft', C: 'Amazon', D: 'Atlassian', E: 'IBM' },
     options_tr: { A: 'Google', B: 'Microsoft', C: 'Amazon', D: 'Atlassian', E: 'IBM' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Microsoft acquired GitHub for approximately $7.5 billion in stock in 2018.',
   },
   {
@@ -431,6 +478,7 @@ const technology = [
     options: { A: 'Indexing', B: 'Caching', C: 'Sharding', D: 'Replication', E: 'Partitioning' },
     options_tr: { A: 'İndeksleme', B: 'Önbellekleme (Caching)', C: 'Parçalama (Sharding)', D: 'Çoğaltma (Replication)', E: 'Bölümleme (Partitioning)' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Caching stores copies of data (e.g., in RAM or a CDN) to reduce latency and load on the original data source.',
   },
   {
@@ -440,6 +488,7 @@ const technology = [
     options: { A: 'Yahoo', B: 'Google', C: 'PayPal', D: 'eBay', E: 'Netscape' },
     options_tr: { A: 'Yahoo', B: 'Google', C: 'PayPal', D: 'eBay', E: 'Netscape' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Page and Brin met at Stanford in 1995 and founded Google in a garage in 1998.',
   },
   {
@@ -449,6 +498,7 @@ const technology = [
     options: { A: 'IEEE 802.3', B: 'IEEE 802.11', C: 'IEEE 802.15', D: 'IEEE 802.16', E: 'IEEE 1394' },
     options_tr: { A: 'IEEE 802.3', B: 'IEEE 802.11', C: 'IEEE 802.15', D: 'IEEE 802.16', E: 'IEEE 1394' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The IEEE 802.11 family of standards defines wireless local area networking, commercially branded as Wi-Fi.',
   },
   {
@@ -458,6 +508,7 @@ const technology = [
     options: { A: 'Waymo', B: 'Tesla', C: 'NVIDIA', D: 'Mobileye', E: 'Cruise' },
     options_tr: { A: 'Waymo', B: 'Tesla', C: 'NVIDIA', D: 'Mobileye', E: 'Cruise' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Tesla developed Autopilot in-house, though it initially relied on Mobileye hardware before switching to its own chips.',
   },
   {
@@ -467,6 +518,7 @@ const technology = [
     options: { A: 'Internal Protocol', B: 'Internet Protocol', C: 'Interface Path', D: 'Information Packet', E: 'Integrated Path' },
     options_tr: { A: 'Dahili Protokol', B: 'İnternet Protokolü', C: 'Arayüz Yolu', D: 'Bilgi Paketi', E: 'Entegre Yol' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'An IP (Internet Protocol) address uniquely identifies a device on a network.',
   },
   {
@@ -476,6 +528,7 @@ const technology = [
     options: { A: 'Microsoft', B: 'Lotus Development', C: 'Software Arts', D: 'IBM', E: 'Apple' },
     options_tr: { A: 'Microsoft', B: 'Lotus Development', C: 'Software Arts', D: 'IBM', E: 'Apple' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'VisiCalc was created by Dan Bricklin and Bob Frankston at Software Arts, and is considered the first "killer app" for personal computers.',
   },
   {
@@ -485,6 +538,7 @@ const technology = [
     options: { A: 'Cloud computing', B: 'Grid computing', C: 'Edge computing', D: 'Quantum computing', E: 'Distributed computing' },
     options_tr: { A: 'Bulut bilişim', B: 'Grid bilişim', C: 'Uç (Edge) bilişim', D: 'Kuantum bilişim', E: 'Dağıtık bilişim' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Edge computing reduces latency by processing data near where it is generated, such as on IoT devices.',
   },
   {
@@ -494,6 +548,7 @@ const technology = [
     options: { A: 'Burbn, Inc.', B: 'Snap Inc.', C: 'Path Inc.', D: 'Flickr', E: 'Vine Labs' },
     options_tr: { A: 'Burbn, Inc.', B: 'Snap Inc.', C: 'Path Inc.', D: 'Flickr', E: 'Vine Labs' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Instagram was created by Kevin Systrom and Mike Krieger under the company Burbn, Inc., launching in 2010.',
   },
   {
@@ -503,6 +558,7 @@ const technology = [
     options: { A: 'Two-factor authentication', B: 'CAPTCHA', C: 'OAuth', D: 'Firewall check', E: 'Cookie consent' },
     options_tr: { A: 'İki faktörlü kimlik doğrulama', B: 'CAPTCHA', C: 'OAuth', D: 'Güvenlik duvarı kontrolü', E: 'Çerez onayı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'CAPTCHA stands for "Completely Automated Public Turing test to tell Computers and Humans Apart."',
   },
   {
@@ -512,6 +568,7 @@ const technology = [
     options: { A: 'Google', B: 'Mozilla', C: 'Microsoft', D: 'Facebook', E: 'Apple' },
     options_tr: { A: 'Google', B: 'Mozilla', C: 'Microsoft', D: 'Facebook', E: 'Apple' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Mozilla sponsored Rust\'s development starting in 2009, and it is now widely used for systems programming.',
   },
   {
@@ -521,6 +578,7 @@ const technology = [
     options: { A: 'Portable Document Format', B: 'Printed Document File', C: 'Personal Data File', D: 'Public Document Format', E: 'Print Data Format' },
     options_tr: { A: 'Taşınabilir Belge Biçimi', B: 'Basılmış Belge Dosyası', C: 'Kişisel Veri Dosyası', D: 'Genel Belge Biçimi', E: 'Yazdırma Veri Biçimi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'PDF (Portable Document Format) was created by Adobe in 1993 to present documents consistently across platforms.',
   },
   {
@@ -530,6 +588,7 @@ const technology = [
     options: { A: 'Google', B: 'Stability AI', C: 'OpenAI', D: 'Midjourney Inc.', E: 'Adobe' },
     options_tr: { A: 'Google', B: 'Stability AI', C: 'OpenAI', D: 'Midjourney Inc.', E: 'Adobe' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'OpenAI released DALL-E in 2021, generating images from text descriptions.',
   },
   {
@@ -539,6 +598,7 @@ const technology = [
     options: { A: 'Waterfall model', B: 'Agile methodology', C: 'Spiral model', D: 'V-model', E: 'Big bang model' },
     options_tr: { A: 'Şelale (Waterfall) modeli', B: 'Çevik (Agile) metodoloji', C: 'Spiral model', D: 'V-modeli', E: 'Büyük patlama modeli' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Agile methodologies, formalized in the 2001 Agile Manifesto, emphasize iterative development, collaboration, and flexibility.',
   },
   {
@@ -548,6 +608,7 @@ const technology = [
     options: { A: 'Intel', B: 'Apple', C: 'Samsung', D: 'Qualcomm', E: 'TSMC' },
     options_tr: { A: 'Intel', B: 'Apple', C: 'Samsung', D: 'Qualcomm', E: 'TSMC' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Apple designed its own M-series ARM-based chips in-house, moving Macs away from Intel processors starting in 2020.',
   },
   {
@@ -557,6 +618,7 @@ const technology = [
     options: { A: 'Zero-day vulnerability', B: 'Backdoor', C: 'Buffer overflow', D: 'SQL injection', E: 'Man-in-the-middle attack' },
     options_tr: { A: 'Sıfırıncı gün (zero-day) açığı', B: 'Arka kapı (backdoor)', C: 'Tampon taşması', D: 'SQL enjeksiyonu', E: 'Ortadaki adam saldırısı' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'A zero-day vulnerability is exploited before developers have "zero days" to fix it, making it especially dangerous.',
   },
   {
@@ -566,6 +628,7 @@ const technology = [
     options: { A: 'Valve', B: 'Epic Games', C: 'Unity Technologies', D: 'id Software', E: 'CD Projekt' },
     options_tr: { A: 'Valve', B: 'Epic Games', C: 'Unity Technologies', D: 'id Software', E: 'CD Projekt' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Epic Games first released Unreal Engine in 1998 alongside the game Unreal, and it has become a leading engine for games and film.',
   },
   {
@@ -575,6 +638,7 @@ const technology = [
     options: { A: 'Structured Query Language', B: 'Sequential Query Logic', C: 'System Query Language', D: 'Structured Question Logic', E: 'Standard Query List' },
     options_tr: { A: 'Yapılandırılmış Sorgu Dili', B: 'Sıralı Sorgu Mantığı', C: 'Sistem Sorgu Dili', D: 'Yapılandırılmış Soru Mantığı', E: 'Standart Sorgu Listesi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'SQL (Structured Query Language) is used to manage and query data in relational databases.',
   },
   {
@@ -584,6 +648,7 @@ const technology = [
     options: { A: 'Tesla', B: 'Alphabet (Google\'s parent company)', C: 'Uber', D: 'Amazon', E: 'Apple' },
     options_tr: { A: 'Tesla', B: 'Alphabet (Google\'ın ana şirketi)', C: 'Uber', D: 'Amazon', E: 'Apple' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Waymo began as the Google Self-Driving Car Project in 2009 and became an independent Alphabet subsidiary in 2016.',
   },
   {
@@ -593,6 +658,7 @@ const technology = [
     options: { A: 'Manual testing', B: 'Automated testing', C: 'Exploratory testing', D: 'Static analysis', E: 'User acceptance testing' },
     options_tr: { A: 'Manuel test', B: 'Otomatik test', C: 'Keşifsel test', D: 'Statik analiz', E: 'Kullanıcı kabul testi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Automated testing uses scripts and frameworks (e.g., Selenium, Jest, Playwright) to verify software behavior without manual effort each time.',
   },
   {
@@ -602,6 +668,7 @@ const technology = [
     options: { A: 'WhatsApp Inc.', B: 'Snap Inc.', C: 'Telegram FZ-LLC', D: 'Viber Media', E: 'Kik Interactive' },
     options_tr: { A: 'WhatsApp Inc.', B: 'Snap Inc.', C: 'Telegram FZ-LLC', D: 'Viber Media', E: 'Kik Interactive' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'WhatsApp was founded in 2009 by Brian Acton and Jan Koum, both former Yahoo employees.',
   },
   {
@@ -611,6 +678,7 @@ const technology = [
     options: { A: 'Central Data Node', B: 'Content Delivery Network', C: 'Cached Data Network', D: 'Cloud Delivery Node', E: 'Content Data Node' },
     options_tr: { A: 'Merkezi Veri Düğümü', B: 'İçerik Dağıtım Ağı', C: 'Önbelleklenmiş Veri Ağı', D: 'Bulut Dağıtım Düğümü', E: 'İçerik Veri Düğümü' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A CDN (Content Delivery Network) caches content closer to users to reduce latency and improve load times.',
   },
   {
@@ -620,6 +688,7 @@ const technology = [
     options: { A: 'Nintendo', B: 'Sega', C: 'Atari, Inc.', D: 'Magnavox', E: 'Coleco' },
     options_tr: { A: 'Nintendo', B: 'Sega', C: 'Atari, Inc.', D: 'Magnavox', E: 'Coleco' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Atari 2600 popularized interchangeable game cartridges and became a home video game industry cornerstone.',
   },
   {
@@ -629,6 +698,7 @@ const technology = [
     options: { A: 'React Native', B: 'Xamarin', C: 'Flutter', D: 'Ionic', E: 'Cordova' },
     options_tr: { A: 'React Native', B: 'Xamarin', C: 'Flutter', D: 'Ionic', E: 'Cordova' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Flutter, first released by Google in 2017, uses the Dart programming language to build natively compiled apps.',
   },
   {
@@ -638,6 +708,7 @@ const technology = [
     options: { A: 'Signal Foundation', B: 'Meta', C: 'Telegram FZ-LLC', D: 'Apple', E: 'Google' },
     options_tr: { A: 'Signal Vakfı (Signal Foundation)', B: 'Meta', C: 'Telegram FZ-LLC', D: 'Apple', E: 'Google' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Signal is developed by the nonprofit Signal Foundation and Signal Messenger LLC, co-founded by Moxie Marlinspike.',
   },
   {
@@ -647,6 +718,7 @@ const technology = [
     options: { A: 'SQL injection', B: 'DDoS attack (Distributed Denial of Service)', C: 'Phishing attack', D: 'Man-in-the-middle attack', E: 'Cross-site scripting' },
     options_tr: { A: 'SQL enjeksiyonu', B: 'DDoS saldırısı (Dağıtık Hizmet Reddi)', C: 'Oltalama saldırısı', D: 'Ortadaki adam saldırısı', E: 'Siteler arası betik çalıştırma' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A DDoS attack floods a target with traffic from many compromised devices (often a botnet), overwhelming its resources.',
   },
   {
@@ -656,6 +728,7 @@ const technology = [
     options: { A: 'Cisco', B: 'Zoom Video Communications', C: 'Microsoft', D: 'Google', E: 'Slack Technologies' },
     options_tr: { A: 'Cisco', B: 'Zoom Video Communications', C: 'Microsoft', D: 'Google', E: 'Slack Technologies' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Zoom was founded by Eric Yuan, a former Cisco Webex engineer, in 2011, and saw massive growth during the COVID-19 pandemic.',
   },
   {
@@ -665,6 +738,7 @@ const technology = [
     options: { A: 'Automated Interface', B: 'Artificial Intelligence', C: 'Analytical Integration', D: 'Automated Intelligence Index', E: 'Artificial Interaction' },
     options_tr: { A: 'Otomatik Arayüz', B: 'Yapay Zeka', C: 'Analitik Entegrasyon', D: 'Otomatik Zeka Endeksi', E: 'Yapay Etkileşim' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'AI (Artificial Intelligence) refers to computer systems designed to perform tasks that typically require human intelligence.',
   },
   {
@@ -674,6 +748,7 @@ const technology = [
     options: { A: 'Netscape (with Navigator)', B: 'Opera Software', C: 'Microsoft (with Internet Explorer)', D: 'Mozilla (with Firefox)', E: 'Google (with Chrome)' },
     options_tr: { A: 'Netscape (Navigator ile)', B: 'Opera Software', C: 'Microsoft (Internet Explorer ile)', D: 'Mozilla (Firefox ile)', E: 'Google (Chrome ile)' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Opera introduced tabbed browsing in 2000, well before it became standard in other major browsers.',
   },
   {
@@ -683,6 +758,7 @@ const technology = [
     options: { A: 'Indexing', B: 'Normalization', C: 'Replication', D: 'Denormalization', E: 'Partitioning' },
     options_tr: { A: 'İndeksleme', B: 'Normalizasyon', C: 'Çoğaltma', D: 'Denormalizasyon', E: 'Bölümleme' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Database normalization organizes tables and columns to reduce data duplication and improve data integrity.',
   },
   {
@@ -692,6 +768,7 @@ const technology = [
     options: { A: 'Tiny Speck', B: 'Atlassian', C: 'Salesforce', D: 'HipChat Inc.', E: 'Basecamp' },
     options_tr: { A: 'Tiny Speck', B: 'Atlassian', C: 'Salesforce', D: 'HipChat Inc.', E: 'Basecamp' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Slack grew out of an internal communication tool built by Tiny Speck while developing the game Glitch.',
   },
   {
@@ -701,6 +778,7 @@ const technology = [
     options: { A: 'Operating System', B: 'Output System', C: 'Online Server', D: 'Operational Software', E: 'Optical System' },
     options_tr: { A: 'İşletim Sistemi', B: 'Çıktı Sistemi', C: 'Çevrimiçi Sunucu', D: 'Operasyonel Yazılım', E: 'Optik Sistem' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'An operating system manages computer hardware and software resources, providing common services for programs.',
   },
   {
@@ -710,6 +788,7 @@ const technology = [
     options: { A: 'Yahoo', B: 'Microsoft', C: 'Google', D: 'AOL', E: 'Amazon' },
     options_tr: { A: 'Yahoo', B: 'Microsoft', C: 'Google', D: 'AOL', E: 'Amazon' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Google acquired YouTube for $1.65 billion in stock in 2006, about a year and a half after its founding.',
   },
   {
@@ -719,6 +798,7 @@ const technology = [
     options: { A: 'Single-core processor', B: 'Multi-core processor', C: 'Microcontroller', D: 'Coprocessor', E: 'ASIC' },
     options_tr: { A: 'Tek çekirdekli işlemci', B: 'Çok çekirdekli işlemci', C: 'Mikrodenetleyici', D: 'Yardımcı işlemci', E: 'ASIC' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Multi-core processors, common since the mid-2000s, allow simultaneous execution of multiple threads or processes.',
   },
   {
@@ -728,6 +808,7 @@ const technology = [
     options: { A: 'Corel', B: 'Adobe', C: 'Autodesk', D: 'Microsoft', E: 'GIMP Foundation' },
     options_tr: { A: 'Corel', B: 'Adobe', C: 'Autodesk', D: 'Microsoft', E: 'GIMP Vakfı' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Photoshop was created by Thomas and John Knoll and released by Adobe in 1990.',
   },
   {
@@ -737,6 +818,7 @@ const technology = [
     options: { A: 'Video Rendering', B: 'Virtual Reality', C: 'Visual Recognition', D: 'Vector Rendering', E: 'Virtual Recording' },
     options_tr: { A: 'Video İşleme', B: 'Sanal Gerçeklik', C: 'Görsel Tanıma', D: 'Vektör İşleme', E: 'Sanal Kayıt' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'VR (Virtual Reality) creates immersive, computer-generated simulated environments, typically experienced through a headset.',
   },
   {
@@ -746,6 +828,7 @@ const technology = [
     options: { A: 'HTC', B: 'Valve Corporation', C: 'Oculus VR', D: 'Sony', E: 'Samsung' },
     options_tr: { A: 'HTC', B: 'Valve Corporation', C: 'Oculus VR', D: 'Sony', E: 'Samsung' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Oculus VR was founded by Palmer Luckey, who ran a famous Kickstarter campaign for the Rift before Facebook acquired the company.',
   },
   {
@@ -755,6 +838,7 @@ const technology = [
     options: { A: 'Server-side code', B: 'Client-side code', C: 'Middleware', D: 'Firmware', E: 'Backend code' },
     options_tr: { A: 'Sunucu tarafı kod', B: 'İstemci tarafı kod', C: 'Ara katman yazılımı', D: 'Bellenim (Firmware)', E: 'Arka uç kod' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Client-side code, such as JavaScript running in a browser, executes on the user\'s own device rather than on a remote server.',
   },
   {
@@ -764,6 +848,7 @@ const technology = [
     options: { A: 'Tencent', B: 'ByteDance', C: 'Alibaba', D: 'Baidu', E: 'Xiaomi' },
     options_tr: { A: 'Tencent', B: 'ByteDance', C: 'Alibaba', D: 'Baidu', E: 'Xiaomi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'ByteDance launched Douyin in China in 2016, and the international version, TikTok, launched in 2017.',
   },
   {
@@ -773,6 +858,7 @@ const technology = [
     options: { A: 'Graphical User Interface', B: 'General User Instructions', C: 'Global User Index', D: 'Graphic Utility Interface', E: 'Guided User Integration' },
     options_tr: { A: 'Grafiksel Kullanıcı Arayüzü', B: 'Genel Kullanıcı Talimatları', C: 'Küresel Kullanıcı Dizini', D: 'Grafik Yardımcı Program Arayüzü', E: 'Yönlendirilmiş Kullanıcı Entegrasyonu' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'A GUI (Graphical User Interface) allows users to interact with electronic devices through visual icons rather than text commands.',
   },
   {
@@ -782,6 +868,7 @@ const technology = [
     options: { A: 'IBM', B: 'Xerox', C: 'Apple', D: 'Digital Equipment Corporation', E: 'Hewlett-Packard' },
     options_tr: { A: 'IBM', B: 'Xerox', C: 'Apple', D: 'Digital Equipment Corporation', E: 'Hewlett-Packard' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Xerox Alto, developed at Xerox PARC, pioneered the GUI, mouse, and Ethernet, directly inspiring Apple\'s Macintosh.',
   },
   {
@@ -791,6 +878,7 @@ const technology = [
     options: { A: 'Encryption', B: 'Compression', C: 'Fragmentation', D: 'Serialization', E: 'Virtualization' },
     options_tr: { A: 'Şifreleme', B: 'Sıkıştırma', C: 'Parçalanma', D: 'Serileştirme', E: 'Sanallaştırma' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Compression algorithms (e.g., ZIP, JPEG, MP3) reduce file size by removing redundancy, either losslessly or lossily.',
   },
   {
@@ -800,6 +888,7 @@ const technology = [
     options: { A: 'Yahoo', B: 'Hotmail Corporation', C: 'Microsoft', D: 'AOL', E: 'Google' },
     options_tr: { A: 'Yahoo', B: 'Hotmail Corporation', C: 'Microsoft', D: 'AOL', E: 'Google' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Hotmail was founded by Sabeer Bhatia and Jack Smith in 1996 and was acquired by Microsoft in 1997.',
   },
   {
@@ -809,6 +898,7 @@ const technology = [
     options: { A: 'Network File Control', B: 'Near Field Communication', C: 'National Frequency Code', D: 'Network Frequency Channel', E: 'Near Frequency Control' },
     options_tr: { A: 'Ağ Dosya Kontrolü', B: 'Yakın Alan İletişimi', C: 'Ulusal Frekans Kodu', D: 'Ağ Frekans Kanalı', E: 'Yakın Frekans Kontrolü' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'NFC (Near Field Communication) enables data exchange between devices within a few centimeters, used in contactless payments like Apple Pay.',
   },
   {
@@ -818,6 +908,7 @@ const technology = [
     options: { A: 'Intel', B: 'AMD', C: 'IBM', D: 'Motorola', E: 'Cyrix' },
     options_tr: { A: 'Intel', B: 'AMD', C: 'IBM', D: 'Motorola', E: 'Cyrix' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'AMD introduced the x86-64 (AMD64) architecture, which Intel later adopted as Intel 64.',
   },
   {
@@ -827,6 +918,7 @@ const technology = [
     options: { A: 'Firmware', B: 'Operating system kernel', C: 'Compiler', D: 'Device driver', E: 'Bootloader' },
     options_tr: { A: 'Bellenim (Firmware)', B: 'İşletim sistemi çekirdeği', C: 'Derleyici', D: 'Aygıt sürücüsü', E: 'Önyükleyici' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The kernel is the core part of an operating system that manages hardware resources and system calls.',
   },
   {
@@ -836,6 +928,7 @@ const technology = [
     options: { A: 'Discord Inc.', B: 'Riot Games', C: 'Valve', D: 'Twitch Interactive', E: 'Roblox Corporation' },
     options_tr: { A: 'Discord Inc.', B: 'Riot Games', C: 'Valve', D: 'Twitch Interactive', E: 'Roblox Corporation' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Discord was launched in 2015 by Jason Citron and Stan Vishnevskiy, becoming popular beyond gaming communities.',
   },
   {
@@ -845,6 +938,7 @@ const technology = [
     options: { A: 'Multi-Layer network', B: 'Machine Learning', C: 'Managed Language', D: 'Media Library', E: 'Modular Logic' },
     options_tr: { A: 'Çok Katmanlı ağ', B: 'Makine Öğrenmesi', C: 'Yönetilen Dil', D: 'Medya Kütüphanesi', E: 'Modüler Mantık' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Machine Learning (ML) is a subset of AI where systems learn patterns from data rather than following explicit rules.',
   },
   {
@@ -854,6 +948,7 @@ const technology = [
     options: { A: 'Blue Origin', B: 'SpaceX', C: 'NASA', D: 'Rocket Lab', E: 'Boeing' },
     options_tr: { A: 'Blue Origin', B: 'SpaceX', C: 'NASA', D: 'Rocket Lab', E: 'Boeing' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'SpaceX landed the first stage of a Falcon 9 rocket vertically in December 2015, a milestone for reusable rocketry.',
   },
   {
@@ -863,6 +958,7 @@ const technology = [
     options: { A: 'Compiler', B: 'Adapter/interface', C: 'Firewall', D: 'Router', E: 'Hypervisor' },
     options_tr: { A: 'Derleyici', B: 'Adaptör/arayüz', C: 'Güvenlik duvarı', D: 'Yönlendirici (Router)', E: 'Hipervizör' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'An adapter or interface layer translates between incompatible systems, protocols, or data formats.',
   },
   {
@@ -872,6 +968,7 @@ const technology = [
     options: { A: 'Arduino LLC', B: 'Raspberry Pi Foundation', C: 'Intel', D: 'BeagleBoard.org', E: 'Adafruit Industries' },
     options_tr: { A: 'Arduino LLC', B: 'Raspberry Pi Vakfı', C: 'Intel', D: 'BeagleBoard.org', E: 'Adafruit Industries' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Raspberry Pi Foundation released the first Raspberry Pi in 2012 to make computing more accessible to students.',
   },
   {
@@ -881,6 +978,7 @@ const technology = [
     options: { A: 'Transform', B: 'Transfer', C: 'Translate', D: 'Transmit', E: 'Transpose' },
     options_tr: { A: 'Dönüştür (Transform)', B: 'Aktar (Transfer)', C: 'Çevir (Translate)', D: 'İlet (Transmit)', E: 'Devrik yap (Transpose)' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'ETL (Extract, Transform, Load) describes the process of moving data from source systems into a data warehouse.',
   },
   {
@@ -890,6 +988,7 @@ const technology = [
     options: { A: 'Osborne Computer Corporation', B: 'GRiD Systems Corporation', C: 'Compaq', D: 'Tandy Corporation', E: 'Toshiba' },
     options_tr: { A: 'Osborne Computer Corporation', B: 'GRiD Systems Corporation', C: 'Compaq', D: 'Tandy Corporation', E: 'Toshiba' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The GRiD Compass, designed by Bill Moggridge, established the now-standard laptop form factor and was famously used by NASA.',
   },
   {
@@ -899,6 +998,7 @@ const technology = [
     options: { A: 'HTTP', B: 'MQTT', C: 'FTP', D: 'SOAP', E: 'SMTP' },
     options_tr: { A: 'HTTP', B: 'MQTT', C: 'FTP', D: 'SOAP', E: 'SMTP' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'MQTT (Message Queuing Telemetry Transport) is a lightweight publish-subscribe protocol widely used for IoT devices with limited bandwidth or power.',
   },
   {
@@ -908,6 +1008,7 @@ const technology = [
     options: { A: 'Grace Hopper', B: 'Ada Lovelace', C: 'Hedy Lamarr', D: 'Joan Clarke', E: 'Mary Somerville' },
     options_tr: { A: 'Grace Hopper', B: 'Ada Lovelace', C: 'Hedy Lamarr', D: 'Joan Clarke', E: 'Mary Somerville' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'In 1843 Ada Lovelace published an algorithm for Charles Babbage\'s Analytical Engine and suggested such machines could go beyond pure numerical calculation.',
   },
   {
@@ -917,6 +1018,7 @@ const technology = [
     options: { A: 'Charles Babbage', B: 'George Boole', C: 'John Napier', D: 'Alan Turing', E: 'William Thomson' },
     options_tr: { A: 'Charles Babbage', B: 'George Boole', C: 'John Napier', D: 'Alan Turing', E: 'William Thomson' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Babbage designed mechanical general-purpose computers in the 1800s, although neither machine was completed during his lifetime.',
   },
   {
@@ -926,6 +1028,7 @@ const technology = [
     options: { A: 'The Chinese Room', B: 'The Loebner Criterion', C: 'The Turing Test', D: 'The Von Neumann Test', E: 'The Church Thesis' },
     options_tr: { A: 'Çin Odası', B: 'Loebner Kriteri', C: 'Turing Testi', D: 'Von Neumann Testi', E: 'Church Tezi' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Alan Turing described the idea, which he called the "imitation game," in his paper "Computing Machinery and Intelligence."',
   },
   {
@@ -935,6 +1038,7 @@ const technology = [
     options: { A: 'Ada Lovelace', B: 'Margaret Hamilton', C: 'Radia Perlman', D: 'Katherine Johnson', E: 'Grace Hopper' },
     options_tr: { A: 'Ada Lovelace', B: 'Margaret Hamilton', C: 'Radia Perlman', D: 'Katherine Johnson', E: 'Grace Hopper' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Grace Hopper built one of the first compilers, and her team famously taped a moth found in a Harvard Mark II relay into their logbook.',
   },
   {
@@ -944,6 +1048,7 @@ const technology = [
     options: { A: 'IBM Research', B: 'Xerox PARC', C: 'MIT Lincoln Laboratory', D: 'Bell Labs', E: 'RCA Laboratories' },
     options_tr: { A: 'IBM Research', B: 'Xerox PARC', C: 'MIT Lincoln Laboratory', D: 'Bell Labs', E: 'RCA Laboratories' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'John Bardeen, Walter Brattain, and William Shockley shared the 1956 Nobel Prize in Physics for the invention.',
   },
   {
@@ -953,6 +1058,7 @@ const technology = [
     options: { A: 'Every six months', B: 'Every year', C: 'Every two years', D: 'Every five years', E: 'Every decade' },
     options_tr: { A: 'Her altı ayda bir', B: 'Her yıl', C: 'Her iki yılda bir', D: 'Her beş yılda bir', E: 'Her on yılda bir' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Gordon Moore revised his original 1965 observation in 1975, and the semiconductor industry treated it as a planning target for decades.',
   },
   {
@@ -962,6 +1068,7 @@ const technology = [
     options: { A: 'Intel 8080', B: 'Zilog Z80', C: 'MOS 6502', D: 'Motorola 6800', E: 'Intel 4004' },
     options_tr: { A: 'Intel 8080', B: 'Zilog Z80', C: 'MOS 6502', D: 'Motorola 6800', E: 'Intel 4004' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'The 4-bit 4004 placed a complete CPU on a single chip and was originally commissioned for a Japanese desktop calculator.',
   },
   {
@@ -971,6 +1078,7 @@ const technology = [
     options: { A: '4', B: '8', C: '12', D: '16', E: '32' },
     options_tr: { A: '4', B: '8', C: '12', D: '16', E: '32' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Eight bits give a byte 256 possible values, which is why a single byte can hold any character in the extended ASCII range.',
   },
   {
@@ -980,6 +1088,7 @@ const technology = [
     options: { A: 'ARPANET', B: 'NSFNET', C: 'Usenet', D: 'MILNET', E: 'CYCLADES' },
     options_tr: { A: 'ARPANET', B: 'NSFNET', C: 'Usenet', D: 'MILNET', E: 'CYCLADES' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Its first host-to-host message was sent between UCLA and the Stanford Research Institute in October 1969.',
   },
   {
@@ -989,6 +1098,7 @@ const technology = [
     options: { A: 'The hash sign (#)', B: 'The ampersand (&)', C: 'The percent sign (%)', D: 'The at sign (@)', E: 'The dollar sign ($)' },
     options_tr: { A: 'Kare işareti (#)', B: 'Ve işareti (&)', C: 'Yüzde işareti (%)', D: 'Et işareti (@)', E: 'Dolar işareti ($)' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Tomlinson picked it because the character never appeared in personal names and conveniently read as "at" a location.',
   },
   {
@@ -998,6 +1108,7 @@ const technology = [
     options: { A: 'Tim Berners-Lee and Robert Cailliau', B: 'Ken Thompson and Dennis Ritchie', C: 'Paul Baran and Donald Davies', D: 'Larry Roberts and Leonard Kleinrock', E: 'Vint Cerf and Bob Kahn' },
     options_tr: { A: 'Tim Berners-Lee ve Robert Cailliau', B: 'Ken Thompson ve Dennis Ritchie', C: 'Paul Baran ve Donald Davies', D: 'Larry Roberts ve Leonard Kleinrock', E: 'Vint Cerf ve Bob Kahn' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Cerf and Kahn published the design in 1974, and ARPANET switched over to TCP/IP on January 1, 1983.',
   },
   {
@@ -1007,6 +1118,7 @@ const technology = [
     options: { A: 'Alan Kay', B: 'Robert Metcalfe', C: 'Radia Perlman', D: 'Gary Kildall', E: 'Bob Kahn' },
     options_tr: { A: 'Alan Kay', B: 'Robert Metcalfe', C: 'Radia Perlman', D: 'Gary Kildall', E: 'Bob Kahn' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Metcalfe worked on Ethernet with David Boggs and later founded 3Com to commercialize networking hardware.',
   },
   {
@@ -1016,6 +1128,7 @@ const technology = [
     options: { A: 'Norway', B: 'Sweden', C: 'Denmark', D: 'Finland', E: 'Iceland' },
     options_tr: { A: 'Norveç', B: 'İsveç', C: 'Danimarka', D: 'Finlandiya', E: 'İzlanda' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Harald "Bluetooth" Gormsson united warring Danish tribes, a parallel to the standard\'s goal of uniting different devices.',
   },
   {
@@ -1025,6 +1138,7 @@ const technology = [
     options: { A: '1996', B: '1998', C: '1999', D: '2001', E: '2004' },
     options_tr: { A: '1996', B: '1998', C: '1999', D: '2001', E: '2004' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Jimmy Wales and Larry Sanger started it in January 2001 as a companion to the slower, peer-reviewed Nupedia project.',
   },
   {
@@ -1034,6 +1148,7 @@ const technology = [
     options: { A: 'Server error', B: 'Not found', C: 'Forbidden', D: 'Moved permanently', E: 'Unauthorized' },
     options_tr: { A: 'Sunucu hatası', B: 'Bulunamadı', C: 'Yasaklandı', D: 'Kalıcı olarak taşındı', E: 'Yetkisiz' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Codes in the 400 range indicate client-side problems, while 500-range codes signal failures on the server.',
   },
   {
@@ -1043,6 +1158,7 @@ const technology = [
     options: { A: '21', B: '22', C: '80', D: '443', E: '8080' },
     options_tr: { A: '21', B: '22', C: '80', D: '443', E: '8080' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Unencrypted HTTP uses port 80, while ports 21 and 22 are reserved for FTP and SSH respectively.',
   },
   {
@@ -1052,6 +1168,7 @@ const technology = [
     options: { A: '32', B: '64', C: '128', D: '256', E: '512' },
     options_tr: { A: '32', B: '64', C: '128', D: '256', E: '512' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'IPv4 addresses are only 32 bits, and exhausting that space is what drove adoption of the far larger IPv6 format.',
   },
   {
@@ -1061,6 +1178,7 @@ const technology = [
     options: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     options_tr: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The layers are physical, data link, network, transport, session, presentation, and application.',
   },
   {
@@ -1070,6 +1188,7 @@ const technology = [
     options: { A: 'IMAP', B: 'POP3', C: 'SMTP', D: 'SNMP', E: 'LDAP' },
     options_tr: { A: 'IMAP', B: 'POP3', C: 'SMTP', D: 'SNMP', E: 'LDAP' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'IMAP and POP3 are retrieval protocols used by mail clients, whereas SMTP handles delivery between servers.',
   },
   {
@@ -1079,6 +1198,7 @@ const technology = [
     options: { A: 'Secure Socket Host', B: 'System Shell Handler', C: 'Server Side Host', D: 'Secure Server Hub', E: 'Secure Shell' },
     options_tr: { A: 'Güvenli Soket Sunucusu', B: 'Sistem Kabuk İşleyicisi', C: 'Sunucu Tarafı Sunucusu', D: 'Güvenli Sunucu Merkezi', E: 'Güvenli Kabuk' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'SSH provides encrypted remote login and command execution, replacing the plaintext Telnet and rlogin tools.',
   },
   {
@@ -1088,6 +1208,7 @@ const technology = [
     options: { A: '1971', B: '1975', C: '1978', D: '1981', E: '1984' },
     options_tr: { A: '1971', B: '1975', C: '1978', D: '1981', E: '1984' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The company started in Albuquerque, New Mexico, selling a BASIC interpreter for the Altair 8800 microcomputer.',
   },
   {
@@ -1097,6 +1218,7 @@ const technology = [
     options: { A: 'Electronics', B: 'Music CDs', C: 'Toys', D: 'Clothing', E: 'Books' },
     options_tr: { A: 'Elektronik', B: 'Müzik CD\'leri', C: 'Oyuncaklar', D: 'Giyim', E: 'Kitaplar' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Jeff Bezos chose books because of their huge catalogue and easy shipping, only adding music and video in 1998.',
   },
   {
@@ -1106,6 +1228,7 @@ const technology = [
     options: { A: 'DVD rental by mail', B: 'Streaming video subscriptions', C: 'A chain of video rental stores', D: 'Cable television channels', E: 'Selling DVDs in supermarkets' },
     options_tr: { A: 'Posta yoluyla DVD kiralama', B: 'Video akışı aboneliği', C: 'Video kiralama mağazaları zinciri', D: 'Kablolu televizyon kanalları', E: 'Marketlerde DVD satışı' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Reed Hastings and Marc Randolph mailed DVDs in red envelopes for a decade before streaming launched in 2007.',
   },
   {
@@ -1115,6 +1238,7 @@ const technology = [
     options: { A: 'Jeff Bezos', B: 'Marc Benioff', C: 'Pierre Omidyar', D: 'Meg Whitman', E: 'Jack Ma' },
     options_tr: { A: 'Jeff Bezos', B: 'Marc Benioff', C: 'Pierre Omidyar', D: 'Meg Whitman', E: 'Jack Ma' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Omidyar wrote the original AuctionWeb code over a long weekend; Meg Whitman joined as chief executive three years later.',
   },
   {
@@ -1124,6 +1248,7 @@ const technology = [
     options: { A: 'Braintree', B: 'Confinity', C: 'Venmo', D: 'Square', E: 'Stripe' },
     options_tr: { A: 'Braintree', B: 'Confinity', C: 'Venmo', D: 'Square', E: 'Stripe' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Confinity was co-founded by Peter Thiel and Max Levchin, and the merged company took the PayPal name shortly afterwards.',
   },
   {
@@ -1133,6 +1258,7 @@ const technology = [
     options: { A: 'Norway', B: 'Germany', C: 'Netherlands', D: 'Denmark', E: 'Sweden' },
     options_tr: { A: 'Norveç', B: 'Almanya', C: 'Hollanda', D: 'Danimarka', E: 'İsveç' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Daniel Ek and Martin Lorentzon started Spotify in Stockholm in 2006, launching the service publicly in 2008.',
   },
   {
@@ -1142,6 +1268,7 @@ const technology = [
     options: { A: 'Pulp and paper', B: 'Shipbuilding', C: 'Automobiles', D: 'Radio broadcasting', E: 'Mining' },
     options_tr: { A: 'Kâğıt hamuru ve kâğıt', B: 'Gemi inşası', C: 'Otomobil', D: 'Radyo yayıncılığı', E: 'Madencilik' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The company began as a pulp mill on the Nokianvirta river and only entered telecommunications in the 20th century.',
   },
   {
@@ -1151,6 +1278,7 @@ const technology = [
     options: { A: 'Toys', B: 'Playing cards', C: 'Vacuum cleaners', D: 'Cameras', E: 'Bicycles' },
     options_tr: { A: 'Oyuncaklar', B: 'Oyun kartları', C: 'Elektrikli süpürgeler', D: 'Fotoğraf makineleri', E: 'Bisikletler' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Fusajiro Yamauchi began producing handmade hanafuda cards in Kyoto nearly a century before Nintendo entered video games.',
   },
   {
@@ -1160,6 +1288,7 @@ const technology = [
     options: { A: 'Panasonic', B: 'Toshiba', C: 'JVC', D: 'Sony', E: 'Sharp' },
     options_tr: { A: 'Panasonic', B: 'Toshiba', C: 'JVC', D: 'Sony', E: 'Sharp' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Walkman made private, portable music listening mainstream and sold hundreds of millions of units across its lifetime.',
   },
   {
@@ -1169,6 +1298,7 @@ const technology = [
     options: { A: 'Cupertino', B: 'Mountain View', C: 'Palo Alto', D: 'San Jose', E: 'Menlo Park' },
     options_tr: { A: 'Cupertino', B: 'Mountain View', C: 'Palo Alto', D: 'San Jose', E: 'Menlo Park' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The garage on Addison Avenue is a designated California landmark often called the birthplace of Silicon Valley.',
   },
   {
@@ -1178,6 +1308,7 @@ const technology = [
     options: { A: 'Robert Noyce and Gordon Moore', B: 'Jack Kilby and Andy Grove', C: 'William Shockley and Jerry Sanders', D: 'Gordon Moore and Jensen Huang', E: 'Andy Grove and Jack Kilby' },
     options_tr: { A: 'Robert Noyce ve Gordon Moore', B: 'Jack Kilby ve Andy Grove', C: 'William Shockley ve Jerry Sanders', D: 'Gordon Moore ve Jensen Huang', E: 'Andy Grove ve Jack Kilby' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Both men left Fairchild Semiconductor to start Intel, and Noyce had earlier co-invented the integrated circuit.',
   },
   {
@@ -1187,6 +1318,7 @@ const technology = [
     options: { A: 'Lisa Su', B: 'Morris Chang', C: 'Pat Gelsinger', D: 'Jensen Huang', E: 'Hector Ruiz' },
     options_tr: { A: 'Lisa Su', B: 'Morris Chang', C: 'Pat Gelsinger', D: 'Jensen Huang', E: 'Hector Ruiz' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Huang started the company with Chris Malachowsky and Curtis Priem, and it later became central to the AI hardware boom.',
   },
   {
@@ -1196,6 +1328,7 @@ const technology = [
     options: { A: 'OpenCL', B: 'Vulkan', C: 'CUDA', D: 'Metal', E: 'DirectCompute' },
     options_tr: { A: 'OpenCL', B: 'Vulkan', C: 'CUDA', D: 'Metal', E: 'DirectCompute' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'First released in 2007, CUDA opened graphics hardware to scientific and machine learning workloads and became a pillar of deep learning.',
   },
   {
@@ -1205,6 +1338,7 @@ const technology = [
     options: { A: 'PostScript', B: 'TeX', C: 'PCL', D: 'SGML', E: 'RTF' },
     options_tr: { A: 'PostScript', B: 'TeX', C: 'PCL', D: 'SGML', E: 'RTF' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'John Warnock and Charles Geschke founded Adobe in 1982, and PostScript drove the laser printers behind the desktop publishing boom.',
   },
   {
@@ -1214,6 +1348,7 @@ const technology = [
     options: { A: 'Stanford University', B: 'Harvard University', C: 'The University of Texas at Austin', D: 'MIT', E: 'Carnegie Mellon University' },
     options_tr: { A: 'Stanford Üniversitesi', B: 'Harvard Üniversitesi', C: 'Texas Üniversitesi Austin', D: 'MIT', E: 'Carnegie Mellon Üniversitesi' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'He built and sold upgraded PCs from his dorm room under the name PC\'s Limited before dropping out to run the business.',
   },
   {
@@ -1223,6 +1358,7 @@ const technology = [
     options: { A: 'Pony Ma', B: 'Robin Li', C: 'Lei Jun', D: 'Zhang Yiming', E: 'Jack Ma' },
     options_tr: { A: 'Pony Ma', B: 'Robin Li', C: 'Lei Jun', D: 'Zhang Yiming', E: 'Jack Ma' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'A former English teacher, Jack Ma started the company with a group of partners in his apartment in Hangzhou.',
   },
   {
@@ -1232,6 +1368,7 @@ const technology = [
     options: { A: 'United States', B: 'Canada', C: 'United Kingdom', D: 'Australia', E: 'Ireland' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Kanada', C: 'Birleşik Krallık', D: 'Avustralya', E: 'İrlanda' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Shopify grew out of an online snowboard shop in Ottawa whose founders were unhappy with the store software available in 2004.',
   },
   {
@@ -1241,6 +1378,7 @@ const technology = [
     options: { A: 'The Collison brothers', B: 'The Winklevoss brothers', C: 'The Duffield brothers', D: 'The Bhatia brothers', E: 'The Houston brothers' },
     options_tr: { A: 'Collison kardeşler', B: 'Winklevoss kardeşler', C: 'Duffield kardeşler', D: 'Bhatia kardeşler', E: 'Houston kardeşler' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Patrick and John Collison, from Ireland, launched Stripe in 2010 to cut the friction out of accepting payments online.',
   },
   {
@@ -1250,6 +1388,7 @@ const technology = [
     options: { A: '$1.2 billion', B: '$3 billion', C: '$8.5 billion', D: '$19 billion', E: '$26 billion' },
     options_tr: { A: '1,2 milyar dolar', B: '3 milyar dolar', C: '8,5 milyar dolar', D: '19 milyar dolar', E: '26 milyar dolar' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Skype\'s core software had been written by a team of Estonian developers for founders Niklas Zennstrom and Janus Friis.',
   },
   {
@@ -1259,6 +1398,7 @@ const technology = [
     options: { A: 'Mojang', B: 'Bethesda', C: 'Rare', D: 'Double Fine', E: 'Obsidian' },
     options_tr: { A: 'Mojang', B: 'Bethesda', C: 'Rare', D: 'Double Fine', E: 'Obsidian' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Microsoft paid about $2.5 billion for the Swedish studio, whose founder Markus Persson left after the sale.',
   },
   {
@@ -1268,6 +1408,7 @@ const technology = [
     options: { A: 'Salesforce', B: 'Oracle', C: 'Microsoft', D: 'Google', E: 'IBM' },
     options_tr: { A: 'Salesforce', B: 'Oracle', C: 'Microsoft', D: 'Google', E: 'IBM' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'At $26.2 billion in cash, it was the largest acquisition Microsoft had ever made at the time.',
   },
   {
@@ -1277,6 +1418,7 @@ const technology = [
     options: { A: 'Oracle', B: 'IBM', C: 'VMware', D: 'SUSE', E: 'Microsoft' },
     options_tr: { A: 'Oracle', B: 'IBM', C: 'VMware', D: 'SUSE', E: 'Microsoft' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'IBM paid about $34 billion, its largest deal ever, to strengthen its position in hybrid cloud software.',
   },
   {
@@ -1286,6 +1428,7 @@ const technology = [
     options: { A: 'San Francisco', B: 'London', C: 'Toronto', D: 'Zurich', E: 'Tel Aviv' },
     options_tr: { A: 'San Francisco', B: 'Londra', C: 'Toronto', D: 'Zürih', E: 'Tel Aviv' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Demis Hassabis, Shane Legg, and Mustafa Suleyman started the lab there in 2010.',
   },
   {
@@ -1295,6 +1438,7 @@ const technology = [
     options: { A: 'Chess', B: 'Shogi', C: 'Go', D: 'Checkers', E: 'Backgammon' },
     options_tr: { A: 'Satranç', B: 'Shogi', C: 'Go', D: 'Dama', E: 'Tavla' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The match ended 4-1, a landmark because the game has far too many possible positions for brute-force search.',
   },
   {
@@ -1304,6 +1448,7 @@ const technology = [
     options: { A: 'Watson', B: 'Deep Thought', C: 'Blue Gene', D: 'Deep Blue', E: 'ASCI Red' },
     options_tr: { A: 'Watson', B: 'Deep Thought', C: 'Blue Gene', D: 'Deep Blue', E: 'ASCI Red' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The rematch finished 3.5-2.5, the first time a reigning world champion lost a full match to a machine under tournament conditions.',
   },
   {
@@ -1313,6 +1458,7 @@ const technology = [
     options: { A: 'Jeopardy!', B: 'Who Wants to Be a Millionaire', C: 'The Price Is Right', D: 'Wheel of Fortune', E: 'University Challenge' },
     options_tr: { A: 'Jeopardy!', B: 'Kim Milyoner Olmak İster', C: 'The Price Is Right', D: 'Çarkıfelek', E: 'University Challenge' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Watson beat Ken Jennings and Brad Rutter, demonstrating question answering over unstructured natural language text.',
   },
   {
@@ -1322,6 +1468,7 @@ const technology = [
     options: { A: 'SHRDLU', B: 'PARRY', C: 'ALICE', D: 'MYCIN', E: 'ELIZA' },
     options_tr: { A: 'SHRDLU', B: 'PARRY', C: 'ALICE', D: 'MYCIN', E: 'ELIZA' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Joseph Weizenbaum wrote it at MIT and was disturbed by how readily users attributed real understanding to simple pattern matching.',
   },
   {
@@ -1331,6 +1478,7 @@ const technology = [
     options: { A: 'General Purpose Transformer', B: 'Guided Predictive Text', C: 'Generalized Pattern Trainer', D: 'Generative Pre-trained Transformer', E: 'Generative Probabilistic Tokenizer' },
     options_tr: { A: 'Genel Amaçlı Transformer', B: 'Yönlendirilmiş Tahmini Metin', C: 'Genelleştirilmiş Örüntü Eğiticisi', D: 'Üretken Ön Eğitimli Transformer', E: 'Üretken Olasılıksal Belirteçleyici' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Such models are pre-trained on large text corpora before being fine-tuned, and they are built on the transformer network architecture.',
   },
   {
@@ -1340,6 +1488,7 @@ const technology = [
     options: { A: '"Deep Residual Learning for Image Recognition"', B: '"Attention Is All You Need"', C: '"ImageNet Classification with Deep Convolutional Neural Networks"', D: '"Generative Adversarial Networks"', E: '"Playing Atari with Deep Reinforcement Learning"' },
     options_tr: { A: '"Deep Residual Learning for Image Recognition"', B: '"Attention Is All You Need"', C: '"ImageNet Classification with Deep Convolutional Neural Networks"', D: '"Generative Adversarial Networks"', E: '"Playing Atari with Deep Reinforcement Learning"' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Written by a team including Google researchers, it replaced recurrence with self-attention, making training far easier to parallelize.',
   },
   {
@@ -1349,6 +1498,7 @@ const technology = [
     options: { A: 'Google', B: 'Microsoft', C: 'NVIDIA', D: 'Amazon', E: 'Meta (Facebook)' },
     options_tr: { A: 'Google', B: 'Microsoft', C: 'NVIDIA', D: 'Amazon', E: 'Meta (Facebook)' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'It came out of Facebook\'s AI Research lab in 2016 and is now governed by the independent PyTorch Foundation.',
   },
   {
@@ -1358,6 +1508,7 @@ const technology = [
     options: { A: 'General Adaptive Network', B: 'Graph Attention Network', C: 'Generative Adversarial Network', D: 'Gradient Accumulation Node', E: 'Generalized Analysis Network' },
     options_tr: { A: 'Genel Uyarlanabilir Ağ', B: 'Çizge Dikkat Ağı', C: 'Üretken Çekişmeli Ağ', D: 'Gradyan Biriktirme Düğümü', E: 'Genelleştirilmiş Analiz Ağı' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Introduced by Ian Goodfellow in 2014, the design pits a generator against a discriminator so each improves by competing with the other.',
   },
   {
@@ -1367,6 +1518,7 @@ const technology = [
     options: { A: 'Cohere', B: 'Anthropic', C: 'Mistral AI', D: 'Stability AI', E: 'Inflection AI' },
     options_tr: { A: 'Cohere', B: 'Anthropic', C: 'Mistral AI', D: 'Stability AI', E: 'Inflection AI' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Anthropic was founded in 2021 and centres its research programme on AI safety and interpretability.',
   },
   {
@@ -1376,6 +1528,7 @@ const technology = [
     options: { A: 'Weather forecasting', B: 'Earthquake detection', C: 'Protein structure prediction', D: 'Genome sequencing', E: 'Drug pricing' },
     options_tr: { A: 'Hava tahmini', B: 'Deprem tespiti', C: 'Protein yapısı tahmini', D: 'Genom dizileme', E: 'İlaç fiyatlandırması' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Work on the system earned Demis Hassabis and John Jumper a share of the 2024 Nobel Prize in Chemistry.',
   },
   {
@@ -1385,6 +1538,7 @@ const technology = [
     options: { A: 'Recurrent neural network', B: 'Convolutional neural network', C: 'Radial basis network', D: 'Hopfield network', E: 'Boltzmann machine' },
     options_tr: { A: 'Yinelemeli sinir ağı', B: 'Evrişimli sinir ağı', C: 'Radyal tabanlı ağ', D: 'Hopfield ağı', E: 'Boltzmann makinesi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Convolutional layers slide learned filters across an image, so the same feature can be detected wherever it appears.',
   },
   {
@@ -1394,6 +1548,7 @@ const technology = [
     options: { A: 'Nick Szabo', B: 'Hal Finney', C: 'Craig Wright', D: 'Satoshi Nakamoto', E: 'Vitalik Buterin' },
     options_tr: { A: 'Nick Szabo', B: 'Hal Finney', C: 'Craig Wright', D: 'Satoshi Nakamoto', E: 'Vitalik Buterin' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The real identity behind the name has never been confirmed, and the author stopped posting publicly in 2011.',
   },
   {
@@ -1403,6 +1558,7 @@ const technology = [
     options: { A: '1 million', B: '10 million', C: '21 million', D: '100 million', E: 'Unlimited' },
     options_tr: { A: '1 milyon', B: '10 milyon', C: '21 milyon', D: '100 milyon', E: 'Sınırsız' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The supply cap is written into the protocol, with the reward for mining a block halving roughly every four years.',
   },
   {
@@ -1412,6 +1568,7 @@ const technology = [
     options: { A: 'Bitcoin', B: 'Litecoin', C: 'Ripple', D: 'Monero', E: 'Ethereum' },
     options_tr: { A: 'Bitcoin', B: 'Litecoin', C: 'Ripple', D: 'Monero', E: 'Ethereum' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Proposed by Vitalik Buterin, it added a general-purpose virtual machine so developers could deploy arbitrary code on the chain.',
   },
   {
@@ -1421,6 +1578,7 @@ const technology = [
     options: { A: 'Spyware', B: 'Adware', C: 'Keylogger', D: 'Rootkit', E: 'Ransomware' },
     options_tr: { A: 'Casus yazılım', B: 'Reklam yazılımı', C: 'Tuş kaydedici', D: 'Rootkit', E: 'Fidye yazılımı' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'It encrypted files and demanded bitcoin payments, spreading through a Windows file-sharing flaw and crippling hospitals and factories.',
   },
   {
@@ -1430,6 +1588,7 @@ const technology = [
     options: { A: 'Conficker', B: 'Stuxnet', C: 'ILOVEYOU', D: 'Mydoom', E: 'Code Red' },
     options_tr: { A: 'Conficker', B: 'Stuxnet', C: 'ILOVEYOU', D: 'Mydoom', E: 'Code Red' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'It targeted Siemens industrial controllers and is widely described as the first known cyberweapon to cause physical destruction.',
   },
   {
@@ -1439,6 +1598,7 @@ const technology = [
     options: { A: 'OpenSSL', B: 'OpenSSH', C: 'Log4j', D: 'zlib', E: 'glibc' },
     options_tr: { A: 'OpenSSL', B: 'OpenSSH', C: 'Log4j', D: 'zlib', E: 'glibc' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'A flaw in the heartbeat extension let attackers read chunks of server memory, potentially exposing private keys and passwords.',
   },
   {
@@ -1448,6 +1608,7 @@ const technology = [
     options: { A: 'Extended Server Scripting', B: 'External Style Sheets', C: 'Cross-Site Spoofing', D: 'Cross-Site Scripting', E: 'Extensible Secure Sockets' },
     options_tr: { A: 'Genişletilmiş Sunucu Betikleme', B: 'Harici Stil Sayfaları', C: 'Siteler Arası Kimlik Taklidi', D: 'Siteler Arası Betik Çalıştırma', E: 'Genişletilebilir Güvenli Soketler' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The attack injects malicious scripts into pages other users view, commonly to steal session cookies or deface content.',
   },
   {
@@ -1457,6 +1618,7 @@ const technology = [
     options: { A: 'Asymmetric Encryption System', B: 'Advanced Encryption Standard', C: 'Authenticated Exchange Standard', D: 'Applied Encryption Scheme', E: 'Advanced Encoding System' },
     options_tr: { A: 'Asimetrik Şifreleme Sistemi', B: 'Gelişmiş Şifreleme Standardı', C: 'Kimlik Doğrulamalı Değişim Standardı', D: 'Uygulamalı Şifreleme Şeması', E: 'Gelişmiş Kodlama Sistemi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Adopted by NIST in 2001, it is a symmetric block cipher that replaced the ageing and increasingly breakable DES.',
   },
   {
@@ -1466,6 +1628,7 @@ const technology = [
     options: { A: '64', B: '128', C: '160', D: '256', E: '512' },
     options_tr: { A: '64', B: '128', C: '160', D: '256', E: '512' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The digest is always the same length no matter how large the input is, which is a defining property of a hash function.',
   },
   {
@@ -1475,6 +1638,7 @@ const technology = [
     options: { A: 'The private key', B: 'The session key', C: 'The public key', D: 'The master key', E: 'The symmetric key' },
     options_tr: { A: 'Özel anahtar', B: 'Oturum anahtarı', C: 'Açık anahtar', D: 'Ana anahtar', E: 'Simetrik anahtar' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Anyone can use it to encrypt a message or verify a signature, but only the matching secret key can decrypt or sign.',
   },
   {
@@ -1484,6 +1648,7 @@ const technology = [
     options: { A: 'Porton Down', B: 'Dover Castle', C: 'Chatham Dockyard', D: 'Bletchley Park', E: 'Biggin Hill' },
     options_tr: { A: 'Porton Down', B: 'Dover Kalesi', C: 'Chatham Tersanesi', D: 'Bletchley Park', E: 'Biggin Hill' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Alan Turing worked there on the Bombe, an electromechanical machine that sped up the search for each day\'s Enigma settings.',
   },
   {
@@ -1493,6 +1658,7 @@ const technology = [
     options: { A: 'FORTRAN', B: 'ALGOL', C: 'COBOL', D: 'PL/I', E: 'RPG' },
     options_tr: { A: 'FORTRAN', B: 'ALGOL', C: 'COBOL', D: 'PL/I', E: 'RPG' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Its English-like syntax was meant to be readable by managers, and billions of lines still run on finance and government mainframes.',
   },
   {
@@ -1502,6 +1668,7 @@ const technology = [
     options: { A: 'COBOL', B: 'LISP', C: 'ALGOL', D: 'BASIC', E: 'FORTRAN' },
     options_tr: { A: 'COBOL', B: 'LISP', C: 'ALGOL', D: 'BASIC', E: 'FORTRAN' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'The team led by John Backus had to prove its compiled output could rival hand-written assembly before scientists would adopt it.',
   },
   {
@@ -1511,6 +1678,7 @@ const technology = [
     options: { A: 'Marvin Minsky', B: 'John McCarthy', C: 'Herbert Simon', D: 'Allen Newell', E: 'Claude Shannon' },
     options_tr: { A: 'Marvin Minsky', B: 'John McCarthy', C: 'Herbert Simon', D: 'Allen Newell', E: 'Claude Shannon' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'He used the phrase in the proposal for the 1956 Dartmouth workshop and designed Lisp two years later.',
   },
   {
@@ -1520,6 +1688,7 @@ const technology = [
     options: { A: 'MIT', B: 'Caltech', C: 'Stanford University', D: 'Carnegie Mellon University', E: 'Dartmouth College' },
     options_tr: { A: 'MIT', B: 'Caltech', C: 'Stanford Üniversitesi', D: 'Carnegie Mellon Üniversitesi', E: 'Dartmouth College' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'John Kemeny and Thomas Kurtz designed it so that students outside science and engineering could write their own programs.',
   },
   {
@@ -1529,6 +1698,7 @@ const technology = [
     options: { A: 'Niklaus Wirth', B: 'Edsger Dijkstra', C: 'Donald Knuth', D: 'Tony Hoare', E: 'Peter Naur' },
     options_tr: { A: 'Niklaus Wirth', B: 'Edsger Dijkstra', C: 'Donald Knuth', D: 'Tony Hoare', E: 'Peter Naur' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Swiss computer scientist intended it as a compact teaching language that would encourage structured programming habits.',
   },
   {
@@ -1538,6 +1708,7 @@ const technology = [
     options: { A: 'Dennis Ritchie', B: 'Ken Thompson', C: 'Brian Kernighan', D: 'Bjarne Stroustrup', E: 'Anders Hejlsberg' },
     options_tr: { A: 'Dennis Ritchie', B: 'Ken Thompson', C: 'Brian Kernighan', D: 'Bjarne Stroustrup', E: 'Anders Hejlsberg' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'He started the project at Bell Labs in 1979 under the name "C with Classes," renaming it C++ in 1983.',
   },
   {
@@ -1547,6 +1718,7 @@ const technology = [
     options: { A: 'Rasmus Lerdorf', B: 'Larry Wall', C: 'Guido van Rossum', D: 'Yukihiro Matsumoto', E: 'Brendan Eich' },
     options_tr: { A: 'Rasmus Lerdorf', B: 'Larry Wall', C: 'Guido van Rossum', D: 'Yukihiro Matsumoto', E: 'Brendan Eich' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'He originally wrote it as a small set of tools to count visits to his own online resume, and the name meant "Personal Home Page."',
   },
   {
@@ -1556,6 +1728,7 @@ const technology = [
     options: { A: 'United States', B: 'Denmark', C: 'Japan', D: 'Brazil', E: 'South Korea' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Danimarka', C: 'Japonya', D: 'Brezilya', E: 'Güney Kore' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Yukihiro "Matz" Matsumoto designed the language for programmer happiness and released it publicly in 1995.',
   },
   {
@@ -1565,6 +1738,7 @@ const technology = [
     options: { A: 'Google', B: 'JetBrains', C: 'Microsoft', D: 'Mozilla', E: 'Apple' },
     options_tr: { A: 'Google', B: 'JetBrains', C: 'Microsoft', D: 'Mozilla', E: 'Apple' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Announced at WWDC, it was designed as a safer, more modern replacement for Objective-C in iOS and macOS development.',
   },
   {
@@ -1574,6 +1748,7 @@ const technology = [
     options: { A: 'JetBrains', B: 'Oracle', C: 'Google', D: 'Samsung', E: 'Red Hat' },
     options_tr: { A: 'JetBrains', B: 'Oracle', C: 'Google', D: 'Samsung', E: 'Red Hat' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The language first appeared in 2011, and Google announced first-class Android support for it in 2017.',
   },
   {
@@ -1583,6 +1758,7 @@ const technology = [
     options: { A: 'Microsoft', B: 'Amazon', C: 'IBM', D: 'Meta', E: 'Google' },
     options_tr: { A: 'Microsoft', B: 'Amazon', C: 'IBM', D: 'Meta', E: 'Google' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Robert Griesemer, Rob Pike, and Ken Thompson designed it to make large-scale server programming simpler and faster to compile.',
   },
   {
@@ -1592,6 +1768,7 @@ const technology = [
     options: { A: 'Java', B: 'C#', C: 'JavaScript', D: 'Python', E: 'PHP' },
     options_tr: { A: 'Java', B: 'C#', C: 'JavaScript', D: 'Python', E: 'PHP' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Designed by Anders Hejlsberg, it adds static types that are checked at build time and then stripped out during compilation.',
   },
   {
@@ -1601,6 +1778,7 @@ const technology = [
     options: { A: 'Ken Thompson and Dennis Ritchie', B: 'Brian Kernighan and Bjarne Stroustrup', C: 'Richard Stallman and Linus Torvalds', D: 'Bill Joy and Eric Schmidt', E: 'Alan Kay and Doug Engelbart' },
     options_tr: { A: 'Ken Thompson ve Dennis Ritchie', B: 'Brian Kernighan ve Bjarne Stroustrup', C: 'Richard Stallman ve Linus Torvalds', D: 'Bill Joy ve Eric Schmidt', E: 'Alan Kay ve Doug Engelbart' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Rewriting the system in C a few years later made it portable between machines, which is largely why it spread so widely.',
   },
   {
@@ -1610,6 +1788,7 @@ const technology = [
     options: { A: 'Linus Torvalds', B: 'Eric Raymond', C: 'Bruce Perens', D: 'Richard Stallman', E: 'Larry Wall' },
     options_tr: { A: 'Linus Torvalds', B: 'Eric Raymond', C: 'Bruce Perens', D: 'Richard Stallman', E: 'Larry Wall' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'His goal was a completely free Unix-like system, and he wrote the GNU General Public License to keep derived work free as well.',
   },
   {
@@ -1619,6 +1798,7 @@ const technology = [
     options: { A: 'Fedora', B: 'Debian', C: 'Arch Linux', D: 'Slackware', E: 'Gentoo' },
     options_tr: { A: 'Fedora', B: 'Debian', C: 'Arch Linux', D: 'Slackware', E: 'Gentoo' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Canonical released the first version in 2004 with the aim of making desktop Linux approachable for ordinary users.',
   },
   {
@@ -1628,6 +1808,7 @@ const technology = [
     options: { A: 'The memory address layout of a program', B: 'How an algorithm\'s cost grows as the input grows', C: 'The number of defects found during testing', D: 'The maximum bandwidth of a network link', E: 'The clock speed of a processor' },
     options_tr: { A: 'Bir programın bellek adres düzenini', B: 'Bir algoritmanın maliyetinin girdi büyüdükçe nasıl arttığını', C: 'Testlerde bulunan hata sayısını', D: 'Bir ağ bağlantısının azami bant genişliğini', E: 'Bir işlemcinin saat hızını' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'It gives an upper bound on growth while ignoring constant factors, which is why an O(n log n) sort beats a quadratic one on large inputs.',
   },
   {
@@ -1637,6 +1818,7 @@ const technology = [
     options: { A: 'Queue', B: 'Linked list', C: 'Binary tree', D: 'Hash table', E: 'Stack' },
     options_tr: { A: 'Kuyruk', B: 'Bağlı liste', C: 'İkili ağaç', D: 'Karma tablo', E: 'Yığın' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Items are pushed and popped from the same end, which is exactly how a program keeps track of nested function calls.',
   },
   {
@@ -1646,6 +1828,7 @@ const technology = [
     options: { A: '64', B: '128', C: '256', D: '512', E: '1024' },
     options_tr: { A: '64', B: '128', C: '256', D: '512', E: '1024' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Seven bits cover English letters, digits, punctuation, and a set of control codes such as carriage return and tab.',
   },
   {
@@ -1655,6 +1838,7 @@ const technology = [
     options: { A: 'UTF-16', B: 'ISO-8859-1', C: 'UTF-8', D: 'Windows-1252', E: 'EBCDIC' },
     options_tr: { A: 'UTF-16', B: 'ISO-8859-1', C: 'UTF-8', D: 'Windows-1252', E: 'EBCDIC' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'It encodes each character in one to four bytes and leaves the original ASCII codes untouched, which made adoption painless.',
   },
   {
@@ -1664,6 +1848,7 @@ const technology = [
     options: { A: 'Euclid', B: 'Fibonacci', C: 'Al-Khwarizmi', D: 'Ibn Sina', E: 'Archimedes' },
     options_tr: { A: 'Öklid', B: 'Fibonacci', C: 'Harezmi (Al-Khwarizmi)', D: 'İbn Sina', E: 'Arşimet' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Latinized form of his name gave us "algorithm," while the title of one of his books gave us the word "algebra."',
   },
   {
@@ -1673,6 +1858,7 @@ const technology = [
     options: { A: 'Norbert Wiener', B: 'John von Neumann', C: 'Alan Turing', D: 'Richard Hamming', E: 'Claude Shannon' },
     options_tr: { A: 'Norbert Wiener', B: 'John von Neumann', C: 'Alan Turing', D: 'Richard Hamming', E: 'Claude Shannon' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'The paper introduced entropy as a measure of information and set the theoretical limits for compression and reliable transmission.',
   },
   {
@@ -1682,6 +1868,7 @@ const technology = [
     options: { A: 'The Fields Medal', B: 'The Turing Award', C: 'The Draper Prize', D: 'The Kyoto Prize', E: 'The Shannon Award' },
     options_tr: { A: 'Fields Madalyası', B: 'Turing Ödülü', C: 'Draper Ödülü', D: 'Kyoto Ödülü', E: 'Shannon Ödülü' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The ACM has presented it annually since 1966 for lasting technical contributions to the computing field.',
   },
   {
@@ -1691,6 +1878,7 @@ const technology = [
     options: { A: 'Donald Knuth', B: 'Edsger Dijkstra', C: 'Niklaus Wirth', D: 'John Backus', E: 'Leslie Lamport' },
     options_tr: { A: 'Donald Knuth', B: 'Edsger Dijkstra', C: 'Niklaus Wirth', D: 'John Backus', E: 'Leslie Lamport' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'He began building TeX because he was dissatisfied with the typesetting quality of the later volumes of his own book series.',
   },
   {
@@ -1700,6 +1888,7 @@ const technology = [
     options: { A: 'Sorting a list of numbers', B: 'Compressing a file', C: 'Finding the shortest path in a graph', D: 'Balancing a binary tree', E: 'Detecting deadlocks' },
     options_tr: { A: 'Bir sayı listesini sıralama', B: 'Bir dosyayı sıkıştırma', C: 'Bir çizgede en kısa yolu bulma', D: 'İkili ağacı dengeleme', E: 'Kilitlenmeleri tespit etme' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Published in 1959, it works on graphs with non-negative edge weights and underpins routing and navigation software.',
   },
   {
@@ -1709,6 +1898,7 @@ const technology = [
     options: { A: 'Storing program instructions and data in the same memory', B: 'Separating the keyboard from the display', C: 'Using magnetic tape for all storage', D: 'Giving every program its own dedicated processor', E: 'Encrypting memory by default' },
     options_tr: { A: 'Program komutlarını ve veriyi aynı bellekte saklamak', B: 'Klavyeyi ekrandan ayırmak', C: 'Tüm depolama için manyetik bant kullanmak', D: 'Her programa ayrı bir işlemci vermek', E: 'Belleği varsayılan olarak şifrelemek' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The stored-program idea is why software can be loaded and changed without physically rewiring the machine.',
   },
   {
@@ -1718,6 +1908,7 @@ const technology = [
     options: { A: 'South Korea', B: 'United States', C: 'Germany', D: 'China', E: 'Japan' },
     options_tr: { A: 'Güney Kore', B: 'Amerika Birleşik Devletleri', C: 'Almanya', D: 'Çin', E: 'Japonya' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Denso Wave developed it to track automotive parts on the production line and chose not to enforce its patent rights.',
   },
   {
@@ -1727,6 +1918,7 @@ const technology = [
     options: { A: 'AOL', B: 'CompuServe', C: 'Prodigy', D: 'Delphi', E: 'GEnie' },
     options_tr: { A: 'AOL', B: 'CompuServe', C: 'Prodigy', D: 'Delphi', E: 'GEnie' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The format was built to move colour images efficiently over slow dial-up modems, and it also supports simple animation.',
   },
   {
@@ -1736,6 +1928,7 @@ const technology = [
     options: { A: 'Joint Photographic Experts Group', B: 'Java Picture Encoding Grid', C: 'Joint Pixel Encoding Group', D: 'Journal of Photographic Engineering', E: 'Japanese Photographic Exchange Group' },
     options_tr: { A: 'Ortak Fotoğraf Uzmanları Grubu', B: 'Java Resim Kodlama Izgarası', C: 'Ortak Piksel Kodlama Grubu', D: 'Fotoğraf Mühendisliği Dergisi', E: 'Japon Fotoğraf Değişim Grubu' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The committee of that name standardized the lossy compression method in 1992, trading some image detail for much smaller files.',
   },
   {
@@ -1745,6 +1938,7 @@ const technology = [
     options: { A: 'Max Planck Society', B: 'Fraunhofer Society', C: 'Siemens Research', D: 'DLR', E: 'Helmholtz Association' },
     options_tr: { A: 'Max Planck Derneği', B: 'Fraunhofer Derneği', C: 'Siemens Araştırma', D: 'DLR', E: 'Helmholtz Birliği' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Researchers at its Institute for Integrated Circuits, led by Karlheinz Brandenburg, produced the codec standardized within MPEG-1 in 1993.',
   },
   {
@@ -1754,6 +1948,7 @@ const technology = [
     options: { A: 'Computer Style Syntax', B: 'Creative Style System', C: 'Cascading Style Sheets', D: 'Cascading Syntax Standard', E: 'Central Style Sheets' },
     options_tr: { A: 'Bilgisayar Stil Söz Dizimi', B: 'Yaratıcı Stil Sistemi', C: 'Basamaklı Stil Sayfaları', D: 'Basamaklı Söz Dizimi Standardı', E: 'Merkezi Stil Sayfaları' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The "cascading" part refers to the rules that decide which declaration wins when several of them target the same element.',
   },
   {
@@ -1763,6 +1958,7 @@ const technology = [
     options: { A: 'MIT', B: 'CERN', C: 'NASA', D: 'Stanford University', E: 'DARPA' },
     options_tr: { A: 'MIT', B: 'CERN', C: 'NASA', D: 'Stanford Üniversitesi', E: 'DARPA' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The page ran on a NeXT computer at the European particle physics laboratory and explained what the World Wide Web project was.',
   },
   {
@@ -1772,6 +1968,7 @@ const technology = [
     options: { A: 'A virtual machine', B: 'A container', C: 'A hypervisor', D: 'A firmware image', E: 'A disk partition' },
     options_tr: { A: 'Sanal makine', B: 'Konteyner', C: 'Hipervizör', D: 'Bellenim imajı', E: 'Disk bölümü' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Sharing the host kernel instead of booting a full guest operating system lets containers start in seconds and use far less memory than virtual machines.',
   },
   {
@@ -1781,6 +1978,7 @@ const technology = [
     options: { A: 'System as a Service', B: 'Storage as a Service', C: 'Software as a Service', D: 'Security as a Service', E: 'Server as a Service' },
     options_tr: { A: 'Hizmet Olarak Sistem', B: 'Hizmet Olarak Depolama', C: 'Hizmet Olarak Yazılım', D: 'Hizmet Olarak Güvenlik', E: 'Hizmet Olarak Sunucu' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Customers subscribe to hosted applications over the internet instead of installing and maintaining the software themselves.',
   },
   {
@@ -1790,6 +1988,7 @@ const technology = [
     options: { A: 'Samsung', B: 'GlobalFoundries', C: 'SMIC', D: 'TSMC', E: 'UMC' },
     options_tr: { A: 'Samsung', B: 'GlobalFoundries', C: 'SMIC', D: 'TSMC', E: 'UMC' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Founded by Morris Chang in 1987, it pioneered the pure-play foundry model and now fabricates chips designed by Apple, NVIDIA, and AMD.',
   },
   {
@@ -1799,6 +1998,7 @@ const technology = [
     options: { A: 'Japan', B: 'United States', C: 'Soviet Union', D: 'Hungary', E: 'Finland' },
     options_tr: { A: 'Japonya', B: 'Amerika Birleşik Devletleri', C: 'Sovyetler Birliği', D: 'Macaristan', E: 'Finlandiya' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Alexey Pajitnov wrote it while working at a computing centre of the Soviet Academy of Sciences in Moscow.',
   },
 ];

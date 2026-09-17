@@ -42,6 +42,7 @@ const {
   castVote,
   resolveVote,
   passSteal,
+  getWinThreshold,
   useJoker,
   requestRematch,
   resetForRematch,
@@ -127,7 +128,10 @@ function executeSurrender(room, surrenderingTeam) {
   room.surrenderVote  = null;
 
   const winner = surrenderingTeam === 'blue' ? 'red' : 'blue';
-  room.teams[winner].score = Math.max(room.teams[winner].score, 100);
+  // Raise to the mode's win threshold, not a literal 100 — otherwise a Fast-mode
+  // surrender would overshoot and a higher-threshold mode would not end at all.
+  const target = getWinThreshold(room);
+  room.teams[winner].score = Math.max(room.teams[winner].score, target);
   room.phase = 'finished';
   room.lastActivityAt = Date.now();
 }

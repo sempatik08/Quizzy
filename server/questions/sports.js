@@ -8,6 +8,7 @@ const sports = [
     options: { A: '9', B: '10', C: '11', D: '12', E: '15' },
     options_tr: { A: '9', B: '10', C: '11', D: '12', E: '15' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'A standard soccer match is played between two teams, each consisting of 11 players including a goalkeeper.',
   },
   {
@@ -17,6 +18,7 @@ const sports = [
     options: { A: 'Germany', B: 'Italy', C: 'Argentina', D: 'Brazil', E: 'France' },
     options_tr: { A: 'Almanya', B: 'İtalya', C: 'Arjantin', D: 'Brezilya', E: 'Fransa' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Brazil has won the FIFA World Cup a record five times (1958, 1962, 1970, 1994, and 2002).',
   },
   {
@@ -26,6 +28,7 @@ const sports = [
     options: { A: '14', B: '20', C: '24', D: '30', E: '35' },
     options_tr: { A: '14', B: '20', C: '24', D: '30', E: '35' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The NBA and FIBA use a 24-second shot clock to ensure a fast pace of play.',
   },
   {
@@ -35,6 +38,7 @@ const sports = [
     options: { A: 'Carl Lewis', B: 'Justin Gatlin', C: 'Tyson Gay', D: 'Usain Bolt', E: 'Yohan Blake' },
     options_tr: { A: 'Carl Lewis', B: 'Justin Gatlin', C: 'Tyson Gay', D: 'Usain Bolt', E: 'Yohan Blake' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Jamaican sprinter Usain Bolt set the 100m world record of 9.58 seconds in Berlin in 2009.',
   },
   {
@@ -44,6 +48,7 @@ const sports = [
     options: { A: 'Australian Open', B: 'French Open', C: 'Wimbledon', D: 'US Open', E: 'ATP Finals' },
     options_tr: { A: 'Avustralya Açık', B: 'Fransa Açık (Roland Garros)', C: 'Wimbledon', D: 'Amerika Açık', E: 'ATP Finalleri' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Wimbledon, held in London, is the oldest tennis tournament in the world and the only Grand Slam still played on grass.',
   },
   {
@@ -53,6 +58,7 @@ const sports = [
     options: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     options_tr: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Olympic symbol consists of five interlaced rings, representing the five inhabited continents of the world.',
   },
   {
@@ -62,6 +68,7 @@ const sports = [
     options: { A: 'Michael Jordan', B: 'Kobe Bryant', C: 'LeBron James', D: 'Shaquille O\'Neal', E: 'Magic Johnson' },
     options_tr: { A: 'Michael Jordan', B: 'Kobe Bryant', C: 'LeBron James', D: 'Shaquille O\'Neal', E: 'Magic Johnson' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Kobe Bryant, known as the "Black Mamba", won five NBA championships with the Lakers.',
   },
   {
@@ -71,6 +78,7 @@ const sports = [
     options: { A: '21.1 km', B: '30.0 km', C: '42.195 km', D: '50.0 km', E: '10.0 km' },
     options_tr: { A: '21.1 km', B: '30.0 km', C: '42.195 km', D: '50.0 km', E: '10.0 km' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'An official marathon covers a distance of 42.195 kilometers (or 26 miles 385 yards).',
   },
   {
@@ -80,6 +88,7 @@ const sports = [
     options: { A: 'MotoGP', B: 'Formula 1', C: 'NASCAR', D: 'IndyCar', E: 'WRC' },
     options_tr: { A: 'MotoGP', B: 'Formula 1', C: 'NASCAR', D: 'IndyCar', E: 'WRC (Dünya Ralli Şampiyonası)' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Monaco Grand Prix is one of the most prestigious automobile races in the Formula 1 World Championship.',
   },
   {
@@ -89,6 +98,7 @@ const sports = [
     options: { A: 'Lionel Messi', B: 'Cristiano Ronaldo', C: 'Robert Lewandowski', D: 'Raúl', E: 'Karim Benzema' },
     options_tr: { A: 'Lionel Messi', B: 'Cristiano Ronaldo', C: 'Robert Lewandowski', D: 'Raúl', E: 'Karim Benzema' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Cristiano Ronaldo holds the record for the most goals scored in Champions League history.',
   },
   {
@@ -98,6 +108,7 @@ const sports = [
     options: { A: '5', B: '6', C: '7', D: '8', E: '11' },
     options_tr: { A: '5', B: '6', C: '7', D: '8', E: '11' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'In indoor volleyball, each team has 6 players on the court at any given time.',
   },
   {
@@ -107,6 +118,7 @@ const sports = [
     options: { A: 'England', B: 'United States', C: 'Scotland', D: 'Ireland', E: 'France' },
     options_tr: { A: 'İngiltere', B: 'Amerika Birleşik Devletleri', C: 'İskoçya', D: 'İrlanda', E: 'Fransa' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The modern game of golf originated in 15th-century Scotland, specifically on the links of St Andrews.',
   },
   {
@@ -116,6 +128,7 @@ const sports = [
     options: { A: 'Green', B: 'Red', C: 'Yellow', D: 'White', E: 'Pink' },
     options_tr: { A: 'Yeşil', B: 'Kırmızı', C: 'Sarı', D: 'Beyaz', E: 'Pembe' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The yellow jersey ("maillot jaune") is worn by the overall leader of the Tour de France.',
   },
   {
@@ -125,6 +138,7 @@ const sports = [
     options: { A: '10', B: '12', C: '15', D: '8', E: '14' },
     options_tr: { A: '10', B: '12', C: '15', D: '8', E: '14' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Professional championship boxing matches were reduced from 15 rounds to 12 rounds in the 1980s for safety reasons.',
   },
   {
@@ -134,6 +148,7 @@ const sports = [
     options: { A: 'Roger Federer', B: 'Novak Djokovic', C: 'Rafael Nadal', D: 'Björn Borg', E: 'Pete Sampras' },
     options_tr: { A: 'Roger Federer', B: 'Novak Djokovic', C: 'Rafael Nadal', D: 'Björn Borg', E: 'Pete Sampras' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Rafael Nadal, the "King of Clay", has won a historic 14 French Open titles.',
   },
   {
@@ -143,6 +158,7 @@ const sports = [
     options: { A: 'Disc', B: 'Puck', C: 'Ring', D: 'Shuttlecock', E: 'Stone' },
     options_tr: { A: 'Disk', B: 'Pak (Puck)', C: 'Halka', D: 'Tüytop', E: 'Taş' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Ice hockey is played with a puck, which is a flat, solid vulcanized rubber disc.',
   },
   {
@@ -152,6 +168,7 @@ const sports = [
     options: { A: 'Sebastian Vettel', B: 'Lewis Hamilton', C: 'Max Verstappen', D: 'Fernando Alonso', E: 'Ayrton Senna' },
     options_tr: { A: 'Sebastian Vettel', B: 'Lewis Hamilton', C: 'Max Verstappen', D: 'Fernando Alonso', E: 'Ayrton Senna' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Lewis Hamilton has won 7 World Championships, tying the record held by Michael Schumacher.',
   },
   {
@@ -161,6 +178,7 @@ const sports = [
     options: { A: 'Every year', B: 'Every 2 years', C: 'Every 3 years', D: 'Every 4 years', E: 'Every 5 years' },
     options_tr: { A: 'Her yıl', B: '2 yılda bir', C: '3 yılda bir', D: '4 yılda bir', E: '5 yılda bir' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Both the Summer and Winter Olympic Games are held every 4 years.',
   },
   {
@@ -170,6 +188,7 @@ const sports = [
     options: { A: 'Dallas Cowboys', B: 'Green Bay Packers', C: 'New England Patriots', D: 'Kansas City Chiefs', E: 'Pittsburgh Steelers' },
     options_tr: { A: 'Dallas Cowboys', B: 'Green Bay Packers', C: 'New England Patriots', D: 'Kansas City Chiefs', E: 'Pittsburgh Steelers' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Green Bay Packers won Super Bowl I by defeating the Kansas City Chiefs 35-10.',
   },
   {
@@ -179,6 +198,7 @@ const sports = [
     options: { A: 'Freestyle', B: 'Backstroke', C: 'Butterfly', D: 'Breaststroke', E: 'Dog paddle' },
     options_tr: { A: 'Serbest stil', B: 'Sırtüstü', C: 'Kelebek', D: 'Kurbağalama', E: 'Köpekleme' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Breaststroke is mechanically the slowest of the four competitive swimming strokes.',
   },
   {
@@ -188,6 +208,7 @@ const sports = [
     options: { A: 'Nadia Comăneci', B: 'Simone Biles', C: 'Aliya Mustafina', D: 'Gabby Douglas', E: 'Sunisa Lee' },
     options_tr: { A: 'Nadia Comăneci', B: 'Simone Biles', C: 'Aliya Mustafina', D: 'Gabby Douglas', E: 'Sunisa Lee' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Simone Biles is the most decorated gymnast in history, renowned for her incredible difficulty and execution.',
   },
   {
@@ -197,6 +218,7 @@ const sports = [
     options: { A: 'Nil', B: 'Love', C: 'Blank', D: 'Zero', E: 'Deuce' },
     options_tr: { A: 'Nil', B: 'Love', C: 'Blank', D: 'Zero', E: 'Deuce (Beraberlik)' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'In tennis scoring, "Love" represents zero points, likely derived from the French word for egg ("l\'oeuf"), meaning a zero shape.',
   },
   {
@@ -206,6 +228,7 @@ const sports = [
     options: { A: 'Arsenal', B: 'Chelsea', C: 'Liverpool', D: 'Manchester United', E: 'Manchester City' },
     options_tr: { A: 'Arsenal', B: 'Chelsea', C: 'Liverpool', D: 'Manchester United', E: 'Manchester City' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Manchester United has won 20 English top-flight titles, closely followed by Liverpool with 19.',
   },
   {
@@ -215,6 +238,7 @@ const sports = [
     options: { A: 'Japan', B: 'South Korea', C: 'China', D: 'Germany', E: 'Sweden' },
     options_tr: { A: 'Japonya', B: 'Güney Kore', C: 'Çin', D: 'Almanya', E: 'İsveç' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'China has won more than 30 of the available gold medals since table tennis was introduced to the Olympics in 1988.',
   },
   {
@@ -224,6 +248,7 @@ const sports = [
     options: { A: '9', B: '10', C: '11', D: '13', E: '15' },
     options_tr: { A: '9', B: '10', C: '11', D: '13', E: '15' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Just like association football (soccer), American football is played with 11 players per team on the field.',
   },
   {
@@ -233,6 +258,7 @@ const sports = [
     options: { A: 'Mike Tyson', B: 'Joe Frazier', C: 'Muhammad Ali', D: 'Sugar Ray Robinson', E: 'George Foreman' },
     options_tr: { A: 'Mike Tyson', B: 'Joe Frazier', C: 'Muhammed Ali', D: 'Sugar Ray Robinson', E: 'George Foreman' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Muhammad Ali used this iconic catchphrase to describe his quick-footed and hard-hitting fighting style.',
   },
   {
@@ -242,6 +268,7 @@ const sports = [
     options: { A: 'Red', B: 'White', C: 'Black', D: 'Yellow', E: 'Blue' },
     options_tr: { A: 'Kırmızı', B: 'Beyaz', C: 'Siyah', D: 'Sarı', E: 'Mavi' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The center rings of an archery target, indicating the maximum 10 and 9 points, are colored gold/yellow.',
   },
   {
@@ -251,6 +278,7 @@ const sports = [
     options: { A: 'Michael Jordan', B: 'Kareem Abdul-Jabbar', C: 'Kobe Bryant', D: 'Karl Malone', E: 'LeBron James' },
     options_tr: { A: 'Michael Jordan', B: 'Kareem Abdul-Jabbar', C: 'Kobe Bryant', D: 'Karl Malone', E: 'LeBron James' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'LeBron James surpassed Kareem Abdul-Jabbar\'s long-standing record to become the NBA\'s all-time leading scorer.',
   },
   {
@@ -260,6 +288,7 @@ const sports = [
     options: { A: 'France', B: 'Croatia', C: 'Brazil', D: 'Argentina', E: 'Morocco' },
     options_tr: { A: 'Fransa', B: 'Hırvatistan', C: 'Brezilya', D: 'Arjantin', E: 'Fas' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Argentina won their third World Cup title in 2022 by defeating France in a dramatic penalty shootout.',
   },
   {
@@ -269,6 +298,7 @@ const sports = [
     options: { A: 'Bogey', B: 'Birdie', C: 'Eagle', D: 'Albatross', E: 'Mulligan' },
     options_tr: { A: 'Bogey', B: 'Birdie', C: 'Eagle (Kartal)', D: 'Albatross', E: 'Mulligan' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'One under par is a "Birdie", two under par is an "Eagle", and three under par is an "Albatross".',
   },
   {
@@ -278,6 +308,7 @@ const sports = [
     options: { A: 'United States', B: 'Canada', C: 'Russia / Soviet Union', D: 'Sweden', E: 'Finland' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Kanada', C: 'Rusya / Sovyetler Birliği', D: 'İsveç', E: 'Finlandiya' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Canada is the most successful nation in Olympic ice hockey, historically capturing the most gold medals.',
   },
   {
@@ -287,6 +318,7 @@ const sports = [
     options: { A: '25 meters', B: '50 meters', C: '100 meters', D: '75 meters', E: '40 meters' },
     options_tr: { A: '25 metre', B: '50 metre', C: '100 metre', D: '75 metre', E: '40 metre' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Olympic-size swimming pools are exactly 50 meters long, commonly referred to as "long course".',
   },
   {
@@ -296,6 +328,7 @@ const sports = [
     options: { A: 'China', B: 'Japan', C: 'Hong Kong', D: 'United States', E: 'Thailand' },
     options_tr: { A: 'Çin', B: 'Japonya', C: 'Hong Kong', D: 'Amerika Birleşik Devletleri', E: 'Tayland' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Bruce Lee officially founded Jeet Kune Do in the United States in 1967.',
   },
   {
@@ -305,6 +338,7 @@ const sports = [
     options: { A: '7', B: '8', C: '9', D: '10', E: '11' },
     options_tr: { A: '7', B: '8', C: '9', D: '10', E: '11' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The defending team has 9 players on the baseball field trying to get the batters out.',
   },
   {
@@ -314,6 +348,7 @@ const sports = [
     options: { A: 'Usain Bolt', B: 'Carl Lewis', C: 'Michael Johnson', D: 'Jesse Owens', E: 'Linford Christie' },
     options_tr: { A: 'Usain Bolt', B: 'Carl Lewis', C: 'Michael Johnson', D: 'Jesse Owens', E: 'Linford Christie' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'American track and field athlete Carl Lewis won 9 Olympic gold medals across four consecutive Games.',
   },
   {
@@ -323,6 +358,7 @@ const sports = [
     options: { A: 'New Zealand', B: 'Australia', C: 'United Kingdom', D: 'United States', E: 'Austria' },
     options_tr: { A: 'Yeni Zelanda', B: 'Avustralya', C: 'Birleşik Krallık', D: 'Amerika Birleşik Devletleri', E: 'Avusturya' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Australian Open is held annually in Melbourne, Australia, as the first Grand Slam of the calendar year.',
   },
   {
@@ -332,6 +368,7 @@ const sports = [
     options: { A: 'Tennis', B: 'Table Tennis', C: 'Badminton', D: 'Squash', E: 'Pickleball' },
     options_tr: { A: 'Tenis', B: 'Masa Tenisi', C: 'Badminton', D: 'Skuaş (Squash)', E: 'Pickleball' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Badminton is a racket sport played with a shuttlecock across an elevated net.',
   },
   {
@@ -341,6 +378,7 @@ const sports = [
     options: { A: 'Australia', B: 'South Africa', C: 'England', D: 'New Zealand', E: 'Ireland' },
     options_tr: { A: 'Avustralya', B: 'Güney Afrika', C: 'İngiltere', D: 'Yeni Zelanda', E: 'İrlanda' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'New Zealand\'s national rugby team is named the All Blacks due to their entirely black team kit.',
   },
   {
@@ -350,6 +388,7 @@ const sports = [
     options: { A: '4', B: '6', C: '8', D: '10', E: '12' },
     options_tr: { A: '4', B: '6', C: '8', D: '10', E: '12' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A standard pool table has 6 pockets: one at each of the four corners and one in the middle of each long side.',
   },
   {
@@ -359,6 +398,7 @@ const sports = [
     options: { A: 'Camp Nou', B: 'Wembley Stadium', C: 'Maracanã Stadium', D: 'San Siro', E: 'La Bombonera' },
     options_tr: { A: 'Camp Nou', B: 'Wembley Stadyumu', C: 'Maracanã Stadyumu', D: 'San Siro', E: 'La Bombonera' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Maracanã Stadium is one of the most historic and famous football stadiums in the world.',
   },
   {
@@ -368,6 +408,7 @@ const sports = [
     options: { A: 'Giro d\'Italia', B: 'Vuelta a España', C: 'Tour de France', D: 'Tour de Suisse', E: 'Paris-Roubaix' },
     options_tr: { A: 'Giro d\'Italia (İtalya Turu)', B: 'Vuelta a España (İspanya Turu)', C: 'Tour de France (Fransa Turu)', D: 'Tour de Suisse', E: 'Paris-Roubaix' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Alpe d\'Huez is one of the most legendary and challenging mountain stages in the Tour de France.',
   },
   {
@@ -377,6 +418,7 @@ const sports = [
     options: { A: 'Gloves', B: 'Tape', C: 'Chalk', D: 'Pads', E: 'Nothing' },
     options_tr: { A: 'Eldiven', B: 'Sargı (Bant)', C: 'Tebeşir tozu', D: 'Koruyucu ped', E: 'Hiçbir şey' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Curlers wear specialized gloves to keep their hands warm and maintain a solid grip on the stone handle.',
   },
   {
@@ -386,6 +428,7 @@ const sports = [
     options: { A: 'Dallas Cowboys', B: 'San Francisco 49ers', C: 'Pittsburgh Steelers', D: 'Green Bay Packers', E: 'Kansas City Chiefs' },
     options_tr: { A: 'Dallas Cowboys', B: 'San Francisco 49ers', C: 'Pittsburgh Steelers', D: 'Green Bay Packers', E: 'Kansas City Chiefs' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Both the Pittsburgh Steelers and the New England Patriots have won a record 6 Super Bowl titles.',
   },
   {
@@ -395,6 +438,7 @@ const sports = [
     options: { A: 'Bails', B: 'Wickets / Stumps', C: 'Bats', D: 'Creases', E: 'Bases' },
     options_tr: { A: 'Bail', B: 'Wicket / Stump (Kale direkleri)', C: 'Sopa (Bat)', D: 'Crease', E: 'Base' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Stumps are the three vertical posts that make up the wicket, which the defensive bowler aims to hit.',
   },
   {
@@ -404,6 +448,7 @@ const sports = [
     options: { A: 'Steffi Graf', B: 'Martina Navratilova', C: 'Serena Williams', D: 'Venus Williams', E: 'Margaret Court' },
     options_tr: { A: 'Steffi Graf', B: 'Martina Navratilova', C: 'Serena Williams', D: 'Venus Williams', E: 'Margaret Court' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Serena Williams holds the Open Era record for the most Grand Slam singles titles by any player, male or female.',
   },
   {
@@ -413,6 +458,7 @@ const sports = [
     options: { A: 'Hat-trick', B: 'Turkey', C: 'Triple', D: 'Perfect Circle', E: 'Clean Sweep' },
     options_tr: { A: 'Hat-trick', B: 'Hindi (Turkey)', C: 'Üçleme', D: 'Kusursuz Döngü', E: 'Silip Süpürme' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'In bowling lingo, rolling three strikes in a row is traditionally called a "Turkey".',
   },
   {
@@ -422,6 +468,7 @@ const sports = [
     options: { A: 'England', B: 'France', C: 'Italy', D: 'Spain', E: 'Portugal' },
     options_tr: { A: 'İngiltere', B: 'Fransa', C: 'İtalya', D: 'İspanya', E: 'Portekiz' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Italy won Euro 2020 by defeating England in a penalty shootout at Wembley Stadium.',
   },
   {
@@ -431,6 +478,7 @@ const sports = [
     options: { A: 'Red flag', B: 'Green flag', C: 'Yellow flag', D: 'Blue flag', E: 'Black flag' },
     options_tr: { A: 'Kırmızı bayrak', B: 'Yeşil bayrak', C: 'Sarı bayrak', D: 'Mavi bayrak', E: 'Siyah bayrak' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'A yellow flag signals danger and prohibits overtaking, warning drivers to slow down.',
   },
   {
@@ -440,6 +488,7 @@ const sports = [
     options: { A: 'Mario Lemieux', B: 'Wayne Gretzky', C: 'Sidney Crosby', D: 'Alex Ovechkin', E: 'Gordie Howe' },
     options_tr: { A: 'Mario Lemieux', B: 'Wayne Gretzky', C: 'Sidney Crosby', D: 'Alex Ovechkin', E: 'Gordie Howe' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Wayne Gretzky is widely considered the greatest hockey player of all time, holding almost every scoring record.',
   },
   {
@@ -449,6 +498,7 @@ const sports = [
     options: { A: '150', B: '200', C: '250', D: '300', E: '400' },
     options_tr: { A: '150', B: '200', C: '250', D: '300', E: '400' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'A perfect game in bowling consists of 12 consecutive strikes, resulting in a maximum score of 300 points.',
   },
   {
@@ -458,6 +508,7 @@ const sports = [
     options: { A: 'China', B: 'South Korea', C: 'Japan', D: 'Thailand', E: 'Brazil' },
     options_tr: { A: 'Çin', B: 'Güney Kore', C: 'Japonya', D: 'Tayland', E: 'Brezilya' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Judo was created in Japan in 1882 by Jigoro Kano as a physical, mental, and moral pedagogy.',
   },
   {
@@ -467,6 +518,7 @@ const sports = [
     options: { A: '9', B: '11', C: '7', D: '10', E: '12' },
     options_tr: { A: '9', B: '11', C: '7', D: '10', E: '12' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'A standard baseball team has 9 players on the field during defense.',
   },
   {
@@ -476,6 +528,7 @@ const sports = [
     options: { A: 'FIFA World Cup', B: 'Copa América', C: 'The FA Cup', D: 'UEFA Champions League', E: 'Copa del Rey' },
     options_tr: { A: 'FIFA Dünya Kupası', B: 'Copa América', C: 'FA Cup (İngiltere Federasyon Kupası)', D: 'UEFA Şampiyonlar Ligi', E: 'Copa del Rey' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The FA Cup (Football Association Challenge Cup) was first played during the 1871-72 season in England.',
   },
   {
@@ -485,6 +538,7 @@ const sports = [
     options: { A: '35', B: '40', C: '45', D: '50', E: 'Game' },
     options_tr: { A: '35', B: '40', C: '45', D: '50', E: 'Oyun' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The scoring steps in a tennis game are 15, 30, 40, and then game point.',
   },
   {
@@ -494,6 +548,7 @@ const sports = [
     options: { A: 'Miami Heat', B: 'Boston Celtics', C: 'Denver Nuggets', D: 'Phoenix Suns', E: 'Golden State Warriors' },
     options_tr: { A: 'Miami Heat', B: 'Boston Celtics', C: 'Denver Nuggets', D: 'Phoenix Suns', E: 'Golden State Warriors' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Denver Nuggets, led by Nikola Jokić, won the 2023 NBA Finals by defeating the Miami Heat.',
   },
   {
@@ -503,6 +558,7 @@ const sports = [
     options: { A: 'Special Olympics', B: 'Paralympic Games', C: 'Invictus Games', D: 'Deaflympics', E: 'World Games' },
     options_tr: { A: 'Özel Olimpiyatlar', B: 'Paralimpik Oyunları', C: 'Invictus Oyunları', D: 'İşitme Engelliler Olimpiyatları', E: 'Dünya Oyunları' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Paralympic Games are held immediately following the respective Summer and Winter Olympic Games.',
   },
   {
@@ -512,6 +568,7 @@ const sports = [
     options: { A: 'Yellow', B: 'Green', C: 'Red', D: 'White', E: 'Blue' },
     options_tr: { A: 'Sarı', B: 'Yeşil', C: 'Kırmızı', D: 'Beyaz', E: 'Mavi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'A red card indicates that a player has committed a serious offense and must immediately leave the field.',
   },
   {
@@ -521,6 +578,7 @@ const sports = [
     options: { A: '5', B: '7', C: '10', D: '12', E: '15' },
     options_tr: { A: '5', B: '7', C: '10', D: '12', E: '15' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'A decathlon is a combined event consisting of 10 track and field disciplines held over two days.',
   },
   {
@@ -530,6 +588,7 @@ const sports = [
     options: { A: 'Luís Figo', B: 'Eusébio', C: 'Cristiano Ronaldo', D: 'Bruno Fernandes', E: 'João Félix' },
     options_tr: { A: 'Luís Figo', B: 'Eusébio', C: 'Cristiano Ronaldo', D: 'Bruno Fernandes', E: 'João Félix' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Cristiano Ronaldo, often called CR7, is one of the most successful and decorated players in football history.',
   },
   {
@@ -539,6 +598,7 @@ const sports = [
     options: { A: 'The Larry O\'Brien Trophy', B: 'The Stanley Cup', C: 'The Vince Lombardi Trophy', D: 'The Commissioner\'s Trophy', E: 'The Calder Cup' },
     options_tr: { A: 'Larry O\'Brien Kupası', B: 'Stanley Kupası (Stanley Cup)', C: 'Vince Lombardi Kupası', D: 'Komiser Kupası', E: 'Calder Kupası' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Stanley Cup is the oldest professional sports trophy in North America, awarded since 1893.',
   },
   {
@@ -548,6 +608,7 @@ const sports = [
     options: { A: '11', B: '15', C: '21', D: '25', E: '30' },
     options_tr: { A: '11', B: '15', C: '21', D: '25', E: '30' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'In 2001, the ITTF officially changed the game score requirement from 21 points down to 11 points.',
   },
   {
@@ -557,6 +618,7 @@ const sports = [
     options: { A: 'Daytona', B: 'Indianapolis', C: 'Detroit', D: 'Austin', E: 'Miami' },
     options_tr: { A: 'Daytona', B: 'Indianapolis', C: 'Detroit', D: 'Austin', E: 'Miami' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Indy 500 is held annually at the Indianapolis Motor Speedway in Speedway, Indiana.',
   },
   {
@@ -566,6 +628,7 @@ const sports = [
     options: { A: 'United States', B: 'China', C: 'Soviet Union / Russia', D: 'Turkey', E: 'Greece' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Çin', C: 'Sovyetler Birliği / Rusya', D: 'Türkiye', E: 'Yunanistan' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Soviet Union and subsequently Russian athletes historically dominated the heavy lifting divisions in weightlifting.',
   },
   {
@@ -575,6 +638,7 @@ const sports = [
     options: { A: 'Grand Slam', B: 'Triple Crown', C: 'Hat-Trick', D: 'Perfect Run', E: 'Superfecta' },
     options_tr: { A: 'Grand Slam', B: 'Üçlü Taç (Triple Crown)', C: 'Hat-Trick', D: 'Kusursuz Koşu', E: 'Superfecta' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Winning these three prestigious races for three-year-old Thoroughbreds is called winning the Triple Crown.',
   },
   {
@@ -584,6 +648,7 @@ const sports = [
     options: { A: 'Ian Thorpe', B: 'Caeleb Dressel', C: 'Michael Phelps', D: 'Ryan Lochte', E: 'Mark Spitz' },
     options_tr: { A: 'Ian Thorpe', B: 'Caeleb Dressel', C: 'Michael Phelps', D: 'Ryan Lochte', E: 'Mark Spitz' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Michael Phelps has won a total of 28 Olympic medals, 23 of which are gold, making him the most decorated Olympian ever.',
   },
   {
@@ -593,6 +658,7 @@ const sports = [
     options: { A: 'Brazil', B: 'Argentina', C: 'Uruguay', D: 'Italy', E: 'France' },
     options_tr: { A: 'Brezilya', B: 'Arjantin', C: 'Uruguay', D: 'İtalya', E: 'Fransa' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Uruguay hosted and won the inaugural FIFA World Cup, defeating Argentina 4-2 in the final.',
   },
   {
@@ -602,6 +668,7 @@ const sports = [
     options: { A: '20', B: '50', C: '60', D: '100', E: '180' },
     options_tr: { A: '20', B: '50', C: '60', D: '100', E: '180' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Hitting the triple 20 segment yields 60 points, which is higher than an inner bullseye (50 points).',
   },
   {
@@ -611,6 +678,7 @@ const sports = [
     options: { A: 'Los Angeles Lakers', B: 'Chicago Bulls', C: 'Boston Celtics', D: 'New York Knicks', E: 'Miami Heat' },
     options_tr: { A: 'Los Angeles Lakers', B: 'Chicago Bulls', C: 'Boston Celtics', D: 'New York Knicks', E: 'Miami Heat' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Michael Jordan won all six of his NBA titles and Finals MVP awards with the Chicago Bulls.',
   },
   {
@@ -620,6 +688,7 @@ const sports = [
     options: { A: 'Empty Hand', B: 'Strong Fist', C: 'Way of Life', D: 'Swift Strike', E: 'Silent Shadow' },
     options_tr: { A: 'Boş El', B: 'Güçlü Yumruk', C: 'Yaşam Yolu', D: 'Hızlı Vuruş', E: 'Sessiz Gölge' },
     answer: 'A',
+    difficulty: 1,
     explanation: '"Kara" translates to empty, and "te" means hand, symbolizing fighting without weapons.',
   },
   {
@@ -629,6 +698,7 @@ const sports = [
     options: { A: 'Rafael Nadal', B: 'Carlos Alcaraz', C: 'Daniil Medvedev', D: 'Stefanos Tsitsipas', E: 'Casper Ruud' },
     options_tr: { A: 'Rafael Nadal', B: 'Carlos Alcaraz', C: 'Daniil Medvedev', D: 'Stefanos Tsitsipas', E: 'Casper Ruud' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Carlos Alcaraz won an epic five-set final to secure his first Wimbledon title in 2023.',
   },
   {
@@ -638,6 +708,7 @@ const sports = [
     options: { A: 'United Kingdom', B: 'New Zealand', C: 'United States', D: 'Australia', E: 'France' },
     options_tr: { A: 'Birleşik Krallık', B: 'Yeni Zelanda', C: 'Amerika Birleşik Devletleri', D: 'Avustralya', E: 'Fransa' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The United States dominated the America\'s Cup, winning the trophy for the first 132 years of the competition.',
   },
   {
@@ -647,6 +718,7 @@ const sports = [
     options: { A: '10', B: '15', C: '20', D: '12', E: '5' },
     options_tr: { A: '10', B: '15', C: '20', D: '12', E: '5' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'According to IFAB laws of the game, players are entitled to a halftime interval not exceeding 15 minutes.',
   },
   {
@@ -656,6 +728,7 @@ const sports = [
     options: { A: 'New York Mets', B: 'New York Yankees', C: 'Boston Red Sox', D: 'Los Angeles Dodgers', E: 'Chicago Cubs' },
     options_tr: { A: 'New York Mets', B: 'New York Yankees', C: 'Boston Red Sox', D: 'Los Angeles Dodgers', E: 'Chicago Cubs' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The New York Yankees feature one of the most widely recognized sports logos in global fashion and culture.',
   },
   {
@@ -665,6 +738,7 @@ const sports = [
     options: { A: '5', B: '6', C: '7', D: '11', E: '4' },
     options_tr: { A: '5', B: '6', C: '7', D: '11', E: '4' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Teams typically skate with 6 players at a time: 3 forwards, 2 defensemen, and 1 goaltender.',
   },
   {
@@ -674,6 +748,7 @@ const sports = [
     options: { A: 'United States', B: 'United Kingdom', C: 'China', D: 'Greece', E: 'Japan' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Birleşik Krallık', C: 'Çin', D: 'Yunanistan', E: 'Japonya' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The 2008 Summer Olympics were held in Beijing, China, under the motto "One World, One Dream".',
   },
   {
@@ -683,6 +758,7 @@ const sports = [
     options: { A: 'Love', B: 'Deuce', C: 'Tie-break', D: 'Advantage', E: 'All' },
     options_tr: { A: 'Love', B: 'Deuce (Beraberlik)', C: 'Tie-break', D: 'Avantaj (Advantage)', E: 'All' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'When a game score reaches 40-40, it is called "Deuce", and a player must win two consecutive points from there to win the game.',
   },
   {
@@ -692,6 +768,7 @@ const sports = [
     options: { A: 'Red', B: 'Blue', C: 'Green', D: 'White', E: 'Gold' },
     options_tr: { A: 'Kırmızı', B: 'Mavi', C: 'Yeşil', D: 'Beyaz', E: 'Altın' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The iconic "Green Jacket" is the signature award presented to the winner of the Masters at Augusta National.',
   },
   {
@@ -701,6 +778,7 @@ const sports = [
     options: { A: 'Canada', B: 'United States', C: 'England', D: 'France', E: 'Germany' },
     options_tr: { A: 'Kanada', B: 'Amerika Birleşik Devletleri', C: 'İngiltere', D: 'Fransa', E: 'Almanya' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Dr. James Naismith, a Canadian physical education instructor, invented basketball in Springfield, Massachusetts, USA.',
   },
   {
@@ -710,6 +788,7 @@ const sports = [
     options: { A: '5 kg', B: '6 kg', C: '7.26 kg', D: '8 kg', E: '10 kg' },
     options_tr: { A: '5 kg', B: '6 kg', C: '7.26 kg', D: '8 kg', E: '10 kg' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The standard men\'s shot put weight is exactly 7.26 kilograms (16 pounds).',
   },
   {
@@ -719,6 +798,7 @@ const sports = [
     options: { A: 'Spain', B: 'France', C: 'Germany', D: 'Italy', E: 'Portugal' },
     options_tr: { A: 'İspanya', B: 'Fransa', C: 'Almanya', D: 'İtalya', E: 'Portekiz' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Serie A is the top tier professional league competition for football clubs in Italy.',
   },
   {
@@ -728,6 +808,7 @@ const sports = [
     options: { A: '3', B: '6', C: '7', D: '4', E: '5' },
     options_tr: { A: '3', B: '6', C: '7', D: '4', E: '5' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A touchdown is worth 6 points, after which the team can attempt a conversion for 1 or 2 extra points.',
   },
   {
@@ -737,6 +818,7 @@ const sports = [
     options: { A: 'Hurdles', B: 'Steeplechase', C: 'Triple Jump', D: 'High Jump', E: 'Marathon' },
     options_tr: { A: 'Engelli Koşu', B: 'Hendekli Engelli Koşu (Steeplechase)', C: 'Üç Adım Atlama', D: 'Yüksek Atlama', E: 'Marathon' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The 3000m steeplechase features 28 ordinary barriers and 7 water jumps.',
   },
   {
@@ -746,6 +828,7 @@ const sports = [
     options: { A: 'Lionel Messi', B: 'Diego Maradona', C: 'Pelé', D: 'Gabriel Batistuta', E: 'Juan Román Riquelme' },
     options_tr: { A: 'Lionel Messi', B: 'Diego Maradona', C: 'Pelé', D: 'Gabriel Batistuta', E: 'Juan Román Riquelme' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Diego Maradona scored both the controversial "Hand of God" and the spectacular "Goal of the Century" against England in 1986.',
   },
   {
@@ -755,6 +838,7 @@ const sports = [
     options: { A: 'Camel', B: 'Donkey', C: 'Horse', D: 'Elephant', E: 'Mule' },
     options_tr: { A: 'Deve', B: 'Eşek', C: 'At', D: 'Fil', E: 'Katır' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Polo is a team sport played on horseback where the objective is to score goals using a long mallet.',
   },
   {
@@ -764,6 +848,7 @@ const sports = [
     options: { A: 'Japan', B: 'China', C: 'Korea', D: 'Vietnam', E: 'Thailand' },
     options_tr: { A: 'Japonya', B: 'Çin', C: 'Kore', D: 'Vietnam', E: 'Tayland' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Taekwondo was developed during the 1940s and 1950s by Korean martial artists blending various ancestral styles.',
   },
   {
@@ -773,6 +858,7 @@ const sports = [
     options: { A: 'Ayrton Senna', B: 'Michael Schumacher', C: 'Sebastian Vettel', D: 'Niki Lauda', E: 'Alain Prost' },
     options_tr: { A: 'Ayrton Senna', B: 'Michael Schumacher', C: 'Sebastian Vettel', D: 'Niki Lauda', E: 'Alain Prost' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Michael Schumacher won five consecutive titles with Ferrari from 2000 to 2004, totaling 7 in his career.',
   },
   {
@@ -782,6 +868,7 @@ const sports = [
     options: { A: '5', B: '8', C: '10', D: '12', E: '14' },
     options_tr: { A: '5', B: '8', C: '10', D: '12', E: '14' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Each team fields 5 players, making a total of 10 active players on the court.',
   },
   {
@@ -791,6 +878,7 @@ const sports = [
     options: { A: 'Wimbledon', B: 'US Open', C: 'French Open', D: 'Australian Open', E: 'Miami Open' },
     options_tr: { A: 'Wimbledon', B: 'Amerika Açık', C: 'Fransa Açık (Roland Garros)', D: 'Avustralya Açık', E: 'Miami Açık' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The French Open (Roland Garros) is the premier clay court tennis championship in the world.',
   },
   {
@@ -800,6 +888,7 @@ const sports = [
     options: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     options_tr: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'A try is worth 5 points in rugby union. The common trap is rugby league, where a try is worth only 4.',
   },
   {
@@ -809,6 +898,7 @@ const sports = [
     options: { A: '140', B: '147', C: '150', D: '155', E: '167' },
     options_tr: { A: '140', B: '147', C: '150', D: '155', E: '167' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The classic maximum break is 147: fifteen reds each followed by a black, then all six colours. A 155 is only possible with a free-ball situation.',
   },
   {
@@ -830,6 +920,7 @@ const sports = [
       E: 'Günün en mücadeleci bisikletçisi',
     },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The polka dot jersey belongs to the "King of the Mountains". Green is the sprint classification and white is the best young rider.',
   },
   {
@@ -839,6 +930,7 @@ const sports = [
     options: { A: 'Fencing', B: 'Swimming', C: 'Archery', D: 'Show jumping', E: 'Pistol shooting' },
     options_tr: { A: 'Eskrim', B: 'Yüzme', C: 'Okçuluk', D: 'Engel atlama (binicilik)', E: 'Tabanca atıcılığı' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Modern pentathlon combines fencing, swimming, show jumping and a "laser run" of shooting plus cross-country running. Archery has never been part of it.',
   },
   {
@@ -848,6 +940,7 @@ const sports = [
     options: { A: '11', B: '15', C: '21', D: '25', E: '30' },
     options_tr: { A: '11', B: '15', C: '21', D: '25', E: '30' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Sets are played to 25 points with a two-point margin. Only the deciding fifth set is played to 15.',
   },
   {
@@ -857,6 +950,7 @@ const sports = [
     options: { A: '9 metres', B: '10 metres', C: '11 metres', D: '12 metres', E: '15 metres' },
     options_tr: { A: '9 metre', B: '10 metre', C: '11 metre', D: '12 metre', E: '15 metre' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The penalty mark sits 11 metres (12 yards) from the goal line. The 9.15 metre figure people confuse it with is the radius of the centre circle and the required distance of defenders at a free kick.',
   },
   {
@@ -866,6 +960,7 @@ const sports = [
     options: { A: 'AC Milan', B: 'Liverpool', C: 'Bayern Munich', D: 'Real Madrid', E: 'Barcelona' },
     options_tr: { A: 'AC Milan', B: 'Liverpool', C: 'Bayern Münih', D: 'Real Madrid', E: 'Barcelona' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Real Madrid are the record holders by a wide margin, with AC Milan a distant second.',
   },
   {
@@ -875,6 +970,7 @@ const sports = [
     options: { A: '5', B: '6', C: '7', D: '9', E: '11' },
     options_tr: { A: '5', B: '6', C: '7', D: '9', E: '11' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Seven players per team are in the water: six outfield players plus a goalkeeper.',
   },
   {
@@ -896,6 +992,7 @@ const sports = [
       E: 'Sürat pateni ve tüfek atıcılığı',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Biathlon pairs cross-country skiing with rifle marksmanship. Option D describes Nordic combined, a different event.',
   },
   {
@@ -905,6 +1002,7 @@ const sports = [
     options: { A: '4', B: '5', C: '6', D: '8', E: '10' },
     options_tr: { A: '4', B: '5', C: '6', D: '8', E: '10' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'A modern over is six legal deliveries. Eight-ball overs were used historically in Australia, which is why that option tempts people.',
   },
   {
@@ -926,6 +1024,7 @@ const sports = [
       E: 'Müsabakalarda süre sınırı yoktur',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'In Greco-Roman, wrestlers may not attack below the waist or use their own legs to execute a hold — everything happens with the upper body.',
   },
   {
@@ -947,6 +1046,7 @@ const sports = [
       E: 'Daha Hızlı, Daha Uzağa, Daha Sert',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Latin motto means "Faster, Higher, Stronger". In 2021 the IOC added "Communiter" ("Together") to the end of it.',
   },
   {
@@ -956,6 +1056,7 @@ const sports = [
     options: { A: 'Cristiano Ronaldo', B: 'Lionel Messi', C: 'Michel Platini', D: 'Johan Cruyff', E: 'Zinedine Zidane' },
     options_tr: { A: 'Cristiano Ronaldo', B: 'Lionel Messi', C: 'Michel Platini', D: 'Johan Cruyff', E: 'Zinedine Zidane' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Messi collected his eighth Ballon d\'Or in 2023, ahead of Ronaldo on five and the three-time winners Cruyff and Platini.',
   },
   {
@@ -965,6 +1066,7 @@ const sports = [
     options: { A: 'Nihat Kahveci', B: 'İlhan Mansız', C: 'Tuncay Şanlı', D: 'Burak Yılmaz', E: 'Hakan Şükür' },
     options_tr: { A: 'Nihat Kahveci', B: 'İlhan Mansız', C: 'Tuncay Şanlı', D: 'Burak Yılmaz', E: 'Hakan Şükür' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'He scored it against South Korea in the third-place play-off, and the record has stood ever since.',
   },
   {
@@ -974,6 +1076,7 @@ const sports = [
     options: { A: '2.75 m', B: '2.95 m', C: '3.05 m', D: '3.25 m', E: '3.50 m' },
     options_tr: { A: '2,75 m', B: '2,95 m', C: '3,05 m', D: '3,25 m', E: '3,50 m' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The rim sits 3.05 metres (exactly 10 feet) up, a height unchanged since Naismith nailed peach baskets to a gymnasium balcony.',
   },
   {
@@ -983,6 +1086,7 @@ const sports = [
     options: { A: 'Paris', B: 'Rome', C: 'London', D: 'Athens', E: 'Berlin' },
     options_tr: { A: 'Paris', B: 'Roma', C: 'Londra', D: 'Atina', E: 'Berlin' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Athens was chosen to honour the ancient Greek origins of the Games, which Pierre de Coubertin had revived.',
   },
   {
@@ -992,6 +1096,7 @@ const sports = [
     options: { A: 'Roger Federer', B: 'Rafael Nadal', C: 'Novak Djokovic', D: 'Pete Sampras', E: 'Rod Laver' },
     options_tr: { A: 'Roger Federer', B: 'Rafael Nadal', C: 'Novak Djokovic', D: 'Pete Sampras', E: 'Rod Laver' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Djokovic reached 24 major singles titles in 2023, passing Nadal on 22 and Federer on 20.',
   },
   {
@@ -1001,6 +1106,7 @@ const sports = [
     options: { A: 'Wrestling', B: 'Weightlifting', C: 'Boxing', D: 'Judo', E: 'Archery' },
     options_tr: { A: 'Güreş', B: 'Halter', C: 'Boks', D: 'Judo', E: 'Okçuluk' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Naim Süleymanoğlu stood only 1.47 m tall yet won weightlifting gold in 1988, 1992 and 1996.',
   },
   {
@@ -1010,6 +1116,7 @@ const sports = [
     options: { A: 'Switzerland', B: 'Norway', C: 'Austria', D: 'France', E: 'Italy' },
     options_tr: { A: 'İsviçre', B: 'Norveç', C: 'Avusturya', D: 'Fransa', E: 'İtalya' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Chamonix sits in the French Alps beneath Mont Blanc, and its event was retroactively named the first Winter Games.',
   },
   {
@@ -1019,6 +1126,7 @@ const sports = [
     options: { A: 'Jesse Owens', B: 'Carl Lewis', C: 'Ralph Boston', D: 'Bob Hayes', E: 'Rafer Johnson' },
     options_tr: { A: 'Jesse Owens', B: 'Carl Lewis', C: 'Ralph Boston', D: 'Bob Hayes', E: 'Rafer Johnson' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Owens took the 100 m, 200 m, long jump and sprint relay in front of a Nazi leadership expecting Aryan supremacy.',
   },
   {
@@ -1028,6 +1136,7 @@ const sports = [
     options: { A: 'Champions', B: 'Runners-up', C: 'Third place', D: 'Quarter-finals', E: 'Round of 16' },
     options_tr: { A: 'Şampiyon', B: 'İkincilik', C: 'Üçüncülük', D: 'Çeyrek final', E: 'Son 16' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Turkey beat South Korea 3-2 in the 2002 third-place play-off after losing their semi-final to eventual champions Brazil.',
   },
   {
@@ -1037,6 +1146,7 @@ const sports = [
     options: { A: 'Freestyle', B: 'Backstroke', C: 'Breaststroke', D: 'Butterfly', E: 'Sidestroke' },
     options_tr: { A: 'Serbest stil', B: 'Sırtüstü', C: 'Kurbağalama', D: 'Kelebek', E: 'Yan yüzme' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The individual medley runs butterfly, backstroke, breaststroke, freestyle, while the medley relay uses a different order.',
   },
   {
@@ -1046,6 +1156,7 @@ const sports = [
     options: { A: 'Belgium', B: 'France', C: 'Germany', D: 'Italy', E: 'Spain' },
     options_tr: { A: 'Belçika', B: 'Fransa', C: 'Almanya', D: 'İtalya', E: 'İspanya' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The race runs on the Circuit de la Sarthe, a part-public-road course near the French town of Le Mans.',
   },
   {
@@ -1055,6 +1166,7 @@ const sports = [
     options: { A: 'Beşiktaş', B: 'Fenerbahçe', C: 'Trabzonspor', D: 'Galatasaray', E: 'Bursaspor' },
     options_tr: { A: 'Beşiktaş', B: 'Fenerbahçe', C: 'Trabzonspor', D: 'Galatasaray', E: 'Bursaspor' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Galatasaray beat Arsenal on penalties in the Copenhagen final, then defeated Real Madrid to add the UEFA Super Cup.',
   },
   {
@@ -1064,6 +1176,7 @@ const sports = [
     options: { A: 'Ronaldo Nazário', B: 'Gerd Müller', C: 'Just Fontaine', D: 'Pelé', E: 'Miroslav Klose' },
     options_tr: { A: 'Ronaldo Nazário', B: 'Gerd Müller', C: 'Just Fontaine', D: 'Pelé', E: 'Miroslav Klose' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Klose scored 16 goals across four tournaments between 2002 and 2014, one more than Ronaldo Nazário.',
   },
   {
@@ -1073,6 +1186,7 @@ const sports = [
     options: { A: 'The Calcutta Cup', B: 'The Bledisloe Cup', C: 'The Webb Ellis Cup', D: 'The Triple Crown', E: 'The Ranfurly Shield' },
     options_tr: { A: 'Calcutta Kupası', B: 'Bledisloe Kupası', C: 'Webb Ellis Kupası', D: 'Üçlü Taç', E: 'Ranfurly Kalkanı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'It is named after William Webb Ellis, the schoolboy of legend who picked up the ball and ran with it.',
   },
   {
@@ -1082,6 +1196,7 @@ const sports = [
     options: { A: 'Mete Gazoz', B: 'Yasemin Anagöz', C: 'Taha Akgül', D: 'Rıza Kayaalp', E: 'Busenaz Sürmeneli' },
     options_tr: { A: 'Mete Gazoz', B: 'Yasemin Anagöz', C: 'Taha Akgül', D: 'Rıza Kayaalp', E: 'Busenaz Sürmeneli' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Gazoz took the men\'s individual recurve title, the first Olympic gold ever won by Turkey in archery.',
   },
   {
@@ -1091,6 +1206,7 @@ const sports = [
     options: { A: 'Los Angeles Lakers', B: 'Chicago Bulls', C: 'Golden State Warriors', D: 'Boston Celtics', E: 'San Antonio Spurs' },
     options_tr: { A: 'Los Angeles Lakers', B: 'Chicago Bulls', C: 'Golden State Warriors', D: 'Boston Celtics', E: 'San Antonio Spurs' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Boston moved to 18 titles with their 2024 win, one clear of the Lakers.',
   },
   {
@@ -1100,6 +1216,7 @@ const sports = [
     options: { A: 'Joe Frazier', B: 'Sonny Liston', C: 'Larry Holmes', D: 'Ken Norton', E: 'George Foreman' },
     options_tr: { A: 'Joe Frazier', B: 'Sonny Liston', C: 'Larry Holmes', D: 'Ken Norton', E: 'George Foreman' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Ali absorbed punishment on the ropes with his "rope-a-dope" tactic before knocking out the younger champion in round eight.',
   },
   {
@@ -1109,6 +1226,7 @@ const sports = [
     options: { A: 'Oil wrestling', B: 'Camel wrestling', C: 'Archery on horseback', D: 'Jereed', E: 'Stick fighting' },
     options_tr: { A: 'Yağlı güreş', B: 'Deve güreşi', C: 'At üstünde okçuluk', D: 'Cirit', E: 'Değnek oyunu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Wrestlers coat themselves in olive oil and grapple in leather trousers called kıspet, in a festival running since the 14th century.',
   },
   {
@@ -1118,6 +1236,7 @@ const sports = [
     options: { A: 'Olga Korbut', B: 'Larisa Latynina', C: 'Věra Čáslavská', D: 'Nadia Comăneci', E: 'Mary Lou Retton' },
     options_tr: { A: 'Olga Korbut', B: 'Larisa Latynina', C: 'Věra Čáslavská', D: 'Nadia Comăneci', E: 'Mary Lou Retton' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The Romanian was 14 when she scored it on the uneven bars, and the scoreboard could only display it as 1.00.',
   },
   {
@@ -1127,6 +1246,7 @@ const sports = [
     options: { A: 'Yellow', B: 'Pink', C: 'Red', D: 'Green', E: 'White' },
     options_tr: { A: 'Sarı', B: 'Pembe', C: 'Kırmızı', D: 'Yeşil', E: 'Beyaz' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The maglia rosa takes its colour from the pink newsprint of La Gazzetta dello Sport, the race\'s founding newspaper.',
   },
   {
@@ -1136,6 +1256,7 @@ const sports = [
     options: { A: 'Anadolu Efes', B: 'Beşiktaş', C: 'Fenerbahçe', D: 'Galatasaray', E: 'Türk Telekom' },
     options_tr: { A: 'Anadolu Efes', B: 'Beşiktaş', C: 'Fenerbahçe', D: 'Galatasaray', E: 'Türk Telekom' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Fenerbahçe beat Olympiacos in the Istanbul Final Four, coached by Željko Obradović.',
   },
   {
@@ -1145,6 +1266,7 @@ const sports = [
     options: { A: 'Tiger Woods', B: 'Arnold Palmer', C: 'Gary Player', D: 'Ben Hogan', E: 'Jack Nicklaus' },
     options_tr: { A: 'Tiger Woods', B: 'Arnold Palmer', C: 'Gary Player', D: 'Ben Hogan', E: 'Jack Nicklaus' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Nicklaus won 18 majors between 1962 and 1986, with Woods next on 15.',
   },
   {
@@ -1166,6 +1288,7 @@ const sports = [
       E: 'Athletic Bilbao ve Real Sociedad',
     },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The rivalry carries political weight as a contest between the Castilian capital and Catalonia.',
   },
   {
@@ -1175,6 +1298,7 @@ const sports = [
     options: { A: 'Mehmet Okur', B: 'Hidayet Türkoğlu', C: 'Ersan İlyasova', D: 'Cedi Osman', E: 'Ömer Aşık' },
     options_tr: { A: 'Mehmet Okur', B: 'Hidayet Türkoğlu', C: 'Ersan İlyasova', D: 'Cedi Osman', E: 'Ömer Aşık' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Türkoğlu was drafted 16th overall by the Sacramento Kings in 2000 and debuted that season.',
   },
   {
@@ -1184,6 +1308,7 @@ const sports = [
     options: { A: '5', B: '6', C: '7', D: '9', E: '11' },
     options_tr: { A: '5', B: '6', C: '7', D: '9', E: '11' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Six outfield players play alongside a goalkeeper, though teams may pull the keeper for a seventh attacker.',
   },
   {
@@ -1193,6 +1318,7 @@ const sports = [
     options: { A: '6', B: '7', C: '5', D: '8', E: '10' },
     options_tr: { A: '6', B: '7', C: '5', D: '8', E: '10' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The heptathlon spreads seven events over two days, ending with the 800 metres.',
   },
   {
@@ -1214,6 +1340,7 @@ const sports = [
       E: 'Kadın futbol millî takımı',
     },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The side took the European title and the Nations League crown in 2023, becoming one of the strongest teams in world volleyball.',
   },
   {
@@ -1235,6 +1362,7 @@ const sports = [
       E: 'Pist limiti cezalarından muafiyet',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Pole goes to the quickest driver in qualifying, who then starts ahead of the entire field.',
   },
   {
@@ -1256,6 +1384,7 @@ const sports = [
       E: 'Dünya Serisi\'ni hiç yenilmeden kazanmak',
     },
     answer: 'A',
+    difficulty: 1,
     explanation: 'With runners on all three bases, the home run brings in four runs at once, the maximum possible from a single swing.',
   },
   {
@@ -1265,6 +1394,7 @@ const sports = [
     options: { A: 'Champions', B: 'Runners-up', C: 'Third place', D: 'Fourth place', E: 'Eliminated in the quarter-finals' },
     options_tr: { A: 'Şampiyon', B: 'İkinci', C: 'Üçüncü', D: 'Dördüncü', E: 'Çeyrek finalde elendi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Turkey reached the final in Istanbul and lost to the United States, taking the silver medal.',
   },
   {
@@ -1286,6 +1416,7 @@ const sports = [
       E: 'Bisiklet ve skeleton',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The American won light-heavyweight boxing gold in 1920 and rode in the winning four-man bobsleigh crew in 1932.',
   },
   {
@@ -1295,6 +1426,7 @@ const sports = [
     options: { A: 'US Open', B: 'French Open', C: 'Australian Open', D: 'Wimbledon', E: 'The ATP Finals' },
     options_tr: { A: 'Amerika Açık', B: 'Fransa Açık', C: 'Avustralya Açık', D: 'Wimbledon', E: 'ATP Finalleri' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The All England Club\'s dress code dates to Victorian etiquette about visible perspiration and is still policed today.',
   },
   {
@@ -1304,6 +1436,7 @@ const sports = [
     options: { A: 'Athens', B: 'Istanbul', C: 'Moscow', D: 'Rome', E: 'Lisbon' },
     options_tr: { A: 'Atina', B: 'İstanbul', C: 'Moskova', D: 'Roma', E: 'Lizbon' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The comeback at the Atatürk Olympic Stadium is remembered as the "Miracle of Istanbul".',
   },
   {
@@ -1313,6 +1446,7 @@ const sports = [
     options: { A: 'Kung fu', B: 'Krav Maga', C: 'Aikido', D: 'Capoeira', E: 'Muay Thai' },
     options_tr: { A: 'Kung fu', B: 'Krav Maga', C: 'Aikido', D: 'Capoeira', E: 'Muay Thai' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Thailand\'s national sport allows strikes with fists, elbows, knees and shins, giving eight points of contact.',
   },
   {
@@ -1322,6 +1456,7 @@ const sports = [
     options: { A: 'Franz Beckenbauer', B: 'Garrincha', C: 'Diego Maradona', D: 'Pelé', E: 'Cafu' },
     options_tr: { A: 'Franz Beckenbauer', B: 'Garrincha', C: 'Diego Maradona', D: 'Pelé', E: 'Cafu' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Pelé won with Brazil in 1958, 1962 and 1970, the last as the leader of a side often called the greatest ever.',
   },
   {
@@ -1331,6 +1466,7 @@ const sports = [
     options: { A: 'Istanbul Park', B: 'Izmir Speedway', C: 'Ankara Ring', D: 'Bosphorus Circuit', E: 'Antalya Raceway' },
     options_tr: { A: 'Istanbul Park', B: 'İzmir Speedway', C: 'Ankara Ring', D: 'Boğaziçi Pisti', E: 'Antalya Raceway' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The anti-clockwise track on Istanbul\'s Asian side is famous for the quadruple-apex Turn 8.',
   },
   {
@@ -1340,6 +1476,7 @@ const sports = [
     options: { A: 'Lutz', B: 'Salchow', C: 'Axel', D: 'Toe loop', E: 'Flip' },
     options_tr: { A: 'Lutz', B: 'Salchow', C: 'Axel', D: 'Toe loop', E: 'Flip' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Because of the forward takeoff, an Axel contains an extra half rotation, making a "triple Axel" three and a half turns.',
   },
   {
@@ -1349,6 +1486,7 @@ const sports = [
     options: { A: 'A blob', B: 'A duck', C: 'A nought', D: 'A dot', E: 'A maiden' },
     options_tr: { A: 'Blob', B: 'Duck (Ördek)', C: 'Nought', D: 'Dot', E: 'Maiden' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Being out first ball for nothing is a "golden duck", and the term comes from the zero\'s resemblance to a duck\'s egg.',
   },
   {
@@ -1370,6 +1508,7 @@ const sports = [
       E: 'Beşiktaş - Kasımpaşa',
     },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Fenerbahçe are based in Kadıköy on the Asian side and Galatasaray in Europe, so the fixture spans two continents.',
   },
   {
@@ -1379,6 +1518,7 @@ const sports = [
     options: { A: 'Carl Lewis', B: 'Bob Beamon', C: 'Ivan Pedroso', D: 'Ralph Boston', E: 'Mike Powell' },
     options_tr: { A: 'Carl Lewis', B: 'Bob Beamon', C: 'Ivan Pedroso', D: 'Ralph Boston', E: 'Mike Powell' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Powell broke Bob Beamon\'s 23-year-old mark during a duel with Carl Lewis at the Tokyo World Championships.',
   },
   {
@@ -1388,6 +1528,7 @@ const sports = [
     options: { A: 'Kobe Bryant', B: 'Wilt Chamberlain', C: 'David Thompson', D: 'Michael Jordan', E: 'Devin Booker' },
     options_tr: { A: 'Kobe Bryant', B: 'Wilt Chamberlain', C: 'David Thompson', D: 'Michael Jordan', E: 'Devin Booker' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Chamberlain scored 100 points for the Philadelphia Warriors in 1962, a game played in Hershey with no video footage surviving.',
   },
   {
@@ -1397,6 +1538,7 @@ const sports = [
     options: { A: 'Galatasaray', B: 'Fenerbahçe', C: 'Beşiktaş', D: 'Vefa', E: 'Kasımpaşa' },
     options_tr: { A: 'Galatasaray', B: 'Fenerbahçe', C: 'Beşiktaş', D: 'Vefa', E: 'Kasımpaşa' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Beşiktaş predates Galatasaray (1905) and Fenerbahçe (1907), and began as a gymnastics club.',
   },
   {
@@ -1406,6 +1548,7 @@ const sports = [
     options: { A: 'Paris', B: 'Athens', C: 'Los Angeles', D: 'Tokyo', E: 'London' },
     options_tr: { A: 'Paris', B: 'Atina', C: 'Los Angeles', D: 'Tokyo', E: 'Londra' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'London staged the Games in 1908, 1948 and 2012, reaching three hosts before Paris did so in 2024.',
   },
   {
@@ -1415,6 +1558,7 @@ const sports = [
     options: { A: '180', B: '301', C: '401', D: '501', E: '1001' },
     options_tr: { A: '180', B: '301', C: '401', D: '501', E: '1001' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Players count down from 501 and must finish exactly on a double or the bullseye.',
   },
   {
@@ -1424,6 +1568,7 @@ const sports = [
     options: { A: 'Bursaspor', B: 'Trabzonspor', C: 'Göztepe', D: 'Eskişehirspor', E: 'Samsunspor' },
     options_tr: { A: 'Bursaspor', B: 'Trabzonspor', C: 'Göztepe', D: 'Eskişehirspor', E: 'Samsunspor' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Trabzonspor broke the Istanbul monopoly in the 1975-76 season and went on to win several more titles that decade.',
   },
   {
@@ -1433,6 +1578,7 @@ const sports = [
     options: { A: 'Mark Spitz', B: 'Matt Biondi', C: 'Ian Thorpe', D: 'Alexander Popov', E: 'Don Schollander' },
     options_tr: { A: 'Mark Spitz', B: 'Matt Biondi', C: 'Ian Thorpe', D: 'Alexander Popov', E: 'Don Schollander' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Spitz set a world record in every one of those seven events, a haul only Michael Phelps has bettered.',
   },
   {
@@ -1454,6 +1600,7 @@ const sports = [
       E: 'Video Tahkim Talebi',
     },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The system may only intervene on goals, penalties, direct red cards and mistaken identity.',
   },
   {
@@ -1463,6 +1610,7 @@ const sports = [
     options: { A: 'Taekwondo', B: 'Wrestling', C: 'Weightlifting', D: 'Boxing', E: 'Shooting' },
     options_tr: { A: 'Tekvando', B: 'Güreş', C: 'Halter', D: 'Boks', E: 'Atıcılık' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Mutlu took gold in the lightest weightlifting categories in 1996, 2000 and 2004, following his compatriot Naim Süleymanoğlu.',
   },
   {
@@ -1472,6 +1620,7 @@ const sports = [
     options: { A: 'Argentina', B: 'Portugal', C: 'Italy', D: 'Brazil', E: 'Mexico' },
     options_tr: { A: 'Arjantin', B: 'Portekiz', C: 'İtalya', D: 'Brezilya', E: 'Meksika' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Senna won his titles in 1988, 1990 and 1991 with McLaren, and Brazil declared three days of national mourning after his death.',
   },
   {
@@ -1481,6 +1630,7 @@ const sports = [
     options: { A: 'Martina Navratilova', B: 'Chris Evert', C: 'Billie Jean King', D: 'Monica Seles', E: 'Steffi Graf' },
     options_tr: { A: 'Martina Navratilova', B: 'Chris Evert', C: 'Billie Jean King', D: 'Monica Seles', E: 'Steffi Graf' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Graf remains the only player of either sex to achieve it, adding the Seoul Olympic title to her four majors.',
   },
   {
@@ -1490,6 +1640,7 @@ const sports = [
     options: { A: 'Fenerbahçe', B: 'Beşiktaş', C: 'Trabzonspor', D: 'Galatasaray', E: 'Göztepe' },
     options_tr: { A: 'Fenerbahçe', B: 'Beşiktaş', C: 'Trabzonspor', D: 'Galatasaray', E: 'Göztepe' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Galatasaray sit ahead of Fenerbahçe at the top of the all-time list, with Beşiktaş third.',
   },
   {
@@ -1499,6 +1650,7 @@ const sports = [
     options: { A: '8 minutes', B: '10 minutes', C: '12 minutes', D: '15 minutes', E: '20 minutes' },
     options_tr: { A: '8 dakika', B: '10 dakika', C: '12 dakika', D: '15 dakika', E: '20 dakika' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'FIBA plays four 10-minute quarters for 40 minutes in total, while the NBA uses 12-minute quarters.',
   },
   {
@@ -1508,6 +1660,7 @@ const sports = [
     options: { A: 'Tatami', B: 'Dojo', C: 'Kata', D: 'Shiai', E: 'Dohyō' },
     options_tr: { A: 'Tatami', B: 'Dojo', C: 'Kata', D: 'Shiai', E: 'Dohyō' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'A wrestler loses the moment he steps outside the dohyō or touches the ground with anything but the soles of his feet.',
   },
   {
@@ -1517,6 +1670,7 @@ const sports = [
     options: { A: 'Freestyle wrestling', B: 'Judo', C: 'Taekwondo', D: 'Boxing', E: 'Weightlifting' },
     options_tr: { A: 'Serbest güreş', B: 'Judo', C: 'Tekvando', D: 'Boks', E: 'Halter' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Akgül took the heavyweight 125 kg title, adding Olympic gold to a long run of world and European championships.',
   },
   {
@@ -1538,6 +1692,7 @@ const sports = [
       E: 'Yayın hakları anlaşmazlığı',
     },
     answer: 'B',
+    difficulty: 3,
     explanation: 'It was the first peacetime postponement in Olympic history, and most events were then held without spectators.',
   },
   {
@@ -1547,6 +1702,7 @@ const sports = [
     options: { A: 'The Masters', B: 'The US Open', C: 'The PGA Championship', D: 'The Open Championship', E: 'The Players Championship' },
     options_tr: { A: 'Masters', B: 'ABD Açık', C: 'PGA Şampiyonası', D: 'The Open (İngiltere Açık)', E: 'The Players Şampiyonası' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'First played at Prestwick in 1860, it rotates among historic British links courses including St Andrews.',
   },
   {
@@ -1556,6 +1712,7 @@ const sports = [
     options: { A: 'Fatih Terim', B: 'Mustafa Denizli', C: 'Şenol Güneş', D: 'Ersun Yanal', E: 'Abdullah Avcı' },
     options_tr: { A: 'Fatih Terim', B: 'Mustafa Denizli', C: 'Şenol Güneş', D: 'Ersun Yanal', E: 'Abdullah Avcı' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Güneş had built the squad around Trabzonspor and Galatasaray players and later returned for a second spell in charge.',
   },
   {
@@ -1565,6 +1722,7 @@ const sports = [
     options: { A: 'Dick Fosbury', B: 'Valeriy Brumel', C: 'Javier Sotomayor', D: 'Charles Dumas', E: 'Stefka Kostadinova' },
     options_tr: { A: 'Dick Fosbury', B: 'Valeriy Brumel', C: 'Javier Sotomayor', D: 'Charles Dumas', E: 'Stefka Kostadinova' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Fosbury won gold with his "flop" at the 1968 Mexico City Games, and within a decade nearly every jumper had copied it.',
   },
   {
@@ -1574,6 +1732,7 @@ const sports = [
     options: { A: 'England', B: 'France', C: 'Germany', D: 'Netherlands', E: 'Spain' },
     options_tr: { A: 'İngiltere', B: 'Fransa', C: 'Almanya', D: 'Hollanda', E: 'İspanya' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Spain beat England 2-1 in the Berlin final, winning every match on the way to a record fourth European title.',
   },
   {
@@ -1583,6 +1742,7 @@ const sports = [
     options: { A: 'Group stage', B: 'Quarter-finals', C: 'Semi-finals', D: 'Final', E: 'Winners' },
     options_tr: { A: 'Grup aşaması', B: 'Çeyrek final', C: 'Yarı final', D: 'Final', E: 'Şampiyonluk' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'After a run of late comebacks, Turkey lost 3-2 to Germany in the semi-final with the winner conceded in the final minute.',
   },
   {
@@ -1604,6 +1764,7 @@ const sports = [
       E: 'Ev sahibi takımın kavgayı kazanması',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The hat trick tradition is said to date from a Toronto hatter who offered a free hat to any player scoring three.',
   },
   {
@@ -1625,6 +1786,7 @@ const sports = [
       E: 'Koparma ve bench press',
     },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The squat, bench press and deadlift belong to powerlifting, a separate sport that is not on the Olympic programme.',
   },
   {
@@ -1646,6 +1808,7 @@ const sports = [
       E: 'Bir olimpiyat stadyumunda bitmesi',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Runners start on the Asian side and cross the Bosphorus Bridge into Europe, the only marathon on two continents.',
   },
   {
@@ -1667,6 +1830,7 @@ const sports = [
       E: 'Flöre, hançer ve kılıç',
     },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Each weapon has its own valid target area: the torso in foil, the whole body in épée, everything above the waist in sabre.',
   },
   {
@@ -1676,6 +1840,7 @@ const sports = [
     options: { A: '80 yards', B: '90 yards', C: '100 yards', D: '110 yards', E: '120 yards' },
     options_tr: { A: '80 yarda', B: '90 yarda', C: '100 yarda', D: '110 yarda', E: '120 yarda' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Adding the two 10-yard end zones brings the total playing surface to 120 yards.',
   },
   {
@@ -1685,6 +1850,7 @@ const sports = [
     options: { A: 'Ali Sami Yen', B: 'Şükrü Saracoğlu', C: 'Fuat Hüsnü Kayacan', D: 'Rıza Çalımbay', E: 'Süleyman Seba' },
     options_tr: { A: 'Ali Sami Yen', B: 'Şükrü Saracoğlu', C: 'Fuat Hüsnü Kayacan', D: 'Rıza Çalımbay', E: 'Süleyman Seba' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Yen was a student at Galatasaray High School when he and his friends formed the club to beat English teams in Istanbul.',
   },
   {
@@ -1694,6 +1860,7 @@ const sports = [
     options: { A: 'Surfing', B: 'Sport climbing', C: 'Karate', D: 'Skateboarding', E: 'Breaking' },
     options_tr: { A: 'Sörf', B: 'Spor tırmanış', C: 'Karate', D: 'Kaykay', E: 'Breaking (breakdans)' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Breaking was added for Paris only, while surfing, climbing and skateboarding had already debuted at Tokyo.',
   },
   {
@@ -1715,6 +1882,7 @@ const sports = [
       E: 'Bir sonraki tutuşu seçme hakkı',
     },
     answer: 'B',
+    difficulty: 1,
     explanation: 'An ippon is awarded for a clean throw on the back, a 20-second hold-down, or a submission, and stops the bout at once.',
   },
   {
@@ -1724,6 +1892,7 @@ const sports = [
     options: { A: 'Hidayet Türkoğlu', B: 'Ersan İlyasova', C: 'Ömer Aşık', D: 'Mehmet Okur', E: 'Furkan Korkmaz' },
     options_tr: { A: 'Hidayet Türkoğlu', B: 'Ersan İlyasova', C: 'Ömer Aşık', D: 'Mehmet Okur', E: 'Furkan Korkmaz' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Okur was a rookie on the Pistons side that beat the Lakers, and he later became the first Turkish NBA All-Star.',
   },
   {
@@ -1733,6 +1902,7 @@ const sports = [
     options: { A: 'Eddy Merckx', B: 'Bernard Hinault', C: 'Jacques Anquetil', D: 'Fausto Coppi', E: 'Tom Boonen' },
     options_tr: { A: 'Eddy Merckx', B: 'Bernard Hinault', C: 'Jacques Anquetil', D: 'Fausto Coppi', E: 'Tom Boonen' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The nickname came from his refusal to leave any win for anyone else, across grand tours, classics and the hour record.',
   },
   {
@@ -1754,6 +1924,7 @@ const sports = [
       E: 'Maureen Connolly Kâsesi',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'It is a silver salver decorated with mythological figures, first presented in 1886, while the men receive a gilded cup.',
   },
   {
@@ -1763,6 +1934,7 @@ const sports = [
     options: { A: 'Beşiktaş', B: 'Galatasaray', C: 'Fenerbahçe', D: 'Başakşehir', E: 'Kasımpaşa' },
     options_tr: { A: 'Beşiktaş', B: 'Galatasaray', C: 'Fenerbahçe', D: 'Başakşehir', E: 'Kasımpaşa' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'It is named after a former club president who also served as prime minister of Turkey.',
   },
   {
@@ -1784,6 +1956,7 @@ const sports = [
       E: 'Avustralya, Yeni Zelanda ve Fiji',
     },
     answer: 'B',
+    difficulty: 3,
     explanation: 'It will be the first World Cup contested by 48 teams and the first shared by three host nations.',
   },
   {
@@ -1805,6 +1978,7 @@ const sports = [
       E: 'Bisiklet, yüzme, koşu',
     },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Swimming comes first for safety reasons, since exhausted athletes in open water would be far harder to rescue.',
   },
   {
@@ -1826,6 +2000,7 @@ const sports = [
       E: 'Yaya olarak, hareketli hedeflere ok atarak',
     },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Riders from two teams gallop at each other and throw the stick, scoring by striking an opponent while avoiding being hit.',
   },
   {
@@ -1835,6 +2010,7 @@ const sports = [
     options: { A: '1', B: '2', C: '3', D: '4', E: '6' },
     options_tr: { A: '1', B: '2', C: '3', D: '4', E: '6' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Teams usually attempt one on fourth down when a touchdown looks unlikely but the kicker is within range.',
   },
   {
@@ -1844,6 +2020,7 @@ const sports = [
     options: { A: 'Blue', B: 'Pink', C: 'Brown', D: 'Black', E: 'Green' },
     options_tr: { A: 'Mavi', B: 'Pembe', C: 'Kahverengi', D: 'Siyah', E: 'Yeşil' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The black is worth 7 points, ahead of pink on 6 and blue on 5.',
   },
   {
@@ -1853,6 +2030,7 @@ const sports = [
     options: { A: 'Utah Jazz', B: 'Houston Rockets', C: 'Orlando Magic', D: 'Cleveland Cavaliers', E: 'Philadelphia 76ers' },
     options_tr: { A: 'Utah Jazz', B: 'Houston Rockets', C: 'Orlando Magic', D: 'Cleveland Cavaliers', E: 'Philadelphia 76ers' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Houston acquired his draft rights on the night of the 2021 draft after he had been named MVP of the Turkish league.',
   },
   {
@@ -1862,6 +2040,7 @@ const sports = [
     options: { A: 'The host nation', B: 'France', C: 'The reigning medal table leader', D: 'The previous host nation', E: 'Greece' },
     options_tr: { A: 'Ev sahibi ülke', B: 'Fransa', C: 'Madalya sıralamasının lideri', D: 'Bir önceki ev sahibi ülke', E: 'Yunanistan' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Greece marches first as the birthplace of the Games, while the host nation closes the parade.',
   },
   {
@@ -1871,6 +2050,7 @@ const sports = [
     options: { A: 'Super gravity', B: 'Super glide', C: 'Super gradient', D: 'Super giant slalom', E: 'Super grand descent' },
     options_tr: { A: 'Super gravity', B: 'Super glide', C: 'Super gradient', D: 'Süper dev slalom', E: 'Super grand descent' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Super-G sits between downhill and giant slalom, with gates set further apart than in giant slalom and only a single run.',
   },
   {
@@ -1880,6 +2060,7 @@ const sports = [
     options: { A: 'Bursa', B: 'Kayseri', C: 'Erzurum', D: 'Kars', E: 'Bolu' },
     options_tr: { A: 'Bursa', B: 'Kayseri', C: 'Erzurum', D: 'Kars', E: 'Bolu' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Games were staged around the Palandöken ski resort and prompted Turkey to build ski jumping hills there.',
   },
   {
@@ -1889,6 +2070,7 @@ const sports = [
     options: { A: 'Bill Russell', B: 'Wilt Chamberlain', C: 'Magic Johnson', D: 'Oscar Robertson', E: 'Jerry West' },
     options_tr: { A: 'Bill Russell', B: 'Wilt Chamberlain', C: 'Magic Johnson', D: 'Oscar Robertson', E: 'Jerry West' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Russell won 11 championships with the Boston Celtics, and the trophy was renamed in his honour in 2009.',
   },
   {
@@ -1898,6 +2080,7 @@ const sports = [
     options: { A: '19.98 seconds', B: '19.62 seconds', C: '19.30 seconds', D: '19.19 seconds', E: '18.94 seconds' },
     options_tr: { A: '19,98 saniye', B: '19,62 saniye', C: '19,30 saniye', D: '19,19 saniye', E: '18,94 saniye' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'He set it at the Berlin World Championships days after running 9.58 in the 100 metres at the same meeting.',
   },
   {
@@ -1907,6 +2090,7 @@ const sports = [
     options: { A: 'Weightlifting', B: 'Athletics', C: 'Boxing', D: 'Taekwondo', E: 'Wrestling' },
     options_tr: { A: 'Halter', B: 'Atletizm', C: 'Boks', D: 'Tekvando', E: 'Güreş' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Wrestling accounts for the large majority of Turkey\'s Olympic titles, including the country\'s first gold in 1936.',
   },
   {
@@ -1928,6 +2112,7 @@ const sports = [
       E: 'Diskalifiye ile alınan galibiyet',
     },
     answer: 'A',
+    difficulty: 1,
     explanation: 'A southpaw leads with the right hand and foot, a mirror image of the orthodox stance that many opponents find awkward.',
   },
   {
@@ -1937,6 +2122,7 @@ const sports = [
     options: { A: 'Italy', B: 'Netherlands', C: 'Hungary', D: 'Germany', E: 'Brazil' },
     options_tr: { A: 'İtalya', B: 'Hollanda', C: 'Macaristan', D: 'Almanya', E: 'Brezilya' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Coached by Rinus Michels and led on the pitch by Johan Cruyff, the system had every outfield player able to cover any position.',
   },
   {
@@ -1946,6 +2132,7 @@ const sports = [
     options: { A: 'Freestyle wrestling', B: 'Judo', C: 'Greco-Roman wrestling', D: 'Sambo', E: 'Weightlifting' },
     options_tr: { A: 'Serbest güreş', B: 'Judo', C: 'Grekoromen güreş', D: 'Sambo', E: 'Halter' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Kayaalp built his career in the heaviest Greco-Roman category and also took Olympic silver and bronze medals.',
   },
   {
@@ -1967,6 +2154,7 @@ const sports = [
       E: 'Londra ve Manchester',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The crews have raced over a winding four-and-a-quarter-mile course in west London since 1829.',
   },
   {
@@ -1988,6 +2176,7 @@ const sports = [
       E: 'İsveç\'teki bir sanatoryum',
     },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Neurologist Ludwig Guttmann staged an archery contest for spinal injury patients on the opening day of the 1948 London Olympics.',
   },
   {
@@ -1997,6 +2186,7 @@ const sports = [
     options: { A: 'Fenerbahçe', B: 'Galatasaray', C: 'Anadolu Efes', D: 'Türk Telekom', E: 'Beşiktaş' },
     options_tr: { A: 'Fenerbahçe', B: 'Galatasaray', C: 'Anadolu Efes', D: 'Türk Telekom', E: 'Beşiktaş' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Efes beat Barcelona in the 2021 final and Real Madrid in 2022, with Vasilije Micić named MVP of the first of those.',
   },
   {
@@ -2006,6 +2196,7 @@ const sports = [
     options: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     options_tr: { A: '3', B: '4', C: '5', D: '6', E: '7' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Series is a best-of-seven contest, so four wins settle it and a sweep ends the season in four games.',
   },
   {
@@ -2015,6 +2206,7 @@ const sports = [
     options: { A: 'The button', B: 'The hack', C: 'The hog line', D: 'The sheet', E: 'The house' },
     options_tr: { A: 'Button', B: 'Hack', C: 'Hog line', D: 'Sheet', E: 'House (Ev)' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Only stones inside the house can score, and the small centre circle within it is known as the button.',
   },
   {
@@ -2024,6 +2216,7 @@ const sports = [
     options: { A: 'Real Madrid', B: 'Inter Milan', C: 'Manchester City', D: 'Bayern Munich', E: 'Chelsea' },
     options_tr: { A: 'Real Madrid', B: 'Inter Milan', C: 'Manchester City', D: 'Bayern Münih', E: 'Chelsea' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'City beat Inter 1-0 at the Atatürk Olympic Stadium, adding the trophy to the Premier League and FA Cup that season.',
   },
   {
@@ -2033,6 +2226,7 @@ const sports = [
     options: { A: '5-5', B: '6-5', C: '6-6', D: '7-6', E: '7-7' },
     options_tr: { A: '5-5', B: '6-5', C: '6-6', D: '7-6', E: '7-7' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The tie-break was devised by James Van Alen and adopted in the 1970s to stop sets running on indefinitely.',
   },
   {
@@ -2042,6 +2236,7 @@ const sports = [
     options: { A: '10', B: '15', C: '20', D: '25', E: '30' },
     options_tr: { A: '10', B: '15', C: '20', D: '25', E: '30' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The current scale of 25 for a win was introduced in 2010, replacing the 10-point system used for the previous two decades.',
   },
   {
@@ -2063,6 +2258,7 @@ const sports = [
       E: 'Hindistan ve Sri Lanka',
     },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The name comes from an 1882 newspaper obituary joking that English cricket had died and its ashes taken to Australia.',
   },
   {
@@ -2072,6 +2268,7 @@ const sports = [
     options: { A: 'Rings', B: 'Pommel horse', C: 'Horizontal bar', D: 'Parallel bars', E: 'Balance beam' },
     options_tr: { A: 'Halka', B: 'Kulplu beygir', C: 'Barfiks', D: 'Paralel bar', E: 'Denge aleti' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Women compete on vault, uneven bars, beam and floor, while the other four apparatus listed are men\'s events.',
   },
   {
@@ -2081,6 +2278,7 @@ const sports = [
     options: { A: '3 metres', B: '5 metres', C: '7.5 metres', D: '10 metres', E: '15 metres' },
     options_tr: { A: '3 metre', B: '5 metre', C: '7,5 metre', D: '10 metre', E: '15 metre' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Divers reach around 50 km/h falling from the 10 metre platform, while the springboard event is held at 3 metres.',
   },
   {
@@ -2090,6 +2288,7 @@ const sports = [
     options: { A: 'Javier Sotomayor', B: 'Patrik Sjöberg', C: 'Mutaz Essa Barshim', D: 'Charles Austin', E: 'Stefan Holm' },
     options_tr: { A: 'Javier Sotomayor', B: 'Patrik Sjöberg', C: 'Mutaz Essa Barshim', D: 'Charles Austin', E: 'Stefan Holm' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Set in Salamanca, it is one of the longest-standing records in athletics and no one has since cleared the height.',
   },
   {
@@ -2111,6 +2310,7 @@ const sports = [
       E: 'Bir önceki oyunların yapıldığı yerde',
     },
     answer: 'C',
+    difficulty: 2,
     explanation: 'A parabolic mirror focuses sunlight to kindle the flame at the Temple of Hera, a ceremony revived for the 1936 Games.',
   },
 ];

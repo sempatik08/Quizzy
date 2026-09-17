@@ -8,6 +8,7 @@ const philosophy = [
     options: { A: 'Plato', B: 'Aristotle', C: 'Socrates', D: 'Pythagoras', E: 'Heraclitus' },
     options_tr: { A: 'Platon', B: 'Aristoteles', C: 'Sokrates', D: 'Pisagor', E: 'Herakleitos' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Socrates is associated with this statement of humble ignorance, part of what is now called "Socratic wisdom."',
   },
   {
@@ -17,6 +18,7 @@ const philosophy = [
     options: { A: 'Aristotle', B: 'Plato', C: 'Socrates', D: 'Epicurus', E: 'Zeno of Citium' },
     options_tr: { A: 'Aristoteles', B: 'Platon', C: 'Sokrates', D: 'Epikuros', E: 'Kitionlu Zenon' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Plato\'s "The Republic" (c. 375 BC) is one of the most influential works in the history of philosophy and political theory.',
   },
   {
@@ -26,6 +28,7 @@ const philosophy = [
     options: { A: 'Voltaire', B: 'René Descartes', C: 'Jean-Jacques Rousseau', D: 'Blaise Pascal', E: 'Michel de Montaigne' },
     options_tr: { A: 'Voltaire', B: 'René Descartes', C: 'Jean-Jacques Rousseau', D: 'Blaise Pascal', E: 'Michel de Montaigne' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'René Descartes used this statement as a foundational certainty in his 1637 work "Discourse on the Method."',
   },
   {
@@ -35,6 +38,7 @@ const philosophy = [
     options: { A: 'Epistemology', B: 'Metaphysics', C: 'Ethics', D: 'Aesthetics', E: 'Logic' },
     options_tr: { A: 'Epistemoloji', B: 'Metafizik', C: 'Etik', D: 'Estetik', E: 'Mantık' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Ethics (moral philosophy) studies concepts of right and wrong behavior, justice, and virtue.',
   },
   {
@@ -44,6 +48,7 @@ const philosophy = [
     options: { A: 'Arthur Schopenhauer', B: 'Friedrich Nietzsche', C: 'Georg Wilhelm Friedrich Hegel', D: 'Immanuel Kant', E: 'Martin Heidegger' },
     options_tr: { A: 'Arthur Schopenhauer', B: 'Friedrich Nietzsche', C: 'Georg Wilhelm Friedrich Hegel', D: 'Immanuel Kant', E: 'Martin Heidegger' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Friedrich Nietzsche introduced the Übermensch concept in "Thus Spoke Zarathustra" (1883–1885).',
   },
   {
@@ -53,6 +58,7 @@ const philosophy = [
     options: { A: 'Xenophon', B: 'Plato', C: 'Antisthenes', D: 'Aristippus', E: 'Euclid of Megara' },
     options_tr: { A: 'Ksenophon', B: 'Platon', C: 'Antisthenes', D: 'Aristippos', E: 'Megaralı Euklid' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Plato founded the Academy around 387 BC, where Aristotle studied for about 20 years.',
   },
   {
@@ -62,6 +68,7 @@ const philosophy = [
     options: { A: 'Epicureanism', B: 'Stoicism', C: 'Cynicism', D: 'Skepticism', E: 'Hedonism' },
     options_tr: { A: 'Epikürcülük', B: 'Stoacılık', C: 'Kinizm', D: 'Kuşkuculuk (Şüphecilik)', E: 'Hedonizm' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Stoicism, founded around 300 BC, emphasizes virtue, reason, and living in accordance with nature.',
   },
   {
@@ -71,6 +78,7 @@ const philosophy = [
     options: { A: 'Georg Wilhelm Friedrich Hegel', B: 'Immanuel Kant', C: 'Arthur Schopenhauer', D: 'Johann Gottlieb Fichte', E: 'Friedrich Schelling' },
     options_tr: { A: 'Georg Wilhelm Friedrich Hegel', B: 'Immanuel Kant', C: 'Arthur Schopenhauer', D: 'Johann Gottlieb Fichte', E: 'Friedrich Schelling' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Immanuel Kant published "Critique of Pure Reason" in 1781 and developed the categorical imperative as a basis for moral duty.',
   },
   {
@@ -80,6 +88,7 @@ const philosophy = [
     options: { A: 'Epistemology', B: 'Ethics', C: 'Aesthetics', D: 'Metaphysics', E: 'Political philosophy' },
     options_tr: { A: 'Epistemoloji', B: 'Etik', C: 'Estetik', D: 'Metafizik', E: 'Siyaset felsefesi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Epistemology studies what knowledge is, how it is acquired, and how we can be certain of what we believe.',
   },
   {
@@ -89,6 +98,7 @@ const philosophy = [
     options: { A: 'Thales', B: 'Anaximander', C: 'Heraclitus', D: 'Parmenides', E: 'Democritus' },
     options_tr: { A: 'Tales', B: 'Anaksimandros', C: 'Herakleitos', D: 'Parmenides', E: 'Demokritos' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Heraclitus of Ephesus emphasized constant flux ("panta rhei," everything flows) as the fundamental nature of reality.',
   },
   {
@@ -98,6 +108,7 @@ const philosophy = [
     options: { A: 'John Locke', B: 'Thomas Hobbes', C: 'David Hume', D: 'Francis Bacon', E: 'Jeremy Bentham' },
     options_tr: { A: 'John Locke', B: 'Thomas Hobbes', C: 'David Hume', D: 'Francis Bacon', E: 'Jeremy Bentham' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Thomas Hobbes published Leviathan in 1651, arguing for a strong central authority to prevent the chaos of the state of nature.',
   },
   {
@@ -107,6 +118,7 @@ const philosophy = [
     options: { A: 'Al-Ghazali', B: 'Ibn Sina (Avicenna)', C: 'Ibn Rushd', D: 'Al-Farabi', E: 'Ibn Khaldun' },
     options_tr: { A: 'Gazali', B: 'İbn Sina', C: 'İbn Rüşd', D: 'Farabi', E: 'İbn Haldun' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Ibn Rushd (Averroes, 1126–1198), from Córdoba, wrote extensive commentaries on Aristotle that greatly influenced medieval European philosophy.',
   },
   {
@@ -116,6 +128,7 @@ const philosophy = [
     options: { A: 'David Hume', B: 'John Locke', C: 'George Berkeley', D: 'Thomas Hobbes', E: 'John Stuart Mill' },
     options_tr: { A: 'David Hume', B: 'John Locke', C: 'George Berkeley', D: 'Thomas Hobbes', E: 'John Stuart Mill' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'John Locke argued that all knowledge comes from experience, published in his 1689 "Essay Concerning Human Understanding."',
   },
   {
@@ -125,6 +138,7 @@ const philosophy = [
     options: { A: 'Metaphysics', B: 'Epistemology', C: 'Ethics', D: 'Logic', E: 'Aesthetics' },
     options_tr: { A: 'Metafizik', B: 'Epistemoloji', C: 'Etik', D: 'Mantık', E: 'Estetik' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Metaphysics deals with questions about being, existence, causality, time, and the nature of reality.',
   },
   {
@@ -134,6 +148,7 @@ const philosophy = [
     options: { A: 'Diogenes', B: 'Aristotle', C: 'Epicurus', D: 'Pyrrho', E: 'Speusippus' },
     options_tr: { A: 'Diyojen', B: 'Aristoteles', C: 'Epikuros', D: 'Pyrrhon', E: 'Speusippos' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Aristotle studied under Plato and later tutored Alexander the Great before founding his own school, the Lyceum.',
   },
   {
@@ -143,6 +158,7 @@ const philosophy = [
     options: { A: 'Al-Kindi', B: 'Ibn Sina', C: 'Al-Razi', D: 'Al-Biruni', E: 'Ibn Tufail' },
     options_tr: { A: 'El-Kindi', B: 'İbn Sina', C: 'Er-Razi', D: 'El-Biruni', E: 'İbn Tufeyl' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Ibn Sina (Avicenna, 980–1037), born near Bukhara, was one of the most significant physicians and philosophers of the Islamic Golden Age.',
   },
   {
@@ -152,6 +168,7 @@ const philosophy = [
     options: { A: 'Stoicism', B: 'Hedonism', C: 'Nihilism', D: 'Existentialism', E: 'Rationalism' },
     options_tr: { A: 'Stoacılık', B: 'Hedonizm', C: 'Nihilizm', D: 'Varoluşçuluk', E: 'Rasyonalizm' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Hedonism, associated with philosophers like Epicurus, holds that pleasure (often understood as tranquility) is the highest good.',
   },
   {
@@ -161,6 +178,7 @@ const philosophy = [
     options: { A: 'Albert Camus', B: 'Jean-Paul Sartre', C: 'Maurice Merleau-Ponty', D: 'Michel Foucault', E: 'Gabriel Marcel' },
     options_tr: { A: 'Albert Camus', B: 'Jean-Paul Sartre', C: 'Maurice Merleau-Ponty', D: 'Michel Foucault', E: 'Gabriel Marcel' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Jean-Paul Sartre declined the 1964 Nobel Prize in Literature, stating he always declined official honors.',
   },
   {
@@ -170,6 +188,7 @@ const philosophy = [
     options: { A: 'Søren Kierkegaard', B: 'Friedrich Nietzsche', C: 'Martin Heidegger', D: 'Karl Jaspers', E: 'Edmund Husserl' },
     options_tr: { A: 'Søren Kierkegaard', B: 'Friedrich Nietzsche', C: 'Martin Heidegger', D: 'Karl Jaspers', E: 'Edmund Husserl' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Søren Kierkegaard (1813–1855) explored individual existence, choice, and faith, and is widely regarded as the first existentialist philosopher.',
   },
   {
@@ -179,6 +198,7 @@ const philosophy = [
     options: { A: 'Laozi', B: 'Confucius', C: 'Mencius', D: 'Mozi', E: 'Zhuangzi' },
     options_tr: { A: 'Laozi', B: 'Konfüçyüs', C: 'Mengzi (Mencius)', D: 'Mozi', E: 'Zhuangzi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Confucius (551–479 BC) founded a philosophical and ethical system focused on personal and governmental morality.',
   },
   {
@@ -188,6 +208,7 @@ const philosophy = [
     options: { A: 'Confucius', B: 'Laozi', C: 'Sun Tzu', D: 'Han Feizi', E: 'Xunzi' },
     options_tr: { A: 'Konfüçyüs', B: 'Laozi', C: 'Sun Tzu', D: 'Han Feizi', E: 'Xunzi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Laozi is the semi-legendary author credited with the "Tao Te Ching," the foundational text of Taoism.',
   },
   {
@@ -197,6 +218,7 @@ const philosophy = [
     options: { A: 'Ethics', B: 'Aesthetics', C: 'Logic', D: 'Metaphysics', E: 'Epistemology' },
     options_tr: { A: 'Etik', B: 'Estetik', C: 'Mantık', D: 'Metafizik', E: 'Epistemoloji' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Aesthetics examines questions about beauty, artistic value, and the nature of aesthetic experience.',
   },
   {
@@ -206,6 +228,7 @@ const philosophy = [
     options: { A: 'Immanuel Kant', B: 'Georg Wilhelm Friedrich Hegel', C: 'Karl Marx', D: 'Arthur Schopenhauer', E: 'Friedrich Schelling' },
     options_tr: { A: 'Immanuel Kant', B: 'Georg Wilhelm Friedrich Hegel', C: 'Karl Marx', D: 'Arthur Schopenhauer', E: 'Friedrich Schelling' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Hegel\'s dialectical method profoundly influenced later philosophy, including Karl Marx\'s dialectical materialism.',
   },
   {
@@ -215,6 +238,7 @@ const philosophy = [
     options: { A: 'Friedrich Engels', B: 'Karl Marx', C: 'Vladimir Lenin', D: 'Max Weber', E: 'Antonio Gramsci' },
     options_tr: { A: 'Friedrich Engels', B: 'Karl Marx', C: 'Vladimir Lenin', D: 'Max Weber', E: 'Antonio Gramsci' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Karl Marx, with Friedrich Engels, co-wrote "The Communist Manifesto" (1848) and developed historical materialism.',
   },
   {
@@ -224,6 +248,7 @@ const philosophy = [
     options: { A: 'Stoicism', B: 'Epicureanism', C: 'Cynicism', D: 'Skepticism', E: 'Platonism' },
     options_tr: { A: 'Stoacılık', B: 'Epikürcülük', C: 'Kinizm', D: 'Kuşkuculuk', E: 'Platonculuk' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Diogenes of Sinope, the most famous Cynic, was known for extreme asceticism and rejecting conventional social norms.',
   },
   {
@@ -233,6 +258,7 @@ const philosophy = [
     options: { A: 'Al-Kindi', B: 'Al-Farabi', C: 'Al-Ghazali', D: 'Ibn Khaldun', E: 'Al-Razi' },
     options_tr: { A: 'El-Kindi', B: 'Farabi', C: 'Gazali', D: 'İbn Haldun', E: 'Er-Razi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Al-Farabi (c. 872–950), born in Central Asia, was called "the Second Teacher" for his influential commentaries on Aristotelian logic.',
   },
   {
@@ -242,6 +268,7 @@ const philosophy = [
     options: { A: 'Rationalism', B: 'Empiricism', C: 'Idealism', D: 'Dualism', E: 'Materialism' },
     options_tr: { A: 'Rasyonalizm', B: 'Ampirizm', C: 'İdealizm', D: 'Düalizm (İkicilik)', E: 'Materyalizm' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Empiricism, championed by philosophers like Locke, Berkeley, and Hume, holds that knowledge is derived mainly from sensory experience.',
   },
   {
@@ -251,6 +278,7 @@ const philosophy = [
     options: { A: 'Adam Smith', B: 'David Hume', C: 'Thomas Reid', D: 'Francis Hutcheson', E: 'Dugald Stewart' },
     options_tr: { A: 'Adam Smith', B: 'David Hume', C: 'Thomas Reid', D: 'Francis Hutcheson', E: 'Dugald Stewart' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'David Hume\'s skepticism about causation, presented in his 1739 "A Treatise of Human Nature," deeply influenced later philosophy.',
   },
   {
@@ -260,6 +288,7 @@ const philosophy = [
     options: { A: 'Ibn Rushd', B: 'Al-Ghazali', C: 'Al-Farabi', D: 'Ibn Sina', E: 'Al-Kindi' },
     options_tr: { A: 'İbn Rüşd', B: 'Gazali', C: 'Farabi', D: 'İbn Sina', E: 'El-Kindi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Al-Ghazali\'s "The Incoherence of the Philosophers" (11th century) criticized the reliance on Aristotelian philosophy by earlier Islamic thinkers.',
   },
   {
@@ -269,6 +298,7 @@ const philosophy = [
     options: { A: 'Hikmet', B: 'Felsefe', C: 'Mantık', D: 'İrfan', E: 'Tefekkür' },
     options_tr: { A: 'Hikmet', B: 'Felsefe', C: 'Mantık', D: 'İrfan', E: 'Tefekkür' },
     answer: 'B',
+    difficulty: 1,
     explanation: '"Felsefe" is the standard Turkish word for philosophy, ultimately derived from the Greek "philosophia" via Arabic.',
   },
   {
@@ -278,6 +308,7 @@ const philosophy = [
     options: { A: 'The Trolley Problem', B: 'The Chinese Room', C: 'The Brain in a Vat', D: 'Schrödinger\'s Cat (physics, not philosophy)', E: 'The Ship of Theseus' },
     options_tr: { A: 'Tramvay Problemi', B: 'Çin Odası', C: 'Fıçıdaki Beyin', D: 'Schrödinger\'in Kedisi (fizik, felsefe değil)', E: 'Theseus\'un Gemisi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'John Searle proposed the Chinese Room argument in 1980 to challenge claims of "strong AI" — that symbol manipulation alone constitutes understanding.',
   },
   {
@@ -287,6 +318,7 @@ const philosophy = [
     options: { A: 'The Chinese Room', B: 'The Trolley Problem', C: 'The Veil of Ignorance', D: 'The Prisoner\'s Dilemma', E: 'The Ship of Theseus' },
     options_tr: { A: 'Çin Odası', B: 'Tramvay Problemi', C: 'Cehalet Perdesi', D: 'Mahkumların İkilemi', E: 'Theseus\'un Gemisi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Trolley Problem, introduced by philosopher Philippa Foot in 1967, is a classic thought experiment in ethics concerning action versus inaction.',
   },
   {
@@ -296,6 +328,7 @@ const philosophy = [
     options: { A: 'Zeno\'s Paradox', B: 'The Ship of Theseus', C: 'The Liar Paradox', D: 'The Sorites Paradox', E: 'Buridan\'s Ass' },
     options_tr: { A: 'Zenon Paradoksu', B: 'Theseus\'un Gemisi', C: 'Yalancı Paradoksu', D: 'Sorites Paradoksu', E: 'Buridan\'ın Eşeği' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Ship of Theseus paradox questions identity and persistence over time, discussed since Plutarch\'s writings in antiquity.',
   },
   {
@@ -305,6 +338,7 @@ const philosophy = [
     options: { A: 'Edmund Husserl', B: 'Martin Heidegger', C: 'Karl Jaspers', D: 'Hans-Georg Gadamer', E: 'Max Scheler' },
     options_tr: { A: 'Edmund Husserl', B: 'Martin Heidegger', C: 'Karl Jaspers', D: 'Hans-Georg Gadamer', E: 'Max Scheler' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Martin Heidegger\'s "Being and Time" (1927) is a foundational text of 20th-century existential and phenomenological philosophy.',
   },
   {
@@ -314,6 +348,7 @@ const philosophy = [
     options: { A: 'John Stuart Mill', B: 'Jeremy Bentham', C: 'Immanuel Kant', D: 'John Locke', E: 'Thomas Hobbes' },
     options_tr: { A: 'John Stuart Mill', B: 'Jeremy Bentham', C: 'Immanuel Kant', D: 'John Locke', E: 'Thomas Hobbes' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Jeremy Bentham founded classical utilitarianism, later refined by his student John Stuart Mill.',
   },
   {
@@ -323,6 +358,7 @@ const philosophy = [
     options: { A: 'Herbert Spencer', B: 'John Stuart Mill', C: 'Henry Sidgwick', D: 'G.E. Moore', E: 'Bertrand Russell' },
     options_tr: { A: 'Herbert Spencer', B: 'John Stuart Mill', C: 'Henry Sidgwick', D: 'G.E. Moore', E: 'Bertrand Russell' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'John Stuart Mill published "On Liberty" in 1859 and "Utilitarianism" in 1861, both foundational texts of liberal and utilitarian thought.',
   },
   {
@@ -332,6 +368,7 @@ const philosophy = [
     options: { A: 'Logic', B: 'Ethics', C: 'Aesthetics', D: 'Metaphysics', E: 'Epistemology' },
     options_tr: { A: 'Mantık', B: 'Etik', C: 'Estetik', D: 'Metafizik', E: 'Epistemoloji' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Logic studies the structure of valid arguments and inference, foundational to philosophy since Aristotle\'s "Organon."',
   },
   {
@@ -341,6 +378,7 @@ const philosophy = [
     options: { A: 'Edmund Husserl', B: 'Martin Heidegger', C: 'Karl Jaspers', D: 'Max Horkheimer', E: 'Theodor Adorno' },
     options_tr: { A: 'Edmund Husserl', B: 'Martin Heidegger', C: 'Karl Jaspers', D: 'Max Horkheimer', E: 'Theodor Adorno' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Martin Heidegger joined the Nazi party in 1933; his philosophical legacy remains hugely influential but controversial due to this history.',
   },
   {
@@ -350,6 +388,7 @@ const philosophy = [
     options: { A: 'Ibn Khaldun', B: 'Al-Biruni', C: 'Ibn Battuta', D: 'Al-Tabari', E: 'Ibn al-Nafis' },
     options_tr: { A: 'İbn Haldun', B: 'El-Biruni', C: 'İbn Battuta', D: 'Et-Taberi', E: 'İbn en-Nefis' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Ibn Khaldun (1332–1406), a North African polymath, wrote the "Muqaddimah," considered a foundational text of historiography, sociology, and economics.',
   },
   {
@@ -359,6 +398,7 @@ const philosophy = [
     options: { A: 'Monism', B: 'Dualism', C: 'Materialism', D: 'Idealism', E: 'Functionalism' },
     options_tr: { A: 'Monizm (Birciliğik)', B: 'Düalizm (İkicilik)', C: 'Materyalizm', D: 'İdealizm', E: 'İşlevselcilik (Fonksiyonalizm)' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Cartesian dualism proposes that the mind (a non-physical substance) and the body (a physical substance) are fundamentally distinct.',
   },
   {
@@ -368,6 +408,7 @@ const philosophy = [
     options: { A: 'Aristotle', B: 'Plato', C: 'Democritus', D: 'Epicurus', E: 'Zeno' },
     options_tr: { A: 'Aristoteles', B: 'Platon', C: 'Demokritos', D: 'Epikuros', E: 'Zenon' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Plato\'s Theory of Forms holds that non-physical, eternal Forms represent the truest reality, with physical objects being mere shadows or copies.',
   },
   {
@@ -377,6 +418,7 @@ const philosophy = [
     options: { A: 'Friedrich Nietzsche', B: 'Arthur Schopenhauer', C: 'Georg Wilhelm Friedrich Hegel', D: 'Ludwig Feuerbach', E: 'Eduard von Hartmann' },
     options_tr: { A: 'Friedrich Nietzsche', B: 'Arthur Schopenhauer', C: 'Georg Wilhelm Friedrich Hegel', D: 'Ludwig Feuerbach', E: 'Eduard von Hartmann' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Arthur Schopenhauer\'s philosophy, centered on the concept of a blind, striving "will," profoundly influenced Nietzsche and later thinkers.',
   },
   {
@@ -386,6 +428,7 @@ const philosophy = [
     options: { A: 'Political philosophy', B: 'Aesthetics', C: 'Philosophy of mind', D: 'Philosophy of science', E: 'Logic' },
     options_tr: { A: 'Siyaset felsefesi', B: 'Estetik', C: 'Zihin felsefesi', D: 'Bilim felsefesi', E: 'Mantık' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Political philosophy examines questions of governance, justice, rights, and the legitimacy of political authority.',
   },
   {
@@ -395,6 +438,7 @@ const philosophy = [
     options: { A: 'Voltaire', B: 'Montesquieu', C: 'Jean-Jacques Rousseau', D: 'Denis Diderot', E: 'Baron d\'Holbach' },
     options_tr: { A: 'Voltaire', B: 'Montesquieu', C: 'Jean-Jacques Rousseau', D: 'Denis Diderot', E: 'Baron d\'Holbach' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Jean-Jacques Rousseau\'s "The Social Contract" (1762) opens with the famous line, "Man is born free, and everywhere he is in chains."',
   },
   {
@@ -404,6 +448,7 @@ const philosophy = [
     options: { A: 'Robert Nozick', B: 'John Rawls', C: 'Michael Sandel', D: 'Amartya Sen', E: 'Ronald Dworkin' },
     options_tr: { A: 'Robert Nozick', B: 'John Rawls', C: 'Michael Sandel', D: 'Amartya Sen', E: 'Ronald Dworkin' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'John Rawls introduced the "veil of ignorance" thought experiment in his 1971 book "A Theory of Justice."',
   },
   {
@@ -413,6 +458,7 @@ const philosophy = [
     options: { A: 'Anaximander', B: 'Thales of Miletus', C: 'Anaximenes', D: 'Pythagoras', E: 'Xenophanes' },
     options_tr: { A: 'Anaksimandros', B: 'Miletli Tales', C: 'Anaksimenes', D: 'Pisagor', E: 'Ksenophanes' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Thales of Miletus (c. 624–546 BC) is traditionally considered the first philosopher in the Western tradition.',
   },
   {
@@ -422,6 +468,7 @@ const philosophy = [
     options: { A: 'Philosophy of language', B: 'Philosophy of mind', C: 'Philosophy of religion', D: 'Philosophy of science', E: 'Social philosophy' },
     options_tr: { A: 'Dil felsefesi', B: 'Zihin felsefesi', C: 'Din felsefesi', D: 'Bilim felsefesi', E: 'Toplum felsefesi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Philosophy of mind explores consciousness, mental states, and the mind-body problem, closely tied to cognitive science.',
   },
   {
@@ -431,6 +478,7 @@ const philosophy = [
     options: { A: 'The Cosmological Argument', B: 'The Teleological Argument', C: 'The Ontological Argument', D: 'The Moral Argument', E: 'Pascal\'s Wager' },
     options_tr: { A: 'Kozmolojik Argüman', B: 'Teleolojik Argüman', C: 'Ontolojik Argüman', D: 'Ahlaki Argüman', E: 'Pascal\'ın Bahsi' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Anselm\'s Ontological Argument (11th century) reasons that God, defined as the greatest conceivable being, must exist because existence is a necessary attribute of such a being.',
   },
   {
@@ -440,6 +488,7 @@ const philosophy = [
     options: { A: 'Descartes\' Wager', B: 'Pascal\'s Wager', C: 'Voltaire\'s Wager', D: 'Rousseau\'s Wager', E: 'Montaigne\'s Wager' },
     options_tr: { A: 'Descartes\'ın Bahsi', B: 'Pascal\'ın Bahsi', C: 'Voltaire\'in Bahsi', D: 'Rousseau\'nun Bahsi', E: 'Montaigne\'in Bahsi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Blaise Pascal\'s Wager, from his "Pensées" (published posthumously in 1670), is a pragmatic argument for believing in God under uncertainty.',
   },
   {
@@ -449,6 +498,7 @@ const philosophy = [
     options: { A: 'Bertrand Russell', B: 'Ludwig Wittgenstein', C: 'Karl Popper', D: 'Rudolf Carnap', E: 'Gottlob Frege' },
     options_tr: { A: 'Bertrand Russell', B: 'Ludwig Wittgenstein', C: 'Karl Popper', D: 'Rudolf Carnap', E: 'Gottlob Frege' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Ludwig Wittgenstein published the "Tractatus Logico-Philosophicus" in 1921, profoundly shaping analytic philosophy and philosophy of language.',
   },
   {
@@ -458,6 +508,7 @@ const philosophy = [
     options: { A: 'Alfred North Whitehead', B: 'Bertrand Russell', C: 'G.E. Moore', D: 'A.J. Ayer', E: 'Gilbert Ryle' },
     options_tr: { A: 'Alfred North Whitehead', B: 'Bertrand Russell', C: 'G.E. Moore', D: 'A.J. Ayer', E: 'Gilbert Ryle' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Bertrand Russell won the Nobel Prize in Literature in 1950 and co-authored "Principia Mathematica" with Alfred North Whitehead.',
   },
   {
@@ -467,6 +518,7 @@ const philosophy = [
     options: { A: 'Zeno of Citium', B: 'Epicurus', C: 'Pyrrho', D: 'Antisthenes', E: 'Aristippus' },
     options_tr: { A: 'Kitionlu Zenon', B: 'Epikuros', C: 'Pyrrhon', D: 'Antisthenes', E: 'Aristippos' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Epicurus founded Epicureanism, teaching that the highest good is a tranquil state free from fear and pain, not mere indulgence in pleasure.',
   },
   {
@@ -476,6 +528,7 @@ const philosophy = [
     options: { A: 'Structuralism', B: 'Existentialism', C: 'Positivism', D: 'Idealism', E: 'Pragmatism' },
     options_tr: { A: 'Yapısalcılık', B: 'Varoluşçuluk', C: 'Pozitivizm', D: 'İdealizm', E: 'Pragmatizm' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Existentialism holds that individuals create their own meaning in an inherently indifferent or absurd universe.',
   },
   {
@@ -485,6 +538,7 @@ const philosophy = [
     options: { A: 'Empiricism', B: 'Pragmatism', C: 'Rationalism', D: 'Idealism', E: 'Existentialism' },
     options_tr: { A: 'Ampirizm', B: 'Pragmatizm', C: 'Rasyonalizm', D: 'İdealizm', E: 'Varoluşçuluk' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Pragmatism, developed by Charles Sanders Peirce, William James, and John Dewey, judges the value of ideas by their practical effects.',
   },
   {
@@ -494,6 +548,7 @@ const philosophy = [
     options: { A: 'Jacques Derrida', B: 'Michel Foucault', C: 'Claude Lévi-Strauss', D: 'Louis Althusser', E: 'Roland Barthes' },
     options_tr: { A: 'Jacques Derrida', B: 'Michel Foucault', C: 'Claude Lévi-Strauss', D: 'Louis Althusser', E: 'Roland Barthes' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Michel Foucault\'s "Discipline and Punish" (1975) examines the evolution of punishment and the mechanisms of institutional power.',
   },
   {
@@ -503,6 +558,7 @@ const philosophy = [
     options: { A: 'Herbert Marcuse', B: 'Theodor Adorno', C: 'Jürgen Habermas', D: 'Walter Benjamin', E: 'Erich Fromm' },
     options_tr: { A: 'Herbert Marcuse', B: 'Theodor Adorno', C: 'Jürgen Habermas', D: 'Walter Benjamin', E: 'Erich Fromm' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Theodor Adorno co-wrote "Dialectic of Enlightenment" (1944) with Max Horkheimer, a key text of Frankfurt School critical theory.',
   },
   {
@@ -512,6 +568,7 @@ const philosophy = [
     options: { A: 'Namık Kemal', B: 'Ziya Gökalp', C: 'Ahmed Cevdet Pasha', D: 'Şemseddin Sami', E: 'Mehmed Akif Ersoy' },
     options_tr: { A: 'Namık Kemal', B: 'Ziya Gökalp', C: 'Ahmed Cevdet Paşa', D: 'Şemseddin Sami', E: 'Mehmed Akif Ersoy' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ziya Gökalp (1876–1924) was a highly influential sociologist and thinker whose ideas on nationalism shaped early Turkish republican ideology.',
   },
   {
@@ -521,6 +578,7 @@ const philosophy = [
     options: { A: 'The Sorites Paradox', B: 'The Liar Paradox', C: 'Zeno\'s Paradox', D: 'The Barber Paradox', E: 'Russell\'s Paradox' },
     options_tr: { A: 'Sorites Paradoksu', B: 'Yalancı Paradoksu', C: 'Zenon Paradoksu', D: 'Berber Paradoksu', E: 'Russell Paradoksu' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Liar Paradox, known since antiquity, highlights deep problems in self-referential statements and formal logic.',
   },
   {
@@ -530,6 +588,7 @@ const philosophy = [
     options: { A: 'Parmenides', B: 'Zeno of Elea', C: 'Heraclitus', D: 'Empedocles', E: 'Anaxagoras' },
     options_tr: { A: 'Parmenides', B: 'Elealı Zenon', C: 'Herakleitos', D: 'Empedokles', E: 'Anaksagoras' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Zeno of Elea devised paradoxes, including "Achilles and the Tortoise," to support his teacher Parmenides\' view that motion is illusory.',
   },
   {
@@ -539,6 +598,7 @@ const philosophy = [
     options: { A: 'Yunus Emre', B: 'Rumi (Jalal ad-Din Muhammad Rumi)', C: 'Hacı Bektaş Veli', D: 'Ibn Arabi', E: 'Şeyh Bedreddin' },
     options_tr: { A: 'Yunus Emre', B: 'Mevlana Celaleddin Rumi', C: 'Hacı Bektaş Veli', D: 'İbn Arabi', E: 'Şeyh Bedreddin' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Rumi\'s teachings and poetry gave rise to the Mevlevi Order, founded after his death by his followers in Konya.',
   },
   {
@@ -548,6 +608,7 @@ const philosophy = [
     options: { A: 'Idealism', B: 'Materialism', C: 'Dualism', D: 'Solipsism', E: 'Panpsychism' },
     options_tr: { A: 'İdealizm', B: 'Materyalizm', C: 'Düalizm', D: 'Sadece-benincilik (Solipsizm)', E: 'Panpsişizm' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Materialism (physicalism) holds that everything, including mental phenomena, ultimately consists of or arises from physical matter.',
   },
   {
@@ -557,6 +618,7 @@ const philosophy = [
     options: { A: 'John Locke', B: 'David Hume', C: 'George Berkeley', D: 'Francis Hutcheson', E: 'Edmund Burke' },
     options_tr: { A: 'John Locke', B: 'David Hume', C: 'George Berkeley', D: 'Francis Hutcheson', E: 'Edmund Burke' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'George Berkeley\'s idealism (immaterialism) holds that objects only exist as ideas perceived by minds.',
   },
   {
@@ -566,6 +628,7 @@ const philosophy = [
     options: { A: 'Philosophy of science', B: 'Philosophy of religion', C: 'Philosophy of language', D: 'Social philosophy', E: 'Philosophy of law' },
     options_tr: { A: 'Bilim felsefesi', B: 'Din felsefesi', C: 'Dil felsefesi', D: 'Toplum felsefesi', E: 'Hukuk felsefesi' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Philosophy of science examines the foundations, methods, and implications of science, including questions about what makes a theory scientific.',
   },
   {
@@ -575,6 +638,7 @@ const philosophy = [
     options: { A: 'Thomas Kuhn', B: 'Karl Popper', C: 'Imre Lakatos', D: 'Paul Feyerabend', E: 'Rudolf Carnap' },
     options_tr: { A: 'Thomas Kuhn', B: 'Karl Popper', C: 'Imre Lakatos', D: 'Paul Feyerabend', E: 'Rudolf Carnap' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Karl Popper proposed falsifiability in his 1934 work "The Logic of Scientific Discovery" as the demarcation criterion for science.',
   },
   {
@@ -584,6 +648,7 @@ const philosophy = [
     options: { A: 'Karl Popper', B: 'Thomas Kuhn', C: 'W.V.O. Quine', D: 'Hilary Putnam', E: 'Nelson Goodman' },
     options_tr: { A: 'Karl Popper', B: 'Thomas Kuhn', C: 'W.V.O. Quine', D: 'Hilary Putnam', E: 'Nelson Goodman' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Thomas Kuhn\'s 1962 book introduced "paradigm shift" to describe how scientific revolutions overturn established frameworks.',
   },
   {
@@ -593,6 +658,7 @@ const philosophy = [
     options: { A: 'Anaxagoras', B: 'Empedocles', C: 'Democritus', D: 'Leucippus', E: 'Xenophanes' },
     options_tr: { A: 'Anaksagoras', B: 'Empedokles', C: 'Demokritos', D: 'Leukippos', E: 'Ksenophanes' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Empedocles proposed the four classical elements theory, which influenced Western thought for centuries afterward.',
   },
   {
@@ -602,6 +668,7 @@ const philosophy = [
     options: { A: 'Democritus', B: 'Empedocles', C: 'Anaximander', D: 'Thales', E: 'Pythagoras' },
     options_tr: { A: 'Demokritos', B: 'Empedokles', C: 'Anaksimandros', D: 'Tales', E: 'Pisagor' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Democritus, alongside Leucippus, developed early atomic theory in the 5th century BC, long before modern atomic physics.',
   },
   {
@@ -611,6 +678,7 @@ const philosophy = [
     options: { A: 'Hinduism (Vedanta)', B: 'Jainism', C: 'Sikhism', D: 'Buddhism (same tradition)', E: 'Zoroastrianism' },
     options_tr: { A: 'Hinduizm (Vedanta)', B: 'Caynizm (Jainizm)', C: 'Sihizm', D: 'Budizm (aynı gelenek)', E: 'Zerdüştlük' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Jainism, associated with Mahavira (6th century BC), emphasizes strict non-violence toward all living beings.',
   },
   {
@@ -620,6 +688,7 @@ const philosophy = [
     options: { A: 'Ashoka', B: 'Siddhartha Gautama', C: 'Mahavira', D: 'Nagarjuna', E: 'Bodhidharma' },
     options_tr: { A: 'Ashoka', B: 'Siddhartha Gautama', C: 'Mahavira', D: 'Nagarjuna', E: 'Bodhidharma' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Siddhartha Gautama (c. 5th–4th century BC) achieved enlightenment and became known as the Buddha, founding Buddhism.',
   },
   {
@@ -629,6 +698,7 @@ const philosophy = [
     options: { A: 'The Eightfold Path', B: 'The Four Noble Truths', C: 'Karma', D: 'Nirvana', E: 'Dharma' },
     options_tr: { A: 'Sekiz Dilimli Yol', B: 'Dört Yüce Gerçek', C: 'Karma', D: 'Nirvana', E: 'Dharma' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Four Noble Truths are the foundation of Buddhist teaching, identifying suffering, its cause, its end, and the path to end it.',
   },
   {
@@ -638,6 +708,7 @@ const philosophy = [
     options: { A: 'Yunus Emre', B: 'Mevlana Celaleddin Rumi', C: 'Hacı Bektaş Veli', D: 'Ahmed Yesevi', E: 'Niyazi Mısri' },
     options_tr: { A: 'Yunus Emre', B: 'Mevlana Celaleddin Rumi', C: 'Hacı Bektaş Veli', D: 'Ahmed Yesevi', E: 'Niyazi Mısri' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Yunus Emre (13th–14th century) is beloved for his humanistic, accessible Sufi poetry central to Turkish and Anatolian mysticism.',
   },
   {
@@ -647,6 +718,7 @@ const philosophy = [
     options: { A: 'Dharma', B: 'Karma', C: 'Moksha', D: 'Samsara', E: 'Maya' },
     options_tr: { A: 'Dharma', B: 'Karma', C: 'Moksha', D: 'Samsara', E: 'Maya' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Karma is the principle that actions have consequences affecting future lives and circumstances in the cycle of rebirth (samsara).',
   },
   {
@@ -656,6 +728,7 @@ const philosophy = [
     options: { A: 'Georg Wilhelm Friedrich Hegel', B: 'Karl Marx', C: 'Immanuel Kant', D: 'Friedrich Nietzsche', E: 'Arthur Schopenhauer' },
     options_tr: { A: 'Georg Wilhelm Friedrich Hegel', B: 'Karl Marx', C: 'Immanuel Kant', D: 'Friedrich Nietzsche', E: 'Arthur Schopenhauer' },
     answer: 'B',
+    difficulty: 2,
     explanation: '"False consciousness," a concept elaborated within Marxist theory, describes how ideology masks the reality of class relations.',
   },
   {
@@ -665,6 +738,7 @@ const philosophy = [
     options: { A: 'Philosophy of language', B: 'Philosophy of mind', C: 'Metaphysics', D: 'Epistemology', E: 'Ethics' },
     options_tr: { A: 'Dil felsefesi', B: 'Zihin felsefesi', C: 'Metafizik', D: 'Epistemoloji', E: 'Etik' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Philosophy of language studies meaning, reference, truth, and communication, closely tied to logic and linguistics.',
   },
   {
@@ -674,6 +748,7 @@ const philosophy = [
     options: { A: 'Moral relativism', B: 'Moral absolutism', C: 'Moral nihilism', D: 'Emotivism', E: 'Moral skepticism' },
     options_tr: { A: 'Ahlaki görecelik', B: 'Ahlaki mutlakçılık', C: 'Ahlaki hiççilik', D: 'Duygusalcılık', E: 'Ahlaki kuşkuculuk' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Moral absolutism holds that certain actions are always right or wrong, regardless of context or cultural variation, contrasted with moral relativism.',
   },
   {
@@ -683,6 +758,7 @@ const philosophy = [
     options: { A: 'Moral absolutism', B: 'Moral relativism', C: 'Deontology', D: 'Virtue ethics', E: 'Consequentialism' },
     options_tr: { A: 'Ahlaki mutlakçılık', B: 'Ahlaki görecelik', C: 'Ödev etiği (Deontoloji)', D: 'Erdem etiği', E: 'Sonuççuluk' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Moral relativism holds that ethical standards and judgments vary according to cultural or personal perspectives, rather than being universally fixed.',
   },
   {
@@ -692,6 +768,7 @@ const philosophy = [
     options: { A: 'Deontology', B: 'Consequentialism', C: 'Virtue ethics', D: 'Divine command theory', E: 'Contractualism' },
     options_tr: { A: 'Ödev etiği', B: 'Sonuççuluk', C: 'Erdem etiği', D: 'İlahi buyruk teorisi', E: 'Sözleşmecilik' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Virtue ethics, rooted in Aristotle\'s "Nicomachean Ethics," emphasizes character and the pursuit of "eudaimonia" (flourishing) over rigid rules.',
   },
   {
@@ -701,6 +778,7 @@ const philosophy = [
     options: { A: 'Consequentialism', B: 'Deontology', C: 'Virtue ethics', D: 'Hedonism', E: 'Egoism' },
     options_tr: { A: 'Sonuççuluk', B: 'Ödev etiği (Deontoloji)', C: 'Erdem etiği', D: 'Hedonizm', E: 'Bencillik (Egoizm)' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Deontological ethics, most associated with Kant, judges actions as right or wrong based on adherence to moral rules or duties, not outcomes.',
   },
   {
@@ -710,6 +788,7 @@ const philosophy = [
     options: { A: 'Deontology', B: 'Virtue ethics', C: 'Consequentialism', D: 'Divine command theory', E: 'Natural law theory' },
     options_tr: { A: 'Ödev etiği', B: 'Erdem etiği', C: 'Sonuççuluk', D: 'İlahi buyruk teorisi', E: 'Doğal hukuk teorisi' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Consequentialism, including utilitarianism, evaluates the morality of actions based on their results rather than intrinsic rules or character.',
   },
   {
@@ -719,6 +798,7 @@ const philosophy = [
     options: { A: 'Michel Foucault', B: 'Jacques Derrida', C: 'Jean Baudrillard', D: 'Gilles Deleuze', E: 'Jean-François Lyotard' },
     options_tr: { A: 'Michel Foucault', B: 'Jacques Derrida', C: 'Jean Baudrillard', D: 'Gilles Deleuze', E: 'Jean-François Lyotard' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Jacques Derrida developed deconstruction, a method of critical analysis showing how texts undermine their own apparent meanings.',
   },
   {
@@ -728,6 +808,7 @@ const philosophy = [
     options: { A: 'Yusuf Akçura', B: 'Ziya Gökalp', C: 'Ahmet Ağaoğlu', D: 'Mehmed Emin Yurdakul', E: 'Halide Edip Adıvar' },
     options_tr: { A: 'Yusuf Akçura', B: 'Ziya Gökalp', C: 'Ahmet Ağaoğlu', D: 'Mehmed Emin Yurdakul', E: 'Halide Edip Adıvar' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ziya Gökalp\'s "The Principles of Turkism" (Türkçülüğün Esasları, 1923) was highly influential in shaping early Turkish nationalist ideology.',
   },
   {
@@ -737,6 +818,7 @@ const philosophy = [
     options: { A: 'Stoicism', B: 'Epicureanism', C: 'Skepticism (Pyrrhonism)', D: 'Cynicism', E: 'Platonism' },
     options_tr: { A: 'Stoacılık', B: 'Epikürcülük', C: 'Kuşkuculuk (Pyrrhonculuk)', D: 'Kinizm', E: 'Platonculuk' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Pyrrhonist Skepticism, founded by Pyrrho of Elis, advocated "epoché" (suspension of judgment) as the path to tranquility.',
   },
   {
@@ -746,6 +828,7 @@ const philosophy = [
     options: { A: 'John Rawls', B: 'Michael Sandel', C: 'Robert Nozick', D: 'Alasdair MacIntyre', E: 'Martha Nussbaum' },
     options_tr: { A: 'John Rawls', B: 'Michael Sandel', C: 'Robert Nozick', D: 'Alasdair MacIntyre', E: 'Martha Nussbaum' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Michael Sandel, a Harvard political philosopher, is well known for his critiques of Rawlsian liberalism and his popular course/book "Justice."',
   },
   {
@@ -755,6 +838,7 @@ const philosophy = [
     options: { A: 'Arthur Schopenhauer', B: 'Friedrich Nietzsche', C: 'Max Weber', D: 'Georg Simmel', E: 'Wilhelm Dilthey' },
     options_tr: { A: 'Arthur Schopenhauer', B: 'Friedrich Nietzsche', C: 'Max Weber', D: 'Georg Simmel', E: 'Wilhelm Dilthey' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Friedrich Nietzsche developed this distinction in his 1887 work, critiquing conventional morality\'s origins in resentment ("ressentiment").',
   },
   {
@@ -764,6 +848,7 @@ const philosophy = [
     options: { A: 'Ibn Rushd', B: 'Ibn Tufail', C: 'Ibn Bajjah', D: 'Ibn Arabi', E: 'Al-Ghazali' },
     options_tr: { A: 'İbn Rüşd', B: 'İbn Tufeyl', C: 'İbn Bacce', D: 'İbn Arabi', E: 'Gazali' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ibn Tufail\'s 12th-century philosophical novel "Hayy ibn Yaqzan" explored themes of reason, nature, and religious knowledge, influencing later European thought.',
   },
   {
@@ -773,6 +858,7 @@ const philosophy = [
     options: { A: 'Philosophy of religion', B: 'Philosophy of law', C: 'Philosophy of history', D: 'Social philosophy', E: 'Philosophy of mind' },
     options_tr: { A: 'Din felsefesi', B: 'Hukuk felsefesi', C: 'Tarih felsefesi', D: 'Toplum felsefesi', E: 'Zihin felsefesi' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Philosophy of religion investigates religious concepts, arguments for and against God\'s existence, and the nature of faith.',
   },
   {
@@ -782,6 +868,7 @@ const philosophy = [
     options: { A: 'The Ontological Argument', B: 'The Cosmological Argument', C: 'The Teleological Argument (Argument from Design)', D: 'The Problem of Evil', E: 'The Moral Argument' },
     options_tr: { A: 'Ontolojik Argüman', B: 'Kozmolojik Argüman', C: 'Teleolojik Argüman (Tasarım Argümanı)', D: 'Kötülük Problemi', E: 'Ahlaki Argüman' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Teleological Argument, notably advanced by William Paley\'s "watchmaker analogy" (1802), infers design from apparent purpose in nature.',
   },
   {
@@ -791,6 +878,7 @@ const philosophy = [
     options: { A: 'The Problem of Evil', B: 'The Problem of Free Will', C: 'The Problem of Universals', D: 'The Mind-Body Problem', E: 'The Problem of Induction' },
     options_tr: { A: 'Kötülük Problemi', B: 'Özgür İrade Problemi', C: 'Evrenseller Problemi', D: 'Zihin-Beden Problemi', E: 'Tümevarım Problemi' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The Problem of Evil is one of the oldest and most debated challenges in philosophy of religion, dating back to Epicurus.',
   },
   {
@@ -800,6 +888,7 @@ const philosophy = [
     options: { A: 'Seneca', B: 'Epictetus', C: 'Marcus Aurelius', D: 'Cicero', E: 'Cato the Younger' },
     options_tr: { A: 'Seneca', B: 'Epiktetos', C: 'Marcus Aurelius', D: 'Cicero', E: 'Genç Cato' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Marcus Aurelius (121–180 AD), Roman Emperor, wrote "Meditations" as a private philosophical diary reflecting Stoic principles.',
   },
   {
@@ -809,6 +898,7 @@ const philosophy = [
     options: { A: 'Seneca', B: 'Epictetus', C: 'Marcus Aurelius', D: 'Musonius Rufus', E: 'Zeno of Citium' },
     options_tr: { A: 'Seneca', B: 'Epiktetos', C: 'Marcus Aurelius', D: 'Musonius Rufus', E: 'Kitionlu Zenon' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Epictetus, born into slavery, became a highly influential Stoic teacher whose "Enchiridion" and "Discourses" emphasize the "dichotomy of control."',
   },
   {
@@ -818,6 +908,7 @@ const philosophy = [
     options: { A: 'Philosophy of biology', B: 'Philosophy of artificial intelligence', C: 'Philosophy of mathematics', D: 'Philosophy of physics', E: 'Philosophy of economics' },
     options_tr: { A: 'Biyoloji felsefesi', B: 'Yapay zeka felsefesi', C: 'Matematik felsefesi', D: 'Fizik felsefesi', E: 'Ekonomi felsefesi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Philosophy of artificial intelligence explores questions of machine consciousness, understanding, and the ethical implications of AI, drawing on thought experiments like the Chinese Room.',
   },
   {
@@ -827,6 +918,7 @@ const philosophy = [
     options: { A: 'Simone Weil', B: 'Hannah Arendt', C: 'Rosa Luxemburg', D: 'Susan Sontag', E: 'Judith Butler' },
     options_tr: { A: 'Simone Weil', B: 'Hannah Arendt', C: 'Rosa Luxemburg', D: 'Susan Sontag', E: 'Judith Butler' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Hannah Arendt coined "the banality of evil" in her 1963 book "Eichmann in Jerusalem," reporting on the trial of Nazi official Adolf Eichmann.',
   },
   {
@@ -836,6 +928,7 @@ const philosophy = [
     options: { A: 'Jawaharlal Nehru', B: 'Mahatma Gandhi', C: 'Rabindranath Tagore', D: 'B.R. Ambedkar', E: 'Sarvepalli Radhakrishnan' },
     options_tr: { A: 'Jawaharlal Nehru', B: 'Mahatma Gandhi', C: 'Rabindranath Tagore', D: 'B.R. Ambedkar', E: 'Sarvepalli Radhakrishnan' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Mahatma Gandhi developed and applied "satyagraha" as a philosophy of nonviolent civil resistance during India\'s independence movement.',
   },
   {
@@ -845,6 +938,7 @@ const philosophy = [
     options: { A: 'Ataraxia', B: 'Angst (existential anxiety/dread)', C: 'Eudaimonia', D: 'Catharsis', E: 'Apatheia' },
     options_tr: { A: 'Ataraxia', B: 'Angst (varoluşsal kaygı/dehşet)', C: 'Eudaimonia', D: 'Katarsis', E: 'Apatheia' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Angst (or "dread"), explored by Kierkegaard, Heidegger, and Sartre, describes the unsettling experience of confronting one\'s own radical freedom.',
   },
   {
@@ -854,6 +948,7 @@ const philosophy = [
     options: { A: 'Ataraxia', B: 'Eudaimonia', C: 'Phronesis', D: 'Arete', E: 'Sophia' },
     options_tr: { A: 'Ataraxia', B: 'Eudaimonia', C: 'Phronesis', D: 'Arete', E: 'Sophia' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Eudaimonia, central to Aristotle\'s "Nicomachean Ethics," describes a state of flourishing achieved through virtuous activity in accordance with reason.',
   },
   {
@@ -863,6 +958,7 @@ const philosophy = [
     options: { A: 'İoanna Kuçuradi', B: 'Nermi Uygur', C: 'Takiyettin Mengüşoğlu', D: 'Hilmi Ziya Ülken', E: 'All of the above are notable Turkish philosophers' },
     options_tr: { A: 'İoanna Kuçuradi', B: 'Nermi Uygur', C: 'Takiyettin Mengüşoğlu', D: 'Hilmi Ziya Ülken', E: 'Yukarıdakilerin hepsi tanınmış Türk filozoflardır' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'İoanna Kuçuradi, Nermi Uygur, Takiyettin Mengüşoğlu, and Hilmi Ziya Ülken are all significant 20th-century Turkish philosophers and academics.',
   },
   {
@@ -872,6 +968,7 @@ const philosophy = [
     options: { A: 'The Problem of Universals', B: 'The Free Will Problem (Free Will vs. Determinism)', C: 'The Problem of Induction', D: 'The Mind-Body Problem', E: 'The Problem of Personal Identity' },
     options_tr: { A: 'Evrenseller Problemi', B: 'Özgür İrade Problemi (Özgür İrade vs. Determinizm)', C: 'Tümevarım Problemi', D: 'Zihin-Beden Problemi', E: 'Kişisel Kimlik Problemi' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The free will vs. determinism debate is one of the oldest problems in metaphysics, addressing moral responsibility and causation.',
   },
   {
@@ -881,6 +978,7 @@ const philosophy = [
     options: { A: 'Just War Theory', B: 'Social contract theory', C: 'Virtue ethics', D: 'Applied epistemology', E: 'Philosophy of law' },
     options_tr: { A: 'Adil Savaş Teorisi', B: 'Toplum sözleşmesi teorisi', C: 'Erdem etiği', D: 'Uygulamalı epistemoloji', E: 'Hukuk felsefesi' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Just War Theory, developed by thinkers including Augustine and Aquinas, sets out moral criteria for when war is justified and how it should be conducted.',
   },
   {
@@ -890,6 +988,7 @@ const philosophy = [
     options: { A: 'Augustine of Hippo', B: 'Thomas Aquinas', C: 'Anselm of Canterbury', D: 'Duns Scotus', E: 'William of Ockham' },
     options_tr: { A: 'Hippolu Augustinus', B: 'Aquinolu Thomas (Aziz Thomas)', C: 'Canterburylu Anselm', D: 'Duns Scotus', E: 'Ockhamlı William' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Thomas Aquinas (1225–1274) synthesized Aristotelian philosophy with Catholic theology in his monumental "Summa Theologica."',
   },
   {
@@ -899,6 +998,7 @@ const philosophy = [
     options: { A: 'The Principle of Sufficient Reason', B: 'Ockham\'s Razor', C: 'The Law of Non-Contradiction', D: 'The Principle of Charity', E: 'The Correspondence Theory of Truth' },
     options_tr: { A: 'Yeter Sebep İlkesi', B: 'Ockham\'ın Usturası (Ockham\'s Razor)', C: 'Çelişmezlik İlkesi', D: 'Hayırseverlik İlkesi', E: 'Doğruluğun Uygunluk Teorisi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ockham\'s Razor is a heuristic principle favoring simplicity in explanations, widely used in philosophy and science.',
   },
   {
@@ -908,6 +1008,7 @@ const philosophy = [
     options: { A: 'Gottfried Wilhelm Leibniz', B: 'Baruch Spinoza', C: 'Nicolas Malebranche', D: 'Hugo Grotius', E: 'Pierre Bayle' },
     options_tr: { A: 'Gottfried Wilhelm Leibniz', B: 'Baruch Spinoza', C: 'Nicolas Malebranche', D: 'Hugo Grotius', E: 'Pierre Bayle' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Spinoza\'s "Ethics," published posthumously in 1677, identifies God with Nature ("Deus sive Natura") as a single infinite substance.',
   },
   {
@@ -917,6 +1018,7 @@ const philosophy = [
     options: { A: 'The Allegory of the Cave', B: 'The Myth of Er', C: 'The Divided Line', D: 'The Ring of Gyges', E: 'The Chariot Allegory' },
     options_tr: { A: 'Mağara Alegorisi', B: 'Er Efsanesi', C: 'Bölünmüş Çizgi', D: 'Gyges\'in Yüzüğü', E: 'At Arabası Alegorisi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The Allegory of the Cave appears in Book VII of "The Republic" and illustrates Plato\'s distinction between appearance and true knowledge.',
   },
   {
@@ -926,6 +1028,7 @@ const philosophy = [
     options: { A: 'Al-Kindi', B: 'Al-Farabi', C: 'Ibn Sina', D: 'Al-Ghazali', E: 'Ibn Rushd' },
     options_tr: { A: 'El-Kindi', B: 'Farabi', C: 'İbn Sina', D: 'Gazali', E: 'İbn Rüşd' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Al-Kindi (c. 801–873) supervised translations of Greek texts in Baghdad and wrote the first systematic works of falsafa in Arabic.',
   },
   {
@@ -935,6 +1038,7 @@ const philosophy = [
     options: { A: 'Christian Wolff', B: 'Immanuel Kant', C: 'Gottfried Wilhelm Leibniz', D: 'Johann Gottlieb Fichte', E: 'Moses Mendelssohn' },
     options_tr: { A: 'Christian Wolff', B: 'Immanuel Kant', C: 'Gottfried Wilhelm Leibniz', D: 'Johann Gottlieb Fichte', E: 'Moses Mendelssohn' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Leibniz set out his theory of monads in the "Monadology" (1714), describing them as the fundamental simple substances of reality.',
   },
   {
@@ -944,6 +1048,7 @@ const philosophy = [
     options: { A: 'Gorgias', B: 'Protagoras', C: 'Prodicus', D: 'Hippias', E: 'Thrasymachus' },
     options_tr: { A: 'Gorgias', B: 'Protagoras', C: 'Prodikos', D: 'Hippias', E: 'Thrasymakhos' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Protagoras of Abdera, the best known of the Sophists, opened his lost work "Truth" with this statement.',
   },
   {
@@ -953,6 +1058,7 @@ const philosophy = [
     options: { A: 'Jean-Paul Sartre', B: 'André Malraux', C: 'Simone de Beauvoir', D: 'Maurice Blanchot', E: 'Albert Camus' },
     options_tr: { A: 'Jean-Paul Sartre', B: 'André Malraux', C: 'Simone de Beauvoir', D: 'Maurice Blanchot', E: 'Albert Camus' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Albert Camus published "The Myth of Sisyphus" in 1942, defending revolt against the absurd instead of suicide or false hope.',
   },
   {
@@ -962,6 +1068,7 @@ const philosophy = [
     options: { A: 'Rudolf Carnap', B: 'Gottlob Frege', C: 'Ludwig Wittgenstein', D: 'Edmund Husserl', E: 'David Hilbert' },
     options_tr: { A: 'Rudolf Carnap', B: 'Gottlob Frege', C: 'Ludwig Wittgenstein', D: 'Edmund Husserl', E: 'David Hilbert' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Gottlob Frege drew the sense/reference (Sinn/Bedeutung) distinction in an 1892 paper that founded modern philosophy of language.',
   },
   {
@@ -971,6 +1078,7 @@ const philosophy = [
     options: { A: 'Giovanni Pico della Mirandola', B: 'Francesco Guicciardini', C: 'Niccolò Machiavelli', D: 'Giordano Bruno', E: 'Marsilio Ficino' },
     options_tr: { A: 'Giovanni Pico della Mirandola', B: 'Francesco Guicciardini', C: 'Niccolò Machiavelli', D: 'Giordano Bruno', E: 'Marsilio Ficino' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Niccolò Machiavelli wrote "The Prince" in 1513, separating political effectiveness from conventional moral virtue.',
   },
   {
@@ -980,6 +1088,7 @@ const philosophy = [
     options: { A: 'The Decisive Treatise', B: 'The Incoherence of the Incoherence', C: 'The Book of Healing', D: 'The Virtuous City', E: 'The Guide for the Perplexed' },
     options_tr: { A: 'Faslü\'l-Makâl', B: 'Tehâfütü\'t-Tehâfüt (Tutarsızlığın Tutarsızlığı)', C: 'Kitâbü\'ş-Şifâ', D: 'El-Medînetü\'l-Fâzıla', E: 'Delâletü\'l-Hâirîn' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Ibn Rushd\'s "Tahafut al-Tahafut" answered Al-Ghazali\'s "Tahafut al-Falasifa" argument by argument in defence of philosophy.',
   },
   {
@@ -989,6 +1098,7 @@ const philosophy = [
     options: { A: 'The material cause', B: 'The formal cause', C: 'The efficient cause', D: 'The final cause', E: 'The accidental cause' },
     options_tr: { A: 'Maddi neden', B: 'Formel (biçimsel) neden', C: 'Fail (etkin) neden', D: 'Ereksel (final) neden', E: 'İlineksel neden' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The final cause ("telos") explains a thing by the end it serves, alongside the material, formal, and efficient causes.',
   },
   {
@@ -998,6 +1108,7 @@ const philosophy = [
     options: { A: 'Simone Weil', B: 'Luce Irigaray', C: 'Julia Kristeva', D: 'Simone de Beauvoir', E: 'Hélène Cixous' },
     options_tr: { A: 'Simone Weil', B: 'Luce Irigaray', C: 'Julia Kristeva', D: 'Simone de Beauvoir', E: 'Hélène Cixous' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Simone de Beauvoir published "The Second Sex" in 1949, a founding text of modern feminist philosophy.',
   },
   {
@@ -1007,6 +1118,7 @@ const philosophy = [
     options: { A: 'Edmund Gettier', B: 'Roderick Chisholm', C: 'Alvin Goldman', D: 'Robert Nozick', E: 'Ernest Sosa' },
     options_tr: { A: 'Edmund Gettier', B: 'Roderick Chisholm', C: 'Alvin Goldman', D: 'Robert Nozick', E: 'Ernest Sosa' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Gettier\'s paper "Is Justified True Belief Knowledge?" set off decades of work on the analysis of knowledge.',
   },
   {
@@ -1016,6 +1128,7 @@ const philosophy = [
     options: { A: 'Thales', B: 'Anaximenes', C: 'Anaximander', D: 'Heraclitus', E: 'Xenophanes' },
     options_tr: { A: 'Tales', B: 'Anaksimenes', C: 'Anaksimandros', D: 'Herakleitos', E: 'Ksenophanes' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Anaximander rejected any ordinary substance as the first principle and proposed instead the apeiron, the boundless.',
   },
   {
@@ -1025,6 +1138,7 @@ const philosophy = [
     options: { A: 'Montesquieu', B: 'Voltaire', C: 'Jean-Jacques Rousseau', D: 'Denis Diderot', E: 'Marquis de Condorcet' },
     options_tr: { A: 'Montesquieu', B: 'Voltaire', C: 'Jean-Jacques Rousseau', D: 'Denis Diderot', E: 'Marquis de Condorcet' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Montesquieu published "The Spirit of the Laws" in 1748, and his separation of powers shaped later constitutional design.',
   },
   {
@@ -1034,6 +1148,7 @@ const philosophy = [
     options: { A: 'Laozi', B: 'Liezi', C: 'Zhuangzi', D: 'Confucius', E: 'Wang Bi' },
     options_tr: { A: 'Laozi', B: 'Liezi', C: 'Zhuangzi', D: 'Konfüçyüs', E: 'Wang Bi' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The butterfly dream appears in the "Zhuangzi" and questions the boundary between waking life and illusion.',
   },
   {
@@ -1043,6 +1158,7 @@ const philosophy = [
     options: { A: 'Bertrand Russell', B: 'Gottlob Frege', C: 'W.V.O. Quine', D: 'Saul Kripke', E: 'Ludwig Wittgenstein' },
     options_tr: { A: 'Bertrand Russell', B: 'Gottlob Frege', C: 'W.V.O. Quine', D: 'Saul Kripke', E: 'Ludwig Wittgenstein' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Wittgenstein\'s "Philosophical Investigations" (1953) replaced the picture theory of his own "Tractatus" with the idea of language games.',
   },
   {
@@ -1052,6 +1168,7 @@ const philosophy = [
     options: { A: 'Yunus Emre', B: 'Ahmed Yesevi', C: 'Hacı Bektaş Veli', D: 'Ahi Evran', E: 'Sadreddin Konevi' },
     options_tr: { A: 'Yunus Emre', B: 'Ahmed Yesevi', C: 'Hacı Bektaş Veli', D: 'Ahi Evran', E: 'Sadreddin Konevi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ahmed Yesevi (d. 1166) wrote his "hikmet" poems in Turkish and founded the Yesevi order that shaped later Anatolian Sufism.',
   },
   {
@@ -1061,6 +1178,7 @@ const philosophy = [
     options: { A: 'Daniel Dennett', B: 'John Searle', C: 'Thomas Nagel', D: 'Jerry Fodor', E: 'Patricia Churchland' },
     options_tr: { A: 'Daniel Dennett', B: 'John Searle', C: 'Thomas Nagel', D: 'Jerry Fodor', E: 'Patricia Churchland' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Thomas Nagel\'s 1974 essay made the first-person character of consciousness a central difficulty for physicalist theories.',
   },
   {
@@ -1070,6 +1188,7 @@ const philosophy = [
     options: { A: 'Thomas Hobbes', B: 'Robert Boyle', C: 'Isaac Newton', D: 'Francis Bacon', E: 'John Locke' },
     options_tr: { A: 'Thomas Hobbes', B: 'Robert Boyle', C: 'Isaac Newton', D: 'Francis Bacon', E: 'John Locke' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Francis Bacon published "Novum Organum" in 1620, offering an inductive method meant to replace Aristotelian deduction in natural inquiry.',
   },
   {
@@ -1079,6 +1198,7 @@ const philosophy = [
     options: { A: 'Pythagoras', B: 'Thales', C: 'Democritus', D: 'Anaxagoras', E: 'Parmenides' },
     options_tr: { A: 'Pisagor', B: 'Tales', C: 'Demokritos', D: 'Anaksagoras', E: 'Parmenides' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Pythagoreans treated number as the key to cosmic order, linking mathematics, music, and metaphysics.',
   },
   {
@@ -1088,6 +1208,7 @@ const philosophy = [
     options: { A: 'Franz Brentano', B: 'Martin Heidegger', C: 'Max Scheler', D: 'Edmund Husserl', E: 'Wilhelm Dilthey' },
     options_tr: { A: 'Franz Brentano', B: 'Martin Heidegger', C: 'Max Scheler', D: 'Edmund Husserl', E: 'Wilhelm Dilthey' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Edmund Husserl developed phenomenology as the study of the structures of consciousness, using the epoché to suspend the "natural attitude."',
   },
   {
@@ -1097,6 +1218,7 @@ const philosophy = [
     options: { A: 'Ronald Dworkin', B: 'Michael Walzer', C: 'Robert Nozick', D: 'Richard Rorty', E: 'Thomas Nagel' },
     options_tr: { A: 'Ronald Dworkin', B: 'Michael Walzer', C: 'Robert Nozick', D: 'Richard Rorty', E: 'Thomas Nagel' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Robert Nozick published "Anarchy, State, and Utopia" in 1974, arguing that any state beyond minimal protection violates individual rights.',
   },
   {
@@ -1106,6 +1228,7 @@ const philosophy = [
     options: { A: 'The Floating Man', B: 'The Cave Dweller', C: 'The Solitary Sage', D: 'The Veiled Intellect', E: 'The Mirror of the Soul' },
     options_tr: { A: 'Uçan Adam (Havada Asılı İnsan)', B: 'Mağara Sakini', C: 'Yalnız Bilge', D: 'Perdelenmiş Akıl', E: 'Ruhun Aynası' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Floating Man argument in Ibn Sina\'s "Book of Healing" claims that self-awareness is prior to and independent of bodily sensation.',
   },
   {
@@ -1115,6 +1238,7 @@ const philosophy = [
     options: { A: 'The Liar Paradox', B: 'The Sorites Paradox', C: 'Zeno\'s Dichotomy', D: 'The Barber Paradox', E: 'Newcomb\'s Problem' },
     options_tr: { A: 'Yalancı Paradoksu', B: 'Sorites (Yığın) Paradoksu', C: 'Zenon\'un İkiye Bölme Paradoksu', D: 'Berber Paradoksu', E: 'Newcomb Problemi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Sorites Paradox, attributed to Eubulides of Miletus, exposes the problem of vagueness in ordinary predicates.',
   },
   {
@@ -1124,6 +1248,7 @@ const philosophy = [
     options: { A: 'The Unhappy Consciousness', B: 'Sense-Certainty', C: 'The Master-Slave Dialectic', D: 'Absolute Knowing', E: 'The Beautiful Soul' },
     options_tr: { A: 'Mutsuz Bilinç', B: 'Duyusal Kesinlik', C: 'Efendi-Köle Diyalektiği', D: 'Mutlak Bilgi', E: 'Güzel Ruh' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Hegel argued that self-consciousness depends on recognition by another, an analysis that strongly influenced Marx and Sartre.',
   },
   {
@@ -1133,6 +1258,7 @@ const philosophy = [
     options: { A: 'Xunzi', B: 'Mozi', C: 'Han Feizi', D: 'Mencius', E: 'Dong Zhongshu' },
     options_tr: { A: 'Xunzi', B: 'Mozi', C: 'Han Feizi', D: 'Mengzi (Mencius)', E: 'Dong Zhongshu' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Mencius (c. 372–289 BC) held that everyone possesses innate moral "sprouts" that education and effort must cultivate.',
   },
   {
@@ -1142,6 +1268,7 @@ const philosophy = [
     options: { A: 'A.J. Ayer', B: 'P.F. Strawson', C: 'Gilbert Ryle', D: 'G.E.M. Anscombe', E: 'Bernard Williams' },
     options_tr: { A: 'A.J. Ayer', B: 'P.F. Strawson', C: 'Gilbert Ryle', D: 'G.E.M. Anscombe', E: 'Bernard Williams' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Gilbert Ryle argued in 1949 that treating the mind as a separate inner thing is a "category mistake."',
   },
   {
@@ -1151,6 +1278,7 @@ const philosophy = [
     options: { A: 'Mary Wollstonecraft', B: 'Harriet Taylor Mill', C: 'Mary Astell', D: 'Catharine Macaulay', E: 'Olympe de Gouges' },
     options_tr: { A: 'Mary Wollstonecraft', B: 'Harriet Taylor Mill', C: 'Mary Astell', D: 'Catharine Macaulay', E: 'Olympe de Gouges' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Mary Wollstonecraft\'s "A Vindication of the Rights of Woman" (1792) is a founding work of modern feminist philosophy.',
   },
   {
@@ -1160,6 +1288,7 @@ const philosophy = [
     options: { A: 'Al-Ghazali', B: 'Ibn Arabi', C: 'Shihab al-Din Suhrawardi', D: 'Fakhr al-Din al-Razi', E: 'Nasir al-Din al-Tusi' },
     options_tr: { A: 'Gazali', B: 'İbn Arabi', C: 'Şihabüddin Sühreverdi', D: 'Fahreddin Râzî', E: 'Nasîrüddin Tûsî' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Suhrawardi (1154–1191) set out Illuminationist philosophy in "Hikmat al-Ishraq," joining Avicennan logic to a metaphysics of light.',
   },
   {
@@ -1169,6 +1298,7 @@ const philosophy = [
     options: { A: 'God is dead', B: 'Hell is other people', C: 'Man is a useless passion', D: 'Existence precedes essence', E: 'One must imagine Sisyphus happy' },
     options_tr: { A: 'Tanrı öldü', B: 'Cehennem başkalarıdır', C: 'İnsan beyhude bir tutkudur', D: 'Varoluş özden önce gelir', E: 'Sisifos\'u mutlu hayal etmeliyiz' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Sartre formulated "existence precedes essence" in "Existentialism Is a Humanism" (1946) to deny that humans have a fixed given nature.',
   },
   {
@@ -1178,6 +1308,7 @@ const philosophy = [
     options: { A: 'The problem of induction', B: 'The problem of other minds', C: 'The naturalistic fallacy', D: 'The problem of evil', E: 'The is-ought problem' },
     options_tr: { A: 'Tümevarım problemi', B: 'Başka zihinler problemi', C: 'Doğalcı yanılgı', D: 'Kötülük problemi', E: 'Olan-olması gereken problemi' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Hume noted in "A Treatise of Human Nature" (1739) that writers slip from "is" to "ought" without ever justifying the transition.',
   },
   {
@@ -1187,6 +1318,7 @@ const philosophy = [
     options: { A: 'Proclus', B: 'Porphyry', C: 'Iamblichus', D: 'Plotinus', E: 'Ammonius Saccas' },
     options_tr: { A: 'Proklos', B: 'Porphyrios', C: 'Iamblikhos', D: 'Plotinos', E: 'Ammonios Sakkas' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Plotinus (c. 204–270) taught that all reality emanates from the One, a doctrine that shaped later Christian and Islamic thought.',
   },
   {
@@ -1196,6 +1328,7 @@ const philosophy = [
     options: { A: 'Isaiah Berlin', B: 'Friedrich Hayek', C: 'Hannah Arendt', D: 'Charles Taylor', E: 'Quentin Skinner' },
     options_tr: { A: 'Isaiah Berlin', B: 'Friedrich Hayek', C: 'Hannah Arendt', D: 'Charles Taylor', E: 'Quentin Skinner' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Isaiah Berlin drew the distinction in his 1958 inaugural lecture "Two Concepts of Liberty."',
   },
   {
@@ -1205,6 +1338,7 @@ const philosophy = [
     options: { A: 'Daniel Dennett', B: 'Colin McGinn', C: 'Ned Block', D: 'Galen Strawson', E: 'David Chalmers' },
     options_tr: { A: 'Daniel Dennett', B: 'Colin McGinn', C: 'Ned Block', D: 'Galen Strawson', E: 'David Chalmers' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'David Chalmers introduced the phrase in 1995, separating it from the "easy problems" of explaining cognitive functions.',
   },
   {
@@ -1214,6 +1348,7 @@ const philosophy = [
     options: { A: 'The Book of Letters', B: 'The Enumeration of the Sciences', C: 'The Virtuous City', D: 'The Decisive Treatise', E: 'The Book of Healing' },
     options_tr: { A: 'Kitâbü\'l-Hurûf', B: 'İhsâü\'l-Ulûm', C: 'El-Medînetü\'l-Fâzıla (Erdemli Şehir)', D: 'Faslü\'l-Makâl', E: 'Kitâbü\'ş-Şifâ' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Al-Farabi\'s treatise on the virtuous city reworks Plato\'s "Republic" within the framework of Islamic political philosophy.',
   },
   {
@@ -1223,6 +1358,7 @@ const philosophy = [
     options: { A: 'Zadig', B: 'Candide', C: 'Micromégas', D: 'The Persian Letters', E: 'Emile' },
     options_tr: { A: 'Zadig', B: 'Candide', C: 'Micromégas', D: 'İran Mektupları', E: 'Emile' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Voltaire\'s "Candide" (1759) ridicules Leibnizian optimism, written largely in response to the 1755 Lisbon earthquake.',
   },
   {
@@ -1232,6 +1368,7 @@ const philosophy = [
     options: { A: 'Confucianism', B: 'Mohism', C: 'Legalism', D: 'Taoism', E: 'The School of Names' },
     options_tr: { A: 'Konfüçyüsçülük', B: 'Mohizm', C: 'Legalizm', D: 'Taoizm', E: 'Adlar Okulu' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Legalism, systematized by Han Feizi, provided the governing philosophy of the Qin dynasty that unified China in 221 BC.',
   },
   {
@@ -1241,6 +1378,7 @@ const philosophy = [
     options: { A: 'Saul Kripke', B: 'David Lewis', C: 'Hilary Putnam', D: 'Donald Davidson', E: 'Peter Strawson' },
     options_tr: { A: 'Saul Kripke', B: 'David Lewis', C: 'Hilary Putnam', D: 'Donald Davidson', E: 'Peter Strawson' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Saul Kripke\'s "Naming and Necessity" (1980) undermined the descriptive theory of names and revived essentialism in analytic metaphysics.',
   },
   {
@@ -1250,6 +1388,7 @@ const philosophy = [
     options: { A: 'Phenomena', B: 'Categories', C: 'Noumena', D: 'Antinomies', E: 'Maxims' },
     options_tr: { A: 'Fenomenler (görüngüler)', B: 'Kategoriler', C: 'Numenler (kendinde şeyler)', D: 'Antinomiler', E: 'Maksimler' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Kant held that we know only phenomena, appearances structured by our own forms of intuition and categories, never noumena.',
   },
   {
@@ -1259,6 +1398,7 @@ const philosophy = [
     options: { A: 'Francis Bacon', B: 'Thomas Hobbes', C: 'John Milton', D: 'Robert Owen', E: 'Thomas More' },
     options_tr: { A: 'Francis Bacon', B: 'Thomas Hobbes', C: 'John Milton', D: 'Robert Owen', E: 'Thomas More' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Thomas More published "Utopia" in 1516, coining a name that puns on Greek words for "no place" and "good place."',
   },
   {
@@ -1268,6 +1408,7 @@ const philosophy = [
     options: { A: 'Vasubandhu', B: 'Asanga', C: 'Buddhaghosa', D: 'Nagarjuna', E: 'Dharmakirti' },
     options_tr: { A: 'Vasubandhu', B: 'Asanga', C: 'Buddhaghosa', D: 'Nagarjuna', E: 'Dharmakirti' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Nagarjuna (c. 150–250 AD) developed the doctrine of emptiness (sunyata) in his "Mulamadhyamakakarika."',
   },
   {
@@ -1277,6 +1418,7 @@ const philosophy = [
     options: { A: 'The principle of sufficient reason', B: 'The principle of charity', C: 'The falsification principle', D: 'The verification principle', E: 'The principle of bivalence' },
     options_tr: { A: 'Yeter sebep ilkesi', B: 'Hayırseverlik ilkesi', C: 'Yanlışlanabilirlik ilkesi', D: 'Doğrulanabilirlik ilkesi', E: 'İki değerlilik ilkesi' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'A.J. Ayer popularized the verification principle in "Language, Truth and Logic" (1936), using it to dismiss metaphysics as meaningless.',
   },
   {
@@ -1286,6 +1428,7 @@ const philosophy = [
     options: { A: 'Ibn Arabi', B: 'Ibn Tufail', C: 'Ibn Bajjah', D: 'Al-Ghazali', E: 'Ibn Masarra' },
     options_tr: { A: 'İbn Arabi', B: 'İbn Tufeyl', C: 'İbn Bâcce', D: 'Gazali', E: 'İbn Meserre' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Ibn Arabi (1165–1240), author of "The Meccan Revelations," became the central reference for the wahdat al-wujud tradition in Ottoman and Persian thought.',
   },
   {
@@ -1295,6 +1438,7 @@ const philosophy = [
     options: { A: 'The Turing test', B: 'The Chinese Room test', C: 'The Lovelace test', D: 'The Wason test', E: 'The mirror test' },
     options_tr: { A: 'Turing testi', B: 'Çin Odası testi', C: 'Lovelace testi', D: 'Wason testi', E: 'Ayna testi' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Alan Turing proposed the "imitation game" in his 1950 paper "Computing Machinery and Intelligence."',
   },
   {
@@ -1304,6 +1448,7 @@ const philosophy = [
     options: { A: 'The state of nature', B: 'The will of all', C: 'The general will', D: 'Popular sovereignty', E: 'Civil religion' },
     options_tr: { A: 'Doğa hali', B: 'Herkesin iradesi', C: 'Genel irade', D: 'Halk egemenliği', E: 'Sivil din' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Rousseau distinguished the "general will" (volonté générale) from the "will of all," which is merely an aggregate of private wills.',
   },
   {
@@ -1313,6 +1458,7 @@ const philosophy = [
     options: { A: 'Empedocles', B: 'Leucippus', C: 'Melissus', D: 'Anaxagoras', E: 'Philolaus' },
     options_tr: { A: 'Empedokles', B: 'Leukippos', C: 'Melissos', D: 'Anaksagoras', E: 'Philolaos' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Anaxagoras held that an infinite mixture of ingredients was set in motion and ordered by Nous, an idea Socrates discusses in Plato\'s "Phaedo."',
   },
   {
@@ -1322,6 +1468,7 @@ const philosophy = [
     options: { A: 'Antonio Negri', B: 'Louis Althusser', C: 'Georg Lukács', D: 'Antonio Gramsci', E: 'Nicos Poulantzas' },
     options_tr: { A: 'Antonio Negri', B: 'Louis Althusser', C: 'Georg Lukács', D: 'Antonio Gramsci', E: 'Nicos Poulantzas' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Antonio Gramsci developed cultural hegemony in his "Prison Notebooks," written after his imprisonment under Mussolini in 1926.',
   },
   {
@@ -1331,6 +1478,7 @@ const philosophy = [
     options: { A: 'The dream argument', B: 'The wax example', C: 'The clockwork hypothesis', D: 'The evil demon', E: 'The pineal gland' },
     options_tr: { A: 'Rüya argümanı', B: 'Balmumu örneği', C: 'Saat mekanizması varsayımı', D: 'Kötücül cin', E: 'Kozalaksı bez' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Descartes introduced the evil demon in the First Meditation (1641) to push doubt as far as it can go before reaching the cogito.',
   },
   {
@@ -1340,6 +1488,7 @@ const philosophy = [
     options: { A: 'Kâtip Çelebi', B: 'Evliya Çelebi', C: 'Taşköprüzâde', D: 'Ebussuud Efendi', E: 'Naîmâ' },
     options_tr: { A: 'Kâtip Çelebi', B: 'Evliya Çelebi', C: 'Taşköprüzâde', D: 'Ebussuud Efendi', E: 'Naîmâ' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Kâtip Çelebi (1609–1657), also known as Hacı Halife, defended rational inquiry and compiled the vast bibliography "Keşfü\'z-Zunûn."',
   },
   {
@@ -1349,6 +1498,7 @@ const philosophy = [
     options: { A: 'Legalism', B: 'Taoism', C: 'The School of Yin-Yang', D: 'Neo-Confucianism', E: 'Mohism' },
     options_tr: { A: 'Legalizm', B: 'Taoizm', C: 'Yin-Yang Okulu', D: 'Yeni-Konfüçyüsçülük', E: 'Mohizm' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Mozi and his followers taught "jian ai," impartial concern for everyone, and criticized costly ritual and offensive war.',
   },
   {
@@ -1358,6 +1508,7 @@ const philosophy = [
     options: { A: 'Twin Earth', B: 'The Brain in a Vat', C: 'Mary\'s Room', D: 'The Chinese Nation', E: 'Swampman' },
     options_tr: { A: 'İkiz Dünya', B: 'Fıçıdaki Beyin', C: 'Mary\'nin Odası', D: 'Çin Ulusu', E: 'Bataklık Adam' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Hilary Putnam\'s 1975 Twin Earth argument supports semantic externalism, the view that reference depends on the speaker\'s environment.',
   },
   {
@@ -1367,6 +1518,7 @@ const philosophy = [
     options: { A: 'Thomas Paine', B: 'Joseph de Maistre', C: 'Benjamin Disraeli', D: 'Michael Oakeshott', E: 'Edmund Burke' },
     options_tr: { A: 'Thomas Paine', B: 'Joseph de Maistre', C: 'Benjamin Disraeli', D: 'Michael Oakeshott', E: 'Edmund Burke' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Edmund Burke published his "Reflections" in 1790, defending gradual reform and inherited institutions against revolutionary abstraction.',
   },
   {
@@ -1376,6 +1528,7 @@ const philosophy = [
     options: { A: 'Hypatia', B: 'Diotima', C: 'Aspasia', D: 'Theano', E: 'Macrina' },
     options_tr: { A: 'Hypatia', B: 'Diotima', C: 'Aspasia', D: 'Theano', E: 'Makrina' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Hypatia of Alexandria headed the Neoplatonic school there and worked on astronomy and mathematics before her murder in 415.',
   },
   {
@@ -1385,6 +1538,7 @@ const philosophy = [
     options: { A: 'Jean-Paul Sartre', B: 'Paul Ricoeur', C: 'Maurice Merleau-Ponty', D: 'Emmanuel Levinas', E: 'Gabriel Marcel' },
     options_tr: { A: 'Jean-Paul Sartre', B: 'Paul Ricoeur', C: 'Maurice Merleau-Ponty', D: 'Emmanuel Levinas', E: 'Gabriel Marcel' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Merleau-Ponty published "Phenomenology of Perception" in 1945, placing embodiment at the centre of the study of consciousness.',
   },
   {
@@ -1394,6 +1548,7 @@ const philosophy = [
     options: { A: 'The Revival of the Religious Sciences', B: 'The Incoherence of the Philosophers', C: 'The Niche of Lights', D: 'The Deliverance from Error', E: 'The Criterion of Action' },
     options_tr: { A: 'İhyâu Ulûmi\'d-Dîn', B: 'Tehâfütü\'l-Felâsife', C: 'Mişkâtü\'l-Envâr', D: 'el-Munkız mine\'d-Dalâl (Dalâletten Kurtuluş)', E: 'Mîzânü\'l-Amel' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Al-Ghazali\'s "al-Munqidh min al-Dalal" recounts how systematic doubt led him to abandon his teaching post in Baghdad for the Sufi path.',
   },
   {
@@ -1403,6 +1558,7 @@ const philosophy = [
     options: { A: 'An Essay Concerning Human Understanding', B: 'A Letter Concerning Toleration', C: 'Two Treatises of Government', D: 'Some Thoughts Concerning Education', E: 'The Reasonableness of Christianity' },
     options_tr: { A: 'İnsan Anlığı Üzerine Bir Deneme', B: 'Hoşgörü Üzerine Bir Mektup', C: 'Hükümet Üzerine İki İnceleme', D: 'Eğitim Üzerine Bazı Düşünceler', E: 'Hristiyanlığın Makuliyeti' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Locke\'s "Two Treatises of Government" (1689) grounded political authority in consent and shaped later constitutional thought.',
   },
   {
@@ -1412,6 +1568,7 @@ const philosophy = [
     options: { A: 'The Myth of Er', B: 'The Ring of Gyges', C: 'The Noble Lie', D: 'The Divided Line', E: 'The Chariot Allegory' },
     options_tr: { A: 'Er Efsanesi', B: 'Gyges\'in Yüzüğü', C: 'Soylu Yalan', D: 'Bölünmüş Çizgi', E: 'At Arabası Alegorisi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Glaucon tells the story of Gyges\' ring in Book II to challenge Socrates to show that justice is worth choosing for its own sake.',
   },
   {
@@ -1421,6 +1578,7 @@ const philosophy = [
     options: { A: 'Imre Lakatos', B: 'Thomas Kuhn', C: 'Karl Popper', D: 'Ian Hacking', E: 'Paul Feyerabend' },
     options_tr: { A: 'Imre Lakatos', B: 'Thomas Kuhn', C: 'Karl Popper', D: 'Ian Hacking', E: 'Paul Feyerabend' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Paul Feyerabend published "Against Method" in 1975, defending an "epistemological anarchism" against rule-bound accounts of science.',
   },
   {
@@ -1430,6 +1588,7 @@ const philosophy = [
     options: { A: 'David Hume', B: 'Francis Hutcheson', C: 'Adam Ferguson', D: 'Adam Smith', E: 'Thomas Reid' },
     options_tr: { A: 'David Hume', B: 'Francis Hutcheson', C: 'Adam Ferguson', D: 'Adam Smith', E: 'Thomas Reid' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Adam Smith published "The Theory of Moral Sentiments" in 1759, seventeen years before "The Wealth of Nations."',
   },
   {
@@ -1439,6 +1598,7 @@ const philosophy = [
     options: { A: 'The Three Marks of Existence', B: 'The Five Precepts', C: 'The Twelve Nidanas', D: 'The Six Perfections', E: 'The Noble Eightfold Path' },
     options_tr: { A: 'Varoluşun Üç İşareti', B: 'Beş İlke', C: 'On İki Nidana', D: 'Altı Kusursuzluk', E: 'Sekiz Katlı Soylu Yol' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'The Noble Eightfold Path is the content of the fourth of the Four Noble Truths, describing the practice that leads to liberation.',
   },
   {
@@ -1448,6 +1608,7 @@ const philosophy = [
     options: { A: 'Divan-ı Kebir', B: 'Fihi Ma Fih', C: 'Mecalis-i Seb\'a', D: 'Masnavi', E: 'Mektubat' },
     options_tr: { A: 'Divan-ı Kebir', B: 'Fîhi Mâ Fîh', C: 'Mecâlis-i Seb\'a', D: 'Mesnevî', E: 'Mektûbât' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Rumi\'s "Masnavi" begins with the reed flute\'s cry of separation, a central image of the soul\'s longing for its origin.',
   },
   {
@@ -1457,6 +1618,7 @@ const philosophy = [
     options: { A: 'Rudolf Carnap', B: 'Nelson Goodman', C: 'W.V.O. Quine', D: 'Wilfrid Sellars', E: 'Donald Davidson' },
     options_tr: { A: 'Rudolf Carnap', B: 'Nelson Goodman', C: 'W.V.O. Quine', D: 'Wilfrid Sellars', E: 'Donald Davidson' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Quine\'s 1951 paper argued that no statement is immune to revision, reshaping post-war analytic philosophy.',
   },
   {
@@ -1466,6 +1628,7 @@ const philosophy = [
     options: { A: 'Henri de Saint-Simon', B: 'Émile Durkheim', C: 'Hippolyte Taine', D: 'Ernest Renan', E: 'Auguste Comte' },
     options_tr: { A: 'Henri de Saint-Simon', B: 'Émile Durkheim', C: 'Hippolyte Taine', D: 'Ernest Renan', E: 'Auguste Comte' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Auguste Comte set out his law of three stages in the "Course of Positive Philosophy" (1830–1842) and coined the term "sociology."',
   },
   {
@@ -1475,6 +1638,7 @@ const philosophy = [
     options: { A: 'The hermeneutic circle', B: 'The Socratic method (elenchus)', C: 'Reductio ad absurdum', D: 'Transcendental deduction', E: 'The dialectical triad' },
     options_tr: { A: 'Hermenötik döngü', B: 'Sokratik yöntem (elenkhos)', C: 'Saçmaya indirgeme', D: 'Transandantal tümdengelim', E: 'Diyalektik üçlü' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The elenchus proceeds by cross-examination until the respondent\'s own admissions conflict, clearing the ground for genuine inquiry.',
   },
   {
@@ -1484,6 +1648,7 @@ const philosophy = [
     options: { A: 'Emmanuel Levinas', B: 'Paul Ricoeur', C: 'Jacques Derrida', D: 'Alain Badiou', E: 'Jean-Luc Nancy' },
     options_tr: { A: 'Emmanuel Levinas', B: 'Paul Ricoeur', C: 'Jacques Derrida', D: 'Alain Badiou', E: 'Jean-Luc Nancy' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Levinas developed this position in "Totality and Infinity" (1961), placing responsibility for the Other before ontology.',
   },
   {
@@ -1493,6 +1658,7 @@ const philosophy = [
     options: { A: 'Li', B: 'Ren', C: 'Wu wei', D: 'Qi', E: 'De' },
     options_tr: { A: 'Li', B: 'Ren', C: 'Wu wei', D: 'Qi', E: 'De' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Wu wei, literally "non-action," is the Taoist ideal of acting in harmony with the Tao rather than against it.',
   },
   {
@@ -1502,6 +1668,7 @@ const philosophy = [
     options: { A: 'Hacı Bektaş Veli', B: 'Ahi Evran', C: 'Sadreddin Konevi', D: 'Yunus Emre', E: 'Niyazi Mısri' },
     options_tr: { A: 'Hacı Bektaş Veli', B: 'Ahi Evran', C: 'Sadreddin Konevi', D: 'Yunus Emre', E: 'Niyazi Mısri' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Hacı Bektaş Veli\'s "Makâlât" sets out the four gates and forty stations of the spiritual path central to Alevi-Bektashi tradition.',
   },
   {
@@ -1511,6 +1678,7 @@ const philosophy = [
     options: { A: 'Henry Sidgwick', B: 'W.D. Ross', C: 'Charles Stevenson', D: 'G.E. Moore', E: 'R.M. Hare' },
     options_tr: { A: 'Henry Sidgwick', B: 'W.D. Ross', C: 'Charles Stevenson', D: 'G.E. Moore', E: 'R.M. Hare' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'G.E. Moore named the "naturalistic fallacy" in 1903 and defended the charge with his open-question argument.',
   },
   {
@@ -1520,6 +1688,7 @@ const philosophy = [
     options: { A: 'Cicero', B: 'Seneca the Younger', C: 'Musonius Rufus', D: 'Epictetus', E: 'Cato the Younger' },
     options_tr: { A: 'Cicero', B: 'Genç Seneca', C: 'Musonius Rufus', D: 'Epiktetos', E: 'Genç Cato' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Seneca (c. 4 BC–65 AD) was forced to commit suicide after being implicated in the Pisonian conspiracy against Nero.',
   },
   {
@@ -1529,6 +1698,7 @@ const philosophy = [
     options: { A: 'Guy Debord', B: 'Paul Virilio', C: 'Gilles Deleuze', D: 'Jean Baudrillard', E: 'Jean-François Lyotard' },
     options_tr: { A: 'Guy Debord', B: 'Paul Virilio', C: 'Gilles Deleuze', D: 'Jean Baudrillard', E: 'Jean-François Lyotard' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Jean Baudrillard developed the idea in "Simulacra and Simulation" (1981), where the copy precedes and replaces any original.',
   },
   {
@@ -1538,6 +1708,7 @@ const philosophy = [
     options: { A: 'The Sorites Paradox', B: 'The Liar Paradox', C: 'Buridan\'s Ass', D: 'Russell\'s Paradox', E: 'Zeno\'s Arrow Paradox' },
     options_tr: { A: 'Sorites Paradoksu', B: 'Yalancı Paradoksu', C: 'Buridan\'ın Eşeği', D: 'Russell Paradoksu', E: 'Zenon\'un Ok Paradoksu' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Bertrand Russell discovered the paradox in 1901, forcing a reconstruction of the foundations of mathematics.',
   },
   {
@@ -1547,6 +1718,7 @@ const philosophy = [
     options: { A: 'Cogito ergo sum', B: 'Sub specie aeternitatis', C: 'Tabula rasa', D: 'Amor fati', E: 'Sapere aude' },
     options_tr: { A: 'Cogito ergo sum', B: 'Sub specie aeternitatis', C: 'Tabula rasa', D: 'Amor fati', E: 'Sapere aude' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Kant used "Sapere aude" in his 1784 essay "An Answer to the Question: What Is Enlightenment?" to urge people to use their own understanding.',
   },
   {
@@ -1556,6 +1728,7 @@ const philosophy = [
     options: { A: 'Mir Damad', B: 'Nasir al-Din al-Tusi', C: 'Suhrawardi', D: 'Mulla Sadra', E: 'Ibn Sina' },
     options_tr: { A: 'Mir Damad', B: 'Nasîrüddin Tûsî', C: 'Sühreverdi', D: 'Molla Sadrâ', E: 'İbn Sina' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Mulla Sadra (c. 1571–1636) fused Peripatetic, Illuminationist, and Sufi thought in his "Transcendent Philosophy of the Four Journeys."',
   },
   {
@@ -1565,6 +1738,7 @@ const philosophy = [
     options: { A: 'The Chinese Room', B: 'Twin Earth', C: 'Mary\'s Room', D: 'The Inverted Spectrum', E: 'The Zombie Argument' },
     options_tr: { A: 'Çin Odası', B: 'İkiz Dünya', C: 'Mary\'nin Odası', D: 'Ters Tayf', E: 'Zombi Argümanı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Frank Jackson introduced Mary\'s Room in 1982 to argue that complete physical knowledge still leaves out what it is like to see colour.',
   },
   {
@@ -1574,6 +1748,7 @@ const philosophy = [
     options: { A: 'Theodor Adorno', B: 'Axel Honneth', C: 'Herbert Marcuse', D: 'Karl-Otto Apel', E: 'Jürgen Habermas' },
     options_tr: { A: 'Theodor Adorno', B: 'Axel Honneth', C: 'Herbert Marcuse', D: 'Karl-Otto Apel', E: 'Jürgen Habermas' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Jürgen Habermas published "The Structural Transformation of the Public Sphere" in 1962 and "The Theory of Communicative Action" in 1981.',
   },
   {
@@ -1583,6 +1758,7 @@ const philosophy = [
     options: { A: 'Ramanuja', B: 'Madhva', C: 'Adi Shankara', D: 'Patanjali', E: 'Kapila' },
     options_tr: { A: 'Ramanuja', B: 'Madhva', C: 'Adi Şankara', D: 'Patanjali', E: 'Kapila' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Adi Shankara (8th century) argued that Atman and Brahman are identical and that apparent plurality is a product of ignorance.',
   },
   {
@@ -1592,6 +1768,7 @@ const philosophy = [
     options: { A: 'Johann Gottlieb Fichte', B: 'Friedrich Schelling', C: 'Friedrich Schleiermacher', D: 'Karl Leonhard Reinhold', E: 'Georg Wilhelm Friedrich Hegel' },
     options_tr: { A: 'Johann Gottlieb Fichte', B: 'Friedrich Schelling', C: 'Friedrich Schleiermacher', D: 'Karl Leonhard Reinhold', E: 'Georg Wilhelm Friedrich Hegel' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Fichte\'s "Wissenschaftslehre," first presented in 1794, radicalized Kant by deriving all experience from the activity of the I.',
   },
   {
@@ -1601,6 +1778,7 @@ const philosophy = [
     options: { A: 'J.L. Austin', B: 'John Searle', C: 'Paul Grice', D: 'Peter Strawson', E: 'Gilbert Ryle' },
     options_tr: { A: 'J.L. Austin', B: 'John Searle', C: 'Paul Grice', D: 'Peter Strawson', E: 'Gilbert Ryle' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'J.L. Austin\'s lectures, published in 1962, introduced performative utterances and the theory of speech acts.',
   },
   {
@@ -1610,6 +1788,7 @@ const philosophy = [
     options: { A: 'Hilmi Ziya Ülken', B: 'Nermi Uygur', C: 'Macit Gökberk', D: 'Takiyettin Mengüşoğlu', E: 'Nurettin Topçu' },
     options_tr: { A: 'Hilmi Ziya Ülken', B: 'Nermi Uygur', C: 'Macit Gökberk', D: 'Takiyettin Mengüşoğlu', E: 'Nurettin Topçu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Hilmi Ziya Ülken (1901–1974) was a prolific historian of Turkish and Islamic thought and a founder of academic sociology in Turkey.',
   },
   {
@@ -1619,6 +1798,7 @@ const philosophy = [
     options: { A: 'Jean-François Lyotard', B: 'Jacques Derrida', C: 'Michel Foucault', D: 'Gilles Deleuze', E: 'Jean Baudrillard' },
     options_tr: { A: 'Jean-François Lyotard', B: 'Jacques Derrida', C: 'Michel Foucault', D: 'Gilles Deleuze', E: 'Jean Baudrillard' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Lyotard offered this definition in "The Postmodern Condition" (1979), a report on the status of knowledge in advanced societies.',
   },
   {
@@ -1628,6 +1808,7 @@ const philosophy = [
     options: { A: 'Pride and humility', B: 'Envy and indifference', C: 'Wastefulness and stinginess', D: 'Cowardice and recklessness', E: 'Vanity and shame' },
     options_tr: { A: 'Gurur ve alçakgönüllülük', B: 'Kıskançlık ve kayıtsızlık', C: 'Savurganlık ve cimrilik', D: 'Korkaklık ve pervasızlık', E: 'Kibir ve utanç' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Aristotle placed each virtue between an excess and a deficiency, with courage standing between recklessness and cowardice.',
   },
   {
@@ -1637,6 +1818,7 @@ const philosophy = [
     options: { A: 'Bernard Williams', B: 'John Perry', C: 'Sydney Shoemaker', D: 'Derek Parfit', E: 'Peter Singer' },
     options_tr: { A: 'Bernard Williams', B: 'John Perry', C: 'Sydney Shoemaker', D: 'Derek Parfit', E: 'Peter Singer' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Derek Parfit\'s "Reasons and Persons" (1984) argued that psychological continuity, not a further fact of identity, is what we really care about.',
   },
   {
@@ -1646,6 +1828,7 @@ const philosophy = [
     options: { A: 'Mencius', B: 'Zhu Xi', C: 'Wang Yangming', D: 'Dong Zhongshu', E: 'Xunzi' },
     options_tr: { A: 'Mengzi (Mencius)', B: 'Zhu Xi', C: 'Wang Yangming', D: 'Dong Zhongshu', E: 'Xunzi' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Xunzi (c. 310–235 BC) opposed Mencius, arguing that moral character must be shaped by ritual, teachers, and law.',
   },
   {
@@ -1655,6 +1838,7 @@ const philosophy = [
     options: { A: 'Hugo Grotius', B: 'Justus Lipsius', C: 'Rudolf Agricola', D: 'Cornelius Agrippa', E: 'Desiderius Erasmus' },
     options_tr: { A: 'Hugo Grotius', B: 'Justus Lipsius', C: 'Rudolf Agricola', D: 'Cornelius Agrippa', E: 'Desiderius Erasmus' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Erasmus of Rotterdam wrote "In Praise of Folly" in 1509, mocking scholastic theology and church corruption from within the church.',
   },
   {
@@ -1664,6 +1848,7 @@ const philosophy = [
     options: { A: 'David Strauss', B: 'Max Stirner', C: 'Bruno Bauer', D: 'Ludwig Feuerbach', E: 'Friedrich Schleiermacher' },
     options_tr: { A: 'David Strauss', B: 'Max Stirner', C: 'Bruno Bauer', D: 'Ludwig Feuerbach', E: 'Friedrich Schleiermacher' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Feuerbach published "The Essence of Christianity" in 1841, and his critique of religion strongly influenced the young Marx and Engels.',
   },
   {
@@ -1673,6 +1858,7 @@ const philosophy = [
     options: { A: 'Aimé Césaire', B: 'Édouard Glissant', C: 'Léopold Senghor', D: 'Frantz Fanon', E: 'Albert Memmi' },
     options_tr: { A: 'Aimé Césaire', B: 'Édouard Glissant', C: 'Léopold Senghor', D: 'Frantz Fanon', E: 'Albert Memmi' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Frantz Fanon (1925–1961) became a central figure in anticolonial thought, writing "The Wretched of the Earth" during the Algerian war.',
   },
   {
@@ -1682,6 +1868,7 @@ const philosophy = [
     options: { A: 'Pure Land', B: 'Theravada', C: 'Tendai', D: 'Zen (Chan)', E: 'Vajrayana' },
     options_tr: { A: 'Saf Diyar (Pure Land)', B: 'Theravada', C: 'Tendai', D: 'Zen (Chan)', E: 'Vajrayana' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Chan/Zen tradition traces itself to Bodhidharma and emphasizes direct transmission of insight outside written teachings.',
   },
   {
@@ -1691,6 +1878,7 @@ const philosophy = [
     options: { A: 'Virgil', B: 'Horace', C: 'Ovid', D: 'Juvenal', E: 'Lucretius' },
     options_tr: { A: 'Vergilius', B: 'Horatius', C: 'Ovidius', D: 'Juvenalis', E: 'Lucretius' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Lucretius\' "De Rerum Natura," written in the 1st century BC, is the fullest surviving presentation of Epicurean physics and ethics.',
   },
   {
@@ -1700,6 +1888,7 @@ const philosophy = [
     options: { A: 'Tertullian', B: 'Origen', C: 'Cyprian', D: 'Ambrose of Milan', E: 'Augustine of Hippo' },
     options_tr: { A: 'Tertullianus', B: 'Origenes', C: 'Cyprianus', D: 'Milanolu Ambrosius', E: 'Hippolu Augustinus' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Augustine wrote the "Confessions" around 400 AD, and its eleventh book asks what time is and locates it in the mind\'s own distension.',
   },
   {
@@ -1709,6 +1898,7 @@ const philosophy = [
     options: { A: 'Cassiodorus', B: 'Symmachus', C: 'Isidore of Seville', D: 'Boethius', E: 'Martianus Capella' },
     options_tr: { A: 'Cassiodorus', B: 'Symmachus', C: 'Sevillalı Isidorus', D: 'Boethius', E: 'Martianus Capella' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Boethius composed "The Consolation of Philosophy" around 524 AD, and it became one of the most widely read books of the Middle Ages.',
   },
   {
@@ -1718,6 +1908,7 @@ const philosophy = [
     options: { A: 'Saadia Gaon', B: 'Judah Halevi', C: 'Gersonides', D: 'Solomon ibn Gabirol', E: 'Maimonides' },
     options_tr: { A: 'Saadia Gaon', B: 'Yehuda Halevi', C: 'Gersonides', D: 'Süleyman ibn Gabirol', E: 'Maimonides (İbn Meymûn)' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Maimonides (1138–1204) wrote the "Guide" in Judeo-Arabic, drawing heavily on the Islamic philosophical tradition of Al-Farabi and Ibn Sina.',
   },
   {
@@ -1727,6 +1918,7 @@ const philosophy = [
     options: { A: 'İoanna Kuçuradi', B: 'Bedia Akarsu', C: 'Macit Gökberk', D: 'Nusret Hızır', E: 'Nermi Uygur' },
     options_tr: { A: 'İoanna Kuçuradi', B: 'Bedia Akarsu', C: 'Macit Gökberk', D: 'Nusret Hızır', E: 'Nermi Uygur' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'İoanna Kuçuradi founded the Philosophical Society of Turkey and led FISP from 1998 to 2003, working mainly on human rights and value philosophy.',
   },
   {
@@ -1736,6 +1928,7 @@ const philosophy = [
     options: { A: 'The Prisoner\'s Dilemma', B: 'The Stag Hunt', C: 'The Ultimatum Game', D: 'The Tragedy of the Commons', E: 'The Game of Chicken' },
     options_tr: { A: 'Mahkûmun İkilemi', B: 'Geyik Avı', C: 'Ültimatom Oyunu', D: 'Ortak Malların Trajedisi', E: 'Korkak Tavuk Oyunu' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The Prisoner\'s Dilemma, formalized in 1950, is widely used in ethics and political philosophy to model problems of trust and cooperation.',
   },
   {
@@ -1745,6 +1938,7 @@ const philosophy = [
     options: { A: 'Schrödinger\'s Cat', B: 'The Ship of Theseus', C: 'The Sorites Paradox', D: 'Buridan\'s Ass', E: 'The Trolley Problem' },
     options_tr: { A: 'Schrödinger\'in Kedisi', B: 'Theseus\'un Gemisi', C: 'Sorites Paradoksu', D: 'Buridan\'ın Eşeği', E: 'Tramvay Problemi' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Buridan\'s Ass is used to probe free will and whether a rational agent can choose between perfectly balanced options.',
   },
   {
@@ -1754,6 +1948,7 @@ const philosophy = [
     options: { A: 'William of Ockham', B: 'Roger Bacon', C: 'Peter Abelard', D: 'Albertus Magnus', E: 'John Duns Scotus' },
     options_tr: { A: 'Ockhamlı William', B: 'Roger Bacon', C: 'Pierre Abelard', D: 'Büyük Albert', E: 'John Duns Scotus' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Duns Scotus (c. 1266–1308), called the "Subtle Doctor," used haecceitas to explain individuation beyond shared common natures.',
   },
   {
@@ -1763,6 +1958,7 @@ const philosophy = [
     options: { A: 'The problem of universals', B: 'The problem of induction', C: 'The mind-body problem', D: 'The problem of other minds', E: 'The problem of personal identity' },
     options_tr: { A: 'Tümeller problemi', B: 'Tümevarım problemi', C: 'Zihin-beden problemi', D: 'Başka zihinler problemi', E: 'Kişisel özdeşlik problemi' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The dispute between realists and nominalists over universals dominated medieval philosophy and traces back to Porphyry and Boethius.',
   },
   {
@@ -1772,6 +1968,7 @@ const philosophy = [
     options: { A: 'Welfarism', B: 'Preference utilitarianism', C: 'Resource egalitarianism', D: 'Luck egalitarianism', E: 'The capabilities approach' },
     options_tr: { A: 'Refahçılık', B: 'Tercih faydacılığı', C: 'Kaynak eşitlikçiliği', D: 'Şans eşitlikçiliği', E: 'Yapabilirlikler (kapasiteler) yaklaşımı' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'The capabilities approach shifted development ethics away from income measures toward substantive freedoms, informing the UN Human Development Index.',
   },
   {
@@ -1781,6 +1978,7 @@ const philosophy = [
     options: { A: 'Nancy Fraser', B: 'Donna Haraway', C: 'Seyla Benhabib', D: 'Judith Butler', E: 'Martha Nussbaum' },
     options_tr: { A: 'Nancy Fraser', B: 'Donna Haraway', C: 'Seyla Benhabib', D: 'Judith Butler', E: 'Martha Nussbaum' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Judith Butler published "Gender Trouble" in 1990, and its account of performativity became foundational for queer theory.',
   },
   {
@@ -1790,6 +1988,7 @@ const philosophy = [
     options: { A: 'Quintilian', B: 'Varro', C: 'Pliny the Elder', D: 'Tacitus', E: 'Cicero' },
     options_tr: { A: 'Quintilianus', B: 'Varro', C: 'Yaşlı Plinius', D: 'Tacitus', E: 'Cicero' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Cicero built much of the Latin philosophical vocabulary, forming "moralis" from "mos, moris" to translate the Greek "ethikos."',
   },
   {
@@ -1799,6 +1998,7 @@ const philosophy = [
     options: { A: 'Oswald Spengler', B: 'Max Weber', C: 'Ernst Cassirer', D: 'Karl Jaspers', E: 'Wilhelm Dilthey' },
     options_tr: { A: 'Oswald Spengler', B: 'Max Weber', C: 'Ernst Cassirer', D: 'Karl Jaspers', E: 'Wilhelm Dilthey' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Karl Jaspers introduced the "Achsenzeit" in "The Origin and Goal of History" (1949).',
   },
 ];

@@ -8,6 +8,7 @@ const games = [
     options: { A: 'Grand Theft Auto V', B: 'Tetris', C: 'Minecraft', D: 'Wii Sports', E: 'PUBG: Battlegrounds' },
     options_tr: { A: 'Grand Theft Auto V', B: 'Tetris', C: 'Minecraft', D: 'Wii Sports', E: 'PUBG: Battlegrounds' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Minecraft is the best-selling video game of all time, with over 300 million copies sold across all platforms.',
   },
   {
@@ -17,6 +18,7 @@ const games = [
     options: { A: 'Zelda', B: 'Link', C: 'Ganon', D: 'Mario', E: 'Luigi' },
     options_tr: { A: 'Zelda', B: 'Link', C: 'Ganon', D: 'Mario', E: 'Luigi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The main protagonist controlled by the player is Link; Princess Zelda is the character he often has to save.',
   },
   {
@@ -26,6 +28,7 @@ const games = [
     options: { A: 'Nintendo', B: 'Sega', C: 'Namco', D: 'Capcom', E: 'Konami' },
     options_tr: { A: 'Nintendo', B: 'Sega', C: 'Namco', D: 'Capcom', E: 'Konami' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Pac-Man was developed by Namco (now Bandai Namco Entertainment) and created by Toru Iwatani.',
   },
   {
@@ -35,6 +38,7 @@ const games = [
     options: { A: 'Pie', B: 'Ice Cream', C: 'Cake', D: 'Donut', E: 'Pizza' },
     options_tr: { A: 'Turta', B: 'Dondurma', C: 'Pasta', D: 'Donut', E: 'Pizza' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The phrase "The cake is a lie" became a massive internet meme after the release of Valve\'s Portal.',
   },
   {
@@ -44,6 +48,7 @@ const games = [
     options: { A: 'Nintendo Switch', B: 'PlayStation 2', C: 'PlayStation 4', D: 'Xbox 360', E: 'Nintendo Wii' },
     options_tr: { A: 'Nintendo Switch', B: 'PlayStation 2', C: 'PlayStation 4', D: 'Xbox 360', E: 'Nintendo Wii' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Sony\'s PlayStation 2, released in 2000, has sold over 155 million units worldwide.',
   },
   {
@@ -53,6 +58,7 @@ const games = [
     options: { A: 'Liberty City', B: 'Vice City', C: 'Los Santos', D: 'San Fierro', E: 'Las Venturas' },
     options_tr: { A: 'Liberty City', B: 'Vice City', C: 'Los Santos', D: 'San Fierro', E: 'Las Venturas' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The story of Carl "CJ" Johnson begins in Los Santos, which is based on Los Angeles.',
   },
   {
@@ -62,6 +68,7 @@ const games = [
     options: { A: 'PUBG', B: 'Apex Legends', C: 'Call of Duty: Warzone', D: 'Fortnite', E: 'Free Fire' },
     options_tr: { A: 'PUBG', B: 'Apex Legends', C: 'Call of Duty: Warzone', D: 'Fortnite', E: 'Free Fire' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'These are classic point-of-interest names from Epic Games\' Fortnite Battle Royale map.',
   },
   {
@@ -71,6 +78,7 @@ const games = [
     options: { A: 'Bowser', B: 'Toad', C: 'Yoshi', D: 'Donkey Kong', E: 'Wario' },
     options_tr: { A: 'Bowser', B: 'Toad', C: 'Yoshi', D: 'Donkey Kong', E: 'Wario' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Yoshi first appeared in Super Mario World (1990) and serves as Mario\'s mount and companion.',
   },
   {
@@ -80,6 +88,7 @@ const games = [
     options: { A: 'Epic Games Store', B: 'Origin', C: 'Steam', D: 'Uplay', E: 'GOG Galaxy' },
     options_tr: { A: 'Epic Games Store', B: 'Origin', C: 'Steam', D: 'Uplay', E: 'GOG Galaxy' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Steam was initially created by Valve to provide automatic updates for their games, eventually becoming the largest PC store.',
   },
   {
@@ -89,6 +98,7 @@ const games = [
     options: { A: 'Zeus', B: 'Atreus', C: 'Kratos', D: 'Ares', E: 'Thor' },
     options_tr: { A: 'Zeus', B: 'Atreus', C: 'Kratos', D: 'Ares', E: 'Thor' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Kratos is a Spartan warrior who battles Greek and later Norse gods throughout the franchise.',
   },
   {
@@ -98,6 +108,7 @@ const games = [
     options: { A: 'First Person Shooter', B: 'Frames Per Second', C: 'Fast Paced Strategy', D: 'Free Play System', E: 'Final Point Score' },
     options_tr: { A: 'Birinci Şahıs Nişancı', B: 'Saniyedeki Kare Sayısı', C: 'Hızlı Tempolu Strateji', D: 'Serbest Oyun Sistemi', E: 'Son Puan Skoru' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'While FPS also means Frames Per Second in graphics, as a game genre it stands for First Person Shooter.',
   },
   {
@@ -107,6 +118,7 @@ const games = [
     options: { A: 'Bethesda', B: 'BioWare', C: 'CD Projekt Red', D: 'Ubisoft', E: 'Rockstar Games' },
     options_tr: { A: 'Bethesda', B: 'BioWare', C: 'CD Projekt Red', D: 'Ubisoft', E: 'Rockstar Games' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'CD Projekt Red is a Polish video game development studio founded in 2002.',
   },
   {
@@ -116,6 +128,7 @@ const games = [
     options: { A: 'Checkers', B: 'Chess', C: 'Backgammon', D: 'Go', E: 'Monopoly' },
     options_tr: { A: 'Dama', B: 'Satranç', C: 'Tavla', D: 'Go', E: 'Monopoly' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'In Chess, putting the opponent\'s king into an inescapable position is called "checkmate" and ends the game.',
   },
   {
@@ -125,6 +138,7 @@ const games = [
     options: { A: 'Ezio Auditore', B: 'Altaïr Ibn-La\'Ahad', C: 'Connor Kenway', D: 'Edward Kenway', E: 'Bayek' },
     options_tr: { A: 'Ezio Auditore', B: 'Altaïr Ibn-La\'Ahad', C: 'Connor Kenway', D: 'Edward Kenway', E: 'Bayek' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Altaïr Ibn-La\'Ahad was the protagonist of the first game, set during the Third Crusade.',
   },
   {
@@ -134,6 +148,7 @@ const games = [
     options: { A: 'Zombie', B: 'Skeleton', C: 'Creeper', D: 'Enderman', E: 'Spider' },
     options_tr: { A: 'Zombi', B: 'İskelet', C: 'Creeper', D: 'Enderman', E: 'Örümcek' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Creeper is an iconic, silent Minecraft monster that detonates when close to the player.',
   },
   {
@@ -143,6 +158,7 @@ const games = [
     options: { A: 'Diamond', B: 'Master', C: 'Grandmaster', D: 'Challenger', E: 'Immortal' },
     options_tr: { A: 'Elmas (Diamond)', B: 'Ustalık (Master)', C: 'Üstatlık (Grandmaster)', D: 'Şampiyonluk (Challenger)', E: 'Ölümsüz (Immortal)' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Challenger is the elite tier representing the absolute top percentage of players in each region.',
   },
   {
@@ -152,6 +168,7 @@ const games = [
     options: { A: 'RTS', B: 'MMORPG', C: 'MOBA', D: 'FPS', E: 'RPG' },
     options_tr: { A: 'RTS', B: 'MMORPG', C: 'MOBA', D: 'FPS', E: 'RPG' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'MOBA stands for Multiplayer Online Battle Arena.',
   },
   {
@@ -161,6 +178,7 @@ const games = [
     options: { A: '1990', B: '1992', C: '1994', D: '1996', E: '1998' },
     options_tr: { A: '1990', B: '1992', C: '1994', D: '1996', E: '1998' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The original PlayStation was released in Japan on December 3, 1994.',
   },
   {
@@ -170,6 +188,7 @@ const games = [
     options: { A: 'Street Fighter', B: 'Tekken', C: 'Mortal Kombat', D: 'Soulcalibur', E: 'Super Smash Bros.' },
     options_tr: { A: 'Street Fighter', B: 'Tekken', C: 'Mortal Kombat', D: 'Soulcalibur', E: 'Super Smash Bros.' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Mortal Kombat is highly famous for these characters and its signature "Fatality" finishing moves.',
   },
   {
@@ -179,6 +198,7 @@ const games = [
     options: { A: 'John-117', B: 'James-007', C: 'Marcus Fenix', D: 'Arthur Morgan', E: 'Solid Snake' },
     options_tr: { A: 'John-117', B: 'James-007', C: 'Marcus Fenix', D: 'Arthur Morgan', E: 'Solid Snake' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Master Chief\'s military designation and name is John-117.',
   },
   {
@@ -188,6 +208,7 @@ const games = [
     options: { A: 'Catan', B: 'Risk', C: 'Monopoly', D: 'Scrabble', E: 'Clue' },
     options_tr: { A: 'Catan', B: 'Risk', C: 'Monopoly', D: 'Scrabble', E: 'Clue' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Monopoly originated in the US and is named after the economic concept of a monopoly.',
   },
   {
@@ -197,6 +218,7 @@ const games = [
     options: { A: 'Yennefer', B: 'Triss', C: 'Ciri', D: 'Vesemir', E: 'Shani' },
     options_tr: { A: 'Yennefer', B: 'Triss', C: 'Ciri', D: 'Vesemir', E: 'Shani' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Cirilla Fiona Elen Riannon, known as Ciri, is a central figure in the Witcher plot.',
   },
   {
@@ -206,6 +228,7 @@ const games = [
     options: { A: 'Shigeru Miyamoto', B: 'Hideo Kojima', C: 'Gabe Newell', D: 'Todd Howard', E: 'Sid Meier' },
     options_tr: { A: 'Shigeru Miyamoto', B: 'Hideo Kojima', C: 'Gabe Newell', D: 'Todd Howard', E: 'Sid Meier' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Hideo Kojima is world-famous for creating the tactical espionage genre with the Metal Gear series.',
   },
   {
@@ -215,6 +238,7 @@ const games = [
     options: { A: 'Lightsaber', B: 'Crowbar', C: 'Portal Gun', D: 'Chainsaw', E: 'Katana' },
     options_tr: { A: 'Işın Kılıcı', B: 'Levye (Crowbar)', C: 'Portal Silahı', D: 'Elektrikli Testere', E: 'Katana' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The crowbar is Gordon Freeman\'s signature melee weapon throughout the Half-Life games.',
   },
   {
@@ -224,6 +248,7 @@ const games = [
     options: { A: 'Sony', B: 'Nintendo', C: 'Sega', D: 'Microsoft', E: 'Google' },
     options_tr: { A: 'Sony', B: 'Nintendo', C: 'Sega', D: 'Microsoft', E: 'Google' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Microsoft entered the home console market with the release of the original Xbox in 2001.',
   },
   {
@@ -233,6 +258,7 @@ const games = [
     options: { A: 'Star Wars', B: 'Marvel Cinematic Universe', C: 'Pokémon', D: 'Super Mario', E: 'Call of Duty' },
     options_tr: { A: 'Star Wars', B: 'Marvel Sinematik Evreni', C: 'Pokémon', D: 'Super Mario', E: 'Call of Duty' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Pokémon began in Japan in 1996 as Pokémon Red and Green for the Nintendo Game Boy.',
   },
   {
@@ -242,6 +268,7 @@ const games = [
     options: { A: 'Jedi vs Sith', B: 'Alliance vs Horde', C: 'Autobots vs Decepticons', D: 'Terrorists vs Counter-Terrorists', E: 'Red vs Blue' },
     options_tr: { A: 'Jedi vs Sith', B: 'Alliance vs Horde', C: 'Autobots vs Decepticons', D: 'Terörist vs Anti-Terörist', E: 'Kırmızı vs Mavi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The lore of Warcraft heavily focuses on the perpetual conflict between the Alliance and the Horde.',
   },
   {
@@ -251,6 +278,7 @@ const games = [
     options: { A: 'Resident Evil', B: 'Silent Hill', C: 'Dead Space', D: 'Outlast', E: 'Amnesia' },
     options_tr: { A: 'Resident Evil', B: 'Silent Hill', C: 'Dead Space', D: 'Outlast', E: 'Amnesia' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Silent Hill is Konami\'s psychological horror franchise, with Pyramid Head debuting in Silent Hill 2.',
   },
   {
@@ -260,6 +288,7 @@ const games = [
     options: { A: 'Space Invaders', B: 'Asteroids', C: 'Pong', D: 'Galaga', E: 'Frogger' },
     options_tr: { A: 'Space Invaders', B: 'Asteroids', C: 'Pong', D: 'Galaga', E: 'Frogger' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Pong is a simple 2D tennis sports game that helped establish the video game industry.',
   },
   {
@@ -269,6 +298,7 @@ const games = [
     options: { A: 'Elden Ring', B: 'The Legend of Zelda: Tears of the Kingdom', C: 'Baldur\'s Gate 3', D: 'Marvel\'s Spider-Man 2', E: 'Alan Wake 2' },
     options_tr: { A: 'Elden Ring', B: 'The Legend of Zelda: Tears of the Kingdom', C: 'Baldur\'s Gate 3', D: 'Marvel\'s Spider-Man 2', E: 'Alan Wake 2' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Baldur\'s Gate 3, developed by Larian Studios, dominated the awards in 2023, including GOTY.',
   },
   {
@@ -278,6 +308,7 @@ const games = [
     options: { A: 'Jill Valentine', B: 'Lara Croft', C: 'Samus Aran', D: 'Elena Fisher', E: 'Chloe Frazer' },
     options_tr: { A: 'Jill Valentine', B: 'Lara Croft', C: 'Samus Aran', D: 'Elena Fisher', E: 'Chloe Frazer' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Lara Croft is an English archaeologist-adventurer created by Core Design.',
   },
   {
@@ -287,6 +318,7 @@ const games = [
     options: { A: 'United States', B: 'Japan', C: 'Sweden', D: 'Germany', E: 'Canada' },
     options_tr: { A: 'Amerika Birleşik Devletleri', B: 'Japonya', C: 'İsveç', D: 'Almanya', E: 'Kanada' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Minecraft was created by Swedish developer Markus "Notch" Persson and developed by Mojang Studios.',
   },
   {
@@ -296,6 +328,7 @@ const games = [
     options: { A: 'Solve a murder mystery', B: 'Achieve global domination', C: 'Build the longest road', D: 'Gather 10 victory points', E: 'Collect the most money' },
     options_tr: { A: 'Bir cinayet gizemini çözmek', B: 'Dünyayı tamamen fethetmek', C: 'En uzun yolu inşa etmek', D: '10 zafer puanı toplamak', E: 'En çok parayı biriktirmek' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Risk is a game of strategic conquest where players attempt to capture every territory on the map.',
   },
   {
@@ -305,6 +338,7 @@ const games = [
     options: { A: 'Traitor', B: 'Spy', C: 'Impostor', D: 'Assassin', E: 'Alien' },
     options_tr: { A: 'Hain', B: 'Casus', C: 'Impostor (Sahtekar)', D: 'Suikastçı', E: 'Uzaylı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The game divides players into "Crewmates" and "Impostors".',
   },
   {
@@ -314,6 +348,7 @@ const games = [
     options: { A: 'Metro', B: 'S.T.A.L.K.E.R.', C: 'Fallout', D: 'Borderlands', E: 'BioShock' },
     options_tr: { A: 'Metro', B: 'S.T.A.L.K.E.R.', C: 'Fallout', D: 'Borderlands', E: 'BioShock' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Vault Boy is the corporate mascot of the Vault-Tec Corporation within the Fallout universe.',
   },
   {
@@ -323,6 +358,7 @@ const games = [
     options: { A: 'Grand Theft Auto II', B: 'Grand Theft Auto III', C: 'Grand Theft Auto: Vice City', D: 'Grand Theft Auto IV', E: 'Grand Theft Auto V' },
     options_tr: { A: 'Grand Theft Auto II', B: 'Grand Theft Auto III', C: 'Grand Theft Auto: Vice City', D: 'Grand Theft Auto IV', E: 'Grand Theft Auto V' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Released in 2001, GTA III revolutionized the series and open-world gaming by introducing a fully 3D Liberty City.',
   },
   {
@@ -332,6 +368,7 @@ const games = [
     options: { A: 'Rook', B: 'Bishop', C: 'Knight', D: 'Queen', E: 'Pawn' },
     options_tr: { A: 'Kale', B: 'Fil', C: 'At', D: 'Vezir', E: 'Piyon' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Knight moves two squares vertically and one horizontally (or vice versa), tracing an L-shape.',
   },
   {
@@ -341,6 +378,7 @@ const games = [
     options: { A: 'Valve', B: 'Epic Games', C: 'Riot Games', D: 'Ubisoft', E: 'Blizzard' },
     options_tr: { A: 'Valve', B: 'Epic Games', C: 'Riot Games', D: 'Ubisoft', E: 'Blizzard' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Riot Games released Valorant in June 2020, entering the competitive tactical FPS market.',
   },
   {
@@ -350,6 +388,7 @@ const games = [
     options: { A: 'The American Wild West', B: 'Medieval Europe', C: 'World War II', D: 'Futuristic Cyberpunk', E: 'Pirate Age Caribbean' },
     options_tr: { A: 'Amerikan Vahşi Batısı', B: 'Orta Çağ Avrupası', C: 'II. Dünya Savaşı', D: 'Fütüristik Siberpunk', E: 'Korsan Çağı Karayipler' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'RDR2 is an epic Western game following Arthur Morgan during the decline of the Wild West outlaw era in 1899.',
   },
   {
@@ -359,6 +398,7 @@ const games = [
     options: { A: '2', B: '3', C: '4', D: '5', E: '6' },
     options_tr: { A: '2', B: '3', C: '4', D: '5', E: '6' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'There are 4 ghosts named Blinky (red), Pinky (pink), Inky (cyan), and Clyde (orange).',
   },
   {
@@ -368,6 +408,7 @@ const games = [
     options: { A: 'The International', B: 'Worlds', C: 'EVO', D: 'Capcom Cup', E: 'DreamHack' },
     options_tr: { A: 'The International', B: 'Worlds', C: 'EVO (Evolution Championship Series)', D: 'Capcom Cup', E: 'DreamHack' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'EVO (Evolution Championship Series) is an annual esports event focused exclusively on fighting games.',
   },
   {
@@ -377,6 +418,7 @@ const games = [
     options: { A: 'Bloodborne', B: 'Demon\'s Souls', C: 'Sekiro', D: 'Elden Ring', E: 'King\'s Field' },
     options_tr: { A: 'Bloodborne', B: 'Demon\'s Souls', C: 'Sekiro', D: 'Elden Ring', E: 'King\'s Field' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Demon\'s Souls for the PS3 laid down the brutal gameplay foundations for the future Souls franchise.',
   },
   {
@@ -386,6 +428,7 @@ const games = [
     options: { A: 'Simlish', B: 'Huttese', C: 'Dothraki', D: 'Elvish', E: 'Gibberish' },
     options_tr: { A: 'Simlish', B: 'Huttese', C: 'Dothraki', D: 'Elvice', E: 'Anlamsız Dil' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Simlish is a gibberish language improvised by voice actors so players could interpret emotions without specific dialogue.',
   },
   {
@@ -395,6 +438,7 @@ const games = [
     options: { A: 'Bejeweled', B: 'Candy Crush', C: 'Tetris', D: 'Sudoku', E: 'Lemmings' },
     options_tr: { A: 'Bejeweled', B: 'Candy Crush', C: 'Tetris', D: 'Sudoku', E: 'Lemmings' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Tetris was created by Alexey Pajitnov in 1984, named after the Greek numerical prefix "tetra" and tennis.',
   },
   {
@@ -404,6 +448,7 @@ const games = [
     options: { A: 'Joel Miller', B: 'Nathan Drake', C: 'Sam Fisher', D: 'Solid Snake', E: 'Leon S. Kennedy' },
     options_tr: { A: 'Joel Miller', B: 'Nathan Drake', C: 'Sam Fisher', D: 'Solid Snake', E: 'Leon S. Kennedy' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Nathan Drake is a charismatic treasure hunter who travels the world uncovering historical mysteries.',
   },
   {
@@ -413,6 +458,7 @@ const games = [
     options: { A: 'Hyper Scape', B: 'Apex Legends', C: 'Warzone', D: 'Fortnite', E: 'Realm Royale' },
     options_tr: { A: 'Hyper Scape', B: 'Apex Legends', C: 'Warzone', D: 'Fortnite', E: 'Realm Royale' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Apex Legends was developed by Respawn Entertainment and uses many mechanics and lore pieces from Titanfall.',
   },
   {
@@ -422,6 +468,7 @@ const games = [
     options: { A: 'Viral Infection', B: 'Bacterial Infection', C: 'Cordyceps Fungal Infection', D: 'Radiation Sickness', E: 'Alien Parasite' },
     options_tr: { A: 'Virüs Enfeksiyonu', B: 'Bakteri Enfeksiyonu', C: 'Kordiseps Mantar Enfeksiyonu', D: 'Radyasyon Hastalığı', E: 'Uzaylı Paraziti' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The game\'s outbreak is caused by a mutated Cordyceps fungus that takes over the human brain.',
   },
   {
@@ -431,6 +478,7 @@ const games = [
     options: { A: 'Game Boy', B: 'Game Gear', C: 'Nintendo DS', D: 'PSP', E: 'Game & Watch' },
     options_tr: { A: 'Game Boy', B: 'Game Gear', C: 'Nintendo DS', D: 'PSP', E: 'Game & Watch' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The original Game Boy featured an 8-bit system and a monochrome screen, becoming a massive global success.',
   },
   {
@@ -440,6 +488,7 @@ const games = [
     options: { A: 'Silent Hill', B: 'Resident Evil', C: 'Dead Rising', D: 'Devil May Cry', E: 'Dino Crisis' },
     options_tr: { A: 'Silent Hill', B: 'Resident Evil', C: 'Dead Rising', D: 'Devil May Cry', E: 'Dino Crisis' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Resident Evil revolves around corporate bioweapon outbreaks in and around Raccoon City.',
   },
   {
@@ -449,6 +498,7 @@ const games = [
     options: { A: 'Call of Duty', B: 'Counter-Strike', C: 'Rainbow Six Siege', D: 'Battlefield', E: 'Overwatch' },
     options_tr: { A: 'Call of Duty', B: 'Counter-Strike', C: 'Rainbow Six Siege', D: 'Battlefield', E: 'Overwatch' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'These maps are legendary staples of the Counter-Strike (CS:GO / CS2) franchise.',
   },
   {
@@ -458,6 +508,7 @@ const games = [
     options: { A: 'Atari 2600', B: 'Magnavox Odyssey', C: 'ColecoVision', D: 'Intellivision', E: 'Nintendo Entertainment System' },
     options_tr: { A: 'Atari 2600', B: 'Magnavox Odyssey', C: 'ColecoVision', D: 'Intellivision', E: 'Nintendo Entertainment System' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Magnavox Odyssey predated the Atari VCS/2600 and was the world\'s first commercial home console.',
   },
   {
@@ -467,6 +518,7 @@ const games = [
     options: { A: 'Spartan-I', B: 'Spartan-II', C: 'Spartan-III', D: 'Spartan-IV', E: 'Spartan-V' },
     options_tr: { A: 'Spartan-I', B: 'Spartan-II', C: 'Spartan-III', D: 'Spartan-IV', E: 'Spartan-V' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'John-117 was recruited as a child to be part of the highly classified Spartan-II program.',
   },
   {
@@ -476,6 +528,7 @@ const games = [
     options: { A: 'Starbound', B: 'Terraria', C: 'Stardew Valley', D: 'Don\'t Starve', E: 'Factorio' },
     options_tr: { A: 'Starbound', B: 'Terraria', C: 'Stardew Valley', D: 'Don\'t Starve', E: 'Factorio' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Terraria is a 2D action-adventure sandbox game focused on exploration, building, and combat.',
   },
   {
@@ -485,6 +538,7 @@ const games = [
     options: { A: 'The Wither', B: 'Herobrine', C: 'The Ender Dragon', D: 'The Warden', E: 'Giant Zombie' },
     options_tr: { A: 'The Wither', B: 'Herobrine', C: 'Ender Ejderhası', D: 'The Warden', E: 'Dev Zombi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Defeating the Ender Dragon in "The End" dimension triggers the game\'s credits roll.',
   },
   {
@@ -494,6 +548,7 @@ const games = [
     options: { A: 'Aperture Science', B: 'Abstergo Industries', C: 'Umbrella Corporation', D: 'Vault-Tec', E: 'Shinra Electric Power Company' },
     options_tr: { A: 'Aperture Science', B: 'Abstergo Industries', C: 'Umbrella Corporation', D: 'Vault-Tec', E: 'Shinra Electric Power Company' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Umbrella Corporation is responsible for creating the T-virus that causes the outbreaks.',
   },
   {
@@ -503,6 +558,7 @@ const games = [
     options: { A: 'Tristana', B: 'Miss Fortune', C: 'Jinx', D: 'Caitlyn', E: 'Ashe' },
     options_tr: { A: 'Tristana', B: 'Miss Fortune', C: 'Jinx', D: 'Caitlyn', E: 'Ashe' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Jinx is a manic criminal from Zaun who wields an arsenal of custom weapons, also starring in the series "Arcane".',
   },
   {
@@ -512,6 +568,7 @@ const games = [
     options: { A: 'Tamriel', B: 'The Continent', C: 'Azeroth', D: 'Westeros', E: 'Hyrule' },
     options_tr: { A: 'Tamriel', B: 'Kıta (The Continent)', C: 'Azeroth', D: 'Westeros', E: 'Hyrule' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The lore of Andrzej Sapkowski simply refers to the primary landmass as "The Continent".',
   },
   {
@@ -521,6 +578,7 @@ const games = [
     options: { A: 'Castlevania: Symphony of the Night', B: 'Castlevania: Aria of Sorrow', C: 'Castlevania: Rondo of Blood', D: 'Super Castlevania IV', E: 'Castlevania: Simon\'s Quest' },
     options_tr: { A: 'Castlevania: Symphony of the Night', B: 'Castlevania: Aria of Sorrow', C: 'Castlevania: Rondo of Blood', D: 'Super Castlevania IV', E: 'Castlevania: Simon\'s Quest' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Symphony of the Night (1997) added non-linear RPG exploration elements to the series, defining the genre name.',
   },
   {
@@ -530,6 +588,7 @@ const games = [
     options: { A: 'Skyrim', B: 'Cyberpunk 2077', C: 'Fallout', D: 'Mass Effect', E: 'Dragon Age' },
     options_tr: { A: 'Skyrim', B: 'Cyberpunk 2077', C: 'Fallout', D: 'Mass Effect', E: 'Dragon Age' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'S.P.E.C.I.A.L. stands for Strength, Perception, Endurance, Charisma, Intelligence, Agility, and Luck.',
   },
   {
@@ -539,6 +598,7 @@ const games = [
     options: { A: 'Gotham City', B: 'Los Angeles', C: 'New York City', D: 'Chicago', E: 'Metropolis' },
     options_tr: { A: 'Gotham Şehri', B: 'Los Angeles', C: 'New York Şehri', D: 'Chicago', E: 'Metropolis' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The game features an open-world fictionalized version of Manhattan, New York City.',
   },
   {
@@ -548,6 +608,7 @@ const games = [
     options: { A: 'Jumpman', B: 'Plumber Joe', C: 'Luigi', D: 'Red Cap', E: 'Wario' },
     options_tr: { A: 'Jumpman', B: 'Plumber Joe', C: 'Luigi', D: 'Red Cap', E: 'Wario' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Mario was initially called "Jumpman" because his primary action was jumping over barrels.',
   },
   {
@@ -557,6 +618,7 @@ const games = [
     options: { A: 'Animal Crossing', B: 'Stardew Valley', C: 'Harvest Moon', D: 'Farming Simulator', E: 'Terraria' },
     options_tr: { A: 'Animal Crossing', B: 'Stardew Valley', C: 'Harvest Moon', D: 'Farming Simulator', E: 'Terraria' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Stardew Valley was famously developed entirely by a single person, Eric "ConcernedApe" Barone.',
   },
   {
@@ -566,6 +628,7 @@ const games = [
     options: { A: 'Guild Wars', B: 'Runescape', C: 'World of Warcraft', D: 'Final Fantasy XI', E: 'Lineage II' },
     options_tr: { A: 'Guild Wars', B: 'Runescape', C: 'World of Warcraft', D: 'Final Fantasy XI', E: 'Lineage II' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Burning Crusade was the highly successful first expansion pack for World of Warcraft.',
   },
   {
@@ -575,6 +638,7 @@ const games = [
     options: { A: 'Tom Clancy\'s The Division', B: 'Tom Clancy\'s Ghost Recon', C: 'Tom Clancy\'s Rainbow Six Siege', D: 'Splinter Cell', E: 'Far Cry' },
     options_tr: { A: 'Tom Clancy\'s The Division', B: 'Tom Clancy\'s Ghost Recon', C: 'Tom Clancy\'s Rainbow Six Siege', D: 'Splinter Cell', E: 'Far Cry' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Rainbow Six Siege heavily centers on tactical destruction and synergy between different "Operators".',
   },
   {
@@ -584,6 +648,7 @@ const games = [
     options: { A: 'Team Ninja', B: 'FromSoftware', C: 'Guerrilla Games', D: 'Santa Monica Studio', E: 'Capcom' },
     options_tr: { A: 'Team Ninja', B: 'FromSoftware', C: 'Guerrilla Games', D: 'Santa Monica Studio', E: 'Capcom' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'FromSoftware, led by Hidetaka Miyazaki, developed Elden Ring, winning Game of the Year in 2022.',
   },
   {
@@ -593,6 +658,7 @@ const games = [
     options: { A: 'GLaDOS', B: 'Cortana', C: 'SHODAN', D: 'SIRI', E: 'ED-E' },
     options_tr: { A: 'GLaDOS', B: 'Cortana', C: 'SHODAN', D: 'SIRI', E: 'ED-E' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Cortana is a highly advanced smart AI that develops a deep bond with Master Chief John-117.',
   },
   {
@@ -602,6 +668,7 @@ const games = [
     options: { A: 'Civilization', B: 'XCOM', C: 'Starcraft', D: 'Mass Effect', E: 'Gears of War' },
     options_tr: { A: 'Civilization', B: 'XCOM', C: 'Starcraft', D: 'Mass Effect', E: 'Gears of War' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'XCOM is a critically acclaimed turn-based tactical franchise focused on the Extraterrestrial Combat Unit.',
   },
   {
@@ -611,6 +678,7 @@ const games = [
     options: { A: 'Robux', B: 'V-Bucks', C: 'Minecoins', D: 'Riot Points', E: 'COD Points' },
     options_tr: { A: 'Robux', B: 'V-Bucks', C: 'Minecoins', D: 'Riot Points', E: 'COD Points' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'V-Bucks (Vindertech Bucks) are used to purchase cosmetics and battle passes in Fortnite.',
   },
   {
@@ -620,6 +688,7 @@ const games = [
     options: { A: 'Age of Empires', B: 'Total War', C: 'Civilization', D: 'Europa Universalis', E: 'StarCraft' },
     options_tr: { A: 'Age of Empires', B: 'Total War', C: 'Civilization', D: 'Europa Universalis', E: 'StarCraft' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Sid Meier\'s Civilization is a legendary turn-based "4X" strategy video game franchise first launched in 1991.',
   },
   {
@@ -629,6 +698,7 @@ const games = [
     options: { A: 'Morrowind', B: 'Oblivion', C: 'Skyrim', D: 'Daggerfall', E: 'Arena' },
     options_tr: { A: 'Morrowind', B: 'Oblivion', C: 'Skyrim', D: 'Daggerfall', E: 'Arena' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Skyrim is one of the most celebrated and re-released open-world RPGs in history.',
   },
   {
@@ -638,6 +708,7 @@ const games = [
     options: { A: 'Crash Bandicoot', B: 'Spyro', C: 'Sonic', D: 'Mega Man', E: 'Pac-Man' },
     options_tr: { A: 'Crash Bandicoot', B: 'Spyro', C: 'Sonic', D: 'Mega Man', E: 'Pac-Man' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Sonic the Hedgehog was introduced in 1991 to compete directly with Nintendo\'s Mario.',
   },
   {
@@ -647,6 +718,7 @@ const games = [
     options: { A: '35', B: '40', C: '45', D: '50', E: '60' },
     options_tr: { A: '35', B: '40', C: '45', D: '50', E: '60' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The bomb timer in modern competitive Counter-Strike match settings is exactly 40 seconds.',
   },
   {
@@ -656,6 +728,7 @@ const games = [
     options: { A: 'Star Fox', B: 'F-Zero', C: 'Metroid', D: 'Kirby', E: 'Kid Icarus' },
     options_tr: { A: 'Star Fox', B: 'F-Zero', C: 'Metroid', D: 'Kirby', E: 'Kid Icarus' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Metroid launched in 1986, famous for its atmospheric exploration and revealing Samus as a female protagonist.',
   },
   {
@@ -665,6 +738,7 @@ const games = [
     options: { A: 'Friday the 13th', B: 'Dead by Daylight', C: 'Left 4 Dead', D: 'Phasmophobia', E: 'Evolve' },
     options_tr: { A: 'Friday the 13th', B: 'Dead by Daylight', C: 'Left 4 Dead', D: 'Phasmophobia', E: 'Evolve' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Dead by Daylight is an asymmetrical 4v1 horror game developed by Behaviour Interactive.',
   },
   {
@@ -674,6 +748,7 @@ const games = [
     options: { A: 'Bethesda', B: 'BioWare', C: 'Obsidian', D: 'Bungie', E: 'CD Projekt Red' },
     options_tr: { A: 'Bethesda', B: 'BioWare', C: 'Obsidian', D: 'Bungie', E: 'CD Projekt Red' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'BioWare developed the Mass Effect trilogy, telling the story of Commander Shepard.',
   },
   {
@@ -683,6 +758,7 @@ const games = [
     options: { A: '32', B: '48', C: '64', D: '72', E: '81' },
     options_tr: { A: '32', B: '48', C: '64', D: '72', E: '81' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'A standard chessboard has an 8x8 grid layout, totaling 64 squares alternating in light and dark colors.',
   },
   {
@@ -692,6 +768,7 @@ const games = [
     options: { A: 'Splinter Cell', B: 'Hitman', C: 'Metal Gear', D: 'Deus Ex', E: 'Sniper Elite' },
     options_tr: { A: 'Splinter Cell', B: 'Hitman', C: 'Metal Gear', D: 'Deus Ex', E: 'Sniper Elite' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Agent 47 is a cloned contract killer working for the International Contract Agency (ICA) in the Hitman series.',
   },
   {
@@ -701,6 +778,7 @@ const games = [
     options: { A: 'Tekken', B: 'Mortal Kombat', C: 'Street Fighter', D: 'Virtua Fighter', E: 'King of Fighters' },
     options_tr: { A: 'Tekken', B: 'Mortal Kombat', C: 'Street Fighter', D: 'Virtua Fighter', E: 'King of Fighters' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Hadouken is the signature move of characters like Ryu and Ken in Capcom\'s Street Fighter.',
   },
   {
@@ -710,6 +788,7 @@ const games = [
     options: { A: 'Columbia', B: 'Rapture', C: 'Atlantis', D: 'Dunwall', E: 'Night City' },
     options_tr: { A: 'Columbia', B: 'Rapture', C: 'Atlantis', D: 'Dunwall', E: 'Night City' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Rapture is an underwater city built by visionary Andrew Ryan to escape government interference.',
   },
   {
@@ -719,6 +798,7 @@ const games = [
     options: { A: 'Mega-City One', B: 'Night City', C: 'Los Santos', D: 'New Eden', E: 'Neo-Tokyo' },
     options_tr: { A: 'Mega-City One', B: 'Night City', C: 'Los Santos', D: 'New Eden', E: 'Neo-Tokyo' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Night City is a fictional megalopolis set in the near-future California of 2077.',
   },
   {
@@ -728,6 +808,7 @@ const games = [
     options: { A: 'Poker', B: 'Go Fish', C: 'Uno', D: 'Snap', E: 'Blackjack' },
     options_tr: { A: 'Poker', B: 'Go Fish', C: 'Uno', D: 'Snap', E: 'Blackjack' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'In Uno, if you fail to say "Uno!" when you have one card left, you must draw two penalty cards.',
   },
   {
@@ -737,6 +818,7 @@ const games = [
     options: { A: 'Harvest Moon', B: 'Pikmin', C: 'Animal Crossing', D: 'Tomodachi Life', E: 'Fantasy Life' },
     options_tr: { A: 'Harvest Moon', B: 'Pikmin', C: 'Animal Crossing', D: 'Tomodachi Life', E: 'Fantasy Life' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Animal Crossing: New Horizons sold over 40 million copies and became enormously popular during the COVID-19 pandemic.',
   },
   {
@@ -746,6 +828,7 @@ const games = [
     options: { A: 'Runes', B: 'Estus', C: 'Souls', D: 'Embers', E: 'Humanity' },
     options_tr: { A: 'Runlar', B: 'Estus', C: 'Ruhlar (Souls)', D: 'Közler (Embers)', E: 'İnsanlık (Humanity)' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Souls are collected from enemies and bosses, used for leveling up and purchasing items.',
   },
   {
@@ -755,6 +838,7 @@ const games = [
     options: { A: 'Street Fighter', B: 'Super Smash Bros.', C: 'Tekken', D: 'Mortal Kombat', E: 'Arms' },
     options_tr: { A: 'Street Fighter', B: 'Super Smash Bros.', C: 'Tekken', D: 'Mortal Kombat', E: 'Arms' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Super Smash Bros. is a crossover fighting game series featuring Nintendo and third-party characters.',
   },
   {
@@ -764,6 +848,7 @@ const games = [
     options: { A: 'The End', B: 'The Aether', C: 'The Nether', D: 'The Overworld', E: 'The Deep Dark' },
     options_tr: { A: 'The End', B: 'The Aether', C: 'Nether', D: 'Aşırı Dünya (Overworld)', E: 'Derin Karanlık (Deep Dark)' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Nether is a hellish dimension accessed through an Obsidian portal, filled with unique resources and dangers.',
   },
   {
@@ -773,6 +858,7 @@ const games = [
     options: { A: 'id Software', B: 'Valve', C: 'Epic Games', D: 'Bethesda', E: '3D Realms' },
     options_tr: { A: 'id Software', B: 'Valve', C: 'Epic Games', D: 'Bethesda', E: '3D Realms' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Valve released the original Half-Life in 1998, launching one of gaming\'s most influential sci-fi franchises.',
   },
   {
@@ -782,6 +868,7 @@ const games = [
     options: { A: '2008', B: '2010', C: '2012', D: '2014', E: '2016' },
     options_tr: { A: '2008', B: '2010', C: '2012', D: '2014', E: '2016' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'CS:GO was officially released on August 21, 2012, becoming an esports giant for over a decade.',
   },
   {
@@ -791,6 +878,7 @@ const games = [
     options: { A: 'Alex', B: 'Steve', C: 'John', D: 'Notch', E: 'Peter' },
     options_tr: { A: 'Alex', B: 'Steve', C: 'John', D: 'Notch', E: 'Peter' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Steve is the classic blocky male protagonist, while Alex represents the female default skin.',
   },
   {
@@ -800,6 +888,7 @@ const games = [
     options: { A: 'Dragon Quest', B: 'Final Fantasy', C: 'Kingdom Hearts', D: 'Chrono Trigger', E: 'Xenoblade' },
     options_tr: { A: 'Dragon Quest', B: 'Final Fantasy', C: 'Kingdom Hearts', D: 'Chrono Trigger', E: 'Xenoblade' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Chocobos are large, usually yellow, flightless birds that characters ride like horses in the Final Fantasy series.',
   },
   {
@@ -809,6 +898,7 @@ const games = [
     options: { A: 'Howling Abyss', B: 'Summoner\'s Rift', C: 'Twisted Treeline', D: 'Crystal Scar', E: 'Valoran' },
     options_tr: { A: 'Sonsuz Uçurum', B: 'Sihirdar Vadisi (Summoner\'s Rift)', C: 'Uğursuz Koruluk', D: 'Kristal Skar', E: 'Valoran' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Summoner\'s Rift is the standard 5v5 map used for all major competitive and esports matches.',
   },
   {
@@ -818,6 +908,7 @@ const games = [
     options: { A: '2K Games', B: 'Activision', C: 'Electronic Arts', D: 'Ubisoft', E: 'Konami' },
     options_tr: { A: '2K Games', B: 'Activision', C: 'Electronic Arts (EA)', D: 'Ubisoft', E: 'Konami' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'EA (Electronic Arts) dominates the sports simulation market under its EA Sports division.',
   },
   {
@@ -827,6 +918,7 @@ const games = [
     options: { A: 'Metal Gear Solid', B: 'Tom Clancy\'s Splinter Cell', C: 'Hitman', D: 'Dishonored', E: 'Thief' },
     options_tr: { A: 'Metal Gear Solid', B: 'Tom Clancy\'s Splinter Cell', C: 'Hitman', D: 'Dishonored', E: 'Thief' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Splinter Cell is Ubisoft\'s premier stealth series focusing on military black-ops agent Sam Fisher.',
   },
   {
@@ -836,6 +928,7 @@ const games = [
     options: { A: 'CD Projekt Red', B: 'Bethesda Game Studios', C: 'BioWare', D: 'Obsidian Entertainment', E: 'Arkane Studios' },
     options_tr: { A: 'CD Projekt Red', B: 'Bethesda Game Studios', C: 'BioWare', D: 'Obsidian Entertainment', E: 'Arkane Studios' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'CD Projekt Red, the Polish studio behind "The Witcher 3," developed and published "Cyberpunk 2077" in 2020.',
   },
   {
@@ -845,6 +938,7 @@ const games = [
     options: { A: 'Baron Nashor', B: 'Roshan', C: 'The Dragon', D: 'The Rift Herald', E: 'Kongor' },
     options_tr: { A: 'Baron Nashor', B: 'Roshan', C: 'Ejderha', D: 'Alamet (Rift Herald)', E: 'Kongor' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Roshan the Immortal is the strongest neutral creep in Dota 2, requiring full team coordination to defeat.',
   },
   {
@@ -854,6 +948,7 @@ const games = [
     options: { A: 'Xbox 360', B: 'PlayStation 3', C: 'Nintendo Wii', D: 'Nintendo GameCube', E: 'PlayStation Move' },
     options_tr: { A: 'Xbox 360', B: 'PlayStation 3', C: 'Nintendo Wii', D: 'Nintendo GameCube', E: 'PlayStation Move' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Nintendo Wii became a massive cultural phenomenon by appealing to casual audiences through its intuitive motion controls.',
   },
   {
@@ -863,6 +958,7 @@ const games = [
     options: { A: 'A bomb', B: 'A gold coin', C: 'A flag', D: 'A weapon crate', E: 'A key' },
     options_tr: { A: 'Bomba', B: 'Altın sikke', C: 'Bayrak', D: 'Silah kasası', E: 'Anahtar' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Teams must defend their own flag while venturing into enemy territory to capture the opponent\'s flag.',
   },
   {
@@ -872,6 +968,7 @@ const games = [
     options: { A: 'Valve', B: 'BioWare', C: 'Blizzard Entertainment', D: 'Bethesda', E: 'Epic Games' },
     options_tr: { A: 'Valve', B: 'BioWare', C: 'Blizzard Entertainment', D: 'Bethesda', E: 'Epic Games' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Blizzard Entertainment is globally famous for these major PC gaming franchises.',
   },
   {
@@ -881,6 +978,7 @@ const games = [
     options: { A: 'Arthur Morgan', B: 'John Marston', C: 'Dutch van der Linde', D: 'Jack Marston', E: 'Micah Bell' },
     options_tr: { A: 'Arthur Morgan', B: 'John Marston', C: 'Dutch van der Linde', D: 'Jack Marston', E: 'Micah Bell' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'John Marston is the main protagonist of the first game, trying to hunt down his former gang members.',
   },
   {
@@ -890,6 +988,7 @@ const games = [
     options: { A: 'This War of Mine', B: 'Papers, Please', C: 'The Stanley Parable', D: 'Disco Elysium', E: 'Frostpunk' },
     options_tr: { A: 'This War of Mine', B: 'Papers, Please', C: 'The Stanley Parable', D: 'Disco Elysium', E: 'Frostpunk' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Papers, Please was created by Lucas Pope and challenges players to inspect documents under stressful political criteria.',
   },
   {
@@ -899,6 +998,7 @@ const games = [
     options: { A: 'HAL 9000', B: 'SHODAN', C: 'GLaDOS', D: 'Wheatley', E: 'Cortana' },
     options_tr: { A: 'HAL 9000', B: 'SHODAN', C: 'GLaDOS', D: 'Wheatley', E: 'Cortana' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'GLaDOS (Genetic Lifeform and Disk Operating System) is the passive-aggressive rogue AI managing the Aperture Science facility.',
   },
   {
@@ -908,6 +1008,7 @@ const games = [
     options: { A: '1994', B: '1996', C: '1998', D: '2000', E: '2002' },
     options_tr: { A: '1994', B: '1996', C: '1998', D: '2000', E: '2002' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Nintendo 64 launched in Japan on June 23, 1996, bringing Nintendo\'s home consoles into 3D.',
   },
   {
@@ -917,6 +1018,7 @@ const games = [
     options: { A: 'Wii U', B: 'Nintendo 3DS', C: 'Nintendo DS', D: 'Nintendo Switch', E: 'GameCube' },
     options_tr: { A: 'Wii U', B: 'Nintendo 3DS', C: 'Nintendo DS', D: 'Nintendo Switch', E: 'GameCube' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The Switch arrived in March 2017 and popularised the hybrid format with its detachable Joy-Con controllers.',
   },
   {
@@ -926,6 +1028,7 @@ const games = [
     options: { A: 'PlayStation Portable (PSP)', B: 'PlayStation Vita', C: 'PocketStation', D: 'Game Gear', E: 'Neo Geo Pocket' },
     options_tr: { A: 'PlayStation Portable (PSP)', B: 'PlayStation Vita', C: 'PocketStation', D: 'Game Gear', E: 'Neo Geo Pocket' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The PSP was Sony\'s first handheld console and used a proprietary disc format called UMD.',
   },
   {
@@ -935,6 +1038,7 @@ const games = [
     options: { A: 'Game Boy Advance', B: 'PlayStation Portable', C: 'Nintendo DS', D: 'Nintendo 3DS', E: 'Game Gear' },
     options_tr: { A: 'Game Boy Advance', B: 'PlayStation Portable', C: 'Nintendo DS', D: 'Nintendo 3DS', E: 'Game Gear' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Nintendo DS family sold over 154 million units, ahead of the original Game Boy line.',
   },
   {
@@ -944,6 +1048,7 @@ const games = [
     options: { A: 'Sega Saturn', B: 'Mega Drive', C: 'Master System', D: 'Sega CD', E: 'Dreamcast' },
     options_tr: { A: 'Sega Saturn', B: 'Mega Drive', C: 'Master System', D: 'Sega CD', E: 'Dreamcast' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Sega left the hardware business after the Dreamcast and became a third-party software publisher in 2001.',
   },
   {
@@ -953,6 +1058,7 @@ const games = [
     options: { A: 'Xbox One', B: 'Xbox Series S', C: 'Xbox 360', D: 'Xbox Series X', E: 'Xbox Live Arcade' },
     options_tr: { A: 'Xbox One', B: 'Xbox Series S', C: 'Xbox 360', D: 'Xbox Series X', E: 'Xbox Live Arcade' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Xbox 360 launched in November 2005, a full year before its PlayStation 3 and Wii rivals.',
   },
   {
@@ -962,6 +1068,7 @@ const games = [
     options: { A: 'Nintendo Entertainment System', B: 'Super Nintendo', C: 'Nintendo 64', D: 'Game Boy', E: 'Virtual Boy' },
     options_tr: { A: 'Nintendo Entertainment System', B: 'Super Nintendo', C: 'Nintendo 64', D: 'Game Boy', E: 'Virtual Boy' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'The NES, known as the Famicom in Japan, revived the collapsed North American console market after its 1985 launch.',
   },
   {
@@ -971,6 +1078,7 @@ const games = [
     options: { A: '2016', B: '2017', C: '2018', D: '2019', E: '2020' },
     options_tr: { A: '2016', B: '2017', C: '2018', D: '2019', E: '2020' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Sony launched the PlayStation 5 in November 2020, days before Microsoft\'s Xbox Series X and S.',
   },
   {
@@ -980,6 +1088,7 @@ const games = [
     options: { A: 'DualShock 4', B: 'DualSense', C: 'Sixaxis', D: 'Joy-Con', E: 'Wii Remote' },
     options_tr: { A: 'DualShock 4', B: 'DualSense', C: 'Sixaxis', D: 'Joy-Con', E: 'Wii Remote' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The DualSense introduced haptic feedback and adaptive triggers that stiffen to simulate tension.',
   },
   {
@@ -989,6 +1098,7 @@ const games = [
     options: { A: 'Steam Machine', B: 'Steam Link', C: 'Valve Index', D: 'Steam Deck', E: 'Steam Controller' },
     options_tr: { A: 'Steam Machine', B: 'Steam Link', C: 'Valve Index', D: 'Steam Deck', E: 'Steam Controller' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The Steam Deck runs a Linux-based SteamOS and lets players take their Steam library anywhere.',
   },
   {
@@ -998,6 +1108,7 @@ const games = [
     options: { A: 'HTC Vive', B: 'Valve Index', C: 'Magic Leap', D: 'Oculus', E: 'Pico' },
     options_tr: { A: 'HTC Vive', B: 'Valve Index', C: 'Magic Leap', D: 'Oculus', E: 'Pico' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Facebook bought Oculus VR for roughly two billion dollars and later rebranded the headsets as Meta Quest.',
   },
   {
@@ -1007,6 +1118,7 @@ const games = [
     options: { A: 'GeForce Now', B: 'Luna', C: 'xCloud', D: 'Shadow', E: 'Stadia' },
     options_tr: { A: 'GeForce Now', B: 'Luna', C: 'xCloud', D: 'Shadow', E: 'Stadia' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Google Stadia streamed games from data centres but closed less than four years after launch, with refunds issued to buyers.',
   },
   {
@@ -1016,6 +1128,7 @@ const games = [
     options: { A: 'PlayStation Plus', B: 'Xbox Game Pass', C: 'Nintendo Switch Online', D: 'EA Play', E: 'Ubisoft+' },
     options_tr: { A: 'PlayStation Plus', B: 'Xbox Game Pass', C: 'Nintendo Switch Online', D: 'EA Play', E: 'Ubisoft+' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Xbox Game Pass launched in 2017 and adds Microsoft\'s own titles to the service on their release day.',
   },
   {
@@ -1025,6 +1138,7 @@ const games = [
     options: { A: 'Nolan Bushnell', B: 'Ralph Baer', C: 'Gunpei Yokoi', D: 'Masaya Nakamura', E: 'Trip Hawkins' },
     options_tr: { A: 'Nolan Bushnell', B: 'Ralph Baer', C: 'Gunpei Yokoi', D: 'Masaya Nakamura', E: 'Trip Hawkins' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Nolan Bushnell founded Atari with Ted Dabney and helped turn arcade machines into a mass market business.',
   },
   {
@@ -1034,6 +1148,7 @@ const games = [
     options: { A: 'Pitfall!', B: 'Adventure', C: 'E.T. the Extra-Terrestrial', D: 'Combat', E: 'Missile Command' },
     options_tr: { A: 'Pitfall!', B: 'Adventure', C: 'E.T. the Extra-Terrestrial', D: 'Combat', E: 'Missile Command' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Unsold E.T. cartridges were buried in Alamogordo in 1983 and dug up in 2014, confirming a long-running industry legend.',
   },
   {
@@ -1043,6 +1158,7 @@ const games = [
     options: { A: 'Space Invaders', B: 'Galaga', C: 'Defender', D: 'Asteroids', E: 'Centipede' },
     options_tr: { A: 'Space Invaders', B: 'Galaga', C: 'Defender', D: 'Asteroids', E: 'Centipede' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Space Invaders, designed by Tomohiro Nishikado, was a phenomenon in Japan and helped launch the arcade golden age.',
   },
   {
@@ -1052,6 +1168,7 @@ const games = [
     options: { A: 'Quake', B: 'Duke Nukem 3D', C: 'Wolfenstein 3D', D: 'Commander Keen', E: 'Hexen' },
     options_tr: { A: 'Quake', B: 'Duke Nukem 3D', C: 'Wolfenstein 3D', D: 'Commander Keen', E: 'Hexen' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Wolfenstein 3D set players loose in a Nazi castle and established conventions that Doom later refined.',
   },
   {
@@ -1061,6 +1178,7 @@ const games = [
     options: { A: '1987', B: '1989', C: '1991', D: '1993', E: '1995' },
     options_tr: { A: '1987', B: '1989', C: '1991', D: '1993', E: '1995' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Doom was released as shareware in December 1993 and spread to millions of PCs within months.',
   },
   {
@@ -1070,6 +1188,7 @@ const games = [
     options: { A: 'Bicycles', B: 'Radios', C: 'Cameras', D: 'Board games', E: 'Playing cards' },
     options_tr: { A: 'Bisiklet', B: 'Radyo', C: 'Fotoğraf makinesi', D: 'Masa oyunu', E: 'Oyun kâğıdı' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Nintendo began in Kyoto as a maker of handmade hanafuda playing cards and only moved into electronics decades later.',
   },
   {
@@ -1079,6 +1198,7 @@ const games = [
     options: { A: 'France', B: 'Germany', C: 'Netherlands', D: 'Sweden', E: 'United Kingdom' },
     options_tr: { A: 'Fransa', B: 'Almanya', C: 'Hollanda', D: 'İsveç', E: 'Birleşik Krallık' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Gamescom takes place every year in Cologne, Germany, and draws hundreds of thousands of visitors.',
   },
   {
@@ -1088,6 +1208,7 @@ const games = [
     options: { A: 'PAX', B: 'Gamescom', C: 'Tokyo Game Show', D: 'GDC', E: 'E3 (Electronic Entertainment Expo)' },
     options_tr: { A: 'PAX', B: 'Gamescom', C: 'Tokyo Game Show', D: 'GDC', E: 'E3 (Electronic Entertainment Expo)' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'The Entertainment Software Association announced the permanent end of E3 in December 2023 after nearly thirty years.',
   },
   {
@@ -1097,6 +1218,7 @@ const games = [
     options: { A: 'BAFTA Games Awards', B: 'The Game Awards', C: 'DICE Awards', D: 'Golden Joystick Awards', E: 'Steam Awards' },
     options_tr: { A: 'BAFTA Games Awards', B: 'The Game Awards', C: 'DICE Awards', D: 'Golden Joystick Awards', E: 'Steam Awards' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Game Awards started in 2014 and mixes award presentations with new game announcements.',
   },
   {
@@ -1106,6 +1228,7 @@ const games = [
     options: { A: 'PEGI', B: 'CERO', C: 'ESRB', D: 'USK', E: 'BBFC' },
     options_tr: { A: 'PEGI', B: 'CERO', C: 'ESRB', D: 'USK', E: 'BBFC' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Entertainment Software Rating Board was created in 1994 so the US games industry could regulate its own content labels.',
   },
   {
@@ -1115,6 +1238,7 @@ const games = [
     options: { A: 'Unity', B: 'CryEngine', C: 'Godot', D: 'Unreal Engine', E: 'Source' },
     options_tr: { A: 'Unity', B: 'CryEngine', C: 'Godot', D: 'Unreal Engine', E: 'Source' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Unreal Engine debuted with the shooter Unreal in 1998 and is now licensed to studios and film productions worldwide.',
   },
   {
@@ -1124,6 +1248,7 @@ const games = [
     options: { A: 'France', B: 'Canada', C: 'Germany', D: 'Japan', E: 'United States' },
     options_tr: { A: 'Fransa', B: 'Kanada', C: 'Almanya', D: 'Japonya', E: 'Amerika Birleşik Devletleri' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Ubisoft was founded by the Guillemot brothers in Brittany and has its headquarters in Montreuil, near Paris.',
   },
   {
@@ -1133,6 +1258,7 @@ const games = [
     options: { A: 'Konami', B: 'Capcom', C: 'Square Enix', D: 'Bandai Namco', E: 'Koei Tecmo' },
     options_tr: { A: 'Konami', B: 'Capcom', C: 'Square Enix', D: 'Bandai Namco', E: 'Koei Tecmo' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Capcom launched Monster Hunter in 2004, and Monster Hunter: World went on to become the company\'s best-selling title.',
   },
   {
@@ -1142,6 +1268,7 @@ const games = [
     options: { A: 'Satoru Iwata', B: 'Gunpei Yokoi', C: 'Masahiro Sakurai', D: 'Shigeru Miyamoto', E: 'Eiji Aonuma' },
     options_tr: { A: 'Satoru Iwata', B: 'Gunpei Yokoi', C: 'Masahiro Sakurai', D: 'Shigeru Miyamoto', E: 'Eiji Aonuma' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Shigeru Miyamoto joined Nintendo in 1977 and went on to design the company\'s three most valuable franchises.',
   },
   {
@@ -1151,6 +1278,7 @@ const games = [
     options: { A: 'Tencent', B: 'Alibaba', C: 'NetEase', D: 'ByteDance', E: 'Baidu' },
     options_tr: { A: 'Tencent', B: 'Alibaba', C: 'NetEase', D: 'ByteDance', E: 'Baidu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Tencent took a majority stake in Riot Games in 2011 and bought the remaining shares in 2015.',
   },
   {
@@ -1160,6 +1288,7 @@ const games = [
     options: { A: 'Sony', B: 'Tencent', C: 'Microsoft', D: 'Amazon', E: 'Electronic Arts' },
     options_tr: { A: 'Sony', B: 'Tencent', C: 'Microsoft', D: 'Amazon', E: 'Electronic Arts' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Microsoft paid about 2.5 billion dollars for Mojang, and creator Markus Persson left the studio after the deal.',
   },
   {
@@ -1169,6 +1298,7 @@ const games = [
     options: { A: 'Rockstar San Diego', B: 'Rockstar Toronto', C: 'Rockstar India', D: 'Rockstar New England', E: 'Rockstar North' },
     options_tr: { A: 'Rockstar San Diego', B: 'Rockstar Toronto', C: 'Rockstar India', D: 'Rockstar New England', E: 'Rockstar North' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Rockstar North, formerly DMA Design, has been the lead studio on the main Grand Theft Auto entries since the series began.',
   },
   {
@@ -1178,6 +1308,7 @@ const games = [
     options: { A: 'Supercell', B: 'King', C: 'Rovio', D: 'Remedy', E: 'Housemarque' },
     options_tr: { A: 'Supercell', B: 'King', C: 'Rovio', D: 'Remedy', E: 'Housemarque' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Rovio released Angry Birds for iOS in 2009, and the slingshot puzzle game became one of the most downloaded mobile titles ever.',
   },
   {
@@ -1187,6 +1318,7 @@ const games = [
     options: { A: 'Ensemble Studios', B: 'Westwood Studios', C: 'Relic Entertainment', D: 'Creative Assembly', E: 'Firaxis Games' },
     options_tr: { A: 'Ensemble Studios', B: 'Westwood Studios', C: 'Relic Entertainment', D: 'Creative Assembly', E: 'Firaxis Games' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Ensemble Studios built the historical strategy series for Microsoft before the studio was closed in 2009.',
   },
   {
@@ -1196,6 +1328,7 @@ const games = [
     options: { A: 'Insomniac Games', B: 'Santa Monica Studio', C: 'Sucker Punch', D: 'Guerrilla Games', E: 'Naughty Dog' },
     options_tr: { A: 'Insomniac Games', B: 'Santa Monica Studio', C: 'Sucker Punch', D: 'Guerrilla Games', E: 'Naughty Dog' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Naughty Dog made Crash Bandicoot for the first PlayStation in 1996 and later became one of Sony\'s flagship studios.',
   },
   {
@@ -1205,6 +1338,7 @@ const games = [
     options: { A: 'Rare', B: 'Insomniac Games', C: 'Media Molecule', D: 'Traveller\'s Tales', E: 'Team17' },
     options_tr: { A: 'Rare', B: 'Insomniac Games', C: 'Media Molecule', D: 'Traveller\'s Tales', E: 'Team17' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Insomniac Games made both PlayStation platformer franchises and was acquired by Sony in 2019.',
   },
   {
@@ -1214,6 +1348,7 @@ const games = [
     options: { A: '343 Industries', B: 'Respawn Entertainment', C: 'Infinity Ward', D: 'Bungie', E: 'id Software' },
     options_tr: { A: '343 Industries', B: 'Respawn Entertainment', C: 'Infinity Ward', D: 'Bungie', E: 'id Software' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Bungie created Halo for Microsoft, became independent again in 2007, and launched Destiny with Activision in 2014.',
   },
   {
@@ -1223,6 +1358,7 @@ const games = [
     options: { A: 'Avalanche Studios', B: 'Massive Entertainment', C: 'Paradox Interactive', D: 'DICE', E: 'Starbreeze' },
     options_tr: { A: 'Avalanche Studios', B: 'Massive Entertainment', C: 'Paradox Interactive', D: 'DICE', E: 'Starbreeze' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'DICE has developed Battlefield since Battlefield 1942 in 2002 and was fully acquired by Electronic Arts in 2006.',
   },
   {
@@ -1232,6 +1368,7 @@ const games = [
     options: { A: 'Introversion Software', B: 'Frontier Developments', C: 'Rebellion', D: 'Ninja Theory', E: 'Hello Games' },
     options_tr: { A: 'Introversion Software', B: 'Frontier Developments', C: 'Rebellion', D: 'Ninja Theory', E: 'Hello Games' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Hello Games launched No Man\'s Sky in 2016 to a harsh reception and rebuilt it through years of free updates.',
   },
   {
@@ -1241,6 +1378,7 @@ const games = [
     options: { A: 'Electronic Arts', B: 'Activision', C: 'Ubisoft', D: '2K Games', E: 'Bethesda Softworks' },
     options_tr: { A: 'Electronic Arts', B: 'Activision', C: 'Ubisoft', D: '2K Games', E: 'Bethesda Softworks' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Activision has published Call of Duty since 2003, rotating development between studios such as Infinity Ward and Treyarch.',
   },
   {
@@ -1250,6 +1388,7 @@ const games = [
     options: { A: 'Akira Toriyama', B: 'Eiichiro Oda', C: 'Masashi Kishimoto', D: 'Naoki Urasawa', E: 'Yoshitaka Amano' },
     options_tr: { A: 'Akira Toriyama', B: 'Eiichiro Oda', C: 'Masashi Kishimoto', D: 'Naoki Urasawa', E: 'Yoshitaka Amano' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Akira Toriyama drew the heroes and monsters of Dragon Quest from the very first game in 1986 onwards.',
   },
   {
@@ -1259,6 +1398,7 @@ const games = [
     options: { A: 'Koji Kondo', B: 'Yoko Shimomura', C: 'Nobuo Uematsu', D: 'Yasunori Mitsuda', E: 'Jeremy Soule' },
     options_tr: { A: 'Koji Kondo', B: 'Yoko Shimomura', C: 'Nobuo Uematsu', D: 'Yasunori Mitsuda', E: 'Jeremy Soule' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Nobuo Uematsu scored Final Fantasy I through IX and remains one of the best known composers in gaming.',
   },
   {
@@ -1268,6 +1408,7 @@ const games = [
     options: { A: 'Winston', B: 'Reinhardt', C: 'Roadhog', D: 'Zenyatta', E: 'Torbjörn' },
     options_tr: { A: 'Winston', B: 'Reinhardt', C: 'Roadhog', D: 'Zenyatta', E: 'Torbjörn' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Winston is a scientist from the Horizon Lunar Colony who calls the disbanded Overwatch team back together.',
   },
   {
@@ -1277,6 +1418,7 @@ const games = [
     options: { A: 'Jigglypuff', B: 'Waddle Dee', C: 'Kirby', D: 'Toad', E: 'Birdo' },
     options_tr: { A: 'Jigglypuff', B: 'Waddle Dee', C: 'Kirby', D: 'Toad', E: 'Birdo' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Kirby debuted on the Game Boy in 1992, and copying enemy powers became the series\' signature mechanic.',
   },
   {
@@ -1286,6 +1428,7 @@ const games = [
     options: { A: 'A Link to the Past', B: 'Majora\'s Mask', C: 'The Wind Waker', D: 'Ocarina of Time', E: 'Twilight Princess' },
     options_tr: { A: 'A Link to the Past', B: 'Majora\'s Mask', C: 'The Wind Waker', D: 'Ocarina of Time', E: 'Twilight Princess' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Ocarina of Time introduced Z-targeting, which solved the problem of aiming and locking on in 3D combat.',
   },
   {
@@ -1295,6 +1438,7 @@ const games = [
     options: { A: 'Wario', B: 'Waluigi', C: 'King Boo', D: 'Kamek', E: 'Bowser' },
     options_tr: { A: 'Wario', B: 'Waluigi', C: 'King Boo', D: 'Kamek', E: 'Bowser' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Bowser, king of the Koopas, has been kidnapping Princess Peach since the original Super Mario Bros. in 1985.',
   },
   {
@@ -1304,6 +1448,7 @@ const games = [
     options: { A: 'Knuckles', B: 'Tails', C: 'Shadow', D: 'Amy Rose', E: 'Silver' },
     options_tr: { A: 'Knuckles', B: 'Tails', C: 'Shadow', D: 'Amy Rose', E: 'Silver' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Miles "Tails" Prower first appeared in Sonic the Hedgehog 2 in 1992 and can fly by spinning his twin tails.',
   },
   {
@@ -1313,6 +1458,7 @@ const games = [
     options: { A: 'Big Boss', B: 'Liquid Snake', C: 'Raiden', D: 'Gray Fox', E: 'Solid Snake' },
     options_tr: { A: 'Big Boss', B: 'Liquid Snake', C: 'Raiden', D: 'Gray Fox', E: 'Solid Snake' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Solid Snake infiltrates Shadow Moses Island to stop a nuclear-armed walking tank called Metal Gear REX.',
   },
   {
@@ -1322,6 +1468,7 @@ const games = [
     options: { A: 'Nerevarine', B: 'Dragonborn', C: 'Champion of Cyrodiil', D: 'Arisen', E: 'Grey Warden' },
     options_tr: { A: 'Nerevarine', B: 'Ejderha Doğumlu (Dragonborn)', C: 'Cyrodiil Şampiyonu', D: 'Arisen', E: 'Grey Warden' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Dragonborn, or Dovahkiin, can absorb the souls of slain dragons and speak their language as shouts.',
   },
   {
@@ -1331,6 +1478,7 @@ const games = [
     options: { A: 'Majora', B: 'Demise', C: 'Calamity Ganon', D: 'Vaati', E: 'Zant' },
     options_tr: { A: 'Majora', B: 'Demise', C: 'Calamity Ganon', D: 'Vaati', E: 'Zant' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Princess Zelda holds Calamity Ganon back for a hundred years while Link recovers in the Shrine of Resurrection.',
   },
   {
@@ -1340,6 +1488,7 @@ const games = [
     options: { A: 'Ellie', B: 'Senua', C: 'Kassandra', D: 'Aloy', E: 'Faye' },
     options_tr: { A: 'Ellie', B: 'Senua', C: 'Kassandra', D: 'Aloy', E: 'Faye' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Aloy is an outcast Nora hunter who uncovers the truth behind the robotic creatures in Guerrilla Games\' 2017 title.',
   },
   {
@@ -1349,6 +1498,7 @@ const games = [
     options: { A: 'Tom Nook', B: 'K.K. Slider', C: 'Isabelle', D: 'Blathers', E: 'Redd' },
     options_tr: { A: 'Tom Nook', B: 'K.K. Slider', C: 'Isabelle', D: 'Blathers', E: 'Redd' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Tom Nook is a tanuki businessman who finances the player\'s house and then charges Bells to pay it off.',
   },
   {
@@ -1358,6 +1508,7 @@ const games = [
     options: { A: 'Final Fantasy VI', B: 'Final Fantasy VII', C: 'Chrono Cross', D: 'Xenogears', E: 'Suikoden II' },
     options_tr: { A: 'Final Fantasy VI', B: 'Final Fantasy VII', C: 'Chrono Cross', D: 'Xenogears', E: 'Suikoden II' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Final Fantasy VII moved the series to 3D and CD-ROM and became one of the most influential Japanese RPGs ever made.',
   },
   {
@@ -1367,6 +1518,7 @@ const games = [
     options: { A: 'Far Cry 2', B: 'Far Cry 4', C: 'Far Cry 5', D: 'Far Cry 3', E: 'Far Cry 6' },
     options_tr: { A: 'Far Cry 2', B: 'Far Cry 4', C: 'Far Cry 5', D: 'Far Cry 3', E: 'Far Cry 6' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Far Cry 3, released in 2012, is set on the Rook Islands and made Vaas one of gaming\'s most quoted antagonists.',
   },
   {
@@ -1376,6 +1528,7 @@ const games = [
     options: { A: 'Borderlands', B: 'Destiny', C: 'Warframe', D: 'Outriders', E: 'The Division' },
     options_tr: { A: 'Borderlands', B: 'Destiny', C: 'Warframe', D: 'Outriders', E: 'The Division' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Borderlands, developed by Gearbox Software, mixes shooting with randomly generated weapons and a cel-shaded art style.',
   },
   {
@@ -1385,6 +1538,7 @@ const games = [
     options: { A: 'Dishonored', B: 'Prey', C: 'BioShock', D: 'System Shock 2', E: 'Deus Ex' },
     options_tr: { A: 'Dishonored', B: 'Prey', C: 'BioShock', D: 'System Shock 2', E: 'Deus Ex' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The phrase turns out to be a mind-control trigger that explains why the player character obeys every order.',
   },
   {
@@ -1394,6 +1548,7 @@ const games = [
     options: { A: 'Soulcalibur', B: 'Dead or Alive', C: 'Virtua Fighter', D: 'Guilty Gear', E: 'Tekken' },
     options_tr: { A: 'Soulcalibur', B: 'Dead or Alive', C: 'Virtua Fighter', D: 'Guilty Gear', E: 'Tekken' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Tekken, developed by Bandai Namco, follows three generations of Mishimas throwing each other off cliffs.',
   },
   {
@@ -1403,6 +1558,7 @@ const games = [
     options: { A: 'Aperture Science', B: 'Area 51', C: 'Black Mesa', D: 'The Citadel', E: 'Arasaka Tower' },
     options_tr: { A: 'Aperture Science', B: 'Area 51', C: 'Black Mesa', D: 'The Citadel', E: 'Arasaka Tower' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'A failed experiment at the Black Mesa Research Facility tears open a portal to the alien world of Xen.',
   },
   {
@@ -1412,6 +1568,7 @@ const games = [
     options: { A: 'Zagreus', B: 'Achilles', C: 'Thanatos', D: 'Orpheus', E: 'Charon' },
     options_tr: { A: 'Zagreus', B: 'Achilles', C: 'Thanatos', D: 'Orpheus', E: 'Charon' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Zagreus, the son of Hades, fights his way out of the Underworld again and again in Supergiant Games\' 2020 hit.',
   },
   {
@@ -1421,6 +1578,7 @@ const games = [
     options: { A: 'Hyrule', B: 'Lordran', C: 'Termina', D: 'Dreamland', E: 'Hallownest' },
     options_tr: { A: 'Hyrule', B: 'Lordran', C: 'Termina', D: 'Dreamland', E: 'Hallownest' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Hallownest is the fallen underground kingdom explored by the silent protagonist in Team Cherry\'s game.',
   },
   {
@@ -1430,6 +1588,7 @@ const games = [
     options: { A: 'Eorzea', B: 'Teyvat', C: 'Ivalice', D: 'Tamriel', E: 'Thedas' },
     options_tr: { A: 'Eorzea', B: 'Teyvat', C: 'Ivalice', D: 'Tamriel', E: 'Thedas' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Teyvat is divided into seven nations, each tied to one elemental power, in the 2020 game by miHoYo.',
   },
   {
@@ -1439,6 +1598,7 @@ const games = [
     options: { A: 'Octopus', B: 'Frog', C: 'Jellyfish', D: 'Squid', E: 'Crab' },
     options_tr: { A: 'Ahtapot', B: 'Kurbağa', C: 'Denizanası', D: 'Mürekkep balığı', E: 'Yengeç' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Inklings turn into squid to swim quickly through their own team\'s ink and refill their tank.',
   },
   {
@@ -1448,6 +1608,7 @@ const games = [
     options: { A: 'Outlast', B: 'Poppy Playtime', C: 'Bendy and the Ink Machine', D: 'Five Nights at Freddy\'s', E: 'Little Nightmares' },
     options_tr: { A: 'Outlast', B: 'Poppy Playtime', C: 'Bendy and the Ink Machine', D: 'Five Nights at Freddy\'s', E: 'Little Nightmares' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Five Nights at Freddy\'s was created by Scott Cawthon in 2014 and builds its scares around limited power and security cameras.',
   },
   {
@@ -1457,6 +1618,7 @@ const games = [
     options: { A: 'F-Zero', B: 'Excitebike', C: 'Diddy Kong Racing', D: 'Wave Race', E: 'Mario Kart' },
     options_tr: { A: 'F-Zero', B: 'Excitebike', C: 'Diddy Kong Racing', D: 'Wave Race', E: 'Mario Kart' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'The Spiny Shell, known to players as the blue shell, debuted in Mario Kart 64 as a comeback item for last-place racers.',
   },
   {
@@ -1466,6 +1628,7 @@ const games = [
     options: { A: 'Forza Motorsport', B: 'Gran Turismo', C: 'Project CARS', D: 'Assetto Corsa', E: 'Need for Speed' },
     options_tr: { A: 'Forza Motorsport', B: 'Gran Turismo', C: 'Project CARS', D: 'Assetto Corsa', E: 'Need for Speed' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Gran Turismo debuted in 1997 under Kazunori Yamauchi, who also competes in real endurance races.',
   },
   {
@@ -1475,6 +1638,7 @@ const games = [
     options: { A: 'Guitar Hero', B: 'Dance Dance Revolution', C: 'Just Dance', D: 'Beat Saber', E: 'Taiko no Tatsujin' },
     options_tr: { A: 'Guitar Hero', B: 'Dance Dance Revolution', C: 'Just Dance', D: 'Beat Saber', E: 'Taiko no Tatsujin' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Guitar Hero launched in 2005 and turned plastic instrument peripherals into a mainstream phenomenon for several years.',
   },
   {
@@ -1484,6 +1648,7 @@ const games = [
     options: { A: 'Counter-Strike', B: 'Day of Defeat', C: 'Team Fortress 2', D: 'Left 4 Dead', E: 'Artifact' },
     options_tr: { A: 'Counter-Strike', B: 'Day of Defeat', C: 'Team Fortress 2', D: 'Left 4 Dead', E: 'Artifact' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Team Fortress 2 offers nine distinct classes and switched to a free-to-play model in 2011.',
   },
   {
@@ -1493,6 +1658,7 @@ const games = [
     options: { A: 'Hearthstone', B: 'Gwent', C: 'Legends of Runeterra', D: 'Shadowverse', E: 'Marvel Snap' },
     options_tr: { A: 'Hearthstone', B: 'Gwent', C: 'Legends of Runeterra', D: 'Shadowverse', E: 'Marvel Snap' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Hearthstone launched in 2014 and turned Warcraft heroes and spells into a fast, accessible card game.',
   },
   {
@@ -1502,6 +1668,7 @@ const games = [
     options: { A: 'Human, Orc and Undead', B: 'Alliance, Horde and Legion', C: 'Terran, Zerg and Protoss', D: 'Marine, Alien and Predator', E: 'Elves, Dwarves and Men' },
     options_tr: { A: 'İnsan, Ork ve Ölümsüz', B: 'Alliance, Horde ve Legion', C: 'Terran, Zerg ve Protoss', D: 'Denizci, Uzaylı ve Predator', E: 'Elfler, Cüceler ve İnsanlar' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The human Terrans, the swarming Zerg and the advanced Protoss have anchored the series since 1998.',
   },
   {
@@ -1511,6 +1678,7 @@ const games = [
     options: { A: 'Castlevania', B: 'Cyberpunk: Edgerunners', C: 'DOTA: Dragon\'s Blood', D: 'Arcane', E: 'Blue Eye Samurai' },
     options_tr: { A: 'Castlevania', B: 'Cyberpunk: Edgerunners', C: 'DOTA: Dragon\'s Blood', D: 'Arcane', E: 'Blue Eye Samurai' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Arcane premiered in 2021, was animated with the French studio Fortiche, and won multiple Emmy Awards.',
   },
   {
@@ -1520,6 +1688,7 @@ const games = [
     options: { A: 'One', B: 'Two', C: 'Three', D: 'Four', E: 'Five' },
     options_tr: { A: 'Bir', B: 'İki', C: 'Üç', D: 'Dört', E: 'Beş' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Players switch freely between Michael, Franklin and Trevor, a structure new to the series.',
   },
   {
@@ -1529,6 +1698,7 @@ const games = [
     options: { A: 'Wii Sports', B: 'Grand Theft Auto V', C: 'Red Dead Redemption 2', D: 'Terraria', E: 'The Witcher 3' },
     options_tr: { A: 'Wii Sports', B: 'Grand Theft Auto V', C: 'Red Dead Redemption 2', D: 'Terraria', E: 'The Witcher 3' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Grand Theft Auto V has sold more than 200 million copies across three console generations since 2013.',
   },
   {
@@ -1538,6 +1708,7 @@ const games = [
     options: { A: 'Super Mario Sunshine', B: 'Banjo-Kazooie', C: 'Crash Bandicoot', D: 'Spyro the Dragon', E: 'Super Mario 64' },
     options_tr: { A: 'Super Mario Sunshine', B: 'Banjo-Kazooie', C: 'Crash Bandicoot', D: 'Spyro the Dragon', E: 'Super Mario 64' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Super Mario 64 introduced free camera control and analogue movement that later 3D games copied for decades.',
   },
   {
@@ -1547,6 +1718,7 @@ const games = [
     options: { A: 'Football Manager', B: 'Pro Evolution Soccer', C: 'Sensible Soccer', D: 'Kick Off', E: 'Club Football' },
     options_tr: { A: 'Football Manager', B: 'Pro Evolution Soccer', C: 'Sensible Soccer', D: 'Kick Off', E: 'Club Football' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Pro Evolution Soccer, known as Winning Eleven in Japan, was relaunched as the free-to-play eFootball in 2021.',
   },
   {
@@ -1556,6 +1728,7 @@ const games = [
     options: { A: 'Start then Select', B: 'A then B', C: 'X then Y', D: 'A then A', E: 'B then A' },
     options_tr: { A: 'Önce Start, sonra Select', B: 'Önce A, sonra B', C: 'Önce X, sonra Y', D: 'İki kez A', E: 'Önce B, sonra A' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'The full sequence is up, up, down, down, left, right, left, right, B, A, first used in the NES version of Gradius.',
   },
   {
@@ -1565,6 +1738,7 @@ const games = [
     options: { A: 'H1Z1', B: 'DayZ', C: 'The Culling', D: 'PUBG: Battlegrounds', E: 'Rules of Survival' },
     options_tr: { A: 'H1Z1', B: 'DayZ', C: 'The Culling', D: 'PUBG: Battlegrounds', E: 'Rules of Survival' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'PlayerUnknown\'s Battlegrounds grew out of Greene\'s mods for Arma and sold tens of millions of copies within a year.',
   },
   {
@@ -1574,6 +1748,7 @@ const games = [
     options: { A: 'Undertale', B: 'Oxenfree', C: 'Night in the Woods', D: 'Omori', E: 'Lisa' },
     options_tr: { A: 'Undertale', B: 'Oxenfree', C: 'Night in the Woods', D: 'Omori', E: 'Lisa' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Undertale, created almost single-handedly by Toby Fox, tracks whether the player spares or kills monsters and changes the ending to match.',
   },
   {
@@ -1583,6 +1758,7 @@ const games = [
     options: { A: 'Nioh', B: 'Sekiro: Shadows Die Twice', C: 'Onimusha', D: 'Bloodborne', E: 'Ghostwire: Tokyo' },
     options_tr: { A: 'Nioh', B: 'Sekiro: Shadows Die Twice', C: 'Onimusha', D: 'Bloodborne', E: 'Ghostwire: Tokyo' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Sekiro replaced the Souls stamina system with posture-based sword duels and won Game of the Year in 2019.',
   },
   {
@@ -1592,6 +1768,7 @@ const games = [
     options: { A: 'Ghost of Tsushima', B: 'Hades', C: 'Doom Eternal', D: 'The Last of Us Part II', E: 'Final Fantasy VII Remake' },
     options_tr: { A: 'Ghost of Tsushima', B: 'Hades', C: 'Doom Eternal', D: 'The Last of Us Part II', E: 'Final Fantasy VII Remake' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Naughty Dog\'s sequel also took the awards for game direction, narrative and innovation in accessibility that year.',
   },
   {
@@ -1601,6 +1778,7 @@ const games = [
     options: { A: 'God of War', B: 'Red Dead Redemption 2', C: 'Celeste', D: 'Marvel\'s Spider-Man', E: 'Monster Hunter: World' },
     options_tr: { A: 'God of War', B: 'Red Dead Redemption 2', C: 'Celeste', D: 'Marvel\'s Spider-Man', E: 'Monster Hunter: World' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Santa Monica Studio\'s Norse reboot beat Red Dead Redemption 2 for the top prize that December.',
   },
   {
@@ -1610,6 +1788,7 @@ const games = [
     options: { A: 'Star Citizen', B: 'Elite Dangerous', C: 'EVE Online', D: 'Star Wars: The Old Republic', E: 'Dual Universe' },
     options_tr: { A: 'Star Citizen', B: 'Elite Dangerous', C: 'EVE Online', D: 'Star Wars: The Old Republic', E: 'Dual Universe' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'EVE Online, run by Iceland\'s CCP Games since 2003, hosts alliances whose battles destroy ships worth real money.',
   },
   {
@@ -1619,6 +1798,7 @@ const games = [
     options: { A: 'Zynga', B: 'Supercell', C: 'Playrix', D: 'Rovio', E: 'King' },
     options_tr: { A: 'Zynga', B: 'Supercell', C: 'Playrix', D: 'Rovio', E: 'King' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'King released Candy Crush Saga in 2012 and was later bought by Activision Blizzard for nearly six billion dollars.',
   },
   {
@@ -1628,6 +1808,7 @@ const games = [
     options: { A: 'Rec Room', B: 'Dreams', C: 'Roblox', D: 'Core', E: 'Minecraft Realms' },
     options_tr: { A: 'Rec Room', B: 'Dreams', C: 'Roblox', D: 'Core', E: 'Minecraft Realms' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Roblox hosts millions of user-created experiences and pays creators a share of the Robux spent inside their games.',
   },
   {
@@ -1637,6 +1818,7 @@ const games = [
     options: { A: 'Cuphead', B: 'Katana Zero', C: 'Shovel Knight', D: 'Ori and the Blind Forest', E: 'Furi' },
     options_tr: { A: 'Cuphead', B: 'Katana Zero', C: 'Shovel Knight', D: 'Ori and the Blind Forest', E: 'Furi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Cuphead was made by Studio MDHR, whose team hand-animated every frame and painted the backgrounds in watercolour.',
   },
   {
@@ -1646,6 +1828,7 @@ const games = [
     options: { A: 'Abzû', B: 'Flower', C: 'Gris', D: 'Sable', E: 'Journey' },
     options_tr: { A: 'Abzû', B: 'Flower', C: 'Gris', D: 'Sable', E: 'Journey' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Journey, by thatgamecompany, silently pairs strangers online and won wide praise for its score and art direction.',
   },
   {
@@ -1655,6 +1838,7 @@ const games = [
     options: { A: 'NetHack', B: 'Rogue', C: 'Angband', D: 'Moria', E: 'ADOM' },
     options_tr: { A: 'NetHack', B: 'Rogue', C: 'Angband', D: 'Moria', E: 'ADOM' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Rogue used randomly generated dungeons and permanent death, the two traits that still define the genre.',
   },
   {
@@ -1664,6 +1848,7 @@ const games = [
     options: { A: 'Yu-Gi-Oh!', B: 'Pokémon Trading Card Game', C: 'Hearthstone', D: 'Magic: The Gathering', E: 'Flesh and Blood' },
     options_tr: { A: 'Yu-Gi-Oh!', B: 'Pokémon Ticaret Kartı Oyunu', C: 'Hearthstone', D: 'Magic: The Gathering', E: 'Flesh and Blood' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Magic: The Gathering was designed by mathematician Richard Garfield and is still played competitively today.',
   },
   {
@@ -1673,6 +1858,7 @@ const games = [
     options: { A: 'Pathfinder', B: 'Call of Cthulhu', C: 'Warhammer Fantasy Roleplay', D: 'Dungeons & Dragons', E: 'Vampire: The Masquerade' },
     options_tr: { A: 'Pathfinder', B: 'Call of Cthulhu', C: 'Warhammer Fantasy Roleplay', D: 'Dungeons & Dragons', E: 'Vampire: The Masquerade' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Dungeons & Dragons was created by Gary Gygax and Dave Arneson and inspired most computer role-playing games that followed.',
   },
   {
@@ -1682,6 +1868,7 @@ const games = [
     options: { A: 'Gold, silver, iron, coal and oil', B: 'Wheat, water, stone, gems and silk', C: 'Food, wood, gold, faith and culture', D: 'Spice, cloth, paper, jade and salt', E: 'Brick, lumber, wool, grain and ore' },
     options_tr: { A: 'Altın, gümüş, demir, kömür ve petrol', B: 'Buğday, su, taş, mücevher ve ipek', C: 'Yiyecek, odun, altın, inanç ve kültür', D: 'Baharat, kumaş, kâğıt, yeşim ve tuz', E: 'Tuğla, kereste, yün, tahıl ve cevher' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Catan, designed by Klaus Teuber in 1995, is built around trading these five resources produced by dice rolls.',
   },
   {
@@ -1691,6 +1878,7 @@ const games = [
     options: { A: '13x13', B: '19x19', C: '21x21', D: '24x24', E: '27x27' },
     options_tr: { A: '13x13', B: '19x19', C: '21x21', D: '24x24', E: '27x27' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A standard Go board has 19 by 19 lines, creating 361 intersections where stones can be placed.',
   },
   {
@@ -1700,6 +1888,7 @@ const games = [
     options: { A: '24', B: '26', C: '30', D: '32', E: '36' },
     options_tr: { A: '24', B: '26', C: '30', D: '32', E: '36' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'A backgammon board holds 24 points split into four quadrants of six, and each player starts with fifteen checkers.',
   },
   {
@@ -1709,6 +1898,7 @@ const games = [
     options: { A: 'IEM Katowice', B: 'BLAST Premier', C: 'The International', D: 'ESL One', E: 'Worlds' },
     options_tr: { A: 'IEM Katowice', B: 'BLAST Premier', C: 'The International', D: 'ESL One', E: 'Worlds' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Valve\'s The International repeatedly broke prize pool records because fans funded it by buying the Battle Pass.',
   },
   {
@@ -1718,6 +1908,7 @@ const games = [
     options: { A: 'Faker', B: 'Uzi', C: 'Caps', D: 'Bengi', E: 'ShowMaker' },
     options_tr: { A: 'Faker', B: 'Uzi', C: 'Caps', D: 'Bengi', E: 'ShowMaker' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Faker has won the League of Legends World Championship several times with the team now known as T1.',
   },
   {
@@ -1727,6 +1918,7 @@ const games = [
     options: { A: 'Japan', B: 'China', C: 'South Korea', D: 'Sweden', E: 'United States' },
     options_tr: { A: 'Japonya', B: 'Çin', C: 'Güney Kore', D: 'İsveç', E: 'Amerika Birleşik Devletleri' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'South Korea televised StarCraft leagues and built the professional structure that modern esports still follows.',
   },
   {
@@ -1736,6 +1928,7 @@ const games = [
     options: { A: 'Game Freak', B: 'DeNA', C: 'Nintendo EPD', D: 'Niantic', E: 'Supercell' },
     options_tr: { A: 'Game Freak', B: 'DeNA', C: 'Nintendo EPD', D: 'Niantic', E: 'Supercell' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Niantic, a company spun out of Google, built Pokémon GO on the mapping technology from its earlier game Ingress.',
   },
   {
@@ -1745,6 +1938,7 @@ const games = [
     options: { A: 'Creatures Inc.', B: 'HAL Laboratory', C: 'Intelligent Systems', D: 'Monolith Soft', E: 'Game Freak' },
     options_tr: { A: 'Creatures Inc.', B: 'HAL Laboratory', C: 'Intelligent Systems', D: 'Monolith Soft', E: 'Game Freak' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Game Freak, founded by Satoshi Tajiri, develops the core series while Nintendo publishes it worldwide.',
   },
   {
@@ -1754,6 +1948,7 @@ const games = [
     options: { A: 'Pikachu', B: 'Bulbasaur', C: 'Charmander', D: 'Squirtle', E: 'Mew' },
     options_tr: { A: 'Pikachu', B: 'Bulbasaur', C: 'Charmander', D: 'Squirtle', E: 'Mew' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Bulbasaur, a Grass and Poison type, is listed first and is one of the three starters of the Kanto region.',
   },
   {
@@ -1763,6 +1958,7 @@ const games = [
     options: { A: 'Season pass', B: 'Battle pass', C: 'Expansion', D: 'Microtransaction', E: 'Loot box' },
     options_tr: { A: 'Sezon bileti (season pass)', B: 'Savaş bileti (battle pass)', C: 'Genişleme paketi', D: 'Mikro ödeme', E: 'Ganimet kutusu (loot box)' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Paid loot boxes have been restricted or banned in some countries, including Belgium, because regulators compare them to gambling.',
   },
   {
@@ -1772,6 +1968,7 @@ const games = [
     options: { A: 'New Player Character', B: 'Non-Player Character', C: 'Network Play Client', D: 'Neutral Point Capture', E: 'Next Patch Content' },
     options_tr: { A: 'New Player Character', B: 'Oyuncu Olmayan Karakter (Non-Player Character)', C: 'Network Play Client', D: 'Neutral Point Capture', E: 'Next Patch Content' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'NPCs are characters run by the game itself, such as shopkeepers, quest givers and ordinary enemies.',
   },
   {
@@ -1781,6 +1978,7 @@ const games = [
     options: { A: 'Digital License Code', B: 'Daily Login Credit', C: 'Downloadable Content', D: 'Direct Load Cache', E: 'Dynamic Level Creation' },
     options_tr: { A: 'Digital License Code', B: 'Daily Login Credit', C: 'İndirilebilir İçerik (Downloadable Content)', D: 'Direct Load Cache', E: 'Dynamic Level Creation' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Downloadable content covers extra maps, missions, characters or cosmetics added to a game after its release.',
   },
   {
@@ -1790,6 +1988,7 @@ const games = [
     options: { A: 'TBS', B: 'RPG', C: 'MMO', D: 'RTS', E: 'CCG' },
     options_tr: { A: 'TBS', B: 'RPG', C: 'MMO', D: 'RTS', E: 'CCG' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'RTS stands for Real-Time Strategy, where the battle continues whether or not a player reacts.',
   },
   {
@@ -1799,6 +1998,7 @@ const games = [
     options: { A: 'Easter egg', B: 'Exploit', C: 'Glitch', D: 'Patch note', E: 'Cheat code' },
     options_tr: { A: 'Paskalya yumurtası (Easter egg)', B: 'Açık (exploit)', C: 'Hata (glitch)', D: 'Yama notu', E: 'Hile kodu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The term dates back to the Atari 2600 game Adventure, where programmer Warren Robinett hid his name in a secret room.',
   },
 ];

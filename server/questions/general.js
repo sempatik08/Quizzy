@@ -8,6 +8,7 @@ const general = [
     options: { A: 'Pancreas', B: 'Gallbladder', C: 'Liver', D: 'Spleen', E: 'Duodenum' },
     options_tr: { A: 'Pankreas', B: 'Safra kesesi', C: 'Karaciğer', D: 'Dalak', E: 'Onikiparmak bağırsağı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Karaciğer safra üretir; safra kesesi yalnızca onu depolar ve yoğunlaştırır.',
   },
   {
@@ -17,6 +18,7 @@ const general = [
     options: { A: 'Tu', B: 'Wg', C: 'Tn', D: 'W', E: 'Wo' },
     options_tr: { A: 'Tu', B: 'Wg', C: 'Tn', D: 'W', E: 'Wo' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Almancası "Wolfram"dan gelir. Tungsten ampul flamanlarında kullanılır.',
   },
   {
@@ -26,6 +28,7 @@ const general = [
     options: { A: 'Jupiter', B: 'Neptune', C: 'Uranus', D: 'Saturn', E: 'Mars' },
     options_tr: { A: 'Jüpiter', B: 'Neptün', C: 'Uranüs', D: 'Satürn', E: 'Mars' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Satürn 2023\'te 146 onaylı uyduyla Jüpiter\'i geçti.',
   },
   {
@@ -35,6 +38,7 @@ const general = [
     options: { A: 'Charles Darwin', B: 'Alfred Russel Wallace', C: 'Thomas Huxley', D: 'Herbert Spencer', E: 'Ernst Haeckel' },
     options_tr: { A: 'Charles Darwin', B: 'Alfred Russel Wallace', C: 'Thomas Huxley', D: 'Herbert Spencer', E: 'Ernst Haeckel' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Herbert Spencer bu ifadeyi 1864\'te yarattı; Darwin sonraki baskılarda Spencer\'dan ödünç aldı.',
   },
   {
@@ -44,6 +48,7 @@ const general = [
     options: { A: 'Finland', B: 'Australia', C: 'Norway', D: 'Denmark', E: 'New Zealand' },
     options_tr: { A: 'Finlandiya', B: 'Avustralya', C: 'Norveç', D: 'Danimarka', E: 'Yeni Zelanda' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Yeni Zelanda, 1893\'te diğer tüm ülkelerden önce kadınlara oy hakkı tanıdı.',
   },
   {
@@ -53,6 +58,7 @@ const general = [
     options: { A: 'Corundum', B: 'Topaz', C: 'Quartz', D: 'Diamond', E: 'Graphite' },
     options_tr: { A: 'Korundum', B: 'Topaz', C: 'Kuvars', D: 'Elmas', E: 'Grafit' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Elmas Mohs sertlik skalasında 10 ile en yüksek değere sahiptir.',
   },
   {
@@ -62,6 +68,7 @@ const general = [
     options: { A: '186', B: '196', C: '206', D: '216', E: '226' },
     options_tr: { A: '186', B: '196', C: '206', D: '216', E: '226' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Yetişkin insan iskeleti 206 kemikten oluşur; bebeklerin yaklaşık 270 kemiği vardır ve bunlar büyüme sırasında kaynaşır.',
   },
   {
@@ -71,6 +78,7 @@ const general = [
     options: { A: 'Oxygen', B: 'Carbon dioxide', C: 'Argon', D: 'Nitrogen', E: 'Hydrogen' },
     options_tr: { A: 'Oksijen', B: 'Karbondioksit', C: 'Argon', D: 'Azot', E: 'Hidrojen' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Azot (N₂) atmosferin yaklaşık %78\'ini oluşturur; oksijen ise yaklaşık %21\'ini.',
   },
   {
@@ -80,6 +88,7 @@ const general = [
     options: { A: '200,000 km/s', B: '250,000 km/s', C: '300,000 km/s', D: '350,000 km/s', E: '400,000 km/s' },
     options_tr: { A: '200.000 km/s', B: '250.000 km/s', C: '300.000 km/s', D: '350.000 km/s', E: '400.000 km/s' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Işık vakumda yaklaşık 299.792 km/s hızla hareket eder; bu genellikle 300.000 km/s olarak yuvarlanır.',
   },
   {
@@ -89,6 +98,7 @@ const general = [
     options: { A: 'Helium', B: 'Lithium', C: 'Carbon', D: 'Hydrogen', E: 'Oxygen' },
     options_tr: { A: 'Helyum', B: 'Lityum', C: 'Karbon', D: 'Hidrojen', E: 'Oksijen' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Hidrojen, periyodik tablonun ilk elementidir ve evrende en bol bulunan elementtir.',
   },
   {
@@ -98,6 +108,7 @@ const general = [
     options: { A: '2', B: '3', C: '4', D: '5', E: '6' },
     options_tr: { A: '2', B: '3', C: '4', D: '5', E: '6' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'İnsan kalbi dört odadan oluşur: sağ ve sol kulakçık (atrium) ile sağ ve sol karıncık (ventrikül).',
   },
   {
@@ -107,6 +118,7 @@ const general = [
     options: { A: 'Liver', B: 'Brain', C: 'Lungs', D: 'Skin', E: 'Intestines' },
     options_tr: { A: 'Karaciğer', B: 'Beyin', C: 'Akciğerler', D: 'Deri', E: 'Bağırsaklar' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Deri, yaklaşık 1,5–2 m² yüzey alanıyla insan vücudunun en büyük organıdır.',
   },
   {
@@ -116,6 +128,7 @@ const general = [
     options: { A: 'A+', B: 'B-', C: 'AB+', D: 'O-', E: 'O+' },
     options_tr: { A: 'A+', B: 'B-', C: 'AB+', D: '0-', E: '0+' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'O Rh- kan grubu tüm alıcılara verilebilir; bu yüzden "evrensel donör" olarak adlandırılır.',
   },
   {
@@ -125,6 +138,7 @@ const general = [
     options: { A: 'Isaac Newton', B: 'Niels Bohr', C: 'Max Planck', D: 'Albert Einstein', E: 'Erwin Schrödinger' },
     options_tr: { A: 'Isaac Newton', B: 'Niels Bohr', C: 'Max Planck', D: 'Albert Einstein', E: 'Erwin Schrödinger' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Albert Einstein genel görelilik teorisini 1915\'te yayımladı; kütleçekimini uzay-zamanın eğriliği olarak açıkladı.',
   },
   {
@@ -134,6 +148,7 @@ const general = [
     options: { A: 'Deoxyribonucleic Acid', B: 'Dioxynucleic Acid', C: 'Diribonucleic Acid', D: 'Deoxyribonitric Acid', E: 'Dinucleic Acid' },
     options_tr: { A: 'Deoksiribonükleik Asit', B: 'Dioksinükleik Asit', C: 'Diribonükleik Asit', D: 'Deoksiriboniterik Asit', E: 'Dinükleik Asit' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'DNA (Deoksiribonükleik Asit) canlı organizmaların genetik bilgisini taşıyan moleküldür.',
   },
   {
@@ -143,6 +158,7 @@ const general = [
     options: { A: '90°C', B: '95°C', C: '98°C', D: '100°C', E: '105°C' },
     options_tr: { A: '90°C', B: '95°C', C: '98°C', D: '100°C', E: '105°C' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Deniz seviyesinde (1 atm basınçta) su 100°C\'de kaynar.',
   },
   {
@@ -152,6 +168,7 @@ const general = [
     options: { A: '28', B: '30', C: '32', D: '34', E: '36' },
     options_tr: { A: '28', B: '30', C: '32', D: '34', E: '36' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Yetişkin insanın 32 daimi dişi vardır; bunların 4\'ü yirmi yaş dişidir.',
   },
   {
@@ -161,6 +178,7 @@ const general = [
     options: { A: 'Venus', B: 'Jupiter', C: 'Mars', D: 'Mercury', E: 'Saturn' },
     options_tr: { A: 'Venüs', B: 'Jüpiter', C: 'Mars', D: 'Merkür', E: 'Satürn' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Mars, yüzeyindeki demir oksit (pas) nedeniyle kırmızı görünür ve bu yüzden "Kızıl Gezegen" olarak anılır.',
   },
   {
@@ -170,6 +188,7 @@ const general = [
     options: { A: 'HO', B: 'H₂O', C: 'H₃O', D: 'HO₂', E: 'H₂O₂' },
     options_tr: { A: 'HO', B: 'H₂O', C: 'H₃O', D: 'HO₂', E: 'H₂O₂' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Su molekülü iki hidrojen atomu ve bir oksijen atomundan oluşur: H₂O.',
   },
   {
@@ -179,6 +198,7 @@ const general = [
     options: { A: 'Blue Whale', B: 'Giraffe', C: 'African Elephant', D: 'Rhinoceros', E: 'Hippopotamus' },
     options_tr: { A: 'Mavi Balina', B: 'Zürafa', C: 'Afrika Fili', D: 'Gergedan', E: 'Su Aygırı' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Afrika filinin gebelik süresi yaklaşık 22 aydır; bu tüm kara memelileri arasında en uzun olanıdır.',
   },
   {
@@ -188,6 +208,7 @@ const general = [
     options: { A: '21', B: '22', C: '23', D: '24', E: '46' },
     options_tr: { A: '21', B: '22', C: '23', D: '24', E: '46' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'İnsan hücrelerinde 23 çift (toplam 46) kromozom bulunur.',
   },
   {
@@ -197,6 +218,7 @@ const general = [
     options: { A: 'Iron', B: 'Calcium', C: 'Sodium', D: 'Aluminium', E: 'Silicon' },
     options_tr: { A: 'Demir', B: 'Kalsiyum', C: 'Sodyum', D: 'Alüminyum', E: 'Silisyum' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Alüminyum, Dünya kabuğunun yaklaşık %8\'ini oluşturarak en bol bulunan metaldir.',
   },
   {
@@ -206,6 +228,7 @@ const general = [
     options: { A: 'Vitamin A', B: 'Vitamin B12', C: 'Vitamin C', D: 'Vitamin D', E: 'Vitamin K' },
     options_tr: { A: 'A vitamini', B: 'B12 vitamini', C: 'C vitamini', D: 'D vitamini', E: 'K vitamini' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Cilt, güneş ışığındaki UVB radyasyonunu D vitaminine dönüştürür.',
   },
   {
@@ -215,6 +238,7 @@ const general = [
     options: { A: 'Electromagnetic force', B: 'Nuclear force', C: 'Centrifugal force', D: 'Gravity', E: 'Dark energy' },
     options_tr: { A: 'Elektromanyetik kuvvet', B: 'Nükleer kuvvet', C: 'Merkezkaç kuvveti', D: 'Yerçekimi', E: 'Karanlık enerji' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Yerçekimi, güneşin gezegenleri yörüngede tutmasını sağlayan kuvvettir; Isaac Newton tarafından tanımlanmıştır.',
   },
   {
@@ -224,6 +248,7 @@ const general = [
     options: { A: 'Process by which animals digest food', B: 'Process by which plants convert light into energy', C: 'Process by which cells divide', D: 'Process by which bacteria reproduce', E: 'Process by which rocks form' },
     options_tr: { A: 'Hayvanların yiyecekleri sindirme süreci', B: 'Bitkilerin ışığı enerjiye dönüştürme süreci', C: 'Hücrelerin bölünme süreci', D: 'Bakterilerin çoğalma süreci', E: 'Kayaların oluşma süreci' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Fotosentez, bitkilerin güneş ışığını, suyu ve karbondioksiti glikoz ve oksijene dönüştürdüğü süreçtir.',
   },
   {
@@ -233,6 +258,7 @@ const general = [
     options: { A: 'Saturn', B: 'Uranus', C: 'Neptune', D: 'Jupiter', E: 'Earth' },
     options_tr: { A: 'Satürn', B: 'Uranüs', C: 'Neptün', D: 'Jüpiter', E: 'Dünya' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Jüpiter, Güneş sisteminin en büyük gezegenidir; kütlesi diğer tüm gezegenlerin toplamından iki kattan fazladır.',
   },
   {
@@ -242,6 +268,7 @@ const general = [
     options: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     options_tr: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     answer: 'C',
+    difficulty: 1,
     explanation: '"Hexa" Yunanca\'da altı anlamına gelir; altıgen 6 kenarlı bir çokgendir.',
   },
   {
@@ -251,6 +278,7 @@ const general = [
     options: { A: 'Mammal', B: 'Reptile', C: 'Amphibian', D: 'Fish', E: 'Mollusk' },
     options_tr: { A: 'Memeli', B: 'Sürüngen', C: 'Amfibi', D: 'Balık', E: 'Yumuşakça' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Köpek balıkları, kıkırdaklı iskeletleri olan ve solungaçlarıyla nefes alan kartilajlı balıklardır.',
   },
   {
@@ -260,6 +288,7 @@ const general = [
     options: { A: 'Temperature', B: 'Humidity', C: 'Wind speed', D: 'Atmospheric pressure', E: 'Rainfall' },
     options_tr: { A: 'Sıcaklık', B: 'Nem', C: 'Rüzgar hızı', D: 'Atmosfer basıncı', E: 'Yağış miktarı' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Barometre atmosfer basıncını ölçer ve hava durumu tahmini için kullanılır.',
   },
   {
@@ -269,6 +298,7 @@ const general = [
     options: { A: 'Cerebrum', B: 'Cerebellum', C: 'Brain stem', D: 'Hippocampus', E: 'Amygdala' },
     options_tr: { A: 'Serebrum (büyük beyin)', B: 'Serebellum (küçük beyin)', C: 'Beyin sapı', D: 'Hipokampüs', E: 'Amigdala' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Serebellum (küçük beyin), hareket koordinasyonunu, dengeyi ve kas tonusunu düzenler.',
   },
   {
@@ -278,6 +308,7 @@ const general = [
     options: { A: 'Volt', B: 'Ampere', C: 'Watt', D: 'Ohm', E: 'Farad' },
     options_tr: { A: 'Volt', B: 'Amper', C: 'Watt', D: 'Ohm', E: 'Farad' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Ohm (Ω), Georg Simon Ohm\'un adından gelen elektriksel direnç birimidir.',
   },
   {
@@ -287,6 +318,7 @@ const general = [
     options: { A: 'Oxygen', B: 'Nitrogen', C: 'Argon', D: 'Carbon dioxide', E: 'Helium' },
     options_tr: { A: 'Oksijen', B: 'Azot', C: 'Argon', D: 'Karbondioksit', E: 'Helyum' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Karbondioksit (CO₂), sera etkisine en çok katkıda bulunan gazlar arasında öne çıkan bir sera gazıdır.',
   },
   {
@@ -296,6 +328,7 @@ const general = [
     options: { A: 'Giant stars', B: 'Neutron stars', C: 'Red dwarf stars', D: 'White dwarf stars', E: 'Yellow dwarf stars' },
     options_tr: { A: 'Dev yıldızlar', B: 'Nötron yıldızları', C: 'Kırmızı cüce yıldızlar', D: 'Beyaz cüce yıldızlar', E: 'Sarı cüce yıldızlar' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Kırmızı cüceler, Samanyolu\'ndaki yıldızların yaklaşık %70\'ini oluşturur.',
   },
   {
@@ -305,6 +338,7 @@ const general = [
     options: { A: 'Liver', B: 'Spleen', C: 'Kidney', D: 'Lung', E: 'Pancreas' },
     options_tr: { A: 'Karaciğer', B: 'Dalak', C: 'Böbrek', D: 'Akciğer', E: 'Pankreas' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Böbrekler, atık maddeleri ve fazla sıvıyı kandan süzerek idrar oluşturur.',
   },
   {
@@ -314,6 +348,7 @@ const general = [
     options: { A: 'Carnivore', B: 'Herbivore', C: 'Omnivore', D: 'Insectivore', E: 'Frugivore' },
     options_tr: { A: 'Etçil', B: 'Otçul', C: 'Hepçil', D: 'Böcekçil', E: 'Meyveçil' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Hepçiller (omnivore) hem hayvan hem de bitki kökenli besinlerle beslenir; insanlar da hepçildir.',
   },
   {
@@ -323,6 +358,7 @@ const general = [
     options: { A: 'Condensation', B: 'Sublimation', C: 'Evaporation', D: 'Precipitation', E: 'Transpiration' },
     options_tr: { A: 'Yoğuşma', B: 'Süblimleşme', C: 'Buharlaşma', D: 'Yağış', E: 'Terleme (bitkisel)' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Buharlaşma, sıvı suyun su buharına dönüştüğü ısı kaynaklı bir süreçtir.',
   },
   {
@@ -332,6 +368,7 @@ const general = [
     options: { A: '4', B: '6', C: '8', D: '10', E: '12' },
     options_tr: { A: '4', B: '6', C: '8', D: '10', E: '12' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Tüm böcekler 6 bacağa sahiptir; bu özellik onları 8 bacaklı örümceklerden ayırır.',
   },
   {
@@ -341,6 +378,7 @@ const general = [
     options: { A: 'Inner core', B: 'Outer core', C: 'Mantle', D: 'Crust', E: 'Lithosphere' },
     options_tr: { A: 'İç çekirdek', B: 'Dış çekirdek', C: 'Manto', D: 'Kabuk', E: 'Litosfer' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Dünya\'nın dış çekirdeği erimiş demir ve nikelden oluşan sıvı bir katmandır.',
   },
   {
@@ -350,6 +388,7 @@ const general = [
     options: { A: 'Nucleus', B: 'Ribosome', C: 'Mitochondria', D: 'Golgi apparatus', E: 'Endoplasmic reticulum' },
     options_tr: { A: 'Çekirdek', B: 'Ribozom', C: 'Mitokondri', D: 'Golgi aygıtı', E: 'Endoplazmik retikulum' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Mitokondri, hücresel solunum yoluyla ATP enerjisi üreten organel olduğu için "hücrenin enerji santrali" olarak anılır.',
   },
   {
@@ -359,6 +398,7 @@ const general = [
     options: { A: 'Atlantic Ocean', B: 'Indian Ocean', C: 'Arctic Ocean', D: 'Southern Ocean', E: 'Pacific Ocean' },
     options_tr: { A: 'Atlas Okyanusu', B: 'Hint Okyanusu', C: 'Arktik Okyanus', D: 'Güney Okyanusu', E: 'Pasifik Okyanusu' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Pasifik Okyanusu, yaklaşık 165 milyon km² ile Dünya\'nın en büyük ve en derin okyanusudur.',
   },
   {
@@ -368,6 +408,7 @@ const general = [
     options: { A: 'Celsius', B: 'Fahrenheit', C: 'Kelvin', D: 'Rankine', E: 'Réaumur' },
     options_tr: { A: 'Santigrat', B: 'Fahrenheit', C: 'Kelvin', D: 'Rankine', E: 'Réaumur' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Kelvin (K), mutlak sıcaklık birimidir ve SI birim sisteminin temel birimidir.',
   },
   {
@@ -377,6 +418,7 @@ const general = [
     options: { A: 'Neptune', B: 'Venus', C: 'Uranus', D: 'Saturn', E: 'Pluto' },
     options_tr: { A: 'Neptün', B: 'Venüs', C: 'Uranüs', D: 'Satürn', E: 'Plüton' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Uranüs\'ün eksen eğimi yaklaşık 98°\'dir; bu durum onu güneş sistemi boyunca âdeta "yuvarlanarak" ilerler gibi gösterir.',
   },
   {
@@ -386,6 +428,7 @@ const general = [
     options: { A: 'Erosion', B: 'Weathering', C: 'Sedimentation', D: 'Metamorphism', E: 'Crystallization' },
     options_tr: { A: 'Erozyon', B: 'Ayrışma', C: 'Çökelme', D: 'Metamorfizm', E: 'Kristalleşme' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Ayrışma (weathering), kayaların fiziksel veya kimyasal süreçlerle daha küçük parçalara bölünmesidir.',
   },
   {
@@ -395,6 +438,7 @@ const general = [
     options: { A: 'Starfish', B: 'Salamander', C: 'Planarian flatworm', D: 'Gecko', E: 'Crab' },
     options_tr: { A: 'Denizyıldızı', B: 'Semender', C: 'Planarya (yassı solucan)', D: 'Kertenkele', E: 'Yengeç' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Planarya yassı solucanı en olağanüstü rejenerasyon yeteneğine sahiptir; tek bir hücreden tüm yeni bir organizma oluşturabilir.',
   },
   {
@@ -404,6 +448,7 @@ const general = [
     options: { A: 'Aphelion', B: 'Perihelion', C: 'Apogee', D: 'Perigee', E: 'Zenith' },
     options_tr: { A: 'Afelyum', B: 'Perihelyum', C: 'Apoje', D: 'Perije', E: 'Zenit' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Perihelyum, bir gezegenin yörüngesinde Güneş\'e en yakın olduğu noktadır; Dünya her yıl yaklaşık 3 Ocak\'ta perihelyumda olur.',
   },
   {
@@ -413,6 +458,7 @@ const general = [
     options: { A: 'Spanish', B: 'Hindi', C: 'English', D: 'Mandarin Chinese', E: 'Arabic' },
     options_tr: { A: 'İspanyolca', B: 'Hintçe', C: 'İngilizce', D: 'Mandarin Çincesi', E: 'Arapça' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'İngilizce, anadil ve ikinci dil konuşucuları dahil edildiğinde yaklaşık 1,5 milyar konuşucuyla dünyada en çok kullanılan dildir.',
   },
   {
@@ -422,6 +468,7 @@ const general = [
     options: { A: 'Nadir', B: 'Zenith', C: 'Azimuth', D: 'Apogee', E: 'Meridian' },
     options_tr: { A: 'Nadir', B: 'Zenit', C: 'Azimut', D: 'Apoje', E: 'Meridyen' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Zenit, gözlemcinin tam tepesindeki gökyüzü noktasıdır; karşıtı (ayakların altındaki nokta) ise nadirdir.',
   },
   {
@@ -431,6 +478,7 @@ const general = [
     options: { A: 'Bromine', B: 'Gallium', C: 'Mercury', D: 'Cesium', E: 'Francium' },
     options_tr: { A: 'Brom', B: 'Galyum', C: 'Cıva', D: 'Sezyum', E: 'Fransiyum' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Cıva (Hg), oda sıcaklığında sıvı olan tek metaldir; erime noktası −38,83°C\'dir.',
   },
   {
@@ -440,6 +488,7 @@ const general = [
     options: { A: '51%', B: '61%', C: '71%', D: '81%', E: '91%' },
     options_tr: { A: '%51', B: '%61', C: '%71', D: '%81', E: '%91' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Dünya yüzeyinin yaklaşık %71\'i suyla kaplıdır; bu suyun %97\'si tuzlu okyanuslardan oluşur.',
   },
   {
@@ -449,6 +498,7 @@ const general = [
     options: { A: 'Atom', B: 'Molecule', C: 'Organelle', D: 'Cell', E: 'Tissue' },
     options_tr: { A: 'Atom', B: 'Molekül', C: 'Organel', D: 'Hücre', E: 'Doku' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Hücre, tüm canlı organizmaların temel yapı ve işlevsel birimidir.',
   },
   {
@@ -458,6 +508,7 @@ const general = [
     options: { A: 'K2', B: 'Kangchenjunga', C: 'Lhotse', D: 'Makalu', E: 'Mount Everest' },
     options_tr: { A: 'K2', B: 'Kangchenjunga', C: 'Lhotse', D: 'Makalu', E: 'Everest Dağı' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Everest Dağı, 8.848 m yüksekliğiyle deniz seviyesinden ölçülen dünyanın en yüksek zirvesidir.',
   },
   {
@@ -467,6 +518,7 @@ const general = [
     options: { A: 'Fission energy', B: 'Chemical energy', C: 'Fusion energy', D: 'Geothermal energy', E: 'Kinetic energy' },
     options_tr: { A: 'Fisyon enerjisi', B: 'Kimyasal enerji', C: 'Füzyon enerjisi', D: 'Jeotermal enerji', E: 'Kinetik enerji' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Güneş, çekirdeğinde hidrojen atomlarını helyuma birleştiren nükleer füzyon yoluyla enerji üretir.',
   },
   {
@@ -476,6 +528,7 @@ const general = [
     options: { A: 'Louis Pasteur', B: 'Robert Koch', C: 'Joseph Lister', D: 'Alexander Fleming', E: 'Edward Jenner' },
     options_tr: { A: 'Louis Pasteur', B: 'Robert Koch', C: 'Joseph Lister', D: 'Alexander Fleming', E: 'Edward Jenner' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Alexander Fleming, 1928\'de Penicillium notatum küfünün bakterileri öldürdüğünü tesadüfen keşfetti.',
   },
   {
@@ -485,6 +538,7 @@ const general = [
     options: { A: '5', B: '6', C: '7', D: '8', E: '9' },
     options_tr: { A: '5', B: '6', C: '7', D: '8', E: '9' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Gökkuşağı yedi renkten oluşur: kırmızı, turuncu, sarı, yeşil, mavi, çivit ve mor (mor menekşe).',
   },
   {
@@ -494,6 +548,7 @@ const general = [
     options: { A: 'Sedimentary', B: 'Metamorphic', C: 'Igneous', D: 'Carbonate', E: 'Clastic' },
     options_tr: { A: 'Tortul', B: 'Başkalaşım', C: 'Magmatik', D: 'Karbonat', E: 'Kırıntılı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Magmatik kayaçlar, magmanın veya lavanın soğuyup katılaşmasıyla oluşur.',
   },
   {
@@ -503,6 +558,7 @@ const general = [
     options: { A: 'Reflection', B: 'Diffraction', C: 'Refraction', D: 'Dispersion', E: 'Absorption' },
     options_tr: { A: 'Yansıma', B: 'Kırınım', C: 'Kırılma', D: 'Dağılma', E: 'Soğurma' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Kırılma, ışığın farklı yoğunluktaki bir ortama geçerken yön değiştirmesidir; prizmalar ve lensler bu ilkeyle çalışır.',
   },
   {
@@ -512,6 +568,7 @@ const general = [
     options: { A: 'Saturn', B: 'Neptune', C: 'Uranus', D: 'Jupiter', E: 'Mars' },
     options_tr: { A: 'Satürn', B: 'Neptün', C: 'Uranüs', D: 'Jüpiter', E: 'Mars' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Jüpiter\'deki Büyük Kırmızı Leke, 350 yılı aşkın süredir devam eden ve Dünya\'nın çapından büyük olan devasa bir kasırgadır.',
   },
   {
@@ -521,6 +578,7 @@ const general = [
     options: { A: 'Gravity', B: 'Friction', C: 'Drag (Air resistance)', D: 'Inertia', E: 'Tension' },
     options_tr: { A: 'Yerçekimi', B: 'Sürtünme', C: 'Hava direnci (sürükleme)', D: 'Eylemsizlik', E: 'Gerilme' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Hava direnci (aerodinamik sürükleme), akışkan bir ortamda hareket eden nesnelere karşı uygulanan kuvvettir.',
   },
   {
@@ -530,6 +588,7 @@ const general = [
     options: { A: 'Vitamin A', B: 'Vitamin B1', C: 'Vitamin C', D: 'Vitamin D', E: 'Vitamin E' },
     options_tr: { A: 'A vitamini', B: 'B1 vitamini', C: 'C vitamini', D: 'D vitamini', E: 'E vitamini' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'İskorbüt, C vitamini (askorbik asit) eksikliğinden kaynaklanır; diş eti kanaması ve yara iyileşmesinin bozulmasıyla kendini gösterir.',
   },
   {
@@ -539,6 +598,7 @@ const general = [
     options: { A: 'Ag', B: 'Go', C: 'Gl', D: 'Gd', E: 'Au' },
     options_tr: { A: 'Ag', B: 'Go', C: 'Gl', D: 'Gd', E: 'Au' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Altın\'ın sembolü Au\'dur; Latincede altın anlamına gelen "Aurum"dan gelir.',
   },
   {
@@ -548,6 +608,7 @@ const general = [
     options: { A: 'Amazon Rainforest', B: 'Great Barrier Reef', C: 'Siberian Taiga', D: 'Sahara Desert grasslands', E: 'Congo Basin' },
     options_tr: { A: 'Amazon Yağmur Ormanları', B: 'Büyük Set Resifi', C: 'Sibirya Tayga ormanları', D: 'Sahra çayırlıkları', E: 'Kongo Havzası' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Avustralya\'daki Büyük Set Resifi, yaklaşık 344.400 km² alanıyla uzaydan görülebilen tek canlı yapıdır.',
   },
   {
@@ -557,6 +618,7 @@ const general = [
     options: { A: 'Argon', B: 'Helium', C: 'Krypton', D: 'Neon', E: 'Xenon' },
     options_tr: { A: 'Argon', B: 'Helyum', C: 'Kripton', D: 'Neon', E: 'Ksenon' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Neon gazı elektrik akımıyla uyarıldığında parlak kırmızı-turuncu ışık yayar; bu yüzden tabela ışıklarında kullanılır.',
   },
   {
@@ -566,6 +628,7 @@ const general = [
     options: { A: 'Large Magellanic Cloud', B: 'Triangulum Galaxy', C: 'Messier 81', D: 'Andromeda Galaxy', E: 'Whirlpool Galaxy' },
     options_tr: { A: 'Büyük Macellan Bulutu', B: 'Üçgen Galaksisi', C: 'Messier 81', D: 'Andromeda Galaksisi', E: 'Girdap Galaksisi' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Andromeda (M31), Samanyolu\'na yaklaşık 2,537 milyon ışık yılı uzaklıkta bulunan en yakın büyük galaksidir.',
   },
   {
@@ -575,6 +638,7 @@ const general = [
     options: { A: 'Temperature of a solution', B: 'Electrical conductivity', C: 'Acidity or alkalinity of a solution', D: 'Concentration of a solution', E: 'Viscosity of a liquid' },
     options_tr: { A: 'Çözeltinin sıcaklığını', B: 'Elektriksel iletkenliği', C: 'Asitlik veya bazlık derecesini', D: 'Çözelti konsantrasyonunu', E: 'Sıvının viskozitesini' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'pH, bir çözeltinin asitliğini veya bazlığını ölçen 0–14 skalasıdır; 7 nötr, 7\'nin altı asit, üstü bazdır.',
   },
   {
@@ -584,6 +648,7 @@ const general = [
     options: { A: 'Red blood cells', B: 'Platelets', C: 'White blood cells', D: 'Plasma cells', E: 'Stem cells' },
     options_tr: { A: 'Kırmızı kan hücreleri', B: 'Trombositler', C: 'Beyaz kan hücreleri', D: 'Plazma hücreleri', E: 'Kök hücreler' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Beyaz kan hücreleri (lökositler), bağışıklık sisteminin temel savunma elemanlarıdır.',
   },
   {
@@ -593,6 +658,7 @@ const general = [
     options: { A: 'Botany', B: 'Mycology', C: 'Phycology', D: 'Lichenology', E: 'Microbiology' },
     options_tr: { A: 'Botanik', B: 'Mikoloji', C: 'Fikotoji', D: 'Likenoloji', E: 'Mikrobiyoloji' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Mikoloji, mantarları inceleyen biyoloji dalıdır.',
   },
   {
@@ -602,6 +668,7 @@ const general = [
     options: { A: 'Moon passing between Earth and Sun', B: 'Earth passing between Sun and Moon', C: 'Sun passing between Earth and Moon', D: 'Moon moving farther from Earth', E: 'Clouds blocking sunlight' },
     options_tr: { A: 'Ay\'ın Dünya ile Güneş arasına girmesi', B: 'Dünya\'nın Güneş ile Ay arasına girmesi', C: 'Güneş\'in Dünya ile Ay arasına girmesi', D: 'Ay\'ın Dünya\'dan uzaklaşması', E: 'Bulutların güneş ışığını engellemesi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ay tutulması, Dünya\'nın Güneş ile Ay arasına girerek Ay\'a düşen güneş ışığını engellemesiyle oluşur.',
   },
   {
@@ -611,6 +678,7 @@ const general = [
     options: { A: 'Hurricanes', B: 'Tsunamis', C: 'Tornadoes', D: 'Earthquakes', E: 'Volcanic eruptions' },
     options_tr: { A: 'Kasırgalar', B: 'Tsunamiler', C: 'Hortumlar', D: 'Depremler', E: 'Volkan patlamaları' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Richter skalası, depremlerin büyüklüğünü (salınan enerji miktarını) ölçer.',
   },
   {
@@ -620,6 +688,7 @@ const general = [
     options: { A: 'Propane', B: 'Butane', C: 'Ethane', D: 'Methane', E: 'Hydrogen' },
     options_tr: { A: 'Propan', B: 'Bütan', C: 'Etan', D: 'Metan', E: 'Hidrojen' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Doğal gaz büyük ölçüde metandan (CH₄) oluşur; genellikle %70–90 oranında metan içerir.',
   },
   {
@@ -629,6 +698,7 @@ const general = [
     options: { A: 'Osmosis', B: 'Transpiration', C: 'Evaporation', D: 'Photosynthesis', E: 'Respiration' },
     options_tr: { A: 'Ozmoz', B: 'Terleme (transpirasyom)', C: 'Buharlaşma', D: 'Fotosentez', E: 'Solunum' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Transpirasyon, su buharının bitki yapraklarındaki gözenekler (stoma) aracılığıyla atmosfere salınmasıdır.',
   },
   {
@@ -638,6 +708,7 @@ const general = [
     options: { A: 'Oxygen', B: 'Nitrogen', C: 'Helium', D: 'Hydrogen', E: 'Carbon' },
     options_tr: { A: 'Oksijen', B: 'Azot', C: 'Helyum', D: 'Hidrojen', E: 'Karbon' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Güneş kütlesinin yaklaşık %74\'ü hidrojen, %24\'ü helyumdur.',
   },
   {
@@ -647,6 +718,7 @@ const general = [
     options: { A: 'Mantle', B: 'Core', C: 'Crust', D: 'Lithosphere', E: 'Asthenosphere' },
     options_tr: { A: 'Manto', B: 'Çekirdek', C: 'Kabuk', D: 'Litosfer', E: 'Astenosfer' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Dünya kabuğu, gezegenin en dış katmanıdır; kalınlığı kıtalarda 30–50 km, okyanus tabanlarında 5–10 km arasındadır.',
   },
   {
@@ -656,6 +728,7 @@ const general = [
     options: { A: 'Si', B: 'Sv', C: 'Ag', D: 'Sl', E: 'Sr' },
     options_tr: { A: 'Si', B: 'Sv', C: 'Ag', D: 'Sl', E: 'Sr' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Gümüş\'ün sembolü Ag\'dır; Latincede "gümüş parlak" anlamına gelen "Argentum"dan gelir.',
   },
   {
@@ -665,6 +738,7 @@ const general = [
     options: { A: 'Oceanography', B: 'Meteorology', C: 'Seismology', D: 'Geology', E: 'Cosmology' },
     options_tr: { A: 'Oşinografi', B: 'Meteoroloji', C: 'Sismoloji', D: 'Jeoloji', E: 'Kozmoloji' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Jeoloji, Dünya\'nın katı maddesi, kabuğu ve tarihi süreçleri inceleyen bilim dalıdır.',
   },
   {
@@ -674,6 +748,7 @@ const general = [
     options: { A: 'Radio waves', B: 'Infrared', C: 'Ultraviolet', D: 'X-rays', E: 'Gamma rays' },
     options_tr: { A: 'Radyo dalgaları', B: 'Kızılötesi', C: 'Morötesi', D: 'X-ışınları', E: 'Gama ışınları' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Gama ışınları elektromanyetik spektrumun en yüksek enerjili ve en kısa dalgaboylu radyasyonudur.',
   },
   {
@@ -683,6 +758,7 @@ const general = [
     options: { A: '300', B: '450', C: '600', D: '750', E: '900' },
     options_tr: { A: '300', B: '450', C: '600', D: '750', E: '900' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'İnsan vücudunda yaklaşık 600 iskelet kası bulunur; bunların yanı sıra düz kaslar ve kalp kası da vardır.',
   },
   {
@@ -692,6 +768,7 @@ const general = [
     options: { A: 'Helium', B: 'Carbon', C: 'Oxygen', D: 'Hydrogen', E: 'Iron' },
     options_tr: { A: 'Helyum', B: 'Karbon', C: 'Oksijen', D: 'Hidrojen', E: 'Demir' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Hidrojen, evrendeki bilinen tüm atomların yaklaşık %75\'ini oluşturan en bol elementtir.',
   },
   {
@@ -701,6 +778,7 @@ const general = [
     options: { A: 'Refraction of sunlight', B: 'Reflection from the ocean', C: 'Rayleigh scattering of sunlight', D: 'Absorption of red light', E: 'Ozone layer reflection' },
     options_tr: { A: 'Güneş ışığının kırılması', B: 'Okyanusun yansıması', C: 'Güneş ışığının Rayleigh saçılması', D: 'Kırmızı ışığın soğurulması', E: 'Ozon katmanının yansıması' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Rayleigh saçılması, güneş ışığının atmosferdeki gaz molekülleriyle etkileşiminde mavi ışığın daha fazla dağılmasına yol açar ve bu nedenle gökyüzü mavi görünür.',
   },
   {
@@ -710,6 +788,7 @@ const general = [
     options: { A: 'Elephant', B: 'Blue Whale', C: 'Giraffe', D: 'Cheetah', E: 'Gorilla' },
     options_tr: { A: 'Fil', B: 'Mavi Balina', C: 'Zürafa', D: 'Çita', E: 'Goril' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Zürafanın, beynine 2 metrelik boynu boyunca kan pompalayabilmek için 300/180 mmHg\'yi aşan olağanüstü yüksek kan basıncı vardır.',
   },
   {
@@ -719,6 +798,7 @@ const general = [
     options: { A: 'Ionic bond', B: 'Covalent bond', C: 'Hydrogen bond', D: 'Metallic bond', E: 'Van der Waals force' },
     options_tr: { A: 'İyonik bağ', B: 'Kovalent bağ', C: 'Hidrojen bağı', D: 'Metalik bağ', E: 'Van der Waals kuvvetleri' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Su molekülleri arasındaki hidrojen bağları, suyun yüksek kaynama noktası ve yüzey gerilimi gibi olağanüstü özelliklerine yol açar.',
   },
   {
@@ -728,6 +808,7 @@ const general = [
     options: { A: 'Saturn', B: 'Uranus', C: 'Neptune', D: 'Jupiter', E: 'Mars' },
     options_tr: { A: 'Satürn', B: 'Uranüs', C: 'Neptün', D: 'Jüpiter', E: 'Mars' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Jüpiter yaklaşık 9 saat 56 dakikada bir kez döner; bu onu güneş sisteminin en hızlı dönen gezegeni yapar.',
   },
   {
@@ -737,6 +818,7 @@ const general = [
     options: { A: 'Richter Scale', B: 'Fujita Scale', C: 'Saffir-Simpson Scale', D: 'Beaufort Scale', E: 'Mercalli Scale' },
     options_tr: { A: 'Richter Skalası', B: 'Fujita Skalası', C: 'Saffir-Simpson Skalası', D: 'Beaufort Skalası', E: 'Mercalli Skalası' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Beaufort Skalası, 0 (durgun) ile 12 (kasırga) arasında rüzgar hızını ve kuvvetini tanımlar.',
   },
   {
@@ -746,6 +828,7 @@ const general = [
     options: { A: 'Metamorphosis', B: 'Molting', C: 'Transfiguration', D: 'Evolution', E: 'Adaptation' },
     options_tr: { A: 'Başkalaşım (metamorfoz)', B: 'Deri değişimi', C: 'Dönüşüm', D: 'Evrim', E: 'Adaptasyon' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Tam başkalaşım (holometabolizm), yumurta → larva (tırtıl) → pupa (krizalit) → ergin (kelebek) aşamalarından oluşur.',
   },
   {
@@ -755,6 +838,7 @@ const general = [
     options: { A: 'Carbon', B: 'Oxygen', C: 'Helium', D: 'Neon', E: 'Hydrogen' },
     options_tr: { A: 'Karbon', B: 'Oksijen', C: 'Helyum', D: 'Neon', E: 'Hidrojen' },
     answer: 'E',
+    difficulty: 2,
     explanation: 'Güneş kütlesinin yaklaşık %73\'ü hidrojenden oluşur; bu hidrojen, nükleer füzyon yoluyla helyuma dönüştürülür.',
   },
   {
@@ -764,6 +848,7 @@ const general = [
     options: { A: 'Adrenaline', B: 'Cortisol', C: 'Insulin', D: 'Glucagon', E: 'Thyroxine' },
     options_tr: { A: 'Adrenalin', B: 'Kortizol', C: 'İnsülin', D: 'Glukagon', E: 'Tiroksin' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'İnsülin, pankreastaki beta hücreleri tarafından üretilen ve kan şekerini düşüren hormondur.',
   },
   {
@@ -773,6 +858,7 @@ const general = [
     options: { A: '4.6 billion years', B: '8.2 billion years', C: '10.5 billion years', D: '13.8 billion years', E: '20 billion years' },
     options_tr: { A: '4,6 milyar yıl', B: '8,2 milyar yıl', C: '10,5 milyar yıl', D: '13,8 milyar yıl', E: '20 milyar yıl' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Evrenin yaşı, kozmik mikrodalga arka plan radyasyonu ölçümlerine dayanılarak yaklaşık 13,8 milyar yıl olarak hesaplanmıştır.',
   },
   {
@@ -782,6 +868,7 @@ const general = [
     options: { A: 'Myosin', B: 'Albumin', C: 'Keratin', D: 'Haemoglobin', E: 'Collagen' },
     options_tr: { A: 'Miyozin', B: 'Albumin', C: 'Keratin', D: 'Hemoglobin', E: 'Kolajen' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Hemoglobin, kırmızı kan hücrelerinde bulunan ve demiri sayesinde akciğerlerden dokulara oksijen taşıyan proteindir.',
   },
   {
@@ -791,6 +878,7 @@ const general = [
     options: { A: 'Joule', B: 'Watt', C: 'Newton', D: 'Pascal', E: 'Dyne' },
     options_tr: { A: 'Joule', B: 'Watt', C: 'Newton', D: 'Pascal', E: 'Din' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Newton (N), Isaac Newton\'ın adından gelen kuvvet birimidir; 1 N = 1 kg·m/s² olarak tanımlanır.',
   },
   {
@@ -800,6 +888,7 @@ const general = [
     options: { A: 'Phloem', B: 'Epidermis', C: 'Cortex', D: 'Xylem', E: 'Cambium' },
     options_tr: { A: 'Floem', B: 'Epidermis', C: 'Korteks', D: 'Ksilem', E: 'Kambiyum' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Ksilem, köklerden gövde ve yapraklara su ve mineral tuzlarını taşıyan iletim dokusudur.',
   },
   {
@@ -809,6 +898,7 @@ const general = [
     options: { A: 'Fission', B: 'Fusion', C: 'Combustion', D: 'Oxidation', E: 'Radioactive decay' },
     options_tr: { A: 'Fisyon', B: 'Füzyon', C: 'Yanma', D: 'Oksidasyon', E: 'Radyoaktif bozunma' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Nükleer füzyon, hafif çekirdeklerin (örneğin hidrojen) birleşerek daha ağır çekirdekler oluşturması ve bu sırada büyük miktarda enerji salmasıdır.',
   },
   {
@@ -818,6 +908,7 @@ const general = [
     options: { A: 'About 2 minutes', B: 'About 4 minutes', C: 'About 8 minutes', D: 'About 15 minutes', E: 'About 30 minutes' },
     options_tr: { A: 'Yaklaşık 2 dakika', B: 'Yaklaşık 4 dakika', C: 'Yaklaşık 8 dakika', D: 'Yaklaşık 15 dakika', E: 'Yaklaşık 30 dakika' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Güneş\'ten Dünya\'ya ışık yaklaşık 8 dakika 20 saniyede ulaşır.',
   },
   {
@@ -827,6 +918,7 @@ const general = [
     options: { A: 'Light Amplification by Simulated Electromagnetic Radiation', B: 'Light Amplification by Stimulated Emission of Radiation', C: 'Linear Amplification of Spectral Energy Radiation', D: 'Luminous Array of Synchronised Energy Rays', E: 'Light Amplification by Standard Emission Rays' },
     options_tr: { A: 'Simüle Edilmiş Elektromanyetik Radyasyonla Işık Amplifikasyonu', B: 'Uyarılmış Emisyonla Radyasyonun Işık Amplifikasyonu', C: 'Spektral Enerji Radyasyonunun Doğrusal Amplifikasyonu', D: 'Senkronize Enerji Işınlarının Aydınlatma Dizisi', E: 'Standart Emisyon Işınlarıyla Işık Amplifikasyonu' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'LASER, "Light Amplification by Stimulated Emission of Radiation" ifadesinin kısaltmasıdır.',
   },
   {
@@ -836,6 +928,7 @@ const general = [
     options: { A: 'Mars', B: 'Venus', C: 'Earth', D: 'Mercury', E: 'Pluto' },
     options_tr: { A: 'Mars', B: 'Venüs', C: 'Dünya', D: 'Merkür', E: 'Plüton' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Merkür, güneş sisteminin en küçük gezegenidir (Plüton cüce gezegen statüsündedir).',
   },
   {
@@ -845,6 +938,7 @@ const general = [
     options: { A: 'Serotonin', B: 'Dopamine', C: 'Cortisol', D: 'Oxytocin', E: 'Melatonin' },
     options_tr: { A: 'Serotonin', B: 'Dopamin', C: 'Kortizol', D: 'Oksitosin', E: 'Melatonin' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Kortizol, strese tepki olarak böbreküstü bezlerinden salgılanan temel stres hormonudur.',
   },
   {
@@ -854,6 +948,7 @@ const general = [
     options: { A: 'Fault line', B: 'Rift', C: 'Tectonic boundary', D: 'Plate boundary', E: 'Seismic zone' },
     options_tr: { A: 'Fay hattı', B: 'Rift', C: 'Tektonik sınır', D: 'Levha sınırı', E: 'Sismik bölge' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Levha sınırları, tektonik levhaların birbirleriyle temas ettiği alanlardır; depremler ve volkanik etkinlikler bu sınırlarda yoğunlaşır.',
   },
   {
@@ -863,6 +958,7 @@ const general = [
     options: { A: 'Refracting telescope', B: 'Radio telescope', C: 'Reflecting telescope', D: 'X-ray telescope', E: 'Infrared telescope' },
     options_tr: { A: 'Kırıcı teleskop', B: 'Radyo teleskobu', C: 'Yansıtmalı teleskop', D: 'X-ışını teleskobu', E: 'Kızılötesi teleskop' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Yansıtmalı (reflektör) teleskoplar, ışığı toplamak ve odaklamak için ayna kullanır; Isaac Newton ilk yansıtmalı teleskobu 1668\'de yaptı.',
   },
   {
@@ -872,6 +968,7 @@ const general = [
     options: { A: 'Regulates Earth\'s temperature', B: 'Absorbs harmful UV radiation from the Sun', C: 'Produces oxygen for breathing', D: 'Reflects radio waves for communication', E: 'Filters harmful gamma rays' },
     options_tr: { A: 'Dünya\'nın sıcaklığını düzenler', B: 'Güneş\'ten gelen zararlı UV radyasyonunu emer', C: 'Nefes alınan oksijeni üretir', D: 'Radyo dalgalarını iletişim için yansıtır', E: 'Zararlı gama ışınlarını süzer' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Stratosferdeki ozon tabakası, canlılar için zararlı olan Güneş\'in UV-B ve UV-C radyasyonunun büyük bölümünü emer.',
   },
   {
@@ -881,6 +978,7 @@ const general = [
     options: { A: 'Moonlight reflecting off ice crystals', B: 'Solar wind particles colliding with Earth\'s atmosphere', C: 'Volcanic gases in the upper atmosphere', D: 'Refraction of sunlight near the poles', E: 'Cosmic radiation hitting the stratosphere' },
     options_tr: { A: 'Ay ışığının buz kristallerinden yansıması', B: 'Güneş rüzgarı parçacıklarının Dünya atmosferiyle çarpışması', C: 'Üst atmosferdeki volkanik gazlar', D: 'Kutuplar yakınında güneş ışığının kırılması', E: 'Kozmik radyasyonun stratosfere çarpması' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Kuzey Işıkları, manyetik alan boyunca atmosfere giren güneş rüzgarı parçacıklarının oksijen ve azot atomlarıyla çarpışması sonucu oluşur.',
   },
   {
@@ -890,6 +988,7 @@ const general = [
     options: { A: 'Pupil', B: 'Retina', C: 'Cornea', D: 'Iris', E: 'Sclera' },
     options_tr: { A: 'Göz bebeği', B: 'Retina', C: 'Kornea', D: 'İris', E: 'Sklera' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'İris, göze rengini veren ve ışık miktarını düzenlemek için göz bebeğinin boyutunu kontrol eden halka biçimli kas yapıdır.',
   },
   {
@@ -899,6 +998,7 @@ const general = [
     options: { A: 'Aziz Sancar', B: 'Cahit Arf', C: 'Oktay Sinanoğlu', D: 'Feza Gürsey', E: 'Ali Kuşçu' },
     options_tr: { A: 'Aziz Sancar', B: 'Cahit Arf', C: 'Oktay Sinanoğlu', D: 'Feza Gürsey', E: 'Ali Kuşçu' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Ali Kuşçu (1403–1474), Osmanlı döneminin önde gelen astronomu ve matematikçisidir; Fatih Sultan Mehmet\'in daveti üzerine İstanbul\'a gelmiş ve astronomi alanındaki özgün çalışmalarıyla tanınmıştır.',
   },
 
@@ -910,6 +1010,7 @@ const general = [
     options: { A: 'Liver', B: 'Skin', C: 'Heart', D: 'Brain', E: 'Lungs' },
     options_tr: { A: 'Karaciğer', B: 'Deri', C: 'Kalp', D: 'Beyin', E: 'Akciğer' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The skin is the body\'s largest organ by surface area and weight, acting as a protective barrier.',
   },
   {
@@ -919,6 +1020,7 @@ const general = [
     options: { A: 'Uranus', B: 'Neptune', C: 'Saturn', D: 'Venus', E: 'Mars' },
     options_tr: { A: 'Uranüs', B: 'Neptün', C: 'Satürn', D: 'Venüs', E: 'Mars' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Uranus is tilted roughly 98 degrees, so it effectively orbits the Sun lying on its side.',
   },
   {
@@ -928,6 +1030,7 @@ const general = [
     options: { A: 'Vincent van Gogh', B: 'Pablo Picasso', C: 'Leonardo da Vinci', D: 'Michelangelo', E: 'Claude Monet' },
     options_tr: { A: 'Vincent van Gogh', B: 'Pablo Picasso', C: 'Leonardo da Vinci', D: 'Michelangelo', E: 'Claude Monet' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Mona Lisa was painted by the Italian Renaissance polymath Leonardo da Vinci in the early 16th century.',
   },
   {
@@ -937,6 +1040,7 @@ const general = [
     options: { A: 'Elephant', B: 'Giraffe', C: 'Ostrich', D: 'Camel', E: 'Polar bear' },
     options_tr: { A: 'Fil', B: 'Zürafa', C: 'Devekuşu', D: 'Deve', E: 'Kutup ayısı' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Giraffes can grow up to about 5.5 meters tall, making them the tallest living land animal.',
   },
   {
@@ -946,6 +1050,7 @@ const general = [
     options: { A: 'Canada', B: 'China', C: 'United States', D: 'Russia', E: 'Brazil' },
     options_tr: { A: 'Kanada', B: 'Çin', C: 'Amerika Birleşik Devletleri', D: 'Rusya', E: 'Brezilya' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Russia is the largest country in the world, covering more than one-eighth of Earth\'s inhabited land area.',
   },
   {
@@ -955,6 +1060,7 @@ const general = [
     options: { A: 'Sight', B: 'Hearing', C: 'Taste', D: 'Smell', E: 'Touch' },
     options_tr: { A: 'Görme', B: 'İşitme', C: 'Tat alma', D: 'Koku alma', E: 'Dokunma' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Taste buds on the tongue detect flavors such as sweet, sour, salty, bitter, and umami.',
   },
   {
@@ -964,6 +1070,7 @@ const general = [
     options: { A: 'Atlantic Ocean', B: 'Indian Ocean', C: 'Arctic Ocean', D: 'Pacific Ocean', E: 'Southern Ocean' },
     options_tr: { A: 'Atlas Okyanusu', B: 'Hint Okyanusu', C: 'Arktik Okyanusu', D: 'Büyük Okyanus (Pasifik)', E: 'Güney Okyanusu' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The Pacific Ocean is the largest and deepest of Earth\'s oceanic divisions, containing the Mariana Trench.',
   },
   {
@@ -973,6 +1080,7 @@ const general = [
     options: { A: 'Charles Dickens', B: 'William Shakespeare', C: 'Mark Twain', D: 'Jane Austen', E: 'George Orwell' },
     options_tr: { A: 'Charles Dickens', B: 'William Shakespeare', C: 'Mark Twain', D: 'Jane Austen', E: 'George Orwell' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Romeo and Juliet is a tragedy written by William Shakespeare early in his career.',
   },
   {
@@ -982,6 +1090,7 @@ const general = [
     options: { A: 'Kyoto', B: 'Osaka', C: 'Seoul', D: 'Beijing', E: 'Tokyo' },
     options_tr: { A: 'Kyoto', B: 'Osaka', C: 'Seul', D: 'Pekin', E: 'Tokyo' },
     answer: 'E',
+    difficulty: 1,
     explanation: 'Tokyo is the capital and most populous city of Japan.',
   },
   {
@@ -991,6 +1100,7 @@ const general = [
     options: { A: 'Oxygen', B: 'Nitrogen', C: 'Carbon Dioxide', D: 'Hydrogen', E: 'Helium' },
     options_tr: { A: 'Oksijen', B: 'Azot', C: 'Karbondioksit', D: 'Hidrojen', E: 'Helyum' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Plants absorb carbon dioxide and water to produce glucose and oxygen using sunlight.',
   },
   {
@@ -1000,6 +1110,7 @@ const general = [
     options: { A: '1905', B: '1912', C: '1918', D: '1923', E: '1939' },
     options_tr: { A: '1905', B: '1912', C: '1918', D: '1923', E: '1939' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Titanic sank on April 15, 1912, during its maiden voyage after colliding with an iceberg.',
   },
   {
@@ -1009,6 +1120,7 @@ const general = [
     options: { A: 'United Kingdom', B: 'France', C: 'Germany', D: 'Italy', E: 'Spain' },
     options_tr: { A: 'Birleşik Krallık', B: 'Fransa', C: 'Almanya', D: 'İtalya', E: 'İspanya' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Statue of Liberty was a gift from France to the United States to celebrate their revolutionary alliance.',
   },
   {
@@ -1018,6 +1130,7 @@ const general = [
     options: { A: 'Euro', B: 'Dollar', C: 'Pound Sterling', D: 'Franc', E: 'Yen' },
     options_tr: { A: 'Euro', B: 'Dolar', C: 'Sterlin (Pound)', D: 'Frank', E: 'Yen' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The official currency of the United Kingdom is the Pound Sterling (£).',
   },
   {
@@ -1027,6 +1140,7 @@ const general = [
     options: { A: 'Thermometer', B: 'Barometer', C: 'Anemometer', D: 'Hygrometer', E: 'Altimeter' },
     options_tr: { A: 'Termometre', B: 'Barometre', C: 'Anemometre', D: 'Higrometre', E: 'Altimetre' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A barometer is a scientific instrument used to measure atmospheric pressure.',
   },
   {
@@ -1036,6 +1150,7 @@ const general = [
     options: { A: 'Isaac Newton', B: 'Albert Einstein', C: 'Galileo Galilei', D: 'Nikola Tesla', E: 'Marie Curie' },
     options_tr: { A: 'Isaac Newton', B: 'Albert Einstein', C: 'Galileo Galilei', D: 'Nikola Tesla', E: 'Marie Curie' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Albert Einstein developed the theory of relativity, one of the two pillars of modern physics.',
   },
   {
@@ -1045,6 +1160,7 @@ const general = [
     options: { A: 'Asia', B: 'Australia', C: 'Africa', D: 'South America', E: 'North America' },
     options_tr: { A: 'Asya', B: 'Avustralya', C: 'Afrika', D: 'Güney Amerika', E: 'Kuzey Amerika' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Sahara is the largest hot desert in the world, covering much of North Africa.',
   },
   {
@@ -1054,6 +1170,7 @@ const general = [
     options: { A: 'Italy', B: 'Greece', C: 'Egypt', D: 'China', E: 'France' },
     options_tr: { A: 'İtalya', B: 'Yunanistan', C: 'Mısır', D: 'Çin', E: 'Fransa' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The ancient Olympic Games began in Olympia, Greece, in 776 BC.',
   },
   {
@@ -1063,6 +1180,7 @@ const general = [
     options: { A: 'Louis Pasteur', B: 'Alexander Fleming', C: 'Marie Curie', D: 'Robert Koch', E: 'Gregor Mendel' },
     options_tr: { A: 'Louis Pasteur', B: 'Alexander Fleming', C: 'Marie Curie', D: 'Robert Koch', E: 'Gregor Mendel' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Alexander Fleming discovered penicillin, the world\'s first effective antibiotic, in 1928.',
   },
   {
@@ -1072,6 +1190,7 @@ const general = [
     options: { A: 'Monaco', B: 'San Marino', C: 'Liechtenstein', D: 'Vatican City', E: 'Malta' },
     options_tr: { A: 'Monako', B: 'San Marino', C: 'Lihtenştayn', D: 'Vatikan', E: 'Malta' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Vatican City is the smallest independent state in the world by both area and population.',
   },
   {
@@ -1081,6 +1200,7 @@ const general = [
     options: { A: 'Yuri Gagarin', B: 'Buzz Aldrin', C: 'Neil Armstrong', D: 'Michael Collins', E: 'John Glenn' },
     options_tr: { A: 'Yuri Gagarin', B: 'Buzz Aldrin', C: 'Neil Armstrong', D: 'Michael Collins', E: 'John Glenn' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Neil Armstrong stepped onto the lunar surface on July 20, 1969, during the Apollo 11 mission.',
   },
   {
@@ -1090,6 +1210,7 @@ const general = [
     options: { A: 'China', B: 'Japan', C: 'South Korea', D: 'Thailand', E: 'Vietnam' },
     options_tr: { A: 'Çin', B: 'Japonya', C: 'Güney Kore', D: 'Tayland', E: 'Vietnam' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The name "Japan" translates to "sun origin", which is why it is called the Land of the Rising Sun.',
   },
   {
@@ -1099,6 +1220,7 @@ const general = [
     options: { A: 'African Elephant', B: 'Blue Whale', C: 'Giraffe', D: 'Colossal Squid', E: 'Hippopotamus' },
     options_tr: { A: 'Afrika Fili', B: 'Mavi Balina', C: 'Zürafa', D: 'Dev Mürekkepbalığı', E: 'Su Aygırı' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Blue Whale is the largest animal known to have ever existed, reaching lengths of up to 30 meters.',
   },
   {
@@ -1108,6 +1230,7 @@ const general = [
     options: { A: 'London', B: 'Rome', C: 'Paris', D: 'Berlin', E: 'Madrid' },
     options_tr: { A: 'Londra', B: 'Roma', C: 'Paris', D: 'Berlin', E: 'Madrid' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Eiffel Tower is a globally recognized landmark located in Paris, France.',
   },
   {
@@ -1117,6 +1240,7 @@ const general = [
     options: { A: 'Gobi Desert', B: 'Kalahari Desert', C: 'Sahara Desert', D: 'Arabian Desert', E: 'Atacama Desert' },
     options_tr: { A: 'Gobi Çölü', B: 'Kalahari Çölü', C: 'Sahra Çölü', D: 'Arap Çölü', E: 'Atacama Çölü' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Sahara Desert is the largest hot desert (Antarctica and the Arctic are larger but are cold deserts).',
   },
   {
@@ -1126,6 +1250,7 @@ const general = [
     options: { A: 'George R.R. Martin', B: 'J.K. Rowling', C: 'C.S. Lewis', D: 'J.R.R. Tolkien', E: 'Stephen King' },
     options_tr: { A: 'George R.R. Martin', B: 'J.K. Rowling', C: 'C.S. Lewis', D: 'J.R.R. Tolkien', E: 'Stephen King' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The Lord of the Rings was written by English author and scholar J.R.R. Tolkien.',
   },
   {
@@ -1135,6 +1260,7 @@ const general = [
     options: { A: 'Toronto', B: 'Vancouver', C: 'Montreal', D: 'Ottawa', E: 'Calgary' },
     options_tr: { A: 'Toronto', B: 'Vancouver', C: 'Montreal', D: 'Ottawa', E: 'Calgary' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Ottawa was chosen as the capital of Canada by Queen Victoria in 1857.',
   },
   {
@@ -1144,6 +1270,7 @@ const general = [
     options: { A: 'Brazil', B: 'Qatar', C: 'Russia', D: 'France', E: 'Germany' },
     options_tr: { A: 'Brezilya', B: 'Katar', C: 'Rusya', D: 'Fransa', E: 'Almanya' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The 2022 FIFA World Cup took place in Qatar, marking the first World Cup held in the Arab world.',
   },
   {
@@ -1153,6 +1280,7 @@ const general = [
     options: { A: 'Spanish', B: 'Portuguese', C: 'English', D: 'French', E: 'Italian' },
     options_tr: { A: 'İspanyolca', B: 'Portekizce', C: 'İngilizce', D: 'Fransızca', E: 'İtalyanca' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Brazil was colonized by Portugal, making Portuguese its official and primary language.',
   },
   {
@@ -1162,6 +1290,7 @@ const general = [
     options: { A: 'Apple', B: 'Microsoft', C: 'Google', D: 'Samsung', E: 'Nokia' },
     options_tr: { A: 'Apple', B: 'Microsoft', C: 'Google', D: 'Samsung', E: 'Nokia' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Android was founded in 2003 and acquired by Google in 2005.',
   },
   {
@@ -1171,6 +1300,7 @@ const general = [
     options: { A: 'J.K. Rowling', B: 'Stephenie Meyer', C: 'Suzanne Collins', D: 'Rick Riordan', E: 'George R.R. Martin' },
     options_tr: { A: 'J.K. Rowling', B: 'Stephenie Meyer', C: 'Suzanne Collins', D: 'Rick Riordan', E: 'George R.R. Martin' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The Harry Potter fantasy series was written by British author J.K. Rowling.',
   },
   {
@@ -1180,6 +1310,7 @@ const general = [
     options: { A: 'Argentina', B: 'Colombia', C: 'Peru', D: 'Brazil', E: 'Chile' },
     options_tr: { A: 'Arjantin', B: 'Kolombiya', C: 'Peru', D: 'Brezilya', E: 'Şili' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Brazil is the largest country in both South America and Latin America.',
   },
   {
@@ -1189,6 +1320,7 @@ const general = [
     options: { A: 'Magnetism', B: 'Friction', C: 'Gravity', D: 'Centrifugal Force', E: 'Nuclear Force' },
     options_tr: { A: 'Manyetizma', B: 'Sürtünme', C: 'Yerçekimi', D: 'Santrifüj Kuvveti', E: 'Nükleer Kuvvet' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Gravity is the force by which a planet or other body draws objects toward its center.',
   },
   {
@@ -1198,6 +1330,7 @@ const general = [
     options: { A: 'Milan', B: 'Venice', C: 'Florence', D: 'Rome', E: 'Naples' },
     options_tr: { A: 'Milano', B: 'Venedik', C: 'Floransa', D: 'Roma', E: 'Napoli' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Rome is the capital and largest city of Italy.',
   },
   {
@@ -1207,6 +1340,7 @@ const general = [
     options: { A: 'Nitrogen', B: 'Oxygen', C: 'Carbon Dioxide', D: 'Hydrogen', E: 'Helium' },
     options_tr: { A: 'Azot', B: 'Oksijen', C: 'Karbondioksit', D: 'Hidrojen', E: 'Helyum' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Humans require oxygen to convert glucose into usable energy (ATP) through cellular respiration.',
   },
   {
@@ -1216,6 +1350,7 @@ const general = [
     options: { A: 'İsmet İnönü', B: 'Mustafa Kemal Atatürk', C: 'Adnan Menderes', D: 'Fevzi Çakmak', E: 'Kazım Karabekir' },
     options_tr: { A: 'İsmet İnönü', B: 'Mustafa Kemal Atatürk', C: 'Adnan Menderes', D: 'Fevzi Çakmak', E: 'Kazım Karabekir' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Mustafa Kemal Atatürk founded the Republic of Turkey in 1923.',
   },
   {
@@ -1225,6 +1360,7 @@ const general = [
     options: { A: 'Madagascar', B: 'Greenland', C: 'Borneo', D: 'New Guinea', E: 'Iceland' },
     options_tr: { A: 'Madagaskar', B: 'Grönland', C: 'Borneo', D: 'Yeni Gine', E: 'İzlanda' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Greenland is the world\'s largest island (Australia is classified as a continent).',
   },
   {
@@ -1234,6 +1370,7 @@ const general = [
     options: { A: 'Topkapi Palace', B: 'Blue Mosque', C: 'Hagia Sophia', D: 'Galata Tower', E: 'Süleymaniye Mosque' },
     options_tr: { A: 'Topkapı Sarayı', B: 'Sultanahmet Camii', C: 'Ayasofya', D: 'Galata Kulesi', E: 'Süleymaniye Camii' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Hagia Sophia was built in 537 AD as a cathedral, converted to a mosque in 1453, became a museum in 1935, and reverted to a mosque in 2020.',
   },
   {
@@ -1243,6 +1380,7 @@ const general = [
     options: { A: 'Lyon', B: 'Marseille', C: 'Nice', D: 'Paris', E: 'Bordeaux' },
     options_tr: { A: 'Lyon', B: 'Marsilya', C: 'Nice', D: 'Paris', E: 'Bordeaux' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Paris is the capital and largest city of France.',
   },
   {
@@ -1252,6 +1390,7 @@ const general = [
     options: { A: '3,000 km/s', B: '30,000 km/s', C: '300,000 km/s', D: '3,000,000 km/s', E: '30,000,000 km/s' },
     options_tr: { A: '3.000 km/s', B: '30.000 km/s', C: '300.000 km/s', D: '3.000.000 km/s', E: '30.000.000 km/s' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Light travels at approximately 300,000 km/s in a vacuum.',
   },
   {
@@ -1261,6 +1400,7 @@ const general = [
     options: { A: 'K2', B: 'Mount Kilimanjaro', C: 'Mount Everest', D: 'Mont Blanc', E: 'Mount Fuji' },
     options_tr: { A: 'K2', B: 'Kilimanjaro Dağı', C: 'Everest Dağı', D: 'Mont Blanc', E: 'Fuji Dağı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Mount Everest, located in the Himalayas, is Earth\'s highest mountain above sea level at 8,848 m.',
   },
   {
@@ -1270,6 +1410,7 @@ const general = [
     options: { A: 'Greece', B: 'Mexico', C: 'Egypt', D: 'Peru', E: 'Iran' },
     options_tr: { A: 'Yunanistan', B: 'Meksika', C: 'Mısır', D: 'Peru', E: 'İran' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Pyramids of Giza are located on the Giza Plateau near Cairo, Egypt.',
   },
   {
@@ -1279,6 +1420,7 @@ const general = [
     options: { A: 'S', B: 'So', C: 'Na', D: 'Sd', E: 'K' },
     options_tr: { A: 'S', B: 'So', C: 'Na', D: 'Sd', E: 'K' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The symbol "Na" comes from the Latin word "natrium".',
   },
   {
@@ -1288,6 +1430,7 @@ const general = [
     options: { A: '92', B: '104', C: '112', D: '118', E: '124' },
     options_tr: { A: '92', B: '104', C: '112', D: '118', E: '124' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The periodic table has 118 confirmed elements, from Hydrogen (1) to Oganesson (118).',
   },
   {
@@ -1297,6 +1440,7 @@ const general = [
     options: { A: 'O Negative', B: 'A Positive', C: 'B Positive', D: 'AB Positive', E: 'O Positive' },
     options_tr: { A: 'O Negatif', B: 'A Pozitif', C: 'B Pozitif', D: 'AB Pozitif', E: 'O Pozitif' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'AB positive plasma carries neither A, B nor Rh antibodies, so it can receive any blood type.',
   },
   {
@@ -1306,6 +1450,7 @@ const general = [
     options: { A: 'Pound', B: 'Franc', C: 'Euro', D: 'Krona', E: 'Lira' },
     options_tr: { A: 'Sterlin', B: 'Frank', C: 'Euro', D: 'Kuron', E: 'Lira' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Euro (€) is the official currency of the eurozone.',
   },
   {
@@ -1315,6 +1460,7 @@ const general = [
     options: { A: 'Femur', B: 'Tibia', C: 'Humerus', D: 'Skull', E: 'Pelvis' },
     options_tr: { A: 'Uyluk Kemiği (Femur)', B: 'Kaval Kemiği', C: 'Pazı Kemiği', D: 'Kafatası', E: 'Leğen Kemiği' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The femur, or thigh bone, is both the longest and strongest bone in the human body.',
   },
   {
@@ -1324,6 +1470,7 @@ const general = [
     options: { A: 'Greece', B: 'Spain', C: 'Italy', D: 'Portugal', E: 'France' },
     options_tr: { A: 'Yunanistan', B: 'İspanya', C: 'İtalya', D: 'Portekiz', E: 'Fransa' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Italy\'s peninsular shape on maps heavily resembles a high-heeled boot.',
   },
   {
@@ -1333,6 +1480,7 @@ const general = [
     options: { A: 'Albert Einstein', B: 'Isaac Newton', C: 'Galileo Galilei', D: 'Marie Curie', E: 'Stephen Hawking' },
     options_tr: { A: 'Albert Einstein', B: 'Isaac Newton', C: 'Galileo Galilei', D: 'Marie Curie', E: 'Stephen Hawking' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Sir Isaac Newton published these laws in "Principia Mathematica" in 1687.',
   },
   {
@@ -1342,6 +1490,7 @@ const general = [
     options: { A: 'Munich', B: 'Frankfurt', C: 'Berlin', D: 'Hamburg', E: 'Cologne' },
     options_tr: { A: 'Münih', B: 'Frankfurt', C: 'Berlin', D: 'Hamburg', E: 'Köln' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Berlin became the official capital of reunified Germany in 1990.',
   },
   {
@@ -1351,6 +1500,7 @@ const general = [
     options: { A: 'Lion', B: 'Cheetah', C: 'Leopard', D: 'Antelope', E: 'Horse' },
     options_tr: { A: 'Aslan', B: 'Çita', C: 'Leopar', D: 'Antilop', E: 'At' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The cheetah can reach speeds between 80 to 120 km/h in short bursts.',
   },
   {
@@ -1360,6 +1510,7 @@ const general = [
     options: { A: 'Ir', B: 'I', C: 'Fe', D: 'In', E: 'F' },
     options_tr: { A: 'Ir', B: 'I', C: 'Fe', D: 'In', E: 'F' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The symbol "Fe" comes from the Latin word for iron, "ferrum".',
   },
   {
@@ -1369,6 +1520,7 @@ const general = [
     options: { A: '48', B: '50', C: '52', D: '54', E: '56' },
     options_tr: { A: '48', B: '50', C: '52', D: '54', E: '56' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'A standard deck has 52 cards divided into four suits.',
   },
   {
@@ -1378,6 +1530,7 @@ const general = [
     options: { A: 'Red Sea', B: 'Caribbean Sea', C: 'Mediterranean Sea', D: 'Black Sea', E: 'Caspian Sea' },
     options_tr: { A: 'Kızıldeniz', B: 'Karayip Denizi', C: 'Akdeniz', D: 'Karadeniz', E: 'Hazar Denizi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Mediterranean Sea connects to the Atlantic Ocean and is bordered by Europe, Africa, and Asia.',
   },
   {
@@ -1387,6 +1540,7 @@ const general = [
     options: { A: 'Yuan', B: 'Won', C: 'Yen', D: 'Ringgit', E: 'Baht' },
     options_tr: { A: 'Yuan', B: 'Won', C: 'Yen', D: 'Ringgit', E: 'Baht' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Japanese Yen (¥) is the third most traded currency in the foreign exchange market.',
   },
   {
@@ -1396,6 +1550,7 @@ const general = [
     options: { A: 'Venus', B: 'Earth', C: 'Mars', D: 'Mercury', E: 'Jupiter' },
     options_tr: { A: 'Venüs', B: 'Dünya', C: 'Mars', D: 'Merkür', E: 'Jüpiter' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Mercury has the smallest orbit around the Sun, making it the closest planet.',
   },
   {
@@ -1405,6 +1560,7 @@ const general = [
     options: { A: 'Thomas Jefferson', B: 'Abraham Lincoln', C: 'George Washington', D: 'John Adams', E: 'Benjamin Franklin' },
     options_tr: { A: 'Thomas Jefferson', B: 'Abraham Lincoln', C: 'George Washington', D: 'John Adams', E: 'Benjamin Franklin' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'George Washington served as president from 1789 to 1797.',
   },
   {
@@ -1414,6 +1570,7 @@ const general = [
     options: { A: 'Carotene', B: 'Melanin', C: 'Chlorophyll', D: 'Hemoglobin', E: 'Xanthophyll' },
     options_tr: { A: 'Karoten', B: 'Melanin', C: 'Klorofil', D: 'Hemoglobin', E: 'Ksantofil' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Chlorophyll absorbs sunlight to power photosynthesis and reflects green light.',
   },
   {
@@ -1423,6 +1580,7 @@ const general = [
     options: { A: 'New Zealand', B: 'South Africa', C: 'Australia', D: 'Indonesia', E: 'Brazil' },
     options_tr: { A: 'Yeni Zelanda', B: 'Güney Afrika', C: 'Avustralya', D: 'Endonezya', E: 'Brezilya' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Great Barrier Reef is the world\'s largest coral reef system, located off the coast of Queensland, Australia.',
   },
   {
@@ -1432,6 +1590,7 @@ const general = [
     options: { A: 'Saint Petersburg', B: 'Moscow', C: 'Novosibirsk', D: 'Kazan', E: 'Sochi' },
     options_tr: { A: 'Saint Petersburg', B: 'Moskova', C: 'Novosibirsk', D: 'Kazan', E: 'Sochi' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Moscow is the capital and largest city of Russia.',
   },
   {
@@ -1441,6 +1600,7 @@ const general = [
     options: { A: 'Hexagon', B: 'Octagon', C: 'Triangle', D: 'Square', E: 'Circle' },
     options_tr: { A: 'Altıgen', B: 'Sekizgen', C: 'Üçgen', D: 'Kare', E: 'Daire' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Standard stop signs use an octagon shape so drivers can recognize them even from the back.',
   },
   {
@@ -1450,6 +1610,7 @@ const general = [
     options: { A: 'Warner Bros', B: 'Walt Disney', C: 'Stan Lee', D: 'Hayao Miyazaki', E: 'Charles Schulz' },
     options_tr: { A: 'Warner Bros', B: 'Walt Disney', C: 'Stan Lee', D: 'Hayao Miyazaki', E: 'Charles Schulz' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Walt Disney and Ub Iwerks created Mickey Mouse in 1928.',
   },
   {
@@ -1459,6 +1620,7 @@ const general = [
     options: { A: 'Tomato', B: 'Onion', C: 'Avocado', D: 'Garlic', E: 'Potato' },
     options_tr: { A: 'Domates', B: 'Soğan', C: 'Avokado', D: 'Sarımsak', E: 'Patates' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Guacamole is an avocado-based dip first developed by the Aztecs in Mexico.',
   },
   {
@@ -1468,6 +1630,7 @@ const general = [
     options: { A: 'Microsoft', B: 'Google', C: 'Apple', D: 'Samsung', E: 'Intel' },
     options_tr: { A: 'Microsoft', B: 'Google', C: 'Apple', D: 'Samsung', E: 'Intel' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'iOS is a proprietary mobile operating system created by Apple Inc.',
   },
   {
@@ -1477,6 +1640,7 @@ const general = [
     options: { A: '10', B: '100', C: '500', D: '1000', E: '10000' },
     options_tr: { A: '10', B: '100', C: '500', D: '1000', E: '10000' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The prefix "milli-" means one-thousandth, so there are 1,000 milliliters in 1 liter.',
   },
   {
@@ -1486,6 +1650,7 @@ const general = [
     options: { A: 'Amsterdam', B: 'Venice', C: 'Bruges', D: 'Paris', E: 'Vienna' },
     options_tr: { A: 'Amsterdam', B: 'Venedik', C: 'Bruges', D: 'Paris', E: 'Viyana' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Venice, Italy, is built on 118 small islands separated by canals.',
   },
   {
@@ -1495,6 +1660,7 @@ const general = [
     options: { A: 'Sodium Chloride', B: 'Potassium Nitrate', C: 'Calcium Carbonate', D: 'Sodium Bicarbonate', E: 'Magnesium Sulfate' },
     options_tr: { A: 'Sodyum Klorür', B: 'Potasyum Nitrat', C: 'Kalsiyum Karbonat', D: 'Sodyum Bikarbonat', E: 'Magnezyum Sülfat' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Table salt is an ionic compound with the chemical formula NaCl (Sodium Chloride).',
   },
   {
@@ -1504,6 +1670,7 @@ const general = [
     options: { A: 'Leonardo da Vinci', B: 'Raphael', C: 'Michelangelo', D: 'Donatello', E: 'Rembrandt' },
     options_tr: { A: 'Leonardo da Vinci', B: 'Rafael', C: 'Michelangelo', D: 'Donatello', E: 'Rembrandt' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Michelangelo painted the Sistine Chapel ceiling between 1508 and 1512.',
   },
   {
@@ -1513,6 +1680,7 @@ const general = [
     options: { A: 'Eagle', B: 'Dove', C: 'Owl', D: 'Swan', E: 'Falcon' },
     options_tr: { A: 'Kartal', B: 'Güvercin', C: 'Baykuş', D: 'Kuğu', E: 'Doğan' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A white dove, often carrying an olive branch, is a widely accepted symbol of peace.',
   },
   {
@@ -1522,6 +1690,7 @@ const general = [
     options: { A: 'Thessaloniki', B: 'Athens', C: 'Patras', D: 'Heraklion', E: 'Rhodes' },
     options_tr: { A: 'Selanik', B: 'Atina', C: 'Patras', D: 'Kandiye', E: 'Rodos' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Athens is the capital and largest city of Greece.',
   },
   {
@@ -1531,6 +1700,7 @@ const general = [
     options: { A: 'Indian Ocean', B: 'Pacific Ocean', C: 'Arctic Ocean', D: 'Atlantic Ocean', E: 'Southern Ocean' },
     options_tr: { A: 'Hint Okyanusu', B: 'Büyük Okyanus', C: 'Arktik Okyanusu', D: 'Atlas Okyanusu', E: 'Güney Okyanusu' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Arctic Ocean is the smallest and shallowest of the world\'s five major oceans.',
   },
   {
@@ -1540,6 +1710,7 @@ const general = [
     options: { A: 'George Orwell', B: 'Aldous Huxley', C: 'Ray Bradbury', D: 'Ernest Hemingway', E: 'F. Scott Fitzgerald' },
     options_tr: { A: 'George Orwell', B: 'Aldous Huxley', C: 'Ray Bradbury', D: 'Ernest Hemingway', E: 'F. Scott Fitzgerald' },
     answer: 'A',
+    difficulty: 3,
     explanation: '1984 is a dystopian novel written by the English author George Orwell.',
   },
   {
@@ -1549,6 +1720,7 @@ const general = [
     options: { A: 'Yen', B: 'Won', C: 'Renminbi (Yuan)', D: 'Baht', E: 'Dong' },
     options_tr: { A: 'Yen', B: 'Won', C: 'Renminbi (Yuan)', D: 'Baht', E: 'Dong' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The official currency of China is the Renminbi; its primary unit is the Yuan.',
   },
   {
@@ -1558,6 +1730,7 @@ const general = [
     options: { A: 'Mars', B: 'Neptune', C: 'Saturn', D: 'Uranus', E: 'Jupiter' },
     options_tr: { A: 'Mars', B: 'Neptün', C: 'Satürn', D: 'Uranüs', E: 'Jüpiter' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Saturn has the most extensive and complex ring system of any planet in our solar system.',
   },
   {
@@ -1567,6 +1740,7 @@ const general = [
     options: { A: 'Africa', B: 'Asia', C: 'South America', D: 'North America', E: 'Australia' },
     options_tr: { A: 'Afrika', B: 'Asya', C: 'Güney Amerika', D: 'Kuzey Amerika', E: 'Avustralya' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Amazon Rainforest is located in South America, with the majority in Brazil.',
   },
   {
@@ -1576,6 +1750,7 @@ const general = [
     options: { A: 'Carbon', B: 'Silicon', C: 'Gold', D: 'Copper', E: 'Iron' },
     options_tr: { A: 'Karbon', B: 'Silisyum', C: 'Altın', D: 'Bakır', E: 'Demir' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Silicon is a semiconductor, making it the perfect material for building transistors on integrated circuits.',
   },
   {
@@ -1585,6 +1760,7 @@ const general = [
     options: { A: '1999', B: '2000', C: '2001', D: '2010', E: '2020' },
     options_tr: { A: '1999', B: '2000', C: '2001', D: '2010', E: '2020' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Because there was no year 0, the 21st century officially began on January 1, 2001.',
   },
   {
@@ -1594,6 +1770,7 @@ const general = [
     options: { A: 'Facebook', B: 'Instagram', C: 'Twitter', D: 'LinkedIn', E: 'Pinterest' },
     options_tr: { A: 'Facebook', B: 'Instagram', C: 'Twitter', D: 'LinkedIn', E: 'Pinterest' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Twitter\'s classic logo featured a blue bird named "Larry" before the platform rebranded to X.',
   },
   {
@@ -1603,6 +1780,7 @@ const general = [
     options: { A: 'Oxygen', B: 'Nitrogen', C: 'Helium', D: 'Carbon Dioxide', E: 'Argon' },
     options_tr: { A: 'Oksijen', B: 'Azot', C: 'Helyum', D: 'Karbondioksit', E: 'Argon' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Helium is lighter than air, which causes balloons filled with it to float.',
   },
   {
@@ -1612,6 +1790,7 @@ const general = [
     options: { A: 'Vitamin A', B: 'Vitamin B', C: 'Vitamin C', D: 'Vitamin D', E: 'Vitamin K' },
     options_tr: { A: 'A Vitamini', B: 'B Vitamini', C: 'C Vitamini', D: 'D Vitamini', E: 'K Vitamini' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Citrus fruits are famous for their high concentration of Vitamin C (ascorbic acid).',
   },
   {
@@ -1621,6 +1800,7 @@ const general = [
     options: { A: 'Barcelona', B: 'Valencia', C: 'Seville', D: 'Madrid', E: 'Malaga' },
     options_tr: { A: 'Barselona', B: 'Valensiya', C: 'Sevilla', D: 'Madrid', E: 'Malaga' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Madrid is the capital and largest city of Spain.',
   },
   {
@@ -1630,6 +1810,7 @@ const general = [
     options: { A: 'Snow White', B: 'Cinderella', C: 'Sleeping Beauty', D: 'Rapunzel', E: 'Little Red Riding Hood' },
     options_tr: { A: 'Pamuk Prenses', B: 'Külkedisi', C: 'Uyuyan Güzel', D: 'Rapunzel', E: 'Kırmızı Başlıklı Kız' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Cinderella accidentally leaves behind a glass slipper as she rushes from the prince\'s ball.',
   },
   {
@@ -1639,6 +1820,7 @@ const general = [
     options: { A: 'Barometer', B: 'Seismograph', C: 'Speedometer', D: 'Thermometer', E: 'Hygrometer' },
     options_tr: { A: 'Barometre', B: 'Sismograf', C: 'Hız Göstergesi', D: 'Termometre', E: 'Higrometre' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'A seismograph detects and records the strength and duration of earthquakes.',
   },
   {
@@ -1648,6 +1830,7 @@ const general = [
     options: { A: '60', B: '600', C: '1200', D: '2400', E: '3600' },
     options_tr: { A: '60', B: '600', C: '1200', D: '2400', E: '3600' },
     answer: 'E',
+    difficulty: 3,
     explanation: '60 seconds × 60 minutes = 3,600 seconds per hour.',
   },
   {
@@ -1657,6 +1840,7 @@ const general = [
     options: { A: 'Egyptian', B: 'Arabic', C: 'French', D: 'English', E: 'Coptic' },
     options_tr: { A: 'Mısırca', B: 'Arapça', C: 'Fransızca', D: 'İngilizce', E: 'Koptça' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Modern Standard Arabic is the official language of Egypt.',
   },
   {
@@ -1666,6 +1850,7 @@ const general = [
     options: { A: 'Tiger', B: 'Elephant', C: 'Lion', D: 'Gorilla', E: 'Leopard' },
     options_tr: { A: 'Kaplan', B: 'Fil', C: 'Aslan', D: 'Goril', E: 'Leopar' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Despite living mostly in grasslands, the lion is called the King of the Jungle.',
   },
   {
@@ -1675,6 +1860,7 @@ const general = [
     options: { A: 'Vitamin A', B: 'Vitamin B12', C: 'Vitamin C', D: 'Vitamin D', E: 'Vitamin E' },
     options_tr: { A: 'A Vitamini', B: 'B12 Vitamini', C: 'C Vitamini', D: 'D Vitamini', E: 'E Vitamini' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The skin synthesizes Vitamin D when exposed to UVB radiation from sunlight.',
   },
   {
@@ -1684,6 +1870,7 @@ const general = [
     options: { A: 'Lungs', B: 'Liver', C: 'Brain', D: 'Heart', E: 'Kidneys' },
     options_tr: { A: 'Akciğer', B: 'Karaciğer', C: 'Beyin', D: 'Kalp', E: 'Böbrekler' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The heart pumps blood through the blood vessels of the circulatory system.',
   },
   {
@@ -1693,6 +1880,7 @@ const general = [
     options: { A: '-10°C', B: '0°C', C: '4°C', D: '10°C', E: '-1°C' },
     options_tr: { A: '-10°C', B: '0°C', C: '4°C', D: '10°C', E: '-1°C' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Pure water freezes at exactly 0°C at standard atmospheric pressure.',
   },
   {
@@ -1702,6 +1890,7 @@ const general = [
     options: { A: 'Greta Thunberg', B: 'Malala Yousafzai', C: 'Emma González', D: 'Autumn Peltier', E: 'Nadia Murad' },
     options_tr: { A: 'Greta Thunberg', B: 'Malala Yousafzai', C: 'Emma González', D: 'Autumn Peltier', E: 'Nadia Murad' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Malala Yousafzai won the Nobel Peace Prize in 2014 for her advocacy of girls\' education, becoming the youngest laureate in the prize\'s history.',
   },
   {
@@ -1711,6 +1900,7 @@ const general = [
     options: { A: 'George R.R. Martin', B: 'J.K. Rowling', C: 'C.S. Lewis', D: 'J.R.R. Tolkien', E: 'Stephen King' },
     options_tr: { A: 'George R.R. Martin', B: 'J.K. Rowling', C: 'C.S. Lewis', D: 'J.R.R. Tolkien', E: 'Stephen King' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Lord of the Rings was written by J.R.R. Tolkien.',
   },
   {
@@ -1720,6 +1910,7 @@ const general = [
     options: { A: '1', B: '2', C: '3', D: '4', E: '0' },
     options_tr: { A: '1', B: '2', C: '3', D: '4', E: '0' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Humans have a pair of lungs located in the thoracic cavity.',
   },
   {
@@ -1729,6 +1920,7 @@ const general = [
     options: { A: 'Lion', B: 'Jaguar', C: 'Tiger', D: 'Leopard', E: 'Cheetah' },
     options_tr: { A: 'Aslan', B: 'Jaguar', C: 'Kaplan', D: 'Leopar', E: 'Çita' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The tiger is the largest living big cat species, with the Siberian (Amur) tiger being the largest subspecies.',
   },
   {
@@ -1738,6 +1930,7 @@ const general = [
     options: { A: 'Won', B: 'Yuan', C: 'Yen', D: 'Ringgit', E: 'Baht' },
     options_tr: { A: 'Won', B: 'Yuan', C: 'Yen', D: 'Ringgit', E: 'Baht' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Japanese yen has been Japan\'s official currency since 1871.',
   },
   {
@@ -1747,6 +1940,7 @@ const general = [
     options: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     options_tr: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'A standard acoustic or electric guitar has six strings.',
   },
   {
@@ -1756,6 +1950,7 @@ const general = [
     options: { A: '50°C', B: '80°C', C: '100°C', D: '120°C', E: '150°C' },
     options_tr: { A: '50°C', B: '80°C', C: '100°C', D: '120°C', E: '150°C' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Water boils at 100°C (212°F) at sea level atmospheric pressure.',
   },
   {
@@ -1765,6 +1960,7 @@ const general = [
     options: { A: '5', B: '6', C: '7', D: '8', E: '9' },
     options_tr: { A: '5', B: '6', C: '7', D: '8', E: '9' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'A rainbow has 7 colors: Red, Orange, Yellow, Green, Blue, Indigo, and Violet.',
   },
   {
@@ -1774,6 +1970,7 @@ const general = [
     options: { A: 'Barometer', B: 'Seismograph', C: 'Thermometer', D: 'Hygrometer', E: 'Anemometer' },
     options_tr: { A: 'Barometre', B: 'Sismograf', C: 'Termometre', D: 'Higrometre', E: 'Anemometre' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'A thermometer measures temperature, typically using mercury or digital sensors.',
   },
   {
@@ -1783,6 +1980,7 @@ const general = [
     options: { A: 'Jupiter', B: 'Mars', C: 'Neptune', D: 'Saturn', E: 'Uranus' },
     options_tr: { A: 'Jüpiter', B: 'Mars', C: 'Neptün', D: 'Satürn', E: 'Uranüs' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Saturn has 146 confirmed moons, surpassing Jupiter as the planet with the most moons.',
   },
   {
@@ -1792,6 +1990,7 @@ const general = [
     options: { A: 'Colombia', B: 'Vietnam', C: 'Ethiopia', D: 'Brazil', E: 'Indonesia' },
     options_tr: { A: 'Kolombiya', B: 'Vietnam', C: 'Etiyopya', D: 'Brezilya', E: 'Endonezya' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Brazil is the world\'s largest coffee producer, accounting for about one-third of global production.',
   },
   {
@@ -1801,6 +2000,7 @@ const general = [
     options: { A: 'Lunar pull', B: 'Gravitational attraction', C: 'Tidal force', D: 'Orbital resonance', E: 'Magnetic induction' },
     options_tr: { A: 'Ay çekimi', B: 'Yerçekimi çekim kuvveti', C: 'Gelgit kuvveti', D: 'Yörüngesel rezonans', E: 'Manyetik indüksiyon' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Tidal forces arise from differences in the Moon\'s gravitational pull across different parts of Earth, creating the ocean\'s rise and fall.',
   },
 ];

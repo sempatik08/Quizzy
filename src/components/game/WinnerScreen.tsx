@@ -5,6 +5,7 @@ import { Trophy, RotateCcw, Loader2, Check } from 'lucide-react';
 import type { Room } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { Confetti } from './Confetti';
+import { winnerOf } from '@/lib/score';
 
 interface WinnerScreenProps {
   room: Room;
@@ -27,12 +28,7 @@ export function WinnerScreen({
   const { t } = useLanguage();
   const myTeam = room.players[playerId]?.team;
 
-  const winner =
-    room.teams.blue.score >= 100
-      ? 'blue'
-      : room.teams.red.score >= 100
-      ? 'red'
-      : null;
+  const winner = winnerOf(room);
 
   if (!winner) return null;
 

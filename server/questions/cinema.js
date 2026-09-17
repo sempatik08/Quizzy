@@ -8,6 +8,7 @@ const cinema = [
     options: { A: '1917', B: 'Joker', C: 'The Irishman', D: 'Parasite', E: 'Once Upon a Time in Hollywood' },
     options_tr: { A: '1917', B: 'Joker', C: 'İrlandalı', D: 'Parazit', E: 'Bir Zamanlar Hollywood\'da' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Parasite (Bong Joon-ho, 2019) became the first non-English-language film to win Best Picture.',
   },
   {
@@ -17,6 +18,7 @@ const cinema = [
     options: { A: 'Zack Snyder', B: 'Tim Burton', C: 'Christopher Nolan', D: 'J.J. Abrams', E: 'Ridley Scott' },
     options_tr: { A: 'Zack Snyder', B: 'Tim Burton', C: 'Christopher Nolan', D: 'J.J. Abrams', E: 'Ridley Scott' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Christopher Nolan directed The Dark Knight, widely considered one of the greatest superhero films ever made.',
   },
   {
@@ -26,6 +28,7 @@ const cinema = [
     options: { A: 'Narcos', B: 'Breaking Bad', C: 'The Wire', D: 'Ozark', E: 'Weeds' },
     options_tr: { A: 'Narcos', B: 'Breaking Bad', C: 'The Wire', D: 'Ozark', E: 'Weeds' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Breaking Bad\'s Walter White produces notoriously pure "blue" meth, a central plot element.',
   },
   {
@@ -35,6 +38,7 @@ const cinema = [
     options: { A: '8', B: '9', C: '10', D: '11', E: '12' },
     options_tr: { A: '8', B: '9', C: '10', D: '11', E: '12' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Friends ran for 10 seasons on NBC, concluding with one of the most-watched series finales in TV history.',
   },
   {
@@ -44,6 +48,7 @@ const cinema = [
     options: { A: 'Martin Scorsese', B: 'Brian De Palma', C: 'Sidney Lumet', D: 'Francis Ford Coppola', E: 'William Friedkin' },
     options_tr: { A: 'Martin Scorsese', B: 'Brian De Palma', C: 'Sidney Lumet', D: 'Francis Ford Coppola', E: 'William Friedkin' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Francis Ford Coppola directed The Godfather, which won Best Picture at the 1973 Academy Awards.',
   },
   {
@@ -53,6 +58,7 @@ const cinema = [
     options: { A: 'Avengers: Endgame', B: 'Titanic', C: 'Avatar', D: 'The Lion King (2019)', E: 'Spider-Man: No Way Home' },
     options_tr: { A: 'Yenilmezler: Oyunun Sonu', B: 'Titanik', C: 'Avatar', D: 'Aslan Kral (2019)', E: 'Spider-Man: Eve Dönüş Yok' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Avatar (2009, re-released 2022) holds the all-time box office record with over $2.92 billion worldwide.',
   },
   {
@@ -62,6 +68,7 @@ const cinema = [
     options: { A: 'House Lannister', B: 'House Baratheon', C: 'House Stark', D: 'House Targaryen', E: 'House Tully' },
     options_tr: { A: 'Lannister Hanesi', B: 'Baratheon Hanesi', C: 'Stark Hanesi', D: 'Targaryen Hanesi', E: 'Tully Hanesi' },
     answer: 'C',
+    difficulty: 1,
     explanation: '"Winter is Coming" is the official motto of House Stark of Winterfell.',
   },
   {
@@ -71,6 +78,7 @@ const cinema = [
     options: { A: 'HBO Max', B: 'Amazon Prime', C: 'Disney+', D: 'Netflix', E: 'Hulu' },
     options_tr: { A: 'HBO Max', B: 'Amazon Prime', C: 'Disney+', D: 'Netflix', E: 'Hulu' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Stranger Things is a Netflix original series created by the Duffer Brothers, premiering in 2016.',
   },
   {
@@ -80,6 +88,7 @@ const cinema = [
     options: { A: 'Chris Evans', B: 'Mark Ruffalo', C: 'Robert Downey Jr.', D: 'Chris Hemsworth', E: 'Jeremy Renner' },
     options_tr: { A: 'Chris Evans', B: 'Mark Ruffalo', C: 'Robert Downey Jr.', D: 'Chris Hemsworth', E: 'Jeremy Renner' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Robert Downey Jr. portrayed Tony Stark/Iron Man from Iron Man (2008) through Avengers: Endgame (2019).',
   },
   {
@@ -89,6 +98,7 @@ const cinema = [
     options: { A: 'Phoenix', B: 'Las Vegas', C: 'Albuquerque', D: 'Tucson', E: 'El Paso' },
     options_tr: { A: 'Phoenix', B: 'Las Vegas', C: 'Albuquerque', D: 'Tucson', E: 'El Paso' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Breaking Bad is set in Albuquerque, New Mexico, where creator Vince Gilligan grew up.',
   },
   {
@@ -98,6 +108,7 @@ const cinema = [
     options: { A: 'Monsters, Inc.', B: 'Ice Age', C: 'Shrek', D: 'Spirited Away', E: 'Jimmy Neutron' },
     options_tr: { A: 'Canavarlar Şirketi', B: 'Buz Devri', C: 'Shrek', D: 'Sen Götür Beni', E: 'Jimmy Neutron' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Shrek won the first-ever Best Animated Feature Oscar at the 74th Academy Awards (2002).',
   },
   {
@@ -107,6 +118,7 @@ const cinema = [
     options: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     options_tr: { A: '4', B: '5', C: '6', D: '7', E: '8' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Season 8 of Game of Thrones consisted of only 6 episodes, which disappointed many fans expecting a longer final season.',
   },
   {
@@ -116,6 +128,7 @@ const cinema = [
     options: { A: 'Giancarlo Esposito', B: 'Dean Norris', C: 'Aaron Paul', D: 'Jonathan Banks', E: 'Bob Odenkirk' },
     options_tr: { A: 'Giancarlo Esposito', B: 'Dean Norris', C: 'Aaron Paul', D: 'Jonathan Banks', E: 'Bob Odenkirk' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Aaron Paul won three Primetime Emmy Awards for Outstanding Supporting Actor for his role as Jesse Pinkman.',
   },
   {
@@ -125,6 +138,7 @@ const cinema = [
     options: { A: 'A Clockwork Orange', B: 'Full Metal Jacket', C: 'Eyes Wide Shut', D: 'The Shining', E: '2001: A Space Odyssey' },
     options_tr: { A: 'Otomatik Portakal', B: 'Tam Metal Ceket', C: 'Gözleri Tamamen Kapalı', D: 'Cinnet', E: '2001: Uzay Yolu Macerası' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The Shining (1980) was adapted from Stephen King\'s 1977 novel of the same name, though King famously disliked Kubrick\'s adaptation.',
   },
   {
@@ -134,6 +148,7 @@ const cinema = [
     options: { A: 'Diriliş: Ertuğrul', B: 'Çukur', C: 'Kara Para Aşk', D: 'Ezel', E: 'Fatih Harbiye' },
     options_tr: { A: 'Diriliş: Ertuğrul', B: 'Çukur', C: 'Kara Para Aşk', D: 'Ezel', E: 'Fatih Harbiye' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Diriliş: Ertuğrul (Resurrection: Ertugrul) gained massive international viewership especially in Muslim-majority countries after hitting Netflix.',
   },
   {
@@ -143,6 +158,7 @@ const cinema = [
     options: { A: 'Goodfellas', B: 'The Deer Hunter', C: 'Raging Bull', D: 'Taxi Driver', E: 'Serpico' },
     options_tr: { A: 'Sıradan İnsanlar', B: 'Avcı', C: 'Öfkeli Boğa', D: 'Taksi Şoförü', E: 'Serpico' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Robert De Niro delivered this iconic improvised line in Taxi Driver (1976, dir. Martin Scorsese).',
   },
   {
@@ -152,6 +168,7 @@ const cinema = [
     options: { A: 'Meryl Streep', B: 'Cate Blanchett', C: 'Katharine Hepburn', D: 'Bette Davis', E: 'Ingrid Bergman' },
     options_tr: { A: 'Meryl Streep', B: 'Cate Blanchett', C: 'Katharine Hepburn', D: 'Bette Davis', E: 'Ingrid Bergman' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Katharine Hepburn won 4 Best Actress Oscars (1934, 1968, 1969, 1982), the all-time record for any actor.',
   },
   {
@@ -161,6 +178,7 @@ const cinema = [
     options: { A: 'Jim Halpert', B: 'Dwight Schrute', C: 'Michael Scott', D: 'Andy Bernard', E: 'Ryan Howard' },
     options_tr: { A: 'Jim Halpert', B: 'Dwight Schrute', C: 'Michael Scott', D: 'Andy Bernard', E: 'Ryan Howard' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Michael Scott, played by Steve Carell, is the lovably incompetent regional manager throughout most of The Office.',
   },
   {
@@ -170,6 +188,7 @@ const cinema = [
     options: { A: 'The Aviator', B: 'Titanic', C: 'Inception', D: 'The Great Gatsby', E: 'Catch Me If You Can' },
     options_tr: { A: 'Aviator', B: 'Titanik', C: 'Başlangıç', D: 'Muhteşem Gatsby', E: 'Beni Yakalarsan Yakala' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Leonardo DiCaprio played Jack Dawson in James Cameron\'s Titanic (1997), which won 11 Academy Awards.',
   },
   {
@@ -179,6 +198,7 @@ const cinema = [
     options: { A: 'Devs', B: 'Westworld', C: 'Halt and Catch Fire', D: 'Black Mirror', E: 'Humans' },
     options_tr: { A: 'Devs', B: 'Westworld', C: 'Halt and Catch Fire', D: 'Black Mirror', E: 'Humans' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Westworld (HBO, 2016–2022) explores AI consciousness in a futuristic Western-themed amusement park.',
   },
   {
@@ -188,6 +208,7 @@ const cinema = [
     options: { A: 'Robert Rodriguez', B: 'David Fincher', C: 'Quentin Tarantino', D: 'Guy Ritchie', E: 'Paul Thomas Anderson' },
     options_tr: { A: 'Robert Rodriguez', B: 'David Fincher', C: 'Quentin Tarantino', D: 'Guy Ritchie', E: 'Paul Thomas Anderson' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Quentin Tarantino is renowned for his nonlinear narratives, stylized violence, and sharp dialogue.',
   },
   {
@@ -197,6 +218,7 @@ const cinema = [
     options: { A: 'Restaurant owner', B: 'Car dealer', C: 'Waste management consultant', D: 'Construction contractor', E: 'Real estate developer' },
     options_tr: { A: 'Restoran sahibi', B: 'Araba satıcısı', C: 'Atık yönetimi danışmanı', D: 'İnşaat müteahhidi', E: 'Gayrimenkul geliştiricisi' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Tony Soprano officially works as a "waste management consultant," a front for his mob activities.',
   },
   {
@@ -206,6 +228,7 @@ const cinema = [
     options: { A: 'Casino', B: 'Goodfellas', C: 'The Irishman', D: 'The Departed', E: 'Gangs of New York' },
     options_tr: { A: 'Casino', B: 'Sıradan İnsanlar', C: 'İrlandalı', D: 'Kaçış Noktası', E: 'New York Çeteleri' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The Irishman (2019) reunited Scorsese with De Niro and Pesci, and featured Al Pacino for the first time in a Scorsese film.',
   },
   {
@@ -215,6 +238,7 @@ const cinema = [
     options: { A: 'Perk\'s', B: 'Central Perk', C: 'Coffee Corner', D: 'The Grind', E: 'Java City' },
     options_tr: { A: 'Perk\'s', B: 'Central Perk', C: 'Coffee Corner', D: 'The Grind', E: 'Java City' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Central Perk is the iconic Manhattan coffee house where the six Friends main characters regularly hang out.',
   },
   {
@@ -224,6 +248,7 @@ const cinema = [
     options: { A: 'Jared Leto', B: 'Joaquin Phoenix', C: 'Jack Nicholson', D: 'Heath Ledger', E: 'Mark Hamill' },
     options_tr: { A: 'Jared Leto', B: 'Joaquin Phoenix', C: 'Jack Nicholson', D: 'Heath Ledger', E: 'Mark Hamill' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Heath Ledger posthumously won the Academy Award for Best Supporting Actor for his portrayal of the Joker.',
   },
   {
@@ -233,6 +258,7 @@ const cinema = [
     options: { A: '2009', B: '2010', C: '2011', D: '2012', E: '2013' },
     options_tr: { A: '2009', B: '2010', C: '2011', D: '2012', E: '2013' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Black Mirror premiered on Channel 4 in the UK on 4 December 2011 with the episode "The National Anthem."',
   },
   {
@@ -242,6 +268,7 @@ const cinema = [
     options: { A: 'Hell or High Water', B: 'Hidden Figures', C: 'La La Land', D: 'Moonlight', E: 'Manchester by the Sea' },
     options_tr: { A: 'Ne Pahasına Olursa', B: 'Gizli Rakamlar', C: 'La La Land', D: 'Ay Işığı', E: 'Manchester by the Sea' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Moonlight won Best Picture after La La Land was incorrectly announced first — one of Hollywood\'s most memorable Oscar moments.',
   },
   {
@@ -251,6 +278,7 @@ const cinema = [
     options: { A: 'Ozark', B: 'Weeds', C: 'Better Call Saul', D: 'Breaking Bad', E: 'Narcos: Mexico' },
     options_tr: { A: 'Ozark', B: 'Weeds', C: 'Daha İyi Çağır Saul\'u', D: 'Breaking Bad', E: 'Narcos: Meksika' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Breaking Bad (2008–2013) follows the transformation of high school chemistry teacher Walter White into drug kingpin "Heisenberg."',
   },
   {
@@ -260,6 +288,7 @@ const cinema = [
     options: { A: 'Marvel Cinematic Universe', B: 'Marvel Comics Universe', C: 'Marvel Cinematic Union', D: 'Major Cinema Universe', E: 'Marvel Creative Universe' },
     options_tr: { A: 'Marvel Sinematik Evreni', B: 'Marvel Çizgi Roman Evreni', C: 'Marvel Sinematik Birliği', D: 'Büyük Sinema Evreni', E: 'Marvel Yaratıcı Evreni' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'MCU stands for Marvel Cinematic Universe, the shared media franchise produced by Marvel Studios.',
   },
   {
@@ -269,6 +298,7 @@ const cinema = [
     options: { A: 'Sophie Turner', B: 'Maisie Williams', C: 'Natalie Dormer', D: 'Emilia Clarke', E: 'Lena Headey' },
     options_tr: { A: 'Sophie Turner', B: 'Maisie Williams', C: 'Natalie Dormer', D: 'Emilia Clarke', E: 'Lena Headey' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Emilia Clarke portrayed Daenerys Targaryen from Season 1 through the series finale in 2019.',
   },
   {
@@ -278,6 +308,7 @@ const cinema = [
     options: { A: 'Fargo', B: 'True Grit', C: 'No Country for Old Men', D: 'Burn After Reading', E: 'The Big Lebowski' },
     options_tr: { A: 'Fargo', B: 'Gerçek Cesaret', C: 'Yaşlılar İçin Yer Yok', D: 'Okuyunca Yak', E: 'Büyük Lebowski' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'No Country for Old Men swept the 2008 Oscars, winning Best Picture, Director, Adapted Screenplay, and Supporting Actor (Javier Bardem).',
   },
   {
@@ -287,6 +318,7 @@ const cinema = [
     options: { A: 'Damon Lindelof & Carlton Cuse', B: 'J.J. Abrams, Damon Lindelof & Jeffrey Lieber', C: 'Vince Gilligan', D: 'David Chase', E: 'Matthew Weiner' },
     options_tr: { A: 'Damon Lindelof ve Carlton Cuse', B: 'J.J. Abrams, Damon Lindelof ve Jeffrey Lieber', C: 'Vince Gilligan', D: 'David Chase', E: 'Matthew Weiner' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Lost was created by J.J. Abrams, Damon Lindelof, and Jeffrey Lieber for ABC, premiering in 2004.',
   },
   {
@@ -296,6 +328,7 @@ const cinema = [
     options: { A: 'Surgeon', B: 'Neurologist', C: 'Psychiatrist', D: 'Forensic scientist', E: 'Professor of literature' },
     options_tr: { A: 'Cerrah', B: 'Nörolog', C: 'Psikiyatrist', D: 'Adli tıp uzmanı', E: 'Edebiyat profesörü' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Dr. Hannibal Lecter is a brilliant psychiatrist who is also a cannibalistic serial killer.',
   },
   {
@@ -305,6 +338,7 @@ const cinema = [
     options: { A: 'Toei Animation', B: 'Madhouse', C: 'Studio Ghibli', D: 'Pierrot', E: 'Gainax' },
     options_tr: { A: 'Toei Animation', B: 'Madhouse', C: 'Studio Ghibli', D: 'Pierrot', E: 'Gainax' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Spirited Away was produced by Studio Ghibli and directed by Hayao Miyazaki; it became the highest-grossing anime film of all time.',
   },
   {
@@ -314,6 +348,7 @@ const cinema = [
     options: { A: '1899', B: 'Ragnarök', C: 'Dark', D: 'Barbarians', E: 'Tribes of Europa' },
     options_tr: { A: '1899', B: 'Ragnarök', C: 'Dark', D: 'Barbarlar', E: 'Avrupa Kabileleri' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Dark (2017–2020) is a German sci-fi thriller about time travel set in the fictional town of Winden.',
   },
   {
@@ -323,6 +358,7 @@ const cinema = [
     options: { A: 'Oliver Stone', B: 'Steven Spielberg', C: 'Barry Levinson', D: 'Rob Reiner', E: 'Sydney Pollack' },
     options_tr: { A: 'Oliver Stone', B: 'Steven Spielberg', C: 'Barry Levinson', D: 'Rob Reiner', E: 'Sydney Pollack' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Steven Spielberg directed Schindler\'s List, which won seven Academy Awards including Best Picture and Best Director.',
   },
   {
@@ -332,6 +368,7 @@ const cinema = [
     options: { A: 'The Sopranos', B: 'Game of Thrones', C: 'Breaking Bad', D: 'The Wire', E: 'Band of Brothers' },
     options_tr: { A: 'Sopranos', B: 'Game of Thrones', C: 'Breaking Bad', D: 'The Wire', E: 'Band of Brothers' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Breaking Bad holds the top spot on IMDb\'s highest-rated TV series list with a rating of 9.5/10.',
   },
   {
@@ -341,6 +378,7 @@ const cinema = [
     options: { A: 'Predator', B: 'Total Recall', C: 'Commando', D: 'The Terminator', E: 'RoboCop' },
     options_tr: { A: 'Predator', B: 'Gerçek Hatıralar', C: 'Komando', D: 'Terminatör', E: 'RoboCop' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Arnold Schwarzenegger\'s iconic "I\'ll be back" line appears in The Terminator (1984, dir. James Cameron).',
   },
   {
@@ -350,6 +388,7 @@ const cinema = [
     options: { A: 'The Witcher', B: 'Game of Thrones', C: 'Wheel of Time', D: 'Vikings', E: 'The Last Kingdom' },
     options_tr: { A: 'Büyücü', B: 'Game of Thrones', C: 'Zaman Çarkı', D: 'Vikingler', E: 'Son Krallık' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Westeros is the fictional continent in George R.R. Martin\'s series "A Song of Ice and Fire," adapted into Game of Thrones.',
   },
   {
@@ -359,6 +398,7 @@ const cinema = [
     options: { A: 'Ridley Scott', B: 'David Fincher', C: 'Denis Villeneuve', D: 'Christopher Nolan', E: 'Steven Soderbergh' },
     options_tr: { A: 'Ridley Scott', B: 'David Fincher', C: 'Denis Villeneuve', D: 'Christopher Nolan', E: 'Steven Soderbergh' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Christopher Nolan wrote and directed Inception, starring Leonardo DiCaprio as a thief who steals information from dreams.',
   },
   {
@@ -368,6 +408,7 @@ const cinema = [
     options: { A: 'Mark Margolis', B: 'Steven Michael Quezada', C: 'Giancarlo Esposito', D: 'Raymond Cruz', E: 'Matt Jones' },
     options_tr: { A: 'Mark Margolis', B: 'Steven Michael Quezada', C: 'Giancarlo Esposito', D: 'Raymond Cruz', E: 'Matt Jones' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Giancarlo Esposito portrayed Gustavo "Gus" Fring, the calculating drug distributor and fast food restaurateur.',
   },
   {
@@ -377,6 +418,7 @@ const cinema = [
     options: { A: '2015', B: '2016', C: '2017', D: '2018', E: '2019' },
     options_tr: { A: '2015', B: '2016', C: '2017', D: '2018', E: '2019' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Crown premiered on Netflix on 4 November 2016, beginning with Queen Elizabeth II\'s early reign.',
   },
   {
@@ -386,6 +428,7 @@ const cinema = [
     options: { A: 'Rebecca', B: 'Rear Window', C: 'Vertigo', D: 'Psycho', E: 'The Birds' },
     options_tr: { A: 'Rebecca', B: 'Arka Pencere', C: 'Tefrika', D: 'Sapık', E: 'Kuşlar' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Alfred Hitchcock\'s Psycho (1960) features the iconic shower scene, filmed in 70 shots over seven days.',
   },
   {
@@ -395,6 +438,7 @@ const cinema = [
     options: { A: 'Tokyo', B: 'Berlin', C: 'The Professor', D: 'Nairobi', E: 'Moscow' },
     options_tr: { A: 'Tokyo', B: 'Berlin', C: 'Profesör', D: 'Nairobi', E: 'Moskova' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Álvaro Morte plays "The Professor" (El Profesor), the genius mastermind who plans the heists in La Casa de Papel.',
   },
   {
@@ -404,6 +448,7 @@ const cinema = [
     options: { A: 'Fatih Akın', B: 'Ferzan Özpetek', C: 'Nuri Bilge Ceylan', D: 'Semih Kaplanoğlu', E: 'Yeşim Ustaoğlu' },
     options_tr: { A: 'Fatih Akın', B: 'Ferzan Özpetek', C: 'Nuri Bilge Ceylan', D: 'Semih Kaplanoğlu', E: 'Yeşim Ustaoğlu' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Nuri Bilge Ceylan directed "Bir Zamanlar Anadolu\'da," which won the Grand Prix at the 2011 Cannes Film Festival.',
   },
   {
@@ -413,6 +458,7 @@ const cinema = [
     options: { A: 'Homeland', B: 'The Americans', C: 'Alias', D: 'The Blacklist', E: 'Covert Affairs' },
     options_tr: { A: 'Homeland', B: 'Amerikalılar', C: 'Alias', D: 'Kara Liste', E: 'Gizli İşler' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Blacklist (NBC, 2013–2023) stars James Spader as Raymond "Red" Reddington, one of the FBI\'s most wanted fugitives turned informant.',
   },
   {
@@ -422,6 +468,7 @@ const cinema = [
     options: { A: 'Schindler\'s List, Titanic, Return of the King', B: 'Ben-Hur, Titanic, The Lord of the Rings: The Return of the King', C: 'Ben-Hur, Avatar, Titanic', D: 'All About Eve, La La Land, Titanic', E: 'Amadeus, Titanic, Return of the King' },
     options_tr: { A: 'Schindler\'in Listesi, Titanik, Yüzüklerin Efendisi', B: 'Ben-Hur, Titanik, Yüzüklerin Efendisi: Kralın Dönüşü', C: 'Ben-Hur, Avatar, Titanik', D: 'All About Eve, La La Land, Titanik', E: 'Amadeus, Titanik, Kralın Dönüşü' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ben-Hur (1959), Titanic (1997), and The Lord of the Rings: The Return of the King (2003) all won 11 Oscars each — the all-time record.',
   },
   {
@@ -431,6 +478,7 @@ const cinema = [
     options: { A: '10 billion won', B: '20 billion won', C: '45.6 billion won', D: '100 billion won', E: '50 billion won' },
     options_tr: { A: '10 milyar won', B: '20 milyar won', C: '45,6 milyar won', D: '100 milyar won', E: '50 milyar won' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The prize in Squid Game is ₩45.6 billion (approximately $38 million USD), funded by 1,000 won per eliminated player.',
   },
   {
@@ -440,6 +488,7 @@ const cinema = [
     options: { A: 'Jared Leto', B: 'Heath Ledger', C: 'Joaquin Phoenix', D: 'Mark Hamill', E: 'Jack Nicholson' },
     options_tr: { A: 'Jared Leto', B: 'Heath Ledger', C: 'Joaquin Phoenix', D: 'Mark Hamill', E: 'Jack Nicholson' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Joaquin Phoenix won the Academy Award for Best Actor for his portrayal of Arthur Fleck/Joker in Todd Phillips\'s Joker (2019).',
   },
   {
@@ -449,6 +498,7 @@ const cinema = [
     options: { A: '1998', B: '1999', C: '2000', D: '2001', E: '2002' },
     options_tr: { A: '1998', B: '1999', C: '2000', D: '2001', E: '2002' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Survivor premiered on CBS on May 31, 2000, and became one of the most successful reality TV franchises globally.',
   },
   {
@@ -458,6 +508,7 @@ const cinema = [
     options: { A: 'Family Guy', B: 'American Dad', C: 'King of the Hill', D: 'The Simpsons', E: 'Bob\'s Burgers' },
     options_tr: { A: 'Aile Adamı', B: 'Amerikan Babası', C: 'Tepenin Kralı', D: 'Simpsonlar', E: 'Bob\'un Burgerleri' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The Simpsons (Fox, 1989–present) is the longest-running American animated series and primetime scripted TV series.',
   },
   {
@@ -467,6 +518,7 @@ const cinema = [
     options: { A: 'Okja', B: 'Snowpiercer', C: 'The Host', D: 'Parasite', E: 'Memories of Murder' },
     options_tr: { A: 'Okja', B: 'Kardan Adam Treni', C: 'Misafir', D: 'Parazit', E: 'Bir Cinayetin Anıları' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Parasite won the Palme d\'Or at Cannes 2019, and went on to also win 4 Academy Awards including Best Picture.',
   },
   {
@@ -476,6 +528,7 @@ const cinema = [
     options: { A: 'West McKinley High', B: 'William McKinley High School', C: 'East Lima High', D: 'McKinley Academy', E: 'Springfield High' },
     options_tr: { A: 'West McKinley Lisesi', B: 'William McKinley Lisesi', C: 'Doğu Lima Lisesi', D: 'McKinley Akademisi', E: 'Springfield Lisesi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Glee is set at the fictional William McKinley High School in Lima, Ohio.',
   },
   {
@@ -485,6 +538,7 @@ const cinema = [
     options: { A: 'Ex Machina', B: 'The Theory of Everything', C: 'The Imitation Game', D: 'Steve Jobs', E: 'Enigma' },
     options_tr: { A: 'Ex Machina', B: 'Her Şeyin Teorisi', C: 'İmitasyon Oyunu', D: 'Steve Jobs', E: 'Enigma' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Imitation Game (2014) depicts Alan Turing\'s work breaking the German Enigma code during World War II.',
   },
   {
@@ -494,6 +548,7 @@ const cinema = [
     options: { A: 'Oz', B: 'The Wire', C: 'The Shield', D: 'Homicide', E: 'The Corner' },
     options_tr: { A: 'Oz', B: 'The Wire', C: 'Kalkan', D: 'Homicide', E: 'Köşe' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Wire (HBO, 2002–2008) is widely regarded as one of the greatest TV dramas ever made, exploring institutional dysfunction in Baltimore.',
   },
   {
@@ -503,6 +558,7 @@ const cinema = [
     options: { A: 'Shailene Woodley', B: 'Kristen Stewart', C: 'Emma Watson', D: 'Jennifer Lawrence', E: 'Hailee Steinfeld' },
     options_tr: { A: 'Shailene Woodley', B: 'Kristen Stewart', C: 'Emma Watson', D: 'Jennifer Lawrence', E: 'Hailee Steinfeld' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Jennifer Lawrence played Katniss Everdeen in all four Hunger Games films (2012–2015).',
   },
   {
@@ -512,6 +568,7 @@ const cinema = [
     options: { A: 'The Last Kingdom', B: 'Vikings', C: 'Game of Thrones', D: 'Merlin', E: 'Camelot' },
     options_tr: { A: 'Son Krallık', B: 'Vikingler', C: 'Game of Thrones', D: 'Merlin', E: 'Camelot' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Game of Thrones (HBO, 2011–2019) is based on George R.R. Martin\'s A Song of Ice and Fire fantasy novel series.',
   },
   {
@@ -521,6 +578,7 @@ const cinema = [
     options: { A: 'J.J. Abrams', B: 'Alfonso Cuarón', C: 'Ridley Scott', D: 'Christopher Nolan', E: 'Danny Boyle' },
     options_tr: { A: 'J.J. Abrams', B: 'Alfonso Cuarón', C: 'Ridley Scott', D: 'Christopher Nolan', E: 'Danny Boyle' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Interstellar (2014) was written and directed by Christopher Nolan, featuring Matthew McConaughey as an astronaut exploring wormholes.',
   },
   {
@@ -530,6 +588,7 @@ const cinema = [
     options: { A: 'Ed Harris', B: 'Anthony Hopkins', C: 'Jeffrey Wright', D: 'James Marsden', E: 'Ben Barnes' },
     options_tr: { A: 'Ed Harris', B: 'Anthony Hopkins', C: 'Jeffrey Wright', D: 'James Marsden', E: 'Ben Barnes' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Anthony Hopkins plays Dr. Robert Ford, the visionary and enigmatic creator of Westworld.',
   },
   {
@@ -539,6 +598,7 @@ const cinema = [
     options: { A: 'Up', B: 'Monsters, Inc.', C: 'Brave', D: 'The Incredibles', E: 'Cars' },
     options_tr: { A: 'Yukarı Bak', B: 'Canavarlar Şirketi', C: 'Cesur', D: 'İnanılmazlar', E: 'Arabalar' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Incredibles (2004) follows a family of superheroes trying to live quietly under a government superhero relocation program.',
   },
   {
@@ -548,6 +608,7 @@ const cinema = [
     options: { A: 'Semih Kaplanoğlu', B: 'Zeki Demirkubuz', C: 'Nuri Bilge Ceylan', D: 'Ferzan Özpetek', E: 'Derviş Zaim' },
     options_tr: { A: 'Semih Kaplanoğlu', B: 'Zeki Demirkubuz', C: 'Nuri Bilge Ceylan', D: 'Ferzan Özpetek', E: 'Derviş Zaim' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Nuri Bilge Ceylan\'s "Kış Uykusu" (Winter Sleep) won the Palme d\'Or at the 2014 Cannes Film Festival.',
   },
   {
@@ -557,6 +618,7 @@ const cinema = [
     options: { A: 'Riverbend Prison', B: 'Fox River State Penitentiary', C: 'Sona', D: 'Miami-Dade Correctional', E: 'Oswego Prison' },
     options_tr: { A: 'Riverbend Cezaevi', B: 'Fox River Eyalet Cezaevi', C: 'Sona', D: 'Miami-Dade Islah Evi', E: 'Oswego Cezaevi' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Fox River State Penitentiary in Illinois is the main setting for the first two seasons of Prison Break.',
   },
   {
@@ -566,6 +628,7 @@ const cinema = [
     options: { A: 'Michael Fassbender', B: 'Matt Damon', C: 'Bryan Cranston', D: 'Eddie Redmayne', E: 'Leonardo DiCaprio' },
     options_tr: { A: 'Michael Fassbender', B: 'Matt Damon', C: 'Bryan Cranston', D: 'Eddie Redmayne', E: 'Leonardo DiCaprio' },
     answer: 'E',
+    difficulty: 3,
     explanation: 'Leonardo DiCaprio finally won his first Oscar for Best Actor for The Revenant at the 88th Academy Awards.',
   },
   {
@@ -575,6 +638,7 @@ const cinema = [
     options: { A: 'Seth MacFarlane', B: 'Mike Judge', C: 'Trey Parker & Matt Stone', D: 'Seth Green', E: 'Dan Harmon' },
     options_tr: { A: 'Seth MacFarlane', B: 'Mike Judge', C: 'Trey Parker ve Matt Stone', D: 'Seth Green', E: 'Dan Harmon' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'South Park was created by Trey Parker and Matt Stone and has aired on Comedy Central since 1997.',
   },
   {
@@ -584,6 +648,7 @@ const cinema = [
     options: { A: 'Mexico', B: 'Bolivia', C: 'Peru', D: 'Colombia', E: 'Panama' },
     options_tr: { A: 'Meksika', B: 'Bolivya', C: 'Peru', D: 'Kolombiya', E: 'Panama' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The first two seasons of Narcos follow Pablo Escobar and the Medellín Cartel in Colombia.',
   },
   {
@@ -593,6 +658,7 @@ const cinema = [
     options: { A: 'Big', B: 'Cast Away', C: 'Philadelphia', D: 'Forrest Gump', E: 'Apollo 13' },
     options_tr: { A: 'Büyük', B: 'Issız Ada', C: 'Philadelphia', D: 'Forrest Gump', E: 'Apollo 13' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Tom Hanks starred in Forrest Gump (1994), which won 6 Academy Awards including Best Picture and Best Actor.',
   },
   {
@@ -602,6 +668,7 @@ const cinema = [
     options: { A: 'Ozark', B: 'Better Call Saul', C: 'Breaking Bad', D: 'Bloodline', E: 'Rectify' },
     options_tr: { A: 'Ozark', B: 'Daha İyi Çağır Saul\'u', C: 'Breaking Bad', D: 'Kan Bağı', E: 'Rectify' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Breaking Bad follows Walter White\'s transformation from chemistry teacher to drug lord "Heisenberg" in Albuquerque, New Mexico.',
   },
   {
@@ -611,6 +678,7 @@ const cinema = [
     options: { A: 'Mir', B: 'Skylab', C: 'ISS (International Space Station)', D: 'Salyut', E: 'Freedom' },
     options_tr: { A: 'Mir', B: 'Skylab', C: 'UUİ (Uluslararası Uzay İstasyonu)', D: 'Salyut', E: 'Özgürlük' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Gravity (dir. Alfonso Cuarón) is set aboard the International Space Station (ISS) after a catastrophic debris storm.',
   },
   {
@@ -620,6 +688,7 @@ const cinema = [
     options: { A: 'The Usual Suspects', B: 'Se7en', C: 'Pulp Fiction', D: 'Natural Born Killers', E: 'True Romance' },
     options_tr: { A: 'Olağan Şüpheliler', B: 'Yedi', C: 'Ucuz Roman', D: 'Doğuştan Katiller', E: 'Gerçek Romantizm' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'In Pulp Fiction (1994), the briefcase with a golden glow (its contents never revealed) is one of cinema\'s great MacGuffins.',
   },
   {
@@ -629,6 +698,7 @@ const cinema = [
     options: { A: 'Natalie Dormer', B: 'Michelle Fairley', C: 'Lena Headey', D: 'Carice van Houten', E: 'Diana Rigg' },
     options_tr: { A: 'Natalie Dormer', B: 'Michelle Fairley', C: 'Lena Headey', D: 'Carice van Houten', E: 'Diana Rigg' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Lena Headey portrays the cunning and ruthless Queen Cersei Lannister throughout all 8 seasons of Game of Thrones.',
   },
   {
@@ -638,6 +708,7 @@ const cinema = [
     options: { A: 'Zero Dark Thirty', B: 'Lincoln', C: 'Argo', D: 'Munich', E: 'Syriana' },
     options_tr: { A: 'Sıfır Karanlık Otuz', B: 'Lincoln', C: 'Argo', D: 'Münih', E: 'Syriana' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Argo (dir. Ben Affleck, 2012) won Best Picture for its dramatization of the Canadian Caper during the Iran hostage crisis.',
   },
   {
@@ -647,6 +718,7 @@ const cinema = [
     options: { A: 'Dexter Bennett', B: 'Dexter Warren', C: 'Dexter Morgan', D: 'Dexter Collins', E: 'Dexter Hammond' },
     options_tr: { A: 'Dexter Bennett', B: 'Dexter Warren', C: 'Dexter Morgan', D: 'Dexter Collins', E: 'Dexter Hammond' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Dexter Morgan (played by Michael C. Hall) is a blood spatter analyst for Miami Metro PD who secretly kills murderers.',
   },
   {
@@ -656,6 +728,7 @@ const cinema = [
     options: { A: 'X-Men', B: 'The Avengers', C: 'Black Panther (MCU)', D: 'Justice League', E: 'Fantastic Four' },
     options_tr: { A: 'X-Men', B: 'Yenilmezler', C: 'Black Panther (MCU)', D: 'Adalet Birliği', E: 'Fantastik Dörtlü' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Wakanda is the fictional African nation featured in Marvel\'s Black Panther (2018), the first MCU film to win multiple Oscars.',
   },
   {
@@ -665,6 +738,7 @@ const cinema = [
     options: { A: 'The Witcher', B: 'Vikings', C: 'Game of Thrones', D: 'Marco Polo', E: 'Knightfall' },
     options_tr: { A: 'Büyücü', B: 'Vikingler', C: 'Game of Thrones', D: 'Marco Polo', E: 'Şövalye Düşüşü' },
     answer: 'C',
+    difficulty: 1,
     explanation: '"The Rains of Castamere" is a piece of in-world music in Game of Thrones that symbolizes the Lannisters\' dominance.',
   },
   {
@@ -674,6 +748,7 @@ const cinema = [
     options: { A: 'Saving Private Ryan', B: 'Lone Survivor', C: 'Black Hawk Down', D: 'We Were Soldiers', E: 'Jarhead' },
     options_tr: { A: 'Er Ryan\'ı Kurtarmak', B: 'Tek Hayatta Kalan', C: 'Kara Şahin Düşüyor', D: 'Asker Olmuştuk', E: 'Jarhead' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Black Hawk Down (2001) depicts the 1993 Battle of Mogadishu, in which two US Black Hawk helicopters were shot down in Somalia.',
   },
   {
@@ -683,6 +758,7 @@ const cinema = [
     options: { A: 'The Lawyers', B: 'Better Call Saul', C: 'Saul\'s World', D: 'The Counselor', E: 'Criminal Minds' },
     options_tr: { A: 'Avukatlar', B: 'Daha İyi Çağır Saul\'u', C: 'Saul\'un Dünyası', D: 'Danışman', E: 'Suç Zihinleri' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Better Call Saul (AMC, 2015–2022) is the prequel/sequel to Breaking Bad, following Jimmy McGill\'s transformation into Saul Goodman.',
   },
   {
@@ -692,6 +768,7 @@ const cinema = [
     options: { A: 'The Terminal', B: 'Cast Away', C: 'Joe Versus the Volcano', D: 'The Green Mile', E: 'Big' },
     options_tr: { A: 'Terminal', B: 'Issız Ada', C: 'Joe Volkanla Savaşıyor', D: 'Yeşil Yol', E: 'Büyük' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'In Cast Away (2000, dir. Robert Zemeckis), Tom Hanks plays FedEx employee Chuck Noland stranded on an uninhabited island.',
   },
   {
@@ -701,6 +778,7 @@ const cinema = [
     options: { A: 'Northern Exposure', B: 'Twin Peaks', C: 'Wayward Pines', D: 'American Gothic', E: 'Picket Fences' },
     options_tr: { A: 'Kuzey Açılımı', B: 'Twin Peaks', C: 'Serseri Çamlar', D: 'Amerikan Gotik', E: 'Picket Fences' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Twin Peaks (1990–1991, 2017) was created by David Lynch and Mark Frost; it became famous for surreal storytelling and "Who killed Laura Palmer?"',
   },
   {
@@ -710,6 +788,7 @@ const cinema = [
     options: { A: 'Computer Generated Imagery', B: 'Creative Graphic Illustration', C: 'Cinematic Graphics Interface', D: 'Composite Generated Images', E: 'Computer Graphics Integration' },
     options_tr: { A: 'Bilgisayar Üretimi Görüntü', B: 'Yaratıcı Grafik İllüstrasyon', C: 'Sinematik Grafik Arayüzü', D: 'Bileşik Üretilmiş Görüntüler', E: 'Bilgisayar Grafikleri Entegrasyonu' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'CGI (Computer Generated Imagery) refers to the use of computer graphics to create visual effects in film, TV, and other media.',
   },
   {
@@ -719,6 +798,7 @@ const cinema = [
     options: { A: 'The Book of Boba Fett', B: 'Obi-Wan Kenobi', C: 'Andor', D: 'Ahsoka', E: 'Skeleton Crew' },
     options_tr: { A: 'Boba Fett\'in Kitabı', B: 'Obi-Wan Kenobi', C: 'Andor', D: 'Ahsoka', E: 'İskelet Ekibi' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Ahsoka (2023) stars Rosario Dawson as Ahsoka Tano and serves as a live-action continuation following her appearances in The Mandalorian.',
   },
   {
@@ -728,6 +808,7 @@ const cinema = [
     options: { A: 'Alien', B: 'Predator', C: 'Die Hard', D: 'Lethal Weapon', E: 'Top Gun' },
     options_tr: { A: 'Yaratık', B: 'Avcı', C: 'Zor Ölüm', D: 'Ölümcül Silah', E: 'Top Gun' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Actually this is a trick — the "I\'ll be back" quote originates from The Terminator (1984). Predator (1987) starred Schwarzenegger but didn\'t use that line.',
   },
   {
@@ -737,6 +818,7 @@ const cinema = [
     options: { A: 'Billy Crystal', B: 'John Goodman', C: 'Tom Hanks', D: 'Tim Allen', E: 'Bill Murray' },
     options_tr: { A: 'Billy Crystal', B: 'John Goodman', C: 'Tom Hanks', D: 'Tim Allen', E: 'Bill Murray' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Tom Hanks has voiced Woody in all four Toy Story films (1995, 1999, 2010, 2019).',
   },
   {
@@ -746,6 +828,7 @@ const cinema = [
     options: { A: 'Sweet Home', B: 'All of Us Are Dead', C: 'Squid Game', D: 'Kingdom', E: 'Hellbound' },
     options_tr: { A: 'Tatlı Yurt', B: 'Hepimiz Ölüyüz', C: 'Squid Game', D: 'Krallık', E: 'Cehennem' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Squid Game (2021) became Netflix\'s most-watched series ever at the time, viewed in 142 million households in its first four weeks.',
   },
   {
@@ -755,6 +838,7 @@ const cinema = [
     options: { A: 'James Cameron', B: 'Steven Spielberg', C: 'Peter Jackson', D: 'Guillermo del Toro', E: 'Sam Raimi' },
     options_tr: { A: 'James Cameron', B: 'Steven Spielberg', C: 'Peter Jackson', D: 'Guillermo del Toro', E: 'Sam Raimi' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Peter Jackson directed The Lord of the Rings trilogy (2001–2003), filmed entirely in New Zealand.',
   },
   {
@@ -764,6 +848,7 @@ const cinema = [
     options: { A: 'Manchester', B: 'Leeds', C: 'Liverpool', D: 'Birmingham', E: 'London' },
     options_tr: { A: 'Manchester', B: 'Leeds', C: 'Liverpool', D: 'Birmingham', E: 'Londra' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Peaky Blinders is set in Birmingham, England, following the Shelby crime family in the aftermath of World War I.',
   },
   {
@@ -773,6 +858,7 @@ const cinema = [
     options: { A: 'The Prestige', B: 'Memento', C: 'Interstellar', D: 'Inception', E: 'The Dark Knight' },
     options_tr: { A: 'İhtişam', B: 'Hatırla', C: 'Yıldızlararası', D: 'Başlangıç', E: 'Kara Şövalye' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'In Inception, a spinning top serves as Cobb\'s "totem" to distinguish dreams from reality — its final spin is the film\'s famous ambiguous ending.',
   },
   {
@@ -782,6 +868,7 @@ const cinema = [
     options: { A: 'HBO Max', B: 'Amazon Prime Video', C: 'Netflix', D: 'Paramount+', E: 'Peacock' },
     options_tr: { A: 'HBO Max', B: 'Amazon Prime Video', C: 'Netflix', D: 'Paramount+', E: 'Peacock' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The Witcher premiered on Netflix on December 20, 2019, based on Polish author Andrzej Sapkowski\'s fantasy novel series.',
   },
   {
@@ -791,6 +878,7 @@ const cinema = [
     options: { A: 'Robert De Niro', B: 'Al Pacino', C: 'James Caan', D: 'Sylvester Stallone', E: 'Jack Nicholson' },
     options_tr: { A: 'Robert De Niro', B: 'Al Pacino', C: 'James Caan', D: 'Sylvester Stallone', E: 'Jack Nicholson' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Al Pacino played Tony Montana in Brian De Palma\'s Scarface (1983), delivering the famous line "Say hello to my little friend!"',
   },
   {
@@ -800,6 +888,7 @@ const cinema = [
     options: { A: 'Tangled', B: 'Moana', C: 'Frozen', D: 'Brave', E: 'The Little Mermaid' },
     options_tr: { A: 'Rapunzel', B: 'Moana', C: 'Frozen', D: 'Cesur', E: 'Küçük Deniz Kızı' },
     answer: 'C',
+    difficulty: 1,
     explanation: '"Let It Go" is performed by Idina Menzel as Elsa in Frozen (2013); it won the Academy Award for Best Original Song.',
   },
   {
@@ -809,6 +898,7 @@ const cinema = [
     options: { A: 'Dark City', B: 'eXistenZ', C: 'The Thirteenth Floor', D: 'The Matrix', E: 'Vanilla Sky' },
     options_tr: { A: 'Karanlık Şehir', B: 'eXistenZ', C: 'On Üçüncü Kat', D: 'Matrix', E: 'Vanilya Gökyüzü' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'The Matrix (1999, dir. Wachowski Sisters) follows Neo\'s discovery that reality is a simulation controlled by machines.',
   },
   {
@@ -818,6 +908,7 @@ const cinema = [
     options: { A: 'The Governor', B: 'Alpha', C: 'Beta', D: 'Negan', E: 'Simon' },
     options_tr: { A: 'Vali', B: 'Alpha', C: 'Beta', D: 'Negan', E: 'Simon' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Negan (Jeffrey Dean Morgan) is the main antagonist of The Walking Dead Seasons 6–8, wielding a barbed-wire bat he calls "Lucille."',
   },
   {
@@ -827,6 +918,7 @@ const cinema = [
     options: { A: 'Spain', B: 'Argentina', C: 'Italy', D: 'Mexico', E: 'Brazil' },
     options_tr: { A: 'İspanya', B: 'Arjantin', C: 'İtalya', D: 'Meksika', E: 'Brezilya' },
     answer: 'D',
+    difficulty: 3,
     explanation: 'Roma is a Mexican Spanish-language film set in 1970s Mexico City; it won 3 Oscars including Best Director and Best Foreign Language Film.',
   },
   {
@@ -836,6 +928,7 @@ const cinema = [
     options: { A: 'The Walking Dead', B: 'Fear the Walking Dead', C: 'Z Nation', D: 'The Last of Us', E: '28 Days Later' },
     options_tr: { A: 'Yürüyen Ölüler', B: 'Yürüyen Ölülerden Kork', C: 'Z Ulusu', D: 'The Last of Us', E: '28 Gün Sonra' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'The Last of Us (HBO, 2023) is based on the video game, featuring a Cordyceps fungal pandemic that turns people into infected creatures.',
   },
   {
@@ -845,6 +938,7 @@ const cinema = [
     options: { A: 'Nuri Bilge Ceylan', B: 'Ferzan Özpetek', C: 'Fatih Akın', D: 'Derviş Zaim', E: 'Semih Kaplanoğlu' },
     options_tr: { A: 'Nuri Bilge Ceylan', B: 'Ferzan Özpetek', C: 'Fatih Akın', D: 'Derviş Zaim', E: 'Semih Kaplanoğlu' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Fatih Akın\'s "Gegen die Wand" (Head-On / Duvara Karşı) won the Golden Bear at the 54th Berlin International Film Festival in 2004.',
   },
   {
@@ -854,6 +948,7 @@ const cinema = [
     options: { A: 'Thor', B: 'Captain America: The First Avenger', C: 'Iron Man', D: 'The Incredible Hulk', E: 'Avengers' },
     options_tr: { A: 'Thor', B: 'Kaptan Amerika: İlk Yenilmez', C: 'Demir Adam', D: 'İnanılmaz Hulk', E: 'Yenilmezler' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Iron Man (2008) was the first film released in the MCU, directed by Jon Favreau and starring Robert Downey Jr.',
   },
   {
@@ -863,6 +958,7 @@ const cinema = [
     options: { A: 'Rings of Power', B: 'House of the Dragon', C: 'Bloodmoon', D: 'The Long Night', E: 'Fire & Blood' },
     options_tr: { A: 'Güç Yüzükleri', B: 'Ejderha Evi', C: 'Kanlı Ay', D: 'Uzun Gece', E: 'Ateş ve Kan' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'House of the Dragon (HBO, 2022–present) is based on Martin\'s "Fire & Blood" and serves as a prequel to Game of Thrones.',
   },
   {
@@ -872,6 +968,7 @@ const cinema = [
     options: { A: 'Pierce Brosnan', B: 'Roger Moore', C: 'Sean Connery', D: 'Daniel Craig', E: 'Timothy Dalton' },
     options_tr: { A: 'Pierce Brosnan', B: 'Roger Moore', C: 'Sean Connery', D: 'Daniel Craig', E: 'Timothy Dalton' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Daniel Craig debuted as James Bond in Casino Royale (2006) and played the role through No Time to Die (2021).',
   },
   {
@@ -881,6 +978,7 @@ const cinema = [
     options: { A: 'Ken', B: 'Toy Story 5', C: 'Barbie', D: 'GI Joe', E: 'Mattel' },
     options_tr: { A: 'Ken', B: 'Oyuncak Hikayesi 5', C: 'Barbie', D: 'GI Joe', E: 'Mattel' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Barbie (2023, dir. Greta Gerwig) grossed over $1.4 billion worldwide, becoming the highest-grossing film directed by a woman.',
   },
   {
@@ -890,6 +988,7 @@ const cinema = [
     options: { A: 'Marshall Eriksen', B: 'Barney Stinson', C: 'Ted Mosby', D: 'Robin Scherbatsky', E: 'Lily Aldrin' },
     options_tr: { A: 'Marshall Eriksen', B: 'Barney Stinson', C: 'Ted Mosby', D: 'Robin Scherbatsky', E: 'Lily Aldrin' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Ted Mosby (played by Josh Radnor, voiced in narration by Bob Saget) tells his children the story of how he met their mother.',
   },
   {
@@ -899,6 +998,7 @@ const cinema = [
     options: { A: 'Kingdom of Heaven', B: '300', C: 'Troy', D: 'Gladiator', E: 'Ben-Hur' },
     options_tr: { A: 'Cennetin Krallığı', B: '300', C: 'Truva', D: 'Gladyatör', E: 'Ben-Hur' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Gladiator (2000) won Best Picture and Best Actor (Russell Crowe) at the 73rd Academy Awards.',
   },
   {
@@ -908,6 +1008,7 @@ const cinema = [
     options: { A: 'Wings', B: 'The Jazz Singer', C: 'Sunrise', D: 'Metropolis', E: 'The Broadway Melody' },
     options_tr: { A: 'Wings', B: 'Caz Şarkıcısı', C: 'Gün Doğumu', D: 'Metropolis', E: 'Broadway Melodisi' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Wings (1927), a silent World War I aviation drama directed by William A. Wellman, took the top prize at the first Academy Awards.',
   },
   {
@@ -917,6 +1018,7 @@ const cinema = [
     options: { A: 'A sled', B: 'A rose bush', C: 'A painting', D: 'A music box', E: 'A ship' },
     options_tr: { A: 'Bir kızak', B: 'Bir gül fidanı', C: 'Bir tablo', D: 'Bir müzik kutusu', E: 'Bir gemi' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'The closing shot reveals Rosebud as the childhood sled Charles Foster Kane lost when he was taken from his family.',
   },
   {
@@ -926,6 +1028,7 @@ const cinema = [
     options: { A: 'Rick\'s Café Américain', B: 'Blue Parrot', C: 'Café Marrakech', D: 'La Belle Aurore', E: 'Casa Rick' },
     options_tr: { A: 'Rick\'s Café Américain', B: 'Blue Parrot', C: 'Café Marrakech', D: 'La Belle Aurore', E: 'Casa Rick' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Humphrey Bogart\'s Rick Blaine runs Rick\'s Café Américain, where most of the 1942 film takes place.',
   },
   {
@@ -935,6 +1038,7 @@ const cinema = [
     options: { A: 'Casablanca', B: 'Gone with the Wind', C: 'Rebecca', D: 'Ben-Hur', E: 'Giant' },
     options_tr: { A: 'Casablanca', B: 'Rüzgar Gibi Geçti', C: 'Rebecca', D: 'Ben-Hur', E: 'Devler' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Clark Gable delivers the line as Rhett Butler in the final scene of Gone with the Wind (1939).',
   },
   {
@@ -944,6 +1048,7 @@ const cinema = [
     options: { A: 'Yasujirō Ozu', B: 'Akira Kurosawa', C: 'Kenji Mizoguchi', D: 'Masaki Kobayashi', E: 'Hayao Miyazaki' },
     options_tr: { A: 'Yasujirō Ozu', B: 'Akira Kurosawa', C: 'Kenji Mizoguchi', D: 'Masaki Kobayashi', E: 'Hayao Miyazaki' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Akira Kurosawa\'s Seven Samurai was later remade as the American Western The Magnificent Seven (1960).',
   },
   {
@@ -953,6 +1058,7 @@ const cinema = [
     options: { A: 'Pinocchio', B: 'Fantasia', C: 'Bambi', D: 'Snow White and the Seven Dwarfs', E: 'Dumbo' },
     options_tr: { A: 'Pinokyo', B: 'Fantasia', C: 'Bambi', D: 'Pamuk Prenses ve Yedi Cüceler', E: 'Dumbo' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'Snow White and the Seven Dwarfs (1937) was the first full-length cel-animated feature produced in the United States.',
   },
   {
@@ -962,6 +1068,7 @@ const cinema = [
     options: { A: 'Shrek', B: 'Antz', C: 'Toy Story', D: 'A Bug\'s Life', E: 'The Prince of Egypt' },
     options_tr: { A: 'Shrek', B: 'Karınca Z', C: 'Oyuncak Hikayesi', D: 'Böcek Masalı', E: 'Mısır Prensi' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Pixar\'s Toy Story (1995) was the first feature film animated entirely on computers.',
   },
   {
@@ -971,6 +1078,7 @@ const cinema = [
     options: { A: 'Sofia Coppola', B: 'Jane Campion', C: 'Kathryn Bigelow', D: 'Greta Gerwig', E: 'Chloé Zhao' },
     options_tr: { A: 'Sofia Coppola', B: 'Jane Campion', C: 'Kathryn Bigelow', D: 'Greta Gerwig', E: 'Chloé Zhao' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Kathryn Bigelow won Best Director in 2010 for The Hurt Locker, more than eight decades after the award was first given.',
   },
   {
@@ -980,6 +1088,7 @@ const cinema = [
     options: { A: 'Barbie', B: 'Killers of the Flower Moon', C: 'Poor Things', D: 'Oppenheimer', E: 'The Holdovers' },
     options_tr: { A: 'Barbie', B: 'Ay Çiçeği Katilleri', C: 'Zavallılar', D: 'Oppenheimer', E: 'Kalanlar' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'Oppenheimer won seven Oscars that night, including Best Director for Christopher Nolan and Best Actor for Cillian Murphy.',
   },
   {
@@ -989,6 +1098,7 @@ const cinema = [
     options: { A: 'Top Gun: Maverick', B: 'The Banshees of Inisherin', C: 'Everything Everywhere All at Once', D: 'Tár', E: 'Avatar: The Way of Water' },
     options_tr: { A: 'Top Gun: Maverick', B: 'Inisherin\'in Ruhları', C: 'Her Şey Her Yerde Aynı Anda', D: 'Tár', E: 'Avatar: Suyun Yolu' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Everything Everywhere All at Once swept the 2023 ceremony, with Michelle Yeoh becoming the first Asian woman to win Best Actress.',
   },
   {
@@ -998,6 +1108,7 @@ const cinema = [
     options: { A: 'Roma', B: 'The Power of the Dog', C: 'CODA', D: 'Marriage Story', E: 'The Irishman' },
     options_tr: { A: 'Roma', B: 'Köpek Dişi', C: 'CODA', D: 'Evlilik Hikayesi', E: 'İrlandalı' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'CODA, distributed by Apple TV+, won Best Picture at the 2022 ceremony.',
   },
   {
@@ -1007,6 +1118,7 @@ const cinema = [
     options: { A: 'Minari', B: 'Nomadland', C: 'The Father', D: 'Mank', E: 'Promising Young Woman' },
     options_tr: { A: 'Minari', B: 'Göçebeler', C: 'Baba', D: 'Mank', E: 'Umut Vaat Eden Genç Kadın' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Nomadland also took Best Picture and Best Actress for Frances McDormand at the 93rd Academy Awards.',
   },
   {
@@ -1016,6 +1128,7 @@ const cinema = [
     options: { A: 'Al Pacino', B: 'James Caan', C: 'Marlon Brando', D: 'Robert Duvall', E: 'George C. Scott' },
     options_tr: { A: 'Al Pacino', B: 'James Caan', C: 'Marlon Brando', D: 'Robert Duvall', E: 'George C. Scott' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Marlon Brando declined the award in protest at Hollywood\'s treatment of Native Americans and sent Sacheen Littlefeather to the ceremony in his place.',
   },
   {
@@ -1025,6 +1138,7 @@ const cinema = [
     options: { A: 'Whoopi Goldberg', B: 'Halle Berry', C: 'Viola Davis', D: 'Octavia Spencer', E: 'Angela Bassett' },
     options_tr: { A: 'Whoopi Goldberg', B: 'Halle Berry', C: 'Viola Davis', D: 'Octavia Spencer', E: 'Angela Bassett' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Halle Berry won Best Actress in 2002 for her performance in Monster\'s Ball.',
   },
   {
@@ -1034,6 +1148,7 @@ const cinema = [
     options: { A: 'Sidney Poitier', B: 'Harry Belafonte', C: 'James Earl Jones', D: 'Paul Robeson', E: 'Sammy Davis Jr.' },
     options_tr: { A: 'Sidney Poitier', B: 'Harry Belafonte', C: 'James Earl Jones', D: 'Paul Robeson', E: 'Sammy Davis Jr.' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Sidney Poitier was the first Black actor to win the Academy Award for Best Actor in a leading role.',
   },
   {
@@ -1043,6 +1158,7 @@ const cinema = [
     options: { A: 'Katharine Hepburn', B: 'Jack Nicholson', C: 'Meryl Streep', D: 'Bette Davis', E: 'Laurence Olivier' },
     options_tr: { A: 'Katharine Hepburn', B: 'Jack Nicholson', C: 'Meryl Streep', D: 'Bette Davis', E: 'Laurence Olivier' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Meryl Streep has received 21 acting nominations, more than any other performer in Oscar history.',
   },
   {
@@ -1052,6 +1168,7 @@ const cinema = [
     options: { A: 'Alfred Hitchcock', B: 'John Williams', C: 'Walt Disney', D: 'Edith Head', E: 'Steven Spielberg' },
     options_tr: { A: 'Alfred Hitchcock', B: 'John Williams', C: 'Walt Disney', D: 'Edith Head', E: 'Steven Spielberg' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Walt Disney won 22 competitive Oscars, far more than any other individual.',
   },
   {
@@ -1061,6 +1178,7 @@ const cinema = [
     options: { A: 'Cannes', B: 'Berlin', C: 'Venice', D: 'Toronto', E: 'Sundance' },
     options_tr: { A: 'Cannes', B: 'Berlin', C: 'Venedik', D: 'Toronto', E: 'Sundance' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'The Golden Lion is the top prize of the Venice International Film Festival, the oldest film festival in the world.',
   },
   {
@@ -1070,6 +1188,7 @@ const cinema = [
     options: { A: 'Venice', B: 'Berlin', C: 'Locarno', D: 'San Sebastián', E: 'Karlovy Vary' },
     options_tr: { A: 'Venedik', B: 'Berlin', C: 'Locarno', D: 'San Sebastián', E: 'Karlovy Vary' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Berlin International Film Festival, known as the Berlinale, awards the Golden Bear to its best film.',
   },
   {
@@ -1079,6 +1198,7 @@ const cinema = [
     options: { A: 'France', B: 'Italy', C: 'Canada', D: 'United Kingdom', E: 'Australia' },
     options_tr: { A: 'Fransa', B: 'İtalya', C: 'Kanada', D: 'Birleşik Krallık', E: 'Avustralya' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'BAFTA stands for the British Academy of Film and Television Arts.',
   },
   {
@@ -1088,6 +1208,7 @@ const cinema = [
     options: { A: 'Yol', B: 'Sürü', C: 'Umut', D: 'Arkadaş', E: 'Duvar' },
     options_tr: { A: 'Yol', B: 'Sürü', C: 'Umut', D: 'Arkadaş', E: 'Duvar' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Yılmaz Güney wrote Yol while in prison and shared the 1982 Palme d\'Or with Costa-Gavras\'s Missing.',
   },
   {
@@ -1097,6 +1218,7 @@ const cinema = [
     options: { A: 'Susuz Yaz', B: 'Sevmek Zamanı', C: 'Gurbet Kuşları', D: 'Karanlıkta Uyananlar', E: 'Vesikalı Yarim' },
     options_tr: { A: 'Susuz Yaz', B: 'Sevmek Zamanı', C: 'Gurbet Kuşları', D: 'Karanlıkta Uyananlar', E: 'Vesikalı Yarim' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Metin Erksan\'s Susuz Yaz was the first Turkish film to take the top prize at a major European festival.',
   },
   {
@@ -1106,6 +1228,7 @@ const cinema = [
     options: { A: 'Yumurta', B: 'Süt', C: 'Bal', D: 'Buğday', E: 'Bağlılık Aslı' },
     options_tr: { A: 'Yumurta', B: 'Süt', C: 'Bal', D: 'Buğday', E: 'Bağlılık Aslı' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Bal completed Kaplanoğlu\'s Yusuf trilogy, which began with Yumurta and continued with Süt.',
   },
   {
@@ -1115,6 +1238,7 @@ const cinema = [
     options: { A: 'Atıf Yılmaz', B: 'Ertem Eğilmez', C: 'Lütfi Ö. Akad', D: 'Osman F. Seden', E: 'Halit Refiğ' },
     options_tr: { A: 'Atıf Yılmaz', B: 'Ertem Eğilmez', C: 'Lütfi Ö. Akad', D: 'Osman F. Seden', E: 'Halit Refiğ' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Ertem Eğilmez directed the film, adapted from Rıfat Ilgaz\'s novel about an unruly boarding-school class.',
   },
   {
@@ -1124,6 +1248,7 @@ const cinema = [
     options: { A: 'Eşkıya', B: 'Ağır Roman', C: 'İstanbul Kanatlarımın Altında', D: 'Masumiyet', E: 'Tabutta Rövaşata' },
     options_tr: { A: 'Eşkıya', B: 'Ağır Roman', C: 'İstanbul Kanatlarımın Altında', D: 'Masumiyet', E: 'Tabutta Rövaşata' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Yavuz Turgul\'s Eşkıya drew millions of viewers and is widely seen as the start of Turkish cinema\'s commercial revival.',
   },
   {
@@ -1133,6 +1258,7 @@ const cinema = [
     options: { A: 'Şaban', B: 'Ramazan', C: 'Cemil', D: 'Hüseyin', E: 'Zeki' },
     options_tr: { A: 'Şaban', B: 'Ramazan', C: 'Cemil', D: 'Hüseyin', E: 'Zeki' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Kemal Sunal played the naive but quick-witted "Şaban" in a long run of Yeşilçam comedies.',
   },
   {
@@ -1142,6 +1268,7 @@ const cinema = [
     options: { A: 'A street in Istanbul\'s Beyoğlu district', B: 'A monthly film magazine', C: 'A cinema hall in Ankara', D: 'A producers\' union', E: 'An early film prize' },
     options_tr: { A: 'İstanbul\'un Beyoğlu semtindeki bir sokak', B: 'Aylık bir sinema dergisi', C: 'Ankara\'daki bir sinema salonu', D: 'Bir yapımcılar birliği', E: 'Eski bir sinema ödülü' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Yeşilçam Street in Beyoğlu housed most of the production companies of the era, and its name came to stand for the whole industry.',
   },
   {
@@ -1151,6 +1278,7 @@ const cinema = [
     options: { A: 'Mehmed II', B: 'Selim I', C: 'Suleiman the Magnificent', D: 'Abdulhamid II', E: 'Murad IV' },
     options_tr: { A: 'II. Mehmed', B: 'I. Selim', C: 'Kanuni Sultan Süleyman', D: 'II. Abdülhamid', E: 'IV. Murad' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The series follows Sultan Suleiman the Magnificent and Hürrem Sultan in the sixteenth-century Ottoman court.',
   },
   {
@@ -1160,6 +1288,7 @@ const cinema = [
     options: { A: 'Polat Alemdar', B: 'Ezel Bayraktar', C: 'Yamaç Koçovalı', D: 'Süleyman Çakır', E: 'Kuzey Tekinoğlu' },
     options_tr: { A: 'Polat Alemdar', B: 'Ezel Bayraktar', C: 'Yamaç Koçovalı', D: 'Süleyman Çakır', E: 'Kuzey Tekinoğlu' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Polat Alemdar, played by Necati Şaşmaz, is the undercover agent at the centre of the Kurtlar Vadisi franchise.',
   },
   {
@@ -1169,6 +1298,7 @@ const cinema = [
     options: { A: 'Cem Yılmaz', B: 'Yılmaz Erdoğan', C: 'Şahan Gökbakar', D: 'Ata Demirer', E: 'Gülse Birsel' },
     options_tr: { A: 'Cem Yılmaz', B: 'Yılmaz Erdoğan', C: 'Şahan Gökbakar', D: 'Ata Demirer', E: 'Gülse Birsel' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Cem Yılmaz played Arif along with several other roles in G.O.R.A., one of the biggest comedy hits in Turkish cinema.',
   },
   {
@@ -1178,6 +1308,7 @@ const cinema = [
     options: { A: 'Çağan Irmak', B: 'Ömer Faruk Sorak', C: 'Mahsun Kırmızıgül', D: 'Serdar Akar', E: 'Zeki Demirkubuz' },
     options_tr: { A: 'Çağan Irmak', B: 'Ömer Faruk Sorak', C: 'Mahsun Kırmızıgül', D: 'Serdar Akar', E: 'Zeki Demirkubuz' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Çağan Irmak wrote and directed the film, a family drama set against the aftermath of the 1980 military coup.',
   },
   {
@@ -1187,6 +1318,7 @@ const cinema = [
     options: { A: 'Palme d\'Or', B: 'Grand Prix', C: 'Best Director', D: 'Caméra d\'Or', E: 'Jury Prize' },
     options_tr: { A: 'Altın Palmiye', B: 'Büyük Ödül (Grand Prix)', C: 'En İyi Yönetmen', D: 'Altın Kamera', E: 'Jüri Ödülü' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Uzak took the Grand Prix at Cannes in 2003, and its two leads shared the festival\'s Best Actor award.',
   },
   {
@@ -1196,6 +1328,7 @@ const cinema = [
     options: { A: 'Bir Başkadır', B: 'Hakan: Muhafız', C: 'Atiye', D: 'Aşk 101', E: 'Şahmaran' },
     options_tr: { A: 'Bir Başkadır', B: 'Hakan: Muhafız', C: 'Atiye', D: 'Aşk 101', E: 'Şahmaran' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Berkun Oya\'s Bir Başkadır premiered on Netflix in 2020 and was praised for its portrait of class and belief in Istanbul.',
   },
   {
@@ -1205,6 +1338,7 @@ const cinema = [
     options: { A: 'Halit Ziya Uşaklıgil', B: 'Reşat Nuri Güntekin', C: 'Yaşar Kemal', D: 'Ahmet Hamdi Tanpınar', E: 'Sabahattin Ali' },
     options_tr: { A: 'Halit Ziya Uşaklıgil', B: 'Reşat Nuri Güntekin', C: 'Yaşar Kemal', D: 'Ahmet Hamdi Tanpınar', E: 'Sabahattin Ali' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Halit Ziya Uşaklıgil wrote the novel at the turn of the twentieth century, and the 2008 series moved its story into modern Istanbul.',
   },
   {
@@ -1214,6 +1348,7 @@ const cinema = [
     options: { A: 'Hülya Koçyiğit', B: 'Fatma Girik', C: 'Türkan Şoray', D: 'Filiz Akın', E: 'Müjde Ar' },
     options_tr: { A: 'Hülya Koçyiğit', B: 'Fatma Girik', C: 'Türkan Şoray', D: 'Filiz Akın', E: 'Müjde Ar' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Türkan Şoray earned the nickname "Sultan" during her decades as Yeşilçam\'s leading star.',
   },
   {
@@ -1223,6 +1358,7 @@ const cinema = [
     options: { A: 'İstanbul', B: 'İzmir', C: 'Adana', D: 'Antalya', E: 'Ankara' },
     options_tr: { A: 'İstanbul', B: 'İzmir', C: 'Adana', D: 'Antalya', E: 'Ankara' },
     answer: 'D',
+    difficulty: 2,
     explanation: 'First held in 1964, the Antalya Golden Orange Film Festival is Turkey\'s longest-running film festival.',
   },
   {
@@ -1232,6 +1368,7 @@ const cinema = [
     options: { A: 'Electricity', B: 'Television', C: 'The railway', D: 'A cinema', E: 'Telephone lines' },
     options_tr: { A: 'Elektrik', B: 'Televizyon', C: 'Demiryolu', D: 'Bir sinema salonu', E: 'Telefon hatları' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Yılmaz Erdoğan and Ömer Faruk Sorak\'s film follows a town receiving its first television set in the 1970s.',
   },
   {
@@ -1241,6 +1378,7 @@ const cinema = [
     options: { A: 'Kara Sevda', B: 'Çukur', C: 'Ezel', D: 'Kuzey Güney', E: 'Muhteşem Yüzyıl' },
     options_tr: { A: 'Kara Sevda', B: 'Çukur', C: 'Ezel', D: 'Kuzey Güney', E: 'Muhteşem Yüzyıl' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Kara Sevda won the International Emmy for Best Telenovela in 2017.',
   },
   {
@@ -1250,6 +1388,7 @@ const cinema = [
     options: { A: 'Japan', B: 'India', C: 'South Korea', D: 'Iran', E: 'Italy' },
     options_tr: { A: 'Japonya', B: 'Hindistan', C: 'Güney Kore', D: 'İran', E: 'İtalya' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'It remakes the 2013 South Korean box office hit Miracle in Cell No. 7.',
   },
   {
@@ -1259,6 +1398,7 @@ const cinema = [
     options: { A: 'Leyla ile Mecnun', B: 'Avrupa Yakası', C: 'Yalan Dünya', D: 'Çocuklar Duymasın', E: 'Jet Sosyete' },
     options_tr: { A: 'Leyla ile Mecnun', B: 'Avrupa Yakası', C: 'Yalan Dünya', D: 'Çocuklar Duymasın', E: 'Jet Sosyete' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Leyla ile Mecnun mixed surreal humour with a love story and gained a devoted following during its TRT run.',
   },
   {
@@ -1268,6 +1408,7 @@ const cinema = [
     options: { A: 'A New Hope', B: 'The Empire Strikes Back', C: 'Return of the Jedi', D: 'The Phantom Menace', E: 'Revenge of the Sith' },
     options_tr: { A: 'Yeni Bir Umut', B: 'İmparator\'un Dönüşü', C: 'Jedi\'ın Dönüşü', D: 'Gizli Tehlike', E: 'Sith\'in İntikamı' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The revelation comes during Luke\'s duel with Vader at the climax of The Empire Strikes Back (1980).',
   },
   {
@@ -1277,6 +1418,7 @@ const cinema = [
     options: { A: 'David Prowse', B: 'James Earl Jones', C: 'Morgan Freeman', D: 'Peter Cushing', E: 'Frank Oz' },
     options_tr: { A: 'David Prowse', B: 'James Earl Jones', C: 'Morgan Freeman', D: 'Peter Cushing', E: 'Frank Oz' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'David Prowse wore the costume on set while James Earl Jones supplied the voice in post-production.',
   },
   {
@@ -1286,6 +1428,7 @@ const cinema = [
     options: { A: 'Alfonso Cuarón', B: 'Mike Newell', C: 'Chris Columbus', D: 'David Yates', E: 'Sam Mendes' },
     options_tr: { A: 'Alfonso Cuarón', B: 'Mike Newell', C: 'Chris Columbus', D: 'David Yates', E: 'Sam Mendes' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Chris Columbus directed The Philosopher\'s Stone and The Chamber of Secrets before handing the series to other directors.',
   },
   {
@@ -1295,6 +1438,7 @@ const cinema = [
     options: { A: 'Errol', B: 'Hedwig', C: 'Crookshanks', D: 'Fawkes', E: 'Nagini' },
     options_tr: { A: 'Errol', B: 'Hedwig', C: 'Crookshanks', D: 'Fawkes', E: 'Nagini' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Hedwig is the snowy owl Hagrid gives Harry as a birthday present in the first film.',
   },
   {
@@ -1304,6 +1448,7 @@ const cinema = [
     options: { A: 'Bruce', B: 'Jimmy', C: 'Rex', D: 'Chompers', E: 'Moby' },
     options_tr: { A: 'Bruce', B: 'Jimmy', C: 'Rex', D: 'Chompers', E: 'Moby' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The shark was nicknamed Bruce after Steven Spielberg\'s lawyer, and its constant breakdowns pushed the film to suggest the shark rather than show it.',
   },
   {
@@ -1313,6 +1458,7 @@ const cinema = [
     options: { A: '2001: A Space Odyssey', B: 'Alien', C: 'Event Horizon', D: 'Solaris', E: 'The Thing' },
     options_tr: { A: '2001: Bir Uzay Macerası', B: 'Yaratık', C: 'Olay Ufku', D: 'Solaris', E: 'Şey' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The tagline promoted Ridley Scott\'s Alien (1979) and became one of the most famous in film advertising.',
   },
   {
@@ -1322,6 +1468,7 @@ const cinema = [
     options: { A: 'Linda Hamilton', B: 'Jamie Lee Curtis', C: 'Sigourney Weaver', D: 'Carrie Fisher', E: 'Geena Davis' },
     options_tr: { A: 'Linda Hamilton', B: 'Jamie Lee Curtis', C: 'Sigourney Weaver', D: 'Carrie Fisher', E: 'Geena Davis' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Sigourney Weaver played Ripley in four Alien films released between 1979 and 1997.',
   },
   {
@@ -1331,6 +1478,7 @@ const cinema = [
     options: { A: 'Stephen King', B: 'Michael Crichton', C: 'Tom Clancy', D: 'Arthur C. Clarke', E: 'Robin Cook' },
     options_tr: { A: 'Stephen King', B: 'Michael Crichton', C: 'Tom Clancy', D: 'Arthur C. Clarke', E: 'Robin Cook' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Michael Crichton published the novel in 1990 and co-wrote the screenplay for Spielberg\'s adaptation.',
   },
   {
@@ -1340,6 +1488,7 @@ const cinema = [
     options: { A: '66 mph', B: '77 mph', C: '88 mph', D: '99 mph', E: '100 mph' },
     options_tr: { A: 'Saatte 66 mil', B: 'Saatte 77 mil', C: 'Saatte 88 mil', D: 'Saatte 99 mil', E: 'Saatte 100 mil' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'The flux capacitor engages once the car reaches 88 miles per hour.',
   },
   {
@@ -1349,6 +1498,7 @@ const cinema = [
     options: { A: 'Stephen King', B: 'John Grisham', C: 'Elmore Leonard', D: 'Dennis Lehane', E: 'Cormac McCarthy' },
     options_tr: { A: 'Stephen King', B: 'John Grisham', C: 'Elmore Leonard', D: 'Dennis Lehane', E: 'Cormac McCarthy' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'It is based on Stephen King\'s novella "Rita Hayworth and Shawshank Redemption."',
   },
   {
@@ -1358,6 +1508,7 @@ const cinema = [
     options: { A: 'Colin Farrell', B: 'Matthew McConaughey', C: 'Mahershala Ali', D: 'Vince Vaughn', E: 'Stephen Dorff' },
     options_tr: { A: 'Colin Farrell', B: 'Matthew McConaughey', C: 'Mahershala Ali', D: 'Vince Vaughn', E: 'Stephen Dorff' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Matthew McConaughey played detective Rust Cohle opposite Harrelson\'s Marty Hart in the 2014 first season.',
   },
   {
@@ -1367,6 +1518,7 @@ const cinema = [
     options: { A: 'Steve Jobs', B: 'The Social Network', C: 'Jobs', D: 'The Internship', E: 'Pirates of Silicon Valley' },
     options_tr: { A: 'Steve Jobs', B: 'Sosyal Ağ', C: 'Jobs', D: 'Stajyerler', E: 'Silikon Vadisi Korsanları' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'The Social Network (2010) was directed by David Fincher from an Aaron Sorkin screenplay and won three Academy Awards.',
   },
   {
@@ -1376,6 +1528,7 @@ const cinema = [
     options: { A: 'Hans Zimmer', B: 'Danny Elfman', C: 'John Williams', D: 'James Horner', E: 'Howard Shore' },
     options_tr: { A: 'Hans Zimmer', B: 'Danny Elfman', C: 'John Williams', D: 'James Horner', E: 'Howard Shore' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'John Williams is the most Oscar-nominated living person, with film scores spanning more than five decades.',
   },
   {
@@ -1385,6 +1538,7 @@ const cinema = [
     options: { A: 'Sam Peckinpah', B: 'Sergio Leone', C: 'John Ford', D: 'Sergio Corbucci', E: 'Clint Eastwood' },
     options_tr: { A: 'Sam Peckinpah', B: 'Sergio Leone', C: 'John Ford', D: 'Sergio Corbucci', E: 'Clint Eastwood' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Morricone scored Sergio Leone\'s Dollars trilogy, defining the sound of the spaghetti Western.',
   },
   {
@@ -1394,6 +1548,7 @@ const cinema = [
     options: { A: 'Howard Shore', B: 'Hans Zimmer', C: 'John Williams', D: 'Alan Silvestri', E: 'Michael Giacchino' },
     options_tr: { A: 'Howard Shore', B: 'Hans Zimmer', C: 'John Williams', D: 'Alan Silvestri', E: 'Michael Giacchino' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Howard Shore won three Academy Awards for his work on the trilogy.',
   },
   {
@@ -1403,6 +1558,7 @@ const cinema = [
     options: { A: 'Metropolis', B: 'The Jazz Singer', C: 'Sunrise', D: 'The General', E: 'Nosferatu' },
     options_tr: { A: 'Metropolis', B: 'Caz Şarkıcısı', C: 'Gün Doğumu', D: 'General', E: 'Nosferatu' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The Jazz Singer, starring Al Jolson, brought synchronised dialogue and songs to feature films and ended the silent era.',
   },
   {
@@ -1412,6 +1568,7 @@ const cinema = [
     options: { A: 'City Lights', B: 'Modern Times', C: 'The Gold Rush', D: 'The Great Dictator', E: 'Limelight' },
     options_tr: { A: 'Şehir Işıkları', B: 'Modern Zamanlar', C: 'Altına Hücum', D: 'Büyük Diktatör', E: 'Sahne Işıkları' },
     answer: 'D',
+    difficulty: 1,
     explanation: 'The Great Dictator (1940) was Chaplin\'s first full sound film and closes with his famous speech calling for humanity.',
   },
   {
@@ -1421,6 +1578,7 @@ const cinema = [
     options: { A: 'Made a brief cameo appearance', B: 'Narrated the opening', C: 'Composed the music', D: 'Played the villain', E: 'Appeared in the final shot' },
     options_tr: { A: 'Kısa bir kamera karşısı görünüş yaptı', B: 'Açılışı seslendirdi', C: 'Müziklerini besteledi', D: 'Kötü adamı canlandırdı', E: 'Son sahnede göründü' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Hitchcock appeared in short silent cameos in around forty of his films, and audiences enjoyed spotting him.',
   },
   {
@@ -1430,6 +1588,7 @@ const cinema = [
     options: { A: 'Red paint', B: 'Chocolate syrup', C: 'Tomato juice', D: 'Beetroot juice', E: 'Dyed corn syrup' },
     options_tr: { A: 'Kırmızı boya', B: 'Çikolata sosu', C: 'Domates suyu', D: 'Pancar suyu', E: 'Boyalı mısır şurubu' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Chocolate syrup photographed better than stage blood in black and white.',
   },
   {
@@ -1439,6 +1598,7 @@ const cinema = [
     options: { A: 'Here\'s Johnny!', B: 'Redrum', C: 'All work and no play', D: 'Come play with us', E: 'Great party, isn\'t it?' },
     options_tr: { A: 'Here\'s Johnny!', B: 'Redrum', C: 'Hep iş, hiç eğlence yok', D: 'Gel bizimle oyna', E: 'Harika bir parti, değil mi?' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Nicholson borrowed the line from Ed McMahon\'s nightly introduction of Johnny Carson on The Tonight Show.',
   },
   {
@@ -1448,6 +1608,7 @@ const cinema = [
     options: { A: 'Andy Serkis', B: 'Doug Jones', C: 'Ian Holm', D: 'Elijah Wood', E: 'Billy Boyd' },
     options_tr: { A: 'Andy Serkis', B: 'Doug Jones', C: 'Ian Holm', D: 'Elijah Wood', E: 'Billy Boyd' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Andy Serkis\'s work as Gollum helped establish performance capture as a mainstream acting technique.',
   },
   {
@@ -1457,6 +1618,7 @@ const cinema = [
     options: { A: 'Titanic', B: 'Avatar', C: 'Gone with the Wind', D: 'Star Wars', E: 'The Sound of Music' },
     options_tr: { A: 'Titanik', B: 'Avatar', C: 'Rüzgar Gibi Geçti', D: 'Star Wars', E: 'Neşeli Günler' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Gone with the Wind (1939) tops inflation-adjusted box office charts thanks to decades of theatrical re-releases.',
   },
   {
@@ -1466,6 +1628,7 @@ const cinema = [
     options: { A: 'Jurassic Park', B: 'Titanic', C: 'Star Wars: The Phantom Menace', D: 'Independence Day', E: 'The Lion King' },
     options_tr: { A: 'Jurassic Park', B: 'Titanik', C: 'Star Wars: Gizli Tehlike', D: 'Kurtuluş Günü', E: 'Aslan Kral' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Titanic passed the billion-dollar mark during its original 1997–1998 run, a first for any film.',
   },
   {
@@ -1475,6 +1638,7 @@ const cinema = [
     options: { A: 'Paranormal Activity', B: 'The Blair Witch Project', C: 'REC', D: 'Cloverfield', E: 'The Last Broadcast' },
     options_tr: { A: 'Paranormal Aktivite', B: 'Blair Cadısı', C: 'REC', D: 'Canavar', E: 'Son Yayın' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'The Blair Witch Project\'s internet campaign convinced many viewers the footage was real, making it one of the most profitable films ever made.',
   },
   {
@@ -1484,6 +1648,7 @@ const cinema = [
     options: { A: 'Chaos Crystals', B: 'Infinity Stones', C: 'Cosmic Cubes', D: 'Eternity Shards', E: 'Power Gems' },
     options_tr: { A: 'Kaos Kristalleri', B: 'Sonsuzluk Taşları', C: 'Kozmik Küpler', D: 'Ebediyet Parçaları', E: 'Güç Mücevherleri' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Thanos hunts the six Infinity Stones across the MCU, a quest that culminates in Infinity War and Endgame.',
   },
   {
@@ -1493,6 +1658,7 @@ const cinema = [
     options: { A: 'Josh Brolin', B: 'Idris Elba', C: 'Benicio del Toro', D: 'Kurt Russell', E: 'Jeff Bridges' },
     options_tr: { A: 'Josh Brolin', B: 'Idris Elba', C: 'Benicio del Toro', D: 'Kurt Russell', E: 'Jeff Bridges' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Josh Brolin performed Thanos through motion capture in both films.',
   },
   {
@@ -1502,6 +1668,7 @@ const cinema = [
     options: { A: 'Waystar RoyCo', B: 'Pierce Global', C: 'ATN Holdings', D: 'Vaulter Media', E: 'GoJo' },
     options_tr: { A: 'Waystar RoyCo', B: 'Pierce Global', C: 'ATN Holdings', D: 'Vaulter Media', E: 'GoJo' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Logan Roy\'s children fight over control of Waystar RoyCo across the four seasons of the HBO series.',
   },
   {
@@ -1511,6 +1678,7 @@ const cinema = [
     options: { A: 'Val Kilmer', B: 'George Clooney', C: 'Michael Keaton', D: 'Christian Bale', E: 'Adam West' },
     options_tr: { A: 'Val Kilmer', B: 'George Clooney', C: 'Michael Keaton', D: 'Christian Bale', E: 'Adam West' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Michael Keaton starred opposite Jack Nicholson\'s Joker in Burton\'s Batman.',
   },
   {
@@ -1520,6 +1688,7 @@ const cinema = [
     options: { A: 'Ben Affleck', B: 'Robert Pattinson', C: 'Christian Bale', D: 'Armie Hammer', E: 'Jake Gyllenhaal' },
     options_tr: { A: 'Ben Affleck', B: 'Robert Pattinson', C: 'Christian Bale', D: 'Armie Hammer', E: 'Jake Gyllenhaal' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Matt Reeves directed The Batman with Robert Pattinson in the title role.',
   },
   {
@@ -1529,6 +1698,7 @@ const cinema = [
     options: { A: 'Christopher Reeve', B: 'Brandon Routh', C: 'Henry Cavill', D: 'Dean Cain', E: 'Kirk Alyn' },
     options_tr: { A: 'Christopher Reeve', B: 'Brandon Routh', C: 'Henry Cavill', D: 'Dean Cain', E: 'Kirk Alyn' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Christopher Reeve played Superman in four films beginning with Superman (1978).',
   },
   {
@@ -1538,6 +1708,7 @@ const cinema = [
     options: { A: 'Goldfinger', B: 'From Russia with Love', C: 'Dr. No', D: 'Thunderball', E: 'You Only Live Twice' },
     options_tr: { A: 'Goldfinger', B: 'Rusya\'dan Sevgilerle', C: 'Dr. No', D: 'Thunderball', E: 'You Only Live Twice' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Dr. No introduced Sean Connery as 007 and launched the longest-running film franchise in history.',
   },
   {
@@ -1547,6 +1718,7 @@ const cinema = [
     options: { A: 'Sean Connery', B: 'Roger Moore', C: 'Daniel Craig', D: 'Pierce Brosnan', E: 'Timothy Dalton' },
     options_tr: { A: 'Sean Connery', B: 'Roger Moore', C: 'Daniel Craig', D: 'Pierce Brosnan', E: 'Timothy Dalton' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Roger Moore played Bond seven times, from Live and Let Die (1973) to A View to a Kill (1985).',
   },
   {
@@ -1556,6 +1728,7 @@ const cinema = [
     options: { A: 'Jack Reacher', B: 'Ethan Hunt', C: 'Ray Ferrier', D: 'Nathan Algren', E: 'Roy Miller' },
     options_tr: { A: 'Jack Reacher', B: 'Ethan Hunt', C: 'Ray Ferrier', D: 'Nathan Algren', E: 'Roy Miller' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Tom Cruise has played IMF agent Ethan Hunt since the first film in 1996.',
   },
   {
@@ -1565,6 +1738,7 @@ const cinema = [
     options: { A: 'Paul Walker', B: 'Jason Statham', C: 'Vin Diesel', D: 'Dwayne Johnson', E: 'Tyrese Gibson' },
     options_tr: { A: 'Paul Walker', B: 'Jason Statham', C: 'Vin Diesel', D: 'Dwayne Johnson', E: 'Tyrese Gibson' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Vin Diesel has led the Fast & Furious franchise as Dom Toretto since the first film in 2001.',
   },
   {
@@ -1574,6 +1748,7 @@ const cinema = [
     options: { A: 'Sylvester Stallone', B: 'Burt Young', C: 'John G. Avildsen', D: 'Carl Weathers', E: 'Burgess Meredith' },
     options_tr: { A: 'Sylvester Stallone', B: 'Burt Young', C: 'John G. Avildsen', D: 'Carl Weathers', E: 'Burgess Meredith' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Sylvester Stallone wrote the script and refused to sell it unless he could star; the film went on to win Best Picture.',
   },
   {
@@ -1583,6 +1758,7 @@ const cinema = [
     options: { A: 'Temple of Doom', B: 'The Last Crusade', C: 'Raiders of the Lost Ark', D: 'Romancing the Stone', E: 'The Mummy' },
     options_tr: { A: 'Lanetliler Tapınağı', B: 'Son Macera', C: 'Kutsal Hazine Avcıları', D: 'Yeşil Zümrüt', E: 'Mumya' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'Raiders of the Lost Ark was directed by Steven Spielberg from a story by George Lucas, with Harrison Ford in the lead.',
   },
   {
@@ -1592,6 +1768,7 @@ const cinema = [
     options: { A: 'Jeremy Irons', B: 'Alan Rickman', C: 'Gary Oldman', D: 'Tim Roth', E: 'Christopher Lee' },
     options_tr: { A: 'Jeremy Irons', B: 'Alan Rickman', C: 'Gary Oldman', D: 'Tim Roth', E: 'Christopher Lee' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Die Hard was Alan Rickman\'s feature film debut, and his Hans Gruber is regularly named among cinema\'s best villains.',
   },
   {
@@ -1601,6 +1778,7 @@ const cinema = [
     options: { A: 'Chernobyl', B: 'The Terror', C: 'Catastrophe', D: 'Meltdown', E: 'The Plot Against America' },
     options_tr: { A: 'Chernobyl', B: 'The Terror', C: 'Catastrophe', D: 'Meltdown', E: 'Amerika\'ya Karşı Komplo' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Chernobyl, written by Craig Mazin, won ten Primetime Emmy Awards including Outstanding Limited Series.',
   },
   {
@@ -1610,6 +1788,7 @@ const cinema = [
     options: { A: 'Isaac Asimov', B: 'Philip K. Dick', C: 'William Gibson', D: 'Ray Bradbury', E: 'Frank Herbert' },
     options_tr: { A: 'Isaac Asimov', B: 'Philip K. Dick', C: 'William Gibson', D: 'Ray Bradbury', E: 'Frank Herbert' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'It adapts Philip K. Dick\'s 1968 novel "Do Androids Dream of Electric Sheep?"',
   },
   {
@@ -1619,6 +1798,7 @@ const cinema = [
     options: { A: 'Alex Garland', B: 'Denis Villeneuve', C: 'Rian Johnson', D: 'Neill Blomkamp', E: 'Duncan Jones' },
     options_tr: { A: 'Alex Garland', B: 'Denis Villeneuve', C: 'Rian Johnson', D: 'Neill Blomkamp', E: 'Duncan Jones' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Denis Villeneuve directed both films, each of which won Academy Awards for cinematography and visual effects.',
   },
   {
@@ -1628,6 +1808,7 @@ const cinema = [
     options: { A: 'SAL 9000', B: 'HAL 9000', C: 'MU-TH-UR', D: 'Skynet', E: 'Deep Thought' },
     options_tr: { A: 'SAL 9000', B: 'HAL 9000', C: 'MU-TH-UR', D: 'Skynet', E: 'Deep Thought' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'HAL 9000 is the sentient onboard computer of the spacecraft Discovery One.',
   },
   {
@@ -1637,6 +1818,7 @@ const cinema = [
     options: { A: 'The Quiet American', B: 'Heart of Darkness', C: 'Catch-22', D: 'All Quiet on the Western Front', E: 'Lord of the Flies' },
     options_tr: { A: 'Sessiz Amerikalı', B: 'Karanlığın Yüreği', C: 'Madde 22', D: 'Batı Cephesinde Yeni Bir Şey Yok', E: 'Sineklerin Tanrısı' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Francis Ford Coppola adapted Joseph Conrad\'s Heart of Darkness, moving the story from the Congo to Vietnam.',
   },
   {
@@ -1646,6 +1828,7 @@ const cinema = [
     options: { A: 'Born on the Fourth of July', B: 'Heaven & Earth', C: 'Platoon', D: 'Salvador', E: 'JFK' },
     options_tr: { A: '4 Temmuz\'da Doğanlar', B: 'Cennet ve Dünya', C: 'Müfreze', D: 'Salvador', E: 'JFK' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'Platoon drew on Stone\'s own service in Vietnam and won four Academy Awards.',
   },
   {
@@ -1655,6 +1838,7 @@ const cinema = [
     options: { A: 'Utah Beach', B: 'Omaha Beach', C: 'Sword Beach', D: 'Juno Beach', E: 'Gold Beach' },
     options_tr: { A: 'Utah Sahili', B: 'Omaha Sahili', C: 'Sword Sahili', D: 'Juno Sahili', E: 'Gold Sahili' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'The film opens with the American assault on Omaha Beach during the D-Day landings of 6 June 1944.',
   },
   {
@@ -1664,6 +1848,7 @@ const cinema = [
     options: { A: 'Roberto Benigni', B: 'Marcello Mastroianni', C: 'Vittorio Gassman', D: 'Nanni Moretti', E: 'Giancarlo Giannini' },
     options_tr: { A: 'Roberto Benigni', B: 'Marcello Mastroianni', C: 'Vittorio Gassman', D: 'Nanni Moretti', E: 'Giancarlo Giannini' },
     answer: 'A',
+    difficulty: 1,
     explanation: 'Roberto Benigni directed and starred in the film, famously climbing over seats to reach the stage at the 1999 ceremony.',
   },
   {
@@ -1673,6 +1858,7 @@ const cinema = [
     options: { A: 'Cinema Paradiso', B: 'Life Is Beautiful', C: 'Il Postino', D: 'Bicycle Thieves', E: 'Amarcord' },
     options_tr: { A: 'Cennet Sineması', B: 'Hayat Güzeldir', C: 'Postacı', D: 'Bisiklet Hırsızları', E: 'Amarcord' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Giuseppe Tornatore\'s Cinema Paradiso won the Academy Award for Best Foreign Language Film.',
   },
   {
@@ -1682,6 +1868,7 @@ const cinema = [
     options: { A: '8½', B: 'La Strada', C: 'La Dolce Vita', D: 'Amarcord', E: 'Nights of Cabiria' },
     options_tr: { A: '8½', B: 'La Strada', C: 'La Dolce Vita', D: 'Amarcord', E: 'Cabiria\'nın Geceleri' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'La Dolce Vita, starring Marcello Mastroianni, took the top prize at the 1960 Cannes Film Festival.',
   },
   {
@@ -1691,6 +1878,7 @@ const cinema = [
     options: { A: 'Persona', B: 'Wild Strawberries', C: 'The Seventh Seal', D: 'Cries and Whispers', E: 'Fanny and Alexander' },
     options_tr: { A: 'Persona', B: 'Yaban Çilekleri', C: 'Yedinci Mühür', D: 'Çığlıklar ve Fısıltılar', E: 'Fanny ve Alexander' },
     answer: 'C',
+    difficulty: 2,
     explanation: 'The chess match in The Seventh Seal (1957) is one of the most imitated images in cinema.',
   },
   {
@@ -1700,6 +1888,7 @@ const cinema = [
     options: { A: 'The 400 Blows', B: 'Breathless', C: 'Jules and Jim', D: 'Hiroshima mon amour', E: 'Cléo from 5 to 7' },
     options_tr: { A: '400 Darbe', B: 'Serseri Aşıklar', C: 'Jules ve Jim', D: 'Hiroşima Sevgilim', E: '5\'ten 7\'ye Cléo' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Breathless (À bout de souffle) broke with convention through jump cuts, handheld camera and location shooting.',
   },
   {
@@ -1709,6 +1898,7 @@ const cinema = [
     options: { A: 'Amélie', B: 'The Intouchables', C: 'Delicatessen', D: 'A Very Long Engagement', E: 'Blue Is the Warmest Colour' },
     options_tr: { A: 'Amélie', B: 'Can Dostum', C: 'Delicatessen', D: 'Uzun Nişanlılık', E: 'Mavi En Sıcak Renktir' },
     answer: 'A',
+    difficulty: 3,
     explanation: 'Jean-Pierre Jeunet directed Amélie, with Audrey Tautou in the title role.',
   },
   {
@@ -1718,6 +1908,7 @@ const cinema = [
     options: { A: 'Alejandro Amenábar', B: 'Pedro Almodóvar', C: 'Luis Buñuel', D: 'Juan Antonio Bayona', E: 'Carlos Saura' },
     options_tr: { A: 'Alejandro Amenábar', B: 'Pedro Almodóvar', C: 'Luis Buñuel', D: 'Juan Antonio Bayona', E: 'Carlos Saura' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Pedro Almodóvar won Oscars for Best Foreign Language Film and Best Original Screenplay with those two films.',
   },
   {
@@ -1727,6 +1918,7 @@ const cinema = [
     options: { A: 'John Woo', B: 'Wong Kar-wai', C: 'Ang Lee', D: 'Tsui Hark', E: 'Johnnie To' },
     options_tr: { A: 'John Woo', B: 'Wong Kar-wai', C: 'Ang Lee', D: 'Tsui Hark', E: 'Johnnie To' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Wong Kar-wai\'s film, starring Tony Leung and Maggie Cheung, is regularly named among the greatest films of the century.',
   },
   {
@@ -1736,6 +1928,7 @@ const cinema = [
     options: { A: 'The Salesman', B: 'A Separation', C: 'Children of Heaven', D: 'Taste of Cherry', E: 'The White Balloon' },
     options_tr: { A: 'Satıcı', B: 'Bir Ayrılık', C: 'Cennetin Çocukları', D: 'Kiraz Tadı', E: 'Beyaz Balon' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Asghar Farhadi\'s A Separation was the first Iranian film to win the award.',
   },
   {
@@ -1745,6 +1938,7 @@ const cinema = [
     options: { A: 'Satyajit Ray', B: 'Mira Nair', C: 'Ritwik Ghatak', D: 'Guru Dutt', E: 'Shyam Benegal' },
     options_tr: { A: 'Satyajit Ray', B: 'Mira Nair', C: 'Ritwik Ghatak', D: 'Guru Dutt', E: 'Shyam Benegal' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'Satyajit Ray received an honorary Academy Award in 1992 for his lifetime contribution to cinema.',
   },
   {
@@ -1754,6 +1948,7 @@ const cinema = [
     options: { A: 'Lagaan', B: 'Slumdog Millionaire', C: 'RRR', D: 'Baahubali', E: 'Dangal' },
     options_tr: { A: 'Lagaan', B: 'Slumdog Millionaire', C: 'RRR', D: 'Baahubali', E: 'Dangal' },
     answer: 'C',
+    difficulty: 3,
     explanation: 'S. S. Rajamouli\'s RRR won Best Original Song, the first Indian production to take that prize.',
   },
   {
@@ -1763,6 +1958,7 @@ const cinema = [
     options: { A: 'Bong Joon-ho', B: 'Park Chan-wook', C: 'Kim Jee-woon', D: 'Lee Chang-dong', E: 'Na Hong-jin' },
     options_tr: { A: 'Bong Joon-ho', B: 'Park Chan-wook', C: 'Kim Jee-woon', D: 'Lee Chang-dong', E: 'Na Hong-jin' },
     answer: 'B',
+    difficulty: 2,
     explanation: 'Park Chan-wook\'s Oldboy won the Grand Prix at Cannes in 2004.',
   },
   {
@@ -1772,6 +1968,7 @@ const cinema = [
     options: { A: 'Publishing', B: 'Advertising', C: 'Banking', D: 'Television news', E: 'Law' },
     options_tr: { A: 'Yayıncılık', B: 'Reklamcılık', C: 'Bankacılık', D: 'Televizyon haberciliği', E: 'Hukuk' },
     answer: 'B',
+    difficulty: 1,
     explanation: 'Don Draper is a creative director at a Madison Avenue advertising agency in 1960s New York.',
   },
   {
@@ -1781,6 +1978,7 @@ const cinema = [
     options: { A: 'Cheers', B: 'Frasier', C: 'Seinfeld', D: 'Curb Your Enthusiasm', E: 'Taxi' },
     options_tr: { A: 'Cheers', B: 'Frasier', C: 'Seinfeld', D: 'Curb Your Enthusiasm', E: 'Taxi' },
     answer: 'C',
+    difficulty: 1,
     explanation: 'Seinfeld, created by Jerry Seinfeld and Larry David, built its episodes around the minutiae of everyday life.',
   },
   {
@@ -1790,6 +1988,7 @@ const cinema = [
     options: { A: 'Cheers', B: 'M*A*S*H', C: 'Dallas', D: 'The Fugitive', E: 'Roots' },
     options_tr: { A: 'Cheers', B: 'M*A*S*H', C: 'Dallas', D: 'The Fugitive', E: 'Kökler' },
     answer: 'B',
+    difficulty: 3,
     explanation: 'Around 106 million American viewers watched "Goodbye, Farewell and Amen," the M*A*S*H finale.',
   },
   {
@@ -1799,6 +1998,7 @@ const cinema = [
     options: { A: 'Grogu', B: 'Yaddle', C: 'Gungi', D: 'Kelleran', E: 'Yodo' },
     options_tr: { A: 'Grogu', B: 'Yaddle', C: 'Gungi', D: 'Kelleran', E: 'Yodo' },
     answer: 'A',
+    difficulty: 2,
     explanation: 'The child\'s name is revealed to be Grogu in the second season of the Disney+ series.',
   },
 ];
