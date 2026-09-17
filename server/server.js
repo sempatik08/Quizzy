@@ -34,6 +34,7 @@ const {
 } = require('./roomManager');
 const store = require('./store');
 const stats = require('./stats');
+const analytics = require('./analytics');
 const {
   isRateLimited,
   castCaptainVote,
@@ -64,6 +65,24 @@ const CLIENT_URL = process.env.CLIENT_URL || /^http:\/\/localhost(:\d+)?$/;
 // HTTP + Socket.io Setup
 // ---------------------------------------------------------------------------
 
+/**
+ * Analytics is served over HTTP rather than a socket event so it cannot be
+ * fetched by anyone who happens to be in a room, and it requires
+ * ANALYTICS_TOKEN. With no token configured the route does not exist at all —
+ * an unauthenticated default would publish the whole question-quality dataset,
+ * including which answers people get wrong.
+ */
+const ANALYTICS_TOKEN = process.env.ANALYTICS_TOKEN || null;
+
+function timingSafeEqual(a, b) {
+  // Compare every character regardless of mismatch position, so the response
+  // time does not reveal how much of a guessed token was right.
+  if (typeof a !== 'string' || typeof b !== 'string' || a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
 const httpServer = http.createServer((req, res) => {
   // Health check endpoint
   if (req.url === '/health') {
@@ -71,6 +90,39 @@ const httpServer = http.createServer((req, res) => {
     res.end(JSON.stringify({ status: 'ok', uptime: process.uptime() }));
     return;
   }
+
+  if (req.url && req.url.startsWith('/analytics')) {
+    if (!ANALYTICS_TOKEN) {
+      res.writeHead(404);
+      res.end();
+      return;
+    }
+    let token = null;
+    try {
+      token = new URL(req.url, 'http://localhost').searchParams.get('token');
+    } catch {
+      token = null;
+    }
+    if (!timingSafeEqual(token ?? '', ANALYTICS_TOKEN)) {
+      res.writeHead(401, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'unauthorized' }));
+      return;
+    }
+
+    const { QUESTIONS } = require('./questions');
+    analytics
+      .buildReport(QUESTIONS)
+      .then((report) => {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(report, null, 2));
+      })
+      .catch((err) => {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      });
+    return;
+  }
+
   res.writeHead(404);
   res.end();
 });
@@ -161,6 +213,10 @@ function executeSurrender(room, surrenderingTeam) {
   // count. Fire and forget: the players are looking at the winner screen and
   // must not wait on a stats write.
   stats.recordMatch(room).catch((err) => console.warn(`[Stats] record failed: ${err.message}`));
+  if (!room.analyticsRecorded) {
+    room.analyticsRecorded = true;
+    analytics.recordMatchEnd(room);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -930,6 +986,8 @@ function installShutdownHooks() {
     closing = true;
     console.log(`\n[Server] ${signal} received, flushing store...`);
     try {
+      analytics.stopAnalyticsFlusher();
+      await analytics.flushAnalytics();
       await store.closeStore();
     } catch (err) {
       console.warn(`[Server] Store flush failed: ${err.message}`);
@@ -952,11 +1010,13 @@ async function start() {
   }
 
   installShutdownHooks();
+  analytics.startAnalyticsFlusher();
 
   httpServer.listen(PORT, () => {
     console.log(`\n🎯 Quizzy Socket.io server running on port ${PORT}`);
     console.log(`   CORS origin: all localhost ports`);
-    console.log(`   Room persistence: ${backend}\n`);
+    console.log(`   Room persistence: ${backend}`);
+    console.log(`   Analytics endpoint: ${ANALYTICS_TOKEN ? '/analytics?token=...' : 'disabled'}\n`);
   });
 }
 

@@ -4,6 +4,7 @@ const { QUESTIONS, CATEGORY_KEYS } = require('./questions');
 const { pickTargetDifficulty, selectQuestion, difficultyOf } = require('./difficulty');
 const { getMode } = require('./gameModes');
 const stats = require('./stats');
+const analytics = require('./analytics');
 const { sanitizeRoom, STEAL_CHARGES_PER_TEAM } = require('./roomManager');
 
 // ---------------------------------------------------------------------------
@@ -230,6 +231,7 @@ function pickCategory(room, playerId, category) {
 
   room.usedCategories.push(category);
   room.selectedCategory = category;
+  analytics.recordCategoryPick(category);
   room.categoryPickTeam = null;
   room.categoryAnswerCount = { blue: 0, red: 0 };
   room.phase = 'question';
@@ -409,6 +411,8 @@ function startQuestion(room, io) {
 
   // No timer while a stake is outstanding — a countdown on a hidden question
   // would just punish the captain for reading the stake buttons.
+  analytics.recordQuestionServed(question.id, room.selectedCategory);
+
   if (!wagerPending) scheduleQuestionTimers(room, io);
 }
 
@@ -638,6 +642,14 @@ function resolveVote(room, io) {
   const wager = room.activeQuestion.wager;
   const stealOpens = !isSteal && !isCorrect && room.stealCharges[opponent] > 0;
 
+  // Record the outcome (PBI 16). Question id, correctness and whether it was a
+  // steal - no player, no team, no room.
+  analytics.recordAnswer(question.id, {
+    isCorrect,
+    isSteal,
+    answered: teamVoted,
+  });
+
   io.to(room.code).emit('answer_reveal', {
     selectedOption: teamVoted ? winningOption : null,
     // ANTI-CHEAT: withhold the answer while this question can still be stolen
@@ -660,6 +672,10 @@ function resolveVote(room, io) {
       // Record the result (PBI 14). Idempotent per room, so a points win, a
       // surrender and a Survival wipeout cannot each count the same match.
       stats.recordMatch(room).catch((err) => console.warn(`[Stats] record failed: ${err.message}`));
+      if (!room.analyticsRecorded) {
+        room.analyticsRecorded = true;
+        analytics.recordMatchEnd(room);
+      }
       io.to(room.code).emit('room:update', sanitizeRoom(room));
     };
 
@@ -959,6 +975,7 @@ function resetForRematch(room) {
   // A rematch is a NEW match, so the stats guard has to reopen or only the
   // first match in a room would ever be recorded (PBI 14).
   room.statsRecorded = false;
+  room.analyticsRecorded = false;
   // Survival eliminations are per match, not per room.
   for (const player of Object.values(room.players)) {
     player.isEliminated = false;

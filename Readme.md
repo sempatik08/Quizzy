@@ -67,6 +67,26 @@ This buys **restart durability**, not horizontal scaling: two instances would
 each keep their own working set and their own timers. Running more than one
 needs per-room sticky routing plus the socket.io Redis adapter.
 
+### Analytics
+
+Aggregate gameplay counters, for content quality rather than growth metrics:
+which categories get picked, which questions are answered wrong far too often
+(usually a miskeyed answer rather than a hard subject), and how long a match
+runs. Read them with:
+
+```bash
+QUIZZY_STORE_FILE=./.data/rooms.json node scripts/analytics-report.js
+```
+
+Set `ANALYTICS_TOKEN` to also expose `GET /analytics?token=...` on the socket
+server. **Without that variable the route does not exist** — an
+unauthenticated default would publish the whole question-quality dataset,
+including which answers people get wrong.
+
+**No personal data is recorded.** No player id, profile id, name, socket id,
+room code or IP — only counters keyed by question id, category and game mode.
+`tests/analytics_test.js` asserts this by scanning the stored bytes.
+
 ### Tests
 
 ```bash
