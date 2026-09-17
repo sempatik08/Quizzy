@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 import { ThemeSwitcher } from './ThemeSwitcher';
+import { SoundSwitcher } from './SoundSwitcher';
 
 export function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
@@ -9,6 +10,7 @@ export function LanguageSwitcher() {
   return (
     <div className="fixed top-4 left-4 z-50 flex items-center gap-2">
       <ThemeSwitcher />
+      <SoundSwitcher />
 
       <div className="flex items-center gap-0.5 bg-quizzy-card border border-quizzy-border rounded-xl shadow-sm p-1">
         <button

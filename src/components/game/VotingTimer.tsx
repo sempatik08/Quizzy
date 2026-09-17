@@ -1,11 +1,14 @@
 'use client';
 
+import { useLanguage } from '@/context/LanguageContext';
+
 interface VotingTimerProps {
   timeLeft: number;
   total?: number;
 }
 
 export function VotingTimer({ timeLeft, total = 60 }: VotingTimerProps) {
+  const { t } = useLanguage();
   const pct = (timeLeft / total) * 100;
 
   // Color transitions — proportional so the short 20s steal window scales too
@@ -32,7 +35,7 @@ export function VotingTimer({ timeLeft, total = 60 }: VotingTimerProps) {
             cy={size / 2}
             r={radius}
             fill="none"
-            stroke="#E5E7EB"
+            stroke="var(--color-border)"
             strokeWidth={strokeWidth}
           />
           {/* Progress */}
@@ -61,8 +64,8 @@ export function VotingTimer({ timeLeft, total = 60 }: VotingTimerProps) {
         </div>
       </div>
 
-      <span className="text-[10px] text-quizzy-subtle uppercase tracking-wide font-medium">
-        seconds
+      <span className="text-[10px] text-quizzy-muted uppercase tracking-wide font-medium">
+        {t.seconds}
       </span>
     </div>
   );

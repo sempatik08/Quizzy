@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quizzy — Offline</title>
+  <!--
+    Shown by the service worker when a navigation cannot reach the network.
+    Deliberately standalone: no fonts, no scripts, no CSS file to fetch, because
+    by definition nothing can be fetched when this page is being used.
+  -->
+  <style>
+    :root {
+      --bg: #F3F4F6;
+      --card: #FFFFFF;
+      --border: #E5E7EB;
+      --text: #111827;
+      --muted: #6B7280;
+      --blue: #4D96FF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111827;
+        --card: #1F2937;
+        --border: #374151;
+        --text: #F9FAFB;
+        --muted: #9CA3AF;
+        --blue: #60A5FA;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px 28px;
+      max-width: 22rem;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+    .bolt {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    h1 { font-size: 1.25rem; margin: 0 0 8px; }
+    p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; margin: 0 0 20px; }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(0.94); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="bolt" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#fff" />
+      </svg>
+    </span>
+    <h1>You are offline</h1>
+    <p>
+      Quizzy is a live game, so it needs a connection to reach the other players.
+      Reconnect and try again.
+    </p>
+    <button type="button" onclick="location.reload()">Retry</button>
+  </div>
+</body>
+</html>

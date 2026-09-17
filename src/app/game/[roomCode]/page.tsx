@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Loader2, Zap } from 'lucide-react';
 import { useGame } from '@/hooks/useGame';
@@ -13,12 +13,14 @@ import { SurrenderPanel } from '@/components/game/SurrenderPanel';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
 import { useLanguage } from '@/context/LanguageContext';
+import { useSound } from '@/context/SoundContext';
 
 export default function GamePage() {
   const params = useParams();
   const roomCode = (params.roomCode as string).toUpperCase();
   const router = useRouter();
   const { t } = useLanguage();
+  const { play } = useSound();
 
   const {
     room,
@@ -50,6 +52,47 @@ export default function GamePage() {
       router.replace(`/lobby/${roomCode}`);
     }
   }, [room?.phase, roomCode, router]);
+
+  // ---- Sound cues (PBI 15) -------------------------------------------------
+  // Reveals are keyed by identity rather than by a boolean: the same payload
+  // shape repeats every question, so a plain dependency on answerReveal would
+  // re-fire the cue on unrelated re-renders.
+  const lastRevealRef = useRef<object | null>(null);
+  useEffect(() => {
+    if (!answerReveal || answerReveal === lastRevealRef.current) return;
+    lastRevealRef.current = answerReveal;
+
+    if (answerReveal.isCorrect) play('correct');
+    else if (answerReveal.selectedOption === null) play('timeUp');
+    else play('wrong');
+  }, [answerReveal, play]);
+
+  // Urgency ticks over the last few seconds. Keyed on the second so a re-render
+  // inside the same second cannot double-tick.
+  const lastTickRef = useRef<number>(-1);
+  useEffect(() => {
+    if (room?.phase !== 'question' || answerReveal) return;
+    if (timeLeft > 5 || timeLeft <= 0) return;
+    if (lastTickRef.current === timeLeft) return;
+    lastTickRef.current = timeLeft;
+    play('tick');
+  }, [timeLeft, room?.phase, answerReveal, play]);
+
+  // Fire the win/lose sting once, when the match actually ends.
+  const finishedRef = useRef(false);
+  useEffect(() => {
+    if (room?.phase !== 'finished') {
+      finishedRef.current = false;
+      return;
+    }
+    if (finishedRef.current) return;
+    finishedRef.current = true;
+
+    const winner =
+      room.teams.blue.score >= 100 ? 'blue' : room.teams.red.score >= 100 ? 'red' : null;
+    if (!winner) return;
+    play(myTeam === winner ? 'win' : 'lose');
+  }, [room?.phase, room?.teams.blue.score, room?.teams.red.score, myTeam, play]);
 
   if (!room || !playerId) {
     return (

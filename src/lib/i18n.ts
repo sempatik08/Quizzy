@@ -19,6 +19,10 @@ const translations = {
     enterYourName: 'Enter your name.',
     nameTooLong: 'Name too long (max 20 chars).',
     invalidRoomCode: 'Room code must be 6 characters.',
+    // Sound (PBI 15)
+    seconds: 'seconds',
+    soundOn: 'Sound on — click to mute',
+    soundOff: 'Sound off — click to unmute',
     // Rematch (PBI 8)
     playAgain: 'Play Again',
     rematchWaiting: 'Waiting for the other team…',
@@ -167,6 +171,10 @@ const translations = {
     enterYourName: 'Adını gir.',
     nameTooLong: 'Ad çok uzun (maks. 20 karakter).',
     invalidRoomCode: 'Oda kodu 6 karakter olmalıdır.',
+    // Ses (PBI 15)
+    seconds: 'saniye',
+    soundOn: 'Ses açık — kapatmak için tıkla',
+    soundOff: 'Ses kapalı — açmak için tıkla',
     // Rematch (PBI 8)
     playAgain: 'Tekrar Oyna',
     rematchWaiting: 'Diğer takım bekleniyor…',

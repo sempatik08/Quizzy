@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { Trophy, RotateCcw, Loader2, Check } from 'lucide-react';
 import type { Room } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
+import { Confetti } from './Confetti';
 
 interface WinnerScreenProps {
   room: Room;
@@ -54,14 +55,18 @@ export function WinnerScreen({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-quizzy-card rounded-3xl shadow-2xl max-w-sm w-full p-8 text-center animate-slide-up">
+      <Confetti team={winner} />
+      <div className="bg-quizzy-card rounded-3xl shadow-2xl max-w-sm w-full p-8 text-center animate-slide-up relative z-[61]">
         {/* Trophy */}
         <div
           className={`w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 ${
             isBlue ? 'bg-blue-pale' : 'bg-red-pale'
           }`}
         >
-          <Trophy size={36} className={isBlue ? 'text-blue-soft' : 'text-red-soft'} />
+          <Trophy
+            size={36}
+            className={`animate-pop-in ${isBlue ? 'text-blue-soft' : 'text-red-soft'}`}
+          />
         </div>
 
         {/* Title */}

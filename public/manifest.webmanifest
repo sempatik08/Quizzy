@@ -1,0 +1,41 @@
+{
+  "name": "Quizzy — Real-Time Team Quiz",
+  "short_name": "Quizzy",
+  "description": "Real-time team quiz battles. Pick your side, vote together, steal the win.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F3F4F6",
+  "theme_color": "#4D96FF",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["games", "education", "entertainment"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Create a Room",
+      "short_name": "New room",
+      "url": "/"
+    }
+  ]
+}

@@ -39,6 +39,10 @@ module.exports = {
         'slide-up':   'slideUp 0.4s ease-out',
         'spin-slow':  'spin 1.5s linear infinite',
         'pulse-soft': 'pulseSoft 2s cubic-bezier(0.4,0,0.6,1) infinite',
+        // PBI 15 polish
+        'confetti-fall': 'confettiFall linear forwards',
+        'pop-in':        'popIn 0.32s cubic-bezier(0.34,1.56,0.64,1)',
+        'shake':         'shake 0.4s cubic-bezier(0.36,0.07,0.19,0.97)',
       },
       keyframes: {
         fadeIn: {
@@ -52,6 +56,28 @@ module.exports = {
         pulseSoft: {
           '0%, 100%': { opacity: '1' },
           '50%':      { opacity: '0.6' },
+        },
+        // Drift and spin come from per-piece CSS variables set in Confetti.tsx,
+        // so one keyframe covers every piece.
+        confettiFall: {
+          '0%': {
+            opacity: '1',
+            transform: 'translate3d(0, 0, 0) rotate(0deg)',
+          },
+          '100%': {
+            opacity: '0',
+            transform:
+              'translate3d(var(--confetti-drift, 0px), 105vh, 0) rotate(var(--confetti-spin, 360deg))',
+          },
+        },
+        popIn: {
+          '0%':   { opacity: '0', transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        shake: {
+          '0%, 100%':   { transform: 'translateX(0)' },
+          '20%, 60%':   { transform: 'translateX(-5px)' },
+          '40%, 80%':   { transform: 'translateX(5px)' },
         },
       },
     },

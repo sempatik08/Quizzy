@@ -16,6 +16,7 @@ Testler:
   9. Gecersiz oda kodu hata mesaji
  10. Davet linki: /join/<kod> on-doldurma + gecersiz link (PBI 12)
  11. Lobide davet linki paneli (PBI 12)
+ 12. PWA manifest/ikon/service worker + ses tercihi kaliciligi (PBI 15)
 """
 
 import sys, io, re, time, math, os, json
@@ -683,6 +684,141 @@ def test_lobby_invite_panel(page: Page):
         return None
 
 
+# ─── TEST 12: PWA + Cila (PBI 15) ────────────────────────────────────────────
+
+def test_pwa_and_polish(page: Page):
+    section("TEST 12 — PWA Manifest, Ikonlar, Ses Tercihi (PBI 15)")
+
+    # 12a. Manifest servis ediliyor ve kurulabilirlik icin gereken alanlari tasiyor
+    try:
+        resp = page.request.get(f"{BASE}/manifest.webmanifest")
+        if resp.ok:
+            ok("manifest.webmanifest 200 donuyor")
+        else:
+            fail(f"manifest.webmanifest {resp.status} donuyor")
+            return
+
+        mf = resp.json()
+        for key in ["name", "short_name", "start_url", "display", "icons"]:
+            if mf.get(key):
+                ok(f"Manifest '{key}' alani dolu")
+            else:
+                fail(f"Manifest '{key}' alani eksik")
+
+        if mf.get("display") == "standalone":
+            ok("Manifest display=standalone (telefona kurulabilir)")
+        else:
+            fail(f"Manifest display '{mf.get('display')}' — standalone olmali")
+
+        sizes = {i.get("sizes") for i in mf.get("icons", [])}
+        if "192x192" in sizes and "512x512" in sizes:
+            ok("Manifest 192 ve 512 px ikonlari bildiriyor (kurulum sarti)")
+        else:
+            fail(f"Kurulum icin gereken ikon boyutlari eksik: {sizes}")
+
+        purposes = {i.get("purpose") for i in mf.get("icons", [])}
+        if "maskable" in purposes:
+            ok("Maskable ikon var (Android adaptive icon)")
+        else:
+            warn("Maskable ikon yok — Android ikonu kirpabilir")
+    except Exception as e:
+        fail("Manifest testi basarisiz", e)
+
+    # 12b. Ikon dosyalari gercekten var
+    try:
+        for path in ["/icons/icon-192.png", "/icons/icon-512.png",
+                     "/icons/icon-maskable-512.png", "/icons/apple-touch-icon.png"]:
+            r_ = page.request.get(f"{BASE}{path}")
+            if r_.ok and len(r_.body()) > 500:
+                ok(f"{path} servis ediliyor ({len(r_.body())} byte)")
+            else:
+                fail(f"{path} eksik veya bos (status={r_.status})")
+    except Exception as e:
+        fail("Ikon dosyasi testi basarisiz", e)
+
+    # 12c. Service worker ve offline sayfasi servis ediliyor
+    try:
+        sw = page.request.get(f"{BASE}/sw.js")
+        if sw.ok:
+            ok("sw.js servis ediliyor")
+            body = sw.text()
+            # Socket trafigini cache'lemek oyunu sessizce bozar — korumanin
+            # yerinde oldugunu dogrula.
+            if "/socket.io" in body:
+                ok("Service worker socket.io trafigini cache disinda birakiyor")
+            else:
+                fail("Service worker socket.io'yu cache disinda birakmiyor")
+        else:
+            fail(f"sw.js {sw.status} donuyor")
+
+        off = page.request.get(f"{BASE}/offline.html")
+        if off.ok and "offline" in off.text().lower():
+            ok("offline.html servis ediliyor")
+        else:
+            fail(f"offline.html eksik (status={off.status})")
+    except Exception as e:
+        fail("Service worker testi basarisiz", e)
+
+    # 12d. Sayfa head'inde manifest linki var
+    try:
+        page.goto(BASE)
+        wait_net(page)
+        link = page.locator('link[rel="manifest"]')
+        if link.count() > 0:
+            ok("Sayfa head'inde <link rel=manifest> var")
+        else:
+            fail("Sayfa head'inde manifest linki yok")
+
+        theme = page.locator('meta[name="theme-color"]')
+        if theme.count() > 0:
+            ok("theme-color meta etiketi var")
+        else:
+            warn("theme-color meta etiketi yok")
+    except Exception as e:
+        fail("Head etiketleri testi basarisiz", e)
+
+    # 12e. Ses tercihi kalici (localStorage) ve toggle calisiyor
+    try:
+        toggle = page.locator("#sound-toggle")
+        if toggle.count() == 0:
+            fail("#sound-toggle butonu bulunamadi")
+            return
+        ok("Ses ac/kapa butonu gorunur")
+
+        if toggle.get_attribute("aria-pressed") == "true":
+            ok("Ses varsayilan olarak acik")
+        else:
+            warn("Ses varsayilan olarak kapali gorunuyor")
+
+        toggle.click()
+        page.wait_for_timeout(400)
+        if toggle.get_attribute("aria-pressed") == "false":
+            ok("Tiklama sesi kapatiyor")
+        else:
+            fail("Tiklama sonrasi aria-pressed guncellenmedi")
+
+        stored = page.evaluate("() => localStorage.getItem('quizzy_sound')")
+        if stored == "off":
+            ok("Ses tercihi localStorage'a yaziliyor")
+        else:
+            fail(f"quizzy_sound beklenen 'off' degil: {stored}")
+
+        page.reload()
+        wait_net(page)
+        toggle = page.locator("#sound-toggle")
+        if toggle.get_attribute("aria-pressed") == "false":
+            ok("Ses tercihi sayfa yenilemeden sonra korunuyor")
+        else:
+            fail("Ses tercihi yenilemeden sonra kaybedildi")
+
+        # Testi diger testler icin varsayilana dondur
+        toggle.click()
+        page.wait_for_timeout(300)
+        ss(page, "17_sound_toggle")
+    except Exception as e:
+        fail("Ses tercihi testi basarisiz", e)
+
+
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 
 def run():
@@ -754,6 +890,12 @@ def run():
             test_invite_link(visual_page, invite_code or room_code)
         except Exception as e:
             fail("Davet linki testi coktu", e)
+
+        # PBI 15 — PWA + cila
+        try:
+            test_pwa_and_polish(visual_page)
+        except Exception as e:
+            fail("PWA/cila testi coktu", e)
 
         browser.close()
 
