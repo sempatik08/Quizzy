@@ -27,6 +27,11 @@ export interface Player {
   name: string;
   team: TeamColor | null;
   isConnected: boolean;
+  /**
+   * Watching rather than playing (PBI 10). Distinct from `team === null`, which
+   * is also true of a player sitting in the lobby who has not picked a side yet.
+   */
+  isSpectator: boolean;
 }
 
 export interface TeamState {

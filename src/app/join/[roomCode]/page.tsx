@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Zap, AlertCircle } from 'lucide-react';
 import { JoinRoomForm } from '@/components/home/JoinRoomForm';
@@ -24,7 +24,10 @@ const CODE_PATTERN = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/;
 
 export default function JoinByLinkPage() {
   const params = useParams();
+  const search = useSearchParams();
   const { t } = useLanguage();
+  // /join/ABC123?watch=1 arrives pre-set to spectate (PBI 10).
+  const wantsToWatch = search.get('watch') === '1';
 
   const raw = Array.isArray(params.roomCode) ? params.roomCode[0] : params.roomCode;
   const code = (raw ?? '').toUpperCase();
@@ -50,7 +53,12 @@ export default function JoinByLinkPage() {
                 </h1>
                 <p className="text-sm text-quizzy-muted mt-1">{t.invitedHint}</p>
               </div>
-              <JoinRoomForm initialCode={code} lockCode autoFocusName />
+              <JoinRoomForm
+                initialCode={code}
+                lockCode
+                autoFocusName
+                defaultSpectate={wantsToWatch}
+              />
             </>
           ) : (
             <div className="text-center">

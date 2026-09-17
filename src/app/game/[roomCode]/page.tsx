@@ -13,6 +13,7 @@ import { SurrenderPanel } from '@/components/game/SurrenderPanel';
 import { JokerPanel } from '@/components/game/JokerPanel';
 import { EmojiBar } from '@/components/game/EmojiBar';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
+import { SpectatorBanner } from '@/components/shared/SpectatorBanner';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSound } from '@/context/SoundContext';
@@ -30,6 +31,8 @@ export default function GamePage() {
     playerId,
     myTeam,
     isCaptain,
+    isSpectator,
+    spectators,
     timeLeft,
     answerReveal,
     isMyTurn,
@@ -183,6 +186,9 @@ export default function GamePage() {
         </div>
       )}
 
+      {/* Spectator notice / watcher count (PBI 10) */}
+      <SpectatorBanner isSpectator={isSpectator} spectators={spectators} />
+
       {/* Scoreboard */}
       <div className="w-full max-w-2xl mb-5">
         <ScoreBoard room={room} playerId={playerId} />
@@ -288,9 +294,10 @@ export default function GamePage() {
         </div>
       )}
 
-      {/* Emoji reactions (PBI 11) — available to anyone in the room, whatever
-          the phase, so a finished or waiting room is not silent. */}
-      {myTeam && (
+      {/* Emoji reactions (PBI 11) — available to anyone in the room, spectators
+          included: a reaction carries no information about the answer, and it is
+          the one thing a watcher can meaningfully do. */}
+      {(myTeam || isSpectator) && (
         <div className="w-full max-w-2xl mt-6">
           <EmojiBar reactions={reactions} onSend={actions.sendEmoji} />
         </div>

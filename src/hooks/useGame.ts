@@ -36,6 +36,10 @@ export interface UseGameReturn {
   isCaptain: boolean;
   isMyTurn: boolean;
   isHost: boolean;
+  /** I am watching, not playing (PBI 10). */
+  isSpectator: boolean;
+  /** Everyone in the room who is watching rather than playing. */
+  spectators: Room['players'][string][];
   myVote: string | null;
   /** A steal window is open on the current question. */
   isStealActive: boolean;
@@ -223,8 +227,9 @@ export function useGame(roomCode: string): UseGameReturn {
 
   const isCaptain = useMemo(() => {
     if (!room || !playerId || !myTeam) return false;
+    if (myPlayer?.isSpectator) return false;
     return room.teams[myTeam].captain === playerId;
-  }, [room, playerId, myTeam]);
+  }, [room, playerId, myTeam, myPlayer?.isSpectator]);
 
   const isMyTurn = useMemo(() => {
     if (!room || !myTeam) return false;
@@ -235,6 +240,13 @@ export function useGame(roomCode: string): UseGameReturn {
     if (!room || !playerId) return false;
     return room.hostId === playerId;
   }, [room, playerId]);
+
+  const isSpectator = myPlayer?.isSpectator === true;
+
+  const spectators = useMemo(
+    () => (room ? Object.values(room.players).filter((p) => p.isSpectator) : []),
+    [room],
+  );
 
   const myVote = useMemo(() => {
     if (!room?.activeQuestion || !playerId) return null;
@@ -319,6 +331,8 @@ export function useGame(roomCode: string): UseGameReturn {
     isCaptain,
     isMyTurn,
     isHost,
+    isSpectator,
+    spectators,
     myVote,
     isStealActive,
     isMyStealTurn,

@@ -19,6 +19,16 @@ const translations = {
     enterYourName: 'Enter your name.',
     nameTooLong: 'Name too long (max 20 chars).',
     invalidRoomCode: 'Room code must be 6 characters.',
+    // Spectator (PBI 10)
+    watchInstead: 'Watch instead of playing',
+    watchHint: 'Join any room as a spectator, even mid-match.',
+    watchRoomBtn: 'Watch Room',
+    watching: 'Watching…',
+    spectator: 'Spectator',
+    spectatorBanner: 'You are watching. You cannot vote, use jokers or surrender.',
+    spectators: 'Spectators',
+    noSpectators: 'No spectators',
+    joinAsPlayer: 'Join a team to play',
     // Difficulty (PBI 7)
     difficultyEasy: 'Easy',
     difficultyMedium: 'Medium',
@@ -189,6 +199,16 @@ const translations = {
     enterYourName: 'Adını gir.',
     nameTooLong: 'Ad çok uzun (maks. 20 karakter).',
     invalidRoomCode: 'Oda kodu 6 karakter olmalıdır.',
+    // Seyirci (PBI 10)
+    watchInstead: 'Oynamak yerine izle',
+    watchHint: 'Maç sürerken bile herhangi bir odaya seyirci olarak girebilirsin.',
+    watchRoomBtn: 'Odayı İzle',
+    watching: 'İzleniyor…',
+    spectator: 'Seyirci',
+    spectatorBanner: 'İzliyorsun. Oy veremez, joker kullanamaz, teslim olamazsın.',
+    spectators: 'Seyirciler',
+    noSpectators: 'Seyirci yok',
+    joinAsPlayer: 'Oynamak için bir takıma katıl',
     // Zorluk (PBI 7)
     difficultyEasy: 'Kolay',
     difficultyMedium: 'Orta',

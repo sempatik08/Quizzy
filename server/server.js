@@ -188,14 +188,20 @@ io.on('connection', (socket) => {
     }
 
     const code = payload.roomCode.toUpperCase();
-    const result = joinRoom(code, payload.playerName, socket.id);
+    // Spectator is opt-in and boolean-coerced: a truthy string from a hand-rolled
+    // client must not smuggle in anything but a spectator flag (PBI 10).
+    const asSpectator = payload.asSpectator === true;
+    const result = joinRoom(code, payload.playerName, socket.id, asSpectator);
 
     if (result.error) return socket.emit('room:error', { message: result.error });
 
     socketToPlayer.set(socket.id, { roomCode: code, playerId: result.playerId });
     socket.join(code);
 
-    console.log(`[Room] ${result.room.players[result.playerId].name} joined: ${code}`);
+    console.log(
+      `[Room] ${result.room.players[result.playerId].name} joined: ${code}` +
+        `${asSpectator ? ' (spectator)' : ''}`,
+    );
 
     // Notify the joining player
     socket.emit('room:joined', { playerId: result.playerId, room: sanitizeRoom(result.room) });
@@ -243,6 +249,16 @@ io.on('connection', (socket) => {
       return socket.emit('game:error', { message: 'Invalid team.' });
     }
     if (isRateLimited(context.playerId)) return;
+
+    // A spectator can still take a team while the room is in the lobby; once the
+    // match has started, say so plainly instead of returning a phase error.
+    const joining = getRoom(context.roomCode);
+    const joiner = joining?.players?.[context.playerId];
+    if (joiner?.isSpectator && joining.phase !== 'lobby') {
+      return socket.emit('game:error', {
+        message: 'Spectators cannot join a team once the match has started.',
+      });
+    }
 
     const result = joinTeam(context.roomCode, context.playerId, payload.team);
     if (result.error) return socket.emit('game:error', { message: result.error });
@@ -383,6 +399,10 @@ io.on('connection', (socket) => {
     const room = getRoom(context.roomCode);
     if (!room) return socket.emit('room:error', { message: 'Room not found.' });
 
+    if (room.players[context.playerId]?.isSpectator) {
+      return socket.emit('game:error', { message: 'Spectators cannot vote.' });
+    }
+
     const result = castVote(room, context.playerId, payload.optionKey);
     if (result.error) return socket.emit('game:error', { message: result.error });
 
@@ -430,6 +450,10 @@ io.on('connection', (socket) => {
     const room = getRoom(context.roomCode);
     if (!room) return socket.emit('room:error', { message: 'Room not found.' });
     if (room.phase !== 'question') return;
+
+    if (room.players[context.playerId]?.isSpectator) {
+      return socket.emit('game:error', { message: 'Spectators cannot pass a steal.' });
+    }
 
     const result = passSteal(room, context.playerId, io);
     if (result.error) return socket.emit('game:error', { message: result.error });
@@ -502,6 +526,10 @@ io.on('connection', (socket) => {
     const room = getRoom(context.roomCode);
     if (!room) return socket.emit('room:error', { message: 'Room not found.' });
 
+    if (room.players[context.playerId]?.isSpectator) {
+      return socket.emit('game:error', { message: 'Spectators cannot use jokers.' });
+    }
+
     const result = useJoker(room, context.playerId, payload.type, io);
     if (result.error) return socket.emit('game:error', { message: result.error });
 
@@ -527,6 +555,10 @@ io.on('connection', (socket) => {
 
     const room = getRoom(context.roomCode);
     if (!room) return socket.emit('room:error', { message: 'Room not found.' });
+
+    if (room.players[context.playerId]?.isSpectator) {
+      return socket.emit('game:error', { message: 'Spectators cannot start a rematch.' });
+    }
 
     const result = requestRematch(room, context.playerId);
     if (result.error) return socket.emit('game:error', { message: result.error });
@@ -571,6 +603,9 @@ io.on('connection', (socket) => {
     }
 
     const player = room.players[context.playerId];
+    if (player?.isSpectator) {
+      return socket.emit('game:error', { message: 'Spectators cannot surrender.' });
+    }
     if (!player?.team) return socket.emit('game:error', { message: 'You are not in a team.' });
 
     const team = player.team;

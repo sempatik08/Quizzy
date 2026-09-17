@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { LogIn, Loader2 } from 'lucide-react';
+import { LogIn, Loader2, Eye } from 'lucide-react';
 import { getSocket } from '@/lib/socket';
 import { useLanguage } from '@/context/LanguageContext';
 import type { RoomJoinedPayload, RoomErrorPayload } from '@/types';
@@ -20,12 +20,15 @@ interface JoinRoomFormProps {
   lockCode?: boolean;
   /** Autofocuses the name field — right when the code arrived from a link. */
   autoFocusName?: boolean;
+  /** Starts the spectate toggle on, for a ?watch=1 invite link (PBI 10). */
+  defaultSpectate?: boolean;
 }
 
 export function JoinRoomForm({
   initialCode = '',
   lockCode = false,
   autoFocusName = false,
+  defaultSpectate = false,
 }: JoinRoomFormProps = {}) {
   const router = useRouter();
   const { t } = useLanguage();
@@ -34,6 +37,7 @@ export function JoinRoomForm({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pendingCode, setPendingCode] = useState('');
+  const [spectate, setSpectate] = useState(defaultSpectate);
 
   // The invite route resolves its param on the client, so the code can arrive
   // after first render.
@@ -81,7 +85,12 @@ export function JoinRoomForm({
 
     const socket = getSocket();
     if (!socket.connected) socket.connect();
-    socket.emit('room:join', { playerName: trimmedName, roomCode: trimmedCode });
+    socket.emit('room:join', {
+      playerName: trimmedName,
+      roomCode: trimmedCode,
+      // Only sent as true; the server coerces strictly anyway.
+      ...(spectate ? { asSpectator: true } : {}),
+    });
   };
 
   return (
@@ -121,6 +130,28 @@ export function JoinRoomForm({
         />
       </div>
 
+      {/* Spectate toggle (PBI 10) — a spectator may join a match already in
+          progress, which a player cannot. */}
+      <label
+        htmlFor="join-spectate"
+        className="flex items-start gap-2.5 cursor-pointer select-none"
+      >
+        <input
+          id="join-spectate"
+          type="checkbox"
+          checked={spectate}
+          onChange={(e) => { setSpectate(e.target.checked); setError(null); }}
+          className="mt-0.5 w-4 h-4 rounded accent-red-soft cursor-pointer"
+        />
+        <span>
+          <span className="flex items-center gap-1.5 text-sm font-semibold text-quizzy-text">
+            <Eye size={14} />
+            {t.watchInstead}
+          </span>
+          <span className="block text-xs text-quizzy-muted mt-0.5">{t.watchHint}</span>
+        </span>
+      </label>
+
       {error && (
         <p className="text-sm text-red-soft font-medium">{error}</p>
       )}
@@ -132,10 +163,14 @@ export function JoinRoomForm({
       >
         {loading ? (
           <Loader2 size={18} className="animate-spin" />
+        ) : spectate ? (
+          <Eye size={18} />
         ) : (
           <LogIn size={18} />
         )}
-        {loading ? t.joining : t.joinRoomBtn}
+        {loading
+          ? (spectate ? t.watching : t.joining)
+          : (spectate ? t.watchRoomBtn : t.joinRoomBtn)}
       </button>
     </form>
   );

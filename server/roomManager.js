@@ -11,6 +11,15 @@ const rooms = new Map();
  */
 const STEAL_CHARGES_PER_TEAM = 2;
 
+/** Players who can actually take a turn: 3 per team. */
+const MAX_PLAYERS = 6;
+/**
+ * Spectators get their own, larger allowance and do NOT consume player slots
+ * (PBI 10). Sharing one cap would let a crowd of watchers lock out the sixth
+ * player, which is backwards.
+ */
+const MAX_SPECTATORS = 20;
+
 // Captain election timeout handles (not stored in room to avoid serialization issues)
 const captainElectionHandles = new Map(); // key: `${roomCode}_${team}` → timeout handle
 
@@ -68,6 +77,7 @@ function createRoom(playerName, socketId) {
     name: sanitizeName(playerName),
     team: null,
     isConnected: true,
+    isSpectator: false,
   };
 
   /** @type {import('./types').Room} */
@@ -114,19 +124,36 @@ function createRoom(playerName, socketId) {
 }
 
 /**
- * Join an existing room.
+ * Join an existing room, as a player or as a spectator (PBI 10).
+ *
+ * A spectator may join at ANY phase — that is the whole point, since a match
+ * worth watching is one already in progress. Players are still refused once the
+ * game has started, because teams are locked and turn order is fixed.
+ *
  * @param {string} roomCode
  * @param {string} playerName
  * @param {string} socketId
+ * @param {boolean} [asSpectator]
  * @returns {{ error?: string, playerId?: string, room?: import('./types').Room }}
  */
-function joinRoom(roomCode, playerName, socketId) {
+function joinRoom(roomCode, playerName, socketId, asSpectator = false) {
   const room = rooms.get(roomCode);
   if (!room) return { error: 'Room not found.' };
-  if (room.phase !== 'lobby') return { error: 'Game is already in progress.' };
 
-  const totalPlayers = Object.keys(room.players).length;
-  if (totalPlayers >= 6) return { error: 'Room is full (max 6 players).' };
+  const roster = Object.values(room.players);
+
+  if (asSpectator) {
+    const spectators = roster.filter((p) => p.isSpectator).length;
+    if (spectators >= MAX_SPECTATORS) {
+      return { error: `Too many spectators (max ${MAX_SPECTATORS}).` };
+    }
+  } else {
+    if (room.phase !== 'lobby') {
+      return { error: 'Game is already in progress. You can join as a spectator instead.' };
+    }
+    const players = roster.filter((p) => !p.isSpectator).length;
+    if (players >= MAX_PLAYERS) return { error: `Room is full (max ${MAX_PLAYERS} players).` };
+  }
 
   const playerId = randomUUID();
   room.players[playerId] = {
@@ -135,6 +162,7 @@ function joinRoom(roomCode, playerName, socketId) {
     name: sanitizeName(playerName),
     team: null,
     isConnected: true,
+    isSpectator: Boolean(asSpectator),
   };
   room.lastActivityAt = Date.now();
 
@@ -211,6 +239,10 @@ function joinTeam(roomCode, playerId, team) {
 
   const targetTeam = room.teams[team];
   if (targetTeam.players.length >= 3) return { error: `The ${team} team is full (max 3 players).` };
+
+  // Taking a team in the lobby converts a spectator into a player. joinTeam
+  // already refuses once the game has started, so this cannot happen mid-match.
+  player.isSpectator = false;
 
   // Remove from current team first
   if (player.team) {
@@ -377,4 +409,6 @@ module.exports = {
   cleanupRoom,
   cleanupStaleRooms,
   STEAL_CHARGES_PER_TEAM,
+  MAX_PLAYERS,
+  MAX_SPECTATORS,
 };

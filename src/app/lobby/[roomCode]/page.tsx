@@ -6,6 +6,7 @@ import { Lock, Loader2, Zap } from 'lucide-react';
 import { useGame } from '@/hooks/useGame';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { InviteLink } from '@/components/shared/InviteLink';
+import { SpectatorBanner } from '@/components/shared/SpectatorBanner';
 import { TeamPanel } from '@/components/lobby/TeamPanel';
 import { CoinToss } from '@/components/lobby/CoinToss';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
@@ -22,6 +23,8 @@ export default function LobbyPage() {
     playerId,
     isHost,
     isCaptain,
+    isSpectator,
+    spectators,
     actions,
     roomError,
     gameError,
@@ -73,6 +76,9 @@ export default function LobbyPage() {
           <InviteLink code={roomCode} />
         </div>
       )}
+
+      {/* Spectator notice / watcher count (PBI 10) */}
+      <SpectatorBanner isSpectator={isSpectator} spectators={spectators} />
 
       {/* Error messages */}
       {(roomError || gameError) && (
