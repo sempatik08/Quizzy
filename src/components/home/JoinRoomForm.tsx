@@ -9,14 +9,37 @@ import type { RoomJoinedPayload, RoomErrorPayload } from '@/types';
 
 const SESSION_KEY = (roomCode: string) => `quizzy_player_${roomCode}`;
 
-export function JoinRoomForm() {
+interface JoinRoomFormProps {
+  /** Pre-fills the room code — used by the /join/<code> invite route (PBI 12). */
+  initialCode?: string;
+  /**
+   * Shows the pre-filled code as read-only text instead of an editable input.
+   * An invited player only has to type a name; letting them edit the code they
+   * just clicked is noise.
+   */
+  lockCode?: boolean;
+  /** Autofocuses the name field — right when the code arrived from a link. */
+  autoFocusName?: boolean;
+}
+
+export function JoinRoomForm({
+  initialCode = '',
+  lockCode = false,
+  autoFocusName = false,
+}: JoinRoomFormProps = {}) {
   const router = useRouter();
   const { t } = useLanguage();
   const [name, setName] = useState('');
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(initialCode.toUpperCase());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pendingCode, setPendingCode] = useState('');
+
+  // The invite route resolves its param on the client, so the code can arrive
+  // after first render.
+  useEffect(() => {
+    if (initialCode) setCode(initialCode.toUpperCase());
+  }, [initialCode]);
 
   useEffect(() => {
     const socket = getSocket();
@@ -74,6 +97,7 @@ export function JoinRoomForm() {
           onChange={(e) => { setName(e.target.value); setError(null); }}
           placeholder={t.enterName}
           maxLength={20}
+          autoFocus={autoFocusName}
           className="w-full px-4 py-2.5 rounded-xl border border-quizzy-border bg-quizzy-card text-quizzy-text placeholder:text-quizzy-subtle focus:outline-none focus:ring-2 focus:ring-red-soft focus:border-transparent transition"
         />
       </div>
@@ -89,7 +113,11 @@ export function JoinRoomForm() {
           onChange={(e) => { setCode(e.target.value.toUpperCase()); setError(null); }}
           placeholder="e.g. A3BKW9"
           maxLength={6}
-          className="w-full px-4 py-2.5 rounded-xl border border-quizzy-border bg-quizzy-card text-quizzy-text placeholder:text-quizzy-subtle font-mono tracking-widest uppercase focus:outline-none focus:ring-2 focus:ring-red-soft focus:border-transparent transition"
+          readOnly={lockCode}
+          aria-readonly={lockCode}
+          className={`w-full px-4 py-2.5 rounded-xl border border-quizzy-border text-quizzy-text placeholder:text-quizzy-subtle font-mono tracking-widest uppercase focus:outline-none focus:ring-2 focus:ring-red-soft focus:border-transparent transition ${
+            lockCode ? 'bg-quizzy-bg cursor-default' : 'bg-quizzy-card'
+          }`}
         />
       </div>
 

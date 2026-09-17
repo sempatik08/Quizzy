@@ -13,6 +13,9 @@ Testler:
   6. Renk kontrast + hover + okunabilirlik taramasi
   7. Ustte bindirme / layout bozulmasi kontrolu
   8. Yinelenen soru kontrolu (question bank)
+  9. Gecersiz oda kodu hata mesaji
+ 10. Davet linki: /join/<kod> on-doldurma + gecersiz link (PBI 12)
+ 11. Lobide davet linki paneli (PBI 12)
 """
 
 import sys, io, re, time, math, os, json
@@ -491,73 +494,49 @@ def test_layout_overlap(page: Page):
     except Exception as e:
         fail("Mobil gorunum kontrolu basarisiz", e)
 
-# ─── TEST 8: Yinelenen Soru Kontrolu ────────────────────────────────────────
+# ─── TEST 8: Soru Bankasi Butunlugu ─────────────────────────────────────────
 
 def test_duplicate_questions():
-    section("TEST 8 — Yinelenen Soru Kontrolu (Soru Bankasi)")
+    """Soru bankasi kontrolunu tests/question_bank_test.js'e devreder.
 
-    import subprocess, sys as _sys
-    result = subprocess.run(
-        [_sys.executable, "-c", """
-import json, sys
-sys.path.insert(0, '.')
-# Node.js ile soru bankasini cek
-import subprocess
-out = subprocess.run(
-    ['node', '-e', '''
-const { QUESTIONS } = require('./server/questions');
-const out = {};
-for(const [cat, qs] of Object.entries(QUESTIONS)) {
-    out[cat] = qs.map(q => ({ id: q.id, text: q.text }));
-}
-process.stdout.write(JSON.stringify(out));
-'''],
-    capture_output=True, text=True, cwd='.'
-)
-print(out.stdout)
-"""],
-        capture_output=True, text=True, encoding='utf-8'
-    )
+    Onceki hali python -> python -> node seklinde ic ice subprocess kuruyor ve
+    node'un UTF-8 cikisini sistemin ANSI codepage'i (cp1254) ile decode etmeye
+    calisiyordu; bankada 'Chloe Zhao' ya da en-dash gibi tek bir cp1254-disi
+    karakter olmasi tum testi UnicodeDecodeError ile dusuruyordu.
 
-    raw = result.stdout.strip()
-    if not raw:
-        fail("Soru bankasi okunamadi")
-        return
+    Node suite'i ayni kontrolleri (ID + metin tekilligi) nativ olarak yapiyor,
+    ustune sik/cevap sekli ve TR ceviri tamligini da kontrol ediyor. Burada
+    sadece calistirip PASS/FAIL satirlarini bu rapora aktariyoruz — tek
+    subprocess, explicit utf-8, kod tekrari yok.
+    """
+    section("TEST 8 — Soru Bankasi Butunlugu (question_bank_test.js)")
 
+    import subprocess
     try:
-        data = json.loads(raw)
+        result = subprocess.run(
+            ["node", "tests/question_bank_test.js"],
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+            cwd=".", timeout=120,
+        )
     except Exception as e:
-        fail(f"JSON parse hatasi: {e}")
+        fail("question_bank_test.js calistirilamadi", e)
         return
 
-    total_dupes = 0
-    for cat, questions in data.items():
-        texts = [q["text"].strip().lower() for q in questions]
-        ids   = [q["id"] for q in questions]
+    lines = (result.stdout or "").splitlines()
+    if not lines:
+        fail(f"question_bank_test.js cikti uretmedi (rc={result.returncode}) {result.stderr[:200]}")
+        return
 
-        # ID tekrari
-        seen_ids = {}
-        for qid in ids:
-            seen_ids[qid] = seen_ids.get(qid, 0) + 1
-        id_dupes = {k: v for k, v in seen_ids.items() if v > 1}
-        if id_dupes:
-            fail(f"[{cat}] Yinelenen ID'ler: {id_dupes}")
-            total_dupes += len(id_dupes)
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("[PASS] "):
+            ok(stripped[7:])
+        elif stripped.startswith("[FAIL] "):
+            fail(stripped[7:])
 
-        # Metin tekrari
-        seen_texts = {}
-        for t in texts:
-            seen_texts[t] = seen_texts.get(t, 0) + 1
-        text_dupes = {k[:60]: v for k, v in seen_texts.items() if v > 1}
-        if text_dupes:
-            fail(f"[{cat}] Yinelenen SORULAR: {text_dupes}")
-            total_dupes += len(text_dupes)
+    if result.returncode != 0:
+        fail(f"question_bank_test.js basarisiz dondu (rc={result.returncode})")
 
-        if not id_dupes and not text_dupes:
-            ok(f"[{cat}] {len(questions)} soru — tekrar yok")
-
-    if total_dupes == 0:
-        ok("Tum kategorilerde yinelenen soru/ID bulunamadi")
 
 # ─── TEST 9: Gecersiz Oda Kodu ───────────────────────────────────────────────
 
@@ -586,6 +565,123 @@ def test_invalid_room_code(page: Page):
         ss(page, "13_invalid_code")
     except Exception as e:
         fail("Gecersiz kod testi basarisiz", e)
+
+# ─── TEST 10: Davet Linki (PBI 12) ───────────────────────────────────────────
+
+def test_invite_link(page: Page, room_code: str):
+    section(f"TEST 10 — Davet Linki (/join/{room_code})")
+
+    # 10a. Lobide davet linki gorunur ve dogru URL'i tasir
+    try:
+        page.goto(f"{BASE}/join/{room_code}")
+        wait_net(page)
+
+        code_input = page.locator("#join-code")
+        assert code_input.count() > 0, "#join-code yok"
+        filled = code_input.input_value()
+        if filled.upper() == room_code.upper():
+            ok(f"Davet linki oda kodunu otomatik doldurdu ({filled})")
+        else:
+            fail(f"Kod alani beklenen {room_code} degil: '{filled}'")
+
+        if code_input.get_attribute("readonly") is not None:
+            ok("Onceden dolu kod alani salt-okunur")
+        else:
+            warn("Kod alani davet linkinde duzenlenebilir kalmis")
+
+        name_input = page.locator("#join-name")
+        assert name_input.count() > 0, "#join-name yok"
+        if name_input.input_value() == "":
+            ok("Isim alani bos — davet edilen oyuncunun tek yapmasi gereken bu")
+        else:
+            warn("Isim alani beklenmedik sekilde dolu")
+
+        # Sadece isim girilince buton aktif olmali (kod zaten dolu)
+        join_btn = page.get_by_role("button", name=re.compile(r"join room|odaya katil", re.I)).first
+        if join_btn.is_disabled():
+            ok("Isim girilmeden Join butonu disabled")
+        else:
+            warn("Isim bos iken Join butonu aktif")
+
+        name_input.fill("DavetliOyuncu")
+        page.wait_for_timeout(300)
+        if not join_btn.is_disabled():
+            ok("Sadece isim girilince Join butonu aktifleşiyor")
+        else:
+            fail("Isim girildi ama Join butonu hala disabled")
+
+        ss(page, "14_invite_link_prefill")
+    except Exception as e:
+        fail("Davet linki on-doldurma testi basarisiz", e)
+
+    # 10b. Gecersiz kodlu link okunabilir bir hata gosterir
+    try:
+        page.goto(f"{BASE}/join/ABC")
+        wait_net(page)
+        body = page.locator("body").inner_text().lower()
+        if any(kw in body for kw in ["not valid", "gecerli degil", "geçerli değil",
+                                     "6 characters", "6 karakter"]):
+            ok("Kisa/gecersiz davet linki hata mesaji gosteriyor")
+        else:
+            fail(f"Gecersiz davet linki icin hata mesaji yok: {body[:120]}")
+
+        if page.locator("#join-code").count() == 0:
+            ok("Gecersiz linkte katilma formu hic gosterilmiyor")
+        else:
+            warn("Gecersiz linkte katilma formu yine de render edildi")
+
+        # Oda kodu alfabesi 0/O/1/I/L icermez — bunlari tasiyan link gercek olamaz
+        page.goto(f"{BASE}/join/OOIILL")
+        wait_net(page)
+        body = page.locator("body").inner_text().lower()
+        if any(kw in body for kw in ["not valid", "gecerli degil", "geçerli değil",
+                                     "6 characters", "6 karakter"]):
+            ok("Yasakli karakterli (O/I/L) link de reddediliyor")
+        else:
+            warn("O/I/L iceren link gecerli sayildi")
+
+        ss(page, "15_invite_link_invalid")
+    except Exception as e:
+        fail("Gecersiz davet linki testi basarisiz", e)
+
+
+# ─── TEST 11: Lobide Davet Linki Paneli (PBI 12) ─────────────────────────────
+
+def test_lobby_invite_panel(page: Page):
+    section("TEST 11 — Lobide Davet Linki Paneli")
+    try:
+        page.goto(BASE)
+        wait_net(page)
+        page.locator("#create-name").fill("LinkHost")
+        page.get_by_role("button", name=re.compile(r"create room|oda olustur|oda oluştur", re.I)).first.click()
+        page.wait_for_url(re.compile(r"/lobby/[A-Z0-9]{6}"), timeout=15000)
+        wait_net(page)
+
+        code = page.url.rstrip("/").split("/")[-1]
+
+        url_el = page.locator("#invite-url")
+        if url_el.count() > 0:
+            ok("Lobide davet linki paneli gorunuyor")
+            shown = url_el.inner_text()
+            if f"/join/{code}" in shown:
+                ok(f"Panel dogru davet URL'ini gosteriyor ({shown})")
+            else:
+                fail(f"Panel URL'i /join/{code} icermiyor: '{shown}'")
+        else:
+            fail("Lobide #invite-url paneli bulunamadi")
+
+        copy_btn = page.locator("#copy-invite-link")
+        if copy_btn.count() > 0 and copy_btn.is_visible():
+            ok("Linki kopyala butonu var ve gorunur")
+        else:
+            fail("Linki kopyala butonu yok")
+
+        ss(page, "16_lobby_invite_panel")
+        return code
+    except Exception as e:
+        fail("Lobi davet paneli testi basarisiz", e)
+        return None
+
 
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 
@@ -646,6 +742,18 @@ def run():
             test_invalid_room_code(visual_page)
         except Exception as e:
             fail("Gecersiz kod testi coktu", e)
+
+        # PBI 12 — davet linki
+        try:
+            invite_code = test_lobby_invite_panel(visual_page)
+        except Exception as e:
+            fail("Lobi davet paneli testi coktu", e)
+            invite_code = None
+
+        try:
+            test_invite_link(visual_page, invite_code or room_code)
+        except Exception as e:
+            fail("Davet linki testi coktu", e)
 
         browser.close()
 

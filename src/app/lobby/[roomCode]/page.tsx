@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { Lock, Loader2, Zap } from 'lucide-react';
 import { useGame } from '@/hooks/useGame';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
+import { InviteLink } from '@/components/shared/InviteLink';
 import { TeamPanel } from '@/components/lobby/TeamPanel';
 import { CoinToss } from '@/components/lobby/CoinToss';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
@@ -65,6 +66,13 @@ export default function LobbyPage() {
         </div>
         <RoomCodeBadge code={roomCode} />
       </div>
+
+      {/* Invite link — only while the room can still take players (PBI 12) */}
+      {room.phase === 'lobby' && (
+        <div className="w-full max-w-3xl flex justify-center mb-6">
+          <InviteLink code={roomCode} />
+        </div>
+      )}
 
       {/* Error messages */}
       {(roomError || gameError) && (
