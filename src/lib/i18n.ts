@@ -19,6 +19,9 @@ const translations = {
     enterYourName: 'Enter your name.',
     nameTooLong: 'Name too long (max 20 chars).',
     invalidRoomCode: 'Room code must be 6 characters.',
+    // Emoji reactions (PBI 11)
+    emojiReact: 'React',
+    emojiCooldown: 'Wait',
     // Jokers (PBI 6)
     jokers: 'Jokers',
     jokerFiftyFifty: '50/50',
@@ -182,6 +185,9 @@ const translations = {
     enterYourName: 'Adını gir.',
     nameTooLong: 'Ad çok uzun (maks. 20 karakter).',
     invalidRoomCode: 'Oda kodu 6 karakter olmalıdır.',
+    // Emoji tepkileri (PBI 11)
+    emojiReact: 'Tepki',
+    emojiCooldown: 'Bekle',
     // Jokerler (PBI 6)
     jokers: 'Jokerler',
     jokerFiftyFifty: '50/50',

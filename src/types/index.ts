@@ -151,3 +151,25 @@ export interface AnswerRevealPayload {
 export interface TimerTickPayload {
   timeLeft: number;
 }
+
+/** Reaction names, validated server-side against server/emoji.js (PBI 11). */
+export type EmojiName =
+  | 'thumbs_up'
+  | 'fire'
+  | 'laugh'
+  | 'shock'
+  | 'sad'
+  | 'clap'
+  | 'thinking'
+  | 'heart';
+
+export interface EmojiReactionPayload {
+  /** `${playerId}-${timestamp}` — unique per reaction, used as the React key. */
+  id: string;
+  playerId: string;
+  playerName: string;
+  /** null for a player who has not joined a team. */
+  team: TeamColor | null;
+  emoji: EmojiName;
+  at: number;
+}

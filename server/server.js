@@ -17,6 +17,7 @@
 const http = require('http');
 const { Server } = require('socket.io');
 const { CATEGORY_KEYS } = require('./questions');
+const { EMOJI_COOLDOWN_MS, isValidEmoji } = require('./emoji');
 const {
   createRoom,
   joinRoom,
@@ -97,6 +98,9 @@ function isValidString(val, min, max) {
 function isValidCategory(val) {
   return CATEGORY_KEYS.includes(val);
 }
+
+/** playerId -> last reaction timestamp, for the per-player emoji cooldown. */
+const emojiLastSent = new Map();
 
 function isValidJoker(val) {
   return ['fifty_fifty', 'extra_time'].includes(val);
@@ -428,6 +432,54 @@ io.on('connection', (socket) => {
   });
 
   // =========================================================================
+  // EMOJI REACTIONS (PBI 11)
+  // =========================================================================
+
+  /**
+   * Send a reaction to everyone in the room.
+   * Payload: { emoji: <one of ALLOWED_EMOJI> }
+   *
+   * Room-wide rather than team-only: the default match is 1v1, where a
+   * team-only reaction would be visible to nobody. Reactions carry no
+   * information about the answer, so there is no advantage to leak.
+   *
+   * Reactions are deliberately NOT stored on the room. They are ephemeral, so
+   * keeping a list would grow room state forever, get cloned by sanitizeRoom on
+   * every emit, and replay stale reactions to anyone who reconnects.
+   */
+  socket.on('emoji:send', (payload) => {
+    const context = ctx();
+    if (!context) return;
+    if (!payload || !isValidEmoji(payload.emoji)) {
+      return socket.emit('game:error', { message: 'Invalid reaction.' });
+    }
+
+    const room = getRoom(context.roomCode);
+    if (!room) return socket.emit('room:error', { message: 'Room not found.' });
+
+    const player = room.players[context.playerId];
+    if (!player) return socket.emit('game:error', { message: 'Player not found.' });
+
+    const now = Date.now();
+    const last = emojiLastSent.get(context.playerId) || 0;
+    if (now - last < EMOJI_COOLDOWN_MS) {
+      // Dropped silently: an error toast on every fast tap would be worse spam
+      // than the reaction it is refusing.
+      return;
+    }
+    emojiLastSent.set(context.playerId, now);
+
+    io.to(room.code).emit('emoji:reaction', {
+      id: `${context.playerId}-${now}`,
+      playerId: context.playerId,
+      playerName: player.name,
+      team: player.team,
+      emoji: payload.emoji,
+      at: now,
+    });
+  });
+
+  // =========================================================================
   // JOKERS (PBI 6)
   // =========================================================================
 
@@ -602,6 +654,9 @@ io.on('connection', (socket) => {
     socketToPlayer.delete(socket.id);
 
     if (!context) return;
+
+    // Otherwise the cooldown map grows for the life of the process.
+    emojiLastSent.delete(context.playerId);
 
     const room = disconnectPlayer(context.roomCode, context.playerId);
     if (room) {

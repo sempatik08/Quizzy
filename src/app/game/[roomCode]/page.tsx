@@ -11,6 +11,7 @@ import { WinnerScreen } from '@/components/game/WinnerScreen';
 import { StealBanner } from '@/components/game/StealBanner';
 import { SurrenderPanel } from '@/components/game/SurrenderPanel';
 import { JokerPanel } from '@/components/game/JokerPanel';
+import { EmojiBar } from '@/components/game/EmojiBar';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
 import { useLanguage } from '@/context/LanguageContext';
@@ -35,6 +36,7 @@ export default function GamePage() {
     isMyStealTurn,
     myJokers,
     canUseJoker,
+    reactions,
     myTeamWantsRematch,
     opponentWantsRematch,
     gameError,
@@ -262,6 +264,14 @@ export default function GamePage() {
             onInitiate={actions.initiateSurrender}
             onVote={actions.voteSurrender}
           />
+        </div>
+      )}
+
+      {/* Emoji reactions (PBI 11) — available to anyone in the room, whatever
+          the phase, so a finished or waiting room is not silent. */}
+      {myTeam && (
+        <div className="w-full max-w-2xl mt-6">
+          <EmojiBar reactions={reactions} onSend={actions.sendEmoji} />
         </div>
       )}
 

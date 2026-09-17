@@ -43,6 +43,7 @@ module.exports = {
         'confetti-fall': 'confettiFall linear forwards',
         'pop-in':        'popIn 0.32s cubic-bezier(0.34,1.56,0.64,1)',
         'shake':         'shake 0.4s cubic-bezier(0.36,0.07,0.19,0.97)',
+        'emoji-float':   'emojiFloat 2.6s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -78,6 +79,12 @@ module.exports = {
           '0%, 100%':   { transform: 'translateX(0)' },
           '20%, 60%':   { transform: 'translateX(-5px)' },
           '40%, 80%':   { transform: 'translateX(5px)' },
+        },
+        emojiFloat: {
+          '0%':   { opacity: '0', transform: 'translateY(6px) scale(0.7)' },
+          '15%':  { opacity: '1', transform: 'translateY(0) scale(1.15)' },
+          '30%':  { transform: 'translateY(-14px) scale(1)' },
+          '100%': { opacity: '0', transform: 'translateY(-96px) scale(0.9)' },
         },
       },
     },

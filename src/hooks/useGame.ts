@@ -2,9 +2,12 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { getSocket } from '@/lib/socket';
+import { EMOJI_VISIBLE_MS } from '@/lib/emoji';
 import type {
   AnswerRevealPayload,
   Category,
+  EmojiName,
+  EmojiReactionPayload,
   GameErrorPayload,
   JokerState,
   JokerType,
@@ -25,6 +28,8 @@ export interface UseGameReturn {
   answerReveal: AnswerRevealPayload | null;
   roomError: string | null;
   gameError: string | null;
+  /** Reactions currently floating on screen (PBI 11). */
+  reactions: EmojiReactionPayload[];
 
   myPlayer: Room['players'][string] | null;
   myTeam: TeamColor | null;
@@ -60,6 +65,7 @@ export interface UseGameReturn {
     voteSurrender: (vote: boolean) => void;
     passSteal: () => void;
     useJoker: (type: JokerType) => void;
+    sendEmoji: (emoji: EmojiName) => void;
     requestRematch: () => void;
   };
 }
@@ -70,6 +76,7 @@ export function useGame(roomCode: string): UseGameReturn {
   const [answerReveal, setAnswerReveal] = useState<AnswerRevealPayload | null>(null);
   const [roomError, setRoomError] = useState<string | null>(null);
   const [gameError, setGameError] = useState<string | null>(null);
+  const [reactions, setReactions] = useState<EmojiReactionPayload[]>([]);
 
   const playerId = useMemo<string | null>(() => {
     if (typeof window === 'undefined') return null;
@@ -153,6 +160,17 @@ export function useGame(roomCode: string): UseGameReturn {
 
     const onTimerTick = (payload: TimerTickPayload) => setTimeLeft(payload.timeLeft);
 
+    // Reactions are ephemeral and are not part of room state, so they live here
+    // and are dropped once their float animation has finished. Filtering by
+    // timestamp rather than per-reaction timeouts means a burst cannot leave a
+    // pile of pending timers behind on unmount.
+    const onEmojiReaction = (payload: EmojiReactionPayload) => {
+      setReactions((prev) => {
+        const cutoff = Date.now() - EMOJI_VISIBLE_MS;
+        return [...prev.filter((rx) => rx.at > cutoff), payload];
+      });
+    };
+
     socket.on('room:created', onRoomCreated);
     socket.on('room:joined', onRoomJoined);
     socket.on('room:update', onRoomUpdate);
@@ -160,6 +178,7 @@ export function useGame(roomCode: string): UseGameReturn {
     socket.on('game:error', onGameError);
     socket.on('answer_reveal', onAnswerReveal);
     socket.on('timer_tick', onTimerTick);
+    socket.on('emoji:reaction', onEmojiReaction);
 
     return () => {
       socket.off('connect', reconnect);
@@ -170,11 +189,26 @@ export function useGame(roomCode: string): UseGameReturn {
       socket.off('game:error', onGameError);
       socket.off('answer_reveal', onAnswerReveal);
       socket.off('timer_tick', onTimerTick);
+      socket.off('emoji:reaction', onEmojiReaction);
       // Clean up pending timeouts
       if (revealTimeoutRef.current) clearTimeout(revealTimeoutRef.current);
       if (gameErrorTimeoutRef.current) clearTimeout(gameErrorTimeoutRef.current);
     };
   }, [roomCode]);
+
+  // Prune reactions once the last one has floated away. Without this the final
+  // reaction of a burst stays mounted at opacity 0 forever, because the filter
+  // in the handler only runs when a NEW reaction arrives.
+  useEffect(() => {
+    if (reactions.length === 0) return;
+    const oldest = Math.min(...reactions.map((rx) => rx.at));
+    const delay = Math.max(50, oldest + EMOJI_VISIBLE_MS - Date.now());
+    const handle = setTimeout(() => {
+      const cutoff = Date.now() - EMOJI_VISIBLE_MS;
+      setReactions((prev) => prev.filter((rx) => rx.at > cutoff));
+    }, delay);
+    return () => clearTimeout(handle);
+  }, [reactions]);
 
   // -------------------------------------------------------------------------
   // Derived values
@@ -265,6 +299,7 @@ export function useGame(roomCode: string): UseGameReturn {
       voteSurrender:    (vote: boolean)     => emit('surrender:vote',    { vote }),
       passSteal:        ()                  => emit('steal:pass'),
       useJoker:         (type: JokerType)   => emit('joker:use',        { type }),
+      sendEmoji:        (emoji: EmojiName)  => emit('emoji:send',       { emoji }),
       requestRematch:   ()                  => emit('rematch:request'),
       clearErrors:  () => { setRoomError(null); setGameError(null); },
     }),
@@ -278,6 +313,7 @@ export function useGame(roomCode: string): UseGameReturn {
     answerReveal,
     roomError,
     gameError,
+    reactions,
     myPlayer,
     myTeam,
     isCaptain,
