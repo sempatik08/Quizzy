@@ -67,6 +67,16 @@ export interface ActiveQuestion {
   stealTeam: TeamColor | null;
 }
 
+/** Jokers a team still holds this match (PBI 6). */
+export interface JokerState {
+  /** Strikes out two wrong options. */
+  fiftyFifty: boolean;
+  /** Adds 15 seconds to the running question. */
+  extraTime: boolean;
+}
+
+export type JokerType = 'fifty_fifty' | 'extra_time';
+
 export interface SurrenderVote {
   team: TeamColor;
   votes: Record<string, boolean>; // playerId → true (yes) | false (no)
@@ -93,6 +103,8 @@ export interface Room {
   categoryAnswerCount: Record<TeamColor, number>;
   /** Remaining steal attempts per team. A charge burns only on a submitted steal. */
   stealCharges: Record<TeamColor, number>;
+  /** Jokers each team still holds (PBI 6). */
+  jokers: Record<TeamColor, JokerState>;
   /** Per-team consent to replay the match once it has finished (PBI 8). */
   rematch: Record<TeamColor, boolean>;
   createdAt: number;

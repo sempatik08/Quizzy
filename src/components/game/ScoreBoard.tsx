@@ -1,7 +1,7 @@
 'use client';
 
 import type { Room } from '@/types';
-import { Zap } from 'lucide-react';
+import { Zap, Scissors, Clock } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 interface ScoreBoardProps {
@@ -21,6 +21,8 @@ export function ScoreBoard({ room, playerId }: ScoreBoardProps) {
         const isMyTeam = myTeam === team;
         const pct = Math.min((state.score / 100) * 100, 100);
         const charges = room.stealCharges?.[team] ?? 0;
+        const jokers = room.jokers?.[team] ?? { fiftyFifty: false, extraTime: false };
+        const jokerCount = Number(jokers.fiftyFifty) + Number(jokers.extraTime);
 
         return (
           <div
@@ -89,6 +91,36 @@ export function ScoreBoard({ room, playerId }: ScoreBoardProps) {
                 </>
               ) : (
                 <span className="text-[10px] text-quizzy-muted">{t.stealNoChargesLeft}</span>
+              )}
+            </div>
+
+            {/* Remaining jokers (PBI 6) — teammates see the count here rather
+                than buttons only the captain can press. */}
+            <div
+              className="mt-1 flex items-center gap-1 flex-wrap"
+              data-testid={`jokers-${team}`}
+              data-joker-count={jokerCount}
+            >
+              {jokerCount > 0 ? (
+                <>
+                  {jokers.fiftyFifty && (
+                    <Scissors
+                      size={11}
+                      className={team === 'blue' ? 'text-blue-soft' : 'text-red-soft'}
+                      aria-label={t.jokerFiftyFifty}
+                    />
+                  )}
+                  {jokers.extraTime && (
+                    <Clock
+                      size={11}
+                      className={team === 'blue' ? 'text-blue-soft' : 'text-red-soft'}
+                      aria-label={t.jokerExtraTime}
+                    />
+                  )}
+                  <span className="text-[10px] text-quizzy-muted ml-0.5">{t.jokerLeft}</span>
+                </>
+              ) : (
+                <span className="text-[10px] text-quizzy-muted">{t.jokerNoneLeft}</span>
               )}
             </div>
           </div>

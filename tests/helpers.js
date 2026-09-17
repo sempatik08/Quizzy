@@ -88,11 +88,18 @@ function makeClient(name) {
     errors: [],
     emojis: [],
     events: [],
+    /**
+     * timer_tick payloads, in arrival order. `room.activeQuestion.timeLeft`
+     * only refreshes on a room:update broadcast, so anything asserting that the
+     * clock is actually running has to look here.
+     */
+    ticks: [],
   };
   s.on('room:created', (p) => { c.playerId = p.playerId; c.room = p.room; });
   s.on('room:joined', (p) => { if (p.playerId) c.playerId = p.playerId; c.room = p.room; });
   s.on('room:update', (r) => { c.room = r; });
   s.on('answer_reveal', (p) => { c.reveals.push(p); });
+  s.on('timer_tick', (p) => { c.ticks.push(p.timeLeft); });
   s.on('emoji:reaction', (p) => { c.emojis.push(p); });
   s.on('game:error', (e) => { c.errors.push(e.message); });
   s.on('room:error', (e) => { c.errors.push(e.message); });

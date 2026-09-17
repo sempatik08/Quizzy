@@ -41,6 +41,7 @@ const {
   castVote,
   resolveVote,
   passSteal,
+  useJoker,
   requestRematch,
   resetForRematch,
 } = require('./gameLogic');
@@ -95,6 +96,10 @@ function isValidString(val, min, max) {
 
 function isValidCategory(val) {
   return CATEGORY_KEYS.includes(val);
+}
+
+function isValidJoker(val) {
+  return ['fifty_fifty', 'extra_time'].includes(val);
 }
 
 function isValidOption(val) {
@@ -420,6 +425,35 @@ io.on('connection', (socket) => {
 
     const result = passSteal(room, context.playerId, io);
     if (result.error) return socket.emit('game:error', { message: result.error });
+  });
+
+  // =========================================================================
+  // JOKERS (PBI 6)
+  // =========================================================================
+
+  /**
+   * Spend a joker on the current question.
+   * Payload: { type: 'fifty_fifty' | 'extra_time' }
+   */
+  socket.on('joker:use', (payload) => {
+    const context = ctx();
+    if (!context) return;
+    if (!payload || !isValidJoker(payload.type)) {
+      return socket.emit('game:error', { message: 'Invalid joker.' });
+    }
+    if (isRateLimited(context.playerId)) return;
+
+    const room = getRoom(context.roomCode);
+    if (!room) return socket.emit('room:error', { message: 'Room not found.' });
+
+    const result = useJoker(room, context.playerId, payload.type, io);
+    if (result.error) return socket.emit('game:error', { message: result.error });
+
+    console.log(`[Game] Joker ${payload.type} used in ${room.code}`);
+
+    // ANTI-CHEAT: the removed options go out via the sanitized room state
+    // (disabledOptions), never as a separate payload naming the answer.
+    broadcast(room);
   });
 
   // =========================================================================

@@ -6,6 +6,8 @@ import type {
   AnswerRevealPayload,
   Category,
   GameErrorPayload,
+  JokerState,
+  JokerType,
   Room,
   RoomCreatedPayload,
   RoomErrorPayload,
@@ -36,6 +38,10 @@ export interface UseGameReturn {
   isMyStealTurn: boolean;
   /** Steal charges my team has left (0 when I'm not on a team). */
   myStealCharges: number;
+  /** Jokers my team still holds (PBI 6). */
+  myJokers: JokerState;
+  /** True when I may spend a joker right now. */
+  canUseJoker: boolean;
   /** My team has already agreed to a rematch (PBI 8). */
   myTeamWantsRematch: boolean;
   /** The other team has agreed and is waiting on mine. */
@@ -53,6 +59,7 @@ export interface UseGameReturn {
     initiateSurrender: () => void;
     voteSurrender: (vote: boolean) => void;
     passSteal: () => void;
+    useJoker: (type: JokerType) => void;
     requestRematch: () => void;
   };
 }
@@ -212,6 +219,21 @@ export function useGame(roomCode: string): UseGameReturn {
     return room.stealCharges?.[myTeam] ?? 0;
   }, [room, myTeam]);
 
+  const myJokers = useMemo<JokerState>(() => {
+    if (!room || !myTeam) return { fiftyFifty: false, extraTime: false };
+    return room.jokers?.[myTeam] ?? { fiftyFifty: false, extraTime: false };
+  }, [room, myTeam]);
+
+  // Mirrors the server's guards in useJoker so the UI never offers a click the
+  // server is going to refuse.
+  const canUseJoker = useMemo(() => {
+    if (!room || !myTeam || !isCaptain) return false;
+    if (room.phase !== 'question' || !room.activeQuestion) return false;
+    if (room.activeQuestion.isSteal) return false;
+    if (room.activeQuestion.timeLeft <= 0) return false;
+    return room.activeTeam === myTeam;
+  }, [room, myTeam, isCaptain]);
+
   const myTeamWantsRematch = useMemo(() => {
     if (!room || !myTeam) return false;
     return room.rematch?.[myTeam] === true;
@@ -242,6 +264,7 @@ export function useGame(roomCode: string): UseGameReturn {
       initiateSurrender:()                  => emit('surrender:initiate'),
       voteSurrender:    (vote: boolean)     => emit('surrender:vote',    { vote }),
       passSteal:        ()                  => emit('steal:pass'),
+      useJoker:         (type: JokerType)   => emit('joker:use',        { type }),
       requestRematch:   ()                  => emit('rematch:request'),
       clearErrors:  () => { setRoomError(null); setGameError(null); },
     }),
@@ -264,6 +287,8 @@ export function useGame(roomCode: string): UseGameReturn {
     isStealActive,
     isMyStealTurn,
     myStealCharges,
+    myJokers,
+    canUseJoker,
     myTeamWantsRematch,
     opponentWantsRematch,
     actions,

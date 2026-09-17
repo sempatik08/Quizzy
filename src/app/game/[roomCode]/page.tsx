@@ -10,6 +10,7 @@ import { VotingTimer } from '@/components/game/VotingTimer';
 import { WinnerScreen } from '@/components/game/WinnerScreen';
 import { StealBanner } from '@/components/game/StealBanner';
 import { SurrenderPanel } from '@/components/game/SurrenderPanel';
+import { JokerPanel } from '@/components/game/JokerPanel';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
 import { useLanguage } from '@/context/LanguageContext';
@@ -32,6 +33,8 @@ export default function GamePage() {
     isMyTurn,
     isStealActive,
     isMyStealTurn,
+    myJokers,
+    canUseJoker,
     myTeamWantsRematch,
     opponentWantsRematch,
     gameError,
@@ -233,6 +236,19 @@ export default function GamePage() {
               </span>
             )}
           </div>
+        </div>
+      )}
+
+      {/* Jokers — only the captain of the team on turn gets buttons (PBI 6) */}
+      {room.phase === 'question' && myTeam && isCaptain && room.activeTeam === myTeam && (
+        <div className="w-full max-w-2xl mt-4">
+          <JokerPanel
+            team={myTeam}
+            jokers={myJokers}
+            usable={canUseJoker && !answerReveal}
+            reason={isStealActive ? t.jokerNotInSteal : t.jokerCaptainOnly}
+            onUse={actions.useJoker}
+          />
         </div>
       )}
 

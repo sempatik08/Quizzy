@@ -21,6 +21,11 @@ const STEAL_SECONDS = 20;
  * questions and rotation only triggered on exhaustion.
  */
 const QUESTIONS_PER_CATEGORY_PER_TEAM = 5;
+/** Seconds the extra-time joker adds to the running question (PBI 6). */
+const JOKER_EXTRA_SECONDS = 15;
+/** Wrong options the 50/50 joker strikes out (PBI 6). */
+const JOKER_FIFTY_FIFTY_REMOVES = 2;
+const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E'];
 
 /**
  * Returns true if the player has fired an event too recently.
@@ -308,21 +313,42 @@ function startQuestion(room, io) {
     tickHandle: null,
   };
 
-  // Emit a tick every second so clients can display a countdown
-  room.activeQuestion.tickHandle = setInterval(() => {
+  scheduleQuestionTimers(room, io);
+}
+
+/**
+ * (Re)arms the per-second tick and the authoritative resolve timeout from the
+ * question's current timerStart/duration.
+ *
+ * Extracted because three call sites need it — a fresh question, the steal
+ * window, and the extra-time joker — and each previously grew its own copy.
+ * Deriving timeLeft from wall-clock elapsed rather than counting down a variable
+ * keeps a throttled or backgrounded interval from drifting.
+ *
+ * @param {import('./types').Room} room
+ * @param {import('socket.io').Server} io
+ */
+function scheduleQuestionTimers(room, io) {
+  const aq = room.activeQuestion;
+  if (!aq) return;
+
+  clearTimeout(aq.timerHandle);
+  clearInterval(aq.tickHandle);
+
+  const remainingMs = Math.max(0, aq.duration * 1000 - (Date.now() - aq.timerStart));
+
+  aq.tickHandle = setInterval(() => {
     if (!room.activeQuestion) return;
     const elapsed = Math.floor((Date.now() - room.activeQuestion.timerStart) / 1000);
     room.activeQuestion.timeLeft = Math.max(0, room.activeQuestion.duration - elapsed);
     io.to(room.code).emit('timer_tick', { timeLeft: room.activeQuestion.timeLeft });
-    if (room.activeQuestion.timeLeft <= 0) {
-      clearInterval(room.activeQuestion.tickHandle);
-    }
+    if (room.activeQuestion.timeLeft <= 0) clearInterval(room.activeQuestion.tickHandle);
   }, 1000);
 
-  // Authoritative timeout — server resolves the vote regardless of client state
-  room.activeQuestion.timerHandle = setTimeout(() => {
+  // Authoritative timeout — the server resolves regardless of client state.
+  aq.timerHandle = setTimeout(() => {
     resolveVote(room, io);
-  }, QUESTION_SECONDS * 1000);
+  }, remainingMs);
 }
 
 /**
@@ -344,17 +370,7 @@ function resetQuestionTimer(room, io, seconds) {
   room.activeQuestion.votes = {};
   room.activeQuestion.resolving = false; // reset guard so steal team can resolve
 
-  room.activeQuestion.tickHandle = setInterval(() => {
-    if (!room.activeQuestion) return;
-    const elapsed = Math.floor((Date.now() - room.activeQuestion.timerStart) / 1000);
-    room.activeQuestion.timeLeft = Math.max(0, room.activeQuestion.duration - elapsed);
-    io.to(room.code).emit('timer_tick', { timeLeft: room.activeQuestion.timeLeft });
-    if (room.activeQuestion.timeLeft <= 0) clearInterval(room.activeQuestion.tickHandle);
-  }, 1000);
-
-  room.activeQuestion.timerHandle = setTimeout(() => {
-    resolveVote(room, io);
-  }, seconds * 1000);
+  scheduleQuestionTimers(room, io);
 }
 
 // ---------------------------------------------------------------------------
@@ -576,6 +592,115 @@ function passSteal(room, playerId, io) {
 }
 
 // ---------------------------------------------------------------------------
+// Jokers (PBI 6)
+// ---------------------------------------------------------------------------
+
+/** Fresh joker allocation for one team. One of each, per match. */
+function createJokerState() {
+  return { fiftyFifty: true, extraTime: true };
+}
+
+const JOKER_TYPES = {
+  fifty_fifty: 'fiftyFifty',
+  extra_time: 'extraTime',
+};
+
+/**
+ * Spend one of the active team's jokers on the current question.
+ *
+ * Restricted to the captain of the team whose turn it is: a joker is a scarce,
+ * match-long resource and any teammate being able to burn it would take the
+ * decision away from the person the team elected to make it.
+ *
+ * Blocked during a steal window on purpose. The steal window is already a
+ * discounted second chance at a question the stealing team watched someone else
+ * miss, with an option struck out for free; letting a joker stack on top of that
+ * would make stealing strictly better than answering.
+ *
+ * @param {import('./types').Room} room
+ * @param {string} playerId
+ * @param {'fifty_fifty' | 'extra_time'} rawType
+ * @param {import('socket.io').Server} io
+ * @returns {{ error?: string, room?: import('./types').Room, removed?: string[], addedSeconds?: number }}
+ */
+function useJoker(room, playerId, rawType, io) {
+  const key = JOKER_TYPES[rawType];
+  if (!key) return { error: 'Unknown joker.' };
+
+  if (room.phase !== 'question') return { error: 'Jokers can only be used during a question.' };
+
+  const aq = room.activeQuestion;
+  if (!aq) return { error: 'No active question.' };
+  if (aq.resolving) return { error: 'This question is already being resolved.' };
+  if (aq.isSteal) return { error: 'Jokers cannot be used during a steal.' };
+  if (aq.timeLeft <= 0) return { error: 'Time is up.' };
+
+  const player = room.players[playerId];
+  if (!player) return { error: 'Player not found.' };
+  if (!player.team) return { error: 'You are not in a team.' };
+  if (player.team !== room.activeTeam) return { error: 'It is not your turn.' };
+  if (room.teams[player.team].captain !== playerId) {
+    return { error: 'Only your team captain can use a joker.' };
+  }
+
+  if (!room.jokers) {
+    room.jokers = { blue: createJokerState(), red: createJokerState() };
+  }
+  const mine = room.jokers[player.team];
+  if (!mine[key]) return { error: 'Your team has already used that joker.' };
+
+  mine[key] = false;
+  room.lastActivityAt = Date.now();
+
+  if (key === 'fiftyFifty') {
+    const removed = pickWrongOptionsToRemove(aq);
+    for (const opt of removed) {
+      if (!aq.disabledOptions.includes(opt)) aq.disabledOptions.push(opt);
+    }
+
+    // Drop votes already cast for the options that just went away. resolveVote
+    // ignores disabled options when tallying but still treats "the team voted"
+    // as true, and its fallback is validOptions[0] — so a stale vote on a
+    // struck-out option could otherwise back into a free correct answer.
+    for (const [voterId, vote] of Object.entries(aq.votes)) {
+      if (removed.includes(vote.optionKey)) delete aq.votes[voterId];
+    }
+
+    return { room, removed };
+  }
+
+  // extraTime — extend the window in place, keeping votes and elapsed time.
+  aq.duration += JOKER_EXTRA_SECONDS;
+  aq.timeLeft = Math.max(
+    0,
+    aq.duration - Math.floor((Date.now() - aq.timerStart) / 1000),
+  );
+  scheduleQuestionTimers(room, io);
+  io.to(room.code).emit('timer_tick', { timeLeft: aq.timeLeft });
+
+  return { room, addedSeconds: JOKER_EXTRA_SECONDS };
+}
+
+/**
+ * Chooses which wrong options the 50/50 joker strikes out.
+ * The correct answer is never a candidate, and already-disabled options are
+ * skipped so the joker cannot "spend" itself on an option that was already gone.
+ * @param {import('./types').ActiveQuestion} aq
+ * @returns {string[]}
+ */
+function pickWrongOptionsToRemove(aq) {
+  const candidates = OPTION_KEYS.filter(
+    (o) => o !== aq.question.answer && !aq.disabledOptions.includes(o),
+  );
+  // Fisher-Yates over a copy: which two go is meant to be unpredictable.
+  for (let i = candidates.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+  }
+  return candidates.slice(0, JOKER_FIFTY_FIFTY_REMOVES);
+}
+
+// ---------------------------------------------------------------------------
 // Rematch (PBI 8)
 // ---------------------------------------------------------------------------
 
@@ -603,6 +728,7 @@ function resetForRematch(room) {
   room.categoryPickTeam = null;
   room.categoryAnswerCount = { blue: 0, red: 0 };
   room.stealCharges = { blue: STEAL_CHARGES_PER_TEAM, red: STEAL_CHARGES_PER_TEAM };
+  room.jokers = { blue: createJokerState(), red: createJokerState() };
   room.rematch = { blue: false, red: false };
   room.activeTeam = null;
   room.turnTeam = null;
@@ -670,6 +796,9 @@ module.exports = {
   resolveCoinToss,
   pickCategory,
   startQuestion,
+  scheduleQuestionTimers,
+  useJoker,
+  createJokerState,
   openCategoryPick,
   isCategoryComplete,
   resetQuestionTimer,
@@ -683,4 +812,6 @@ module.exports = {
   STEAL_SECONDS,
   STEAL_CHARGES_PER_TEAM,
   QUESTIONS_PER_CATEGORY_PER_TEAM,
+  JOKER_EXTRA_SECONDS,
+  JOKER_FIFTY_FIFTY_REMOVES,
 };
