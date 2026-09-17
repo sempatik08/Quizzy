@@ -30,6 +30,8 @@ export default function GamePage() {
     isMyTurn,
     isStealActive,
     isMyStealTurn,
+    myTeamWantsRematch,
+    opponentWantsRematch,
     gameError,
     actions,
   } = useGame(roomCode);
@@ -206,7 +208,13 @@ export default function GamePage() {
 
       {/* Winner screen overlay */}
       {room.phase === 'finished' && (
-        <WinnerScreen room={room} playerId={playerId} />
+        <WinnerScreen
+          room={room}
+          playerId={playerId}
+          myTeamWantsRematch={myTeamWantsRematch}
+          opponentWantsRematch={opponentWantsRematch}
+          onRematch={actions.requestRematch}
+        />
       )}
     </main>
   );

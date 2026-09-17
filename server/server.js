@@ -41,6 +41,8 @@ const {
   castVote,
   resolveVote,
   passSteal,
+  requestRematch,
+  resetForRematch,
 } = require('./gameLogic');
 
 // Railway/Render/Heroku-style platforms inject PORT and route traffic only to
@@ -418,6 +420,46 @@ io.on('connection', (socket) => {
 
     const result = passSteal(room, context.playerId, io);
     if (result.error) return socket.emit('game:error', { message: result.error });
+  });
+
+  // =========================================================================
+  // REMATCH (PBI 8)
+  // =========================================================================
+
+  /**
+   * Agree to replay the match. Restarts only once BOTH teams have agreed.
+   * Keeps the room code, players, teams and captains; everything else resets.
+   */
+  socket.on('rematch:request', () => {
+    const context = ctx();
+    if (!context) return;
+    if (isRateLimited(context.playerId)) return;
+
+    const room = getRoom(context.roomCode);
+    if (!room) return socket.emit('room:error', { message: 'Room not found.' });
+
+    const result = requestRematch(room, context.playerId);
+    if (result.error) return socket.emit('game:error', { message: result.error });
+
+    if (!result.bothAgreed) {
+      // Show the other team that one side is waiting on them.
+      broadcast(room);
+      return;
+    }
+
+    resetForRematch(room);
+    console.log(`[Game] Rematch starting in ${room.code}`);
+    broadcast(room);
+
+    // Same 2s pause as the initial toss, so the reused coin_toss screen reads
+    // the same way it does on the first match.
+    setTimeout(() => {
+      const current = getRoom(context.roomCode);
+      if (!current || current.phase !== 'coin_toss') return;
+      const { winner } = resolveCoinToss(current);
+      console.log(`[Game] Rematch coin toss in ${current.code}: ${winner}`);
+      broadcast(current);
+    }, 2000);
   });
 
   // =========================================================================

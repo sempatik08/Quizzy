@@ -91,6 +91,8 @@ function createRoom(playerName, socketId) {
     /** Fresh questions each team has answered in the CURRENT category (PBI 3). */
     categoryAnswerCount: { blue: 0, red: 0 },
     stealCharges: { blue: STEAL_CHARGES_PER_TEAM, red: STEAL_CHARGES_PER_TEAM },
+    /** Per-team consent to replay the match once it has finished (PBI 8). */
+    rematch: { blue: false, red: false },
     createdAt: Date.now(),
     lastActivityAt: Date.now(),
     hostId: playerId,

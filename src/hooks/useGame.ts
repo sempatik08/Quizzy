@@ -36,6 +36,10 @@ export interface UseGameReturn {
   isMyStealTurn: boolean;
   /** Steal charges my team has left (0 when I'm not on a team). */
   myStealCharges: number;
+  /** My team has already agreed to a rematch (PBI 8). */
+  myTeamWantsRematch: boolean;
+  /** The other team has agreed and is waiting on mine. */
+  opponentWantsRematch: boolean;
 
   actions: {
     joinTeam: (team: TeamColor) => void;
@@ -49,6 +53,7 @@ export interface UseGameReturn {
     initiateSurrender: () => void;
     voteSurrender: (vote: boolean) => void;
     passSteal: () => void;
+    requestRematch: () => void;
   };
 }
 
@@ -207,6 +212,16 @@ export function useGame(roomCode: string): UseGameReturn {
     return room.stealCharges?.[myTeam] ?? 0;
   }, [room, myTeam]);
 
+  const myTeamWantsRematch = useMemo(() => {
+    if (!room || !myTeam) return false;
+    return room.rematch?.[myTeam] === true;
+  }, [room, myTeam]);
+
+  const opponentWantsRematch = useMemo(() => {
+    if (!room || !myTeam) return false;
+    return room.rematch?.[myTeam === 'blue' ? 'red' : 'blue'] === true;
+  }, [room, myTeam]);
+
   // -------------------------------------------------------------------------
   // Actions
   // -------------------------------------------------------------------------
@@ -227,6 +242,7 @@ export function useGame(roomCode: string): UseGameReturn {
       initiateSurrender:()                  => emit('surrender:initiate'),
       voteSurrender:    (vote: boolean)     => emit('surrender:vote',    { vote }),
       passSteal:        ()                  => emit('steal:pass'),
+      requestRematch:   ()                  => emit('rematch:request'),
       clearErrors:  () => { setRoomError(null); setGameError(null); },
     }),
     [emit],
@@ -248,6 +264,8 @@ export function useGame(roomCode: string): UseGameReturn {
     isStealActive,
     isMyStealTurn,
     myStealCharges,
+    myTeamWantsRematch,
+    opponentWantsRematch,
     actions,
   };
 }

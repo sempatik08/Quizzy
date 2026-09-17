@@ -576,6 +576,80 @@ function passSteal(room, playerId, io) {
 }
 
 // ---------------------------------------------------------------------------
+// Rematch (PBI 8)
+// ---------------------------------------------------------------------------
+
+/**
+ * Wipe match progress while keeping the room itself intact.
+ *
+ * Kept on purpose: room code, players, team assignments, captains and hostId.
+ * Everyone already agreed on those; making them redo team selection is exactly
+ * the friction a rematch button exists to remove.
+ *
+ * @param {import('./types').Room} room
+ */
+function resetForRematch(room) {
+  if (room.activeQuestion?.timerHandle) clearTimeout(room.activeQuestion.timerHandle);
+  if (room.activeQuestion?.tickHandle) clearInterval(room.activeQuestion.tickHandle);
+  if (room.surrenderVote?.timeoutHandle) clearTimeout(room.surrenderVote.timeoutHandle);
+
+  room.teams.blue.score = 0;
+  room.teams.red.score = 0;
+  room.usedQuestionIds = [];
+  room.usedCategories = [];
+  room.selectedCategory = null;
+  room.activeQuestion = null;
+  room.surrenderVote = null;
+  room.categoryPickTeam = null;
+  room.categoryAnswerCount = { blue: 0, red: 0 };
+  room.stealCharges = { blue: STEAL_CHARGES_PER_TEAM, red: STEAL_CHARGES_PER_TEAM };
+  room.rematch = { blue: false, red: false };
+  room.activeTeam = null;
+  room.turnTeam = null;
+  room.coinTossWinner = null;
+  room.phase = 'coin_toss';
+  room.lastActivityAt = Date.now();
+}
+
+/**
+ * Register one team's consent to a rematch. Both teams must agree before the
+ * match restarts — a single player must not be able to drag the other side into
+ * another round.
+ *
+ * Any connected player on a team can register that team's consent rather than
+ * only its captain: at the end of a match the captain may well have closed the
+ * tab, and a rematch is not a competitive decision that needs protecting.
+ *
+ * @param {import('./types').Room} room
+ * @param {string} playerId
+ * @returns {{ error?: string, room?: import('./types').Room, bothAgreed?: boolean }}
+ */
+function requestRematch(room, playerId) {
+  if (room.phase !== 'finished') return { error: 'A rematch can only be started after the match ends.' };
+
+  const player = room.players[playerId];
+  if (!player) return { error: 'Player not found.' };
+  if (!player.team) return { error: 'Only players on a team can ask for a rematch.' };
+
+  if (!room.rematch) room.rematch = { blue: false, red: false };
+  if (room.rematch[player.team]) return { error: 'Your team has already agreed to a rematch.' };
+
+  // A team with nobody left connected cannot consent, so the other side would
+  // wait forever. Refuse up front instead of showing a button that does nothing.
+  const opponent = player.team === 'blue' ? 'red' : 'blue';
+  const opponentConnected = room.teams[opponent].players.some(
+    (id) => room.players[id]?.isConnected,
+  );
+  if (!opponentConnected) return { error: 'The other team has left the room.' };
+
+  room.rematch[player.team] = true;
+  room.lastActivityAt = Date.now();
+
+  const bothAgreed = room.rematch.blue && room.rematch.red;
+  return { room, bothAgreed };
+}
+
+// ---------------------------------------------------------------------------
 // Win Condition
 // ---------------------------------------------------------------------------
 
@@ -602,6 +676,8 @@ module.exports = {
   castVote,
   resolveVote,
   passSteal,
+  requestRematch,
+  resetForRematch,
   checkWin,
   QUESTION_SECONDS,
   STEAL_SECONDS,

@@ -93,6 +93,8 @@ export interface Room {
   categoryAnswerCount: Record<TeamColor, number>;
   /** Remaining steal attempts per team. A charge burns only on a submitted steal. */
   stealCharges: Record<TeamColor, number>;
+  /** Per-team consent to replay the match once it has finished (PBI 8). */
+  rematch: Record<TeamColor, boolean>;
   createdAt: number;
   lastActivityAt: number;
   hostId: string;

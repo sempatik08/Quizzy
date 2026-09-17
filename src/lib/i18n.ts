@@ -19,6 +19,13 @@ const translations = {
     enterYourName: 'Enter your name.',
     nameTooLong: 'Name too long (max 20 chars).',
     invalidRoomCode: 'Room code must be 6 characters.',
+    // Rematch (PBI 8)
+    playAgain: 'Play Again',
+    rematchWaiting: 'Waiting for the other team…',
+    rematchOpponentReady: 'The other team wants a rematch!',
+    rematchYourTeamReady: 'Your team is in. Waiting on the opponents…',
+    rematchStarting: 'Rematch starting…',
+    rematchKeeps: 'Same room, same teams. Scores and questions reset.',
     // Invite link (PBI 12)
     inviteFriends: 'Invite your friends',
     inviteLinkHint: 'Send this link — the room code fills itself in.',
@@ -160,6 +167,13 @@ const translations = {
     enterYourName: 'Adını gir.',
     nameTooLong: 'Ad çok uzun (maks. 20 karakter).',
     invalidRoomCode: 'Oda kodu 6 karakter olmalıdır.',
+    // Rematch (PBI 8)
+    playAgain: 'Tekrar Oyna',
+    rematchWaiting: 'Diğer takım bekleniyor…',
+    rematchOpponentReady: 'Diğer takım tekrar oynamak istiyor!',
+    rematchYourTeamReady: 'Takımın hazır. Rakipler bekleniyor…',
+    rematchStarting: 'Yeni maç başlıyor…',
+    rematchKeeps: 'Aynı oda, aynı takımlar. Skorlar ve sorular sıfırlanır.',
     // Davet linki (PBI 12)
     inviteFriends: 'Arkadaşlarını davet et',
     inviteLinkHint: 'Bu linki gönder — oda kodu kendiliğinden dolar.',

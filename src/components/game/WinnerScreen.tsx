@@ -1,16 +1,27 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Trophy } from 'lucide-react';
+import { Trophy, RotateCcw, Loader2, Check } from 'lucide-react';
 import type { Room } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 
 interface WinnerScreenProps {
   room: Room;
   playerId: string;
+  /** My team has already agreed to a rematch (PBI 8). */
+  myTeamWantsRematch: boolean;
+  /** The opposing team has agreed and is waiting on mine. */
+  opponentWantsRematch: boolean;
+  onRematch: () => void;
 }
 
-export function WinnerScreen({ room, playerId }: WinnerScreenProps) {
+export function WinnerScreen({
+  room,
+  playerId,
+  myTeamWantsRematch,
+  opponentWantsRematch,
+  onRematch,
+}: WinnerScreenProps) {
   const router = useRouter();
   const { t } = useLanguage();
   const myTeam = room.players[playerId]?.team;
@@ -31,6 +42,15 @@ export function WinnerScreen({ room, playerId }: WinnerScreenProps) {
     sessionStorage.removeItem(`quizzy_player_${room.code}`);
     router.push('/');
   };
+
+  // A player who never joined a team has nothing to consent to.
+  const canRematch = Boolean(myTeam);
+
+  const rematchStatus = myTeamWantsRematch
+    ? t.rematchYourTeamReady
+    : opponentWantsRematch
+    ? t.rematchOpponentReady
+    : t.rematchKeeps;
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
@@ -65,6 +85,41 @@ export function WinnerScreen({ room, playerId }: WinnerScreenProps) {
             </div>
           ))}
         </div>
+
+        {/* Rematch (PBI 8) */}
+        {canRematch && (
+          <>
+            <p
+              id="rematch-status"
+              className={`text-xs mb-3 font-medium ${
+                opponentWantsRematch && !myTeamWantsRematch
+                  ? 'text-quizzy-text'
+                  : 'text-quizzy-muted'
+              }`}
+            >
+              {rematchStatus}
+            </p>
+
+            <button
+              id="rematch-button"
+              onClick={onRematch}
+              disabled={myTeamWantsRematch}
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-blue-soft text-white font-semibold hover:bg-blue-500 disabled:opacity-60 disabled:cursor-default active:scale-95 transition-all mb-2.5"
+            >
+              {myTeamWantsRematch ? (
+                <>
+                  <Loader2 size={17} className="animate-spin" />
+                  {t.rematchWaiting}
+                </>
+              ) : (
+                <>
+                  {opponentWantsRematch ? <Check size={17} /> : <RotateCcw size={17} />}
+                  {t.playAgain}
+                </>
+              )}
+            </button>
+          </>
+        )}
 
         <button
           onClick={handleBackToHome}
