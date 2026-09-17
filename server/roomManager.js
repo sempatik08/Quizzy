@@ -2,6 +2,7 @@
 
 const { randomUUID } = require('crypto');
 const { modeSettingsFor, getMode } = require('./gameModes');
+const store = require('./store');
 
 /** @type {Map<string, import('./types').Room>} */
 const rooms = new Map();
@@ -220,8 +221,28 @@ function disconnectPlayer(roomCode, playerId) {
 
   const allDisconnected = Object.values(room.players).every((p) => !p.isConnected);
   if (allDisconnected) {
-    cleanupRoom(roomCode);
-    return null;
+    // Only discard the room outright when there is nothing to come back to.
+    //
+    // Before persistence existed (PBI 13) an empty room was worthless, so it was
+    // always dropped. Now that state survives, tearing down a match in progress
+    // the moment the last socket blips means a 1v1 dies to a lost wifi
+    // connection and `room:reconnect` has nothing to find. An in-progress match
+    // is kept instead and collected by cleanupStaleRooms on the 2h clock, which
+    // matches the store's own TTL.
+    const worthKeeping = room.phase !== 'lobby' && room.phase !== 'finished';
+    if (!worthKeeping) {
+      cleanupRoom(roomCode);
+      return null;
+    }
+    // Timers are pointless with nobody listening, and a question that resolves
+    // into an empty room would burn through the pool unattended.
+    if (room.activeQuestion?.timerHandle) clearTimeout(room.activeQuestion.timerHandle);
+    if (room.activeQuestion?.tickHandle) clearInterval(room.activeQuestion.tickHandle);
+    if (room.activeQuestion) {
+      room.activeQuestion.timerHandle = null;
+      room.activeQuestion.tickHandle = null;
+    }
+    console.log(`[RoomManager] ${roomCode} is empty but in progress — kept for reconnect.`);
   }
 
   return room;
@@ -339,6 +360,24 @@ function getRoom(roomCode) {
 }
 
 /**
+ * Put a room loaded from the store back into the working set (PBI 13).
+ *
+ * Used only at boot, by restoreRooms in server.js. It does not re-arm timers —
+ * that needs io, which roomManager deliberately knows nothing about.
+ * @param {import('./types').Room} room
+ */
+function adoptRoom(room) {
+  if (!room?.code) return null;
+  rooms.set(room.code, room);
+  return room;
+}
+
+/** Every room currently in the working set. */
+function allRooms() {
+  return [...rooms.values()];
+}
+
+/**
  * Sanitize a room object for client delivery.
  * - Strips `answer` from the active question (ANTI-CHEAT).
  * - Strips server-only timer handles.
@@ -398,6 +437,8 @@ function cleanupRoom(roomCode) {
   clearCaptainElection(roomCode, 'red');
 
   rooms.delete(roomCode);
+  // Drop the stored copy too, or an abandoned room is resurrected at next boot.
+  store.deleteRoom(roomCode);
 }
 
 /**
@@ -432,4 +473,6 @@ module.exports = {
   MAX_PLAYERS,
   MAX_SPECTATORS,
   getMode,
+  adoptRoom,
+  allRooms,
 };

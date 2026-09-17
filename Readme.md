@@ -43,10 +43,35 @@ Open <http://localhost:3000>.
 CLIENT_URL=http://192.168.1.20:3000 docker compose up
 ```
 
+### Room persistence
+
+Rooms live in the socket server's memory. Without persistence configured, a
+redeploy or a crash ends every match in progress. Pick a backend with one of:
+
+| Variable | Backend | Use it for |
+|---|---|---|
+| `REDIS_URL` | Redis | Production. Snapshots expire after 2h, matching the stale-room sweep. |
+| `QUIZZY_STORE_FILE` | JSON file | A single-instance deploy, or a dev box that wants matches to survive a restart. Written atomically via a temp file and rename. |
+| neither | in-memory | Local development. Matches do not survive a restart. |
+
+```bash
+REDIS_URL=redis://localhost:6379 node server/server.js
+QUIZZY_STORE_FILE=./.data/rooms.json node server/server.js
+```
+
+Snapshots are written behind `broadcast()`, so what the players were last told
+is what is stored. A restored question restarts its clock rather than resuming
+it — the players were not there for the time the server was down.
+
+This buys **restart durability**, not horizontal scaling: two instances would
+each keep their own working set and their own timers. Running more than one
+needs per-room sticky routing plus the socket.io Redis adapter.
+
 ### Tests
 
 ```bash
-node tests/steal_flow_test.js   # socket-level steal integration test
+npm test                        # every tests/*_test.js, sequentially
+node tests/steal_flow_test.js   # one suite on its own
 python tests/quizzy_e2e.py      # Playwright UI suite
 python tests/steal_ui_check.py  # drives a real match to a steal window
 ```

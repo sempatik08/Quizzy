@@ -40,3 +40,6 @@ to-do-list.md
 # Python
 __pycache__/
 *.pyc
+
+# Room persistence (PBI 13) — file backend default location
+.data/

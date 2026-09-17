@@ -30,7 +30,9 @@ const {
   getRoom,
   sanitizeRoom,
   cleanupStaleRooms,
+  adoptRoom,
 } = require('./roomManager');
+const store = require('./store');
 const {
   isRateLimited,
   castCaptainVote,
@@ -45,6 +47,7 @@ const {
   passSteal,
   placeWager,
   activeRoster,
+  scheduleQuestionTimers,
   getWinThreshold,
   useJoker,
   requestRematch,
@@ -154,6 +157,11 @@ io.on('connection', (socket) => {
   // ----- Helper: broadcast room update -----
   function broadcast(room) {
     io.to(room.code).emit('room:update', sanitizeRoom(room));
+    // Persist behind the broadcast (PBI 13): every state change that matters
+    // already passes through here on its way to the clients, so what the players
+    // were told is exactly what gets stored. Fire and forget - a store that is
+    // down must not stall or break the match.
+    store.saveRoom(room);
   }
 
   // =========================================================================
@@ -244,8 +252,23 @@ io.on('connection', (socket) => {
     socketToPlayer.set(socket.id, { roomCode: code, playerId: payload.playerId });
     socket.join(code);
 
+    // A room whose last player dropped has its question timers cleared (see
+    // disconnectPlayer), and a room restored from the store never had any. Give
+    // the question its clock back on the first reconnect, restarting the window
+    // rather than resuming it — the players were not there for the time that
+    // passed, so resolving immediately would score a question nobody saw.
+    if (room.phase === 'question' && room.activeQuestion
+        && !room.activeQuestion.timerHandle && !room.activeQuestion.wagerPending) {
+      room.activeQuestion.timerStart = Date.now();
+      room.activeQuestion.timeLeft = room.activeQuestion.duration;
+      room.activeQuestion.resolving = false;
+      scheduleQuestionTimers(room, io);
+      console.log(`[Room] Re-armed question timer for ${code} on reconnect`);
+    }
+
     socket.emit('room:joined', { playerId: payload.playerId, room: sanitizeRoom(room) });
     socket.to(code).emit('room:update', sanitizeRoom(room));
+    store.saveRoom(room);
     console.log(`[Room] Player reconnected to ${code}`);
   });
 
@@ -758,7 +781,72 @@ io.on('connection', (socket) => {
 // Start Server
 // ---------------------------------------------------------------------------
 
-httpServer.listen(PORT, () => {
-  console.log(`\n🎯 Quizzy Socket.io server running on port ${PORT}`);
-  console.log(`   CORS origin: all localhost ports\n`);
-});
+/**
+ * Bring stored rooms back into play and re-arm their server-side timers (PBI 13).
+ *
+ * Timers are process-local, so a restored question has no clock until one is
+ * scheduled here. deserializeRoom has already restarted the window from now —
+ * see the note there about not resolving a question nobody could answer.
+ */
+function restoreRooms(rooms) {
+  let restored = 0;
+  let armed = 0;
+
+  for (const room of rooms) {
+    if (!adoptRoom(room)) continue;
+    restored++;
+
+    if (room.phase === 'question' && room.activeQuestion) {
+      // A Wager-mode question still waiting on its stake has no clock to arm.
+      if (!room.activeQuestion.wagerPending) {
+        scheduleQuestionTimers(room, io);
+        armed++;
+      }
+    }
+  }
+
+  if (restored > 0) {
+    console.log(`[Store] Restored ${restored} room(s), re-armed ${armed} question timer(s)`);
+  }
+  return restored;
+}
+
+/** Flush pending writes on the way out so the last state is not lost. */
+function installShutdownHooks() {
+  let closing = false;
+  const shutdown = async (signal) => {
+    if (closing) return;
+    closing = true;
+    console.log(`\n[Server] ${signal} received, flushing store...`);
+    try {
+      await store.closeStore();
+    } catch (err) {
+      console.warn(`[Server] Store flush failed: ${err.message}`);
+    }
+    process.exit(0);
+  };
+  process.on('SIGTERM', () => shutdown('SIGTERM'));
+  process.on('SIGINT', () => shutdown('SIGINT'));
+}
+
+async function start() {
+  const { backend } = await store.initStore();
+
+  try {
+    restoreRooms(await store.loadAllRooms());
+  } catch (err) {
+    // A corrupt or unreachable store must not stop the server from serving new
+    // rooms; it only means the old ones are gone.
+    console.warn(`[Store] Restore skipped: ${err.message}`);
+  }
+
+  installShutdownHooks();
+
+  httpServer.listen(PORT, () => {
+    console.log(`\n🎯 Quizzy Socket.io server running on port ${PORT}`);
+    console.log(`   CORS origin: all localhost ports`);
+    console.log(`   Room persistence: ${backend}\n`);
+  });
+}
+
+start();
