@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { PlusCircle, Loader2 } from 'lucide-react';
 import { getSocket } from '@/lib/socket';
 import { useLanguage } from '@/context/LanguageContext';
+import { useProfile } from '@/context/ProfileContext';
 import { GameModePicker } from './GameModePicker';
 import type { GameModeKey, RoomCreatedPayload, RoomErrorPayload } from '@/types';
 
@@ -13,6 +14,7 @@ const SESSION_KEY = (roomCode: string) => `quizzy_player_${roomCode}`;
 export function CreateRoomForm() {
   const router = useRouter();
   const { t } = useLanguage();
+  const { profile, setName: setProfileName } = useProfile();
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -48,10 +50,18 @@ export function CreateRoomForm() {
 
     setError(null);
     setLoading(true);
+    // Remember the name for next time and for the leaderboard.
+    setProfileName(trimmed);
 
     const socket = getSocket();
     if (!socket.connected) socket.connect();
-    socket.emit('room:create', { playerName: trimmed, mode });
+    socket.emit('room:create', {
+      playerName: trimmed,
+      mode,
+      // Guest identity (PBI 14). Omitted entirely when there is no profile
+      // yet, so the server simply records no stats for this player.
+      ...(profile ? { profileId: profile.id, avatar: profile.avatar } : {}),
+    });
   };
 
   return (

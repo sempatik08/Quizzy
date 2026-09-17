@@ -4,6 +4,7 @@ import './globals.css';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { SoundProvider } from '@/context/SoundContext';
+import { ProfileProvider } from '@/context/ProfileContext';
 import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import { ServiceWorkerRegistrar } from '@/components/shared/ServiceWorkerRegistrar';
 
@@ -57,8 +58,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <LanguageProvider>
             <SoundProvider>
-              <LanguageSwitcher />
-              {children}
+              <ProfileProvider>
+                <LanguageSwitcher />
+                {children}
+              </ProfileProvider>
             </SoundProvider>
           </LanguageProvider>
         </ThemeProvider>

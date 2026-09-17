@@ -68,7 +68,7 @@ function createTeamState() {
  * @param {string} socketId
  * @returns {{ roomCode: string, playerId: string, room: import('./types').Room }}
  */
-function createRoom(playerName, socketId, modeKey) {
+function createRoom(playerName, socketId, modeKey, identity = {}) {
   const roomCode = generateRoomCode();
   const playerId = randomUUID();
   // Resolved at creation so editing the defaults cannot change an in-flight match.
@@ -83,6 +83,10 @@ function createRoom(playerName, socketId, modeKey) {
     isConnected: true,
     isSpectator: false,
     isEliminated: false,
+    // Guest profile identity (PBI 14). Client-supplied and validated by the
+    // caller; null when the browser has no profile yet.
+    profileId: identity.profileId ?? null,
+    avatar: identity.avatar ?? null,
   };
 
   /** @type {import('./types').Room} */
@@ -141,7 +145,7 @@ function createRoom(playerName, socketId, modeKey) {
  * @param {boolean} [asSpectator]
  * @returns {{ error?: string, playerId?: string, room?: import('./types').Room }}
  */
-function joinRoom(roomCode, playerName, socketId, asSpectator = false) {
+function joinRoom(roomCode, playerName, socketId, asSpectator = false, identity = {}) {
   const room = rooms.get(roomCode);
   if (!room) return { error: 'Room not found.' };
 
@@ -169,6 +173,8 @@ function joinRoom(roomCode, playerName, socketId, asSpectator = false) {
     isConnected: true,
     isSpectator: Boolean(asSpectator),
     isEliminated: false,
+    profileId: identity.profileId ?? null,
+    avatar: identity.avatar ?? null,
   };
   room.lastActivityAt = Date.now();
 
@@ -392,6 +398,13 @@ function sanitizeRoom(room) {
       return value;
     }),
   );
+
+  // ANTI-CHEAT (PBI 14): strip every player's profile id. It is the only
+  // credential a guest identity has, so leaking it to the rest of the room
+  // would let anyone in the match claim someone else's record.
+  for (const player of Object.values(clone.players ?? {})) {
+    delete player.profileId;
+  }
 
   // ANTI-CHEAT: Remove correct answer from active question
   if (clone.activeQuestion?.question?.answer !== undefined) {

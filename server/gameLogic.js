@@ -3,6 +3,7 @@
 const { QUESTIONS, CATEGORY_KEYS } = require('./questions');
 const { pickTargetDifficulty, selectQuestion, difficultyOf } = require('./difficulty');
 const { getMode } = require('./gameModes');
+const stats = require('./stats');
 const { sanitizeRoom, STEAL_CHARGES_PER_TEAM } = require('./roomManager');
 
 // ---------------------------------------------------------------------------
@@ -656,6 +657,9 @@ function resolveVote(room, io) {
     const finish = () => {
       room.phase = 'finished';
       room.activeQuestion = null;
+      // Record the result (PBI 14). Idempotent per room, so a points win, a
+      // surrender and a Survival wipeout cannot each count the same match.
+      stats.recordMatch(room).catch((err) => console.warn(`[Stats] record failed: ${err.message}`));
       io.to(room.code).emit('room:update', sanitizeRoom(room));
     };
 
@@ -952,6 +956,9 @@ function resetForRematch(room) {
   room.stealCharges = { blue: STEAL_CHARGES_PER_TEAM, red: STEAL_CHARGES_PER_TEAM };
   room.jokers = { blue: createJokerState(), red: createJokerState() };
   room.rematch = { blue: false, red: false };
+  // A rematch is a NEW match, so the stats guard has to reopen or only the
+  // first match in a room would ever be recorded (PBI 14).
+  room.statsRecorded = false;
   // Survival eliminations are per match, not per room.
   for (const player of Object.values(room.players)) {
     player.isEliminated = false;

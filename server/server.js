@@ -33,6 +33,7 @@ const {
   adoptRoom,
 } = require('./roomManager');
 const store = require('./store');
+const stats = require('./stats');
 const {
   isRateLimited,
   castCaptainVote,
@@ -109,6 +110,20 @@ function isValidCategory(val) {
 /** playerId -> last reaction timestamp, for the per-player emoji cooldown. */
 const emojiLastSent = new Map();
 
+/**
+ * Pull the guest profile identity out of a join payload (PBI 14).
+ *
+ * Both fields are optional and independently validated, so a client with no
+ * profile, an old client, or a hand-rolled one sending nonsense all end up
+ * playing normally — just without stats.
+ */
+function identityFrom(payload) {
+  return {
+    profileId: stats.isValidProfileId(payload?.profileId) ? payload.profileId : null,
+    avatar: stats.isValidAvatar(payload?.avatar) ? payload.avatar : null,
+  };
+}
+
 function isValidJoker(val) {
   return ['fifty_fifty', 'extra_time'].includes(val);
 }
@@ -140,6 +155,12 @@ function executeSurrender(room, surrenderingTeam) {
   room.teams[winner].score = Math.max(room.teams[winner].score, target);
   room.phase = 'finished';
   room.lastActivityAt = Date.now();
+
+  // Record the result (PBI 14). recordMatch is idempotent per room, so the three
+  // routes to a finish - points, surrender, Survival wipeout - cannot double
+  // count. Fire and forget: the players are looking at the winner screen and
+  // must not wait on a stats write.
+  stats.recordMatch(room).catch((err) => console.warn(`[Stats] record failed: ${err.message}`));
 }
 
 // ---------------------------------------------------------------------------
@@ -185,11 +206,18 @@ io.on('connection', (socket) => {
       });
     }
 
+    const identity = identityFrom(payload);
     const { roomCode, playerId, room } = createRoom(
       payload.playerName,
       socket.id,
       payload.mode ?? DEFAULT_MODE,
+      identity,
     );
+    if (identity.profileId) {
+      // Fire and forget: a stats write must never delay entering a room.
+      stats.touchProfile(identity.profileId, payload.playerName, identity.avatar)
+        .catch((err) => console.warn(`[Stats] touchProfile failed: ${err.message}`));
+    }
     socketToPlayer.set(socket.id, { roomCode, playerId });
     socket.join(roomCode);
 
@@ -214,12 +242,18 @@ io.on('connection', (socket) => {
     // Spectator is opt-in and boolean-coerced: a truthy string from a hand-rolled
     // client must not smuggle in anything but a spectator flag (PBI 10).
     const asSpectator = payload.asSpectator === true;
-    const result = joinRoom(code, payload.playerName, socket.id, asSpectator);
+    const identity = identityFrom(payload);
+    const result = joinRoom(code, payload.playerName, socket.id, asSpectator, identity);
 
     if (result.error) return socket.emit('room:error', { message: result.error });
 
     socketToPlayer.set(socket.id, { roomCode: code, playerId: result.playerId });
     socket.join(code);
+
+    if (identity.profileId) {
+      stats.touchProfile(identity.profileId, payload.playerName, identity.avatar)
+        .catch((err) => console.warn(`[Stats] touchProfile failed: ${err.message}`));
+    }
 
     console.log(
       `[Room] ${result.room.players[result.playerId].name} joined: ${code}` +
@@ -495,6 +529,83 @@ io.on('connection', (socket) => {
 
     const result = passSteal(room, context.playerId, io);
     if (result.error) return socket.emit('game:error', { message: result.error });
+  });
+
+  // =========================================================================
+  // PROFILE, HISTORY, LEADERBOARD (PBI 14)
+  // =========================================================================
+
+  /**
+   * Save the name and avatar this device plays under.
+   * Payload: { profileId, name, avatar }
+   */
+  socket.on('profile:save', async (payload) => {
+    if (!payload || !stats.isValidProfileId(payload.profileId)) {
+      return socket.emit('game:error', { message: 'Invalid profile.' });
+    }
+    if (!isValidString(payload.name, 1, 20)) {
+      return socket.emit('game:error', { message: 'Name must be 1-20 characters.' });
+    }
+    if (payload.avatar !== undefined && !stats.isValidAvatar(payload.avatar)) {
+      return socket.emit('game:error', { message: 'Unknown avatar.' });
+    }
+
+    try {
+      const profile = await stats.touchProfile(payload.profileId, payload.name, payload.avatar);
+      // The id is echoed back only to the socket that supplied it.
+      socket.emit('profile:data', { profile });
+    } catch (err) {
+      console.warn(`[Stats] profile:save failed: ${err.message}`);
+      socket.emit('game:error', { message: 'Could not save your profile.' });
+    }
+  });
+
+  /**
+   * This device's own record and rank.
+   * Payload: { profileId }
+   */
+  socket.on('profile:get', async (payload) => {
+    if (!payload || !stats.isValidProfileId(payload.profileId)) {
+      return socket.emit('game:error', { message: 'Invalid profile.' });
+    }
+    try {
+      const standing = await stats.getMyStanding(payload.profileId);
+      socket.emit('profile:data', { profile: standing });
+    } catch (err) {
+      console.warn(`[Stats] profile:get failed: ${err.message}`);
+      socket.emit('profile:data', { profile: null });
+    }
+  });
+
+  /**
+   * This device's recent matches.
+   * Payload: { profileId }
+   */
+  socket.on('profile:history', async (payload) => {
+    if (!payload || !stats.isValidProfileId(payload.profileId)) {
+      return socket.emit('game:error', { message: 'Invalid profile.' });
+    }
+    try {
+      const matches = await stats.getHistory(payload.profileId);
+      socket.emit('profile:history:data', { matches });
+    } catch (err) {
+      console.warn(`[Stats] profile:history failed: ${err.message}`);
+      socket.emit('profile:history:data', { matches: [] });
+    }
+  });
+
+  /**
+   * The global board. Takes no profile id - it is public, and entries carry no
+   * ids, only names and records.
+   */
+  socket.on('leaderboard:get', async () => {
+    try {
+      const board = await stats.getLeaderboard();
+      socket.emit('leaderboard:data', board);
+    } catch (err) {
+      console.warn(`[Stats] leaderboard failed: ${err.message}`);
+      socket.emit('leaderboard:data', { entries: [], total: 0 });
+    }
   });
 
   // =========================================================================

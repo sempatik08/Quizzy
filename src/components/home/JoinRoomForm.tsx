@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { LogIn, Loader2, Eye } from 'lucide-react';
 import { getSocket } from '@/lib/socket';
 import { useLanguage } from '@/context/LanguageContext';
+import { useProfile } from '@/context/ProfileContext';
 import type { RoomJoinedPayload, RoomErrorPayload } from '@/types';
 
 const SESSION_KEY = (roomCode: string) => `quizzy_player_${roomCode}`;
@@ -32,6 +33,7 @@ export function JoinRoomForm({
 }: JoinRoomFormProps = {}) {
   const router = useRouter();
   const { t } = useLanguage();
+  const { profile, setName: setProfileName } = useProfile();
   const [name, setName] = useState('');
   const [code, setCode] = useState(initialCode.toUpperCase());
   const [loading, setLoading] = useState(false);
@@ -81,6 +83,8 @@ export function JoinRoomForm({
 
     setError(null);
     setLoading(true);
+    // Remember the name for next time and for the leaderboard.
+    setProfileName(trimmedName);
     setPendingCode(trimmedCode);
 
     const socket = getSocket();
@@ -90,6 +94,8 @@ export function JoinRoomForm({
       roomCode: trimmedCode,
       // Only sent as true; the server coerces strictly anyway.
       ...(spectate ? { asSpectator: true } : {}),
+      // Guest identity (PBI 14), omitted when there is no profile yet.
+      ...(profile ? { profileId: profile.id, avatar: profile.avatar } : {}),
     });
   };
 

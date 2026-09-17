@@ -3,6 +3,7 @@
 import { CreateRoomForm } from '@/components/home/CreateRoomForm';
 import { JoinRoomForm } from '@/components/home/JoinRoomForm';
 import { HoverFooter } from '@/components/shared/HoverFooter';
+import { ProfilePanel } from '@/components/profile/ProfilePanel';
 import DataGridHero from '@/components/ui/data-grid-hero';
 import { Zap } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -25,6 +26,10 @@ export default function HomePage() {
       opacityMax={0.35}
       background="var(--color-bg)"
     >
+      {/* Guest profile, leaderboard and history (PBI 14). Home only: in the
+          lobby and game the top-right corner already holds the room code. */}
+      <ProfilePanel />
+
       {/* Content */}
       <div className="flex-1 flex flex-col items-center justify-center px-4 py-12">
         {/* Branding */}

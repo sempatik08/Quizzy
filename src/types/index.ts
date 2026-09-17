@@ -22,6 +22,11 @@ export type TeamColor = 'blue' | 'red';
 
 /** Game modes (PBI 9). Must stay in sync with server/gameModes.js. */
 export type GameModeKey = 'classic' | 'fast' | 'survival' | 'wager';
+
+/** Guest avatars (PBI 14). Must stay in sync with AVATARS in server/stats.js. */
+export type AvatarName =
+  | 'fox' | 'owl' | 'cat' | 'bear' | 'wolf' | 'panda'
+  | 'shark' | 'dragon' | 'robot' | 'alien' | 'ninja' | 'wizard';
 export type OptionKey = 'A' | 'B' | 'C' | 'D' | 'E';
 
 export interface Player {
@@ -37,6 +42,12 @@ export interface Player {
   isSpectator: boolean;
   /** Knocked out of the current match in Survival mode (PBI 9). */
   isEliminated: boolean;
+  /**
+   * Chosen avatar (PBI 14). null for a client with no profile.
+   * NOTE: the matching `profileId` is deliberately NOT part of this type —
+   * sanitizeRoom strips it, because it is the only credential a guest has.
+   */
+  avatar: AvatarName | null;
 }
 
 export interface TeamState {
@@ -179,6 +190,53 @@ export interface AnswerRevealPayload {
 
 export interface TimerTickPayload {
   timeLeft: number;
+}
+
+// ---------------------------------------------------------------------------
+// Profiles, history and leaderboard (PBI 14)
+// ---------------------------------------------------------------------------
+
+/** A guest's stored record. `rank` is null until they have played a match. */
+export interface GuestProfile {
+  id?: string;
+  name: string;
+  avatar: AvatarName;
+  matches: number;
+  wins: number;
+  losses: number;
+  points: number;
+  createdAt?: number;
+  lastSeenAt?: number;
+  rank?: number | null;
+}
+
+export interface MatchHistoryEntry {
+  roomCode: string;
+  mode: GameModeKey;
+  team: TeamColor;
+  won: boolean;
+  myScore: number;
+  theirScore: number;
+  category: Category | null;
+  questions: number;
+  durationMs: number | null;
+  finishedAt: number;
+}
+
+/** A board row. Carries no profile id — the board is public. */
+export interface LeaderboardEntry {
+  rank: number;
+  name: string;
+  avatar: AvatarName;
+  matches: number;
+  wins: number;
+  losses: number;
+  points: number;
+}
+
+export interface LeaderboardPayload {
+  entries: LeaderboardEntry[];
+  total: number;
 }
 
 /** Reaction names, validated server-side against server/emoji.js (PBI 11). */

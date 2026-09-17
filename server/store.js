@@ -164,6 +164,7 @@ async function initStore() {
       filePath = path.resolve(file);
       fs.mkdirSync(path.dirname(filePath), { recursive: true });
       backend = 'file';
+      readKvFile();
       console.log(`[Store] Using file persistence at ${filePath}`);
       return { backend };
     } catch (err) {
@@ -328,6 +329,11 @@ async function flush() {
       fileFlushHandle = null;
     }
     writeFileMap();
+    if (kvFlushHandle) {
+      clearTimeout(kvFlushHandle);
+      kvFlushHandle = null;
+    }
+    writeKvFile();
     return;
   }
 
@@ -355,9 +361,165 @@ async function closeStore() {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Generic JSON key/value, for data that is not a room (PBI 14)
+// ---------------------------------------------------------------------------
+
+/**
+ * Profiles and match history need the same three backends as rooms but
+ * different semantics: no TTL, and reads happen on request rather than at boot.
+ * They go through this small KV rather than the room path so a profile can
+ * never be mistaken for a room by loadAllRooms.
+ *
+ * The file and memory backends keep a plain Map, which is also what makes the
+ * leaderboard's in-memory sort acceptable — see the note in stats.js about the
+ * scale this is sized for.
+ */
+const kvMirror = new Map();
+let kvFlushHandle = null;
+
+function kvFilePath() {
+  return filePath ? `${filePath}.kv` : null;
+}
+
+function readKvFile() {
+  const fp = kvFilePath();
+  if (!fp) return;
+  try {
+    if (!fs.existsSync(fp)) return;
+    const raw = fs.readFileSync(fp, 'utf8');
+    if (!raw) return;
+    for (const [k, v] of Object.entries(JSON.parse(raw))) kvMirror.set(k, v);
+  } catch (err) {
+    console.warn(`[Store] Could not read kv file: ${err.message}`);
+  }
+}
+
+function writeKvFile() {
+  const fp = kvFilePath();
+  if (!fp) return;
+  try {
+    const out = {};
+    for (const [k, v] of kvMirror) out[k] = v;
+    const tmp = `${fp}.tmp`;
+    fs.writeFileSync(tmp, JSON.stringify(out), 'utf8');
+    fs.renameSync(tmp, fp);
+  } catch (err) {
+    console.warn(`[Store] Could not write kv file: ${err.message}`);
+  }
+}
+
+function scheduleKvFlush() {
+  if (!kvFilePath() || kvFlushHandle) return;
+  kvFlushHandle = setTimeout(() => {
+    kvFlushHandle = null;
+    writeKvFile();
+  }, WRITE_DEBOUNCE_MS);
+}
+
+/**
+ * Read a JSON value. Returns null when absent — callers treat that as "no
+ * profile yet" rather than an error.
+ * @param {string} key
+ * @returns {Promise<any|null>}
+ */
+async function getJSON(key) {
+  if (backend === 'redis' && redis) {
+    try {
+      const raw = await redis.get(key);
+      return raw ? JSON.parse(raw) : null;
+    } catch (err) {
+      console.warn(`[Store] getJSON ${key} failed: ${err.message}`);
+      return null;
+    }
+  }
+  return kvMirror.has(key) ? kvMirror.get(key) : null;
+}
+
+/** Read many keys at once, preserving order. Absent keys come back as null. */
+async function getManyJSON(keys) {
+  if (keys.length === 0) return [];
+  if (backend === 'redis' && redis) {
+    try {
+      const raws = await redis.mget(keys);
+      return raws.map((raw) => {
+        if (!raw) return null;
+        try {
+          return JSON.parse(raw);
+        } catch {
+          return null;
+        }
+      });
+    } catch (err) {
+      console.warn(`[Store] getManyJSON failed: ${err.message}`);
+      return keys.map(() => null);
+    }
+  }
+  return keys.map((k) => (kvMirror.has(k) ? kvMirror.get(k) : null));
+}
+
+/**
+ * Write a JSON value. Awaited by callers that need read-after-write (the tests,
+ * and the stats writer before it answers a leaderboard request).
+ * @param {string} key
+ * @param {any} value
+ */
+async function setJSON(key, value) {
+  if (backend === 'redis' && redis) {
+    try {
+      await redis.set(key, JSON.stringify(value));
+    } catch (err) {
+      console.warn(`[Store] setJSON ${key} failed: ${err.message}`);
+    }
+    return;
+  }
+  kvMirror.set(key, value);
+  scheduleKvFlush();
+}
+
+/**
+ * Add a member to a set. Used for the profile index the leaderboard walks.
+ * @param {string} key
+ * @param {string} member
+ */
+async function addToSet(key, member) {
+  if (backend === 'redis' && redis) {
+    try {
+      await redis.sadd(key, member);
+    } catch (err) {
+      console.warn(`[Store] addToSet ${key} failed: ${err.message}`);
+    }
+    return;
+  }
+  const existing = kvMirror.get(key);
+  const set = Array.isArray(existing) ? new Set(existing) : new Set();
+  set.add(member);
+  kvMirror.set(key, [...set]);
+  scheduleKvFlush();
+}
+
+/** Members of a set, or an empty array. */
+async function getSet(key) {
+  if (backend === 'redis' && redis) {
+    try {
+      return await redis.smembers(key);
+    } catch (err) {
+      console.warn(`[Store] getSet ${key} failed: ${err.message}`);
+      return [];
+    }
+  }
+  const existing = kvMirror.get(key);
+  return Array.isArray(existing) ? [...existing] : [];
+}
+
 module.exports = {
   ROOM_TTL_SECONDS,
   KEY_PREFIX,
+  getJSON,
+  getManyJSON,
+  setJSON,
+  addToSet,
+  getSet,
   initStore,
   getBackend,
   saveRoom,
