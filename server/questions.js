@@ -5,7 +5,11 @@
  * Add a new category by:
  *   1. Creating server/questions/<key>.js that exports { <key>: [...] }
  *   2. Requiring it here and spreading it into QUESTIONS
- *   3. Adding the key to isValidCategory() in server.js
+ *   3. Adding the key to the Category union in src/types/index.ts
+ *
+ * CATEGORY_KEYS is derived from QUESTIONS and is the ONLY category allow-list on
+ * the server. gameLogic.js used to keep a second hand-written list, which silently
+ * dropped `philosophy` — the UI offered it and the server answered "Invalid category."
  */
 
 const { general } = require('./questions/general');
@@ -37,4 +41,7 @@ const QUESTIONS = {
   games,
 };
 
-module.exports = { QUESTIONS };
+/** Canonical category allow-list. Derived, never hand-maintained. */
+const CATEGORY_KEYS = Object.keys(QUESTIONS);
+
+module.exports = { QUESTIONS, CATEGORY_KEYS };

@@ -89,6 +89,8 @@ export interface Room {
   activeQuestion: ActiveQuestion | null;
   surrenderVote: SurrenderVote | null;
   categoryPickTeam: TeamColor | null;
+  /** Fresh questions each team has answered in the current category (PBI 3). */
+  categoryAnswerCount: Record<TeamColor, number>;
   /** Remaining steal attempts per team. A charge burns only on a submitted steal. */
   stealCharges: Record<TeamColor, number>;
   createdAt: number;

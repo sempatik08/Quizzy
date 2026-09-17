@@ -1,6 +1,6 @@
 'use strict';
 
-const { QUESTIONS } = require('./questions');
+const { QUESTIONS, CATEGORY_KEYS } = require('./questions');
 const { sanitizeRoom, STEAL_CHARGES_PER_TEAM } = require('./roomManager');
 
 // ---------------------------------------------------------------------------
@@ -15,6 +15,12 @@ const RATE_LIMIT_MS = 500;
 const QUESTION_SECONDS = 60;
 /** Steal window is deliberately short — the team already read the question. */
 const STEAL_SECONDS = 20;
+/**
+ * Fresh questions each team answers before the category rotates (PBI 3).
+ * Without this the category never changed in practice: every pool holds 200
+ * questions and rotation only triggered on exhaustion.
+ */
+const QUESTIONS_PER_CATEGORY_PER_TEAM = 5;
 
 /**
  * Returns true if the player has fired an event too recently.
@@ -184,8 +190,7 @@ function resolveCoinToss(room) {
  * @returns {{ error?: string, room?: import('./types').Room }}
  */
 function pickCategory(room, playerId, category) {
-  const VALID_CATEGORIES = ['general', 'sports', 'history', 'music', 'cinema', 'anime', 'games', 'technology', 'literature', 'math', 'geography'];
-  if (!VALID_CATEGORIES.includes(category)) return { error: 'Invalid category.' };
+  if (!CATEGORY_KEYS.includes(category)) return { error: 'Invalid category.' };
   if (room.phase !== 'category_pick') return { error: 'Not in category selection phase.' };
 
   const pickerTeam = room.categoryPickTeam ?? room.coinTossWinner;
@@ -202,6 +207,7 @@ function pickCategory(room, playerId, category) {
   room.usedCategories.push(category);
   room.selectedCategory = category;
   room.categoryPickTeam = null;
+  room.categoryAnswerCount = { blue: 0, red: 0 };
   room.phase = 'question';
   room.lastActivityAt = Date.now();
   return { room };
@@ -210,6 +216,48 @@ function pickCategory(room, playerId, category) {
 // ---------------------------------------------------------------------------
 // Question Flow
 // ---------------------------------------------------------------------------
+
+/**
+ * True once BOTH teams have answered their quota of fresh questions in the
+ * current category (PBI 3).
+ * @param {import('./types').Room} room
+ * @returns {boolean}
+ */
+function isCategoryComplete(room) {
+  const counts = room.categoryAnswerCount;
+  if (!counts) return false;
+  return (
+    counts.blue >= QUESTIONS_PER_CATEGORY_PER_TEAM &&
+    counts.red >= QUESTIONS_PER_CATEGORY_PER_TEAM
+  );
+}
+
+/**
+ * Hand category selection to the lower-scoring team (blue on a tie) and reset
+ * the per-category counter. Used both when the quota is met and when a pool
+ * runs dry.
+ *
+ * If every category has been used the allow-list is cleared except for the one
+ * just played, so the match cannot deadlock on "no category left to pick" while
+ * still refusing an immediate repeat.
+ * @param {import('./types').Room} room
+ */
+function openCategoryPick(room) {
+  const blueScore = room.teams.blue.score;
+  const redScore = room.teams.red.score;
+  room.categoryPickTeam = blueScore <= redScore ? 'blue' : 'red';
+  room.categoryAnswerCount = { blue: 0, red: 0 };
+
+  if (!room.usedCategories) room.usedCategories = [];
+  const remaining = CATEGORY_KEYS.filter((k) => !room.usedCategories.includes(k));
+  if (remaining.length === 0) {
+    room.usedCategories = room.selectedCategory ? [room.selectedCategory] : [];
+  }
+
+  room.phase = 'category_pick';
+  room.activeQuestion = null;
+  room.lastActivityAt = Date.now();
+}
 
 /**
  * Select a random unused question from the active category.
@@ -239,12 +287,7 @@ function startQuestion(room, io) {
     room.usedQuestionIds = room.usedQuestionIds.filter(
       (id) => !pool.some((q) => q.id === id),
     );
-    const blueScore = room.teams.blue.score;
-    const redScore = room.teams.red.score;
-    room.categoryPickTeam = blueScore <= redScore ? 'blue' : 'red';
-    room.phase = 'category_pick';
-    room.activeQuestion = null;
-    room.lastActivityAt = Date.now();
+    openCategoryPick(room);
     console.log(`[Game] Category exhausted in ${room.code}. ${room.categoryPickTeam} team picks next.`);
     io.to(room.code).emit('room:update', sanitizeRoom(room));
     return;
@@ -444,11 +487,25 @@ function resolveVote(room, io) {
     };
 
     const advanceTurn = () => {
+      // PBI 3: credit the finished question to the team that OWNED the turn.
+      // A steal resolves the same question and leaves turnTeam untouched, so
+      // attributing to turnTeam counts each question exactly once.
+      if (!room.categoryAnswerCount) room.categoryAnswerCount = { blue: 0, red: 0 };
+      if (room.turnTeam) room.categoryAnswerCount[room.turnTeam] += 1;
+
       const nextTurn = room.turnTeam === 'blue' ? 'red' : 'blue';
       room.turnTeam = nextTurn;
       room.activeTeam = nextTurn;
-      room.phase = 'question';
       room.activeQuestion = null;
+
+      if (isCategoryComplete(room)) {
+        openCategoryPick(room);
+        console.log(`[Game] Category quota met in ${room.code}. ${room.categoryPickTeam} team picks next.`);
+        io.to(room.code).emit('room:update', sanitizeRoom(room));
+        return;
+      }
+
+      room.phase = 'question';
       startQuestion(room, io);
       io.to(room.code).emit('room:update', sanitizeRoom(room));
     };
@@ -539,6 +596,8 @@ module.exports = {
   resolveCoinToss,
   pickCategory,
   startQuestion,
+  openCategoryPick,
+  isCategoryComplete,
   resetQuestionTimer,
   castVote,
   resolveVote,
@@ -547,4 +606,5 @@ module.exports = {
   QUESTION_SECONDS,
   STEAL_SECONDS,
   STEAL_CHARGES_PER_TEAM,
+  QUESTIONS_PER_CATEGORY_PER_TEAM,
 };

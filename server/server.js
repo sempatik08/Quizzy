@@ -16,6 +16,7 @@
 
 const http = require('http');
 const { Server } = require('socket.io');
+const { CATEGORY_KEYS } = require('./questions');
 const {
   createRoom,
   joinRoom,
@@ -91,7 +92,7 @@ function isValidString(val, min, max) {
 }
 
 function isValidCategory(val) {
-  return ['general', 'sports', 'history', 'music', 'cinema', 'anime', 'games', 'technology', 'literature', 'math', 'geography', 'philosophy'].includes(val);
+  return CATEGORY_KEYS.includes(val);
 }
 
 function isValidOption(val) {

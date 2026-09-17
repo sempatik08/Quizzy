@@ -1,0 +1,163 @@
+'use strict';
+
+/**
+ * Question bank integrity test (PBI 4).
+ *
+ *   node tests/question_bank_test.js
+ *
+ * Pure — needs no running server. Guards the things that silently break a match
+ * rather than throwing: a duplicate ID makes `usedQuestionIds` skip a question,
+ * a bad `answer` makes a question unanswerable, a missing Turkish translation
+ * shows English text to a Turkish player, and a category present in the bank but
+ * absent from the allow-list is offered by the UI and rejected by the server.
+ */
+
+const { QUESTIONS, CATEGORY_KEYS } = require('../server/questions');
+const { createReporter } = require('./helpers');
+
+const EXPECTED_PER_CATEGORY = 200;
+const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E'];
+
+const r = createReporter('QUESTION BANK INTEGRITY — PBI 4');
+r.banner();
+
+// ---------------------------------------------------------------------------
+// 1. Category coverage
+// ---------------------------------------------------------------------------
+r.section('1. Categories');
+
+const EXPECTED_CATEGORIES = [
+  'general', 'cinema', 'sports', 'history', 'music', 'anime',
+  'technology', 'literature', 'math', 'geography', 'philosophy', 'games',
+];
+
+const bankKeys = Object.keys(QUESTIONS);
+const missing = EXPECTED_CATEGORIES.filter((k) => !bankKeys.includes(k));
+r.check('All 12 PBI 4 categories exist in the bank', missing.length === 0, `missing: ${missing}`);
+
+r.check(
+  'CATEGORY_KEYS is derived from the bank (no second hand-written list)',
+  CATEGORY_KEYS.length === bankKeys.length && CATEGORY_KEYS.every((k) => bankKeys.includes(k)),
+  `CATEGORY_KEYS=${CATEGORY_KEYS.length} bank=${bankKeys.length}`,
+);
+
+// The bug this test was written for: philosophy shipped in the bank and in the
+// UI picker but was absent from gameLogic's own copy of the allow-list.
+r.check('philosophy is selectable', CATEGORY_KEYS.includes('philosophy'));
+
+for (const key of EXPECTED_CATEGORIES) {
+  const pool = QUESTIONS[key] || [];
+  r.check(
+    `${key} holds ${EXPECTED_PER_CATEGORY} questions`,
+    pool.length === EXPECTED_PER_CATEGORY,
+    `got ${pool.length}`,
+  );
+}
+
+const total = Object.values(QUESTIONS).reduce((n, pool) => n + pool.length, 0);
+r.check(
+  `Bank total is ${EXPECTED_CATEGORIES.length * EXPECTED_PER_CATEGORY}`,
+  total === EXPECTED_CATEGORIES.length * EXPECTED_PER_CATEGORY,
+  `got ${total}`,
+);
+
+// ---------------------------------------------------------------------------
+// 2. Uniqueness — globally, not just per category
+// ---------------------------------------------------------------------------
+r.section('2. Uniqueness');
+
+const idSeen = new Map();       // id → "category"
+const textSeen = new Map();     // normalised text → "category/id"
+const dupIds = [];
+const dupTexts = [];
+
+const normalise = (s) =>
+  String(s ?? '').toLowerCase().replace(/\s+/g, ' ').replace(/[?.!,'"’]/g, '').trim();
+
+for (const [category, pool] of Object.entries(QUESTIONS)) {
+  for (const q of pool) {
+    if (idSeen.has(q.id)) dupIds.push(`${q.id} (${idSeen.get(q.id)} + ${category})`);
+    else idSeen.set(q.id, category);
+
+    const key = normalise(q.text);
+    if (key && textSeen.has(key)) dupTexts.push(`"${q.text}" (${textSeen.get(key)} + ${category}/${q.id})`);
+    else if (key) textSeen.set(key, `${category}/${q.id}`);
+  }
+}
+
+r.check('No duplicate question IDs across the whole bank', dupIds.length === 0,
+  `\n      ${dupIds.slice(0, 10).join('\n      ')}`);
+r.check('No duplicate question text across the whole bank', dupTexts.length === 0,
+  `\n      ${dupTexts.slice(0, 10).join('\n      ')}`);
+
+// ---------------------------------------------------------------------------
+// 3. Per-question shape
+// ---------------------------------------------------------------------------
+r.section('3. Question shape');
+
+const badOptions = [];
+const badAnswers = [];
+const badText = [];
+const dupOptionValues = [];
+
+for (const [category, pool] of Object.entries(QUESTIONS)) {
+  for (const q of pool) {
+    const ref = `${category}/${q.id}`;
+
+    if (typeof q.text !== 'string' || q.text.trim().length < 5) badText.push(ref);
+
+    const opts = q.options || {};
+    const present = OPTION_KEYS.filter(
+      (k) => typeof opts[k] === 'string' && opts[k].trim().length > 0,
+    );
+    if (present.length !== OPTION_KEYS.length) {
+      badOptions.push(`${ref} (has ${present.join('')})`);
+    }
+
+    if (!OPTION_KEYS.includes(q.answer) || typeof opts[q.answer] !== 'string') {
+      badAnswers.push(`${ref} (answer=${q.answer})`);
+    }
+
+    // Two identical options make the "correct" one ambiguous.
+    const values = OPTION_KEYS.map((k) => normalise(opts[k])).filter(Boolean);
+    if (new Set(values).size !== values.length) dupOptionValues.push(ref);
+  }
+}
+
+r.check('Every question has non-trivial text', badText.length === 0,
+  `\n      ${badText.slice(0, 10).join('\n      ')}`);
+r.check('Every question has all 5 options A–E', badOptions.length === 0,
+  `\n      ${badOptions.slice(0, 10).join('\n      ')}`);
+r.check('Every answer points at an existing option', badAnswers.length === 0,
+  `\n      ${badAnswers.slice(0, 10).join('\n      ')}`);
+r.check('No question has two identical options', dupOptionValues.length === 0,
+  `\n      ${dupOptionValues.slice(0, 10).join('\n      ')}`);
+
+// ---------------------------------------------------------------------------
+// 4. Turkish translation completeness
+// ---------------------------------------------------------------------------
+r.section('4. Turkish translations');
+
+const missingTextTr = [];
+const missingOptionsTr = [];
+
+for (const [category, pool] of Object.entries(QUESTIONS)) {
+  for (const q of pool) {
+    const ref = `${category}/${q.id}`;
+    if (typeof q.text_tr !== 'string' || q.text_tr.trim().length === 0) missingTextTr.push(ref);
+
+    const tr = q.options_tr || {};
+    const present = OPTION_KEYS.filter(
+      (k) => typeof tr[k] === 'string' && tr[k].trim().length > 0,
+    );
+    if (present.length !== OPTION_KEYS.length) missingOptionsTr.push(ref);
+  }
+}
+
+r.check(`Every question has text_tr (${missingTextTr.length} missing)`, missingTextTr.length === 0,
+  `\n      ${missingTextTr.slice(0, 10).join('\n      ')}`);
+r.check(`Every question has all 5 options_tr (${missingOptionsTr.length} missing)`,
+  missingOptionsTr.length === 0,
+  `\n      ${missingOptionsTr.slice(0, 10).join('\n      ')}`);
+
+process.exit(r.finish());
