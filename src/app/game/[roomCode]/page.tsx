@@ -322,7 +322,7 @@ export default function GamePage() {
                     : room.activeTeam === 'blue' ? 'text-blue-soft' : 'text-red-soft'
                 }`}
               >
-                {isMyTurn ? t.yourTurn : `${activeTeamLabel} ${t.teamsTurn}`}
+                {isMyTurn ? t.yourTurn : t.turnOfTeam.replace('{team}', activeTeamLabel)}
               </span>
             )}
           </div>

@@ -395,35 +395,82 @@ def test_color_contrast(page: Page):
 # ─── TEST 6: Hover Durumu Taramasi ───────────────────────────────────────────
 
 def test_hover_states(page: Page):
+    """Her gorunur butonun hover'da GORSEL geri bildirim verdigini dogrular.
+
+    Eskiden `buttons[:10]` dilimini gezip her buton icin ayri bir ok() yaziyordu.
+    Bu, suite'in toplam assertion sayisini sayfada o an hangi butonlarin render
+    edildigine bagli hale getiriyordu: ayni kod 90, 91 ve 94 arasinda dalgalandi.
+    Kayan bir esik gercek regresyonu gizler, cunku dusen sayinin hata mi yoksa
+    orneklem farki mi oldugu anlasilmaz.
+
+    Simdi TUM gorunur butonlar taraniyor ve **tek** bir assertion uretiliyor;
+    geri bildirim vermeyen butonlar uyari olarak listeleniyor. Sayi artik sabit.
+
+    Sadece backgroundColor degil, renk/kenarlik/opaklik/transform de sayiliyor:
+    ikon butonlari ve kart boyutundaki hedefler hover'i arka planla degil
+    bunlarla veriyor olabilir ve bu bir hata degil.
+    """
     section("TEST 6 — Hover Durumlari")
     page.goto(BASE)
     wait_net(page)
 
-    buttons = page.locator("button:not([disabled])").all()
-    hover_issues = []
+    IN_DEV_OVERLAY = """e => {
+        let n = e;
+        while (n) {
+            const name = (n.nodeName || '').toLowerCase();
+            if (name.includes('nextjs') || name.includes('dev-overlay')) return true;
+            if (n.parentNode) {
+                n = n.parentNode;
+                if (n.nodeType === 11 && n.host) n = n.host;  // shadow root -> host
+            } else {
+                n = null;
+            }
+        }
+        return false;
+    }"""
 
-    for i, btn in enumerate(buttons[:10]):
+    SNAPSHOT = """e => {
+        const cs = window.getComputedStyle(e);
+        return [cs.backgroundColor, cs.color, cs.borderColor, cs.opacity,
+                cs.transform, cs.boxShadow].join('|');
+    }"""
+
+    buttons = page.locator("button:not([disabled])").all()
+    checked = 0
+    no_feedback = []
+
+    for btn in buttons:
         try:
             if not btn.is_visible():
                 continue
-            text = btn.inner_text()[:20].strip()
-            color_before = btn.evaluate("e => window.getComputedStyle(e).backgroundColor")
+            # Next'in dev overlay'i bizim UI'imiz degil ve duzeltemeyecegimiz bir
+            # uyari uretir. Shadow DOM icinde yasiyor: Playwright shadow siniri
+            # gecer ama closest() gecmez, o yuzden host'lari da tirmaniyoruz.
+            if btn.evaluate(IN_DEV_OVERLAY):
+                continue
+            text = (btn.inner_text() or btn.get_attribute("aria-label") or "?")
+            text = text.replace("\n", " ")[:24].strip() or "?"
+
+            before = btn.evaluate(SNAPSHOT)
             btn.hover()
-            page.wait_for_timeout(200)
-            color_after = btn.evaluate("e => window.getComputedStyle(e).backgroundColor")
+            page.wait_for_timeout(180)
+            after = btn.evaluate(SNAPSHOT)
+            checked += 1
 
-            if color_before == color_after:
-                hover_issues.append(f"Buton '{text}': hover rengi degismedi")
-            else:
-                ok(f"Buton '{text}': hover rengi degisiyor")
-        except Exception as e:
-            pass
+            if before == after:
+                no_feedback.append(text)
+        except Exception:
+            # Gorunurken kaybolan/yeniden render olan buton: sayma, uyarma.
+            continue
 
-    if hover_issues:
-        for h in hover_issues:
-            warn(h)
+    if checked == 0:
+        fail("Hover taramasi hic buton bulamadi")
+    elif no_feedback:
+        ok(f"{checked} buton tarandi ({len(no_feedback)} tanesi hover'da degismiyor)")
+        for t in no_feedback:
+            warn(f"Buton '{t}': hover'da gorsel degisim yok")
     else:
-        ok("Tum butonlar hover'da gorsel degisim yapiyor")
+        ok(f"{checked} butonun hepsi hover'da gorsel degisim yapiyor")
 
     ss(page, "11_hover_test")
 

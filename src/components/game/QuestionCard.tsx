@@ -156,15 +156,22 @@ export function QuestionCard({
             {t.yourTeamVoting}
           </span>
         )}
-        {!isMyTurn && !answerReveal && (
-          <span>
-            {t.waitingFor}{' '}
-            <span className={room.activeTeam === 'blue' ? 'text-blue-soft font-semibold' : 'text-red-soft font-semibold'}>
-              {room.activeTeam === 'blue' ? t.blueTeam : t.redTeam}
-            </span>{' '}
-            {t.teamToVote}
-          </span>
-        )}
+        {!isMyTurn && !answerReveal && (() => {
+          // One phrase with a {team} placeholder, split so the team name keeps
+          // its colour. Concatenating fragments produced "Waiting for Blue Team
+          // team to vote…" in EN and the same duplication in TR.
+          const label = room.activeTeam === 'blue' ? t.blueTeam : t.redTeam;
+          const [before, after] = t.waitingForTeamToVote.split('{team}');
+          return (
+            <span>
+              {before}
+              <span className={room.activeTeam === 'blue' ? 'text-blue-soft font-semibold' : 'text-red-soft font-semibold'}>
+                {label}
+              </span>
+              {after}
+            </span>
+          );
+        })()}
         {answerReveal && (
           <span className={`font-semibold ${revealTone}`}>{revealMessage}</span>
         )}

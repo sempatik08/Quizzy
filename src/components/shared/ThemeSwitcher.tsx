@@ -23,7 +23,7 @@ export function ThemeSwitcher() {
           title={label}
           className={`p-1.5 rounded-lg transition-all ${
             theme === value
-              ? 'bg-quizzy-text text-quizzy-card'
+              ? 'bg-quizzy-text text-quizzy-card hover:opacity-80'
               : 'text-quizzy-muted hover:bg-quizzy-border'
           }`}
         >

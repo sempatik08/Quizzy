@@ -169,12 +169,14 @@ const translations = {
     philosophyDesc: 'Great thinkers, schools of thought & ideas',
     // Game page
     yourTurn: '⚡ Your turn',
-    teamsTurn: "team's turn",
+    // {team} already contains the word "team" ("Blue Team"), so these are whole
+    // phrases with a placeholder rather than fragments glued onto a label —
+    // gluing produced "Blue Team team's turn" in EN and the same in TR.
+    turnOfTeam: "{team}'s turn",
+    waitingForTeamToVote: 'Waiting for {team} to vote…',
     general: 'General Culture',
     // Question Card
     yourTeamVoting: 'Your team is voting — select an option',
-    waitingFor: 'Waiting for',
-    teamToVote: 'team to vote…',
     correct5: 'Correct! +5 pts',
     correct10: 'Correct! +10 pts (steal!)',
     wrongAnswer: 'Wrong answer — turn passes!',
@@ -387,12 +389,11 @@ const translations = {
     philosophyDesc: 'Büyük düşünürler, düşünce okulları ve fikirler',
     // Game page
     yourTurn: '⚡ Sıra sende',
-    teamsTurn: 'takımının sırası',
+    turnOfTeam: 'Sıra {team}da',
+    waitingForTeamToVote: '{team} oy kullanıyor…',
     general: 'Genel Kültür',
     // Question Card
     yourTeamVoting: 'Takımın oy kullanıyor — bir seçenek seç',
-    waitingFor: 'Bekleniyor:',
-    teamToVote: 'takımı oy kullanıyor…',
     correct5: 'Doğru! +5 puan',
     correct10: 'Doğru! +10 puan (çalma!)',
     wrongAnswer: 'Yanlış cevap — sıra geçiyor!',

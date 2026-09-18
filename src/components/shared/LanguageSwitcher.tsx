@@ -17,7 +17,7 @@ export function LanguageSwitcher() {
           onClick={() => setLanguage('en')}
           className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
             language === 'en'
-              ? 'bg-quizzy-text text-quizzy-card'
+              ? 'bg-quizzy-text text-quizzy-card hover:opacity-80'
               : 'text-quizzy-muted hover:bg-quizzy-border'
           }`}
           aria-label="Switch to English"
@@ -28,7 +28,7 @@ export function LanguageSwitcher() {
           onClick={() => setLanguage('tr')}
           className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
             language === 'tr'
-              ? 'bg-quizzy-text text-quizzy-card'
+              ? 'bg-quizzy-text text-quizzy-card hover:opacity-80'
               : 'text-quizzy-muted hover:bg-quizzy-border'
           }`}
           aria-label="Türkçeye geç"

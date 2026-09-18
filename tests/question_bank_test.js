@@ -14,6 +14,7 @@
 
 const { QUESTIONS, CATEGORY_KEYS } = require('../server/questions');
 const { createReporter } = require('./helpers');
+const publishedCounts = require('../src/data/question-counts.json');
 
 const EXPECTED_PER_CATEGORY = 200;
 const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E'];
@@ -60,6 +61,37 @@ r.check(
   total === EXPECTED_CATEGORIES.length * EXPECTED_PER_CATEGORY,
   `got ${total}`,
 );
+
+// ---------------------------------------------------------------------------
+// 1b. The counts the UI advertises
+// ---------------------------------------------------------------------------
+r.section('1b. Published counts');
+
+// The footer used to hardcode these and rotted badly — it still advertised
+// "482+ soru", listed seven categories as "coming soon" with 5 questions each,
+// and omitted philosophy, while the bank held 2400 across 12 finished
+// categories. The generated file is now the single source, and this pins it so
+// it fails loudly instead of quietly lying to visitors.
+// Regenerate with: node scripts/sync-question-counts.js
+r.check('Published total matches the bank', publishedCounts.total === total,
+  `published ${publishedCounts.total} vs bank ${total}`);
+r.check('Published category count matches the bank',
+  publishedCounts.categoryCount === bankKeys.length,
+  `published ${publishedCounts.categoryCount} vs bank ${bankKeys.length}`);
+
+const countMismatches = [];
+for (const key of bankKeys) {
+  const published = publishedCounts.categories[key];
+  if (published !== QUESTIONS[key].length) {
+    countMismatches.push(`${key}: published ${published} vs bank ${QUESTIONS[key].length}`);
+  }
+}
+for (const key of Object.keys(publishedCounts.categories)) {
+  if (!bankKeys.includes(key)) countMismatches.push(`${key}: published but not in the bank`);
+}
+r.check('Every published per-category count matches the bank',
+  countMismatches.length === 0,
+  `\n      ${countMismatches.join('\n      ')}`);
 
 // ---------------------------------------------------------------------------
 // 2. Uniqueness — globally, not just per category
