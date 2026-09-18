@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Github, Twitter, Globe, X, Zap, Trophy, Shuffle, Crown, BookOpen, Tag } from 'lucide-react';
 import { TextHoverEffect, FooterBackgroundGradient } from '@/components/ui/hover-footer';
 import questionCounts from '@/data/question-counts.json';
+import { MODE_WIN_THRESHOLD, DEFAULT_WIN_THRESHOLD } from '@/lib/gameModes';
 
 /**
  * Category display order and labels. The COUNTS are not here on purpose — they
@@ -46,7 +47,7 @@ const MODAL_CONTENT: Record<ModalKey, { title: string; icon: React.ReactNode; co
           ['4', 'Yazı Tura', 'Sunucu otomatik olarak yazı tura atar. Kazanan takım kategori seçer.'],
           ['5', 'Soru & Oylama', 'Aktif takım 60 saniye içinde 5 seçenekten birini oylamayla seçer. Kaptan "Onayla" butonuna basar.'],
           ['6', 'Steal', 'Yanlış cevap verilirse, rakip takım steal hakkı kalmışsa aynı soruyu 20 saniyede çalmayı deneyebilir. Her takımın maç başına 2 hakkı vardır.'],
-          ['7', 'Kazanan', 'İlk 100 puana ulaşan takım oyunu kazanır!'],
+          ['7', 'Kazanan', `Klasik modda ilk ${MODE_WIN_THRESHOLD.classic} puana ulaşan takım kazanır. Hızlı ${MODE_WIN_THRESHOLD.fast}, Bahis ${MODE_WIN_THRESHOLD.wager} puanda biter.`],
         ].map(([num, title, desc]) => (
           <li key={num} className="flex gap-3">
             <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/40 text-blue-400 text-xs font-bold flex items-center justify-center">
@@ -115,7 +116,9 @@ const MODAL_CONTENT: Record<ModalKey, { title: string; icon: React.ReactNode; co
         </div>
         <div className="p-3 rounded-xl bg-yellow-500/10 border border-yellow-500/30">
           <p className="text-yellow-400 font-bold text-base">🏆 Hedef: 100 Puan</p>
-          <p className="text-gray-400 mt-1">İlk 100 puana ulaşan takım oyunu kazanır.</p>
+          <p className="text-gray-400 mt-1">
+            Klasik modda ilk {MODE_WIN_THRESHOLD.classic} puana ulaşan takım kazanır.
+          </p>
         </div>
       </div>
     ),
@@ -385,7 +388,7 @@ export function HoverFooter() {
                   backgroundColor: 'var(--footer-badge-bg)',
                   border: '1px solid var(--footer-badge-border)',
                 }}
-              >🏆 100 puana ulaş</span>
+              >🏆 {DEFAULT_WIN_THRESHOLD} puana ulaş</span>
             </div>
             <p className="text-[11px]" style={{ color: 'var(--footer-muted)' }}>
               &copy; {new Date().getFullYear()} Quizzy. Tüm hakları saklıdır.

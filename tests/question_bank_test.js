@@ -123,6 +123,76 @@ r.check('No duplicate question text across the whole bank', dupTexts.length === 
   `\n      ${dupTexts.slice(0, 10).join('\n      ')}`);
 
 // ---------------------------------------------------------------------------
+// 2b. Near-duplicates — questions that differ only in wording
+// ---------------------------------------------------------------------------
+r.section('2b. Near-duplicates');
+
+// Exact-text matching is not enough. A real match served
+//   "What is the default currency of Japan?"
+//   "What is the currency of Japan?"
+// back to back: different ids, one word apart, identical answer. To a player
+// that is the same question twice, and it is what this catches.
+//
+// The rule: two questions with the SAME ANSWER whose remaining words overlap by
+// half or more. Grouping by answer first keeps this from being O(n^2) over 2400
+// questions, and it is also what makes the signal meaningful — two questions can
+// share wording and be entirely different if the answers differ.
+const NEAR_DUP_THRESHOLD = 0.5;
+const STOPWORDS = new Set(
+  ('the a an of in on to is are was were which what who whom whose how many much '
+    + 'and or for by at from with that this it its as').split(' '),
+);
+
+const contentWords = (text) => new Set(
+  (String(text ?? '').toLowerCase().match(/[a-zçğıöşü0-9]+/g) ?? [])
+    .filter((w) => !STOPWORDS.has(w) && w.length > 2),
+);
+
+const byAnswer = new Map();
+for (const [category, pool] of Object.entries(QUESTIONS)) {
+  for (const q of pool) {
+    const key = String(q.options?.[q.answer] ?? '').trim().toLowerCase();
+    if (!key) continue;
+    if (!byAnswer.has(key)) byAnswer.set(key, []);
+    byAnswer.get(key).push({ category, id: q.id, text: q.text, words: contentWords(q.text) });
+  }
+}
+
+const nearDupes = [];
+for (const group of byAnswer.values()) {
+  if (group.length < 2) continue;
+  for (let i = 0; i < group.length; i++) {
+    for (let j = i + 1; j < group.length; j++) {
+      const a = group[i];
+      const b = group[j];
+      const shared = [...a.words].filter((w) => b.words.has(w)).length;
+      const union = new Set([...a.words, ...b.words]).size;
+      const overlap = union ? shared / union : 0;
+      if (overlap >= NEAR_DUP_THRESHOLD) {
+        nearDupes.push(
+          `${overlap.toFixed(2)} ${a.category}/${a.id} <-> ${b.category}/${b.id}`
+          + `\n          "${a.text}"\n          "${b.text}"`,
+        );
+      }
+    }
+  }
+}
+
+const sameCategoryDupes = nearDupes.filter((line) => {
+  const m = line.match(/ (\w+)\/\S+ <-> (\w+)\//);
+  return m && m[1] === m[2];
+});
+
+// Same-category pairs are the urgent ones: a room plays one category at a time,
+// so those two can genuinely land back to back.
+r.check('No near-duplicate questions within a category', sameCategoryDupes.length === 0,
+  `\n      ${sameCategoryDupes.slice(0, 8).join('\n      ')}`);
+// Cross-category still matters, because category rotation puts several
+// categories in one match.
+r.check('No near-duplicate questions across categories', nearDupes.length === 0,
+  `\n      ${nearDupes.slice(0, 8).join('\n      ')}`);
+
+// ---------------------------------------------------------------------------
 // 3. Per-question shape
 // ---------------------------------------------------------------------------
 r.section('3. Question shape');

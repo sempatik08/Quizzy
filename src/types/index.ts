@@ -178,6 +178,12 @@ export interface GameErrorPayload {
 export interface AnswerRevealPayload {
   /** null when the window expired with no votes cast. */
   selectedOption: OptionKey | null;
+  /**
+   * Points this resolution is worth: positive when won, negative when a Wager
+   * stake is lost, 0 otherwise. Sent by the server because the client cannot
+   * derive it — in Wager mode it is the stake, not the mode's flat award.
+   */
+  pointsDelta: number;
   /** ANTI-CHEAT: omitted by the server while the question can still be stolen. */
   correctAnswer?: OptionKey;
   isCorrect: boolean;

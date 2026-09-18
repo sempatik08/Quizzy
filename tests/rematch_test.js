@@ -67,7 +67,7 @@ async function main() {
   const winnerTeam = surrenderTeam === 'blue' ? 'red' : 'blue';
   r.check('Surrender ended the match', p1.room.phase === 'finished');
   r.check('Winner was pushed to the win threshold',
-    p1.room.teams[winnerTeam].score >= 100,
+    p1.room.teams[winnerTeam].score >= p1.room.winThreshold,
     `${winnerTeam}=${p1.room.teams[winnerTeam].score}`);
 
   await sleep(RATE_GAP);
@@ -84,7 +84,7 @@ async function main() {
   r.check('Both clients see the same pending consent',
     p2.room.rematch?.[surrenderTeam] === true, JSON.stringify(p2.room.rematch));
   r.check('Scores are untouched while waiting',
-    p1.room.teams[winnerTeam].score >= 100,
+    p1.room.teams[winnerTeam].score >= p1.room.winThreshold,
     `${p1.room.teams[winnerTeam].score}`);
 
   // Double-voting is refused rather than silently ignored

@@ -59,8 +59,13 @@ export function QuestionCard({
   let revealMessage = '';
   let revealTone = 'text-red-soft';
   if (answerReveal) {
+    // The awarded points come from the server (pointsDelta). They used to be
+    // hardcoded here, which lied in Wager mode: a won 10-point stake still
+    // announced "+5" and a lost one said nothing about the points taken away.
+    const pts = Math.abs(answerReveal.pointsDelta ?? 0);
     if (answerReveal.isCorrect) {
-      revealMessage = answerReveal.isSteal ? t.correct10 : t.correct5;
+      revealMessage = (answerReveal.isSteal ? t.correctStealPts : t.correctPts)
+        .replace('{n}', String(pts));
       revealTone = 'text-green-600';
     } else if (answerReveal.stealOpens) {
       revealMessage = t.wrongAnswerSteal;
@@ -69,6 +74,8 @@ export function QuestionCard({
       // A steal with no submitted answer was a pass — no charge was spent
       revealMessage = answerReveal.selectedOption === null ? t.stealDeclined : t.stealFailed;
       revealTone = answerReveal.selectedOption === null ? 'text-quizzy-muted' : 'text-red-soft';
+    } else if ((answerReveal.pointsDelta ?? 0) < 0) {
+      revealMessage = t.wrongLostPts.replace('{n}', String(pts));
     } else {
       revealMessage = t.wrongAnswer;
     }

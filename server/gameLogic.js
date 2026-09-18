@@ -650,8 +650,24 @@ function resolveVote(room, io) {
     answered: teamVoted,
   });
 
+  // The points this resolution is actually worth (PBI 9 follow-up). The reveal
+  // used to be a hardcoded "+5" / "+10" string on the client, which lied in
+  // Wager mode: winning a 10-point stake still announced "+5", and losing one
+  // said nothing about the 10 points being taken away. The server knows the real
+  // number, so it sends it rather than letting the client guess from the mode.
+  let pointsDelta = 0;
+  if (isSteal) {
+    if (teamVoted && isCorrect) pointsDelta = mode.stealPoints;
+  } else if (isCorrect) {
+    pointsDelta = wager ?? mode.correctPoints;
+  } else if (wager !== null && wager !== undefined) {
+    // A lost wager is floored at 0, so report what is actually lost.
+    pointsDelta = -Math.min(lostWagerCost(mode, wager), room.teams[answeringTeam].score);
+  }
+
   io.to(room.code).emit('answer_reveal', {
     selectedOption: teamVoted ? winningOption : null,
+    pointsDelta,
     // ANTI-CHEAT: withhold the answer while this question can still be stolen
     ...(stealOpens ? {} : { correctAnswer: question.answer }),
     isCorrect,
@@ -733,7 +749,10 @@ function resolveVote(room, io) {
     // values on the board reads as broken, and it would push the difficulty
     // ramp (PBI 7) backwards into easier questions as a reward for being wrong.
     if (wager !== null && wager !== undefined) {
-      room.teams[answeringTeam].score = Math.max(0, room.teams[answeringTeam].score - wager);
+      room.teams[answeringTeam].score = Math.max(
+        0,
+        room.teams[answeringTeam].score - lostWagerCost(mode, wager),
+      );
     }
 
     if (mode.eliminateOnWrong) {
@@ -767,6 +786,20 @@ function resolveVote(room, io) {
 
     advanceTurn();
   }, 2000);
+}
+
+/**
+ * What a lost stake actually costs (PBI 9 follow-up).
+ *
+ * Deducting the full stake made Wager a random walk — see the note on
+ * lossFactor in gameModes.js. Rounded so scores stay whole numbers.
+ * @param {object} mode
+ * @param {number} wager
+ * @returns {number}
+ */
+function lostWagerCost(mode, wager) {
+  const factor = typeof mode.lossFactor === 'number' ? mode.lossFactor : 1;
+  return Math.round(wager * factor);
 }
 
 /**
@@ -1060,6 +1093,7 @@ module.exports = {
   resetForRematch,
   checkWin,
   placeWager,
+  lostWagerCost,
   getWinThreshold,
   getQuestionSeconds,
   getStealSeconds,

@@ -22,6 +22,7 @@ const {
 } = require('../server/difficulty');
 
 const { QUESTIONS } = require('../server/questions');
+const { GAME_MODES } = require('../server/gameModes');
 
 const r = createReporter('DIFFICULTY CURVE — PBI 7');
 
@@ -171,8 +172,9 @@ async function main() {
 
   const { clients } = await setupMatch({ category: 'general', names: ['D1', 'D2'] });
 
-  r.check('Win threshold is on the room', clients[0].room.winThreshold === 100,
-    `${clients[0].room.winThreshold}`);
+  r.check('Win threshold is on the room and matches the mode',
+    clients[0].room.winThreshold === GAME_MODES.classic.winThreshold,
+    `${clients[0].room.winThreshold} vs ${GAME_MODES.classic.winThreshold}`);
 
   const served = clients[0].room.activeQuestion;
   r.check('A served question carries its difficulty', [1, 2, 3].includes(served.difficulty),

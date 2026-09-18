@@ -10,6 +10,20 @@
  *
  * A room stores its mode key plus the resolved values it needs, so an in-flight
  * match is unaffected if these defaults are ever edited.
+ *
+ * WIN THRESHOLDS WERE HALVED ON 2026-09-19, FROM PLAY DATA
+ * A real 60-question Wager match ended 27-40 with nobody near 100. Modelling it
+ * with the accuracy that implies (~55% per team) showed why:
+ *
+ *   classic, target 100, +5      -> ~57 questions, ~23 min
+ *   wager,   target 100, +stake  -> ~127 questions, ~51 min
+ *
+ * At +5 a correct answer, 100 points means twenty correct answers per team,
+ * which is simply not a party-game length. Wager was far worse because a lost
+ * stake used to cost the full amount: at 55% accuracy that is a random walk with
+ * almost no drift, so the score hovers instead of climbing. Hence lossFactor.
+ *
+ * Current settings model to ~9 min (classic), ~4 min (fast) and ~7 min (wager).
  */
 
 /**
@@ -23,6 +37,7 @@
  * @property {boolean} eliminateOnWrong   Survival: a wrong answer costs a player
  * @property {number} minPlayersPerTeam   refuse to start below this
  * @property {number[]|null} wagerOptions Wager: stakes the captain may pick
+ * @property {number} lossFactor      Wager: fraction of a lost stake actually deducted
  */
 
 /** @type {Record<string, GameMode>} */
@@ -32,12 +47,15 @@ const GAME_MODES = {
     key: 'classic',
     questionSeconds: 60,
     stealSeconds: 20,
-    winThreshold: 100,
+    // 50, not 100: at +5 a correct answer this is ten correct answers rather
+    // than twenty, which is ~23 questions instead of ~57.
+    winThreshold: 50,
     correctPoints: 5,
     stealPoints: 10,
     eliminateOnWrong: false,
     minPlayersPerTeam: 1,
     wagerOptions: null,
+    lossFactor: 1,
   },
 
   /**
@@ -49,12 +67,13 @@ const GAME_MODES = {
     key: 'fast',
     questionSeconds: 30,
     stealSeconds: 12,
-    winThreshold: 50,
+    winThreshold: 30,
     correctPoints: 5,
     stealPoints: 10,
     eliminateOnWrong: false,
     minPlayersPerTeam: 1,
     wagerOptions: null,
+    lossFactor: 1,
   },
 
   /**
@@ -70,12 +89,13 @@ const GAME_MODES = {
     key: 'survival',
     questionSeconds: 60,
     stealSeconds: 20,
-    winThreshold: 100,
+    winThreshold: 50,
     correctPoints: 5,
     stealPoints: 10,
     eliminateOnWrong: true,
     minPlayersPerTeam: 2,
     wagerOptions: null,
+    lossFactor: 1,
   },
 
   /**
@@ -95,12 +115,20 @@ const GAME_MODES = {
     key: 'wager',
     questionSeconds: 60,
     stealSeconds: 20,
-    winThreshold: 100,
+    winThreshold: 40,
     correctPoints: 5, // unused while a wager is set, kept as the fallback
     stealPoints: 10,
     eliminateOnWrong: false,
     minPlayersPerTeam: 1,
     wagerOptions: [3, 5, 10],
+    /**
+     * A lost stake costs this fraction of it. Symmetric stakes (1.0) made the
+     * mode a random walk: at realistic accuracy the expected gain per question
+     * is near zero, so scores hover and the match never ends — a real 60-question
+     * game finished 27-40 with a target of 100. Half keeps the risk meaningful
+     * while guaranteeing the score climbs.
+     */
+    lossFactor: 0.5,
   },
 };
 

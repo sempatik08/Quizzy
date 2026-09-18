@@ -18,6 +18,7 @@ const {
 } = require('./helpers');
 
 const { GAME_MODES, MODE_KEYS, getMode, DEFAULT_MODE } = require('../server/gameModes');
+const { lostWagerCost } = require('../server/gameLogic');
 
 const r = createReporter('GAME MODES — PBI 9');
 
@@ -72,10 +73,42 @@ async function main() {
   r.check('Default mode is classic', DEFAULT_MODE === 'classic', DEFAULT_MODE);
   r.check('An unknown mode resolves to classic (never throws)',
     getMode('nope').key === 'classic' && getMode(undefined).key === 'classic');
-  r.check('Classic is 60s / 100 points',
-    GAME_MODES.classic.questionSeconds === 60 && GAME_MODES.classic.winThreshold === 100);
-  r.check('Fast is 30s / 50 points',
-    GAME_MODES.fast.questionSeconds === 30 && GAME_MODES.fast.winThreshold === 50);
+  // Thresholds were halved on 2026-09-19 after a real 60-question match ended
+  // 27-40 with a target of 100. See the note in gameModes.js.
+  r.check('Classic is 60s / 50 points',
+    GAME_MODES.classic.questionSeconds === 60 && GAME_MODES.classic.winThreshold === 50,
+    `${GAME_MODES.classic.questionSeconds}s / ${GAME_MODES.classic.winThreshold}`);
+  r.check('Fast is 30s / 30 points',
+    GAME_MODES.fast.questionSeconds === 30 && GAME_MODES.fast.winThreshold === 30,
+    `${GAME_MODES.fast.questionSeconds}s / ${GAME_MODES.fast.winThreshold}`);
+  r.check('Every mode target is reachable in a party-game number of questions',
+    Object.values(GAME_MODES).every((m) => m.winThreshold <= 50),
+    JSON.stringify(Object.fromEntries(
+      Object.entries(GAME_MODES).map(([k, m]) => [k, m.winThreshold]))));
+  // Wager was a random walk with a full-stake loss: at realistic accuracy the
+  // expected gain per question is ~0, so the score hovered and the match never
+  // ended. Anything below 1 guarantees forward drift.
+  r.check('A lost wager costs LESS than a won one pays',
+    GAME_MODES.wager.lossFactor < 1, `${GAME_MODES.wager.lossFactor}`);
+  r.check('A lost stake costs lossFactor x the stake',
+    lostWagerCost(GAME_MODES.wager, 10) === 5 && lostWagerCost(GAME_MODES.wager, 3) === 2,
+    `${lostWagerCost(GAME_MODES.wager, 10)} / ${lostWagerCost(GAME_MODES.wager, 3)}`);
+  r.check('Non-wager modes have no stakes to lose',
+    ['classic', 'fast', 'survival'].every((k) => GAME_MODES[k].wagerOptions === null));
+
+  // The client ships its own copy of the targets, for copy that must name a
+  // number before a room exists (the create form, the footer). Five call sites
+  // hardcoded "100" and every one went stale when the thresholds changed, so the
+  // client table is GENERATED from this one and pinned to it here.
+  // Regenerate with: node scripts/sync-game-modes.js
+  const clientModes = require('../src/data/game-modes.json');
+  const drift = Object.entries(GAME_MODES)
+    .filter(([k, m]) => clientModes.winThreshold[k] !== m.winThreshold)
+    .map(([k, m]) => `${k}: client ${clientModes.winThreshold[k]} vs server ${m.winThreshold}`);
+  r.check('Client and server win thresholds agree', drift.length === 0, drift.join(' | '));
+  r.check('Client and server wager stakes agree',
+    JSON.stringify(clientModes.wagerOptions) === JSON.stringify(GAME_MODES.wager.wagerOptions),
+    JSON.stringify(clientModes.wagerOptions));
   r.check('Survival eliminates on a wrong answer and needs 2 per team',
     GAME_MODES.survival.eliminateOnWrong === true &&
       GAME_MODES.survival.minPlayersPerTeam === 2);
@@ -101,7 +134,7 @@ async function main() {
     classic.p1.room.mode);
   r.check('Classic serves a 60s window', classic.p1.room.activeQuestion.duration === 60,
     `${classic.p1.room.activeQuestion.duration}`);
-  r.check('Classic wins at 100', classic.p1.room.winThreshold === 100,
+  r.check('Classic wins at 50', classic.p1.room.winThreshold === 50,
     `${classic.p1.room.winThreshold}`);
   r.check('Classic has no wager step', classic.p1.room.activeQuestion.wagerPending === false);
   r.check('Classic shows the question immediately',
@@ -134,7 +167,7 @@ async function main() {
   r.check('Fast room reports its mode', fast.host.room.mode === 'fast', fast.host.room.mode);
   r.check('Fast serves a 30s window', fast.host.room.activeQuestion.duration === 30,
     `${fast.host.room.activeQuestion.duration}`);
-  r.check('Fast wins at 50', fast.host.room.winThreshold === 50,
+  r.check('Fast wins at 30', fast.host.room.winThreshold === 30,
     `${fast.host.room.winThreshold}`);
 
   // The clock must actually run at the shorter length, not just report it.

@@ -874,7 +874,11 @@ def run():
     print("="*60)
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        # Headless by default: a visible run pops Chromium windows in front of
+        # whatever the person is doing, and the suite runs for minutes. Set
+        # QUIZZY_E2E_HEADED=1 when you actually want to watch it.
+        headed = os.environ.get("QUIZZY_E2E_HEADED") == "1"
+        browser = p.chromium.launch(headless=not headed)
 
         ctx1 = browser.new_context(viewport={"width": 1280, "height": 800})
         ctx2 = browser.new_context(viewport={"width": 1280, "height": 800})

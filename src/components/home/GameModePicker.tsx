@@ -3,6 +3,7 @@
 import { Timer, Zap, HeartCrack, Coins } from 'lucide-react';
 import type { GameModeKey } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
+import { MODE_WIN_THRESHOLD } from '@/lib/gameModes';
 
 interface GameModePickerProps {
   value: GameModeKey;
@@ -28,8 +29,18 @@ export function GameModePicker({ value, onChange }: GameModePickerProps) {
     desc: string;
     note?: string;
   }> = [
-    { key: 'classic', icon: <Zap size={14} />, label: t.modeClassic, desc: t.modeClassicDesc },
-    { key: 'fast', icon: <Timer size={14} />, label: t.modeFast, desc: t.modeFastDesc },
+    {
+      key: 'classic',
+      icon: <Zap size={14} />,
+      label: t.modeClassic,
+      desc: t.modeClassicDesc.replace('{n}', String(MODE_WIN_THRESHOLD.classic)),
+    },
+    {
+      key: 'fast',
+      icon: <Timer size={14} />,
+      label: t.modeFast,
+      desc: t.modeFastDesc.replace('{n}', String(MODE_WIN_THRESHOLD.fast)),
+    },
     {
       key: 'survival',
       icon: <HeartCrack size={14} />,
