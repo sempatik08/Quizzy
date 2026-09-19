@@ -16,7 +16,7 @@ const { QUESTIONS, CATEGORY_KEYS } = require('../server/questions');
 const { createReporter } = require('./helpers');
 const publishedCounts = require('../src/data/question-counts.json');
 
-const EXPECTED_PER_CATEGORY = 230;
+const EXPECTED_PER_CATEGORY = 280;
 const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E'];
 
 const r = createReporter('QUESTION BANK INTEGRITY — PBI 4');
