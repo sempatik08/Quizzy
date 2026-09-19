@@ -7,12 +7,13 @@ import { SoundProvider } from '@/context/SoundContext';
 import { ProfileProvider } from '@/context/ProfileContext';
 import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import { ServiceWorkerRegistrar } from '@/components/shared/ServiceWorkerRegistrar';
+import questionCounts from '@/data/question-counts.json';
 
 export const metadata: Metadata = {
   title: 'Quizzy — Real-Time Team Quiz',
   description:
     'Real-time team quiz battles. Pick your side, vote together, steal the win. '
-    + '2400 questions across 12 categories, free and no sign-up.',
+    + `${questionCounts.total} questions across ${questionCounts.categoryCount} categories, free and no sign-up.`,
   applicationName: 'Quizzy',
   manifest: '/manifest.webmanifest',
   appleWebApp: {

@@ -12,7 +12,7 @@ işaretledim.
 
 Elimizde olan (Faz 1 + Faz 2 sonunda):
 
-- 12 kategori × 200 soru = **2400 soru**, EN + TR tam çeviri
+- 12 kategori × 230 soru = **2760 soru**, EN + TR tam çeviri
 - 4 oyun modu, joker, steal, seyirci, emoji, rematch, davet linki
 - PWA (telefona kurulabilir), ses, konfeti
 - Misafir profili + liderlik tablosu, oda kalıcılığı, analytics
@@ -123,7 +123,7 @@ Davet linki var ama **sonuç paylaşımı** yok. Wordle'ın tüm büyümesi bu m
 
 ### 3.4 Sosyal medya için içerik makinesi — YÜKSEK etki / sürekli emek
 
-2400 sorumuz var; bu bir **içerik varlığı**, sadece oyun verisi değil.
+2760 sorumuz var; bu bir **içerik varlığı**, sadece oyun verisi değil.
 
 - Günde 1 soru: "Bunu bilebilir misin?" formatında kart görseli → Instagram/TikTok/X.
   Cevap yorumda + oyun linki. Soru bankasından otomatik görsel üreten bir script yazılabilir
@@ -190,7 +190,7 @@ Bunlar oyunu daha iyi yapar ama kullanıcı yoksa kimse görmez. **Dağıtımdan
 | 3 | Sonuç paylaşımı (3.3) | Yüksek | 2 gün | Asıl büyüme motoru |
 | 4 | CrazyGames + itch.io (3.1) | Yüksek | 1 hafta | Hazır kitle + gelir |
 | 5 | Analytics döngüsü (3.6 ilk madde) | Orta | sürekli | Trafik beklemez |
-| 6 | Sosyal içerik scripti (3.4) | Yüksek | 3 gün + sürekli | 2400 soru = içerik |
+| 6 | Sosyal içerik scripti (3.4) | Yüksek | 3 gün + sürekli | 2760 soru = içerik |
 | 7 | SEO sayfaları (3.5) | Orta | 1 hafta | 2–3 ay gecikmeli meyve |
 | 8 | Redis canlı | Orta | 1 gün | Kod hazır |
 | 9 | Özel soru setleri (3.6) | Yüksek | 2 hafta | Yeni kullanım alanı |
