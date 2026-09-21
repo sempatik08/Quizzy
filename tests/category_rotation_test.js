@@ -9,7 +9,7 @@
  * override with QUIZZY_SOCKET_URL).
  *
  * The half of PBI 3 this covers was missing entirely: rotation only fired when a
- * pool ran dry, and every pool holds 300 questions, so in practice a match never
+ * pool ran dry, and every pool holds 350 questions, so in practice a match never
  * left its first category. Now both teams answer a quota of fresh questions and
  * the lower-scoring team picks next.
  *
