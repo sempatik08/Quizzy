@@ -5,6 +5,7 @@ import { Trophy, RotateCcw, Loader2, Check } from 'lucide-react';
 import type { Room } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { Confetti } from './Confetti';
+import { ShareResult } from './ShareResult';
 import { winnerOf } from '@/lib/score';
 
 interface WinnerScreenProps {
@@ -86,6 +87,16 @@ export function WinnerScreen({
             </div>
           ))}
         </div>
+
+        <ShareResult
+          roomCode={room.code}
+          winnerTeam={winner}
+          blueScore={room.teams.blue.score}
+          redScore={room.teams.red.score}
+          blueLabel={t.blueTeamLabel}
+          redLabel={t.redTeamLabel}
+          winsLabel={t.teamWins}
+        />
 
         {/* Rematch (PBI 8) */}
         {canRematch && (

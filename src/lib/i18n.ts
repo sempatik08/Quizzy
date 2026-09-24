@@ -98,6 +98,9 @@ const translations = {
     rematchStarting: 'Rematch starting…',
     rematchKeeps: 'Same room, same teams. Scores and questions reset.',
     // Invite link (PBI 12)
+    shareResult: 'Share Result',
+    downloadCard: 'Download score card',
+    copyResult: 'Copy result text',
     inviteFriends: 'Invite your friends',
     inviteLinkHint: 'Send this link — the room code fills itself in.',
     copyLink: 'Copy link',
@@ -322,6 +325,9 @@ const translations = {
     rematchStarting: 'Yeni maç başlıyor…',
     rematchKeeps: 'Aynı oda, aynı takımlar. Skorlar ve sorular sıfırlanır.',
     // Davet linki (PBI 12)
+    shareResult: 'Sonucu Paylaş',
+    downloadCard: 'Skor kartını indir',
+    copyResult: 'Sonuç metnini kopyala',
     inviteFriends: 'Arkadaşlarını davet et',
     inviteLinkHint: 'Bu linki gönder — oda kodu kendiliğinden dolar.',
     copyLink: 'Linki kopyala',
