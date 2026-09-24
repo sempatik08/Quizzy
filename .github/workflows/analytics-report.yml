@@ -1,0 +1,71 @@
+name: Weekly analytics report
+
+# Faz 3 item 5: turns "run scripts/analytics-report.js weekly" into something
+# that actually happens on a schedule, instead of relying on someone
+# remembering to run it by hand.
+#
+# Needs two repo secrets, set once the production env has ANALYTICS_TOKEN
+# and REDIS_URL configured (Railway dashboard — see docs/growth-plan.md 3.6):
+#   QUIZZY_PROD_URL        e.g. https://quizzy-production.up.railway.app
+#   QUIZZY_ANALYTICS_TOKEN the same value as ANALYTICS_TOKEN on the server
+#
+# Until both secrets exist the job exits cleanly without failing the run, so
+# this workflow is safe to merge before Redis/the token are live in prod.
+
+on:
+  schedule:
+    - cron: '0 8 * * 1' # Monday 08:00 UTC
+  workflow_dispatch:
+
+jobs:
+  report:
+    name: Fetch and summarize
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check secrets are configured
+        id: check
+        run: |
+          if [ -z "${{ secrets.QUIZZY_PROD_URL }}" ] || [ -z "${{ secrets.QUIZZY_ANALYTICS_TOKEN }}" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "## Analytics report skipped" >> "$GITHUB_STEP_SUMMARY"
+            echo "QUIZZY_PROD_URL and/or QUIZZY_ANALYTICS_TOKEN repo secrets are not set yet." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fetch report
+        if: steps.check.outputs.configured == 'true'
+        run: |
+          curl -sf "${{ secrets.QUIZZY_PROD_URL }}/analytics?token=${{ secrets.QUIZZY_ANALYTICS_TOKEN }}" -o report.json
+
+      - name: Summarize
+        if: steps.check.outputs.configured == 'true'
+        run: |
+          {
+            echo "## Quizzy analytics — $(date -u +%Y-%m-%d)"
+            echo
+            echo "### Matches"
+            echo "- Finished matches: $(jq '.matches.count' report.json)"
+            echo "- Avg duration (ms): $(jq '.matches.avgDurationMs' report.json)"
+            echo "- Avg questions: $(jq '.matches.avgQuestions' report.json)"
+            echo
+            echo "### Suspect questions (likely wrong answer key)"
+            echo '| id | pass rate | attempts |'
+            echo '|---|---|---|'
+            jq -r '.suspectQuestions[] | "| \(.id) | \((.passRate*100)|floor)% | \(.attempts) |"' report.json
+            echo
+            echo "### Difficulty drift (top 20)"
+            echo '| id | category | current | suggested | pass rate |'
+            echo '|---|---|---|---|---|'
+            jq -r '.difficultySuggestions[:20][] | "| \(.id) | \(.category) | \(.current) | \(.suggested) | \((.passRate*100)|floor)% |"' report.json
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload full report
+        if: steps.check.outputs.configured == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: analytics-report-${{ github.run_id }}
+          path: report.json
+          retention-days: 90
