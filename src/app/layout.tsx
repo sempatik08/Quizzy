@@ -9,7 +9,11 @@ import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import { ServiceWorkerRegistrar } from '@/components/shared/ServiceWorkerRegistrar';
 import questionCounts from '@/data/question-counts.json';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'Quizzy — Real-Time Team Quiz',
   description:
     'Real-time team quiz battles. Pick your side, vote together, steal the win. '
