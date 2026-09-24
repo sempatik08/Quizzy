@@ -140,11 +140,22 @@ def test_homepage(page: Page):
     except Exception as e:
         warn(f"Join Room butonu durumu beklenenden farkli: {e}")
 
-    # Create butonu disabled mi olmali (isim bos)
+    # Onboarding surtunmesi azaltma: isim alani otomatik dolu gelir (kayitli
+    # profil adi ya da rastgele bir ad), o yuzden Create Room bastan aktif olmali.
     try:
+        create_name = page.locator("#create-name")
         create_btn = page.get_by_role("button", name=re.compile(r"create room|oda olustur", re.I)).first
+        expect(create_name).not_to_have_value("", timeout=3000)
+        assert create_btn.is_enabled()
+        ok("Isim alani otomatik dolduruldu, 'Create Room' bastan aktif (dogru)")
+    except Exception as e:
+        fail("Isim on-doldurma kontrolu basarisiz", e)
+
+    # Isim silinirse buton yine disabled olmali
+    try:
+        create_name.fill("")
         assert create_btn.is_disabled()
-        ok("'Create Room' butonu bos isimde disabled (dogru)")
+        ok("Isim silinince 'Create Room' butonu disabled oluyor (dogru)")
     except Exception as e:
         warn(f"Create Room disabled kontrolu: {e}")
 

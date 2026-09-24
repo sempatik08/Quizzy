@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { LogIn, Loader2, Eye } from 'lucide-react';
 import { getSocket } from '@/lib/socket';
 import { useLanguage } from '@/context/LanguageContext';
 import { useProfile } from '@/context/ProfileContext';
+import { randomGuestName } from '@/lib/guestName';
 import type { RoomJoinedPayload, RoomErrorPayload } from '@/types';
 
 const SESSION_KEY = (roomCode: string) => `quizzy_player_${roomCode}`;
@@ -32,7 +33,7 @@ export function JoinRoomForm({
   defaultSpectate = false,
 }: JoinRoomFormProps = {}) {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { profile, setName: setProfileName } = useProfile();
   const [name, setName] = useState('');
   const [code, setCode] = useState(initialCode.toUpperCase());
@@ -40,12 +41,22 @@ export function JoinRoomForm({
   const [error, setError] = useState<string | null>(null);
   const [pendingCode, setPendingCode] = useState('');
   const [spectate, setSpectate] = useState(defaultSpectate);
+  const nameTouched = useRef(false);
 
   // The invite route resolves its param on the client, so the code can arrive
   // after first render.
   useEffect(() => {
     if (initialCode) setCode(initialCode.toUpperCase());
   }, [initialCode]);
+
+  // Prefill so a first-time player never faces an empty required field: a
+  // returning player's saved name, or a fun random placeholder otherwise.
+  // Skipped for an invite link (autoFocusName) — there the name field must
+  // stay empty, since typing a name is the one thing left for that flow.
+  useEffect(() => {
+    if (autoFocusName || nameTouched.current || !profile || name) return;
+    setName(profile.name || randomGuestName(language));
+  }, [autoFocusName, profile, language, name]);
 
   useEffect(() => {
     const socket = getSocket();
@@ -109,7 +120,7 @@ export function JoinRoomForm({
           id="join-name"
           type="text"
           value={name}
-          onChange={(e) => { setName(e.target.value); setError(null); }}
+          onChange={(e) => { nameTouched.current = true; setName(e.target.value); setError(null); }}
           placeholder={t.enterName}
           maxLength={20}
           autoFocus={autoFocusName}
