@@ -3,7 +3,7 @@
 /**
  * Generates "can you guess this?" question cards for social media (PBI:
  * social content engine, growth-plan.md 3.4). Turns the 7200-question bank
- * into a rotating library of postable images instead of source no one but
+ * into a rotating library of postable content instead of source no one but
  * players ever sees.
  *
  * Usage:
@@ -12,6 +12,12 @@
  * Each run picks `count` (default 7 — a week's worth) not-yet-used questions,
  * spread across categories, and writes to content/social/:
  *   <date>-<id>.png   1080x1350 portrait card, no answer shown
+ *   <date>-<id>.mp4    same card as a 6s Ken Burns video (needs ffmpeg on
+ *                       PATH) — TikTok and YouTube Shorts only take video, so
+ *                       the still alone cannot reach either of them. Feeds
+ *                       Postdeck's (../postdeck) video-only publish pipeline
+ *                       today; once its PBI AT (static-post support) ships,
+ *                       the .png can go to Instagram directly instead.
  *   <date>-<id>.txt    caption + hashtags + the answer, for the poster's own
  *                       reference (post the answer as a follow-up comment,
  *                       not in the image — that's what gets people to engage)
@@ -22,6 +28,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const sharp = require('sharp');
 const { QUESTIONS } = require('../server/questions');
 
@@ -160,9 +167,47 @@ function buildCaption(question, categoryLabel) {
   ].join('\n');
 }
 
+let ffmpegChecked = false;
+let ffmpegAvailable = false;
+
+function hasFfmpeg() {
+  if (ffmpegChecked) return ffmpegAvailable;
+  ffmpegChecked = true;
+  try {
+    execFileSync('ffmpeg', ['-version'], { stdio: 'ignore' });
+    ffmpegAvailable = true;
+  } catch {
+    ffmpegAvailable = false;
+  }
+  return ffmpegAvailable;
+}
+
+/** Still image -> 6s Ken Burns video, so TikTok/YouTube (video-only) can carry the same card. */
+function buildCardVideo(pngPath, mp4Path) {
+  const durationSec = 6;
+  const fps = 25;
+  const totalFrames = durationSec * fps;
+  execFileSync('ffmpeg', [
+    '-y',
+    '-loop', '1',
+    '-i', pngPath,
+    '-vf', `zoompan=z='min(zoom+0.0008,1.15)':d=${totalFrames}:s=${WIDTH}x${HEIGHT}:fps=${fps},format=yuv420p`,
+    '-t', String(durationSec),
+    '-r', String(fps),
+    '-c:v', 'libx264',
+    '-pix_fmt', 'yuv420p',
+    mp4Path,
+  ], { stdio: 'ignore' });
+}
+
 async function main() {
   const count = Number(process.argv[2]) || 7;
   fs.mkdirSync(OUT_DIR, { recursive: true });
+
+  const withVideo = hasFfmpeg();
+  if (!withVideo) {
+    console.warn('ffmpeg not found on PATH — skipping .mp4 generation, writing .png + .txt only.\n');
+  }
 
   const used = loadUsed();
   const questions = pickQuestions(count, used);
@@ -176,8 +221,15 @@ async function main() {
 
     await sharp(Buffer.from(svg)).png().toFile(pngPath);
     fs.writeFileSync(txtPath, buildCaption(question, CATEGORY_LABELS_TR[question.category] ?? question.category));
+
+    if (withVideo) {
+      buildCardVideo(pngPath, path.join(OUT_DIR, `${base}.mp4`));
+      console.log(`  ${base}.png + .mp4`);
+    } else {
+      console.log(`  ${base}.png`);
+    }
+
     used.add(question.id);
-    console.log(`  ${base}.png`);
   }
 
   saveUsed(used);
