@@ -43,3 +43,6 @@ __pycache__/
 
 # Room persistence (PBI 13) — file backend default location
 .data/
+
+# Generated social content cards (scripts/social-content.js) — output, not source
+content/social/
