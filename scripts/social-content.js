@@ -7,7 +7,7 @@
  * players ever sees.
  *
  * Usage:
- *   node scripts/social-content.js [count]
+ *   node scripts/social-content.js [count] [--category=history]
  *
  * Each run picks `count` (default 7 — a week's worth) not-yet-used questions,
  * spread across categories, and writes to content/social/:
@@ -59,9 +59,14 @@ function saveUsed(used) {
   fs.writeFileSync(USED_FILE, JSON.stringify([...used]));
 }
 
-/** Picks `count` questions, one per category where possible, skipping already-used ids. */
-function pickQuestions(count, used) {
-  const categories = Object.keys(QUESTIONS);
+/**
+ * Picks `count` questions, one per category where possible, skipping
+ * already-used ids. Pass `onlyCategory` to pin every pick to one category —
+ * useful when a content plan (e.g. Postdeck's planner) already committed a
+ * specific row to a theme like "history question" and needs a matching card.
+ */
+function pickQuestions(count, used, onlyCategory) {
+  const categories = onlyCategory ? [onlyCategory] : Object.keys(QUESTIONS);
   const picks = [];
   let categoryIndex = Math.floor(Math.random() * categories.length);
 
@@ -201,7 +206,15 @@ function buildCardVideo(pngPath, mp4Path) {
 }
 
 async function main() {
-  const count = Number(process.argv[2]) || 7;
+  const args = process.argv.slice(2).filter((a) => !a.startsWith('--category='));
+  const categoryArg = process.argv.find((a) => a.startsWith('--category='));
+  const onlyCategory = categoryArg ? categoryArg.split('=')[1] : null;
+  if (onlyCategory && !QUESTIONS[onlyCategory]) {
+    console.error(`Unknown category "${onlyCategory}". Valid: ${Object.keys(QUESTIONS).join(', ')}`);
+    process.exit(1);
+  }
+
+  const count = Number(args[0]) || 7;
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   const withVideo = hasFfmpeg();
@@ -210,7 +223,7 @@ async function main() {
   }
 
   const used = loadUsed();
-  const questions = pickQuestions(count, used);
+  const questions = pickQuestions(count, used, onlyCategory);
   const today = new Date().toISOString().slice(0, 10);
 
   for (const question of questions) {
