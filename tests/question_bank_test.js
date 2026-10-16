@@ -17,9 +17,10 @@ const { createReporter } = require('./helpers');
 const publishedCounts = require('../src/data/question-counts.json');
 
 const EXPECTED_PER_CATEGORY = 600;
-// Categories added after PBI 4 launch at a smaller pool and are grown later.
-// Each still needs enough questions that category rotation never runs dry.
-const NEW_CATEGORY_COUNTS = { tr_magazine: 200, world_magazine: 200, world_cup: 200 };
+// A new category may launch with a smaller pool and be grown later; list it
+// here with its size until it reaches EXPECTED_PER_CATEGORY. Each still needs
+// enough questions that category rotation never runs dry.
+const NEW_CATEGORY_COUNTS = {};
 const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E'];
 
 const r = createReporter('QUESTION BANK INTEGRITY — PBI 4');
@@ -33,11 +34,13 @@ r.section('1. Categories');
 const EXPECTED_CATEGORIES = [
   'general', 'cinema', 'sports', 'history', 'music', 'anime',
   'technology', 'literature', 'math', 'geography', 'philosophy', 'games',
+  'tr_magazine', 'world_magazine', 'world_cup',
 ];
 
 const bankKeys = Object.keys(QUESTIONS);
 const missing = EXPECTED_CATEGORIES.filter((k) => !bankKeys.includes(k));
-r.check('All 12 PBI 4 categories exist in the bank', missing.length === 0, `missing: ${missing}`);
+r.check(`All ${EXPECTED_CATEGORIES.length} categories exist in the bank`, missing.length === 0,
+  `missing: ${missing}`);
 
 r.check(
   'CATEGORY_KEYS is derived from the bank (no second hand-written list)',
