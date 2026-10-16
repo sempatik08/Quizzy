@@ -35,6 +35,17 @@ const store = require('./store');
 const KEY_CATEGORIES = 'quizzy:analytics:categories';
 const KEY_MATCHES = 'quizzy:analytics:matches';
 const KEY_QUESTIONS = 'quizzy:analytics:questions';
+const KEY_FUNNEL = 'quizzy:analytics:funnel';
+
+/**
+ * Funnel days are bucketed in the audience's timezone, so "today" in the report
+ * matches the day a post went out. A whole day is the finest grain kept: coarse
+ * enough that a bucket says how much play there was, never when one person played.
+ */
+const FUNNEL_TIMEZONE = 'Europe/Istanbul';
+
+/** The report lists this many most recent days; older days stay in the totals. */
+const FUNNEL_REPORT_DAYS = 30;
 
 /** How often the in-memory buffer is merged into the store. */
 const FLUSH_INTERVAL_MS = 30_000;
@@ -65,7 +76,33 @@ function emptyBuffer() {
       /** mode -> { count, totalDurationMs, totalQuestions } */
       byMode: {},
     },
+    /**
+     * Rooms created -> matches started -> matches finished. Finished matches
+     * alone cannot tell an empty lobby from an abandoned match from a room
+     * nobody opened; the funnel can.
+     */
+    funnel: {
+      roomsCreated: 0,
+      matchesStarted: 0,
+      /** Team players at kickoff, summed — divided by matchesStarted for an average. */
+      playersInStartedMatches: 0,
+      /** 'YYYY-MM-DD' -> { roomsCreated, matchesStarted, matchesFinished } */
+      byDay: {},
+    },
   };
+}
+
+function dayKey(now = Date.now()) {
+  // sv-SE formats as YYYY-MM-DD, which also sorts correctly as a string.
+  return new Date(now).toLocaleDateString('sv-SE', { timeZone: FUNNEL_TIMEZONE });
+}
+
+function bumpDay(field, now) {
+  const key = dayKey(now);
+  const row = buffer.funnel.byDay[key]
+    ?? { roomsCreated: 0, matchesStarted: 0, matchesFinished: 0 };
+  row[field] += 1;
+  buffer.funnel.byDay[key] = row;
 }
 
 let buffer = emptyBuffer();
@@ -92,6 +129,29 @@ function bumpQuestion(questionId, field) {
 // ---------------------------------------------------------------------------
 // Recorders — called from the game loop, must never throw or block
 // ---------------------------------------------------------------------------
+
+/** Someone pressed Create Room. Top of the funnel. */
+function recordRoomCreated(now = Date.now()) {
+  buffer.funnel.roomsCreated += 1;
+  bumpDay('roomsCreated', now);
+  dirty = true;
+}
+
+/**
+ * A match got as far as its first question — the point where people are
+ * actually playing rather than waiting in a lobby. Only the head count is kept,
+ * not who the players were.
+ * @param {object} room
+ */
+function recordMatchStart(room, now = Date.now()) {
+  if (!room) return;
+  const players = (room.teams?.blue?.players?.length ?? 0)
+    + (room.teams?.red?.players?.length ?? 0);
+  buffer.funnel.matchesStarted += 1;
+  buffer.funnel.playersInStartedMatches += players;
+  bumpDay('matchesStarted', now);
+  dirty = true;
+}
 
 /** A captain chose a category. Answers "which categories do people want". */
 function recordCategoryPick(category) {
@@ -133,7 +193,7 @@ function recordAnswer(questionId, outcome) {
  * mode. Deliberately not the room code, the players, or the winner.
  * @param {object} room
  */
-function recordMatchEnd(room) {
+function recordMatchEnd(room, now = Date.now()) {
   if (!room) return;
   const mode = room.mode ?? 'classic';
   const duration = room.createdAt ? Math.max(0, Date.now() - room.createdAt) : 0;
@@ -149,6 +209,7 @@ function recordMatchEnd(room) {
   row.totalDurationMs += duration;
   row.totalQuestions += questions;
   buffer.matches.byMode[mode] = row;
+  bumpDay('matchesFinished', now);
 
   dirty = true;
 }
@@ -181,11 +242,21 @@ async function flushAnalytics() {
   dirty = false;
 
   try {
-    const [storedCats, storedQs, storedMatches] = await Promise.all([
+    const [storedCats, storedQs, storedMatches, storedFunnel] = await Promise.all([
       store.getJSON(KEY_CATEGORIES),
       store.getJSON(KEY_QUESTIONS),
       store.getJSON(KEY_MATCHES),
+      store.getJSON(KEY_FUNNEL),
     ]);
+
+    const baseFunnel = storedFunnel ?? emptyBuffer().funnel;
+    await store.setJSON(KEY_FUNNEL, {
+      roomsCreated: (baseFunnel.roomsCreated ?? 0) + pending.funnel.roomsCreated,
+      matchesStarted: (baseFunnel.matchesStarted ?? 0) + pending.funnel.matchesStarted,
+      playersInStartedMatches: (baseFunnel.playersInStartedMatches ?? 0)
+        + pending.funnel.playersInStartedMatches,
+      byDay: mergeCounters(baseFunnel.byDay, pending.funnel.byDay),
+    });
 
     await store.setJSON(KEY_CATEGORIES, mergeCounters(storedCats, pending.categories));
     await store.setJSON(KEY_QUESTIONS, mergeCounters(storedQs, pending.questions));
@@ -243,15 +314,40 @@ function stopAnalyticsFlusher() {
 async function buildReport(bank) {
   await flushAnalytics();
 
-  const [categories, questions, matches] = await Promise.all([
+  const [categories, questions, matches, funnelRaw] = await Promise.all([
     store.getJSON(KEY_CATEGORIES),
     store.getJSON(KEY_QUESTIONS),
     store.getJSON(KEY_MATCHES),
+    store.getJSON(KEY_FUNNEL),
   ]);
 
   const cats = categories ?? {};
   const qs = questions ?? {};
   const m = matches ?? { count: 0, totalDurationMs: 0, totalQuestions: 0, byMode: {} };
+  const f = funnelRaw ?? emptyBuffer().funnel;
+
+  // Rates are null rather than 0 when the step above is empty: "no rooms yet"
+  // and "every room was abandoned" must not read the same.
+  const rate = (part, whole) => (whole > 0 ? Number((part / whole).toFixed(3)) : null);
+  const funnel = {
+    roomsCreated: f.roomsCreated ?? 0,
+    matchesStarted: f.matchesStarted ?? 0,
+    matchesFinished: m.count,
+    startRate: rate(f.matchesStarted ?? 0, f.roomsCreated ?? 0),
+    finishRate: rate(m.count, f.matchesStarted ?? 0),
+    avgPlayersPerMatch: f.matchesStarted
+      ? Number(((f.playersInStartedMatches ?? 0) / f.matchesStarted).toFixed(1))
+      : 0,
+    byDay: Object.entries(f.byDay ?? {})
+      .sort(([a], [b]) => b.localeCompare(a))
+      .slice(0, FUNNEL_REPORT_DAYS)
+      .map(([day, row]) => ({
+        day,
+        roomsCreated: row.roomsCreated ?? 0,
+        matchesStarted: row.matchesStarted ?? 0,
+        matchesFinished: row.matchesFinished ?? 0,
+      })),
+  };
 
   // Which categories people actually choose.
   const categoryRanking = Object.entries(cats)
@@ -307,6 +403,7 @@ async function buildReport(bank) {
     .sort((a, b) => b.attempts - a.attempts);
 
   return {
+    funnel,
     categories: categoryRanking,
     matches: {
       count: m.count,
@@ -357,15 +454,20 @@ async function resetAnalytics() {
   await store.setJSON(KEY_MATCHES, {
     count: 0, totalDurationMs: 0, totalQuestions: 0, byMode: {},
   });
+  await store.setJSON(KEY_FUNNEL, emptyBuffer().funnel);
 }
 
 module.exports = {
   KEY_CATEGORIES,
+  KEY_FUNNEL,
   KEY_MATCHES,
   KEY_QUESTIONS,
   FLUSH_INTERVAL_MS,
   MIN_ATTEMPTS_FOR_SIGNAL,
   SUSPECT_PASS_RATE,
+  dayKey,
+  recordRoomCreated,
+  recordMatchStart,
   recordCategoryPick,
   recordQuestionServed,
   recordAnswer,

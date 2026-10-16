@@ -276,6 +276,7 @@ io.on('connection', (socket) => {
     }
     socketToPlayer.set(socket.id, { roomCode, playerId });
     socket.join(roomCode);
+    analytics.recordRoomCreated();
 
     console.log(`[Room] Created: ${roomCode} by ${room.players[playerId].name} (${room.mode})`);
     socket.emit('room:created', { roomCode, playerId, room: sanitizeRoom(room) });

@@ -180,6 +180,62 @@ async function main() {
   r.check('Matches are also broken down by mode', matches.byMode.fast.count === 2,
     JSON.stringify(matches.byMode));
 
+  // Funnel: rooms created -> matches started -> matches finished, per day.
+  // 21:30 UTC is already the next day in Istanbul (UTC+3), so this also pins
+  // the bucket to the audience's day rather than the server's.
+  await analytics.resetAnalytics();
+  const dayA = Date.parse('2026-10-14T10:00:00Z');
+  const dayB = Date.parse('2026-10-15T21:30:00Z');
+  r.check('Days are bucketed in Istanbul time',
+    analytics.dayKey(dayA) === '2026-10-14' && analytics.dayKey(dayB) === '2026-10-16',
+    `${analytics.dayKey(dayA)} / ${analytics.dayKey(dayB)}`);
+
+  analytics.recordRoomCreated(dayA);
+  analytics.recordRoomCreated(dayA);
+  analytics.recordRoomCreated(dayA);
+  analytics.recordRoomCreated(dayB);
+  analytics.recordMatchStart({ teams: { blue: { players: ['x', 'y'] }, red: { players: ['z'] } } }, dayA);
+  analytics.recordMatchStart({ teams: { blue: { players: ['x'] }, red: { players: ['z'] } } }, dayB);
+  analytics.recordMatchEnd({ mode: 'classic', createdAt: dayB - 60000, usedQuestionIds: [] }, dayB);
+  await analytics.flushAnalytics();
+
+  const funnelStored = await store.getJSON(analytics.KEY_FUNNEL);
+  r.check('Rooms created are counted', funnelStored.roomsCreated === 4,
+    JSON.stringify(funnelStored));
+  r.check('Matches started are counted', funnelStored.matchesStarted === 2,
+    JSON.stringify(funnelStored));
+  r.check('Players at kickoff are summed as a head count only',
+    funnelStored.playersInStartedMatches === 5, JSON.stringify(funnelStored));
+  r.check('Each day keeps its own funnel row',
+    funnelStored.byDay['2026-10-14']?.roomsCreated === 3 &&
+      funnelStored.byDay['2026-10-14']?.matchesStarted === 1 &&
+      funnelStored.byDay['2026-10-16']?.roomsCreated === 1 &&
+      funnelStored.byDay['2026-10-16']?.matchesFinished === 1,
+    JSON.stringify(funnelStored.byDay));
+
+  analytics.recordRoomCreated(dayA);
+  await analytics.flushAnalytics();
+  const funnelStored2 = await store.getJSON(analytics.KEY_FUNNEL);
+  r.check('A later flush adds to the stored funnel instead of replacing it',
+    funnelStored2.roomsCreated === 5 && funnelStored2.byDay['2026-10-14'].roomsCreated === 4,
+    JSON.stringify(funnelStored2));
+
+  const funnelReport = (await analytics.buildReport(QUESTIONS)).funnel;
+  r.check('The report shows the funnel with its rates',
+    funnelReport.roomsCreated === 5 && funnelReport.matchesStarted === 2 &&
+      funnelReport.matchesFinished === 1 && funnelReport.startRate === 0.4 &&
+      funnelReport.finishRate === 0.5 && funnelReport.avgPlayersPerMatch === 2.5,
+    JSON.stringify({ ...funnelReport, byDay: undefined }));
+  r.check('The report lists days newest first',
+    funnelReport.byDay.map((d) => d.day).join(',') === '2026-10-16,2026-10-14',
+    JSON.stringify(funnelReport.byDay));
+
+  await analytics.resetAnalytics();
+  const emptyFunnel = (await analytics.buildReport(QUESTIONS)).funnel;
+  r.check('With no rooms the rates are null, not a misleading 0',
+    emptyFunnel.startRate === null && emptyFunnel.finishRate === null,
+    JSON.stringify(emptyFunnel));
+
   // =====================================================================
   // 2. The report
   // =====================================================================
@@ -251,7 +307,7 @@ async function main() {
   const ok = await httpGet(`/analytics?token=${TOKEN}`);
   r.check('The right token is accepted', ok.status === 200, `${ok.status}`);
   r.check('The report comes back as JSON with the expected sections',
-    ok.body && Array.isArray(ok.body.categories) && ok.body.matches &&
+    ok.body && ok.body.funnel && Array.isArray(ok.body.categories) && ok.body.matches &&
       Array.isArray(ok.body.suspectQuestions) &&
       Array.isArray(ok.body.difficultySuggestions),
     JSON.stringify(ok.body).slice(0, 160));
@@ -263,6 +319,12 @@ async function main() {
   // 4. No personal data — checked byte by byte
   // =====================================================================
   r.section('4. Privacy');
+
+  // A room nobody plays in: it must count as created but never as started.
+  const idle = makeClient('AnalyticsIdle');
+  idle.s.emit('room:create', { playerName: 'IdleSecret', mode: 'classic' });
+  await waitFor(() => idle.room, 'idle room created');
+  idle.s.close();
 
   const c1 = makeClient('AnalyticsP1');
   const c2 = makeClient('AnalyticsP2');
@@ -334,6 +396,16 @@ async function main() {
   r.check('The endpoint reflects the match just played',
     liveReport.status === 200 && liveReport.body.matches.count >= 1,
     JSON.stringify(liveReport.body?.matches));
+  const liveFunnel = liveReport.body?.funnel ?? {};
+  r.check('Both rooms count as created, including the one left in the lobby',
+    liveFunnel.roomsCreated === 2, JSON.stringify(liveFunnel));
+  r.check('Only the room that reached a question counts as a started match',
+    liveFunnel.matchesStarted === 1 && liveFunnel.avgPlayersPerMatch === 2,
+    JSON.stringify(liveFunnel));
+  r.check('The finished match lands in today\'s funnel row',
+    liveFunnel.byDay?.[0]?.day === analytics.dayKey() &&
+      liveFunnel.byDay[0].matchesFinished === 1,
+    JSON.stringify(liveFunnel.byDay));
   await sleep(1200);
 
   await stopServer(child);
@@ -343,7 +415,7 @@ async function main() {
   const kvRaw = fs.readFileSync(kvFile, 'utf8');
   const kv = JSON.parse(kvRaw);
   const analyticsKeys = Object.keys(kv).filter((k) => k.startsWith('quizzy:analytics'));
-  r.check('Analytics blobs were written', analyticsKeys.length === 3,
+  r.check('Analytics blobs were written', analyticsKeys.length === 4,
     JSON.stringify(analyticsKeys));
 
   const analyticsBlob = JSON.stringify(
@@ -354,6 +426,8 @@ async function main() {
   const forbidden = [
     ['a player name', 'SecretName'],
     ['the other player name', 'OtherSecret'],
+    ['the idle room player name', 'IdleSecret'],
+    ['the idle room code', idle.room.code],
     ['the room code', code],
     ['a player id', c1.playerId],
     ['a "playerId" field', 'playerId'],
