@@ -211,6 +211,25 @@ async function main() {
     `turnTeam=${turnTeamBefore} counts=${JSON.stringify(counts)}`);
 
   teardown(sc);
+
+  // =====================================================================
+  // 5. Newly added categories are playable end to end
+  // =====================================================================
+  r.section('5. New categories can be picked and serve their own questions');
+
+  // Same failure mode philosophy had: a category can sit in the bank and the
+  // picker yet still be refused or serve nothing. Drive a real pick for each.
+  const NEW_CATEGORIES = { tr_magazine: 'trm_', world_magazine: 'wmg_', world_cup: 'wc_' };
+  for (const [category, prefix] of Object.entries(NEW_CATEGORIES)) {
+    const match = await setupMatch({ category, names: [`N1${prefix}`, `N2${prefix}`] });
+    const room = match.clients[0].room;
+    r.check(`${category} is accepted as the active category`,
+      room.selectedCategory === category, `got ${room.selectedCategory}`);
+    r.check(`${category} serves a question from its own pool`,
+      String(room.activeQuestion?.question?.id ?? '').startsWith(prefix),
+      `got ${room.activeQuestion?.question?.id}`);
+    teardown(match.clients);
+  }
 }
 
 main()

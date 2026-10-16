@@ -29,6 +29,9 @@ const CATEGORY_DISPLAY: Array<{ key: keyof typeof questionCounts.categories; nam
   { key: 'math',       name: 'Matematik',     emoji: '🔢' },
   { key: 'geography',  name: 'Coğrafya',      emoji: '🌍' },
   { key: 'philosophy', name: 'Felsefe',       emoji: '🤔' },
+  { key: 'tr_magazine',    name: 'Türkiye Magazini', emoji: '⭐' },
+  { key: 'world_magazine', name: 'Dünya Magazini',   emoji: '✨' },
+  { key: 'world_cup',      name: 'Dünya Kupası',     emoji: '🏆' },
 ];
 
 /* ─── Modal content ─── */

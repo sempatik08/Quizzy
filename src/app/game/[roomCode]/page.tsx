@@ -128,6 +128,9 @@ export default function GamePage() {
     math:       t.math,
     geography:  t.geography,
     philosophy: t.philosophy,
+    tr_magazine:    t.trMagazine,
+    world_magazine: t.worldMagazine,
+    world_cup:      t.worldCup,
     cinema_music: t.cinemaMusic,
   };
 

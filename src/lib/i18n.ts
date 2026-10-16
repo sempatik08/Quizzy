@@ -171,6 +171,12 @@ const translations = {
     geographyDesc: 'Countries, capitals, rivers & mountains',
     philosophy: 'Philosophy',
     philosophyDesc: 'Great thinkers, schools of thought & ideas',
+    trMagazine: 'Turkish Showbiz',
+    trMagazineDesc: 'Turkish stars, series, singers & screen icons',
+    worldMagazine: 'World Showbiz',
+    worldMagazineDesc: 'Hollywood, pop stars, red carpets & awards',
+    worldCup: 'World Cup',
+    worldCupDesc: 'FIFA World Cup history, hosts, legends & records',
     // Game page
     yourTurn: '⚡ Your turn',
     // {team} already contains the word "team" ("Blue Team"), so these are whole
@@ -398,6 +404,12 @@ const translations = {
     geographyDesc: 'Ülkeler, başkentler, nehirler ve dağlar',
     philosophy: 'Felsefe',
     philosophyDesc: 'Büyük düşünürler, düşünce okulları ve fikirler',
+    trMagazine: 'Türkiye Magazini',
+    trMagazineDesc: 'Yeşilçam, diziler, şarkıcılar ve ünlüler',
+    worldMagazine: 'Dünya Magazini',
+    worldMagazineDesc: 'Hollywood, pop yıldızları, kırmızı halı ve ödüller',
+    worldCup: 'Dünya Kupası',
+    worldCupDesc: 'FIFA Dünya Kupası tarihi, ev sahipleri, efsaneler ve rekorlar',
     // Game page
     yourTurn: '⚡ Sıra sende',
     turnOfTeam: 'Sıra {team}da',
