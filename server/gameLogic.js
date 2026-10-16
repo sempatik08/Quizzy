@@ -412,6 +412,12 @@ function startQuestion(room, io) {
   // No timer while a stake is outstanding — a countdown on a hidden question
   // would just punish the captain for reading the stake buttons.
   analytics.recordQuestionServed(question.id, room.selectedCategory);
+  // The first question is where a match counts as started: before it, the
+  // room is still a lobby someone may walk away from.
+  if (!room.analyticsStarted) {
+    room.analyticsStarted = true;
+    analytics.recordMatchStart(room);
+  }
 
   if (!wagerPending) scheduleQuestionTimers(room, io);
 }
@@ -1009,6 +1015,7 @@ function resetForRematch(room) {
   // first match in a room would ever be recorded (PBI 14).
   room.statsRecorded = false;
   room.analyticsRecorded = false;
+  room.analyticsStarted = false;
   // Survival eliminations are per match, not per room.
   for (const player of Object.values(room.players)) {
     player.isEliminated = false;
