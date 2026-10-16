@@ -17,6 +17,9 @@ const { createReporter } = require('./helpers');
 const publishedCounts = require('../src/data/question-counts.json');
 
 const EXPECTED_PER_CATEGORY = 600;
+// Categories added after PBI 4 launch at a smaller pool and are grown later.
+// Each still needs enough questions that category rotation never runs dry.
+const NEW_CATEGORY_COUNTS = { tr_magazine: 200, world_magazine: 200, world_cup: 200 };
 const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E'];
 
 const r = createReporter('QUESTION BANK INTEGRITY — PBI 4');
@@ -55,12 +58,23 @@ for (const key of EXPECTED_CATEGORIES) {
   );
 }
 
-const total = Object.values(QUESTIONS).reduce((n, pool) => n + pool.length, 0);
-r.check(
-  `Bank total is ${EXPECTED_CATEGORIES.length * EXPECTED_PER_CATEGORY}`,
-  total === EXPECTED_CATEGORIES.length * EXPECTED_PER_CATEGORY,
-  `got ${total}`,
+for (const [key, expected] of Object.entries(NEW_CATEGORY_COUNTS)) {
+  const pool = QUESTIONS[key] || [];
+  r.check(`${key} holds ${expected} questions`, pool.length === expected, `got ${pool.length}`);
+}
+
+// Every category in the bank must be accounted for above, so a new one cannot
+// ship without someone deciding its expected size.
+const unexpected = bankKeys.filter(
+  (k) => !EXPECTED_CATEGORIES.includes(k) && !(k in NEW_CATEGORY_COUNTS),
 );
+r.check('No category in the bank is missing from this test', unexpected.length === 0,
+  `unlisted: ${unexpected}`);
+
+const expectedTotal = EXPECTED_CATEGORIES.length * EXPECTED_PER_CATEGORY
+  + Object.values(NEW_CATEGORY_COUNTS).reduce((n, c) => n + c, 0);
+const total = Object.values(QUESTIONS).reduce((n, pool) => n + pool.length, 0);
+r.check(`Bank total is ${expectedTotal}`, total === expectedTotal, `got ${total}`);
 
 // ---------------------------------------------------------------------------
 // 1b. The counts the UI advertises

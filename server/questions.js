@@ -24,6 +24,9 @@ const { literature } = require('./questions/literature');
 const { math } = require('./questions/math');
 const { geography } = require('./questions/geography');
 const { philosophy } = require('./questions/philosophy');
+const { tr_magazine } = require('./questions/tr_magazine');
+const { world_magazine } = require('./questions/world_magazine');
+const { world_cup } = require('./questions/world_cup');
 
 const QUESTIONS = {
   general,
@@ -39,6 +42,9 @@ const QUESTIONS = {
   philosophy,
 
   games,
+  tr_magazine,
+  world_magazine,
+  world_cup,
 };
 
 /** Canonical category allow-list. Derived, never hand-maintained. */

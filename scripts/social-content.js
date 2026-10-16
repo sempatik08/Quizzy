@@ -46,6 +46,7 @@ const CATEGORY_LABELS_TR = {
   general: 'Genel Kültür', cinema: 'Sinema & Dizi', sports: 'Spor', history: 'Tarih',
   music: 'Müzik', anime: 'Anime', technology: 'Teknoloji', literature: 'Edebiyat',
   math: 'Matematik', geography: 'Coğrafya', philosophy: 'Felsefe', games: 'Oyun',
+  tr_magazine: 'Türkiye Magazini', world_magazine: 'Dünya Magazini', world_cup: 'Dünya Kupası',
 };
 
 const DIFFICULTY_LABELS_TR = { 1: 'Kolay', 2: 'Orta', 3: 'Zor' };

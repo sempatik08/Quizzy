@@ -17,7 +17,10 @@ export type Category =
   | 'literature'
   | 'math'
   | 'geography'
-  | 'philosophy';
+  | 'philosophy'
+  | 'tr_magazine'
+  | 'world_magazine'
+  | 'world_cup';
 export type TeamColor = 'blue' | 'red';
 
 /** Game modes (PBI 9). Must stay in sync with server/gameModes.js. */
