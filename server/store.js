@@ -512,6 +512,20 @@ async function getSet(key) {
   return Array.isArray(existing) ? [...existing] : [];
 }
 
+/** Number of members in a set, without reading them all (SCARD on Redis). */
+async function setSize(key) {
+  if (backend === 'redis' && redis) {
+    try {
+      return await redis.scard(key);
+    } catch (err) {
+      console.warn(`[Store] setSize ${key} failed: ${err.message}`);
+      return 0;
+    }
+  }
+  const existing = kvMirror.get(key);
+  return Array.isArray(existing) ? existing.length : 0;
+}
+
 module.exports = {
   ROOM_TTL_SECONDS,
   KEY_PREFIX,
@@ -520,6 +534,7 @@ module.exports = {
   setJSON,
   addToSet,
   getSet,
+  setSize,
   initStore,
   getBackend,
   saveRoom,
