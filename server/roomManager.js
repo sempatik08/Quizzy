@@ -383,6 +383,11 @@ function allRooms() {
   return [...rooms.values()];
 }
 
+/** Rooms currently held in memory, for the global room cap. */
+function roomCount() {
+  return rooms.size;
+}
+
 /**
  * Sanitize a room object for client delivery.
  * - Strips `answer` from the active question (ANTI-CHEAT).
@@ -488,4 +493,5 @@ module.exports = {
   getMode,
   adoptRoom,
   allRooms,
+  roomCount,
 };

@@ -47,6 +47,11 @@ function isRateLimited(playerId) {
   return false;
 }
 
+/** Forget a player's debounce entry, so the map does not grow for the life of the process. */
+function clearRateLimit(playerId) {
+  playerLastEvent.delete(playerId);
+}
+
 // ---------------------------------------------------------------------------
 // Captain Election
 // ---------------------------------------------------------------------------
@@ -1080,6 +1085,7 @@ function checkWin(room) {
 
 module.exports = {
   isRateLimited,
+  clearRateLimit,
   castCaptainVote,
   tryResolveCaptainElection,
   forceResolveCaptainElection,
