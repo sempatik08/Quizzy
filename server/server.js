@@ -515,6 +515,25 @@ io.on('connection', (socket) => {
   });
 
   /**
+   * Host left alone in the lobby starts by themselves (PBI 24). A team-mode
+   * room turns into a free-for-all first; see ffa.startSolo.
+   */
+  socket.on('room:goSolo', () => {
+    const context = ctx();
+    if (!context) return;
+    if (isRateLimited(context.playerId)) return;
+
+    const room = getRoom(context.roomCode);
+    if (!room) return socket.emit('room:error', { message: 'Room not found.' });
+
+    const result = ffa.startSolo(room, context.playerId, io);
+    if (result.error) return socket.emit('game:error', { message: result.error });
+
+    console.log(`[FFA] Solo start in ${room.code}`);
+    broadcast(room);
+  });
+
+  /**
    * Winning captain selects a quiz category.
    * Payload: { roomCode: string, category: string }
    */

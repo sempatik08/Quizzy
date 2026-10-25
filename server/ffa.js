@@ -27,7 +27,7 @@
 
 const { QUESTIONS, CATEGORY_KEYS } = require('./questions');
 const { pickTargetDifficulty, selectQuestion, difficultyOf } = require('./difficulty');
-const { getMode } = require('./gameModes');
+const { getMode, modeSettingsFor } = require('./gameModes');
 const analytics = require('./analytics');
 const store = require('./store');
 const { sanitizeRoom, getRoom } = require('./roomManager');
@@ -184,6 +184,35 @@ function startMatch(room, requesterId, io) {
   room.analyticsRecorded = false;
   openPick(room, io, room.hostId);
   return { room };
+}
+
+/**
+ * "Friend didn't come? Start alone" (PBI 24). A host left by themselves in a
+ * team-mode lobby has no match to play — team modes need a player on each
+ * side. Rather than lose them, the room turns into a free-for-all and starts
+ * at once. Only when they really are alone: with anyone else in the room the
+ * team match is still possible and switching modes would be a surprise.
+ */
+function startSolo(room, requesterId, io) {
+  if (room.hostId !== requesterId) return { error: 'Only the room host can start the game.' };
+  if (room.phase !== 'lobby') return { error: 'The game has already started.' };
+  if (participantIds(room).length !== 1) {
+    return { error: 'Other players are here — start a match together.' };
+  }
+
+  if (!isFfa(room)) {
+    Object.assign(room, modeSettingsFor('ffa'));
+    for (const team of Object.values(room.teams)) {
+      team.players = [];
+      team.captain = null;
+      team.captainVotes = {};
+    }
+    for (const p of Object.values(room.players)) p.team = null;
+  }
+
+  const result = startMatch(room, requesterId, io);
+  if (!result.error) analytics.recordSoloStart();
+  return result;
 }
 
 /** Put the room on the category screen with `pickerId` choosing. */
@@ -457,6 +486,7 @@ function rematch(room, playerId, io) {
 module.exports = {
   isFfa,
   startMatch,
+  startSolo,
   pickCategory,
   castAnswer,
   resolveRound,

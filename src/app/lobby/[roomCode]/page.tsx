@@ -6,6 +6,7 @@ import { Lock, Loader2, Zap } from 'lucide-react';
 import { useGame } from '@/hooks/useGame';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { InviteLink } from '@/components/shared/InviteLink';
+import { AloneCard } from '@/components/lobby/AloneCard';
 import { SpectatorBanner } from '@/components/shared/SpectatorBanner';
 import { TeamPanel } from '@/components/lobby/TeamPanel';
 import { CoinToss } from '@/components/lobby/CoinToss';
@@ -59,6 +60,8 @@ export default function LobbyPage() {
   }
 
   const isFfa = room.mode === 'ffa';
+  // Spectators don't make a match, so they don't count as company (PBI 24).
+  const playingCount = Object.values(room.players).filter((p) => !p.isSpectator).length;
   const bothTeamsHavePlayers =
     room.teams.blue.players.length > 0 && room.teams.red.players.length > 0;
 
@@ -78,6 +81,16 @@ export default function LobbyPage() {
         <div className="w-full max-w-3xl flex justify-center mb-6">
           <InviteLink code={roomCode} />
         </div>
+      )}
+
+      {/* "Friend didn't come?" — after a while alone in the lobby (PBI 24) */}
+      {room.phase === 'lobby' && !isSpectator && (
+        <AloneCard
+          code={roomCode}
+          alone={playingCount === 1}
+          isHost={isHost}
+          onSolo={actions.goSolo}
+        />
       )}
 
       {/* Spectator notice / watcher count (PBI 10) */}
