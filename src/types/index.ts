@@ -24,7 +24,7 @@ export type Category =
 export type TeamColor = 'blue' | 'red';
 
 /** Game modes (PBI 9). Must stay in sync with server/gameModes.js. */
-export type GameModeKey = 'classic' | 'fast' | 'survival' | 'wager';
+export type GameModeKey = 'classic' | 'fast' | 'survival' | 'wager' | 'ffa';
 
 /** Guest avatars (PBI 14). Must stay in sync with AVATARS in server/stats.js. */
 export type AvatarName =
@@ -74,6 +74,10 @@ export interface Question {
 }
 
 export interface VoteEntry {
+  /**
+   * In free-for-all (PBI 19) the server strips this until the round is scored,
+   * so other players only learn THAT someone answered, not what.
+   */
   optionKey: OptionKey;
   timestamp: number;
 }
@@ -100,6 +104,50 @@ export interface ActiveQuestion {
   wagerPending: boolean;
   /** Points staked on this question. null outside Wager mode. */
   wager: number | null;
+  /** Free-for-all: the round has been scored and the answer is public (PBI 19). */
+  revealed?: boolean;
+  /** Free-for-all: the correct option, set only once `revealed` is true. */
+  revealedAnswer?: OptionKey | null;
+}
+
+/** One player's running total in a free-for-all match (PBI 19). */
+export interface FfaPlayerState {
+  score: number;
+  streak: number;
+  correct: number;
+}
+
+export interface FfaRoundResult {
+  optionKey: OptionKey | null;
+  isCorrect: boolean;
+  points: number;
+  streak: number;
+}
+
+export interface FfaStanding {
+  playerId: string;
+  name: string;
+  avatar: AvatarName | null;
+  score: number;
+  correct: number;
+  rank: number;
+}
+
+export interface FfaState {
+  /** The match roster, frozen at start. Late arrivals watch as spectators. */
+  players: Record<string, FfaPlayerState>;
+  questionNumber: number;
+  categoryQuestionCount: number;
+  /** Who chooses the next category, and until when (epoch ms). */
+  picker: string | null;
+  pickDeadline: number | null;
+  lastRound: {
+    questionNumber: number;
+    correctAnswer: OptionKey;
+    results: Record<string, FfaRoundResult>;
+  } | null;
+  /** Final ranking, set when the match ends. */
+  standings: FfaStanding[] | null;
 }
 
 /** Jokers a team still holds this match (PBI 6). */
@@ -150,6 +198,10 @@ export interface Room {
   jokers: Record<TeamColor, JokerState>;
   /** Per-team consent to replay the match once it has finished (PBI 8). */
   rematch: Record<TeamColor, boolean>;
+  /** Free-for-all only (PBI 19): match length and per-player state. */
+  totalQuestions?: number;
+  questionsPerCategory?: number;
+  ffa?: FfaState;
   createdAt: number;
   lastActivityAt: number;
   hostId: string;

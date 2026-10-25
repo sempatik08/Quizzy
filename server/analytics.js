@@ -145,8 +145,9 @@ function recordRoomCreated(now = Date.now()) {
  */
 function recordMatchStart(room, now = Date.now()) {
   if (!room) return;
-  const players = (room.teams?.blue?.players?.length ?? 0)
-    + (room.teams?.red?.players?.length ?? 0);
+  const players = room.ffa
+    ? Object.keys(room.ffa.players ?? {}).length
+    : (room.teams?.blue?.players?.length ?? 0) + (room.teams?.red?.players?.length ?? 0);
   buffer.funnel.matchesStarted += 1;
   buffer.funnel.playersInStartedMatches += players;
   bumpDay('matchesStarted', now);

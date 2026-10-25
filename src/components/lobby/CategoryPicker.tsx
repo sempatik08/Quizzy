@@ -9,9 +9,13 @@ interface CategoryPickerProps {
   isCaptain: boolean;
   onPick: (category: Category) => void;
   usedCategories?: Category[];
+  /** Replaces the "waiting for the X team captain" line (free-for-all, PBI 19). */
+  waitingText?: string;
+  /** Replaces "Pick your category, Captain!" where there is no captain. */
+  pickText?: string;
 }
 
-export function CategoryPicker({ winnerTeam, isCaptain, onPick, usedCategories = [] }: CategoryPickerProps) {
+export function CategoryPicker({ winnerTeam, isCaptain, onPick, usedCategories = [], waitingText, pickText }: CategoryPickerProps) {
   const { t } = useLanguage();
 
   const CATEGORIES: { key: Category; label: string; icon: React.ReactNode; description: string }[] = [
@@ -44,7 +48,9 @@ export function CategoryPicker({ winnerTeam, isCaptain, onPick, usedCategories =
           {t.categorySelection}
         </p>
         {isCaptain ? (
-          <p className={`font-bold text-base ${accent}`}>{t.pickCategory}</p>
+          <p className={`font-bold text-base ${accent}`}>{pickText ?? t.pickCategory}</p>
+        ) : waitingText ? (
+          <p className="text-quizzy-muted text-sm">{waitingText}</p>
         ) : (
           <p className="text-quizzy-muted text-sm">
             {t.waitingCaptain}{' '}

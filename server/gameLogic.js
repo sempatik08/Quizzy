@@ -162,6 +162,7 @@ function forceResolveCaptainElection(room, teamColor) {
  */
 function lockTeams(room, requesterId) {
   if (room.hostId !== requesterId) return { error: 'Only the room host can lock teams.' };
+  if (room.mode === 'ffa') return { error: 'This mode has no teams to lock.' };
   if (room.teams.blue.players.length === 0) return { error: 'Blue team has no players.' };
   if (room.teams.red.players.length === 0) return { error: 'Red team has no players.' };
 
@@ -500,7 +501,9 @@ function scheduleQuestionTimers(room, io) {
 
   // Authoritative timeout — the server resolves regardless of client state.
   aq.timerHandle = setTimeout(() => {
-    resolveVote(room, io);
+    // Free-for-all scores every player at once and has its own resolver (PBI 19).
+    if (room.mode === 'ffa') require('./ffa').resolveRound(room, io);
+    else resolveVote(room, io);
   }, remainingMs);
 }
 

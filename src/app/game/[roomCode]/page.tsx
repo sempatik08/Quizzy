@@ -17,6 +17,7 @@ import { WAGER_OPTIONS } from '@/lib/gameModes';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { SpectatorBanner } from '@/components/shared/SpectatorBanner';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
+import { FfaGame } from '@/components/ffa/FfaGame';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSound } from '@/context/SoundContext';
 import { winnerOf } from '@/lib/score';
@@ -133,6 +134,57 @@ export default function GamePage() {
     world_cup:      t.worldCup,
     cinema_music: t.cinemaMusic,
   };
+
+  // Free-for-all (PBI 19) shares none of the team screen's panels — no
+  // scoreboard of two sides, no steal, joker, wager or surrender.
+  if (room.mode === 'ffa') {
+    return (
+      <main className="min-h-screen bg-quizzy-bg px-4 py-6 flex flex-col items-center">
+        <div className="w-full max-w-2xl flex items-center justify-between mb-5">
+          <div className="flex items-center gap-2 flex-wrap">
+            <Zap size={18} className="text-blue-soft" fill="#4D96FF" />
+            <span className="font-extrabold text-lg text-quizzy-text">Quizzy</span>
+            <span
+              data-testid="mode-badge"
+              data-mode="ffa"
+              className="text-xs rounded-full px-2.5 py-0.5 font-semibold border border-blue-light bg-blue-pale text-blue-soft"
+            >
+              {t.modeFfa}
+            </span>
+            {room.selectedCategory && room.phase === 'question' && (
+              <span className="text-xs text-quizzy-muted bg-quizzy-card border border-quizzy-border rounded-full px-2.5 py-0.5 font-medium">
+                {categoryLabel[room.selectedCategory] ?? room.selectedCategory}
+              </span>
+            )}
+          </div>
+          <RoomCodeBadge code={roomCode} />
+        </div>
+
+        {gameError && (
+          <div className="w-full max-w-2xl mb-4 px-4 py-3 rounded-xl bg-red-pale border border-red-light text-red-soft text-sm font-medium flex items-center justify-between">
+            <span>{gameError}</span>
+            <button onClick={actions.clearErrors} className="ml-4 text-xs underline">{t.dismiss}</button>
+          </div>
+        )}
+
+        <SpectatorBanner isSpectator={isSpectator} spectators={spectators} />
+
+        <FfaGame
+          room={room}
+          playerId={playerId}
+          timeLeft={timeLeft}
+          isSpectator={isSpectator}
+          onAnswer={actions.castVote}
+          onPick={actions.pickCategory}
+          onRematch={actions.requestRematch}
+        />
+
+        <div className="w-full max-w-2xl mt-6">
+          <EmojiBar reactions={reactions} onSend={actions.sendEmoji} />
+        </div>
+      </main>
+    );
+  }
 
   const teamAccent = myTeam === 'blue'
     ? { bg: 'bg-blue-pale', border: 'border-blue-light', text: 'text-blue-soft', label: t.blueTeam }

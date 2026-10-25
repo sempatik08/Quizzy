@@ -33,6 +33,7 @@ const {
   adoptRoom,
 } = require('./roomManager');
 const store = require('./store');
+const ffa = require('./ffa');
 const stats = require('./stats');
 const analytics = require('./analytics');
 const {
@@ -348,7 +349,13 @@ io.on('connection', (socket) => {
     // the question its clock back on the first reconnect, restarting the window
     // rather than resuming it — the players were not there for the time that
     // passed, so resolving immediately would score a question nobody saw.
-    if (room.phase === 'question' && room.activeQuestion
+    if (room.phase === 'question' && room.activeQuestion?.revealed) {
+      // Free-for-all between rounds (PBI 19): the result is already scored, so
+      // there is no clock to restart. If the room emptied during the reveal,
+      // nothing advanced it; resolveRound moves it on (and is a no-op while the
+      // reveal timer is still pending).
+      ffa.resolveRound(room, io);
+    } else if (room.phase === 'question' && room.activeQuestion
         && !room.activeQuestion.timerHandle && !room.activeQuestion.wagerPending) {
       room.activeQuestion.timerStart = Date.now();
       room.activeQuestion.timeLeft = room.activeQuestion.duration;
@@ -489,6 +496,25 @@ io.on('connection', (socket) => {
   });
 
   /**
+   * Host starts a free-for-all match from the lobby (PBI 19). There are no
+   * teams to lock and no coin toss: the host picks the first category.
+   */
+  socket.on('ffa:start', () => {
+    const context = ctx();
+    if (!context) return;
+    if (isRateLimited(context.playerId)) return;
+
+    const room = getRoom(context.roomCode);
+    if (!room) return socket.emit('room:error', { message: 'Room not found.' });
+
+    const result = ffa.startMatch(room, context.playerId, io);
+    if (result.error) return socket.emit('game:error', { message: result.error });
+
+    console.log(`[FFA] Match started in ${room.code} with ${Object.keys(room.ffa.players).length} player(s)`);
+    broadcast(room);
+  });
+
+  /**
    * Winning captain selects a quiz category.
    * Payload: { roomCode: string, category: string }
    */
@@ -501,6 +527,13 @@ io.on('connection', (socket) => {
 
     const room = getRoom(context.roomCode);
     if (!room) return socket.emit('room:error', { message: 'Room not found.' });
+
+    if (ffa.isFfa(room)) {
+      const picked = ffa.pickCategory(room, context.playerId, payload.category, io);
+      if (picked.error) return socket.emit('game:error', { message: picked.error });
+      console.log(`[FFA] Category selected in ${room.code}: ${payload.category}`);
+      return broadcast(room);
+    }
 
     const result = pickCategory(room, context.playerId, payload.category);
     if (result.error) return socket.emit('game:error', { message: result.error });
@@ -532,6 +565,14 @@ io.on('connection', (socket) => {
       return socket.emit('game:error', { message: 'Spectators cannot vote.' });
     }
 
+    if (ffa.isFfa(room)) {
+      const answered = ffa.castAnswer(room, context.playerId, payload.optionKey);
+      if (answered.error) return socket.emit('game:error', { message: answered.error });
+      broadcast(room);
+      if (answered.allAnswered) ffa.resolveRound(room, io);
+      return;
+    }
+
     const result = castVote(room, context.playerId, payload.optionKey);
     if (result.error) return socket.emit('game:error', { message: result.error });
 
@@ -552,6 +593,8 @@ io.on('connection', (socket) => {
     const room = getRoom(context.roomCode);
     if (!room) return socket.emit('room:error', { message: 'Room not found.' });
     if (room.phase !== 'question') return;
+    // Every answer is final the moment it is cast in free-for-all.
+    if (ffa.isFfa(room)) return;
 
     const player = room.players[context.playerId];
     if (!player || player.team !== room.activeTeam) {
@@ -794,6 +837,13 @@ io.on('connection', (socket) => {
       return socket.emit('game:error', { message: 'Spectators cannot start a rematch.' });
     }
 
+    if (ffa.isFfa(room)) {
+      const restarted = ffa.rematch(room, context.playerId, io);
+      if (restarted.error) return socket.emit('game:error', { message: restarted.error });
+      console.log(`[FFA] Rematch starting in ${room.code}`);
+      return broadcast(room);
+    }
+
     const result = requestRematch(room, context.playerId);
     if (result.error) return socket.emit('game:error', { message: result.error });
 
@@ -834,6 +884,9 @@ io.on('connection', (socket) => {
     if (!room) return socket.emit('room:error', { message: 'Room not found.' });
     if (room.phase !== 'question') {
       return socket.emit('game:error', { message: 'You can only surrender during an active game.' });
+    }
+    if (ffa.isFfa(room)) {
+      return socket.emit('game:error', { message: 'There is no surrender in this mode.' });
     }
 
     const player = room.players[context.playerId];

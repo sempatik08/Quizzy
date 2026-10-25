@@ -742,6 +742,70 @@ def test_lobby_invite_panel(page: Page):
         return None
 
 
+# ─── TEST 13: Herkes Kendine modu (PBI 19) ───────────────────────────────────
+def test_ffa_mode(page: Page):
+    section("TEST 13 — Herkes Kendine modu (PBI 19)")
+    page.goto(BASE)
+    wait_net(page)
+    card = page.locator('[data-mode="ffa"]')
+    if card.count() > 0 and card.is_visible():
+        ok("Mod seciminde Herkes Kendine karti var")
+    else:
+        fail("Herkes Kendine mod karti bulunamadi")
+        return
+    card.click()
+    if card.get_attribute("aria-pressed") == "true":
+        ok("Herkes Kendine karti secilebiliyor")
+    else:
+        fail("Herkes Kendine karti secili gorunmuyor")
+
+    page.locator("#create-name").fill("FfaHost")
+    page.get_by_role("button", name=re.compile(r"create room|oda olustur|oda oluştur", re.I)).first.click()
+    page.wait_for_url(re.compile(r"/lobby/[A-Z0-9]{6}"), timeout=15000)
+    wait_net(page)
+
+    if page.locator("#ffa-player-list").count() > 0:
+        ok("FFA lobisinde oyuncu listesi var (takim paneli yerine)")
+    else:
+        fail("FFA lobisinde #ffa-player-list yok")
+    if page.get_by_text(re.compile(r"blue team|mavi tak", re.I)).count() == 0:
+        ok("FFA lobisinde takim paneli gosterilmiyor")
+    else:
+        fail("FFA lobisinde takim paneli gorunuyor")
+
+    start = page.locator("#ffa-start")
+    if start.count() > 0 and start.is_enabled():
+        ok("Oda sahibine Baslat butonu gorunuyor")
+    else:
+        fail("Baslat butonu yok veya pasif")
+        return
+    start.click()
+    page.wait_for_selector("#ffa-category-pick", timeout=10000)
+    ok("Baslat dogrudan kategori secimine gecti (yazi-tura yok)")
+
+    page.locator("#ffa-category-pick button").first.click()
+    page.wait_for_url(re.compile(r"/game/[A-Z0-9]{6}"), timeout=15000)
+    page.wait_for_selector("#ffa-round", timeout=10000)
+    opts = page.locator("#ffa-round button[data-option]")
+    if opts.count() >= 2:
+        ok(f"Soru ekraninda {opts.count()} renkli sik var")
+    else:
+        fail("Soru ekraninda sik bulunamadi")
+    opts.first.click()
+    page.wait_for_selector("#ffa-my-result", timeout=10000)
+    ok("Tek oyunculu turda cevap aninda sonuca dustu")
+    if page.locator("#ffa-leaderboard").count() > 0:
+        ok("Tur sonunda siralama gorunuyor")
+    else:
+        fail("Tur sonunda #ffa-leaderboard yok")
+    overflow = page.evaluate("document.documentElement.scrollWidth > window.innerWidth")
+    if not overflow:
+        ok("FFA soru ekraninda yatay tasma yok")
+    else:
+        fail("FFA soru ekraninda yatay tasma var")
+    ss(page, "20_ffa_round_result")
+
+
 # ─── TEST 12: PWA + Cila (PBI 15) ────────────────────────────────────────────
 
 def test_pwa_and_polish(page: Page):
@@ -958,6 +1022,12 @@ def run():
             test_pwa_and_polish(visual_page)
         except Exception as e:
             fail("PWA/cila testi coktu", e)
+
+        # PBI 19 — Herkes Kendine
+        try:
+            test_ffa_mode(visual_page)
+        except Exception as e:
+            fail("Herkes Kendine testi coktu", e)
 
         browser.close()
 

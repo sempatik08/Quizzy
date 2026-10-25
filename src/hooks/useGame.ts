@@ -78,6 +78,8 @@ export interface UseGameReturn {
     sendEmoji: (emoji: EmojiName) => void;
     placeWager: (amount: number) => void;
     requestRematch: () => void;
+    /** Host starts a free-for-all match (PBI 19). */
+    startFfa: () => void;
   };
 }
 
@@ -334,6 +336,7 @@ export function useGame(roomCode: string): UseGameReturn {
       sendEmoji:        (emoji: EmojiName)  => emit('emoji:send',       { emoji }),
       placeWager:       (amount: number)    => emit('wager:place',      { amount }),
       requestRematch:   ()                  => emit('rematch:request'),
+      startFfa:         ()                  => emit('ffa:start'),
       clearErrors:  () => { setRoomError(null); setGameError(null); },
     }),
     [emit],
