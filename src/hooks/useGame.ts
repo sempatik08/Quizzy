@@ -80,6 +80,8 @@ export interface UseGameReturn {
     requestRematch: () => void;
     /** Host starts a free-for-all match (PBI 19). */
     startFfa: () => void;
+    /** Host left alone in the lobby starts by themselves (PBI 24). */
+    goSolo: () => void;
   };
 }
 
@@ -337,6 +339,7 @@ export function useGame(roomCode: string): UseGameReturn {
       placeWager:       (amount: number)    => emit('wager:place',      { amount }),
       requestRematch:   ()                  => emit('rematch:request'),
       startFfa:         ()                  => emit('ffa:start'),
+      goSolo:           ()                  => emit('room:goSolo'),
       clearErrors:  () => { setRoomError(null); setGameError(null); },
     }),
     [emit],

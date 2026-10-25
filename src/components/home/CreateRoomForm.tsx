@@ -78,9 +78,11 @@ export function CreateRoomForm() {
   };
 
   // Onboarding-friction cut: one click, no field to touch. Falls back to a
-  // random name when the player never edited the prefilled one.
+  // random name when the player never edited the prefilled one. Opens a
+  // free-for-all room (PBI 24): Quick Play always starts with one person, and
+  // only free-for-all can be played alone — a friend can still join by link.
   const handleQuickPlay = () => {
-    createRoom(name.trim() || randomGuestName(language), 'classic');
+    createRoom(name.trim() || randomGuestName(language), 'ffa');
   };
 
   return (

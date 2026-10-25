@@ -86,6 +86,12 @@ function emptyBuffer() {
       matchesStarted: 0,
       /** Team players at kickoff, summed — divided by matchesStarted for an average. */
       playersInStartedMatches: 0,
+      /**
+       * Lobbies where the only player gave up waiting and started alone via
+       * the "friend didn't come?" card (PBI 24). Each one is a lobby that would
+       * otherwise have been abandoned.
+       */
+      soloStarts: 0,
       /** 'YYYY-MM-DD' -> { roomsCreated, matchesStarted, matchesFinished } */
       byDay: {},
     },
@@ -151,6 +157,12 @@ function recordMatchStart(room, now = Date.now()) {
   buffer.funnel.matchesStarted += 1;
   buffer.funnel.playersInStartedMatches += players;
   bumpDay('matchesStarted', now);
+  dirty = true;
+}
+
+/** A lone player started alone from the lobby rescue card (PBI 24). */
+function recordSoloStart() {
+  buffer.funnel.soloStarts += 1;
   dirty = true;
 }
 
@@ -256,6 +268,7 @@ async function flushAnalytics() {
       matchesStarted: (baseFunnel.matchesStarted ?? 0) + pending.funnel.matchesStarted,
       playersInStartedMatches: (baseFunnel.playersInStartedMatches ?? 0)
         + pending.funnel.playersInStartedMatches,
+      soloStarts: (baseFunnel.soloStarts ?? 0) + pending.funnel.soloStarts,
       byDay: mergeCounters(baseFunnel.byDay, pending.funnel.byDay),
     });
 
@@ -334,6 +347,7 @@ async function buildReport(bank) {
     roomsCreated: f.roomsCreated ?? 0,
     matchesStarted: f.matchesStarted ?? 0,
     matchesFinished: m.count,
+    soloStarts: f.soloStarts ?? 0,
     startRate: rate(f.matchesStarted ?? 0, f.roomsCreated ?? 0),
     finishRate: rate(m.count, f.matchesStarted ?? 0),
     avgPlayersPerMatch: f.matchesStarted
@@ -469,6 +483,7 @@ module.exports = {
   dayKey,
   recordRoomCreated,
   recordMatchStart,
+  recordSoloStart,
   recordCategoryPick,
   recordQuestionServed,
   recordAnswer,

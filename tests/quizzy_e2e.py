@@ -806,6 +806,50 @@ def test_ffa_mode(page: Page):
     ss(page, "20_ffa_round_result")
 
 
+# ─── TEST 14: Yalniz kalani kurtar (PBI 24) ──────────────────────────────────
+# Kart 30 sn sonra cikar; dev sunucusu NEXT_PUBLIC_QUIZZY_ALONE_MS ile
+# kisaltilmissa daha erken. Bekleme suresi ikisini de karsiliyor.
+def test_alone_rescue(page: Page):
+    section("TEST 14 — Yalniz kalani kurtar (PBI 24)")
+    page.goto(BASE)
+    wait_net(page)
+    page.locator("#create-name").fill("Yalniz")
+    page.get_by_role("button", name=re.compile(r"create room|oda olustur|oda oluştur", re.I)).first.click()
+    page.wait_for_url(re.compile(r"/lobby/[A-Z0-9]{6}"), timeout=15000)
+    code = page.url.rstrip("/").split("/")[-1]
+
+    if page.locator("#alone-card").count() == 0:
+        ok("Kart hemen cikmiyor (arkadas linki acarken one gecmez)")
+    else:
+        fail("Yalniz karti beklemeden cikti")
+    page.wait_for_selector("#alone-card", timeout=40000)
+    ok("Lobide tek kalinca 'Arkadasin gelmedi mi?' karti cikti")
+
+    href = page.locator("#alone-whatsapp").get_attribute("href") or ""
+    if href.startswith("https://wa.me/") and f"%2Fjoin%2F{code}" in href:
+        ok("WhatsApp butonu davet linkiyle wa.me'ye gidiyor")
+    else:
+        fail(f"WhatsApp linki beklenen gibi degil: {href}")
+    overflow = page.evaluate("document.documentElement.scrollWidth > window.innerWidth")
+    if not overflow:
+        ok("Kartla lobide yatay tasma yok")
+    else:
+        fail("Kartla lobide yatay tasma var")
+    ss(page, "21_alone_card")
+
+    page.locator("#alone-solo").click()
+    page.wait_for_selector("#ffa-category-pick", timeout=10000)
+    ok("'Tek basina basla' odayi Herkes Kendine'ye cevirip baslatti")
+
+    # Hemen Oyna her zaman tek kisiyle acilir: Herkes Kendine odasi acmali.
+    page.goto(BASE)
+    wait_net(page)
+    page.get_by_role("button", name=re.compile(r"quick play|hemen oyna", re.I)).first.click()
+    page.wait_for_url(re.compile(r"/lobby/[A-Z0-9]{6}"), timeout=15000)
+    page.wait_for_selector("#ffa-player-list", timeout=10000)
+    ok("Hemen Oyna Herkes Kendine odasi aciyor (tek basina baslanabilir)")
+
+
 # ─── TEST 12: PWA + Cila (PBI 15) ────────────────────────────────────────────
 
 def test_pwa_and_polish(page: Page):
@@ -1028,6 +1072,12 @@ def run():
             test_ffa_mode(visual_page)
         except Exception as e:
             fail("Herkes Kendine testi coktu", e)
+
+        # PBI 24 — yalniz kalani kurtar
+        try:
+            test_alone_rescue(visual_page)
+        except Exception as e:
+            fail("Yalniz kalani kurtar testi coktu", e)
 
         browser.close()
 
