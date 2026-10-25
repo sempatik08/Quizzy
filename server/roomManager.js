@@ -161,7 +161,9 @@ function joinRoom(roomCode, playerName, socketId, asSpectator = false, identity 
       return { error: 'Game is already in progress. You can join as a spectator instead.' };
     }
     const players = roster.filter((p) => !p.isSpectator).length;
-    if (players >= MAX_PLAYERS) return { error: `Room is full (max ${MAX_PLAYERS} players).` };
+    // Free-for-all (PBI 19) takes a whole room; the team modes stay at 3 a side.
+    const cap = getMode(room.mode).maxPlayers ?? MAX_PLAYERS;
+    if (players >= cap) return { error: `Room is full (max ${cap} players).` };
   }
 
   const playerId = randomUUID();
@@ -265,6 +267,7 @@ function joinTeam(roomCode, playerId, team) {
   const room = rooms.get(roomCode);
   if (!room) return { error: 'Room not found.' };
   if (room.phase !== 'lobby') return { error: 'Cannot change teams after the game has started.' };
+  if (room.mode === 'ffa') return { error: 'This mode has no teams.' };
 
   const player = room.players[playerId];
   if (!player) return { error: 'Player not found.' };
@@ -415,6 +418,16 @@ function sanitizeRoom(room) {
     delete clone.activeQuestion.question.explanation;
   }
 
+  // ANTI-CHEAT (free-for-all, PBI 19): everyone answers the same question at
+  // once, so whose answer is which must not reach the other players until the
+  // round is scored — the first person to answer would be handing out the key.
+  // Only the fact that someone has answered goes out.
+  if (clone.mode === 'ffa' && clone.activeQuestion && !clone.activeQuestion.revealed) {
+    for (const vote of Object.values(clone.activeQuestion.votes ?? {})) {
+      delete vote.optionKey;
+    }
+  }
+
   // ANTI-CHEAT (Wager mode, PBI 9): the team stakes points BEFORE seeing the
   // question, so the text and options are withheld from the payload entirely
   // until the stake is locked in. Hiding them only in the UI would leave the
@@ -444,6 +457,10 @@ function cleanupRoom(roomCode) {
   // Clear question timers
   if (room.activeQuestion?.timerHandle) clearTimeout(room.activeQuestion.timerHandle);
   if (room.activeQuestion?.tickHandle) clearInterval(room.activeQuestion.tickHandle);
+
+  // Free-for-all keeps its pick and reveal timeouts outside the room (PBI 19).
+  // Required lazily: ffa.js itself depends on this module.
+  if (room.mode === 'ffa') require('./ffa').clearHandles(roomCode);
 
   // Clear captain election timers
   clearCaptainElection(roomCode, 'blue');

@@ -130,6 +130,37 @@ const GAME_MODES = {
      */
     lossFactor: 0.5,
   },
+
+  /**
+   * "Herkes Kendine" (PBI 19): no teams. Everyone answers the same question at
+   * once on their own device and is scored on speed. The rules live in ffa.js;
+   * the team-only fields below are inert and kept so getMode() stays uniform.
+   *
+   * Fixed length rather than a target score: a race to N points with 30
+   * players ends the moment the fastest one gets there and the rest of the room
+   * never sees a podium. 15 questions in three categories of five is about 6
+   * minutes at 20 s a question.
+   */
+  ffa: {
+    key: 'ffa',
+    questionSeconds: 20,
+    stealSeconds: 0,
+    // No target score in this mode. Set to the match length so the generated
+    // client copy (src/data/game-modes.json) can name "15 questions" before a
+    // room exists, the same way it names the team modes' targets.
+    winThreshold: 15,
+    correctPoints: 0,
+    stealPoints: 0,
+    eliminateOnWrong: false,
+    minPlayersPerTeam: 0,
+    wagerOptions: null,
+    lossFactor: 1,
+    freeForAll: true,
+    totalQuestions: 15,
+    questionsPerCategory: 5,
+    /** Teams cap at 3 a side; the point of this mode is a whole room playing. */
+    maxPlayers: 30,
+  },
 };
 
 const DEFAULT_MODE = 'classic';
@@ -164,6 +195,9 @@ function modeSettingsFor(key) {
     questionSeconds: mode.questionSeconds,
     stealSeconds: mode.stealSeconds,
     winThreshold: mode.winThreshold,
+    ...(mode.freeForAll
+      ? { totalQuestions: mode.totalQuestions, questionsPerCategory: mode.questionsPerCategory }
+      : {}),
   };
 }
 

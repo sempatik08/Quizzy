@@ -4,13 +4,15 @@
     "classic": 50,
     "fast": 30,
     "survival": 50,
-    "wager": 40
+    "wager": 40,
+    "ffa": 15
   },
   "questionSeconds": {
     "classic": 60,
     "fast": 30,
     "survival": 60,
-    "wager": 60
+    "wager": 60,
+    "ffa": 20
   },
   "wagerOptions": [
     3,

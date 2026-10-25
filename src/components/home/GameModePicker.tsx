@@ -1,6 +1,6 @@
 'use client';
 
-import { Timer, Zap, HeartCrack, Coins } from 'lucide-react';
+import { Timer, Zap, HeartCrack, Coins, Users } from 'lucide-react';
 import type { GameModeKey } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { MODE_WIN_THRESHOLD } from '@/lib/gameModes';
@@ -28,6 +28,8 @@ export function GameModePicker({ value, onChange }: GameModePickerProps) {
     label: string;
     desc: string;
     note?: string;
+    /** Spans both columns, so the odd fifth card does not sit alone. */
+    wide?: boolean;
   }> = [
     {
       key: 'classic',
@@ -49,6 +51,14 @@ export function GameModePicker({ value, onChange }: GameModePickerProps) {
       note: t.modeSurvivalNeeds,
     },
     { key: 'wager', icon: <Coins size={14} />, label: t.modeWager, desc: t.modeWagerDesc },
+    {
+      key: 'ffa',
+      icon: <Users size={14} />,
+      label: t.modeFfa,
+      desc: t.modeFfaDesc,
+      note: t.modeFfaNote.replace('{n}', String(MODE_WIN_THRESHOLD.ffa)),
+      wide: true,
+    },
   ];
 
   return (
@@ -69,7 +79,7 @@ export function GameModePicker({ value, onChange }: GameModePickerProps) {
               // Hover must move the BACKGROUND, not just the border: a border-only
               // change is easy to miss on a card-sized target, and the selected
               // option needs feedback too or it reads as already disabled.
-              className={`text-left px-3 py-2.5 rounded-xl border transition-colors ${
+              className={`text-left px-3 py-2.5 rounded-xl border transition-colors ${m.wide ? 'col-span-2' : ''} ${
                 selected
                   ? 'border-blue-soft bg-blue-pale hover:bg-blue-light'
                   : 'border-quizzy-border bg-quizzy-card hover:border-quizzy-muted hover:bg-quizzy-bg'

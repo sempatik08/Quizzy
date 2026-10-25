@@ -6,10 +6,13 @@ import { Lock, Loader2, Zap } from 'lucide-react';
 import { useGame } from '@/hooks/useGame';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { InviteLink } from '@/components/shared/InviteLink';
+import { AloneCard } from '@/components/lobby/AloneCard';
 import { SpectatorBanner } from '@/components/shared/SpectatorBanner';
 import { TeamPanel } from '@/components/lobby/TeamPanel';
 import { CoinToss } from '@/components/lobby/CoinToss';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
+import { FfaLobby } from '@/components/ffa/FfaLobby';
+import { FfaCategoryPick } from '@/components/ffa/FfaCategoryPick';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function LobbyPage() {
@@ -56,6 +59,9 @@ export default function LobbyPage() {
     );
   }
 
+  const isFfa = room.mode === 'ffa';
+  // Spectators don't make a match, so they don't count as company (PBI 24).
+  const playingCount = Object.values(room.players).filter((p) => !p.isSpectator).length;
   const bothTeamsHavePlayers =
     room.teams.blue.players.length > 0 && room.teams.red.players.length > 0;
 
@@ -75,6 +81,16 @@ export default function LobbyPage() {
         <div className="w-full max-w-3xl flex justify-center mb-6">
           <InviteLink code={roomCode} />
         </div>
+      )}
+
+      {/* "Friend didn't come?" — after a while alone in the lobby (PBI 24) */}
+      {room.phase === 'lobby' && !isSpectator && (
+        <AloneCard
+          code={roomCode}
+          alone={playingCount === 1}
+          isHost={isHost}
+          onSolo={actions.goSolo}
+        />
       )}
 
       {/* Spectator notice / watcher count (PBI 10) */}
@@ -115,8 +131,19 @@ export default function LobbyPage() {
         );
       })()}
 
+      {/* Free-for-all (PBI 19): no teams, the host just starts. The first
+          category pick happens here too; later ones are on the game page. */}
+      {isFfa && room.phase === 'lobby' && (
+        <FfaLobby room={room} playerId={playerId} isHost={isHost} onStart={actions.startFfa} />
+      )}
+      {isFfa && room.phase === 'category_pick' && (
+        <div className="w-full max-w-2xl mb-6">
+          <FfaCategoryPick room={room} playerId={playerId} onPick={actions.pickCategory} />
+        </div>
+      )}
+
       {/* Lobby phase — team panels */}
-      {(room.phase === 'lobby') && (
+      {!isFfa && room.phase === 'lobby' && (
         <>
           <div className="w-full max-w-3xl flex flex-col sm:flex-row gap-4 mb-6">
             <TeamPanel
@@ -158,7 +185,9 @@ export default function LobbyPage() {
         </>
       )}
 
-      {/* Player list below (all connected players) */}
+      {/* Player list below (all connected players). Free-for-all lists its
+          players in its own lobby card. */}
+      {!isFfa && (
       <div className="w-full max-w-3xl mt-6">
         <p className="text-xs text-quizzy-subtle uppercase tracking-widest mb-2 font-medium">
           {t.playersInRoom} ({Object.keys(room.players).length})
@@ -181,6 +210,7 @@ export default function LobbyPage() {
           ))}
         </div>
       </div>
+      )}
     </main>
   );
 }

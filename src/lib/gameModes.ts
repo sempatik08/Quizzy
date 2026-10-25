@@ -11,7 +11,7 @@ import modeData from '@/data/game-modes.json';
  * a rule rather than a resolved value).
  */
 
-export const MODE_KEYS: GameModeKey[] = ['classic', 'fast', 'survival', 'wager'];
+export const MODE_KEYS: GameModeKey[] = ['classic', 'fast', 'survival', 'wager', 'ffa'];
 
 /** Stakes the Wager mode offers. Generated from server/gameModes.js. */
 export const WAGER_OPTIONS: number[] = modeData.wagerOptions;
@@ -34,6 +34,11 @@ export const DEFAULT_WIN_THRESHOLD = MODE_WIN_THRESHOLD.classic;
 
 export function isWagerMode(mode: GameModeKey | undefined): boolean {
   return mode === 'wager';
+}
+
+/** No teams; everyone answers every question (PBI 19). */
+export function isFfaMode(mode: GameModeKey | undefined): boolean {
+  return mode === 'ffa';
 }
 
 export function isSurvivalMode(mode: GameModeKey | undefined): boolean {
