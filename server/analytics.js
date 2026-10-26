@@ -92,6 +92,12 @@ function emptyBuffer() {
        * otherwise have been abandoned.
        */
       soloStarts: 0,
+      /**
+       * "Find an opponent" outcomes (PBI 35): matched with a live player, with
+       * a ghost recording, or with nobody at all. The live share is the signal
+       * that real matchmaking (PBI 30) has enough traffic.
+       */
+      matchmaking: { live: 0, ghost: 0, none: 0 },
       /** 'YYYY-MM-DD' -> { roomsCreated, matchesStarted, matchesFinished } */
       byDay: {},
     },
@@ -152,7 +158,8 @@ function recordRoomCreated(now = Date.now()) {
 function recordMatchStart(room, now = Date.now()) {
   if (!room) return;
   const players = room.ffa
-    ? Object.keys(room.ffa.players ?? {}).length
+    // A ghost opponent (PBI 35) is a recording, not someone playing.
+    ? Object.keys(room.ffa.players ?? {}).filter((id) => !room.players?.[id]?.isGhost).length
     : (room.teams?.blue?.players?.length ?? 0) + (room.teams?.red?.players?.length ?? 0);
   buffer.funnel.matchesStarted += 1;
   buffer.funnel.playersInStartedMatches += players;
@@ -163,6 +170,13 @@ function recordMatchStart(room, now = Date.now()) {
 /** A lone player started alone from the lobby rescue card (PBI 24). */
 function recordSoloStart() {
   buffer.funnel.soloStarts += 1;
+  dirty = true;
+}
+
+/** A "find an opponent" request ended as 'live', 'ghost' or 'none' (PBI 35). */
+function recordMatchmaking(kind) {
+  if (!['live', 'ghost', 'none'].includes(kind)) return;
+  buffer.funnel.matchmaking[kind] += 1;
   dirty = true;
 }
 
@@ -269,6 +283,9 @@ async function flushAnalytics() {
       playersInStartedMatches: (baseFunnel.playersInStartedMatches ?? 0)
         + pending.funnel.playersInStartedMatches,
       soloStarts: (baseFunnel.soloStarts ?? 0) + pending.funnel.soloStarts,
+      matchmaking: Object.fromEntries(['live', 'ghost', 'none'].map((k) => [
+        k, (baseFunnel.matchmaking?.[k] ?? 0) + pending.funnel.matchmaking[k],
+      ])),
       byDay: mergeCounters(baseFunnel.byDay, pending.funnel.byDay),
     });
 
@@ -348,6 +365,11 @@ async function buildReport(bank) {
     matchesStarted: f.matchesStarted ?? 0,
     matchesFinished: m.count,
     soloStarts: f.soloStarts ?? 0,
+    matchmaking: {
+      live: f.matchmaking?.live ?? 0,
+      ghost: f.matchmaking?.ghost ?? 0,
+      none: f.matchmaking?.none ?? 0,
+    },
     startRate: rate(f.matchesStarted ?? 0, f.roomsCreated ?? 0),
     finishRate: rate(m.count, f.matchesStarted ?? 0),
     avgPlayersPerMatch: f.matchesStarted
@@ -484,6 +506,7 @@ module.exports = {
   recordRoomCreated,
   recordMatchStart,
   recordSoloStart,
+  recordMatchmaking,
   recordCategoryPick,
   recordQuestionServed,
   recordAnswer,
