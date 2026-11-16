@@ -17,6 +17,9 @@ services:
     ports:
       - "3001:3001"
     environment:
+      # The image sets PORT=3000 for Next.js and server/server.js reads PORT
+      # first, so this container must override it too.
+      PORT: "3001"
       SOCKET_PORT: "3001"
       CLIENT_URL: "${CLIENT_URL:-http://localhost:3000}"
     healthcheck:

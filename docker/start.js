@@ -15,8 +15,11 @@
 const { spawn } = require('node:child_process');
 
 const SERVICES = [
-  // Socket.io game server — server/server.js reads SOCKET_PORT
-  { name: 'socket', args: ['server/server.js'] },
+  // Socket.io game server. server/server.js reads PORT before SOCKET_PORT (so a
+  // PaaS-injected PORT wins), and the image sets PORT=3000 for Next.js — so the
+  // socket process gets its own PORT, or both would bind 3000 and the second
+  // one to start dies with EADDRINUSE.
+  { name: 'socket', args: ['server/server.js'], env: { PORT: process.env.SOCKET_PORT || '3001' } },
   // Next.js standalone output — server.js reads PORT / HOSTNAME
   { name: 'web', args: ['server.js'] },
 ];
@@ -41,7 +44,10 @@ function shutdown(code) {
 }
 
 for (const service of SERVICES) {
-  const child = spawn(process.execPath, service.args, { stdio: 'inherit' });
+  const child = spawn(process.execPath, service.args, {
+    stdio: 'inherit',
+    env: { ...process.env, ...service.env },
+  });
   children.set(service.name, child);
 
   child.on('error', (err) => {
