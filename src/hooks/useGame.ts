@@ -133,6 +133,9 @@ export function useGame(roomCode: string): UseGameReturn {
     const onRoomJoined = (payload: RoomJoinedPayload) => {
       if (payload.playerId) sessionStorage.setItem(SESSION_KEY(roomCode), payload.playerId);
       setRoom(payload.room);
+      // Arriving mid-question (a matched game, PBI 35, or a reload) must show
+      // the real clock, not the placeholder, until the first tick lands.
+      if (payload.room?.activeQuestion) setTimeLeft(payload.room.activeQuestion.timeLeft);
     };
 
     const onRoomUpdate = (updatedRoom: Room) => {

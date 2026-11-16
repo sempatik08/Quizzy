@@ -850,6 +850,47 @@ def test_alone_rescue(page: Page):
     ok("Hemen Oyna Herkes Kendine odasi aciyor (tek basina baslanabilir)")
 
 
+# ─── TEST 15: Rakip bul — canli kuyruk + hayalet (PBI 35) ────────────────────
+# Sunucunun bekleme suresi QUIZZY_MATCH_WAIT_MS (varsayilan 12 sn). Havuzda
+# kayit varsa hayalet maci, yoksa "simdi kimse yok" lobisi — ikisi de gecerli.
+def test_find_opponent(page: Page):
+    section("TEST 15 — Rakip bul (PBI 35)")
+    page.goto(BASE)
+    wait_net(page)
+    btn = page.locator("#find-opponent")
+    if btn.count() > 0 and btn.is_visible():
+        ok("Ana sayfada 'Rakip bul' butonu var")
+    else:
+        fail("'Rakip bul' butonu bulunamadi")
+        return
+
+    btn.click()
+    page.wait_for_selector("#match-searching", timeout=5000)
+    ok("Arama sirasinda geri sayim gorunuyor")
+    ss(page, "22_match_searching")
+    page.locator("#cancel-search").click()
+    page.wait_for_selector("#find-opponent", timeout=5000)
+    ok("Vazgec aramayi durdurup butonu geri getiriyor")
+
+    page.locator("#find-opponent").click()
+    page.wait_for_url(re.compile(r"/(lobby|game)/[A-Z0-9]{6}"), timeout=30000)
+    page.wait_for_selector("#ghost-banner, #match-nobody", timeout=15000)
+    if page.locator("#ghost-banner").count() > 0:
+        ok("Kimse yokken hayalet rakiple mac basladi (bant gorunuyor)")
+        ss(page, "23_ghost_match")
+        overflow = page.evaluate("document.documentElement.scrollWidth > window.innerWidth")
+        if not overflow:
+            ok("Hayalet bandiyla yatay tasma yok")
+        else:
+            fail("Hayalet bandiyla yatay tasma var")
+    else:
+        ok("Havuz bosken 'simdi kimse yok' notuyla lobiye dusuldu")
+        if page.locator("#ffa-start").count() > 0:
+            ok("Bu lobide tek basina baslatilabiliyor")
+        else:
+            fail("Kimse yok lobisinde Baslat butonu yok")
+
+
 # ─── TEST 12: PWA + Cila (PBI 15) ────────────────────────────────────────────
 
 def test_pwa_and_polish(page: Page):
@@ -1078,6 +1119,12 @@ def run():
             test_alone_rescue(visual_page)
         except Exception as e:
             fail("Yalniz kalani kurtar testi coktu", e)
+
+        # PBI 35 — rakip bul
+        try:
+            test_find_opponent(visual_page)
+        except Exception as e:
+            fail("Rakip bul testi coktu", e)
 
         browser.close()
 

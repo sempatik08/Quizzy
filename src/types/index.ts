@@ -46,6 +46,12 @@ export interface Player {
   /** Knocked out of the current match in Survival mode (PBI 9). */
   isEliminated: boolean;
   /**
+   * A recorded run replayed as an opponent (PBI 35): a real player's earlier
+   * match, not a live person. `ghostPlayedAt` is when that run was played.
+   */
+  isGhost?: boolean;
+  ghostPlayedAt?: number;
+  /**
    * Chosen avatar (PBI 14). null for a client with no profile.
    * NOTE: the matching `profileId` is deliberately NOT part of this type —
    * sanitizeRoom strips it, because it is the only credential a guest has.
@@ -202,6 +208,8 @@ export interface Room {
   totalQuestions?: number;
   questionsPerCategory?: number;
   ffa?: FfaState;
+  /** Set when the opponent is a ghost recording (PBI 35). The script stays on the server. */
+  ghostMatch?: { ghostId: string; name: string; playedAt: number };
   createdAt: number;
   lastActivityAt: number;
   hostId: string;
@@ -220,6 +228,19 @@ export interface RoomCreatedPayload {
 export interface RoomJoinedPayload {
   playerId: string;
   room: Room;
+}
+
+/** Who "find an opponent" paired you with (PBI 35). */
+export type MatchOpponent =
+  | { kind: 'live'; name: string }
+  | { kind: 'ghost'; name: string; playedAt: number }
+  | { kind: 'none' };
+
+export interface MatchFoundPayload {
+  roomCode: string;
+  playerId: string;
+  room: Room;
+  opponent: MatchOpponent;
 }
 
 export interface RoomErrorPayload {

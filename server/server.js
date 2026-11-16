@@ -34,6 +34,8 @@ const {
 } = require('./roomManager');
 const store = require('./store');
 const ffa = require('./ffa');
+const ghost = require('./ghost');
+const matchmaking = require('./matchmaking');
 const stats = require('./stats');
 const analytics = require('./analytics');
 const {
@@ -142,6 +144,83 @@ const io = new Server(httpServer, {
 // socketId → { roomCode, playerId }
 // ---------------------------------------------------------------------------
 const socketToPlayer = new Map();
+
+// ---------------------------------------------------------------------------
+// Matchmaking (PBI 35). Module level: a pairing touches two sockets, so it
+// cannot live inside one connection's closure.
+// ---------------------------------------------------------------------------
+
+function touchProfile(request) {
+  if (!request.identity.profileId) return;
+  stats.touchProfile(request.identity.profileId, request.playerName, request.identity.avatar)
+    .catch((err) => console.warn(`[Stats] touchProfile failed: ${err.message}`));
+}
+
+/** Put a socket into its matched room and tell it who it is playing. */
+function seat(sock, roomCode, playerId, room, opponent) {
+  socketToPlayer.set(sock.id, { roomCode, playerId });
+  sock.join(roomCode);
+  sock.emit('match:found', { roomCode, playerId, room: sanitizeRoom(room), opponent });
+}
+
+/** Two players were waiting: one free-for-all room, the first to arrive hosts. */
+function pairLive(first, second) {
+  const a = io.sockets.sockets.get(first.socketId);
+  const b = io.sockets.sockets.get(second.socketId);
+  if (!a || !b) {
+    // One of them vanished between the queue and here; the other keeps searching.
+    const survivor = a ? first : b ? second : null;
+    if (survivor) {
+      matchmaking.enqueue(survivor.socketId, survivor.request, {
+        onPair: pairLive,
+        onTimeout: (entry) => { matchAlone(entry).catch(() => {}); },
+      });
+    }
+    return;
+  }
+
+  const { roomCode, playerId: hostId, room } = createRoom(
+    first.request.playerName, a.id, 'ffa', first.request.identity,
+  );
+  analytics.recordRoomCreated();
+  const joined = joinRoom(roomCode, second.request.playerName, b.id, false, second.request.identity);
+  ffa.startMatch(room, hostId, io);
+  analytics.recordMatchmaking('live');
+  touchProfile(first.request);
+  touchProfile(second.request);
+
+  seat(a, roomCode, hostId, room, { kind: 'live', name: room.players[joined.playerId].name });
+  seat(b, roomCode, joined.playerId, room, { kind: 'live', name: room.players[hostId].name });
+  store.saveRoom(room);
+  console.log(`[Match] Live pair in ${roomCode}`);
+}
+
+/** Nobody came in time: play a ghost recording, or alone if there is none. */
+async function matchAlone(entry) {
+  const sock = io.sockets.sockets.get(entry.socketId);
+  if (!sock) return;
+
+  const recording = await ghost.pickGhost(entry.request.identity.profileId);
+  if (!sock.connected) return;
+
+  const { roomCode, playerId, room } = createRoom(
+    entry.request.playerName, sock.id, 'ffa', entry.request.identity,
+  );
+  analytics.recordRoomCreated();
+  touchProfile(entry.request);
+
+  let opponent = { kind: 'none' };
+  if (recording) {
+    ffa.startGhostMatch(room, recording, io);
+    opponent = { kind: 'ghost', name: recording.name, playedAt: recording.playedAt };
+  }
+  // With an empty pool the room waits in the free-for-all lobby, where the
+  // player can start alone or share the link.
+  analytics.recordMatchmaking(opponent.kind);
+  seat(sock, roomCode, playerId, room, opponent);
+  store.saveRoom(room);
+  console.log(`[Match] ${opponent.kind} match in ${roomCode}`);
+}
 
 // ---------------------------------------------------------------------------
 // Stale room cleanup (every 30 minutes)
@@ -263,6 +342,8 @@ io.on('connection', (socket) => {
       });
     }
 
+    // Creating a room ends any search still running for this socket (PBI 35).
+    matchmaking.leave(socket.id);
     const identity = identityFrom(payload);
     const { roomCode, playerId, room } = createRoom(
       payload.playerName,
@@ -301,6 +382,7 @@ io.on('connection', (socket) => {
     // client must not smuggle in anything but a spectator flag (PBI 10).
     const asSpectator = payload.asSpectator === true;
     const identity = identityFrom(payload);
+    matchmaking.leave(socket.id);
     const result = joinRoom(code, payload.playerName, socket.id, asSpectator, identity);
 
     if (result.error) return socket.emit('room:error', { message: result.error });
@@ -999,7 +1081,38 @@ io.on('connection', (socket) => {
   // DISCONNECT
   // =========================================================================
 
+  // =========================================================================
+  // MATCHMAKING (PBI 35)
+  // =========================================================================
+
+  /**
+   * Find an opponent. Payload: { playerName, profileId?, avatar? }.
+   * Answers with match:searching, then match:found once paired with a live
+   * player, a ghost recording, or (with an empty pool) nobody.
+   */
+  socket.on('match:find', (payload) => {
+    if (!payload || !isValidString(payload.playerName, 1, 20)) {
+      return socket.emit('room:error', { message: 'Player name must be 1–20 characters.' });
+    }
+    if (socketToPlayer.has(socket.id)) {
+      return socket.emit('room:error', { message: 'You are already in a room.' });
+    }
+    const request = { playerName: payload.playerName, identity: identityFrom(payload) };
+    const result = matchmaking.enqueue(socket.id, request, {
+      onPair: pairLive,
+      onTimeout: (entry) => {
+        matchAlone(entry).catch((err) => console.warn(`[Match] fallback failed: ${err.message}`));
+      },
+    });
+    if (result.queued) socket.emit('match:searching', { waitMs: matchmaking.WAIT_MS });
+  });
+
+  socket.on('match:cancel', () => {
+    if (matchmaking.leave(socket.id)) socket.emit('match:cancelled');
+  });
+
   socket.on('disconnect', (reason) => {
+    matchmaking.leave(socket.id);
     const context = socketToPlayer.get(socket.id);
     socketToPlayer.delete(socket.id);
 

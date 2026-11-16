@@ -2,11 +2,12 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { CheckCircle, Flame, RotateCcw, Trophy, XCircle } from 'lucide-react';
+import { CheckCircle, Flame, Ghost, RotateCcw, Search, Trophy, XCircle } from 'lucide-react';
 import type { Category, OptionKey, Room } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSound } from '@/context/SoundContext';
 import { avatarGlyph } from '@/lib/avatars';
+import { ghostWhen } from '@/lib/ghost';
 import { VotingTimer } from '@/components/game/VotingTimer';
 import { Confetti } from '@/components/game/Confetti';
 import { FfaCategoryPick } from './FfaCategoryPick';
@@ -41,6 +42,8 @@ interface Row {
   avatar: string | null;
   score: number;
   rank: number;
+  /** A recorded run rather than a live player (PBI 35). */
+  ghost?: boolean;
 }
 
 /** Live ranking from room.ffa.players — same ordering rule as the server. */
@@ -53,6 +56,7 @@ function rankRows(room: Room): Row[] {
       playerId: id,
       name: room.players[id]?.name ?? '?',
       avatar: room.players[id]?.avatar ?? null,
+      ghost: Boolean(room.players[id]?.isGhost),
       score: s.score,
       correct: s.correct,
       join: order.indexOf(id),
@@ -62,7 +66,7 @@ function rankRows(room: Room): Row[] {
   return rows.map((r, i) => {
     const prev = rows[i - 1];
     if (!prev || prev.score !== r.score || prev.correct !== r.correct) rank = i + 1;
-    return { playerId: r.playerId, name: r.name, avatar: r.avatar, score: r.score, rank };
+    return { playerId: r.playerId, name: r.name, avatar: r.avatar, score: r.score, rank, ghost: r.ghost };
   });
 }
 
@@ -135,7 +139,15 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
 
   // ---- Finished -----------------------------------------------------------
   if (room.phase === 'finished') {
-    const standings = ffa.standings ?? rows;
+    const standings = (ffa.standings ?? rows).map((row) => ({
+      ...row,
+      ghost: Boolean(room.players[row.playerId]?.isGhost),
+    }));
+    const isGhostMatch = Boolean(room.ghostMatch);
+    const findNew = () => {
+      sessionStorage.removeItem(`quizzy_player_${room.code}`);
+      router.push('/?find=1');
+    };
     const podium = standings.slice(0, 3);
     const backHome = () => {
       sessionStorage.removeItem(`quizzy_player_${room.code}`);
@@ -174,13 +186,28 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
             >
               <span className="w-6 text-quizzy-muted">{row.rank}.</span>
               <span aria-hidden>{avatarGlyph(row.avatar)}</span>
-              <span className="flex-1 truncate text-quizzy-text">{row.name}</span>
+              <span className="flex-1 truncate text-quizzy-text">
+                {row.name}
+                {row.ghost && <GhostMark />}
+              </span>
               <span className="tabular-nums text-quizzy-text">{row.score}</span>
             </li>
           ))}
         </ol>
 
-        {!isSpectator && (
+        {/* Against a ghost a rematch would replay the same recording — the
+            player would know every answer — so a new opponent is offered. */}
+        {!isSpectator && isGhostMatch && (
+          <button
+            id="find-new-opponent"
+            onClick={findNew}
+            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-blue-soft text-white font-semibold hover:bg-blue-500 active:scale-95 transition-all mb-2.5"
+          >
+            <Search size={17} />
+            {t.findNewOpponent}
+          </button>
+        )}
+        {!isSpectator && !isGhostMatch && (
           <button
             id="rematch-button"
             onClick={onRematch}
@@ -219,6 +246,20 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
 
   return (
     <div className="w-full max-w-2xl" id="ffa-round" data-question={qNum}>
+      {room.ghostMatch && (
+        <div
+          id="ghost-banner"
+          title={t.ghostHint}
+          className="mb-3 flex items-center gap-2 px-3 py-2 rounded-xl bg-violet-50 border border-violet-200 text-sm text-violet-900"
+        >
+          <Ghost size={16} className="shrink-0" />
+          <span className="truncate">
+            {t.ghostVs
+              .replace('{name}', room.ghostMatch.name)
+              .replace('{when}', ghostWhen(room.ghostMatch.playedAt, t))}
+          </span>
+        </div>
+      )}
       <div className="flex items-center justify-between mb-3 text-xs font-semibold text-quizzy-muted uppercase tracking-widest">
         <span>{t.ffaQuestionOf.replace('{n}', String(qNum)).replace('{total}', String(total))}</span>
         <span id="ffa-answered">
@@ -329,7 +370,10 @@ function Leaderboard({ rows, playerId, title, pts }: { rows: Row[]; playerId: st
           >
             <span className="w-6 text-quizzy-muted">{row.rank}.</span>
             <span aria-hidden>{avatarGlyph(row.avatar)}</span>
-            <span className="flex-1 truncate text-quizzy-text">{row.name}</span>
+            <span className="flex-1 truncate text-quizzy-text">
+              {row.name}
+              {row.ghost && <GhostMark />}
+            </span>
             <span className="tabular-nums text-quizzy-text">
               {row.score} <span className="text-xs text-quizzy-muted">{pts}</span>
             </span>
@@ -338,4 +382,9 @@ function Leaderboard({ rows, playerId, title, pts }: { rows: Row[]; playerId: st
       </ol>
     </div>
   );
+}
+
+/** Marks a recorded opponent wherever names are listed (PBI 35). */
+function GhostMark() {
+  return <Ghost size={13} aria-label="ghost" className="inline ml-1 -mt-0.5 text-violet-600" />;
 }

@@ -227,7 +227,8 @@ function disconnectPlayer(roomCode, playerId) {
     }
   }
 
-  const allDisconnected = Object.values(room.players).every((p) => !p.isConnected);
+  // A ghost opponent (PBI 35) never disconnects; it must not keep the room alive.
+  const allDisconnected = Object.values(room.players).every((p) => p.isGhost || !p.isConnected);
   if (allDisconnected) {
     // Only discard the room outright when there is nothing to come back to.
     //
@@ -407,6 +408,12 @@ function sanitizeRoom(room) {
   // would let anyone in the match claim someone else's record.
   for (const player of Object.values(clone.players ?? {})) {
     delete player.profileId;
+  }
+
+  // ANTI-CHEAT (PBI 35): a ghost's script is its recorded answers for every
+  // question still to come. Only who the ghost is and when they played go out.
+  if (clone.ghostMatch) {
+    delete clone.ghostMatch.script;
   }
 
   // ANTI-CHEAT: Remove correct answer from active question

@@ -29,6 +29,7 @@ const { QUESTIONS, CATEGORY_KEYS } = require('./questions');
 const { pickTargetDifficulty, selectQuestion, difficultyOf } = require('./difficulty');
 const { getMode, modeSettingsFor } = require('./gameModes');
 const analytics = require('./analytics');
+const ghost = require('./ghost');
 const store = require('./store');
 const { sanitizeRoom, getRoom } = require('./roomManager');
 
@@ -57,6 +58,8 @@ const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E'];
 /** roomCode -> pending timeout. Process-local, like every other timer handle. */
 const pickHandles = new Map();
 const revealHandles = new Map();
+/** roomCode -> the ghost's pending answer for the open question (PBI 35). */
+const ghostHandles = new Map();
 
 function isFfa(room) {
   return room?.mode === 'ffa';
@@ -88,7 +91,17 @@ function createFfaState(playerIds) {
     pickDeadline: null,
     lastRound: null,
     standings: null,
+    /**
+     * Every scored question with who chose what and how fast. This is what a
+     * finished match leaves behind as ghost recordings (PBI 35).
+     */
+    log: [],
   };
+}
+
+/** Ghost players replay a recording; they never hold a socket (PBI 35). */
+function isGhost(room, id) {
+  return Boolean(room.players[id]?.isGhost);
 }
 
 /**
@@ -149,15 +162,18 @@ function isLive(room) {
   return getRoom(room.code) === room;
 }
 
+/** Real people only: a ghost is always "connected" and must not keep a room alive. */
 function anyoneConnected(room) {
-  return Object.values(room.players).some((p) => p.isConnected);
+  return Object.values(room.players).some((p) => p.isConnected && !p.isGhost);
 }
 
 function clearHandles(code) {
   clearTimeout(pickHandles.get(code));
   clearTimeout(revealHandles.get(code));
+  clearTimeout(ghostHandles.get(code));
   pickHandles.delete(code);
   revealHandles.delete(code);
+  ghostHandles.delete(code);
 }
 
 // ---------------------------------------------------------------------------
@@ -215,8 +231,46 @@ function startSolo(room, requesterId, io) {
   return result;
 }
 
+/**
+ * Start a match against a recorded run (PBI 35). The ghost joins the roster as
+ * a player that never holds a socket; its script stays on the server.
+ */
+function startGhostMatch(room, recording, io) {
+  const ghostId = `ghost-${recording.id}`;
+  room.players[ghostId] = {
+    id: ghostId,
+    socketId: null,
+    name: recording.name,
+    team: null,
+    isConnected: true,
+    isSpectator: false,
+    isEliminated: false,
+    isGhost: true,
+    ghostPlayedAt: recording.playedAt,
+    profileId: null,
+    avatar: recording.avatar ?? null,
+  };
+  room.ghostMatch = {
+    ghostId,
+    name: recording.name,
+    playedAt: recording.playedAt,
+    script: recording.rounds,
+  };
+  return startMatch(room, room.hostId, io);
+}
+
 /** Put the room on the category screen with `pickerId` choosing. */
 function openPick(room, io, pickerId) {
+  // Against a ghost the questions must be the recording's, so its categories
+  // are too — nobody picks (PBI 35).
+  const scripted = room.ghostMatch?.script?.[room.ffa.questionNumber];
+  if (scripted) {
+    if (!room.usedCategories) room.usedCategories = [];
+    room.ffa.categoryQuestionCount = 0;
+    applyCategory(room, scripted.category, io);
+    return;
+  }
+
   room.phase = 'category_pick';
   room.activeQuestion = null;
   room.ffa.picker = pickerId;
@@ -271,7 +325,8 @@ function pickCategory(room, playerId, category, io) {
 function applyCategory(room, category, io) {
   room.usedCategories.push(category);
   room.selectedCategory = category;
-  analytics.recordCategoryPick(category);
+  // A ghost match's categories come from the recording, not from anyone's choice.
+  if (!room.ghostMatch) analytics.recordCategoryPick(category);
   room.ffa.picker = null;
   room.ffa.pickDeadline = null;
   room.ffa.categoryQuestionCount = 0;
@@ -289,7 +344,9 @@ function startRound(room, io) {
   // The ramp follows the match's progress, not anyone's score: question 1 is
   // easy and the last third leans hard, for every player alike.
   const target = pickTargetDifficulty(room.ffa.questionNumber, totalQuestions);
-  let question = selectQuestion(pool, room.usedQuestionIds, target);
+  const scripted = room.ghostMatch?.script?.[room.ffa.questionNumber];
+  let question = scripted ? ghost.lookupQuestion(scripted.questionId)?.question ?? null : null;
+  if (!question) question = selectQuestion(pool, room.usedQuestionIds, target);
   if (!question) {
     // 600 a category against 15 a match makes this near impossible, but a
     // rematch-heavy room could get here; recycle this category's pool.
@@ -328,6 +385,38 @@ function startRound(room, io) {
 
   // Lazy to avoid a load-time cycle: gameLogic dispatches back into this module.
   require('./gameLogic').scheduleQuestionTimers(room, io);
+  scheduleGhostAnswer(room, io, scripted && scripted.questionId === question.id ? scripted : null);
+}
+
+/**
+ * Cast the ghost's recorded answer at its recorded moment. The vote goes
+ * through castAnswer like anyone's, so it is scored by the live rules, hidden
+ * until the reveal, and can close the round early.
+ */
+function scheduleGhostAnswer(room, io, scripted) {
+  clearTimeout(ghostHandles.get(room.code));
+  ghostHandles.delete(room.code);
+  const ghostId = room.ghostMatch?.ghostId;
+  const aq = room.activeQuestion;
+  if (!ghostId || !aq) return;
+  // A ghost that did not answer this one (or a question no longer in the
+  // bank) answers nothing; the round must not wait for it.
+  aq.ghostPending = Boolean(scripted?.option);
+  if (!aq.ghostPending) return;
+
+  const delay = Math.max(0, Math.min(scripted.elapsedMs ?? 0, aq.duration * 1000 - 50));
+  const questionNumber = room.ffa.questionNumber;
+  ghostHandles.set(room.code, setTimeout(() => {
+    ghostHandles.delete(room.code);
+    if (!isLive(room) || room.ffa.questionNumber !== questionNumber) return;
+    const current = room.activeQuestion;
+    if (!current || current.revealed || current.resolving) return;
+    current.ghostPending = false;
+    const result = castAnswer(room, ghostId, scripted.option);
+    if (result.error) return;
+    publish(room, io);
+    if (result.allAnswered) resolveRound(room, io);
+  }, delay));
 }
 
 /**
@@ -352,9 +441,11 @@ function castAnswer(room, playerId, rawOption) {
   aq.votes[playerId] = { optionKey, timestamp: Date.now() };
   room.lastActivityAt = Date.now();
 
-  const waitingOn = Object.keys(room.ffa.players).filter(
-    (id) => room.players[id]?.isConnected && !aq.votes[id],
-  );
+  const waitingOn = Object.keys(room.ffa.players).filter((id) => {
+    if (aq.votes[id] || !room.players[id]?.isConnected) return false;
+    // The ghost is waited on only while its recorded answer is still to come.
+    return !isGhost(room, id) || aq.ghostPending;
+  });
   return { room, allAnswered: waitingOn.length === 0 };
 }
 
@@ -400,7 +491,7 @@ function resolveRound(room, io) {
       entry.streak = 0;
     }
     results[id] = { optionKey: vote?.optionKey ?? null, isCorrect, points, streak: entry.streak };
-    if (vote) {
+    if (vote && !isGhost(room, id)) {
       anyAnswered = true;
       analytics.recordAnswer(question.id, { isCorrect, isSteal: false, answered: true });
     }
@@ -408,6 +499,17 @@ function resolveRound(room, io) {
   if (!anyAnswered) {
     analytics.recordAnswer(question.id, { isCorrect: false, isSteal: false, answered: false });
   }
+
+  if (!room.ffa.log) room.ffa.log = [];
+  room.ffa.log.push({
+    questionId: question.id,
+    category: room.selectedCategory,
+    votes: Object.fromEntries(Object.entries(votes).map(([id, v]) => [
+      id, { optionKey: v.optionKey, elapsedMs: Math.max(0, v.timestamp - aq.timerStart) },
+    ])),
+  });
+  clearTimeout(ghostHandles.get(room.code));
+  ghostHandles.delete(room.code);
 
   aq.revealed = true;
   aq.revealedAnswer = question.answer;
@@ -455,6 +557,8 @@ function finish(room) {
   if (!room.analyticsRecorded) {
     room.analyticsRecorded = true;
     analytics.recordMatchEnd(room);
+    // Every finished run can be someone's opponent later (PBI 35).
+    ghost.saveMatch(room);
   }
 }
 
@@ -472,6 +576,8 @@ function rematch(room, playerId, io) {
   if (room.phase !== 'finished') return { error: 'A rematch can only be started after the match ends.' };
   const player = room.players[playerId];
   if (!player || player.isSpectator) return { error: 'Spectators cannot start a rematch.' };
+  // Replaying the same recording would hand the player every answer.
+  if (room.ghostMatch) return { error: 'Find a new opponent instead.' };
 
   clearHandles(room.code);
   room.ffa = createFfaState(participantIds(room));
@@ -487,6 +593,8 @@ module.exports = {
   isFfa,
   startMatch,
   startSolo,
+  startGhostMatch,
+  isGhost,
   pickCategory,
   castAnswer,
   resolveRound,

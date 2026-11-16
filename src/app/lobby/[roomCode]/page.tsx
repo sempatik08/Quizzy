@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Lock, Loader2, Zap } from 'lucide-react';
 import { useGame } from '@/hooks/useGame';
@@ -40,6 +40,18 @@ export default function LobbyPage() {
       if (!pid) router.replace('/');
     }
   }, [roomCode, router]);
+
+  // "Find an opponent" found nobody (PBI 35): say so, instead of leaving the
+  // player in an empty lobby wondering what happened.
+  const [foundNobody, setFoundNobody] = useState(false);
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem(`quizzy_match_${roomCode}`);
+      setFoundNobody(raw ? JSON.parse(raw)?.kind === 'none' : false);
+    } catch {
+      setFoundNobody(false);
+    }
+  }, [roomCode]);
 
   // Navigate to game when phase advances past lobby
   useEffect(() => {
@@ -133,6 +145,14 @@ export default function LobbyPage() {
 
       {/* Free-for-all (PBI 19): no teams, the host just starts. The first
           category pick happens here too; later ones are on the game page. */}
+      {isFfa && room.phase === 'lobby' && foundNobody && (
+        <p
+          id="match-nobody"
+          className="w-full max-w-md mb-4 px-4 py-3 rounded-xl bg-blue-pale border border-blue-light text-sm text-quizzy-text text-center"
+        >
+          {t.noOpponentFound}
+        </p>
+      )}
       {isFfa && room.phase === 'lobby' && (
         <FfaLobby room={room} playerId={playerId} isHost={isHost} onStart={actions.startFfa} />
       )}
