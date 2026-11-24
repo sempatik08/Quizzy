@@ -36,7 +36,7 @@ Open <http://localhost:3000>.
 
 | Variable | Where it applies | Why |
 |---|---|---|
-| `CLIENT_URL` | socket container, **runtime** | CORS allow-list. Defaults to localhost only, so set it to the origin people actually open, e.g. `http://192.168.1.20:3000`. |
+| `CLIENT_URL` | socket container, **runtime** | CORS allow-list. Defaults to localhost only, so set it to the origin people actually open, e.g. `http://192.168.1.20:3000`. Several origins may be given comma-separated (e.g. the custom domain and the old Vercel URL while moving). |
 | `NEXT_PUBLIC_SOCKET_URL` | web image, **build time** | Normally leave unset — the client then derives the socket URL from the page's own hostname, which keeps the image portable. Set it only when the socket server runs on a different host or behind a TLS proxy. |
 
 ```bash
@@ -92,6 +92,7 @@ room code or IP — only counters keyed by question id, category and game mode.
 | Variable | Effect when set |
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin (e.g. the custom domain). Used for OG images, `sitemap.xml`, `robots.txt` and canonical links. Falls back to the Vercel deployment URL. |
+| `LEGACY_HOSTS` | Comma-separated old hosts (e.g. `quizzy-two-jade.vercel.app`) that 301-redirect to `NEXT_PUBLIC_SITE_URL`, keeping path and query. Runtime; needs both set. |
 | `NEXT_PUBLIC_SUPPORT_URL` | Buy Me a Coffee / Kreosus page. Shows a "Support Quizzy" link in the footer and on end-of-match screens. Unset → no link. |
 
 ### Tests

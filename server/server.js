@@ -66,7 +66,14 @@ const {
 // Railway/Render/Heroku-style platforms inject PORT and route traffic only to
 // that port; SOCKET_PORT stays the override for local dev and Docker.
 const PORT = parseInt(process.env.PORT || process.env.SOCKET_PORT || '3001', 10);
-const CLIENT_URL = process.env.CLIENT_URL || /^http:\/\/localhost(:\d+)?$/;
+// CORS allow-list. One origin, or several separated by commas — moving to a
+// custom domain (PBI 27) means the old and new origins both need to work for a
+// while (open tabs, cached pages).
+const CLIENT_URL = process.env.CLIENT_URL
+  ? (process.env.CLIENT_URL.includes(',')
+    ? process.env.CLIENT_URL.split(',').map((o) => o.trim().replace(/\/+$/, '')).filter(Boolean)
+    : process.env.CLIENT_URL.trim().replace(/\/+$/, ''))
+  : /^http:\/\/localhost(:\d+)?$/;
 
 // ---------------------------------------------------------------------------
 // HTTP + Socket.io Setup
@@ -1457,7 +1464,7 @@ async function start() {
 
   httpServer.listen(PORT, () => {
     console.log(`\n🎯 Quizzy Socket.io server running on port ${PORT}`);
-    console.log(`   CORS origin: all localhost ports`);
+    console.log(`   CORS origin: ${CLIENT_URL instanceof RegExp ? 'all localhost ports' : [].concat(CLIENT_URL).join(', ')}`);
     console.log(`   Room persistence: ${backend}`);
     console.log(
       `   Abuse limits: ${LIMITS.maxRooms} rooms, ${LIMITS.maxProfiles} profiles, `
