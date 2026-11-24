@@ -6,6 +6,7 @@ import type { Room } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { Confetti } from './Confetti';
 import { ShareResult } from './ShareResult';
+import { SupportLink } from '@/components/shared/SupportLink';
 import { winnerOf } from '@/lib/score';
 
 interface WinnerScreenProps {
@@ -139,6 +140,8 @@ export function WinnerScreen({
         >
           {t.backToHome}
         </button>
+
+        <SupportLink placement="winner" />
       </div>
     </div>
   );

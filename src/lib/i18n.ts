@@ -137,6 +137,7 @@ const translations = {
     rematchKeeps: 'Same room, same teams. Scores and questions reset.',
     // Invite link (PBI 12)
     shareResult: 'Share Result',
+    supportQuizzy: 'Enjoying Quizzy? Buy us a coffee',
     downloadCard: 'Download score card',
     copyResult: 'Copy result text',
     inviteFriends: 'Invite your friends',
@@ -408,6 +409,7 @@ const translations = {
     rematchKeeps: 'Aynı oda, aynı takımlar. Skorlar ve sorular sıfırlanır.',
     // Davet linki (PBI 12)
     shareResult: 'Sonucu Paylaş',
+    supportQuizzy: 'Quizzy hoşuna gittiyse bir kahve ısmarla',
     downloadCard: 'Skor kartını indir',
     copyResult: 'Sonuç metnini kopyala',
     inviteFriends: 'Arkadaşlarını davet et',

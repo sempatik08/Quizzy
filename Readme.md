@@ -87,6 +87,13 @@ including which answers people get wrong.
 room code or IP — only counters keyed by question id, category and game mode.
 `tests/analytics_test.js` asserts this by scanning the stored bytes.
 
+### Optional site settings (web image, build time)
+
+| Variable | Effect when set |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Canonical origin (e.g. the custom domain). Used for OG images, `sitemap.xml`, `robots.txt` and canonical links. Falls back to the Vercel deployment URL. |
+| `NEXT_PUBLIC_SUPPORT_URL` | Buy Me a Coffee / Kreosus page. Shows a "Support Quizzy" link in the footer and on end-of-match screens. Unset → no link. |
+
 ### Tests
 
 ```bash

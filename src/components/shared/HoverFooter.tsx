@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Github, Twitter, Globe, X, Zap, Trophy, Shuffle, Crown, BookOpen, Tag } from 'lucide-react';
+import { Github, Twitter, Globe, X, Zap, Trophy, Shuffle, Crown, BookOpen, Tag, Coffee } from 'lucide-react';
+import { SUPPORT_URL } from '@/components/shared/SupportLink';
 import { TextHoverEffect, FooterBackgroundGradient } from '@/components/ui/hover-footer';
 import questionCounts from '@/data/question-counts.json';
 import { MODE_WIN_THRESHOLD, DEFAULT_WIN_THRESHOLD } from '@/lib/gameModes';
@@ -228,6 +229,8 @@ const socialLinks = [
   { icon: <Github size={15} />, label: 'GitHub', href: 'https://github.com/sempatik08/Quizzy' },
   { icon: <Twitter size={15} />, label: 'Twitter', href: '#' },
   { icon: <Globe size={15} />, label: 'Web', href: '#' },
+  // PBI 31: only when a support page is configured.
+  ...(SUPPORT_URL ? [{ icon: <Coffee size={15} />, label: "Quizzy'yi destekle", href: SUPPORT_URL }] : []),
 ];
 
 /* ─── Modal ─── */

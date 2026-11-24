@@ -1,5 +1,6 @@
 'use client';
 
+import { SupportLink } from '@/components/shared/SupportLink';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { CheckCircle, Flame, Ghost, RotateCcw, Search, Trophy, XCircle } from 'lucide-react';
@@ -223,6 +224,7 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
         >
           {t.backToHome}
         </button>
+        <SupportLink placement="ffa_finished" />
       </div>
     );
   }
