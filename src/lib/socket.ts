@@ -16,7 +16,7 @@ const DEFAULT_SOCKET_PORT = 3001;
  * Set NEXT_PUBLIC_SOCKET_URL at build time when the socket server lives
  * somewhere else, or behind a TLS-terminating proxy on a different hostname.
  */
-function resolveSocketUrl(): string {
+export function resolveSocketUrl(): string {
   const configured = process.env.NEXT_PUBLIC_SOCKET_URL;
   if (configured) return configured;
 
@@ -46,4 +46,26 @@ export function getSocket(): Socket {
   }
 
   return socket;
+}
+
+let prewarmed = false;
+
+/**
+ * Wakes the socket server before anyone needs it (PBI 23).
+ *
+ * The production socket server sleeps when idle, so the first person to click
+ * "Create room" after a quiet spell used to wait out the cold start on a
+ * spinner. Pinging /health as soon as any page opens moves that wait to while
+ * they are still reading the page. Fire-and-forget: `no-cors` because only
+ * the request matters, not the answer, and a failure here is not an error —
+ * the real connection will report its own.
+ */
+export function prewarmSocketServer(): void {
+  if (prewarmed || typeof window === 'undefined') return;
+  prewarmed = true;
+  try {
+    void fetch(`${resolveSocketUrl()}/health`, { mode: 'no-cors', cache: 'no-store' }).catch(() => {});
+  } catch {
+    // fetch unavailable or URL invalid: nothing to warm.
+  }
 }

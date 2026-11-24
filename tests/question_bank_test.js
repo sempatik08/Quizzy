@@ -279,4 +279,45 @@ r.check(`Every question has all 5 options_tr (${missingOptionsTr.length} missing
   missingOptionsTr.length === 0,
   `\n      ${missingOptionsTr.slice(0, 10).join('\n      ')}`);
 
+// ---------------------------------------------------------------------------
+// 4b. Turkish typed without Turkish letters (PBI 25)
+// ---------------------------------------------------------------------------
+// ~200 questions were once written on a keyboard without ç/ğ/ı/ö/ş/ü
+// ("Yaklasik ... yuzolcumu"). A text_tr with no Turkish letter is not wrong by
+// itself ("Solisti Freddie Mercury olan grup hangisidir?"), so a fixed length
+// rule would need a long allow-list. Instead the bank is its own dictionary:
+// a word the bank normally spells with Turkish letters ("tarafından") showing
+// up stripped ("tarafindan") is the tell. Two such words flag the question.
+r.section('4b. Turkish letters');
+
+const TR_LETTER = /[çğıöşüÇĞİÖŞÜ]/;
+const foldTr = (s) => s.replace(/ç/g, 'c').replace(/ğ/g, 'g').replace(/ı/g, 'i')
+  .replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ü/g, 'u');
+const trWords = (s) => s.toLocaleLowerCase('tr').match(/[a-zçğıöşü]{4,}/g) || [];
+
+const accentedSpelling = new Map(); // folded word → times spelled with Turkish letters
+const plainSpelling = new Map();    // word → times spelled without
+const allQuestions = Object.entries(QUESTIONS)
+  .flatMap(([category, pool]) => pool.map((q) => ({ category, q })));
+for (const { q } of allQuestions) {
+  for (const w of trWords(q.text_tr)) {
+    if (TR_LETTER.test(w)) accentedSpelling.set(foldTr(w), (accentedSpelling.get(foldTr(w)) || 0) + 1);
+    else plainSpelling.set(w, (plainSpelling.get(w) || 0) + 1);
+  }
+}
+
+const strippedTurkish = [];
+for (const { category, q } of allQuestions) {
+  if (TR_LETTER.test(q.text_tr)) continue;
+  const stripped = trWords(q.text_tr).filter((w) => {
+    const accented = accentedSpelling.get(w) || 0;
+    return accented >= 3 && accented > 4 * (plainSpelling.get(w) || 0);
+  });
+  if (stripped.length >= 2) strippedTurkish.push(`${category}/${q.id}: ${stripped.slice(0, 4).join(', ')}`);
+}
+
+r.check(`No text_tr is Turkish typed without Turkish letters (${strippedTurkish.length} found)`,
+  strippedTurkish.length === 0,
+  `\n      ${strippedTurkish.slice(0, 10).join('\n      ')}`);
+
 process.exit(r.finish());

@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Loader2, Zap } from 'lucide-react';
 import { useGame } from '@/hooks/useGame';
+import { useMatchFunnel } from '@/hooks/useMatchFunnel';
 import { ScoreBoard } from '@/components/game/ScoreBoard';
 import { QuestionCard } from '@/components/game/QuestionCard';
 import { VotingTimer } from '@/components/game/VotingTimer';
@@ -52,6 +53,7 @@ export default function GamePage() {
     gameError,
     actions,
   } = useGame(roomCode);
+  useMatchFunnel(room, isSpectator);
 
   // Guard: redirect if no session
   useEffect(() => {

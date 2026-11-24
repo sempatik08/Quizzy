@@ -145,7 +145,7 @@ function createRoom(playerName, socketId, modeKey, identity = {}) {
  * @param {boolean} [asSpectator]
  * @returns {{ error?: string, playerId?: string, room?: import('./types').Room }}
  */
-function joinRoom(roomCode, playerName, socketId, asSpectator = false, identity = {}) {
+function joinRoom(roomCode, playerName, socketId, asSpectator = false, identity = {}, allowLate = false) {
   const room = rooms.get(roomCode);
   if (!room) return { error: 'Room not found.' };
 
@@ -157,7 +157,8 @@ function joinRoom(roomCode, playerName, socketId, asSpectator = false, identity 
       return { error: `Too many spectators (max ${MAX_SPECTATORS}).` };
     }
   } else {
-    if (room.phase !== 'lobby') {
+    // allowLate: an open free-for-all room taking a player mid-match (PBI 30).
+    if (room.phase !== 'lobby' && !allowLate) {
       return { error: 'Game is already in progress. You can join as a spectator instead.' };
     }
     const players = roster.filter((p) => !p.isSpectator).length;
@@ -387,6 +388,11 @@ function allRooms() {
   return [...rooms.values()];
 }
 
+/** Rooms currently held in memory, for the global room cap. */
+function roomCount() {
+  return rooms.size;
+}
+
 /**
  * Sanitize a room object for client delivery.
  * - Strips `answer` from the active question (ANTI-CHEAT).
@@ -512,4 +518,5 @@ module.exports = {
   getMode,
   adoptRoom,
   allRooms,
+  roomCount,
 };

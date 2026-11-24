@@ -32,6 +32,7 @@
  */
 
 const store = require('./store');
+const { LIMITS } = require('./abuse');
 
 const PROFILE_KEY = (id) => `quizzy:profile:${id}`;
 const HISTORY_KEY = (id) => `quizzy:history:${id}`;
@@ -100,13 +101,35 @@ async function getProfile(id) {
  */
 async function touchProfile(id, name, avatar) {
   if (!isValidProfileId(id)) return null;
-  const profile = await getProfile(id);
+  const stored = await store.getJSON(PROFILE_KEY(id));
+  // Profile ids are client-chosen, so without a ceiling a script could mint
+  // fresh UUIDs forever and grow the store without bound. Existing profiles keep
+  // working at the cap; only new ones wait.
+  if (!stored && (await store.setSize(PROFILE_INDEX)) >= LIMITS.maxProfiles) {
+    return null;
+  }
+  const profile = stored ?? emptyProfile(id);
+  const before = `${profile.name}|${profile.avatar}`;
   if (typeof name === 'string' && name.trim()) profile.name = name.trim().slice(0, 20);
   if (isValidAvatar(avatar)) profile.avatar = avatar;
   profile.lastSeenAt = Date.now();
   await store.setJSON(PROFILE_KEY(id), profile);
   await store.addToSet(PROFILE_INDEX, id);
+  // Only a visible change to someone already on the board makes a cached
+  // leaderboard stale; a plain join must not, or every join would defeat it.
+  if ((profile.matches ?? 0) > 0 && before !== `${profile.name}|${profile.avatar}`) {
+    boardVersion++;
+  }
   return profile;
+}
+
+/**
+ * Bumped whenever the leaderboard's inputs change through this module, so a
+ * caller holding a cached board can tell it is stale.
+ */
+let boardVersion = 0;
+function getBoardVersion() {
+  return boardVersion;
 }
 
 /**
@@ -182,6 +205,7 @@ async function recordMatch(room) {
     await store.setJSON(HISTORY_KEY(player.profileId), history.slice(0, HISTORY_LIMIT));
   }
 
+  boardVersion++;
   return { recorded: true, participants: participants.length, winner };
 }
 
@@ -277,4 +301,5 @@ module.exports = {
   getHistory,
   getLeaderboard,
   getMyStanding,
+  getBoardVersion,
 };

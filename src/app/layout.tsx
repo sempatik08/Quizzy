@@ -7,10 +7,10 @@ import { SoundProvider } from '@/context/SoundContext';
 import { ProfileProvider } from '@/context/ProfileContext';
 import { LanguageSwitcher } from '@/components/shared/LanguageSwitcher';
 import { ServiceWorkerRegistrar } from '@/components/shared/ServiceWorkerRegistrar';
+import { SocketPrewarm } from '@/components/shared/SocketPrewarm';
 import questionCounts from '@/data/question-counts.json';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+import { SITE_URL as siteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -70,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </SoundProvider>
           </LanguageProvider>
         </ThemeProvider>
+        <SocketPrewarm />
         <ServiceWorkerRegistrar />
         <Analytics />
       </body>

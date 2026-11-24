@@ -145,6 +145,8 @@ export interface FfaStanding {
 export interface FfaState {
   /** The match roster, frozen at start. Late arrivals watch as spectators. */
   players: Record<string, FfaPlayerState>;
+  /** Joined a running open match (PBI 30); they play from the next question. */
+  pending?: string[];
   questionNumber: number;
   categoryQuestionCount: number;
   /** Who chooses the next category, and until when (epoch ms). */
@@ -213,6 +215,10 @@ export interface Room {
   ffa?: FfaState;
   /** Set when the opponent is a ghost recording (PBI 35). The script stays on the server. */
   ghostMatch?: { ghostId: string; name: string; playedAt: number };
+  /** Opened by Quick Play: strangers may join it (PBI 30). */
+  isPublic?: boolean;
+  /** Open lobbies start by themselves at this moment (epoch ms), once two players are in. */
+  autoStartAt?: number | null;
   /** Set when the opponent is a bot (PBI 36). */
   botMatch?: { botId: string; level: BotLevel };
   createdAt: number;

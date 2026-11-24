@@ -1,6 +1,8 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
+import { track } from '@/lib/track';
 import Link from 'next/link';
 import { Zap, AlertCircle } from 'lucide-react';
 import { JoinRoomForm } from '@/components/home/JoinRoomForm';
@@ -32,6 +34,11 @@ export default function JoinByLinkPage() {
   const raw = Array.isArray(params.roomCode) ? params.roomCode[0] : params.roomCode;
   const code = (raw ?? '').toUpperCase();
   const isValid = CODE_PATTERN.test(code);
+
+  // Top of the invite funnel (PBI 22): someone opened a shared link.
+  useEffect(() => {
+    track('join_opened', { valid: isValid, watch: wantsToWatch });
+  }, [isValid, wantsToWatch]);
 
   return (
     <main className="min-h-screen bg-quizzy-bg flex flex-col">
