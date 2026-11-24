@@ -83,6 +83,13 @@ export default function HomePage() {
             <JoinRoomForm />
           </div>
         </div>
+
+        {/* Crawlable links to the content pages (PBI 29). */}
+        <nav className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-1 text-sm text-quizzy-muted">
+          <Link href="/kategori" className="hover:text-quizzy-text">Kategoriler</Link>
+          <Link href="/nasil-oynanir" className="hover:text-quizzy-text">Nasıl oynanır?</Link>
+          <Link href="/gunun-quizi/arsiv" className="hover:text-quizzy-text">Günün Quizi arşivi</Link>
+        </nav>
       </div>
 
       {/* Full-width Hover Footer */}

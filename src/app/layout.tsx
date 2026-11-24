@@ -10,8 +10,7 @@ import { ServiceWorkerRegistrar } from '@/components/shared/ServiceWorkerRegistr
 import { SocketPrewarm } from '@/components/shared/SocketPrewarm';
 import questionCounts from '@/data/question-counts.json';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+import { SITE_URL as siteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
