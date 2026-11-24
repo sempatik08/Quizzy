@@ -159,6 +159,9 @@ const socketLimits = {
   profileSave: createLimiter({ capacity: 5, refillPerSec: 1 / 12 }),
   profileRead: createLimiter({ capacity: 10, refillPerSec: 1 / 3 }),
   leaderboard: createLimiter({ capacity: 5, refillPerSec: 1 / 6 }),
+  // Daily Quiz reads and answers (PBI 26): ten answers plus a few status/board
+  // reads per run. Starting a day spends profileSave, since it writes a record.
+  daily: createLimiter({ capacity: 30, refillPerSec: 1 }),
 };
 
 /** Per-IP buckets: one script opening many sockets still shares one budget. */
@@ -990,6 +993,7 @@ io.on('connection', (socket) => {
     if (!payload || !stats.isValidProfileId(payload.profileId)) {
       return socket.emit('daily:error', { message: 'Invalid profile.' });
     }
+    if (overLimit('profileSave', 'daily:error')) return;
     const name = isValidString(payload.name, 1, 20) ? payload.name.trim() : 'Player';
     const avatar = stats.isValidAvatar(payload.avatar) ? payload.avatar : 'fox';
     serialDaily(payload.profileId, () => daily.start(payload.profileId, name, avatar))
@@ -1008,6 +1012,7 @@ io.on('connection', (socket) => {
     if (!payload || !stats.isValidProfileId(payload.profileId) || !Number.isInteger(payload.index)) {
       return socket.emit('daily:error', { message: 'Invalid answer.' });
     }
+    if (overLimit('daily', 'daily:error')) return;
     const choice = payload.answer === null ? null : isValidOption(payload.answer) ? payload.answer.toUpperCase() : undefined;
     if (choice === undefined) return socket.emit('daily:error', { message: 'Invalid option.' });
     serialDaily(payload.profileId, () => daily.answer(payload.profileId, payload.index, choice))
@@ -1030,6 +1035,7 @@ io.on('connection', (socket) => {
 
   /** Where this profile stands today, without starting the clock. Payload: { profileId? } */
   socket.on('daily:status', (payload) => {
+    if (overLimit('daily', 'daily:error')) return;
     const me = stats.isValidProfileId(payload?.profileId) ? payload.profileId : null;
     daily.status(me)
       .then((state) => socket.emit('daily:status:data', state))
@@ -1041,6 +1047,7 @@ io.on('connection', (socket) => {
 
   /** Today's board. Payload: { profileId? } — only used to mark "me". */
   socket.on('daily:board', async (payload) => {
+    if (overLimit('daily', null)) return;
     const me = stats.isValidProfileId(payload?.profileId) ? payload.profileId : null;
     try {
       socket.emit('daily:board:data', await daily.leaderboard(daily.dateFor(), me));
@@ -1337,6 +1344,12 @@ io.on('connection', (socket) => {
     }
     if (socketToPlayer.has(socket.id)) {
       return socket.emit('room:error', { message: 'You are already in a room.' });
+    }
+    // Matchmaking ends in a room either way (live pair or ghost), so it shares
+    // room:create's budget and the global room cap.
+    if (overLimit('roomCreate', 'room:error')) return;
+    if (roomCount() >= LIMITS.maxRooms) {
+      return socket.emit('room:error', { message: 'Server is busy. Please try again in a few minutes.' });
     }
     const request = { playerName: payload.playerName, identity: identityFrom(payload) };
     const result = matchmaking.enqueue(socket.id, request, {
