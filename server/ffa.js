@@ -30,6 +30,7 @@ const { pickTargetDifficulty, selectQuestion, difficultyOf } = require('./diffic
 const { getMode, modeSettingsFor } = require('./gameModes');
 const analytics = require('./analytics');
 const ghost = require('./ghost');
+const bot = require('./bot');
 const store = require('./store');
 const { sanitizeRoom, getRoom } = require('./roomManager');
 
@@ -105,6 +106,15 @@ function isGhost(room, id) {
 }
 
 /**
+ * A player with no person behind it: a ghost (PBI 35) or a bot (PBI 36).
+ * Neither keeps a room alive, picks a category or counts in analytics.
+ */
+function isVirtual(room, id) {
+  const p = room.players[id];
+  return Boolean(p?.isGhost || p?.isBot);
+}
+
+/**
  * Points for one correct answer.
  * @param {number} remainingFraction 0..1 of the window still left when answered
  * @param {number} streak correct answers in a row, including this one
@@ -141,8 +151,9 @@ function computeStandings(room) {
 
 /** Lowest score among connected players; ties go to whoever joined first. */
 function lastPlaceConnected(room) {
+  // A bot in last place would otherwise "pick" by letting the 20 s timeout run.
   const candidates = participantIds(room).filter(
-    (id) => room.players[id]?.isConnected && room.ffa.players[id],
+    (id) => room.players[id]?.isConnected && room.ffa.players[id] && !isVirtual(room, id),
   );
   let pick = null;
   for (const id of candidates) {
@@ -162,9 +173,9 @@ function isLive(room) {
   return getRoom(room.code) === room;
 }
 
-/** Real people only: a ghost is always "connected" and must not keep a room alive. */
+/** Real people only: ghosts and bots are always "connected" and must not keep a room alive. */
 function anyoneConnected(room) {
-  return Object.values(room.players).some((p) => p.isConnected && !p.isGhost);
+  return Object.values(room.players).some((p) => p.isConnected && !p.isGhost && !p.isBot);
 }
 
 function clearHandles(code) {
@@ -256,6 +267,29 @@ function startGhostMatch(room, recording, io) {
     playedAt: recording.playedAt,
     script: recording.rounds,
   };
+  return startMatch(room, room.hostId, io);
+}
+
+/**
+ * Start a match against a bot (PBI 36). The bot is openly a bot: the client
+ * labels it, and categories are picked by the human as in any match.
+ */
+function startBotMatch(room, level, io) {
+  const botId = `bot-${room.code}`;
+  room.players[botId] = {
+    id: botId,
+    socketId: null,
+    name: 'Quizzy Bot',
+    team: null,
+    isConnected: true,
+    isSpectator: false,
+    isEliminated: false,
+    isBot: true,
+    botLevel: level,
+    profileId: null,
+    avatar: null,
+  };
+  room.botMatch = { botId, level };
   return startMatch(room, room.hostId, io);
 }
 
@@ -385,26 +419,37 @@ function startRound(room, io) {
 
   // Lazy to avoid a load-time cycle: gameLogic dispatches back into this module.
   require('./gameLogic').scheduleQuestionTimers(room, io);
-  scheduleGhostAnswer(room, io, scripted && scripted.questionId === question.id ? scripted : null);
+  scheduleVirtualAnswer(room, io, scripted && scripted.questionId === question.id ? scripted : null);
 }
 
 /**
- * Cast the ghost's recorded answer at its recorded moment. The vote goes
- * through castAnswer like anyone's, so it is scored by the live rules, hidden
- * until the reveal, and can close the round early.
+ * Cast the virtual opponent's answer at its moment: a ghost's recorded answer
+ * (PBI 35) or a bot's fresh decision (PBI 36). The vote goes through
+ * castAnswer like anyone's, so it is scored by the live rules, hidden until
+ * the reveal, and can close the round early.
  */
-function scheduleGhostAnswer(room, io, scripted) {
+function scheduleVirtualAnswer(room, io, scripted) {
   clearTimeout(ghostHandles.get(room.code));
   ghostHandles.delete(room.code);
-  const ghostId = room.ghostMatch?.ghostId;
   const aq = room.activeQuestion;
-  if (!ghostId || !aq) return;
-  // A ghost that did not answer this one (or a question no longer in the
+  if (!aq) return;
+
+  let opponentId = null;
+  let plan = null;
+  if (room.ghostMatch) {
+    opponentId = room.ghostMatch.ghostId;
+    plan = scripted;
+  } else if (room.botMatch) {
+    opponentId = room.botMatch.botId;
+    plan = bot.decide(aq.question, room.botMatch.level, aq.duration * 1000);
+  }
+  if (!opponentId) return;
+  // An opponent that skips this one (or a ghost question no longer in the
   // bank) answers nothing; the round must not wait for it.
-  aq.ghostPending = Boolean(scripted?.option);
+  aq.ghostPending = Boolean(plan?.option);
   if (!aq.ghostPending) return;
 
-  const delay = Math.max(0, Math.min(scripted.elapsedMs ?? 0, aq.duration * 1000 - 50));
+  const delay = Math.max(0, Math.min(plan.elapsedMs ?? 0, aq.duration * 1000 - 50));
   const questionNumber = room.ffa.questionNumber;
   ghostHandles.set(room.code, setTimeout(() => {
     ghostHandles.delete(room.code);
@@ -412,7 +457,7 @@ function scheduleGhostAnswer(room, io, scripted) {
     const current = room.activeQuestion;
     if (!current || current.revealed || current.resolving) return;
     current.ghostPending = false;
-    const result = castAnswer(room, ghostId, scripted.option);
+    const result = castAnswer(room, opponentId, plan.option);
     if (result.error) return;
     publish(room, io);
     if (result.allAnswered) resolveRound(room, io);
@@ -443,8 +488,8 @@ function castAnswer(room, playerId, rawOption) {
 
   const waitingOn = Object.keys(room.ffa.players).filter((id) => {
     if (aq.votes[id] || !room.players[id]?.isConnected) return false;
-    // The ghost is waited on only while its recorded answer is still to come.
-    return !isGhost(room, id) || aq.ghostPending;
+    // A ghost or bot is waited on only while its answer is still to come.
+    return !isVirtual(room, id) || aq.ghostPending;
   });
   return { room, allAnswered: waitingOn.length === 0 };
 }
@@ -491,7 +536,7 @@ function resolveRound(room, io) {
       entry.streak = 0;
     }
     results[id] = { optionKey: vote?.optionKey ?? null, isCorrect, points, streak: entry.streak };
-    if (vote && !isGhost(room, id)) {
+    if (vote && !isVirtual(room, id)) {
       anyAnswered = true;
       analytics.recordAnswer(question.id, { isCorrect, isSteal: false, answered: true });
     }
@@ -594,7 +639,9 @@ module.exports = {
   startMatch,
   startSolo,
   startGhostMatch,
+  startBotMatch,
   isGhost,
+  isVirtual,
   pickCategory,
   castAnswer,
   resolveRound,

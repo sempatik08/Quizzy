@@ -227,8 +227,8 @@ function disconnectPlayer(roomCode, playerId) {
     }
   }
 
-  // A ghost opponent (PBI 35) never disconnects; it must not keep the room alive.
-  const allDisconnected = Object.values(room.players).every((p) => p.isGhost || !p.isConnected);
+  // Ghost (PBI 35) and bot (PBI 36) opponents never disconnect; they must not keep the room alive.
+  const allDisconnected = Object.values(room.players).every((p) => p.isGhost || p.isBot || !p.isConnected);
   if (allDisconnected) {
     // Only discard the room outright when there is nothing to come back to.
     //

@@ -874,7 +874,8 @@ def test_find_opponent(page: Page):
 
     page.locator("#find-opponent").click()
     page.wait_for_url(re.compile(r"/(lobby|game)/[A-Z0-9]{6}"), timeout=30000)
-    page.wait_for_selector("#ghost-banner, #match-nobody", timeout=15000)
+    # Havuz bosken PBI 36'dan beri orta seviye bot gelir: kategori secimi lobide.
+    page.wait_for_selector("#ghost-banner, #ffa-category-pick", timeout=15000)
     if page.locator("#ghost-banner").count() > 0:
         ok("Kimse yokken hayalet rakiple mac basladi (bant gorunuyor)")
         ss(page, "23_ghost_match")
@@ -884,11 +885,38 @@ def test_find_opponent(page: Page):
         else:
             fail("Hayalet bandiyla yatay tasma var")
     else:
-        ok("Havuz bosken 'simdi kimse yok' notuyla lobiye dusuldu")
-        if page.locator("#ffa-start").count() > 0:
-            ok("Bu lobide tek basina baslatilabiliyor")
-        else:
-            fail("Kimse yok lobisinde Baslat butonu yok")
+        ok("Havuz bosken bot maci acildi (kategori secimi geldi)")
+
+
+# ─── TEST 16: Bota karsi oyna (PBI 36) ───────────────────────────────────────
+def test_play_bot(page: Page):
+    section("TEST 16 — Bota karsi oyna (PBI 36)")
+    page.goto(BASE)
+    wait_net(page)
+    levels = page.locator("#play-bot button[data-bot-level]")
+    if levels.count() == 3:
+        ok("Ana sayfada uc bot seviyesi var (Kolay / Orta / Zor)")
+    else:
+        fail(f"Bot seviye butonlari beklenen gibi degil: {levels.count()}")
+        return
+    page.locator('#play-bot button[data-bot-level="hard"]').click()
+    page.wait_for_url(re.compile(r"/lobby/[A-Z0-9]{6}"), timeout=15000)
+    page.wait_for_selector("#ffa-category-pick", timeout=10000)
+    ok("Bot maci kategori secimiyle aciliyor (secen oyuncu)")
+    page.locator("#ffa-category-pick button").first.click()
+    page.wait_for_url(re.compile(r"/game/[A-Z0-9]{6}"), timeout=15000)
+    page.wait_for_selector("#bot-banner", timeout=10000)
+    banner = page.locator("#bot-banner").inner_text()
+    if re.search(r"bot", banner, re.I) and re.search(r"hard|zor", banner, re.I):
+        ok("Soru ekraninda bot bandi seviyesiyle gorunuyor")
+    else:
+        fail(f"Bot bandi beklenen metni icermiyor: {banner}")
+    overflow = page.evaluate("document.documentElement.scrollWidth > window.innerWidth")
+    if not overflow:
+        ok("Bot bandiyla yatay tasma yok")
+    else:
+        fail("Bot bandiyla yatay tasma var")
+    ss(page, "24_bot_match")
 
 
 # ─── TEST 12: PWA + Cila (PBI 15) ────────────────────────────────────────────
@@ -1125,6 +1153,12 @@ def run():
             test_find_opponent(visual_page)
         except Exception as e:
             fail("Rakip bul testi coktu", e)
+
+        # PBI 36 — bota karsi oyna
+        try:
+            test_play_bot(visual_page)
+        except Exception as e:
+            fail("Bota karsi oyna testi coktu", e)
 
         browser.close()
 

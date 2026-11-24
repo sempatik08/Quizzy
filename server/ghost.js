@@ -55,7 +55,7 @@ function recordingsFrom(room, now = Date.now()) {
   const out = [];
   for (const id of Object.keys(room.ffa.players ?? {})) {
     const player = room.players[id];
-    if (!player || player.isGhost) continue;
+    if (!player || player.isGhost || player.isBot) continue;
     const rounds = log.map((round) => {
       const vote = round.votes[id];
       return {

@@ -36,6 +36,7 @@ const store = require('./store');
 const ffa = require('./ffa');
 const ghost = require('./ghost');
 const matchmaking = require('./matchmaking');
+const bot = require('./bot');
 const stats = require('./stats');
 const analytics = require('./analytics');
 const {
@@ -209,13 +210,16 @@ async function matchAlone(entry) {
   analytics.recordRoomCreated();
   touchProfile(entry.request);
 
-  let opponent = { kind: 'none' };
+  let opponent;
   if (recording) {
     ffa.startGhostMatch(room, recording, io);
     opponent = { kind: 'ghost', name: recording.name, playedAt: recording.playedAt };
+  } else {
+    // Empty pool: a medium bot rather than an empty lobby (PBI 36).
+    ffa.startBotMatch(room, bot.DEFAULT_LEVEL, io);
+    analytics.recordBotMatch(bot.DEFAULT_LEVEL);
+    opponent = { kind: 'bot', level: bot.DEFAULT_LEVEL };
   }
-  // With an empty pool the room waits in the free-for-all lobby, where the
-  // player can start alone or share the link.
   analytics.recordMatchmaking(opponent.kind);
   seat(sock, roomCode, playerId, room, opponent);
   store.saveRoom(room);
@@ -1105,6 +1109,31 @@ io.on('connection', (socket) => {
       },
     });
     if (result.queued) socket.emit('match:searching', { waitMs: matchmaking.WAIT_MS });
+  });
+
+  /**
+   * Play a bot straight away (PBI 36). Payload: { playerName, level, profileId?, avatar? }.
+   */
+  socket.on('match:bot', (payload) => {
+    if (!payload || !isValidString(payload.playerName, 1, 20)) {
+      return socket.emit('room:error', { message: 'Player name must be 1–20 characters.' });
+    }
+    if (!bot.isValidLevel(payload.level)) {
+      return socket.emit('room:error', { message: `Unknown bot level. Choose one of: ${bot.LEVEL_KEYS.join(', ')}.` });
+    }
+    if (socketToPlayer.has(socket.id)) {
+      return socket.emit('room:error', { message: 'You are already in a room.' });
+    }
+    matchmaking.leave(socket.id);
+    const request = { playerName: payload.playerName, identity: identityFrom(payload) };
+    const { roomCode, playerId, room } = createRoom(request.playerName, socket.id, 'ffa', request.identity);
+    analytics.recordRoomCreated();
+    touchProfile(request);
+    ffa.startBotMatch(room, payload.level, io);
+    analytics.recordBotMatch(payload.level);
+    seat(socket, roomCode, playerId, room, { kind: 'bot', level: payload.level });
+    store.saveRoom(room);
+    console.log(`[Match] bot (${payload.level}) match in ${roomCode}`);
   });
 
   socket.on('match:cancel', () => {
