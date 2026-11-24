@@ -208,6 +208,10 @@ export interface Room {
   totalQuestions?: number;
   questionsPerCategory?: number;
   ffa?: FfaState;
+  /** Open to "Find an opponent", mid-match included (PBI 30). Free-for-all only. */
+  isPublic?: boolean;
+  /** When a public lobby starts by itself (epoch ms), or null while under two players. */
+  publicStartAt?: number | null;
   /** Set when the opponent is a ghost recording (PBI 35). The script stays on the server. */
   ghostMatch?: { ghostId: string; name: string; playedAt: number };
   createdAt: number;
@@ -234,7 +238,9 @@ export interface RoomJoinedPayload {
 export type MatchOpponent =
   | { kind: 'live'; name: string }
   | { kind: 'ghost'; name: string; playedAt: number }
-  | { kind: 'none' };
+  | { kind: 'none' }
+  /** Dropped into an open public room (PBI 30); `players` counts the others there. */
+  | { kind: 'public'; players: number; inProgress: boolean };
 
 export interface MatchFoundPayload {
   roomCode: string;

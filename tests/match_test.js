@@ -160,6 +160,10 @@ async function run() {
     r.check('your own recording is never your opponent', owner.found.opponent.kind === 'none');
     r.check('you land in a free-for-all lobby you can start alone',
       owner.room.mode === 'ffa' && owner.room.phase === 'lobby' && owner.room.hostId === owner.playerId);
+    // That lobby is public (PBI 30) and would take the next searcher in; this
+    // suite is about the queue and ghosts, so the owner walks out first.
+    owner.s.emit('room:leave');
+    await sleep(200);
 
     // -----------------------------------------------------------------------
     r.section('Ghost match');
@@ -248,6 +252,10 @@ async function run() {
     r.check('the first to arrive hosts and picks the first category',
       p1.room.hostId === p1.playerId && p1.room.phase === 'category_pick' && p1.room.ffa.picker === p1.playerId);
     r.check('no ghost in a live match', !p1.room.ghostMatch);
+    // Their room is public too (PBI 30); close it so the cancel test queues.
+    p1.s.close();
+    p2.s.close();
+    await sleep(300);
 
     // -----------------------------------------------------------------------
     r.section('Cancel');

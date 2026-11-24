@@ -145,7 +145,7 @@ export default function LobbyPage() {
 
       {/* Free-for-all (PBI 19): no teams, the host just starts. The first
           category pick happens here too; later ones are on the game page. */}
-      {isFfa && room.phase === 'lobby' && foundNobody && (
+      {isFfa && room.phase === 'lobby' && foundNobody && playingCount === 1 && (
         <p
           id="match-nobody"
           className="w-full max-w-md mb-4 px-4 py-3 rounded-xl bg-blue-pale border border-blue-light text-sm text-quizzy-text text-center"

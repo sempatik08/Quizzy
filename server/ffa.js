@@ -55,11 +55,25 @@ const STREAK_MAX_BONUS = 300;
 
 const OPTION_KEYS = ['A', 'B', 'C', 'D', 'E'];
 
+/**
+ * Public rooms (PBI 30). Once a public lobby has two real players, it starts by
+ * itself after this long: nobody in it knows who is supposed to press Start.
+ */
+const PUBLIC_START_MS = envInt('QUIZZY_PUBLIC_START_MS', 10000);
+/**
+ * A match this close to its end is not offered to newcomers: joining for the
+ * last question or two, at zero points against a full scoreboard, is worse
+ * than waiting for the next match.
+ */
+const PUBLIC_MIN_QUESTIONS_LEFT = 3;
+
 /** roomCode -> pending timeout. Process-local, like every other timer handle. */
 const pickHandles = new Map();
 const revealHandles = new Map();
 /** roomCode -> the ghost's pending answer for the open question (PBI 35). */
 const ghostHandles = new Map();
+/** roomCode -> pending auto-start of a public lobby (PBI 30). */
+const publicStartHandles = new Map();
 
 function isFfa(room) {
   return room?.mode === 'ffa';
@@ -171,9 +185,11 @@ function clearHandles(code) {
   clearTimeout(pickHandles.get(code));
   clearTimeout(revealHandles.get(code));
   clearTimeout(ghostHandles.get(code));
+  clearTimeout(publicStartHandles.get(code));
   pickHandles.delete(code);
   revealHandles.delete(code);
   ghostHandles.delete(code);
+  publicStartHandles.delete(code);
 }
 
 // ---------------------------------------------------------------------------
@@ -192,6 +208,9 @@ function startMatch(room, requesterId, io) {
   const ids = participantIds(room);
   if (ids.length === 0) return { error: 'Nobody is playing yet.' };
 
+  clearTimeout(publicStartHandles.get(room.code));
+  publicStartHandles.delete(room.code);
+  room.publicStartAt = null;
   room.ffa = createFfaState(ids);
   room.usedQuestionIds = [];
   room.usedCategories = [];
@@ -339,6 +358,7 @@ function applyCategory(room, category, io) {
 // ---------------------------------------------------------------------------
 
 function startRound(room, io) {
+  admitLateJoiners(room);
   const { totalQuestions } = settingsOf(room);
   let pool = QUESTIONS[room.selectedCategory];
   // The ramp follows the match's progress, not anyone's score: question 1 is
@@ -432,7 +452,13 @@ function castAnswer(room, playerId, rawOption) {
   const player = room.players[playerId];
   if (!player) return { error: 'Player not found.' };
   if (player.isSpectator) return { error: 'Spectators cannot vote.' };
-  if (!room.ffa.players[playerId]) return { error: 'You joined after the match started.' };
+  if (!room.ffa.players[playerId]) {
+    return {
+      error: room.isPublic
+        ? 'You join from the next question.'
+        : 'You joined after the match started.',
+    };
+  }
   if (aq.votes[playerId]) return { error: 'You have already answered.' };
 
   const optionKey = String(rawOption).toUpperCase();
@@ -563,6 +589,102 @@ function finish(room) {
 }
 
 // ---------------------------------------------------------------------------
+// Public rooms (PBI 30)
+// ---------------------------------------------------------------------------
+
+/** Real people who are here right now: not spectators, not ghosts, connected. */
+function connectedPlayerIds(room) {
+  return participantIds(room).filter((id) => {
+    const p = room.players[id];
+    return p.isConnected && !p.isGhost;
+  });
+}
+
+/**
+ * Someone who arrived mid-match plays from the next question on, starting at
+ * zero. Only public rooms let a player in after the start (see joinRoom), so
+ * in a private room this finds nobody.
+ */
+function admitLateJoiners(room) {
+  for (const id of participantIds(room)) {
+    if (room.ffa.players[id] || !room.players[id].isConnected) continue;
+    room.ffa.players[id] = { score: 0, streak: 0, correct: 0 };
+  }
+}
+
+/**
+ * Whether "Find an opponent" may drop a newcomer into this room: a public
+ * free-for-all with someone actually in it, room to spare, and either still in
+ * the lobby or far enough from the end to be worth joining.
+ */
+function isOpenPublicRoom(room) {
+  if (!isFfa(room) || !room.isPublic || room.ghostMatch) return false;
+  if (participantIds(room).length >= (getMode('ffa').maxPlayers ?? 30)) return false;
+  if (connectedPlayerIds(room).length === 0) return false;
+  if (room.phase === 'lobby') return true;
+  if (room.phase !== 'category_pick' && room.phase !== 'question') return false;
+  const { totalQuestions } = settingsOf(room);
+  return totalQuestions - (room.ffa?.questionNumber ?? 0) >= PUBLIC_MIN_QUESTIONS_LEFT;
+}
+
+/**
+ * The best open public room, or null. A lobby beats a match in progress (the
+ * newcomer plays the whole thing), then the busier room wins, then the older.
+ */
+function findOpenPublicRoom(rooms) {
+  const open = rooms.filter(isOpenPublicRoom);
+  open.sort((a, b) =>
+    Number(b.phase === 'lobby') - Number(a.phase === 'lobby')
+    || connectedPlayerIds(b).length - connectedPlayerIds(a).length
+    || a.createdAt - b.createdAt);
+  return open[0] ?? null;
+}
+
+/**
+ * Keep a public lobby moving. With two or more real players it counts down to
+ * an automatic start; below two the countdown is called off. A host who left
+ * hands the room to the longest-present player, so the Start button and the
+ * "start alone" card always belong to someone who is there.
+ *
+ * Call after anyone joins, leaves or comes back. Returns whether the room
+ * changed, so the caller knows to broadcast.
+ */
+function syncPublicStart(room, io) {
+  if (!isFfa(room) || !room.isPublic || room.phase !== 'lobby') return false;
+  let changed = false;
+
+  const present = connectedPlayerIds(room);
+  if (present.length > 0 && !present.includes(room.hostId)) {
+    room.hostId = present[0];
+    changed = true;
+  }
+
+  if (present.length < 2) {
+    clearTimeout(publicStartHandles.get(room.code));
+    publicStartHandles.delete(room.code);
+    if (room.publicStartAt) {
+      room.publicStartAt = null;
+      changed = true;
+    }
+    return changed;
+  }
+
+  if (publicStartHandles.has(room.code)) return changed;
+  room.publicStartAt = Date.now() + PUBLIC_START_MS;
+  publicStartHandles.set(room.code, setTimeout(() => {
+    publicStartHandles.delete(room.code);
+    if (!isLive(room) || room.phase !== 'lobby') return;
+    room.publicStartAt = null;
+    if (connectedPlayerIds(room).length >= 2) {
+      const result = startMatch(room, room.hostId, io);
+      if (!result.error) console.log(`[Public] Auto-started ${room.code}`);
+    }
+    publish(room, io);
+  }, PUBLIC_START_MS));
+  return true;
+}
+
+// ---------------------------------------------------------------------------
 // Rematch
 // ---------------------------------------------------------------------------
 
@@ -603,6 +725,11 @@ module.exports = {
   pointsFor,
   participantIds,
   clearHandles,
+  isOpenPublicRoom,
+  findOpenPublicRoom,
+  syncPublicStart,
+  PUBLIC_START_MS,
+  PUBLIC_MIN_QUESTIONS_LEFT,
   REVEAL_MS,
   PICK_TIMEOUT_MS,
   BASE_POINTS,

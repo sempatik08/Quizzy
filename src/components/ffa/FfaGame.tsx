@@ -9,6 +9,7 @@ import { useSound } from '@/context/SoundContext';
 import { avatarGlyph } from '@/lib/avatars';
 import { ghostWhen } from '@/lib/ghost';
 import { showInterstitial } from '@/lib/ads';
+import { getSocket } from '@/lib/socket';
 import { VotingTimer } from '@/components/game/VotingTimer';
 import { Confetti } from '@/components/game/Confetti';
 import { FfaCategoryPick } from './FfaCategoryPick';
@@ -147,12 +148,14 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
     const isGhostMatch = Boolean(room.ghostMatch);
     // Match end → next match gets the ad break (PBI 32); home does not.
     const findNew = () => showInterstitial('find_new_opponent', () => {
+      getSocket().emit('room:leave');
       sessionStorage.removeItem(`quizzy_player_${room.code}`);
       router.push('/?find=1');
     });
     const rematch = () => showInterstitial('rematch', onRematch);
     const podium = standings.slice(0, 3);
     const backHome = () => {
+      getSocket().emit('room:leave');
       sessionStorage.removeItem(`quizzy_player_${room.code}`);
       router.push('/');
     };
@@ -311,6 +314,11 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
           {!revealed && answered && (
             <p id="ffa-locked" className="mt-4 text-center text-sm text-quizzy-muted animate-pulse-soft">
               {t.ffaLocked}
+            </p>
+          )}
+          {!isSpectator && !iAmPlaying && (
+            <p id="ffa-join-next" className="mt-4 text-center text-sm font-medium text-blue-soft">
+              {t.ffaJoinNext}
             </p>
           )}
           {isSpectator && !revealed && (

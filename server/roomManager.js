@@ -157,7 +157,12 @@ function joinRoom(roomCode, playerName, socketId, asSpectator = false, identity 
       return { error: `Too many spectators (max ${MAX_SPECTATORS}).` };
     }
   } else {
-    if (room.phase !== 'lobby') {
+    // A public free-for-all (PBI 30) takes players mid-match: they play from
+    // the next question (ffa.admitLateJoiners). Every other room is closed
+    // once the match is under way.
+    const lateJoinOk = room.isPublic && room.mode === 'ffa'
+      && (room.phase === 'category_pick' || room.phase === 'question');
+    if (room.phase !== 'lobby' && !lateJoinOk) {
       return { error: 'Game is already in progress. You can join as a spectator instead.' };
     }
     const players = roster.filter((p) => !p.isSpectator).length;

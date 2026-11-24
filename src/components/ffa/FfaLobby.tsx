@@ -1,6 +1,7 @@
 'use client';
 
-import { Play, Users } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Globe, Play, Users } from 'lucide-react';
 import type { Room } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { avatarGlyph } from '@/lib/avatars';
@@ -21,6 +22,17 @@ export function FfaLobby({ room, playerId, isHost, onStart }: FfaLobbyProps) {
   const players = Object.values(room.players).filter((p) => !p.isSpectator);
   const total = room.totalQuestions ?? 15;
 
+  // Public lobbies start by themselves once two people are in (PBI 30).
+  const startAt = room.isPublic ? room.publicStartAt ?? null : null;
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    if (!startAt) return;
+    setNow(Date.now());
+    const handle = setInterval(() => setNow(Date.now()), 250);
+    return () => clearInterval(handle);
+  }, [startAt]);
+  const startsIn = startAt ? Math.max(0, Math.ceil((startAt - now) / 1000)) : null;
+
   return (
     <div className="w-full max-w-3xl flex flex-col items-center">
       <div className="w-full bg-quizzy-card rounded-2xl shadow-card border border-quizzy-border p-6 mb-6">
@@ -33,6 +45,15 @@ export function FfaLobby({ room, playerId, isHost, onStart }: FfaLobbyProps) {
             {t.modeFfa} · {t.modeFfaNote.replace('{n}', String(total))}
           </span>
         </div>
+
+        {room.isPublic && (
+          <p id="public-room" className="text-xs text-quizzy-muted mb-3">
+            <Globe size={13} className="inline -mt-0.5 mr-1 text-blue-soft" />
+            <span className="font-semibold text-quizzy-text">{t.publicRoom}</span>
+            {' · '}
+            {t.publicRoomHint}
+          </p>
+        )}
 
         <ul id="ffa-player-list" className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {players.map((p) => (
@@ -51,6 +72,12 @@ export function FfaLobby({ room, playerId, isHost, onStart }: FfaLobbyProps) {
           ))}
         </ul>
       </div>
+
+      {startsIn !== null && (
+        <p id="public-countdown" className="text-sm font-semibold text-blue-soft mb-3 tabular-nums">
+          {t.publicStartIn.replace('{n}', String(startsIn))}
+        </p>
+      )}
 
       {isHost ? (
         <button

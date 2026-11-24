@@ -94,10 +94,11 @@ function emptyBuffer() {
       soloStarts: 0,
       /**
        * "Find an opponent" outcomes (PBI 35): matched with a live player, with
-       * a ghost recording, or with nobody at all. The live share is the signal
-       * that real matchmaking (PBI 30) has enough traffic.
+       * a ghost recording, or with nobody at all — or, since PBI 30, dropped
+       * straight into an open public room. The live + public share is the
+       * signal that real matchmaking has enough traffic.
        */
-      matchmaking: { live: 0, ghost: 0, none: 0 },
+      matchmaking: { live: 0, ghost: 0, none: 0, public: 0 },
       /** 'YYYY-MM-DD' -> { roomsCreated, matchesStarted, matchesFinished } */
       byDay: {},
     },
@@ -174,8 +175,11 @@ function recordSoloStart() {
 }
 
 /** A "find an opponent" request ended as 'live', 'ghost' or 'none' (PBI 35). */
+/** Every outcome "Find an opponent" can have (PBI 35, PBI 30). */
+const MATCH_KINDS = ['live', 'ghost', 'none', 'public'];
+
 function recordMatchmaking(kind) {
-  if (!['live', 'ghost', 'none'].includes(kind)) return;
+  if (!MATCH_KINDS.includes(kind)) return;
   buffer.funnel.matchmaking[kind] += 1;
   dirty = true;
 }
@@ -283,7 +287,7 @@ async function flushAnalytics() {
       playersInStartedMatches: (baseFunnel.playersInStartedMatches ?? 0)
         + pending.funnel.playersInStartedMatches,
       soloStarts: (baseFunnel.soloStarts ?? 0) + pending.funnel.soloStarts,
-      matchmaking: Object.fromEntries(['live', 'ghost', 'none'].map((k) => [
+      matchmaking: Object.fromEntries(MATCH_KINDS.map((k) => [
         k, (baseFunnel.matchmaking?.[k] ?? 0) + pending.funnel.matchmaking[k],
       ])),
       byDay: mergeCounters(baseFunnel.byDay, pending.funnel.byDay),
@@ -365,11 +369,7 @@ async function buildReport(bank) {
     matchesStarted: f.matchesStarted ?? 0,
     matchesFinished: m.count,
     soloStarts: f.soloStarts ?? 0,
-    matchmaking: {
-      live: f.matchmaking?.live ?? 0,
-      ghost: f.matchmaking?.ghost ?? 0,
-      none: f.matchmaking?.none ?? 0,
-    },
+    matchmaking: Object.fromEntries(MATCH_KINDS.map((k) => [k, f.matchmaking?.[k] ?? 0])),
     startRate: rate(f.matchesStarted ?? 0, f.roomsCreated ?? 0),
     finishRate: rate(m.count, f.matchesStarted ?? 0),
     avgPlayersPerMatch: f.matchesStarted

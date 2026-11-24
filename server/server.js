@@ -31,6 +31,7 @@ const {
   sanitizeRoom,
   cleanupStaleRooms,
   adoptRoom,
+  allRooms,
 } = require('./roomManager');
 const store = require('./store');
 const ffa = require('./ffa');
@@ -184,6 +185,8 @@ function pairLive(first, second) {
   );
   analytics.recordRoomCreated();
   const joined = joinRoom(roomCode, second.request.playerName, b.id, false, second.request.identity);
+  // Open to the next searcher, who joins from the next question (PBI 30).
+  room.isPublic = true;
   ffa.startMatch(room, hostId, io);
   analytics.recordMatchmaking('live');
   touchProfile(first.request);
@@ -213,6 +216,10 @@ async function matchAlone(entry) {
   if (recording) {
     ffa.startGhostMatch(room, recording, io);
     opponent = { kind: 'ghost', name: recording.name, playedAt: recording.playedAt };
+  } else {
+    // An empty lobby is still somewhere for the next searcher to land (PBI 30).
+    // A ghost match is never public: a newcomer would be racing a recording.
+    room.isPublic = true;
   }
   // With an empty pool the room waits in the free-for-all lobby, where the
   // player can start alone or share the link.
@@ -220,6 +227,30 @@ async function matchAlone(entry) {
   seat(sock, roomCode, playerId, room, opponent);
   store.saveRoom(room);
   console.log(`[Match] ${opponent.kind} match in ${roomCode}`);
+}
+
+/**
+ * "Find an opponent" found an open public room (PBI 30): join it straight away
+ * instead of queueing. Returns false if the join failed, so the caller can fall
+ * back to the queue.
+ */
+function joinPublic(sock, room, request) {
+  const joined = joinRoom(room.code, request.playerName, sock.id, false, request.identity);
+  if (joined.error) return false;
+  touchProfile(request);
+  ffa.syncPublicStart(room, io);
+  analytics.recordMatchmaking('public');
+  const others = ffa.participantIds(room)
+    .filter((id) => id !== joined.playerId && room.players[id].isConnected).length;
+  seat(sock, room.code, joined.playerId, room, {
+    kind: 'public',
+    players: others,
+    inProgress: room.phase !== 'lobby',
+  });
+  sock.to(room.code).emit('room:update', sanitizeRoom(room));
+  store.saveRoom(room);
+  console.log(`[Match] Joined public room ${room.code} (${room.phase})`);
+  return true;
 }
 
 // ---------------------------------------------------------------------------
@@ -389,6 +420,8 @@ io.on('connection', (socket) => {
 
     socketToPlayer.set(socket.id, { roomCode: code, playerId: result.playerId });
     socket.join(code);
+    // Someone joining a public lobby by link counts toward its auto-start (PBI 30).
+    if (!asSpectator) ffa.syncPublicStart(result.room, io);
 
     if (identity.profileId) {
       stats.touchProfile(identity.profileId, payload.playerName, identity.avatar)
@@ -446,6 +479,7 @@ io.on('connection', (socket) => {
       console.log(`[Room] Re-armed question timer for ${code} on reconnect`);
     }
 
+    ffa.syncPublicStart(room, io);
     socket.emit('room:joined', { playerId: payload.playerId, room: sanitizeRoom(room) });
     socket.to(code).emit('room:update', sanitizeRoom(room));
     store.saveRoom(room);
@@ -1098,6 +1132,11 @@ io.on('connection', (socket) => {
       return socket.emit('room:error', { message: 'You are already in a room.' });
     }
     const request = { playerName: payload.playerName, identity: identityFrom(payload) };
+    // A room people are already in beats waiting for a stranger (PBI 30).
+    if (!matchmaking.isWaiting(socket.id)) {
+      const open = ffa.findOpenPublicRoom(allRooms());
+      if (open && joinPublic(socket, open, request)) return;
+    }
     const result = matchmaking.enqueue(socket.id, request, {
       onPair: pairLive,
       onTimeout: (entry) => {
@@ -1109,6 +1148,26 @@ io.on('connection', (socket) => {
 
   socket.on('match:cancel', () => {
     if (matchmaking.leave(socket.id)) socket.emit('match:cancelled');
+  });
+
+  /**
+   * Leave the current room without closing the socket. The client's socket is
+   * a singleton that survives page changes, so "Back to home" would otherwise
+   * leave the player sitting in the room as connected — counted toward a
+   * public lobby's start, keeping an empty public room open to newcomers
+   * (PBI 30), and refusing their next "Find an opponent".
+   */
+  socket.on('room:leave', () => {
+    const context = socketToPlayer.get(socket.id);
+    if (!context) return;
+    socketToPlayer.delete(socket.id);
+    socket.leave(context.roomCode);
+    emojiLastSent.delete(context.playerId);
+    const room = disconnectPlayer(context.roomCode, context.playerId);
+    if (room) {
+      ffa.syncPublicStart(room, io);
+      broadcast(room);
+    }
   });
 
   socket.on('disconnect', (reason) => {
@@ -1123,6 +1182,8 @@ io.on('connection', (socket) => {
 
     const room = disconnectPlayer(context.roomCode, context.playerId);
     if (room) {
+      // A public lobby that drops below two calls off its countdown (PBI 30).
+      ffa.syncPublicStart(room, io);
       broadcast(room);
     }
 

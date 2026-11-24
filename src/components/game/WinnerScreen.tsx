@@ -8,6 +8,7 @@ import { Confetti } from './Confetti';
 import { ShareResult } from './ShareResult';
 import { winnerOf } from '@/lib/score';
 import { showInterstitial } from '@/lib/ads';
+import { getSocket } from '@/lib/socket';
 
 interface WinnerScreenProps {
   room: Room;
@@ -38,6 +39,7 @@ export function WinnerScreen({
   const isBlue   = winner === 'blue';
 
   const handleBackToHome = () => {
+    getSocket().emit('room:leave');
     sessionStorage.removeItem(`quizzy_player_${room.code}`);
     router.push('/');
   };
