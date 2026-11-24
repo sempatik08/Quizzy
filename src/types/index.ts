@@ -51,6 +51,9 @@ export interface Player {
    */
   isGhost?: boolean;
   ghostPlayedAt?: number;
+  /** A bot opponent (PBI 36), always labelled as one. */
+  isBot?: boolean;
+  botLevel?: BotLevel;
   /**
    * Chosen avatar (PBI 14). null for a client with no profile.
    * NOTE: the matching `profileId` is deliberately NOT part of this type —
@@ -216,6 +219,8 @@ export interface Room {
   isPublic?: boolean;
   /** Open lobbies start by themselves at this moment (epoch ms), once two players are in. */
   autoStartAt?: number | null;
+  /** Set when the opponent is a bot (PBI 36). */
+  botMatch?: { botId: string; level: BotLevel };
   createdAt: number;
   lastActivityAt: number;
   hostId: string;
@@ -236,10 +241,14 @@ export interface RoomJoinedPayload {
   room: Room;
 }
 
-/** Who "find an opponent" paired you with (PBI 35). */
+/** Bot difficulty (PBI 36). */
+export type BotLevel = 'easy' | 'medium' | 'hard';
+
+/** Who "find an opponent" (PBI 35) or "play a bot" (PBI 36) paired you with. */
 export type MatchOpponent =
   | { kind: 'live'; name: string }
   | { kind: 'ghost'; name: string; playedAt: number }
+  | { kind: 'bot'; level: BotLevel }
   | { kind: 'none' };
 
 export interface MatchFoundPayload {

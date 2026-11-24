@@ -63,6 +63,10 @@ const SUSPECT_PASS_RATE = 0.12;
 // In-memory buffer
 // ---------------------------------------------------------------------------
 
+/** "Find an opponent" outcomes (PBI 35, 36). */
+const MATCH_KINDS = ['live', 'ghost', 'bot', 'none'];
+const BOT_LEVELS = ['easy', 'medium', 'hard'];
+
 function emptyBuffer() {
   return {
     /** category -> { picks, served } */
@@ -97,7 +101,9 @@ function emptyBuffer() {
        * a ghost recording, or with nobody at all. The live share is the signal
        * that real matchmaking (PBI 30) has enough traffic.
        */
-      matchmaking: { live: 0, ghost: 0, none: 0 },
+      matchmaking: { live: 0, ghost: 0, bot: 0, none: 0 },
+      /** Matches against a bot by level, from the menu or the fallback (PBI 36). */
+      botMatches: { easy: 0, medium: 0, hard: 0 },
       /** 'YYYY-MM-DD' -> { roomsCreated, matchesStarted, matchesFinished } */
       byDay: {},
     },
@@ -158,8 +164,9 @@ function recordRoomCreated(now = Date.now()) {
 function recordMatchStart(room, now = Date.now()) {
   if (!room) return;
   const players = room.ffa
-    // A ghost opponent (PBI 35) is a recording, not someone playing.
-    ? Object.keys(room.ffa.players ?? {}).filter((id) => !room.players?.[id]?.isGhost).length
+    // Ghost (PBI 35) and bot (PBI 36) opponents are not people playing.
+    ? Object.keys(room.ffa.players ?? {})
+      .filter((id) => !room.players?.[id]?.isGhost && !room.players?.[id]?.isBot).length
     : (room.teams?.blue?.players?.length ?? 0) + (room.teams?.red?.players?.length ?? 0);
   buffer.funnel.matchesStarted += 1;
   buffer.funnel.playersInStartedMatches += players;
@@ -175,8 +182,15 @@ function recordSoloStart() {
 
 /** A "find an opponent" request ended as 'live', 'ghost' or 'none' (PBI 35). */
 function recordMatchmaking(kind) {
-  if (!['live', 'ghost', 'none'].includes(kind)) return;
+  if (!MATCH_KINDS.includes(kind)) return;
   buffer.funnel.matchmaking[kind] += 1;
+  dirty = true;
+}
+
+/** A match against a bot started, at this level (PBI 36). */
+function recordBotMatch(level) {
+  if (!BOT_LEVELS.includes(level)) return;
+  buffer.funnel.botMatches[level] += 1;
   dirty = true;
 }
 
@@ -283,8 +297,11 @@ async function flushAnalytics() {
       playersInStartedMatches: (baseFunnel.playersInStartedMatches ?? 0)
         + pending.funnel.playersInStartedMatches,
       soloStarts: (baseFunnel.soloStarts ?? 0) + pending.funnel.soloStarts,
-      matchmaking: Object.fromEntries(['live', 'ghost', 'none'].map((k) => [
+      matchmaking: Object.fromEntries(MATCH_KINDS.map((k) => [
         k, (baseFunnel.matchmaking?.[k] ?? 0) + pending.funnel.matchmaking[k],
+      ])),
+      botMatches: Object.fromEntries(BOT_LEVELS.map((k) => [
+        k, (baseFunnel.botMatches?.[k] ?? 0) + pending.funnel.botMatches[k],
       ])),
       byDay: mergeCounters(baseFunnel.byDay, pending.funnel.byDay),
     });
@@ -365,11 +382,8 @@ async function buildReport(bank) {
     matchesStarted: f.matchesStarted ?? 0,
     matchesFinished: m.count,
     soloStarts: f.soloStarts ?? 0,
-    matchmaking: {
-      live: f.matchmaking?.live ?? 0,
-      ghost: f.matchmaking?.ghost ?? 0,
-      none: f.matchmaking?.none ?? 0,
-    },
+    matchmaking: Object.fromEntries(MATCH_KINDS.map((k) => [k, f.matchmaking?.[k] ?? 0])),
+    botMatches: Object.fromEntries(BOT_LEVELS.map((k) => [k, f.botMatches?.[k] ?? 0])),
     startRate: rate(f.matchesStarted ?? 0, f.roomsCreated ?? 0),
     finishRate: rate(m.count, f.matchesStarted ?? 0),
     avgPlayersPerMatch: f.matchesStarted
@@ -507,6 +521,7 @@ module.exports = {
   recordMatchStart,
   recordSoloStart,
   recordMatchmaking,
+  recordBotMatch,
   recordCategoryPick,
   recordQuestionServed,
   recordAnswer,

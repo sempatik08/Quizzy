@@ -3,13 +3,13 @@
 import { track } from '@/lib/track';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { PlusCircle, Loader2, Search, X, Zap } from 'lucide-react';
+import { Bot, PlusCircle, Loader2, Search, X, Zap } from 'lucide-react';
 import { getSocket } from '@/lib/socket';
 import { useLanguage } from '@/context/LanguageContext';
 import { useProfile } from '@/context/ProfileContext';
 import { randomGuestName } from '@/lib/guestName';
 import { GameModePicker } from './GameModePicker';
-import type { GameModeKey, MatchFoundPayload, RoomCreatedPayload, RoomErrorPayload } from '@/types';
+import type { BotLevel, GameModeKey, MatchFoundPayload, RoomCreatedPayload, RoomErrorPayload } from '@/types';
 
 const SESSION_KEY = (roomCode: string) => `quizzy_player_${roomCode}`;
 
@@ -123,6 +123,21 @@ export function CreateRoomForm() {
     if (!socket.connected) socket.connect();
     socket.emit('match:find', {
       playerName: trimmed,
+      ...(profile ? { profileId: profile.id, avatar: profile.avatar } : {}),
+    });
+  };
+
+  // Straight into a match against a bot (PBI 36).
+  const playBot = (level: BotLevel) => {
+    const trimmed = (name.trim() || randomGuestName(language)).slice(0, 20);
+    setError(null);
+    setFinding(true);
+    setProfileName(trimmed);
+    const socket = getSocket();
+    if (!socket.connected) socket.connect();
+    socket.emit('match:bot', {
+      playerName: trimmed,
+      level,
       ...(profile ? { profileId: profile.id, avatar: profile.avatar } : {}),
     });
   };
@@ -247,6 +262,28 @@ export function CreateRoomForm() {
           </button>
         </div>
       )}
+
+      {/* Bot opponent (PBI 36) — openly a bot, three levels. */}
+      <div id="play-bot" className="flex items-center gap-2 text-sm">
+        <span className="flex items-center gap-1.5 shrink-0 font-semibold text-quizzy-muted">
+          <Bot size={16} />
+          {t.playBot}
+        </span>
+        <div className="flex-1 grid grid-cols-3 gap-1.5">
+          {(['easy', 'medium', 'hard'] as const).map((level) => (
+            <button
+              key={level}
+              type="button"
+              data-bot-level={level}
+              onClick={() => playBot(level)}
+              disabled={loading || finding}
+              className="py-1.5 rounded-lg border border-quizzy-border text-quizzy-text text-xs font-semibold hover:bg-quizzy-bg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              {level === 'easy' ? t.botEasy : level === 'medium' ? t.botMedium : t.botHard}
+            </button>
+          ))}
+        </div>
+      </div>
     </form>
   );
 }

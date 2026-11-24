@@ -156,10 +156,13 @@ async function run() {
     owner.s.emit('match:find', { playerName: 'Sahip', profileId: GHOST_OWNER });
     await waitFor(() => owner.searching, 'searching');
     r.check('the client is told how long the live search lasts', owner.searching.waitMs === WAIT_MS);
-    await waitFor(() => owner.found, 'found (none)', WAIT_MS + 5000);
-    r.check('your own recording is never your opponent', owner.found.opponent.kind === 'none');
-    r.check('you land in a free-for-all lobby you can start alone',
-      owner.room.mode === 'ffa' && owner.room.phase === 'lobby' && owner.room.hostId === owner.playerId);
+    await waitFor(() => owner.found, 'found (bot)', WAIT_MS + 5000);
+    r.check('your own recording is never your opponent', owner.found.opponent.kind !== 'ghost');
+    // PBI 36: an empty pool falls back to a medium bot instead of an empty lobby.
+    r.check('with no usable ghost the opponent is a medium bot',
+      owner.found.opponent.kind === 'bot' && owner.found.opponent.level === 'medium');
+    r.check('the bot match opens on the host category pick',
+      owner.room.mode === 'ffa' && owner.room.phase === 'category_pick' && owner.room.ffa.picker === owner.playerId);
 
     // -----------------------------------------------------------------------
     r.section('Ghost match');
@@ -268,8 +271,8 @@ async function run() {
     r.section('Analytics');
     const rep = await report();
     const mm = rep.funnel?.matchmaking ?? {};
-    r.check('outcomes are counted (live 1, ghost 2, none 1)',
-      mm.live === 1 && mm.ghost === 2 && mm.none === 1, JSON.stringify(mm));
+    r.check('outcomes are counted (live 1, ghost 2, bot 1, none 0)',
+      mm.live === 1 && mm.ghost === 2 && mm.bot === 1 && mm.none === 0, JSON.stringify(mm));
   } catch (err) {
     r.check(`unexpected error: ${err.message}`, false, clients.map((c) => `${c.name}: ${c.errors.join(' | ')}`).join(' || '));
   } finally {

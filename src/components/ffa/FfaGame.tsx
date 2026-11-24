@@ -3,7 +3,7 @@
 import { SupportLink } from '@/components/shared/SupportLink';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { CheckCircle, Flame, Ghost, RotateCcw, Search, Trophy, XCircle } from 'lucide-react';
+import { Bot, CheckCircle, Flame, Ghost, RotateCcw, Search, Trophy, XCircle } from 'lucide-react';
 import type { Category, OptionKey, Room } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSound } from '@/context/SoundContext';
@@ -45,6 +45,8 @@ interface Row {
   rank: number;
   /** A recorded run rather than a live player (PBI 35). */
   ghost?: boolean;
+  /** A bot (PBI 36). */
+  bot?: boolean;
 }
 
 /** Live ranking from room.ffa.players — same ordering rule as the server. */
@@ -58,6 +60,7 @@ function rankRows(room: Room): Row[] {
       name: room.players[id]?.name ?? '?',
       avatar: room.players[id]?.avatar ?? null,
       ghost: Boolean(room.players[id]?.isGhost),
+      bot: Boolean(room.players[id]?.isBot),
       score: s.score,
       correct: s.correct,
       join: order.indexOf(id),
@@ -67,7 +70,7 @@ function rankRows(room: Room): Row[] {
   return rows.map((r, i) => {
     const prev = rows[i - 1];
     if (!prev || prev.score !== r.score || prev.correct !== r.correct) rank = i + 1;
-    return { playerId: r.playerId, name: r.name, avatar: r.avatar, score: r.score, rank, ghost: r.ghost };
+    return { playerId: r.playerId, name: r.name, avatar: r.avatar, score: r.score, rank, ghost: r.ghost, bot: r.bot };
   });
 }
 
@@ -143,6 +146,7 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
     const standings = (ffa.standings ?? rows).map((row) => ({
       ...row,
       ghost: Boolean(room.players[row.playerId]?.isGhost),
+      bot: Boolean(room.players[row.playerId]?.isBot),
     }));
     const isGhostMatch = Boolean(room.ghostMatch);
     const findNew = () => {
@@ -190,6 +194,7 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
               <span className="flex-1 truncate text-quizzy-text">
                 {row.name}
                 {row.ghost && <GhostMark />}
+                {row.bot && <BotMark />}
               </span>
               <span className="tabular-nums text-quizzy-text">{row.score}</span>
             </li>
@@ -248,6 +253,18 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
 
   return (
     <div className="w-full max-w-2xl" id="ffa-round" data-question={qNum}>
+      {room.botMatch && (
+        <div
+          id="bot-banner"
+          title={t.botHint}
+          className="mb-3 flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100 border border-slate-300 text-sm text-slate-800"
+        >
+          <Bot size={16} className="shrink-0" />
+          <span className="truncate">
+            {t.botVs.replace('{level}', ({ easy: t.botEasy, medium: t.botMedium, hard: t.botHard } as const)[room.botMatch.level])}
+          </span>
+        </div>
+      )}
       {room.ghostMatch && (
         <div
           id="ghost-banner"
@@ -378,6 +395,7 @@ function Leaderboard({ rows, playerId, title, pts }: { rows: Row[]; playerId: st
             <span className="flex-1 truncate text-quizzy-text">
               {row.name}
               {row.ghost && <GhostMark />}
+              {row.bot && <BotMark />}
             </span>
             <span className="tabular-nums text-quizzy-text">
               {row.score} <span className="text-xs text-quizzy-muted">{pts}</span>
@@ -392,4 +410,9 @@ function Leaderboard({ rows, playerId, title, pts }: { rows: Row[]; playerId: st
 /** Marks a recorded opponent wherever names are listed (PBI 35). */
 function GhostMark() {
   return <Ghost size={13} aria-label="ghost" className="inline ml-1 -mt-0.5 text-violet-600" />;
+}
+
+/** Marks a bot wherever names are listed (PBI 36). */
+function BotMark() {
+  return <Bot size={13} aria-label="bot" className="inline ml-1 -mt-0.5 text-slate-500" />;
 }
