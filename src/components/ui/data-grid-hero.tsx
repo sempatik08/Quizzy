@@ -192,7 +192,10 @@ export default function DataGridHero({
   return (
     <div
       className={`relative overflow-hidden ${className}`}
-      style={{ background: resolveCssColor(background) || background }}
+      // Passed through as-is: the browser resolves a var(--…) itself. Resolving
+      // it here would render var(--…) on the server and a hex on the client,
+      // which is a hydration mismatch. Only the canvas needs the real colour.
+      style={{ background }}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     >
