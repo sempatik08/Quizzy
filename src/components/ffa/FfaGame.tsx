@@ -315,6 +315,9 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
           {isSpectator && !revealed && (
             <p className="mt-4 text-center text-xs text-quizzy-muted">{t.ffaWatching}</p>
           )}
+          {!isSpectator && !iAmPlaying && ffa?.pending?.includes(playerId) && (
+            <p id="ffa-joining-next" className="mt-4 text-center text-sm font-medium text-blue-soft">{t.ffaJoiningNext}</p>
+          )}
         </div>
 
         {!revealed && (

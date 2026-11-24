@@ -356,6 +356,12 @@ function startRound(room, io) {
 
   room.usedQuestionIds.push(question.id);
   room.ffa.questionNumber += 1;
+  // Late joiners from an open room (PBI 30) start playing with a fresh question,
+  // never halfway through one they saw only part of.
+  for (const id of room.ffa.pending ?? []) {
+    if (room.players[id] && !room.ffa.players[id]) room.ffa.players[id] = { score: 0, streak: 0, correct: 0 };
+  }
+  room.ffa.pending = [];
 
   const seconds = room.questionSeconds ?? getMode('ffa').questionSeconds;
   room.activeQuestion = {
@@ -589,7 +595,17 @@ function rematch(room, playerId, io) {
   return { room };
 }
 
+/**
+ * Seat a player who joined a running open match (PBI 30). They watch the rest
+ * of the current question and play from the next one.
+ */
+function addLatePlayer(room, playerId) {
+  if (!room.ffa || room.ffa.players[playerId]) return;
+  room.ffa.pending = [...(room.ffa.pending ?? []), playerId];
+}
+
 module.exports = {
+  addLatePlayer,
   isFfa,
   startMatch,
   startSolo,

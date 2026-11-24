@@ -62,7 +62,8 @@ export function JoinRoomForm({
     const socket = getSocket();
 
     const onJoined = (payload: RoomJoinedPayload) => {
-      const rc = pendingCode || payload.room?.code;
+      // The room's own code first: Quick Play (PBI 30) lands here too, with no code typed.
+      const rc = payload.room?.code || pendingCode;
       if (rc) {
         sessionStorage.setItem(SESSION_KEY(rc), payload.playerId);
         router.push(`/lobby/${rc}`);

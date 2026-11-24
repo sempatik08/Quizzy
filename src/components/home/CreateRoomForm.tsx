@@ -151,8 +151,21 @@ export function CreateRoomForm() {
   // random name when the player never edited the prefilled one. Opens a
   // free-for-all room (PBI 24): Quick Play always starts with one person, and
   // only free-for-all can be played alone — a friend can still join by link.
+  // Open rooms (PBI 30): Quick Play joins an open free-for-all room — a lobby,
+  // or a running match from its next question — or opens one others can join.
+  // The server answers room:joined (JoinRoomForm navigates) or room:created.
   const handleQuickPlay = () => {
-    createRoom(name.trim() || randomGuestName(language), 'ffa');
+    const playerName = (name.trim() || randomGuestName(language)).slice(0, 20);
+    setError(null);
+    setLoading(true);
+    setProfileName(playerName);
+    pendingMode.current = 'ffa';
+    const socket = getSocket();
+    if (!socket.connected) socket.connect();
+    socket.emit('room:quickPlay', {
+      playerName,
+      ...(profile ? { profileId: profile.id, avatar: profile.avatar } : {}),
+    });
   };
 
   return (

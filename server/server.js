@@ -31,7 +31,9 @@ const {
   sanitizeRoom,
   cleanupStaleRooms,
   adoptRoom,
+  allRooms,
   roomCount,
+  getMode,
 } = require('./roomManager');
 const store = require('./store');
 const ffa = require('./ffa');
@@ -40,6 +42,7 @@ const matchmaking = require('./matchmaking');
 const stats = require('./stats');
 const analytics = require('./analytics');
 const daily = require('./daily');
+const publicRooms = require('./publicRooms');
 const { createLimiter, clientIp, LIMITS, TRUST_PROXY, IP_LIMITS } = require('./abuse');
 const {
   isRateLimited,
@@ -390,6 +393,21 @@ function executeSurrender(room, surrenderingTeam) {
 }
 
 /**
+ * Keep an open room's auto-start in step with who is in it (PBI 30). When the
+ * countdown ends the match starts as if the host had pressed Start.
+ */
+function syncPublicRoom(room) {
+  if (!room?.isPublic) return false;
+  return publicRooms.syncAutoStart(room, (r) => {
+    const res = ffa.startMatch(r, r.hostId, io);
+    if (res.error) return;
+    console.log(`[Public] Auto-started ${r.code} with ${Object.keys(r.ffa.players).length} players`);
+    io.to(r.code).emit('room:update', sanitizeRoom(r));
+    store.saveRoom(r);
+  });
+}
+
+/**
  * Daily-quiz writes are read-modify-write on one record per profile. Two
  * packets from the same profile (a double tap, two tabs) must not interleave,
  * or one answer could overwrite the other — so they queue per profile.
@@ -459,6 +477,7 @@ io.on('connection', (socket) => {
     emojiLastSent.delete(current.playerId);
     const old = disconnectPlayer(current.roomCode, current.playerId);
     if (old) {
+      syncPublicRoom(old);
       io.to(old.code).emit('room:update', sanitizeRoom(old));
       store.saveRoom(old);
     }
@@ -466,6 +485,7 @@ io.on('connection', (socket) => {
 
   // ----- Helper: broadcast room update -----
   function broadcast(room) {
+    syncPublicRoom(room);
     io.to(room.code).emit('room:update', sanitizeRoom(room));
     // Persist behind the broadcast (PBI 13): every state change that matters
     // already passes through here on its way to the clients, so what the players
@@ -520,6 +540,64 @@ io.on('connection', (socket) => {
     analytics.recordRoomCreated();
 
     console.log(`[Room] Created: ${roomCode} by ${room.players[playerId].name} (${room.mode})`);
+    socket.emit('room:created', { roomCode, playerId, room: sanitizeRoom(room) });
+  });
+
+  /**
+   * Quick Play into an open free-for-all room (PBI 30): an open lobby, a
+   * running open match (playing from the next question), or a new open room.
+   * Payload: { playerName, profileId?, avatar? }
+   */
+  socket.on('room:quickPlay', (payload) => {
+    if (!payload || !isValidString(payload.playerName, 1, 20)) {
+      return socket.emit('room:error', { message: 'Player name must be 1–20 characters.' });
+    }
+    if (overLimit('roomJoin', 'room:error')) return;
+    matchmaking.leave(socket.id);
+    leaveCurrentRoom(null);
+    const identity = identityFrom(payload);
+    const mode = getMode('ffa');
+    const open = publicRooms.findOpenRoom(allRooms(), {
+      cap: mode.maxPlayers ?? 30,
+      totalQuestions: mode.totalQuestions,
+    });
+
+    if (open) {
+      const late = open.kind === 'late';
+      const result = joinRoom(open.room.code, payload.playerName, socket.id, false, identity, late);
+      if (!result.error) {
+        if (late) ffa.addLatePlayer(result.room, result.playerId);
+        socketToPlayer.set(socket.id, { roomCode: result.room.code, playerId: result.playerId });
+        socket.join(result.room.code);
+        if (identity.profileId) {
+          stats.touchProfile(identity.profileId, payload.playerName, identity.avatar)
+            .catch((err) => console.warn(`[Stats] touchProfile failed: ${err.message}`));
+        }
+        console.log(`[Public] ${payload.playerName} joined open room ${result.room.code}${late ? ' (late)' : ''}`);
+        syncPublicRoom(result.room);
+        socket.emit('room:joined', { playerId: result.playerId, room: sanitizeRoom(result.room) });
+        socket.to(result.room.code).emit('room:update', sanitizeRoom(result.room));
+        store.saveRoom(result.room);
+        return;
+      }
+      // Lost a race for the last seat: fall through and open a new room.
+    }
+
+    if (overLimit('roomCreate', 'room:error')) return;
+    if (roomCount() >= LIMITS.maxRooms) {
+      return socket.emit('room:error', { message: 'Server is busy. Please try again in a few minutes.' });
+    }
+    const { roomCode, playerId, room } = createRoom(payload.playerName, socket.id, 'ffa', identity);
+    room.isPublic = true;
+    if (identity.profileId) {
+      stats.touchProfile(identity.profileId, payload.playerName, identity.avatar)
+        .catch((err) => console.warn(`[Stats] touchProfile failed: ${err.message}`));
+    }
+    socketToPlayer.set(socket.id, { roomCode, playerId });
+    socket.join(roomCode);
+    analytics.recordRoomCreated();
+    store.saveRoom(room);
+    console.log(`[Public] Opened ${roomCode} for ${room.players[playerId].name}`);
     socket.emit('room:created', { roomCode, playerId, room: sanitizeRoom(room) });
   });
 

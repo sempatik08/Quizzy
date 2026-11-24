@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { Play, Users } from 'lucide-react';
 import type { Room } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
@@ -20,9 +21,25 @@ export function FfaLobby({ room, playerId, isHost, onStart }: FfaLobbyProps) {
   const { t } = useLanguage();
   const players = Object.values(room.players).filter((p) => !p.isSpectator);
   const total = room.totalQuestions ?? 15;
+  // Open rooms count down to an automatic start (PBI 30).
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    if (!room.autoStartAt) return;
+    const handle = window.setInterval(() => setNow(Date.now()), 500);
+    return () => window.clearInterval(handle);
+  }, [room.autoStartAt]);
+  const autoStartIn = room.autoStartAt ? Math.max(0, Math.ceil((room.autoStartAt - now) / 1000)) : null;
 
   return (
     <div className="w-full max-w-3xl flex flex-col items-center">
+      {room.isPublic && (
+        <div id="public-room-banner" className="w-full mb-4 px-4 py-3 rounded-xl bg-blue-pale border border-blue-light text-sm text-quizzy-text flex flex-wrap items-center justify-between gap-2">
+          <span>{t.publicRoom}</span>
+          <span id="public-autostart" className="font-semibold text-blue-soft tabular-nums">
+            {autoStartIn !== null ? t.publicAutoStart.replace('{n}', String(autoStartIn)) : t.publicWaiting}
+          </span>
+        </div>
+      )}
       <div className="w-full bg-quizzy-card rounded-2xl shadow-card border border-quizzy-border p-6 mb-6">
         <div className="flex items-center justify-between mb-4">
           <p className="flex items-center gap-2 text-sm font-semibold text-quizzy-text">
