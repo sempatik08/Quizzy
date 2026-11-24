@@ -18,6 +18,7 @@ import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { SpectatorBanner } from '@/components/shared/SpectatorBanner';
 import { CategoryPicker } from '@/components/lobby/CategoryPicker';
 import { FfaGame } from '@/components/ffa/FfaGame';
+import { AdsScript } from '@/components/shared/AdsScript';
 import { useLanguage } from '@/context/LanguageContext';
 import { useSound } from '@/context/SoundContext';
 import { winnerOf } from '@/lib/score';
@@ -140,6 +141,7 @@ export default function GamePage() {
   if (room.mode === 'ffa') {
     return (
       <main className="min-h-screen bg-quizzy-bg px-4 py-6 flex flex-col items-center">
+        <AdsScript />
         <div className="w-full max-w-2xl flex items-center justify-between mb-5">
           <div className="flex items-center gap-2 flex-wrap">
             <Zap size={18} className="text-blue-soft" fill="#4D96FF" />
@@ -196,6 +198,7 @@ export default function GamePage() {
 
   return (
     <main className="min-h-screen bg-quizzy-bg px-4 py-6 flex flex-col items-center">
+      <AdsScript />
       {/* Team color banner */}
       {myTeam && (
         <div className={`w-full ${teamAccent.bg} border-b ${teamAccent.border} py-1.5 mb-4 text-center text-xs font-bold uppercase tracking-widest ${teamAccent.text}`}>

@@ -8,6 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useSound } from '@/context/SoundContext';
 import { avatarGlyph } from '@/lib/avatars';
 import { ghostWhen } from '@/lib/ghost';
+import { showInterstitial } from '@/lib/ads';
 import { VotingTimer } from '@/components/game/VotingTimer';
 import { Confetti } from '@/components/game/Confetti';
 import { FfaCategoryPick } from './FfaCategoryPick';
@@ -144,10 +145,12 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
       ghost: Boolean(room.players[row.playerId]?.isGhost),
     }));
     const isGhostMatch = Boolean(room.ghostMatch);
-    const findNew = () => {
+    // Match end → next match gets the ad break (PBI 32); home does not.
+    const findNew = () => showInterstitial('find_new_opponent', () => {
       sessionStorage.removeItem(`quizzy_player_${room.code}`);
       router.push('/?find=1');
-    };
+    });
+    const rematch = () => showInterstitial('rematch', onRematch);
     const podium = standings.slice(0, 3);
     const backHome = () => {
       sessionStorage.removeItem(`quizzy_player_${room.code}`);
@@ -210,7 +213,7 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
         {!isSpectator && !isGhostMatch && (
           <button
             id="rematch-button"
-            onClick={onRematch}
+            onClick={rematch}
             className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-blue-soft text-white font-semibold hover:bg-blue-500 active:scale-95 transition-all mb-2.5"
           >
             <RotateCcw size={17} />

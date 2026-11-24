@@ -87,6 +87,23 @@ including which answers people get wrong.
 room code or IP — only counters keyed by question id, category and game mode.
 `tests/analytics_test.js` asserts this by scanning the stored bytes.
 
+### Ads (H5 Games Ads)
+
+Interstitial ads between matches only, through Google's H5 Games Ads: when a
+player presses **Play again** or **Find a new opponent** on the match-end
+screen. Never during a question, never on the home page or in the lobby. Both
+are **build-time** variables, so set them in Vercel (or pass them as build args):
+
+| Variable | Effect |
+|---|---|
+| `NEXT_PUBLIC_ADSENSE_CLIENT` | Publisher id, `ca-pub-…`. Unset or malformed → no ad script is loaded and `/ads.txt` returns 404. Set → the game page loads `adsbygoogle.js` and `/ads.txt` is served from the same id. |
+| `NEXT_PUBLIC_ADS_TEST` | `1` serves Google's test ads (`data-adbreak-test="on"`). Use it on preview deploys and while the account is under review. |
+
+Google decides whether an ad actually plays (frequency cap, fill, approval
+state). The game continues either way: on `adBreakDone`, or after 2.5 s if the
+script never loads (ad blocker, offline). Once an ad is on screen it is never
+cut short.
+
 ### Tests
 
 ```bash

@@ -7,6 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { Confetti } from './Confetti';
 import { ShareResult } from './ShareResult';
 import { winnerOf } from '@/lib/score';
+import { showInterstitial } from '@/lib/ads';
 
 interface WinnerScreenProps {
   room: Room;
@@ -40,6 +41,11 @@ export function WinnerScreen({
     sessionStorage.removeItem(`quizzy_player_${room.code}`);
     router.push('/');
   };
+
+  // Match end → next match is the one transition that gets an ad (PBI 32).
+  // The vote is sent after the break, so the other team sees "ready" only once
+  // this player is actually back.
+  const handleRematch = () => showInterstitial('rematch', onRematch);
 
   // A player who never joined a team has nothing to consent to.
   const canRematch = Boolean(myTeam);
@@ -114,7 +120,7 @@ export function WinnerScreen({
 
             <button
               id="rematch-button"
-              onClick={onRematch}
+              onClick={handleRematch}
               disabled={myTeamWantsRematch}
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-blue-soft text-white font-semibold hover:bg-blue-500 disabled:opacity-60 disabled:cursor-default active:scale-95 transition-all mb-2.5"
             >
