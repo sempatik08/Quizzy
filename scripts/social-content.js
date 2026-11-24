@@ -39,8 +39,23 @@ const WIDTH = 1080;
 const HEIGHT = 1350;
 const VIDEO_HEIGHT = 1920;
 
-const GAME_URL = 'https://quizzy-two-jade.vercel.app/';
-const GAME_HOST = 'quizzy-two-jade.vercel.app';
+// QUIZZY_SITE_URL switches the cards to the custom domain once it exists (PBI 27).
+const GAME_URL = (process.env.QUIZZY_SITE_URL || 'https://quizzy-two-jade.vercel.app').replace(/\/+$/, '') + '/';
+const GAME_HOST = new URL(GAME_URL).host;
+
+/**
+ * Caption link with UTM tags (PBI 22). Instagram's in-app browser often drops
+ * the referrer, so without these every post shows up as "direct" and nobody
+ * can tell which one brought players in. The campaign is the question id, so
+ * Vercel's utm_campaign breakdown maps straight back to a post.
+ */
+function trackedUrl(question, source = process.env.QUIZZY_UTM_SOURCE || 'instagram') {
+  const url = new URL(GAME_URL);
+  url.searchParams.set('utm_source', source);
+  url.searchParams.set('utm_medium', 'social');
+  url.searchParams.set('utm_campaign', `${question.category}-${question.id}`);
+  return url.toString();
+}
 
 const CATEGORY_LABELS_TR = {
   general: 'Genel Kültür', cinema: 'Sinema & Dizi', sports: 'Spor', history: 'Tarih',
@@ -215,7 +230,7 @@ function buildCaption(question, categoryLabel) {
   return [
     `${categoryLabel} sorusu: ${question.text_tr}`,
     '',
-    `Arkadaşlarınla takım kur, canlı oyna — kayıt yok: ${GAME_URL}`,
+    `Arkadaşlarınla takım kur, canlı oyna — kayıt yok: ${trackedUrl(question)}`,
     '',
     `Cevap (yorumlara yazma, ilk yorumda paylaş): ${question.options_tr[question.answer]}`,
     '',

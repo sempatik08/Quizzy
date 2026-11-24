@@ -1,5 +1,6 @@
 'use client';
 
+import { track } from '@/lib/track';
 import { useEffect, useState } from 'react';
 import { MessageCircle, Play, UserX } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -63,6 +64,10 @@ export function AloneCard({ code, alone, isHost, onSolo }: AloneCardProps) {
         <a
           id="alone-whatsapp"
           href={whatsapp}
+          onClick={() => {
+            track('invite_copied', { via: 'whatsapp' });
+            track('alone_card_action', { action: 'whatsapp' });
+          }}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#25D366] text-white text-sm font-semibold hover:opacity-90 transition-opacity"
@@ -73,7 +78,10 @@ export function AloneCard({ code, alone, isHost, onSolo }: AloneCardProps) {
         {isHost && (
           <button
             id="alone-solo"
-            onClick={onSolo}
+            onClick={() => {
+              track('alone_card_action', { action: 'solo' });
+              onSolo();
+            }}
             className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-quizzy-text text-quizzy-card text-sm font-semibold hover:opacity-80 transition-opacity"
           >
             <Play size={16} />

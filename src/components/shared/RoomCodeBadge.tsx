@@ -2,6 +2,7 @@
 
 import { Copy, Check } from 'lucide-react';
 import { useState } from 'react';
+import { track } from '@/lib/track';
 
 interface RoomCodeBadgeProps {
   code: string;
@@ -12,6 +13,7 @@ export function RoomCodeBadge({ code }: RoomCodeBadgeProps) {
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
+    track('invite_copied', { via: 'code' });
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
