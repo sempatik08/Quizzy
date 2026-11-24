@@ -1,5 +1,6 @@
 'use client';
 
+import { track } from '@/lib/track';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { PlusCircle, Loader2, Search, X, Zap } from 'lucide-react';
@@ -26,6 +27,8 @@ export function CreateRoomForm() {
   /** True from the click until match:found/cancel — kept apart from `loading` so Create doesn't read "Creating…". */
   const [finding, setFinding] = useState(false);
   const autoFindDone = useRef(false);
+  // Which mode the pending room:create asked for, for the room_created event (PBI 22).
+  const pendingMode = useRef<GameModeKey | null>(null);
 
   // Prefill so a first-time player never faces an empty required field: a
   // returning player's saved name, or a fun random placeholder otherwise.
@@ -38,6 +41,7 @@ export function CreateRoomForm() {
     const socket = getSocket();
 
     const onCreated = (payload: RoomCreatedPayload) => {
+      track('room_created', { mode: pendingMode.current ?? 'unknown' });
       sessionStorage.setItem(SESSION_KEY(payload.roomCode), payload.playerId);
       router.push(`/lobby/${payload.roomCode}`);
     };
@@ -53,6 +57,7 @@ export function CreateRoomForm() {
     const onFound = (payload: MatchFoundPayload) => {
       sessionStorage.setItem(SESSION_KEY(payload.roomCode), payload.playerId);
       sessionStorage.setItem(`quizzy_match_${payload.roomCode}`, JSON.stringify(payload.opponent));
+      track('room_created', { mode: `match_${payload.opponent?.kind ?? 'unknown'}` });
       setSearchLeft(null);
       setFinding(false);
       router.push(`/lobby/${payload.roomCode}`);
@@ -87,6 +92,7 @@ export function CreateRoomForm() {
 
     setError(null);
     setLoading(true);
+    pendingMode.current = roomMode;
     // Remember the name for next time and for the leaderboard.
     setProfileName(trimmed);
 
@@ -145,8 +151,21 @@ export function CreateRoomForm() {
   // random name when the player never edited the prefilled one. Opens a
   // free-for-all room (PBI 24): Quick Play always starts with one person, and
   // only free-for-all can be played alone — a friend can still join by link.
+  // Open rooms (PBI 30): Quick Play joins an open free-for-all room — a lobby,
+  // or a running match from its next question — or opens one others can join.
+  // The server answers room:joined (JoinRoomForm navigates) or room:created.
   const handleQuickPlay = () => {
-    createRoom(name.trim() || randomGuestName(language), 'ffa');
+    const playerName = (name.trim() || randomGuestName(language)).slice(0, 20);
+    setError(null);
+    setLoading(true);
+    setProfileName(playerName);
+    pendingMode.current = 'ffa';
+    const socket = getSocket();
+    if (!socket.connected) socket.connect();
+    socket.emit('room:quickPlay', {
+      playerName,
+      ...(profile ? { profileId: profile.id, avatar: profile.avatar } : {}),
+    });
   };
 
   return (

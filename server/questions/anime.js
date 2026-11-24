@@ -3478,7 +3478,7 @@ const anime = [
   {
     id: 'ani_301',
     text: 'In which manga magazine was \'Berserk\' serialized for most of its publication history?',
-    text_tr: '\'Berserk\' mangasi, yayin hayatinin buyuk bolumunde hangi manga dergisinde yayimlandi?',
+    text_tr: '\'Berserk\' mangası, yayın hayatının büyük bölümünde hangi manga dergisinde yayımlandı?',
     options: { A: 'Weekly Shonen Jump', B: 'Young Animal', C: 'Monthly Shonen Gangan', D: 'Big Comic Spirits', E: 'Weekly Young Magazine' },
     options_tr: { A: 'Weekly Shonen Jump', B: 'Young Animal', C: 'Monthly Shonen Gangan', D: 'Big Comic Spirits', E: 'Weekly Young Magazine' },
     answer: 'B',
@@ -3488,7 +3488,7 @@ const anime = [
   {
     id: 'ani_302',
     text: 'Naoki Urasawa created which psychological thriller manga about a Japanese neurosurgeon who hunts down a former patient turned serial killer across Europe?',
-    text_tr: 'Naoki Urasawa, bir zamanlar hastasi olup seri katile donusen kisiyi Avrupa\'da takip eden Japon bir beyin cerrahini konu alan hangi psikolojik gerilim mangasini yaratti?',
+    text_tr: 'Naoki Urasawa, bir zamanlar hastası olup seri katile dönüşen kişiyi Avrupa\'da takip eden Japon bir beyin cerrahını konu alan hangi psikolojik gerilim mangasını yarattı?',
     options: { A: '20th Century Boys', B: 'Monster', C: 'Pluto', D: 'Billy Bat', E: 'Master Keaton' },
     options_tr: { A: '20th Century Boys', B: 'Monster', C: 'Pluto', D: 'Billy Bat', E: 'Master Keaton' },
     answer: 'B',
@@ -3498,7 +3498,7 @@ const anime = [
   {
     id: 'ani_303',
     text: 'The shojo manga \'Fruits Basket\' was written and illustrated by which author?',
-    text_tr: 'Shojo mangasi \'Fruits Basket\', hangi yazar tarafindan kaleme alinip cizildi?',
+    text_tr: 'Shojo mangası \'Fruits Basket\', hangi yazar tarafından kaleme alınıp çizildi?',
     options: { A: 'Natsuki Takaya', B: 'CLAMP', C: 'Ai Yazawa', D: 'Arina Tanemura', E: 'Yuu Watase' },
     options_tr: { A: 'Natsuki Takaya', B: 'CLAMP', C: 'Ai Yazawa', D: 'Arina Tanemura', E: 'Yuu Watase' },
     answer: 'A',
@@ -3508,7 +3508,7 @@ const anime = [
   {
     id: 'ani_304',
     text: 'In \'Cardcaptor Sakura\', how many magical Clow Cards must Sakura capture after accidentally scattering them?',
-    text_tr: '\'Cardcaptor Sakura\'da Sakura, kazara dagittigi buyulu Clow Kartlari\'ndan kacini yakalamak zorundadir?',
+    text_tr: '\'Cardcaptor Sakura\'da Sakura, kazara dağıttığı büyülü Clow Kartları\'ndan kaçını yakalamak zorundadır?',
     options: { A: '40', B: '52', C: '78', D: '100', E: '12' },
     options_tr: { A: '40', B: '52', C: '78', D: '100', E: '12' },
     answer: 'B',
@@ -3518,7 +3518,7 @@ const anime = [
   {
     id: 'ani_305',
     text: 'Which director, known for surreal symbolism, helmed \'Revolutionary Girl Utena\' and later \'Mawaru Penguindrum\'?',
-    text_tr: 'Gercekustu sembolizmiyle taninan ve \'Revolutionary Girl Utena\' ile daha sonra \'Mawaru Penguindrum\'u yoneten yonetmen kimdir?',
+    text_tr: 'Gerçeküstü sembolizmiyle tanınan ve \'Revolutionary Girl Utena\' ile daha sonra \'Mawaru Penguindrum\'u yöneten yönetmen kimdir?',
     options: { A: 'Kunihiko Ikuhara', B: 'Hideaki Anno', C: 'Akiyuki Shinbo', D: 'Osamu Dezaki', E: 'Chiaki Konaka' },
     options_tr: { A: 'Kunihiko Ikuhara', B: 'Hideaki Anno', C: 'Akiyuki Shinbo', D: 'Osamu Dezaki', E: 'Chiaki Konaka' },
     answer: 'A',
@@ -3528,7 +3528,7 @@ const anime = [
   {
     id: 'ani_306',
     text: 'Ai Yazawa\'s \'Nana\' was originally serialized in which Shueisha manga magazine aimed at young women?',
-    text_tr: 'Ai Yazawa\'nin \'Nana\' adli eseri, ilk olarak Shueisha\'nin genc kadinlara yonelik hangi manga dergisinde yayimlandi?',
+    text_tr: 'Ai Yazawa\'nın \'Nana\' adlı eseri, ilk olarak Shueisha\'nın genç kadınlara yönelik hangi manga dergisinde yayımlandı?',
     options: { A: 'Ribon', B: 'Nakayoshi', C: 'Cookie', D: 'Margaret', E: 'Betsucomi' },
     options_tr: { A: 'Ribon', B: 'Nakayoshi', C: 'Cookie', D: 'Margaret', E: 'Betsucomi' },
     answer: 'C',
@@ -3538,7 +3538,7 @@ const anime = [
   {
     id: 'ani_307',
     text: 'The manga \'Bishoujo Senshi Sailor Moon\', first published in 1991, was created by whom?',
-    text_tr: '1991\'de ilk kez yayimlanan \'Bishoujo Senshi Sailor Moon\' mangasi kim tarafindan yaratildi?',
+    text_tr: '1991\'de ilk kez yayımlanan \'Bishoujo Senshi Sailor Moon\' mangası kim tarafından yaratıldı?',
     options: { A: 'Naoko Takeuchi', B: 'Kaori Yuki', C: 'Yuu Watase', D: 'Ai Yazawa', E: 'Arina Tanemura' },
     options_tr: { A: 'Naoko Takeuchi', B: 'Kaori Yuki', C: 'Yuu Watase', D: 'Ai Yazawa', E: 'Arina Tanemura' },
     answer: 'A',
@@ -3548,7 +3548,7 @@ const anime = [
   {
     id: 'ani_308',
     text: 'Takehiko Inoue, who later drew the historical epic \'Vagabond\', first rose to fame with which high-school basketball manga?',
-    text_tr: 'Daha sonra tarihi bir basyapit olan \'Vagabond\'u cizen Takehiko Inoue, unlenmesini saglayan hangi lise basketbol mangasiyla taninir?',
+    text_tr: 'Daha sonra tarihi bir başyapıt olan \'Vagabond\'u çizen Takehiko Inoue, ünlenmesini sağlayan hangi lise basketbol mangasıyla tanınır?',
     options: { A: 'Slam Dunk', B: 'Haikyuu!!', C: 'Kuroko\'s Basketball', D: 'Ahiru no Sora', E: 'Buzzer Beater' },
     options_tr: { A: 'Slam Dunk', B: 'Haikyuu!!', C: 'Kuroko\'s Basketball', D: 'Ahiru no Sora', E: 'Buzzer Beater' },
     answer: 'A',
@@ -3558,7 +3558,7 @@ const anime = [
   {
     id: 'ani_309',
     text: 'Which manga artist is behind the volleyball series \'Haikyuu!!\'?',
-    text_tr: 'Voleybol serisi \'Haikyuu!!\'nin arkasindaki manga sanatcisi kimdir?',
+    text_tr: 'Voleybol serisi \'Haikyuu!!\'nun arkasındaki manga sanatçısı kimdir?',
     options: { A: 'Haruichi Furudate', B: 'Takehiko Inoue', C: 'Yusuke Murata', D: 'Mitsuru Adachi', E: 'Yoichi Takahashi' },
     options_tr: { A: 'Haruichi Furudate', B: 'Takehiko Inoue', C: 'Yusuke Murata', D: 'Mitsuru Adachi', E: 'Yoichi Takahashi' },
     answer: 'A',
@@ -3568,7 +3568,7 @@ const anime = [
   {
     id: 'ani_310',
     text: '\'Captain Tsubasa\', the soccer manga widely credited with inspiring generations of real-life professional footballers, is the work of which creator?',
-    text_tr: 'Gercek hayatta bircok profesyonel futbolcuya ilham verdigi kabul edilen futbol mangasi \'Captain Tsubasa\', hangi yaraticinin eseridir?',
+    text_tr: 'Gerçek hayatta birçok profesyonel futbolcuya ilham verdiği kabul edilen futbol mangası \'Captain Tsubasa\', hangi yaratıcının eseridir?',
     options: { A: 'Yoichi Takahashi', B: 'Mitsuru Adachi', C: 'Naoki Urasawa', D: 'Tsukasa Hojo', E: 'Takehiko Inoue' },
     options_tr: { A: 'Yoichi Takahashi', B: 'Mitsuru Adachi', C: 'Naoki Urasawa', D: 'Tsukasa Hojo', E: 'Takehiko Inoue' },
     answer: 'A',
@@ -3578,7 +3578,7 @@ const anime = [
   {
     id: 'ani_311',
     text: 'Before creating \'Hunter x Hunter\', Yoshihiro Togashi found early success with which supernatural detective manga?',
-    text_tr: '\'Hunter x Hunter\'i yaratmadan once Yoshihiro Togashi, hangi dogaustu dedektif mangasiyla ilk buyuk basarisini yakaladi?',
+    text_tr: '\'Hunter x Hunter\'i yaratmadan önce Yoshihiro Togashi, hangi doğaüstü dedektif mangasıyla ilk büyük başarısını yakaladı?',
     options: { A: 'Yu Yu Hakusho', B: 'Bleach', C: 'Blue Exorcist', D: 'D.Gray-man', E: 'Beelzebub' },
     options_tr: { A: 'Yu Yu Hakusho', B: 'Bleach', C: 'Blue Exorcist', D: 'D.Gray-man', E: 'Beelzebub' },
     answer: 'A',
@@ -3588,7 +3588,7 @@ const anime = [
   {
     id: 'ani_312',
     text: '\'Rurouni Kenshin\', the manga following a former assassin turned wanderer in Meiji-era Japan, was written by whom?',
-    text_tr: 'Meiji donemi Japonya\'sinda eski bir suikastcinin gezgin bir yasam surmesini konu alan \'Rurouni Kenshin\' mangasi kim tarafindan yazildi?',
+    text_tr: 'Meiji dönemi Japonya\'sında eski bir suikastçının gezgin bir yaşam sürmesini konu alan \'Rurouni Kenshin\' mangası kim tarafından yazıldı?',
     options: { A: 'Nobuhiro Watsuki', B: 'Hiromu Arakawa', C: 'Kentaro Miura', D: 'Yoshihiro Togashi', E: 'Tite Kubo' },
     options_tr: { A: 'Nobuhiro Watsuki', B: 'Hiromu Arakawa', C: 'Kentaro Miura', D: 'Yoshihiro Togashi', E: 'Tite Kubo' },
     answer: 'A',
@@ -3598,7 +3598,7 @@ const anime = [
   {
     id: 'ani_313',
     text: 'Which manga artist created \'Trigun\', the story of gunslinger Vash the Stampede?',
-    text_tr: 'Silahsor Vash the Stampede\'in hikayesi olan \'Trigun\'u hangi manga sanatcisi yaratti?',
+    text_tr: 'Silahşör Vash the Stampede\'in hikayesi olan \'Trigun\'u hangi manga sanatçısı yarattı?',
     options: { A: 'Yasuhiro Nightow', B: 'Hiroyuki Takei', C: 'Katsura Hoshino', D: 'Yana Toboso', E: 'Norihiro Yagi' },
     options_tr: { A: 'Yasuhiro Nightow', B: 'Hiroyuki Takei', C: 'Katsura Hoshino', D: 'Yana Toboso', E: 'Norihiro Yagi' },
     answer: 'A',
@@ -3608,7 +3608,7 @@ const anime = [
   {
     id: 'ani_314',
     text: 'Which writer-director co-created the \'Macross\' franchise and later worked on \'The Vision of Escaflowne\'?',
-    text_tr: '\'Macross\' serisinin ortak yaraticisi olan ve daha sonra \'The Vision of Escaflowne\' uzerinde calisan yazar-yonetmen kimdir?',
+    text_tr: '\'Macross\' serisinin ortak yaratıcısı olan ve daha sonra \'The Vision of Escaflowne\' üzerinde çalışan yazar-yönetmen kimdir?',
     options: { A: 'Shoji Kawamori', B: 'Yoshiyuki Tomino', C: 'Hajime Yatate', D: 'Leiji Matsumoto', E: 'Go Nagai' },
     options_tr: { A: 'Shoji Kawamori', B: 'Yoshiyuki Tomino', C: 'Hajime Yatate', D: 'Leiji Matsumoto', E: 'Go Nagai' },
     answer: 'A',
@@ -3618,7 +3618,7 @@ const anime = [
   {
     id: 'ani_315',
     text: 'In the original \'Super Dimension Fortress Macross\', whose pop songs are used to pacify the invading alien Zentradi?',
-    text_tr: 'Orijinal \'Super Dimension Fortress Macross\'ta, istila eden uzayli Zentradi irkini yatistirmak icin kimin sarkilari kullanilir?',
+    text_tr: 'Orijinal \'Super Dimension Fortress Macross\'ta, istila eden uzaylı Zentradi ırkını yatıştırmak için kimin şarkıları kullanılır?',
     options: { A: 'Sheryl Nome', B: 'Lynn Minmay', C: 'Ranka Lee', D: 'Misa Hayase', E: 'Basara Nekki' },
     options_tr: { A: 'Sheryl Nome', B: 'Lynn Minmay', C: 'Ranka Lee', D: 'Misa Hayase', E: 'Basara Nekki' },
     answer: 'B',
@@ -3628,7 +3628,7 @@ const anime = [
   {
     id: 'ani_316',
     text: 'In the mecha anime \'Eureka Seven\', what is the name of the teenage boy who leaves home to join the outlaw group Gekkostate?',
-    text_tr: 'Mecha animesi \'Eureka Seven\'da, evini terk edip kanun kacagi grup Gekkostate\'e katilan genc erkegin adi nedir?',
+    text_tr: 'Mecha animesi \'Eureka Seven\'da, evini terk edip kanun kaçağı grup Gekkostate\'e katılan genç erkeğin adı nedir?',
     options: { A: 'Renton Thurston', B: 'Holland Novak', C: 'Dominic Sorel', D: 'Ken Goldman', E: 'Matthieu Blume' },
     options_tr: { A: 'Renton Thurston', B: 'Holland Novak', C: 'Dominic Sorel', D: 'Ken Goldman', E: 'Matthieu Blume' },
     answer: 'A',
@@ -3638,7 +3638,7 @@ const anime = [
   {
     id: 'ani_317',
     text: 'Who directed the frenetic mecha series \'Gurren Lagann\' at Gainax?',
-    text_tr: 'Gainax studuosunda cilgin tempolu mecha dizisi \'Gurren Lagann\'i kim yonetti?',
+    text_tr: 'Gainax stüdyosunda çılgın tempolu mecha dizisi \'Gurren Lagann\'ı kim yönetti?',
     options: { A: 'Hiroyuki Imaishi', B: 'Hideaki Anno', C: 'Kazuya Tsurumaki', D: 'Yoh Yoshinari', E: 'Shoji Kawamori' },
     options_tr: { A: 'Hiroyuki Imaishi', B: 'Hideaki Anno', C: 'Kazuya Tsurumaki', D: 'Yoh Yoshinari', E: 'Shoji Kawamori' },
     answer: 'A',
@@ -3648,7 +3648,7 @@ const anime = [
   {
     id: 'ani_318',
     text: 'In \'Kill la Kill\', what is the name of the protagonist who wields a sentient sailor-uniform weapon while searching for her father\'s killer?',
-    text_tr: '\'Kill la Kill\'de, babasinin katilini ararken canli bir denizci uniformasi silahini kullanan ana karakterin adi nedir?',
+    text_tr: '\'Kill la Kill\'de, babasının katilini ararken canlı bir denizci üniforması silahını kullanan ana karakterin adı nedir?',
     options: { A: 'Ryuko Matoi', B: 'Satsuki Kiryuin', C: 'Mako Mankanshoku', D: 'Nonon Jakuzure', E: 'Nui Harime' },
     options_tr: { A: 'Ryuko Matoi', B: 'Satsuki Kiryuin', C: 'Mako Mankanshoku', D: 'Nonon Jakuzure', E: 'Nui Harime' },
     answer: 'A',
@@ -3658,7 +3658,7 @@ const anime = [
   {
     id: 'ani_319',
     text: 'In \'Mob Psycho 100\', what is the name of Mob\'s mentor, a self-proclaimed psychic who actually has no supernatural powers?',
-    text_tr: '\'Mob Psycho 100\'de, hicbir dogaustu gucu olmadigi halde kendini medyum ilan eden Mob\'un akil hocasinin adi nedir?',
+    text_tr: '\'Mob Psycho 100\'de, hiçbir doğaüstü gücü olmadığı halde kendini medyum ilan eden Mob\'un akıl hocasının adı nedir?',
     options: { A: 'Reigen Arataka', B: 'Dimple', C: 'Ekubo', D: 'Ritsu Kageyama', E: 'Teruki Hanazawa' },
     options_tr: { A: 'Reigen Arataka', B: 'Dimple', C: 'Ekubo', D: 'Ritsu Kageyama', E: 'Teruki Hanazawa' },
     answer: 'A',
@@ -3668,7 +3668,7 @@ const anime = [
   {
     id: 'ani_320',
     text: '\'Made in Abyss\', centered on a vast chasm filled with ancient relics and deadly curses, is the work of which creator?',
-    text_tr: 'Antik kalintilar ve olumcul lanetlerle dolu devasa bir ucurumu konu alan \'Made in Abyss\', hangi yaraticinin eseridir?',
+    text_tr: 'Antik kalıntılar ve ölümcül lanetlerle dolu devasa bir uçurumu konu alan \'Made in Abyss\', hangi yaratıcının eseridir?',
     options: { A: 'Akihito Tsukushi', B: 'Tsutomu Nihei', C: 'Ryoko Kui', D: 'Q Hayashida', E: 'Kentaro Miura' },
     options_tr: { A: 'Akihito Tsukushi', B: 'Tsutomu Nihei', C: 'Ryoko Kui', D: 'Q Hayashida', E: 'Kentaro Miura' },
     answer: 'A',
@@ -3678,7 +3678,7 @@ const anime = [
   {
     id: 'ani_321',
     text: '\'Land of the Lustrous\' (2017) stood out for being animated almost entirely in 3D computer graphics by which studio?',
-    text_tr: '\'Land of the Lustrous\' (2017), neredeyse tamamen 3D bilgisayar grafikleriyle animasyonlastirilmasiyla hangi studyo tarafindan dikkat cekti?',
+    text_tr: '\'Land of the Lustrous\' (2017), neredeyse tamamen 3D bilgisayar grafikleriyle animasyonlaştırılmasıyla hangi stüdyo tarafından dikkat çekti?',
     options: { A: 'Orange', B: 'Polygon Pictures', C: 'Sanzigen', D: 'David Production', E: 'Science Saru' },
     options_tr: { A: 'Orange', B: 'Polygon Pictures', C: 'Sanzigen', D: 'David Production', E: 'Science Saru' },
     answer: 'A',
@@ -3688,7 +3688,7 @@ const anime = [
   {
     id: 'ani_322',
     text: 'Which director adapted Go Nagai\'s classic manga into the stylized 2018 Netflix series \'Devilman Crybaby\'?',
-    text_tr: 'Go Nagai\'nin klasik mangasini 2018 tarihli stilize Netflix dizisi \'Devilman Crybaby\'ye uyarlayan yonetmen kimdir?',
+    text_tr: 'Go Nagai\'nin klasik mangasını 2018 tarihli stilize Netflix dizisi \'Devilman Crybaby\'ye uyarlayan yönetmen kimdir?',
     options: { A: 'Masaaki Yuasa', B: 'Kunihiko Ikuhara', C: 'Shinichiro Watanabe', D: 'Sunghoo Park', E: 'Naoko Yamada' },
     options_tr: { A: 'Masaaki Yuasa', B: 'Kunihiko Ikuhara', C: 'Shinichiro Watanabe', D: 'Sunghoo Park', E: 'Naoko Yamada' },
     answer: 'A',
@@ -3698,7 +3698,7 @@ const anime = [
   {
     id: 'ani_323',
     text: 'Which hip-hop producer, who died in 2010, composed much of the celebrated soundtrack for \'Samurai Champloo\'?',
-    text_tr: '2010\'da hayatini kaybeden hangi hip-hop yapimcisi, \'Samurai Champloo\'nun begenilen muziklerinin cogunu besteledi?',
+    text_tr: '2010\'da hayatını kaybeden hangi hip-hop yapımcısı, \'Samurai Champloo\'nun beğenilen müziklerinin çoğunu besteledi?',
     options: { A: 'Nujabes', B: 'Yoko Kanno', C: 'Kenji Kawai', D: 'Shiro Sagisu', E: 'Taku Iwasaki' },
     options_tr: { A: 'Nujabes', B: 'Yoko Kanno', C: 'Kenji Kawai', D: 'Shiro Sagisu', E: 'Taku Iwasaki' },
     answer: 'A',
@@ -3708,7 +3708,7 @@ const anime = [
   {
     id: 'ani_324',
     text: 'Which studio, also known for \'Neon Genesis Evangelion\', originally produced the short OVA series \'FLCL\' (Fooly Cooly)?',
-    text_tr: '\'Neon Genesis Evangelion\' ile de taninan hangi studyo, kisa OVA dizisi \'FLCL\' (Fooly Cooly)\'nin yapimini ustlendi?',
+    text_tr: '\'Neon Genesis Evangelion\' ile de tanınan hangi stüdyo, kısa OVA dizisi \'FLCL\' (Fooly Cooly)\'nin yapımını üstlendi?',
     options: { A: 'Gainax', B: 'Madhouse', C: 'Sunrise', D: 'Studio Deen', E: 'Toei Animation' },
     options_tr: { A: 'Gainax', B: 'Madhouse', C: 'Sunrise', D: 'Studio Deen', E: 'Toei Animation' },
     answer: 'A',
@@ -3718,7 +3718,7 @@ const anime = [
   {
     id: 'ani_325',
     text: 'Who directed the surreal 1998 series \'Serial Experiments Lain\', about a virtual network blurring into reality?',
-    text_tr: 'Gerceklikle ic ice gecen sanal bir agi konu alan gercekustu 1998 yapimi \'Serial Experiments Lain\'i kim yonetti?',
+    text_tr: 'Gerçeklikle iç içe geçen sanal bir ağı konu alan gerçeküstü 1998 yapımı \'Serial Experiments Lain\'i kim yönetti?',
     options: { A: 'Ryutaro Nakamura', B: 'Satoshi Kon', C: 'Chiaki Konaka', D: 'Kunihiko Ikuhara', E: 'Hideaki Anno' },
     options_tr: { A: 'Ryutaro Nakamura', B: 'Satoshi Kon', C: 'Chiaki Konaka', D: 'Kunihiko Ikuhara', E: 'Hideaki Anno' },
     answer: 'A',
@@ -3728,7 +3728,7 @@ const anime = [
   {
     id: 'ani_326',
     text: '\'Great Teacher Onizuka\' (GTO), the manga about a former biker-gang leader who becomes a teacher, was created by whom?',
-    text_tr: 'Eski bir motosiklet cetesi liderinin ogretmen olmasini konu alan \'Great Teacher Onizuka\' (GTO) mangasi kim tarafindan yaratildi?',
+    text_tr: 'Eski bir motosiklet çetesi liderinin öğretmen olmasını konu alan \'Great Teacher Onizuka\' (GTO) mangası kim tarafından yaratıldı?',
     options: { A: 'Tohru Fujisawa', B: 'Eiichiro Oda', C: 'Yusei Matsui', D: 'Ryuhei Tamura', E: 'Tite Kubo' },
     options_tr: { A: 'Tohru Fujisawa', B: 'Eiichiro Oda', C: 'Yusei Matsui', D: 'Ryuhei Tamura', E: 'Tite Kubo' },
     answer: 'A',
@@ -3738,7 +3738,7 @@ const anime = [
   {
     id: 'ani_327',
     text: 'Shinichiro Watanabe, also known for \'Cowboy Bebop\' and \'Samurai Champloo\', directed which comedic anime about an eccentric alien-hunting dandy?',
-    text_tr: '\'Cowboy Bebop\' ve \'Samurai Champloo\' ile de taninan Shinichiro Watanabe, uzayli avcisi sira disi bir dandy\'yi konu alan hangi komedi animesini yonetti?',
+    text_tr: '\'Cowboy Bebop\' ve \'Samurai Champloo\' ile de tanınan Shinichiro Watanabe, uzaylı avcısı sıra dışı bir dandy\'yi konu alan hangi komedi animesini yönetti?',
     options: { A: 'Space Dandy', B: 'Planetes', C: 'Outlaw Star', D: 'Uchuu Kyodai', E: 'Trigun' },
     options_tr: { A: 'Space Dandy', B: 'Planetes', C: 'Outlaw Star', D: 'Uchuu Kyodai', E: 'Trigun' },
     answer: 'A',
@@ -3748,7 +3748,7 @@ const anime = [
   {
     id: 'ani_328',
     text: 'Which studio animated the noir-tinged, non-linear crime series \'Baccano!\', set among gangsters and immortals in 1930s America?',
-    text_tr: '1930\'larin Amerika\'sinda ceteler ve olumsuzler arasinda gecen, dogrusal olmayan kara film havasindaki \'Baccano!\' dizisini hangi studyo animasyonlastirdi?',
+    text_tr: '1930\'ların Amerika\'sında çeteler ve ölümsüzler arasında geçen, doğrusal olmayan kara film havasındaki \'Baccano!\' dizisini hangi stüdyo animasyonlaştırdı?',
     options: { A: 'Brain\'s Base', B: 'Madhouse', C: 'J.C.Staff', D: 'Studio Deen', E: 'White Fox' },
     options_tr: { A: 'Brain\'s Base', B: 'Madhouse', C: 'J.C.Staff', D: 'Studio Deen', E: 'White Fox' },
     answer: 'A',
@@ -3758,7 +3758,7 @@ const anime = [
   {
     id: 'ani_329',
     text: 'Ryohgo Narita, who also wrote \'Baccano!\', created which urban fantasy light novel series set in Ikebukuro and featuring a headless rider?',
-    text_tr: '\'Baccano!\'yu da yazan Ryohgo Narita, Ikebukuro\'da gecen ve bassiz bir suruculu konu alan hangi sehir fantezisi hafif roman serisini yaratti?',
+    text_tr: '\'Baccano!\'yu da yazan Ryohgo Narita, Ikebukuro\'da geçen ve başsız bir sürücüyü konu alan hangi şehir fantezisi hafif roman serisini yarattı?',
     options: { A: 'Durarara!!', B: 'Noragami', C: 'Blue Exorcist', D: 'Devil Survivor', E: 'Kagerou Project' },
     options_tr: { A: 'Durarara!!', B: 'Noragami', C: 'Blue Exorcist', D: 'Devil Survivor', E: 'Kagerou Project' },
     answer: 'A',
@@ -3768,7 +3768,7 @@ const anime = [
   {
     id: 'ani_330',
     text: 'The light novels behind the romantic comedy \'Toradora!\' were written by whom?',
-    text_tr: 'Romantik komedi \'Toradora!\'nin temelini olusturan hafif romanlar kim tarafindan yazildi?',
+    text_tr: 'Romantik komedi \'Toradora!\'nın temelini oluşturan hafif romanlar kim tarafından yazıldı?',
     options: { A: 'Yuyuko Takemiya', B: 'Fumiaki Maruto', C: 'Wataru Watari', D: 'Reki Kawahara', E: 'Nagaru Tanigawa' },
     options_tr: { A: 'Yuyuko Takemiya', B: 'Fumiaki Maruto', C: 'Wataru Watari', D: 'Reki Kawahara', E: 'Nagaru Tanigawa' },
     answer: 'A',
@@ -3778,7 +3778,7 @@ const anime = [
   {
     id: 'ani_331',
     text: '\'Clannad\', \'Air\', and \'Kanon\' are all anime adaptations of visual novels originally created by which studio?',
-    text_tr: '\'Clannad\', \'Air\' ve \'Kanon\' animeleri, aslinda hangi studyo tarafindan yaratilan gorsel romanlardan uyarlanmistir?',
+    text_tr: '\'Clannad\', \'Air\' ve \'Kanon\' animeleri, aslında hangi stüdyo tarafından yaratılan görsel romanlardan uyarlanmıştır?',
     options: { A: 'Key', B: 'Type-Moon', C: 'Leaf', D: 'Nitroplus', E: '07th Expansion' },
     options_tr: { A: 'Key', B: 'Type-Moon', C: 'Leaf', D: 'Nitroplus', E: '07th Expansion' },
     answer: 'A',
@@ -3788,7 +3788,7 @@ const anime = [
   {
     id: 'ani_332',
     text: '\'Your Lie in April\' (Shigatsu wa Kimi no Uso), a drama centered on a piano prodigy and a free-spirited violinist, was created by whom?',
-    text_tr: 'Bir piyano dahisi ve ozgur ruhlu bir kemanciyi konu alan dram \'Your Lie in April\' (Shigatsu wa Kimi no Uso) kim tarafindan yaratildi?',
+    text_tr: 'Bir piyano dahisi ve özgür ruhlu bir kemancıyı konu alan dram \'Your Lie in April\' (Shigatsu wa Kimi no Uso) kim tarafından yaratıldı?',
     options: { A: 'Naoshi Arakawa', B: 'Aka Akasaka', C: 'Haruichi Furudate', D: 'Kanae Minato', E: 'Mitsuru Adachi' },
     options_tr: { A: 'Naoshi Arakawa', B: 'Aka Akasaka', C: 'Haruichi Furudate', D: 'Kanae Minato', E: 'Mitsuru Adachi' },
     answer: 'A',
@@ -3798,7 +3798,7 @@ const anime = [
   {
     id: 'ani_333',
     text: 'Which studio animated the first season of \'The Promised Neverland\', praised for closely following the manga\'s tense pacing?',
-    text_tr: 'Mangadaki gergin temposunu yakindan takip etmesiyle ovgu alan \'The Promised Neverland\'in ilk sezonunu hangi studyo animasyonlastirdi?',
+    text_tr: 'Mangadaki gergin temposunu yakından takip etmesiyle övgü alan \'The Promised Neverland\'in ilk sezonunu hangi stüdyo animasyonlaştırdı?',
     options: { A: 'CloverWorks', B: 'Wit Studio', C: 'Bones', D: 'MAPPA', E: 'A-1 Pictures' },
     options_tr: { A: 'CloverWorks', B: 'Wit Studio', C: 'Bones', D: 'MAPPA', E: 'A-1 Pictures' },
     answer: 'A',
@@ -3808,7 +3808,7 @@ const anime = [
   {
     id: 'ani_334',
     text: '\'One Punch Man\' began as a webcomic by the artist known as ONE; who redrew it into the polished digital manga later serialized by Shueisha?',
-    text_tr: '\'One Punch Man\', ONE olarak bilinen sanatcinin web cizgi romani olarak basladi; onu Shueisha tarafindan yayimlanan, daha ozenli cizilmis dijital mangaya kim yeniden cizdi?',
+    text_tr: '\'One Punch Man\', ONE olarak bilinen sanatçının web çizgi romanı olarak başladı; onu Shueisha tarafından yayımlanan, daha özenli çizilmiş dijital mangaya kim yeniden çizdi?',
     options: { A: 'Yusuke Murata', B: 'Kohei Horikoshi', C: 'Yusei Matsui', D: 'Tatsuki Fujimoto', E: 'Kentaro Miura' },
     options_tr: { A: 'Yusuke Murata', B: 'Kohei Horikoshi', C: 'Yusei Matsui', D: 'Tatsuki Fujimoto', E: 'Kentaro Miura' },
     answer: 'A',
@@ -3818,7 +3818,7 @@ const anime = [
   {
     id: 'ani_335',
     text: 'The manga \'Tokyo Ghoul\' is the original work of which creator?',
-    text_tr: '\'Tokyo Ghoul\' mangasi hangi yaraticinin ozgun eseridir?',
+    text_tr: '\'Tokyo Ghoul\' mangası hangi yaratıcının özgün eseridir?',
     options: { A: 'Sui Ishida', B: 'Gege Akutami', C: 'Kohei Horikoshi', D: 'Tsutomu Nihei', E: 'Hajime Isayama' },
     options_tr: { A: 'Sui Ishida', B: 'Gege Akutami', C: 'Kohei Horikoshi', D: 'Tsutomu Nihei', E: 'Hajime Isayama' },
     answer: 'A',
@@ -3828,7 +3828,7 @@ const anime = [
   {
     id: 'ani_336',
     text: 'The 2001 anime film \'Metropolis\', with a screenplay by Katsuhiro Otomo based on Osamu Tezuka\'s manga, was directed by whom?',
-    text_tr: 'Osamu Tezuka\'nin mangasina dayanan ve senaryosunu Katsuhiro Otomo\'nun yazdigi 2001 yapimi \'Metropolis\' animesini kim yonetti?',
+    text_tr: 'Osamu Tezuka\'nın mangasına dayanan ve senaryosunu Katsuhiro Otomo\'nun yazdığı 2001 yapımı \'Metropolis\' animesini kim yönetti?',
     options: { A: 'Rintaro', B: 'Mamoru Oshii', C: 'Satoshi Kon', D: 'Hideaki Anno', E: 'Isao Takahata' },
     options_tr: { A: 'Rintaro', B: 'Mamoru Oshii', C: 'Satoshi Kon', D: 'Hideaki Anno', E: 'Isao Takahata' },
     answer: 'A',
@@ -3838,7 +3838,7 @@ const anime = [
   {
     id: 'ani_337',
     text: 'Who directed the television series \'Ghost in the Shell: Stand Alone Complex\', a separate continuity from Mamoru Oshii\'s 1995 film?',
-    text_tr: 'Mamoru Oshii\'nin 1995 yapimi filminden farkli bir kurguya sahip olan \'Ghost in the Shell: Stand Alone Complex\' televizyon dizisini kim yonetti?',
+    text_tr: 'Mamoru Oshii\'nin 1995 yapımı filminden farklı bir kurguya sahip olan \'Ghost in the Shell: Stand Alone Complex\' televizyon dizisini kim yönetti?',
     options: { A: 'Kenji Kamiyama', B: 'Mamoru Oshii', C: 'Kazuchika Kise', D: 'Shinji Aramaki', E: 'Kazuya Nomura' },
     options_tr: { A: 'Kenji Kamiyama', B: 'Mamoru Oshii', C: 'Kazuchika Kise', D: 'Shinji Aramaki', E: 'Kazuya Nomura' },
     answer: 'A',
@@ -3848,7 +3848,7 @@ const anime = [
   {
     id: 'ani_338',
     text: 'Which pen name is used by the creator of the gentleman-thief franchise \'Lupin III\'?',
-    text_tr: 'Beyefendi hirsiz serisi \'Lupin III\'un yaraticisi hangi mahlasi kullanmaktadir?',
+    text_tr: 'Beyefendi hırsız serisi \'Lupin III\'ün yaratıcısı hangi mahlası kullanmaktadır?',
     options: { A: 'Monkey Punch', B: 'Leiji Matsumoto', C: 'Go Nagai', D: 'Fujiko Fujio', E: 'Shotaro Ishinomori' },
     options_tr: { A: 'Monkey Punch', B: 'Leiji Matsumoto', C: 'Go Nagai', D: 'Fujiko Fujio', E: 'Shotaro Ishinomori' },
     answer: 'A',
@@ -3858,7 +3858,7 @@ const anime = [
   {
     id: 'ani_339',
     text: 'Which studio animated the emotional drama film \'Anohana: The Flower We Saw That Day\'?',
-    text_tr: 'Duygusal dram filmi \'Anohana: The Flower We Saw That Day\'i hangi studyo animasyonlastirdi?',
+    text_tr: 'Duygusal dram filmi \'Anohana: The Flower We Saw That Day\'i hangi stüdyo animasyonlaştırdı?',
     options: { A: 'A-1 Pictures', B: 'P.A. Works', C: 'Kyoto Animation', D: 'Doga Kobo', E: 'Silver Link' },
     options_tr: { A: 'A-1 Pictures', B: 'P.A. Works', C: 'Kyoto Animation', D: 'Doga Kobo', E: 'Silver Link' },
     answer: 'A',
@@ -3868,7 +3868,7 @@ const anime = [
   {
     id: 'ani_340',
     text: 'Which 2019 Makoto Shinkai film follows a boy who can manipulate weather, released as his follow-up to \'Your Name\'?',
-    text_tr: 'Makoto Shinkai\'nin \'Your Name\'in ardindan cektigi ve havayi kontrol edebilen bir cocugu konu alan 2019 yapimi film hangisidir?',
+    text_tr: 'Makoto Shinkai\'nin \'Your Name\'in ardından çektiği ve havayı kontrol edebilen bir çocuğu konu alan 2019 yapımı film hangisidir?',
     options: { A: 'Weathering with You', B: '5 Centimeters per Second', C: 'The Garden of Words', D: 'Children Who Chase Lost Voices', E: 'Suzume' },
     options_tr: { A: 'Weathering with You', B: '5 Centimeters per Second', C: 'The Garden of Words', D: 'Children Who Chase Lost Voices', E: 'Suzume' },
     answer: 'A',
@@ -3878,7 +3878,7 @@ const anime = [
   {
     id: 'ani_341',
     text: '\'Gantz\', the violent sci-fi manga in which recently deceased people are forced to hunt aliens, was created by whom?',
-    text_tr: 'Yakin zamanda olmus insanlarin uzayli avlamaya zorlandigi siddet dolu bilim kurgu mangasi \'Gantz\' kim tarafindan yaratildi?',
+    text_tr: 'Yakın zamanda olmuş insanların uzaylı avlamaya zorlandığı şiddet dolu bilim kurgu mangası \'Gantz\' kim tarafından yaratıldı?',
     options: { A: 'Hiroya Oku', B: 'Tsutomu Nihei', C: 'Kentaro Miura', D: 'Hitoshi Iwaaki', E: 'Yuu Kamiya' },
     options_tr: { A: 'Hiroya Oku', B: 'Tsutomu Nihei', C: 'Kentaro Miura', D: 'Hitoshi Iwaaki', E: 'Yuu Kamiya' },
     answer: 'A',
@@ -3888,7 +3888,7 @@ const anime = [
   {
     id: 'ani_342',
     text: 'Who created \'Fairy Tail\', the fantasy manga centered on a guild of wizards including Natsu Dragneel?',
-    text_tr: 'Natsu Dragneel\'in de aralarinda bulundugu bir buyucu loncasini konu alan fantezi mangasi \'Fairy Tail\'i kim yaratti?',
+    text_tr: 'Natsu Dragneel\'in de aralarında bulunduğu bir büyücü loncasını konu alan fantezi mangası \'Fairy Tail\'i kim yarattı?',
     options: { A: 'Hiro Mashima', B: 'Eiichiro Oda', C: 'Masashi Kishimoto', D: 'Kentaro Miura', E: 'Tite Kubo' },
     options_tr: { A: 'Hiro Mashima', B: 'Eiichiro Oda', C: 'Masashi Kishimoto', D: 'Kentaro Miura', E: 'Tite Kubo' },
     answer: 'A',
@@ -3898,7 +3898,7 @@ const anime = [
   {
     id: 'ani_343',
     text: '\'Vagabond\', a manga chronicling a fictionalized life of the legendary swordsman Miyamoto Musashi, is the work of which author?',
-    text_tr: 'Efsanevi kilic ustasi Miyamoto Musashi\'nin kurgusal yasamini anlatan \'Vagabond\' mangasi hangi yazarin eseridir?',
+    text_tr: 'Efsanevi kılıç ustası Miyamoto Musashi\'nin kurgusal yaşamını anlatan \'Vagabond\' mangası hangi yazarın eseridir?',
     options: { A: 'Takehiko Inoue', B: 'Kentaro Miura', C: 'Hiroaki Samura', D: 'Naoki Urasawa', E: 'Tsutomu Nihei' },
     options_tr: { A: 'Takehiko Inoue', B: 'Kentaro Miura', C: 'Hiroaki Samura', D: 'Naoki Urasawa', E: 'Tsutomu Nihei' },
     answer: 'A',
@@ -3908,7 +3908,7 @@ const anime = [
   {
     id: 'ani_344',
     text: 'Who created the episodic seinen series \'Mushishi\', about a wandering expert on supernatural creatures called Mushi?',
-    text_tr: 'Mushi adi verilen dogaustu yaratiklar konusunda uzman, gezgin bir karakteri konu alan bolumsel seinen dizisi \'Mushishi\'yi kim yaratti?',
+    text_tr: 'Mushi adı verilen doğaüstü yaratıklar konusunda uzman, gezgin bir karakteri konu alan bölümsel seinen dizisi \'Mushishi\'yi kim yarattı?',
     options: { A: 'Yuki Urushibara', B: 'Q Hayashida', C: 'Ryoko Kui', D: 'Tsutomu Nihei', E: 'Hiroaki Samura' },
     options_tr: { A: 'Yuki Urushibara', B: 'Q Hayashida', C: 'Ryoko Kui', D: 'Tsutomu Nihei', E: 'Hiroaki Samura' },
     answer: 'A',
@@ -3918,7 +3918,7 @@ const anime = [
   {
     id: 'ani_345',
     text: '\'Assassination Classroom\', following students tasked with killing their tentacled, super-fast teacher, was created by whom?',
-    text_tr: 'Ogrencilerin dokunacli ve super hizli ogretmenlerini oldurmekle gorevlendirildigi \'Assassination Classroom\' kim tarafindan yaratildi?',
+    text_tr: 'Öğrencilerin dokunaçlı ve süper hızlı öğretmenlerini öldürmekle görevlendirildiği \'Assassination Classroom\' kim tarafından yaratıldı?',
     options: { A: 'Yusei Matsui', B: 'Kohei Horikoshi', C: 'Tohru Fujisawa', D: 'Ryuhei Tamura', E: 'Eiichiro Oda' },
     options_tr: { A: 'Yusei Matsui', B: 'Kohei Horikoshi', C: 'Tohru Fujisawa', D: 'Ryuhei Tamura', E: 'Eiichiro Oda' },
     answer: 'A',
@@ -3928,7 +3928,7 @@ const anime = [
   {
     id: 'ani_346',
     text: '\'Beelzebub\', a comedy manga about a delinquent tasked with raising the demon king\'s infant son, is the work of which creator?',
-    text_tr: 'Bir kabadayinin seytan kralinin bebek oglunu buyutmekle gorevlendirilmesini konu alan komedi mangasi \'Beelzebub\', hangi yaraticinin eseridir?',
+    text_tr: 'Bir kabadayının şeytan kralının bebek oğlunu büyütmekle görevlendirilmesini konu alan komedi mangası \'Beelzebub\', hangi yaratıcının eseridir?',
     options: { A: 'Ryuhei Tamura', B: 'Yusei Matsui', C: 'Tohru Fujisawa', D: 'Nisio Isin', E: 'Kazuki Takahashi' },
     options_tr: { A: 'Ryuhei Tamura', B: 'Yusei Matsui', C: 'Tohru Fujisawa', D: 'Nisio Isin', E: 'Kazuki Takahashi' },
     answer: 'A',
@@ -3938,7 +3938,7 @@ const anime = [
   {
     id: 'ani_347',
     text: 'Who created \'Claymore\', a dark fantasy manga about half-human female warriors who hunt shapeshifting demons?',
-    text_tr: 'Sekil degistiren iblisleri avlayan yari insan kadin savascilari konu alan karanlik fantezi mangasi \'Claymore\'u kim yaratti?',
+    text_tr: 'Şekil değiştiren iblisleri avlayan yarı insan kadın savaşçıları konu alan karanlık fantezi mangası \'Claymore\'u kim yarattı?',
     options: { A: 'Norihiro Yagi', B: 'Kentaro Miura', C: 'Hiroaki Samura', D: 'Q Hayashida', E: 'Tsutomu Nihei' },
     options_tr: { A: 'Norihiro Yagi', B: 'Kentaro Miura', C: 'Hiroaki Samura', D: 'Q Hayashida', E: 'Tsutomu Nihei' },
     answer: 'A',
@@ -3948,7 +3948,7 @@ const anime = [
   {
     id: 'ani_348',
     text: '\'D.Gray-man\', a dark fantasy manga following exorcists who battle demonic Akuma, was created by whom?',
-    text_tr: 'Iblis Akuma\'larla savasan egzorsistleri konu alan karanlik fantezi mangasi \'D.Gray-man\' kim tarafindan yaratildi?',
+    text_tr: 'İblis Akuma\'larla savaşan egzorsistleri konu alan karanlık fantezi mangası \'D.Gray-man\' kim tarafından yaratıldı?',
     options: { A: 'Katsura Hoshino', B: 'Yana Toboso', C: 'Hiroyuki Takei', D: 'Norihiro Yagi', E: 'Kazue Kato' },
     options_tr: { A: 'Katsura Hoshino', B: 'Yana Toboso', C: 'Hiroyuki Takei', D: 'Norihiro Yagi', E: 'Kazue Kato' },
     answer: 'A',
@@ -3958,7 +3958,7 @@ const anime = [
   {
     id: 'ani_349',
     text: 'Who created \'Black Butler\' (Kuroshitsuji), a gothic manga about a demon butler serving a young English earl?',
-    text_tr: 'Genc bir Ingiliz kontuna hizmet eden bir iblis usagi konu alan gotik manga \'Black Butler\' (Kuroshitsuji)\'i kim yaratti?',
+    text_tr: 'Genç bir İngiliz kontuna hizmet eden bir iblis uşağı konu alan gotik manga \'Black Butler\' (Kuroshitsuji)\'i kim yarattı?',
     options: { A: 'Yana Toboso', B: 'Kaori Yuki', C: 'Katsura Hoshino', D: 'Arina Tanemura', E: 'Mitsuba Takanashi' },
     options_tr: { A: 'Yana Toboso', B: 'Kaori Yuki', C: 'Katsura Hoshino', D: 'Arina Tanemura', E: 'Mitsuba Takanashi' },
     answer: 'A',
@@ -3968,7 +3968,7 @@ const anime = [
   {
     id: 'ani_350',
     text: '\'Parasyte\' (Kiseiju), in which a shape-shifting alien parasite takes over the protagonist\'s right hand, was created by whom?',
-    text_tr: 'Sekil degistiren uzayli bir parazitin ana karakterin sag elini ele gecirdigi \'Parasyte\' (Kiseiju) kim tarafindan yaratildi?',
+    text_tr: 'Şekil değiştiren uzaylı bir parazitin ana karakterin sağ elini ele geçirdiği \'Parasyte\' (Kiseiju) kim tarafından yaratıldı?',
     options: { A: 'Hitoshi Iwaaki', B: 'Junji Ito', C: 'Tsutomu Nihei', D: 'Kentaro Miura', E: 'Naoki Urasawa' },
     options_tr: { A: 'Hitoshi Iwaaki', B: 'Junji Ito', C: 'Tsutomu Nihei', D: 'Kentaro Miura', E: 'Naoki Urasawa' },
     answer: 'A',

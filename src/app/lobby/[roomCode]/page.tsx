@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Lock, Loader2, Zap } from 'lucide-react';
 import { useGame } from '@/hooks/useGame';
+import { useMatchFunnel } from '@/hooks/useMatchFunnel';
 import { RoomCodeBadge } from '@/components/shared/RoomCodeBadge';
 import { InviteLink } from '@/components/shared/InviteLink';
 import { AloneCard } from '@/components/lobby/AloneCard';
@@ -32,6 +33,7 @@ export default function LobbyPage() {
     roomError,
     gameError,
   } = useGame(roomCode);
+  useMatchFunnel(room, isSpectator);
 
   // Redirect to home if no player session
   useEffect(() => {

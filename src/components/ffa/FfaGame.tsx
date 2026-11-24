@@ -1,5 +1,6 @@
 'use client';
 
+import { SupportLink } from '@/components/shared/SupportLink';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { CheckCircle, Flame, Ghost, RotateCcw, Search, Trophy, XCircle } from 'lucide-react';
@@ -223,6 +224,7 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
         >
           {t.backToHome}
         </button>
+        <SupportLink placement="ffa_finished" />
       </div>
     );
   }
@@ -312,6 +314,9 @@ export function FfaGame({ room, playerId, timeLeft, isSpectator, onAnswer, onPic
           )}
           {isSpectator && !revealed && (
             <p className="mt-4 text-center text-xs text-quizzy-muted">{t.ffaWatching}</p>
+          )}
+          {!isSpectator && !iAmPlaying && ffa?.pending?.includes(playerId) && (
+            <p id="ffa-joining-next" className="mt-4 text-center text-sm font-medium text-blue-soft">{t.ffaJoiningNext}</p>
           )}
         </div>
 

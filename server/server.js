@@ -31,6 +31,9 @@ const {
   sanitizeRoom,
   cleanupStaleRooms,
   adoptRoom,
+  allRooms,
+  roomCount,
+  getMode,
 } = require('./roomManager');
 const store = require('./store');
 const ffa = require('./ffa');
@@ -38,8 +41,12 @@ const ghost = require('./ghost');
 const matchmaking = require('./matchmaking');
 const stats = require('./stats');
 const analytics = require('./analytics');
+const daily = require('./daily');
+const publicRooms = require('./publicRooms');
+const { createLimiter, clientIp, LIMITS, TRUST_PROXY, IP_LIMITS } = require('./abuse');
 const {
   isRateLimited,
+  clearRateLimit,
   castCaptainVote,
   tryResolveCaptainElection,
   forceResolveCaptainElection,
@@ -62,7 +69,14 @@ const {
 // Railway/Render/Heroku-style platforms inject PORT and route traffic only to
 // that port; SOCKET_PORT stays the override for local dev and Docker.
 const PORT = parseInt(process.env.PORT || process.env.SOCKET_PORT || '3001', 10);
-const CLIENT_URL = process.env.CLIENT_URL || /^http:\/\/localhost(:\d+)?$/;
+// CORS allow-list. One origin, or several separated by commas — moving to a
+// custom domain (PBI 27) means the old and new origins both need to work for a
+// while (open tabs, cached pages).
+const CLIENT_URL = process.env.CLIENT_URL
+  ? (process.env.CLIENT_URL.includes(',')
+    ? process.env.CLIENT_URL.split(',').map((o) => o.trim().replace(/\/+$/, '')).filter(Boolean)
+    : process.env.CLIENT_URL.trim().replace(/\/+$/, ''))
+  : /^http:\/\/localhost(:\d+)?$/;
 
 // ---------------------------------------------------------------------------
 // HTTP + Socket.io Setup
@@ -138,6 +152,85 @@ const io = new Server(httpServer, {
   // Limit payload size to prevent abuse
   maxHttpBufferSize: 1e4, // 10 KB
 });
+
+// ---------------------------------------------------------------------------
+// Abuse limits (see abuse.js for the threat model)
+// ---------------------------------------------------------------------------
+
+/**
+ * Per-socket buckets for the events that cost real work. Sized so a person
+ * clicking around never meets them; a loop does within a few calls.
+ */
+const socketLimits = {
+  // Any event at all: a flood guard, not a gameplay limit.
+  any: createLimiter({ capacity: 40, refillPerSec: 20 }),
+  roomCreate: createLimiter({ capacity: 3, refillPerSec: 1 / 20 }),
+  roomJoin: createLimiter({ capacity: 6, refillPerSec: 1 / 5 }),
+  profileSave: createLimiter({ capacity: 5, refillPerSec: 1 / 12 }),
+  profileRead: createLimiter({ capacity: 10, refillPerSec: 1 / 3 }),
+  leaderboard: createLimiter({ capacity: 5, refillPerSec: 1 / 6 }),
+  // Daily Quiz reads and answers (PBI 26): ten answers plus a few status/board
+  // reads per run. Starting a day spends profileSave, since it writes a record.
+  daily: createLimiter({ capacity: 30, refillPerSec: 1 }),
+};
+
+/** Per-IP buckets: one script opening many sockets still shares one budget. */
+const ipLimits = {
+  roomCreate: createLimiter({ capacity: 10, refillPerSec: 1 / 10 }),
+  profileSave: createLimiter({ capacity: 15, refillPerSec: 1 / 6 }),
+};
+
+/** Sockets dropped by the flood guard before the connection is cut. */
+const FLOOD_STRIKES_BEFORE_DISCONNECT = 100;
+
+setInterval(() => {
+  for (const limiter of [...Object.values(socketLimits), ...Object.values(ipLimits)]) limiter.sweep();
+}, 60 * 1000).unref();
+
+/** Open connections, in total and per IP. */
+let connectionCount = 0;
+const connectionsPerIp = new Map();
+
+io.use((socket, next) => {
+  if (connectionCount >= LIMITS.maxConnections) {
+    return next(new Error('Server is busy. Please try again in a moment.'));
+  }
+  const ip = IP_LIMITS ? clientIp(socket, TRUST_PROXY) : null;
+  if (ip && (connectionsPerIp.get(ip) ?? 0) >= LIMITS.maxConnectionsPerIp) {
+    return next(new Error('Too many connections from your network.'));
+  }
+  socket.data.ip = ip;
+  connectionCount++;
+  if (ip) connectionsPerIp.set(ip, (connectionsPerIp.get(ip) ?? 0) + 1);
+  socket.on('disconnect', () => {
+    connectionCount--;
+    if (ip) {
+      const left = (connectionsPerIp.get(ip) ?? 1) - 1;
+      if (left <= 0) connectionsPerIp.delete(ip);
+      else connectionsPerIp.set(ip, left);
+    }
+  });
+  next();
+});
+
+/**
+ * The public leaderboard, reused for a short window. Building it reads and
+ * sorts up to 2000 profiles; without a cache every request repeated that.
+ * A finished match bumps stats' version, which invalidates it at once.
+ */
+let leaderboardCache = null; // { board, at, version }
+
+async function cachedLeaderboard() {
+  const version = stats.getBoardVersion();
+  if (leaderboardCache
+      && leaderboardCache.version === version
+      && Date.now() - leaderboardCache.at < LIMITS.leaderboardCacheMs) {
+    return leaderboardCache.board;
+  }
+  const board = await stats.getLeaderboard();
+  leaderboardCache = { board, at: Date.now(), version };
+  return board;
+}
 
 // ---------------------------------------------------------------------------
 // Socket → Player index (survives reconnects)
@@ -299,6 +392,37 @@ function executeSurrender(room, surrenderingTeam) {
   }
 }
 
+/**
+ * Keep an open room's auto-start in step with who is in it (PBI 30). When the
+ * countdown ends the match starts as if the host had pressed Start.
+ */
+function syncPublicRoom(room) {
+  if (!room?.isPublic) return false;
+  return publicRooms.syncAutoStart(room, (r) => {
+    const res = ffa.startMatch(r, r.hostId, io);
+    if (res.error) return;
+    console.log(`[Public] Auto-started ${r.code} with ${Object.keys(r.ffa.players).length} players`);
+    io.to(r.code).emit('room:update', sanitizeRoom(r));
+    store.saveRoom(r);
+  });
+}
+
+/**
+ * Daily-quiz writes are read-modify-write on one record per profile. Two
+ * packets from the same profile (a double tap, two tabs) must not interleave,
+ * or one answer could overwrite the other — so they queue per profile.
+ */
+const dailyQueues = new Map();
+function serialDaily(profileId, task) {
+  const prev = dailyQueues.get(profileId) || Promise.resolve();
+  const next = prev.catch(() => {}).then(task);
+  dailyQueues.set(profileId, next);
+  next.finally(() => {
+    if (dailyQueues.get(profileId) === next) dailyQueues.delete(profileId);
+  }).catch(() => {});
+  return next;
+}
+
 // ---------------------------------------------------------------------------
 // Connection Handler
 // ---------------------------------------------------------------------------
@@ -306,13 +430,62 @@ function executeSurrender(room, surrenderingTeam) {
 io.on('connection', (socket) => {
   console.log(`[+] Socket connected: ${socket.id}`);
 
+  // ----- Flood guard: every event spends a token; a loop gets cut off -----
+  let floodStrikes = 0;
+  socket.use((packet, next) => {
+    if (socketLimits.any.take(socket.id)) return next();
+    floodStrikes++;
+    if (floodStrikes >= FLOOD_STRIKES_BEFORE_DISCONNECT) {
+      console.warn(`[Abuse] Disconnecting flooding socket ${socket.id}`);
+      socket.disconnect(true);
+    }
+    // Dropped silently: answering every flooded event would double the traffic.
+  });
+
+  /**
+   * Spend a token from the named per-socket (and, when known, per-IP) bucket.
+   * Returns true when the caller is over the limit; the error is emitted here.
+   */
+  function overLimit(name, errorEvent) {
+    const ip = socket.data.ip;
+    const okSocket = socketLimits[name].take(socket.id);
+    const okIp = !ip || !ipLimits[name] || ipLimits[name].take(ip);
+    if (okSocket && okIp) return false;
+    if (errorEvent) {
+      socket.emit(errorEvent, { message: 'Too many requests. Please wait a moment and try again.' });
+    }
+    return true;
+  }
+
   // ----- Helper: resolve player context from socket -----
   function ctx() {
     return socketToPlayer.get(socket.id) || null;
   }
 
+  /**
+   * Detach this socket from the room it is in before it enters another one.
+   * The client socket lives across page navigations, so without this every room
+   * a tab ever created stayed "connected" until the 2-hour sweep — and a script
+   * could keep thousands alive from a single socket.
+   */
+  function leaveCurrentRoom(nextRoomCode) {
+    const current = ctx();
+    if (!current || current.roomCode === nextRoomCode) return;
+    socketToPlayer.delete(socket.id);
+    socket.leave(current.roomCode);
+    clearRateLimit(current.playerId);
+    emojiLastSent.delete(current.playerId);
+    const old = disconnectPlayer(current.roomCode, current.playerId);
+    if (old) {
+      syncPublicRoom(old);
+      io.to(old.code).emit('room:update', sanitizeRoom(old));
+      store.saveRoom(old);
+    }
+  }
+
   // ----- Helper: broadcast room update -----
   function broadcast(room) {
+    syncPublicRoom(room);
     io.to(room.code).emit('room:update', sanitizeRoom(room));
     // Persist behind the broadcast (PBI 13): every state change that matters
     // already passes through here on its way to the clients, so what the players
@@ -341,9 +514,15 @@ io.on('connection', (socket) => {
         message: `Unknown game mode. Choose one of: ${MODE_KEYS.join(', ')}.`,
       });
     }
+    if (overLimit('roomCreate', 'room:error')) return;
+    if (roomCount() >= LIMITS.maxRooms) {
+      console.warn(`[Abuse] Room cap reached (${LIMITS.maxRooms}); refusing room:create`);
+      return socket.emit('room:error', { message: 'Server is busy. Please try again in a few minutes.' });
+    }
 
     // Creating a room ends any search still running for this socket (PBI 35).
     matchmaking.leave(socket.id);
+    leaveCurrentRoom(null);
     const identity = identityFrom(payload);
     const { roomCode, playerId, room } = createRoom(
       payload.playerName,
@@ -365,6 +544,64 @@ io.on('connection', (socket) => {
   });
 
   /**
+   * Quick Play into an open free-for-all room (PBI 30): an open lobby, a
+   * running open match (playing from the next question), or a new open room.
+   * Payload: { playerName, profileId?, avatar? }
+   */
+  socket.on('room:quickPlay', (payload) => {
+    if (!payload || !isValidString(payload.playerName, 1, 20)) {
+      return socket.emit('room:error', { message: 'Player name must be 1–20 characters.' });
+    }
+    if (overLimit('roomJoin', 'room:error')) return;
+    matchmaking.leave(socket.id);
+    leaveCurrentRoom(null);
+    const identity = identityFrom(payload);
+    const mode = getMode('ffa');
+    const open = publicRooms.findOpenRoom(allRooms(), {
+      cap: mode.maxPlayers ?? 30,
+      totalQuestions: mode.totalQuestions,
+    });
+
+    if (open) {
+      const late = open.kind === 'late';
+      const result = joinRoom(open.room.code, payload.playerName, socket.id, false, identity, late);
+      if (!result.error) {
+        if (late) ffa.addLatePlayer(result.room, result.playerId);
+        socketToPlayer.set(socket.id, { roomCode: result.room.code, playerId: result.playerId });
+        socket.join(result.room.code);
+        if (identity.profileId) {
+          stats.touchProfile(identity.profileId, payload.playerName, identity.avatar)
+            .catch((err) => console.warn(`[Stats] touchProfile failed: ${err.message}`));
+        }
+        console.log(`[Public] ${payload.playerName} joined open room ${result.room.code}${late ? ' (late)' : ''}`);
+        syncPublicRoom(result.room);
+        socket.emit('room:joined', { playerId: result.playerId, room: sanitizeRoom(result.room) });
+        socket.to(result.room.code).emit('room:update', sanitizeRoom(result.room));
+        store.saveRoom(result.room);
+        return;
+      }
+      // Lost a race for the last seat: fall through and open a new room.
+    }
+
+    if (overLimit('roomCreate', 'room:error')) return;
+    if (roomCount() >= LIMITS.maxRooms) {
+      return socket.emit('room:error', { message: 'Server is busy. Please try again in a few minutes.' });
+    }
+    const { roomCode, playerId, room } = createRoom(payload.playerName, socket.id, 'ffa', identity);
+    room.isPublic = true;
+    if (identity.profileId) {
+      stats.touchProfile(identity.profileId, payload.playerName, identity.avatar)
+        .catch((err) => console.warn(`[Stats] touchProfile failed: ${err.message}`));
+    }
+    socketToPlayer.set(socket.id, { roomCode, playerId });
+    socket.join(roomCode);
+    analytics.recordRoomCreated();
+    store.saveRoom(room);
+    console.log(`[Public] Opened ${roomCode} for ${room.players[playerId].name}`);
+    socket.emit('room:created', { roomCode, playerId, room: sanitizeRoom(room) });
+  });
+
+  /**
    * Join an existing room.
    * Payload: { roomCode: string, playerName: string }
    */
@@ -377,12 +614,16 @@ io.on('connection', (socket) => {
       return socket.emit('room:error', { message: 'Player name must be 1–20 characters.' });
     }
 
+    if (overLimit('roomJoin', 'room:error')) return;
+
     const code = payload.roomCode.toUpperCase();
     // Spectator is opt-in and boolean-coerced: a truthy string from a hand-rolled
     // client must not smuggle in anything but a spectator flag (PBI 10).
     const asSpectator = payload.asSpectator === true;
     const identity = identityFrom(payload);
     matchmaking.leave(socket.id);
+    if (!getRoom(code)) return socket.emit('room:error', { message: 'Room not found.' });
+    leaveCurrentRoom(code);
     const result = joinRoom(code, payload.playerName, socket.id, asSpectator, identity);
 
     if (result.error) return socket.emit('room:error', { message: result.error });
@@ -418,8 +659,10 @@ io.on('connection', (socket) => {
     if (!isValidString(payload.playerId, 36, 36)) {
       return socket.emit('room:error', { message: 'Invalid player ID.' });
     }
+    if (overLimit('roomJoin', 'room:error')) return;
 
     const code = payload.roomCode.toUpperCase();
+    leaveCurrentRoom(code);
     const room = reconnectPlayer(code, payload.playerId, socket.id);
     if (!room) return socket.emit('room:error', { message: 'Room or player not found.' });
 
@@ -750,9 +993,14 @@ io.on('connection', (socket) => {
     if (payload.avatar !== undefined && !stats.isValidAvatar(payload.avatar)) {
       return socket.emit('game:error', { message: 'Unknown avatar.' });
     }
+    if (overLimit('profileSave', 'game:error')) return;
 
     try {
       const profile = await stats.touchProfile(payload.profileId, payload.name, payload.avatar);
+      if (!profile) {
+        // touchProfile only refuses a valid id when the global profile cap is hit.
+        return socket.emit('game:error', { message: 'Profiles are temporarily unavailable. You can still play.' });
+      }
       // The id is echoed back only to the socket that supplied it.
       socket.emit('profile:data', { profile });
     } catch (err) {
@@ -769,6 +1017,7 @@ io.on('connection', (socket) => {
     if (!payload || !stats.isValidProfileId(payload.profileId)) {
       return socket.emit('game:error', { message: 'Invalid profile.' });
     }
+    if (overLimit('profileRead', 'game:error')) return;
     try {
       const standing = await stats.getMyStanding(payload.profileId);
       socket.emit('profile:data', { profile: standing });
@@ -786,6 +1035,7 @@ io.on('connection', (socket) => {
     if (!payload || !stats.isValidProfileId(payload.profileId)) {
       return socket.emit('game:error', { message: 'Invalid profile.' });
     }
+    if (overLimit('profileRead', 'game:error')) return;
     try {
       const matches = await stats.getHistory(payload.profileId);
       socket.emit('profile:history:data', { matches });
@@ -800,12 +1050,95 @@ io.on('connection', (socket) => {
    * ids, only names and records.
    */
   socket.on('leaderboard:get', async () => {
+    // Over the limit, answer from the cache if there is one rather than erroring:
+    // the board is public and the cached copy costs nothing to send.
+    if (overLimit('leaderboard', null)) {
+      if (leaderboardCache) socket.emit('leaderboard:data', leaderboardCache.board);
+      return;
+    }
     try {
-      const board = await stats.getLeaderboard();
+      const board = await cachedLeaderboard();
       socket.emit('leaderboard:data', board);
     } catch (err) {
       console.warn(`[Stats] leaderboard failed: ${err.message}`);
       socket.emit('leaderboard:data', { entries: [], total: 0 });
+    }
+  });
+
+  // =========================================================================
+  // DAILY QUIZ (PBI 26)
+  // =========================================================================
+
+  /**
+   * Start or resume today's quiz. Answers with the next question, or the
+   * finished result when this profile already played today.
+   * Payload: { profileId, name, avatar }
+   */
+  socket.on('daily:start', (payload) => {
+    if (!payload || !stats.isValidProfileId(payload.profileId)) {
+      return socket.emit('daily:error', { message: 'Invalid profile.' });
+    }
+    if (overLimit('profileSave', 'daily:error')) return;
+    const name = isValidString(payload.name, 1, 20) ? payload.name.trim() : 'Player';
+    const avatar = stats.isValidAvatar(payload.avatar) ? payload.avatar : 'fox';
+    serialDaily(payload.profileId, () => daily.start(payload.profileId, name, avatar))
+      .then((state) => socket.emit('daily:state', state))
+      .catch((err) => {
+        console.warn(`[Daily] start failed: ${err.message}`);
+        socket.emit('daily:error', { message: 'Could not load the daily quiz.' });
+      });
+  });
+
+  /**
+   * Answer the question the server last showed this profile.
+   * Payload: { profileId, index, answer: 'A'..'E' | null }  (null = time ran out)
+   */
+  socket.on('daily:answer', (payload) => {
+    if (!payload || !stats.isValidProfileId(payload.profileId) || !Number.isInteger(payload.index)) {
+      return socket.emit('daily:error', { message: 'Invalid answer.' });
+    }
+    if (overLimit('daily', 'daily:error')) return;
+    const choice = payload.answer === null ? null : isValidOption(payload.answer) ? payload.answer.toUpperCase() : undefined;
+    if (choice === undefined) return socket.emit('daily:error', { message: 'Invalid option.' });
+    serialDaily(payload.profileId, () => daily.answer(payload.profileId, payload.index, choice))
+      .then((res) => {
+        if (res.error) socket.emit('daily:error', { message: res.error });
+        else socket.emit('daily:answered', res);
+      })
+      .catch((err) => {
+        console.warn(`[Daily] answer failed: ${err.message}`);
+        socket.emit('daily:error', { message: 'Could not save your answer.' });
+      });
+  });
+
+  /** The next question is on screen now (after the reveal pause). Payload: { profileId, index } */
+  socket.on('daily:shown', (payload) => {
+    if (!payload || !stats.isValidProfileId(payload.profileId) || !Number.isInteger(payload.index)) return;
+    serialDaily(payload.profileId, () => daily.shown(payload.profileId, payload.index))
+      .catch((err) => console.warn(`[Daily] shown failed: ${err.message}`));
+  });
+
+  /** Where this profile stands today, without starting the clock. Payload: { profileId? } */
+  socket.on('daily:status', (payload) => {
+    if (overLimit('daily', 'daily:error')) return;
+    const me = stats.isValidProfileId(payload?.profileId) ? payload.profileId : null;
+    daily.status(me)
+      .then((state) => socket.emit('daily:status:data', state))
+      .catch((err) => {
+        console.warn(`[Daily] status failed: ${err.message}`);
+        socket.emit('daily:error', { message: 'Could not load the daily quiz.' });
+      });
+  });
+
+  /** Today's board. Payload: { profileId? } — only used to mark "me". */
+  socket.on('daily:board', async (payload) => {
+    if (overLimit('daily', null)) return;
+    const me = stats.isValidProfileId(payload?.profileId) ? payload.profileId : null;
+    try {
+      socket.emit('daily:board:data', await daily.leaderboard(daily.dateFor(), me));
+    } catch (err) {
+      console.warn(`[Daily] board failed: ${err.message}`);
+      socket.emit('daily:board:data', { entries: [], total: 0, myRank: null });
     }
   });
 
@@ -1097,6 +1430,12 @@ io.on('connection', (socket) => {
     if (socketToPlayer.has(socket.id)) {
       return socket.emit('room:error', { message: 'You are already in a room.' });
     }
+    // Matchmaking ends in a room either way (live pair or ghost), so it shares
+    // room:create's budget and the global room cap.
+    if (overLimit('roomCreate', 'room:error')) return;
+    if (roomCount() >= LIMITS.maxRooms) {
+      return socket.emit('room:error', { message: 'Server is busy. Please try again in a few minutes.' });
+    }
     const request = { playerName: payload.playerName, identity: identityFrom(payload) };
     const result = matchmaking.enqueue(socket.id, request, {
       onPair: pairLive,
@@ -1115,11 +1454,14 @@ io.on('connection', (socket) => {
     matchmaking.leave(socket.id);
     const context = socketToPlayer.get(socket.id);
     socketToPlayer.delete(socket.id);
+    // Per-socket buckets die with the socket; per-IP ones are swept on a timer.
+    for (const limiter of Object.values(socketLimits)) limiter.reset(socket.id);
 
     if (!context) return;
 
-    // Otherwise the cooldown map grows for the life of the process.
+    // Otherwise the cooldown maps grow for the life of the process.
     emojiLastSent.delete(context.playerId);
+    clearRateLimit(context.playerId);
 
     const room = disconnectPlayer(context.roomCode, context.playerId);
     if (room) {
@@ -1200,8 +1542,12 @@ async function start() {
 
   httpServer.listen(PORT, () => {
     console.log(`\n🎯 Quizzy Socket.io server running on port ${PORT}`);
-    console.log(`   CORS origin: all localhost ports`);
+    console.log(`   CORS origin: ${CLIENT_URL instanceof RegExp ? 'all localhost ports' : [].concat(CLIENT_URL).join(', ')}`);
     console.log(`   Room persistence: ${backend}`);
+    console.log(
+      `   Abuse limits: ${LIMITS.maxRooms} rooms, ${LIMITS.maxProfiles} profiles, `
+      + `${LIMITS.maxConnections} connections, per-IP ${IP_LIMITS ? `on (proxy ${TRUST_PROXY ? 'trusted' : 'off'})` : 'off'}`,
+    );
     console.log(`   Analytics endpoint: ${ANALYTICS_TOKEN ? '/analytics?token=...' : 'disabled'}\n`);
   });
 }

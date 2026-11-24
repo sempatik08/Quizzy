@@ -1,5 +1,6 @@
 'use client';
 
+import { track } from '@/lib/track';
 import { useState, useEffect } from 'react';
 import { Copy, Check, Share2 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -35,6 +36,7 @@ export function InviteLink({ code }: InviteLinkProps) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(url);
+      track('invite_copied', { via: 'link' });
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -46,6 +48,7 @@ export function InviteLink({ code }: InviteLinkProps) {
   const handleShare = async () => {
     try {
       await navigator.share({ title: 'Quizzy', text: t.inviteFriends, url });
+      track('invite_copied', { via: 'share' });
     } catch {
       // The player dismissed the share sheet — nothing to recover from.
     }
