@@ -165,7 +165,14 @@ async function main() {
     JSON.stringify(makers.map((m) => m.created.length)));
   r.check('Past the cap room:create is refused politely',
     makers[3].errors.some((e) => /busy/i.test(e)), JSON.stringify(makers[3].errors));
-  close(a, probe, ...makers);
+
+  // A bot match (PBI 36) is a room too: it must not slip past the cap.
+  const botter = await connected(client('30.0.0.8'));
+  botter.s.emit('match:bot', { playerName: 'Botcu', level: 'easy' });
+  await waitFor(() => botter.errors.length > 0, 'bot match at cap');
+  r.check('Past the cap match:bot is refused politely too',
+    botter.errors.some((e) => /busy/i.test(e)), JSON.stringify(botter.errors));
+  close(a, probe, botter, ...makers);
   await sleep(500);
 
   const after = await connected(client('30.0.0.9'));

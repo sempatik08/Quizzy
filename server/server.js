@@ -1425,7 +1425,7 @@ io.on('connection', (socket) => {
   /**
    * Find an opponent. Payload: { playerName, profileId?, avatar? }.
    * Answers with match:searching, then match:found once paired with a live
-   * player, a ghost recording, or (with an empty pool) nobody.
+   * player, a ghost recording, or (with an empty pool) a medium bot.
    */
   socket.on('match:find', (payload) => {
     if (!payload || !isValidString(payload.playerName, 1, 20)) {
@@ -1462,6 +1462,12 @@ io.on('connection', (socket) => {
     }
     if (socketToPlayer.has(socket.id)) {
       return socket.emit('room:error', { message: 'You are already in a room.' });
+    }
+    // A bot match is a room plus a timer per question, so it shares
+    // room:create's budget and the global room cap like match:find.
+    if (overLimit('roomCreate', 'room:error')) return;
+    if (roomCount() >= LIMITS.maxRooms) {
+      return socket.emit('room:error', { message: 'Server is busy. Please try again in a few minutes.' });
     }
     matchmaking.leave(socket.id);
     const request = { playerName: payload.playerName, identity: identityFrom(payload) };
