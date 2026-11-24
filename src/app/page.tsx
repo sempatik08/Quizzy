@@ -5,7 +5,8 @@ import { JoinRoomForm } from '@/components/home/JoinRoomForm';
 import { HoverFooter } from '@/components/shared/HoverFooter';
 import { ProfilePanel } from '@/components/profile/ProfilePanel';
 import DataGridHero from '@/components/ui/data-grid-hero';
-import { Zap } from 'lucide-react';
+import Link from 'next/link';
+import { Zap, CalendarDays, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function HomePage() {
@@ -42,6 +43,23 @@ export default function HomePage() {
           </div>
           <p className="text-quizzy-muted text-base max-w-sm">{t.tagline}</p>
         </div>
+
+        {/* Günün Quizi (PBI 26): the one way in that needs no second player. */}
+        <Link
+          id="daily-cta"
+          href="/gunun-quizi"
+          className="w-full max-w-2xl mb-5 flex items-center gap-3 bg-quizzy-card rounded-2xl shadow-card border border-quizzy-border px-5 py-4 hover:shadow-card-hover hover:border-blue-soft transition-all animate-slide-up"
+        >
+          <div className="w-10 h-10 rounded-xl bg-blue-pale flex items-center justify-center shrink-0">
+            <CalendarDays size={20} className="text-blue-soft" />
+          </div>
+          <div className="flex-1 text-left">
+            <p className="font-bold text-quizzy-text">{t.dailyHomeCta}</p>
+            <p className="text-xs text-quizzy-muted">{t.dailyHomeCtaDesc}</p>
+          </div>
+          <span className="hidden sm:inline text-lg tracking-tight" aria-hidden>🟩🟩🟥🟩⬜</span>
+          <ChevronRight size={18} className="text-quizzy-muted" />
+        </Link>
 
         {/* Cards */}
         <div className="w-full max-w-2xl grid grid-cols-1 md:grid-cols-2 gap-5 animate-slide-up">

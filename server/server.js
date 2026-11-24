@@ -38,6 +38,7 @@ const ghost = require('./ghost');
 const matchmaking = require('./matchmaking');
 const stats = require('./stats');
 const analytics = require('./analytics');
+const daily = require('./daily');
 const {
   isRateLimited,
   castCaptainVote,
@@ -297,6 +298,22 @@ function executeSurrender(room, surrenderingTeam) {
     room.analyticsRecorded = true;
     analytics.recordMatchEnd(room);
   }
+}
+
+/**
+ * Daily-quiz writes are read-modify-write on one record per profile. Two
+ * packets from the same profile (a double tap, two tabs) must not interleave,
+ * or one answer could overwrite the other — so they queue per profile.
+ */
+const dailyQueues = new Map();
+function serialDaily(profileId, task) {
+  const prev = dailyQueues.get(profileId) || Promise.resolve();
+  const next = prev.catch(() => {}).then(task);
+  dailyQueues.set(profileId, next);
+  next.finally(() => {
+    if (dailyQueues.get(profileId) === next) dailyQueues.delete(profileId);
+  }).catch(() => {});
+  return next;
 }
 
 // ---------------------------------------------------------------------------
@@ -806,6 +823,79 @@ io.on('connection', (socket) => {
     } catch (err) {
       console.warn(`[Stats] leaderboard failed: ${err.message}`);
       socket.emit('leaderboard:data', { entries: [], total: 0 });
+    }
+  });
+
+  // =========================================================================
+  // DAILY QUIZ (PBI 26)
+  // =========================================================================
+
+  /**
+   * Start or resume today's quiz. Answers with the next question, or the
+   * finished result when this profile already played today.
+   * Payload: { profileId, name, avatar }
+   */
+  socket.on('daily:start', (payload) => {
+    if (!payload || !stats.isValidProfileId(payload.profileId)) {
+      return socket.emit('daily:error', { message: 'Invalid profile.' });
+    }
+    const name = isValidString(payload.name, 1, 20) ? payload.name.trim() : 'Player';
+    const avatar = stats.isValidAvatar(payload.avatar) ? payload.avatar : 'fox';
+    serialDaily(payload.profileId, () => daily.start(payload.profileId, name, avatar))
+      .then((state) => socket.emit('daily:state', state))
+      .catch((err) => {
+        console.warn(`[Daily] start failed: ${err.message}`);
+        socket.emit('daily:error', { message: 'Could not load the daily quiz.' });
+      });
+  });
+
+  /**
+   * Answer the question the server last showed this profile.
+   * Payload: { profileId, index, answer: 'A'..'E' | null }  (null = time ran out)
+   */
+  socket.on('daily:answer', (payload) => {
+    if (!payload || !stats.isValidProfileId(payload.profileId) || !Number.isInteger(payload.index)) {
+      return socket.emit('daily:error', { message: 'Invalid answer.' });
+    }
+    const choice = payload.answer === null ? null : isValidOption(payload.answer) ? payload.answer.toUpperCase() : undefined;
+    if (choice === undefined) return socket.emit('daily:error', { message: 'Invalid option.' });
+    serialDaily(payload.profileId, () => daily.answer(payload.profileId, payload.index, choice))
+      .then((res) => {
+        if (res.error) socket.emit('daily:error', { message: res.error });
+        else socket.emit('daily:answered', res);
+      })
+      .catch((err) => {
+        console.warn(`[Daily] answer failed: ${err.message}`);
+        socket.emit('daily:error', { message: 'Could not save your answer.' });
+      });
+  });
+
+  /** The next question is on screen now (after the reveal pause). Payload: { profileId, index } */
+  socket.on('daily:shown', (payload) => {
+    if (!payload || !stats.isValidProfileId(payload.profileId) || !Number.isInteger(payload.index)) return;
+    serialDaily(payload.profileId, () => daily.shown(payload.profileId, payload.index))
+      .catch((err) => console.warn(`[Daily] shown failed: ${err.message}`));
+  });
+
+  /** Where this profile stands today, without starting the clock. Payload: { profileId? } */
+  socket.on('daily:status', (payload) => {
+    const me = stats.isValidProfileId(payload?.profileId) ? payload.profileId : null;
+    daily.status(me)
+      .then((state) => socket.emit('daily:status:data', state))
+      .catch((err) => {
+        console.warn(`[Daily] status failed: ${err.message}`);
+        socket.emit('daily:error', { message: 'Could not load the daily quiz.' });
+      });
+  });
+
+  /** Today's board. Payload: { profileId? } — only used to mark "me". */
+  socket.on('daily:board', async (payload) => {
+    const me = stats.isValidProfileId(payload?.profileId) ? payload.profileId : null;
+    try {
+      socket.emit('daily:board:data', await daily.leaderboard(daily.dateFor(), me));
+    } catch (err) {
+      console.warn(`[Daily] board failed: ${err.message}`);
+      socket.emit('daily:board:data', { entries: [], total: 0, myRank: null });
     }
   });
 
