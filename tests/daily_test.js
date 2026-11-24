@@ -13,7 +13,9 @@
  *  - two devices on the same day see the same questions,
  *  - the same profile is not scored twice,
  *  - plus what keeps the board honest: no answer leaves the server before the
- *    question is judged, and out-of-order or replayed answers are refused.
+ *    question is judged, and out-of-order or replayed answers are refused,
+ *  - a deploy that grows the bank mid-day keeps the day's questions (pinned),
+ *  - two answers to the same question at once count once (per-profile lock).
  */
 
 const { spawn } = require('child_process');
@@ -206,7 +208,89 @@ async function main() {
     fs.rmSync(storeDir, { recursive: true, force: true });
   }
 
+  // The rest runs in this process against the store's in-memory backend.
+  await pinnedQuestions();
+  await concurrentAnswers();
+
   process.exit(r.finish());
+}
+
+/**
+ * A deploy that grows the bank mid-day must not change that day's questions:
+ * half-played runs would be scored against questions their players never saw.
+ */
+async function pinnedQuestions() {
+  r.section('4. A bigger bank mid-day keeps the same questions');
+
+  const store = require('../server/store');
+  const date = '2027-03-14';
+  const before = (await daily.dayQuestions(date)).map((q) => q.id);
+  const stored = await store.getJSON(`quizzy:daily:${date}:questions`);
+  r.check("First use pins the day's ids in the store", JSON.stringify(stored) === JSON.stringify(before));
+
+  // "Deploy" a bigger bank: 40 new questions in every category and tier, then
+  // load the daily modules afresh as a restarted server would.
+  for (const [category, list] of Object.entries(QUESTIONS)) {
+    for (let i = 0; i < 40; i++) {
+      list.push({
+        id: `pin-test-${category}-${i}`, difficulty: (i % 3) + 1, answer: 'A',
+        text: `Added ${i}?`, text_tr: `Eklenen ${i}?`,
+        options: { A: 'a', B: 'b', C: 'c', D: 'd' }, options_tr: { A: 'a', B: 'b', C: 'c', D: 'd' },
+      });
+    }
+  }
+  delete require.cache[require.resolve('../server/daily')];
+  delete require.cache[require.resolve('../server/dailyQuestions')];
+  const fresh = require('../server/daily');
+
+  const repicked = fresh.questionsFor(date).map((q) => q.id);
+  r.check('The bigger bank alone would pick a different set (the test bites)',
+    JSON.stringify(repicked) !== JSON.stringify(before));
+  const after = (await fresh.dayQuestions(date)).map((q) => q.id);
+  r.check('…but the day keeps the pinned ids', JSON.stringify(after) === JSON.stringify(before), after.join(','));
+
+  // Pinned ids that left the bank: pick again rather than serve nothing.
+  const gone = '2027-03-15';
+  await store.setJSON(`quizzy:daily:${gone}:questions`, Array.from({ length: 10 }, (_, i) => `removed-${i}`));
+  const healed = (await fresh.dayQuestions(gone)).map((q) => q.id);
+  r.check('Ids no longer in the bank → a fresh, valid pick',
+    healed.length === fresh.QUESTION_COUNT && healed.every((id) => !id.startsWith('removed-')));
+  r.check('…which is pinned in their place',
+    JSON.stringify(await store.getJSON(`quizzy:daily:${gone}:questions`)) === JSON.stringify(healed));
+}
+
+/**
+ * Two answers to the same index at once (a double tap) must record one answer.
+ * The memory backend hands out the same object to every reader, which hides
+ * the race, so reads here return fresh copies a tick later — as Redis does.
+ */
+async function concurrentAnswers() {
+  r.section('5. Two answers at once count once');
+
+  const store = require('../server/store');
+  const d = require('../server/daily'); // the fresh copy section 4 loaded
+  const realGet = store.getJSON;
+  store.getJSON = async (key) => {
+    const v = await realGet(key);
+    await new Promise((res) => setImmediate(res));
+    return v === null ? null : structuredClone(v);
+  };
+  try {
+    const profile = crypto.randomUUID();
+    const first = await d.start(profile, 'Double Tap', 'owl');
+    const right = answerOf(first.question.id);
+    const [x, y] = await Promise.all([d.answer(profile, 0, right), d.answer(profile, 0, right)]);
+    const ok = [x, y].filter((res) => !res.error);
+    r.check('Exactly one of the two is accepted', ok.length === 1, JSON.stringify([x.error, y.error]));
+    r.check('…the other is refused as out of order', [x, y].some((res) => res.error === 'Out of order.'));
+    const rec = await realGet(`quizzy:daily:${d.dateFor()}:${profile}`);
+    r.check('One answer recorded, so the next question is #1', rec.answers.length === 1, `answers ${rec.answers.length}`);
+
+    const [s1, s2] = await Promise.all([d.start(profile, 'Double Tap', 'owl'), d.start(profile, 'Double Tap', 'owl')]);
+    r.check('Two starts at once both resume at question #1', s1.index === 1 && s2.index === 1, `${s1.index}/${s2.index}`);
+  } finally {
+    store.getJSON = realGet;
+  }
 }
 
 main().catch((err) => {

@@ -411,22 +411,6 @@ function syncPublicRoom(room) {
   });
 }
 
-/**
- * Daily-quiz writes are read-modify-write on one record per profile. Two
- * packets from the same profile (a double tap, two tabs) must not interleave,
- * or one answer could overwrite the other — so they queue per profile.
- */
-const dailyQueues = new Map();
-function serialDaily(profileId, task) {
-  const prev = dailyQueues.get(profileId) || Promise.resolve();
-  const next = prev.catch(() => {}).then(task);
-  dailyQueues.set(profileId, next);
-  next.finally(() => {
-    if (dailyQueues.get(profileId) === next) dailyQueues.delete(profileId);
-  }).catch(() => {});
-  return next;
-}
-
 // ---------------------------------------------------------------------------
 // Connection Handler
 // ---------------------------------------------------------------------------
@@ -1085,7 +1069,7 @@ io.on('connection', (socket) => {
     if (overLimit('profileSave', 'daily:error')) return;
     const name = isValidString(payload.name, 1, 20) ? payload.name.trim() : 'Player';
     const avatar = stats.isValidAvatar(payload.avatar) ? payload.avatar : 'fox';
-    serialDaily(payload.profileId, () => daily.start(payload.profileId, name, avatar))
+    daily.start(payload.profileId, name, avatar)
       .then((state) => socket.emit('daily:state', state))
       .catch((err) => {
         console.warn(`[Daily] start failed: ${err.message}`);
@@ -1104,7 +1088,7 @@ io.on('connection', (socket) => {
     if (overLimit('daily', 'daily:error')) return;
     const choice = payload.answer === null ? null : isValidOption(payload.answer) ? payload.answer.toUpperCase() : undefined;
     if (choice === undefined) return socket.emit('daily:error', { message: 'Invalid option.' });
-    serialDaily(payload.profileId, () => daily.answer(payload.profileId, payload.index, choice))
+    daily.answer(payload.profileId, payload.index, choice)
       .then((res) => {
         if (res.error) socket.emit('daily:error', { message: res.error });
         else socket.emit('daily:answered', res);
@@ -1118,7 +1102,7 @@ io.on('connection', (socket) => {
   /** The next question is on screen now (after the reveal pause). Payload: { profileId, index } */
   socket.on('daily:shown', (payload) => {
     if (!payload || !stats.isValidProfileId(payload.profileId) || !Number.isInteger(payload.index)) return;
-    serialDaily(payload.profileId, () => daily.shown(payload.profileId, payload.index))
+    daily.shown(payload.profileId, payload.index)
       .catch((err) => console.warn(`[Daily] shown failed: ${err.message}`));
   });
 

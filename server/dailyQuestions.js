@@ -100,6 +100,35 @@ function questionsFor(date) {
   return picked;
 }
 
+/**
+ * The question objects for a stored id list, in that order, or null when any id
+ * is no longer in the bank (a question was removed or renamed). daily.js pins
+ * each day's ids in the store so a deploy that grows the bank mid-day cannot
+ * reshuffle the day; this turns the pinned ids back into questions.
+ */
+function questionsFromIds(ids) {
+  if (!Array.isArray(ids) || ids.length !== QUESTION_COUNT) return null;
+  const out = [];
+  for (const id of ids) {
+    const q = bankById().get(id);
+    if (!q) return null;
+    out.push(q);
+  }
+  return out;
+}
+
+let byId = null;
+function bankById() {
+  if (byId) return byId;
+  byId = new Map();
+  for (const category of CATEGORY_KEYS) {
+    for (const q of QUESTIONS[category]) {
+      if (q.text_tr && q.options_tr) byId.set(q.id, { ...q, category });
+    }
+  }
+  return byId;
+}
+
 /** What a player may see before answering: no answer, no explanation. */
 function publicQuestion(q) {
   return {
@@ -125,5 +154,6 @@ module.exports = {
   nextResetAt,
   isValidDate,
   questionsFor,
+  questionsFromIds,
   publicQuestion,
 };
